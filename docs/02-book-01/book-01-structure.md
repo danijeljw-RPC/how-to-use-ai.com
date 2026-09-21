@@ -50,7 +50,7 @@ Purpose: give the book credibility and balance; avoid hype and panic; explain re
 
 Purpose: end with practical confidence and future readiness; help the reader adapt calmly; explain why AI literacy matters more than tool loyalty.
 
-12. How to Stay Relevant in the AI Era
+12. **How to Stay Relevant in the AI Era** — draft complete (`docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`)
 13. Building Your Personal AI Toolkit
 14. Where AI Goes Next
 
@@ -121,7 +121,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 9 | The Problems Nobody Should Ignore | Done | Done |
 | 10 | Will AI Replace Jobs? | Done | Done |
 | 11 | AI Hype vs Reality | Done | Done |
-| 12 | How to Stay Relevant in the AI Era | Not started | Not started |
+| 12 | How to Stay Relevant in the AI Era | Done | Done |
 | 13 | Building Your Personal AI Toolkit | Not started | Not started |
 | 14 | Where AI Goes Next | Not started | Not started |
 | — | Epilogue — Don't Panic | Not started | Not started |

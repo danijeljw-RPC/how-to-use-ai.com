@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (13)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-12-plan.md` and drafted `docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md` ("How to Stay Relevant in the AI Era"), per `ADR-02-0001-book-01-structure.md`'s Chapter 12 direction. Opens Part 4. Covers communication, judgement, leadership, creativity, systems thinking, and emotional intelligence, each tied to the effort-vs-judgement framework established since Chapter 6, turning Chapter 10's "adaptability" takeaway into specific guidance.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 4 chapter list to mark Chapter 12 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-12-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (12)
 
 ### Added
