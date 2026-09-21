@@ -413,10 +413,10 @@ Rules:
 
 Current legacy files and their status:
 
-- `book1_ai_literacy_context_reference.md` — primary source for series arc and Book 1 structure; largely reconciled into `docs/01-series/series-structure.md` and `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
-- `book1-part1-chapter1-draft.md` — a full first draft of Chapter 1. **Not yet migrated into `docs/02-book-01/chapters/`.** This should happen before Chapter 1 is drafted or redrafted from scratch.
-- `how-to-use-ai-book-chat-handoff.md` — broader planning conversation handoff; not yet reviewed for content not already captured elsewhere. Check for unreconciled ideas before treating current docs as complete.
-- `copilot_forced_ai_transcript_research_notes.md` — research notes; not yet reviewed or moved into `docs/02-book-01/research/`.
+- `book1_ai_literacy_context_reference.md` — primary source for series arc and Book 1 structure; reconciled into `docs/01-series/series-structure.md` and `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+- `book1-part1-chapter1-draft.md` — a full first draft of Chapter 1. **Migrated** into `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md` (2026-09-21). Callout naming reconciled per `docs/02-book-01/open-issues/OI-0001.md`.
+- `how-to-use-ai-book-chat-handoff.md` — broader planning conversation handoff. **Reviewed** (2026-09-21). The Johnny tenancy-tribunal scenario was extracted to `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md` (not yet approved for manuscript use). A conflicting 3-book series arc found in this file was flagged in `docs/01-series/open-issues/OI-0002.md`.
+- `copilot_forced_ai_transcript_research_notes.md` — research notes. **Reviewed and moved** into `docs/02-book-01/research/research-note-copilot-forced-ai.md` (2026-09-21), with reliability caveats preserved.
 
 ## Research Handling
 
