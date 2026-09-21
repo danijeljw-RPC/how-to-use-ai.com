@@ -110,13 +110,21 @@ for book_dir in "${book_dirs[@]}"; do
     done
   } > "$combined_md"
 
+  # xelatex/lualatex hyphenate words at line breaks by default (e.g.
+  # "impossible" -> "im-possible"); disable that for review PDFs.
+  no_hyphenate_args=()
+  if [[ "$PDF_ENGINE" == "xelatex" || "$PDF_ENGINE" == "lualatex" ]]; then
+    no_hyphenate_args=(-V header-includes='\usepackage[none]{hyphenat}')
+  fi
+
   pandoc "$combined_md" \
     -o "$output_pdf" \
     --pdf-engine="$PDF_ENGINE" \
     --toc \
     -V geometry:margin=1in \
-    -V mainfont="Helvetica" 2>/dev/null || \
-  pandoc "$combined_md" -o "$output_pdf" --pdf-engine="$PDF_ENGINE" --toc -V geometry:margin=1in
+    -V mainfont="Helvetica" \
+    "${no_hyphenate_args[@]}" 2>/dev/null || \
+  pandoc "$combined_md" -o "$output_pdf" --pdf-engine="$PDF_ENGINE" --toc -V geometry:margin=1in "${no_hyphenate_args[@]}"
 
   echo "  -> $output_pdf"
   published_any=1
