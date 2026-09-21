@@ -119,3 +119,7 @@ None required by ADR-02-0001 for this chapter; none added.
 ```text
 draft: add chapter 11 plan and draft (AI hype vs reality)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AGI Panic and Doom Claims" into "Doom Claims" and "Utopian Promises," and split "Startup Hype, Fake Demos, and Investor Marketing" into "Why Hype Persists" and "Demo vs. Product vs. Research Claim" (with a self-driving-car worked example added). Word count grew from ~1,227 to ~1,279. No existing content, placeholders, or takeaways were removed.
