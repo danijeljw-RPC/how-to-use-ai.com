@@ -27,7 +27,7 @@ Purpose: remove myths, establish foundations, reduce intimidation, explain AI th
 1. **You've Already Been Using AI** — draft complete (`docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`)
 2. **Why Everyone Suddenly Talks About AI** — draft complete (`docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`)
 3. **What AI Can Actually Do** — draft complete (`docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`)
-4. What AI Cannot Do
+4. **What AI Cannot Do** — draft complete (`docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`) — completes Part 1
 
 ### Part 2 — Using AI in Real Life
 
@@ -113,7 +113,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 1 | You've Already Been Using AI | Done | Done |
 | 2 | Why Everyone Suddenly Talks About AI | Done | Done |
 | 3 | What AI Can Actually Do | Done | Done |
-| 4 | What AI Cannot Do | Not started | Not started |
+| 4 | What AI Cannot Do | Done | Done |
 | 5 | Talking to AI Properly | Not started | Not started |
 | 6 | AI at Home | Not started | Not started |
 | 7 | AI at Work | Not started | Not started |

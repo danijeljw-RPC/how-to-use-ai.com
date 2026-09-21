@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (5)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-04-plan.md` and drafted `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md` ("What AI Cannot Do"), per `ADR-02-0001-book-01-structure.md`'s Chapter 4 direction. Covers hallucinations, lack of true understanding, no consciousness/emotion/intent/morality, no common sense, knowledge cutoffs, and training-data dependency — each tied back to Chapter 3's "most likely answer" explanation rather than introduced as new, disconnected facts. **This completes Part 1 (What AI Actually Is).**
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 1 chapter list to mark Chapter 4 as drafted and Part 1 as complete.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-04-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (4)
 
 ### Added
