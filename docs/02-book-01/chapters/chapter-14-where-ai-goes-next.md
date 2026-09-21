@@ -8,7 +8,7 @@ Chapter 11 taught you to be skeptical of confident predictions about AI's future
 
 Chapter 3 briefly mentioned automation — AI connected to other software to carry out multi-step tasks. "Agents" is the term increasingly used for AI systems built specifically around this idea: not just responding to a single request, but taking a series of actions toward a goal, checking progress along the way. An AI agent, in plain terms, is software that can take multiple steps toward a goal — not just answering one question, but doing something like checking your calendar, finding a suitable time, drafting an email, and sending it, with appropriate checkpoints for human approval along the way.
 
-This is a genuinely active area of development, and it's a plausible next step beyond the conversational interface Chapter 2 described. It's also, as of this book's writing, still maturing — reliability, appropriate human oversight, and trust are all open, actively worked-on problems, not solved ones. Treat "agents will handle everything for you soon" claims with exactly the skepticism Chapter 11 taught.
+This is a genuinely active area of development, and it's a plausible next step beyond the conversational interface Chapter 2 described. It's also, as of this book's writing, still maturing — reliability, appropriate human oversight, and trust are all open, actively worked-on problems, not solved ones. Treat "agents will handle everything for you soon" claims with exactly the skepticism Chapter 11 taught. A useful mental model: today's chat tools are like a very capable assistant who only acts when you ask them to and only does one thing at a time; agents are the early, imperfect steps toward an assistant who can carry out a short list of related tasks on your behalf, checking in at the right moments rather than needing to be asked for each individual step.
 
 ## Robotics and Autonomous Systems
 
@@ -16,7 +16,19 @@ Combining AI's pattern-recognition and decision-making with physical machines is
 
 ## Education, Healthcare, and Transport
 
-These are three areas where AI's core strengths from Chapter 3 — writing, summarising, tutoring, analysis — map naturally onto real needs. In education, personalised tutoring that adapts explanations to an individual student's level, building on Chapter 3's tutoring example, is a plausible growth area: genuinely promising, while raising real questions about equity, screen time, and the role of human teachers that this book won't pretend are already resolved. In healthcare, AI-assisted analysis of medical images and data, and AI support for administrative tasks that currently take time away from patient care, are active areas of real progress, alongside real, serious questions about accuracy, accountability, and appropriate human oversight in high-stakes medical decisions. And in transport, beyond self-driving vehicles specifically, AI-assisted traffic management and logistics, building on Chapter 1's navigation example, is a plausible growth area for making existing transport systems more efficient — a distinct and generally easier problem than full vehicle autonomy.
+These are three areas where AI's core strengths from Chapter 3 — writing, summarising, tutoring, analysis — map naturally onto real needs.
+
+### Education
+
+Personalised tutoring that adapts explanations to an individual student's level, building on Chapter 3's tutoring example, is a plausible growth area: genuinely promising, while raising real questions about equity, screen time, and the role of human teachers that this book won't pretend are already resolved.
+
+### Healthcare
+
+AI-assisted analysis of medical images and data, and AI support for administrative tasks that currently take time away from patient care, are active areas of real progress, alongside real, serious questions about accuracy, accountability, and appropriate human oversight in high-stakes medical decisions.
+
+### Transport
+
+Beyond self-driving vehicles specifically, AI-assisted traffic management and logistics, building on Chapter 1's navigation example, is a plausible growth area for making existing transport systems more efficient — a distinct and generally easier problem than full vehicle autonomy.
 
 ## Personal Assistants, Evolved
 
