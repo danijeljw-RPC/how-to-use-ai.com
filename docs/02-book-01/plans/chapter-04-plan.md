@@ -140,3 +140,7 @@ Each covered with a short, concrete, everyday illustration rather than an abstra
 ```text
 draft: add chapter 04 plan and draft (what AI cannot do)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Added a concrete fabricated-citation example under hallucinations; split "No True Understanding, No Common Sense" and "Knowledge Cutoffs and Training-Data Dependency" into their own H3 subsections with an added concrete example each (a subtly-changed riddle; "current price" style questions). Word count grew from ~1,642 to ~1,960. No existing content, placeholders, or takeaways were removed.
