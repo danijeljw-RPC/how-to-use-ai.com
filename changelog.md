@@ -2,6 +2,30 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (22)
+
+### Added
+
+- Added `docs/00-project/plans/next-editorial-phases.md` to preserve the author's requested order for the next three work phases across separate context windows: plan the next editorial phase, perform a detailed manuscript critique, then clean up project governance.
+- Recorded that Phase 1 is next and that no phase should automatically continue into the following phase without an explicit author request.
+
+### Files changed
+
+- `docs/00-project/plans/next-editorial-phases.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (21)
 
 ### Changed
