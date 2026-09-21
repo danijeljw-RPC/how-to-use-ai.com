@@ -2,6 +2,31 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (23)
+
+### Changed
+
+- Expanded `docs/00-project/plans/next-editorial-phases.md` with a consolidated author-decision gate covering every explicit open OI, proposed ADR awaiting ratification, research item awaiting permission, unresolved editorial strategy choice, author-reflection prompt, governance choice, and declared series-level open item found during the full-project review.
+- Mapped each question to the phase it affects, recorded recommendations without treating them as decisions, and separated Book 1 blockers from series questions that may be explicitly deferred.
+- Recorded already-resolved matters that should not be presented as new decisions: the five-book arc, backward-only cross-referencing, the accepted four-callout standard, and intentional removal of `legacy-data`.
+
+### Files changed
+
+- `docs/00-project/plans/next-editorial-phases.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None; all newly catalogued questions remain awaiting author answers.
+
+### Open issues added or closed
+
+- None in this pass. Phase 3 will reconcile the individual ADR/OI files against the author's recorded answers.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (22)
 
 ### Added
