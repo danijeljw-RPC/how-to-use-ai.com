@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (9)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-08-plan.md` and drafted `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md` ("AI and Creativity"), per `ADR-02-0001-book-01-structure.md`'s Chapter 8 direction. Covers writing, art, music, video, and design, and addresses the theft/replacement/creativity-killing questions with balance rather than false certainty, deliberately not taking a legal position on unsettled copyright/training-data questions. **This completes Part 2 (Using AI in Real Life).**
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 2 chapter list to mark Chapter 8 as drafted and Part 2 as complete.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-08-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (8)
 
 ### Added
