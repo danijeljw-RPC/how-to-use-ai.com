@@ -2,6 +2,30 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (25)
+
+### Changed
+
+- Recorded the author's acceptance of Q3: the existing four-part, 14-chapter-plus-epilogue structure and approximately 65% consumer / 35% professional emphasis are the durable Book 1 editorial baseline.
+- Marked the Phase 1 author-decision gate complete while preserving Phase 2's ability to recommend evidence-based chapter refinements.
+
+### Files changed
+
+- `docs/00-project/plans/next-editorial-phases.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Q3 accepted. Phase 3 will propagate the acceptance into ADR-02-0001.
+
+### Open issues added or closed
+
+- No OI file changed in this pass; formal governance reconciliation remains scheduled for Phase 3.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (24)
 
 ### Changed

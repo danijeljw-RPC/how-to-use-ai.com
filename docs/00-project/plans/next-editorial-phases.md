@@ -2,7 +2,7 @@
 
 ## Status
 
-Queued. Author answers were recorded on 2026-09-21. Q3 is the only remaining Phase 1 decision. Phase 1 remains the next work phase; none of the three phases has started.
+Queued. The author-decision gate for Phase 1 is complete. Phase 1 remains the next work phase; none of the three phases has started.
 
 ## Date Recorded
 
@@ -56,11 +56,11 @@ Status: Answered. Phase 3 must update the old 55,000–80,000-word target in `do
 
 #### Q3 — Four-part structure and audience balance
 
-Confirm whether the existing four-part, 14-chapter-plus-epilogue structure and approximately 65% consumer / 35% professional audience balance are accepted as the durable Book 1 baseline. Accepting this does not freeze every chapter title or prevent the detailed critique from recommending a justified merge, move, or rewrite. It means the next editorial plan starts from the present architecture instead of reconsidering the book from scratch. The 65/35 balance is an editorial emphasis across examples and reader relevance, not a chapter or word-count quota.
+The existing four-part, 14-chapter-plus-epilogue structure and approximately 65% consumer / 35% professional audience balance are accepted as the durable Book 1 baseline. This does not freeze every chapter title or prevent the detailed critique from recommending a justified merge, move, or rewrite. The next editorial plan starts from the present architecture instead of reconsidering the book from scratch. The 65/35 balance is an editorial emphasis across examples and reader relevance, not a chapter or word-count quota.
 
 Recommendation: accept the structure as the editorial baseline unless the detailed critique reveals a specific chapter-level reason to revise it.
 
-Status: Awaiting author answer. Source: proposed `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+Status: Answered — accepted as the baseline. Phase 3 must record this acceptance in `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md` while preserving Phase 2's authority to recommend evidence-based refinements.
 
 #### Q4 — Beginner simplicity versus technical qualification
 
@@ -224,14 +224,14 @@ If Q5 retains personal reflections, the manuscript currently asks for these 15 a
 
 ## Phase Dependencies
 
-- Phase 1 must consume Q1–Q7 and Q18. Q3 is the only remaining Phase 1 author decision. Phase 1 must plan toward 65,000–80,000 words through substantive research, examples, personal stories, exercises, and useful explanation rather than padding.
+- Phase 1 must consume Q1–Q7 and Q18. Its author-decision gate is complete. Phase 1 must plan toward 65,000–80,000 words through substantive research, examples, personal stories, exercises, and useful explanation rather than padding.
 - Phase 2 must apply the Phase 1 decisions and consume Q8–Q10. Its critique should flag factual and structural findings without silently deciding unresolved authorial questions.
 - Phase 3 must record all author answers in the relevant ADRs/OIs, implement the Q11–Q15 governance decisions, remove already-resolved contradictions, propagate the exact series name, and leave the Q19 deferral visible rather than accidentally "open forever."
 - Q15 retains two non-blocking Phase 3 implementation choices: local-only versus CI lint enforcement, and whether to backfill historical changelog hashes.
 
-## Suggested Answer Format
+## Remaining Answers
 
-Reply using question IDs. Short answers are sufficient, for example: `Q1: ...`, `Q2: ...`, `Q3: accept`, `Q16: defer`.
+No further author answers are required before Phase 1. Q15's two implementation choices can be resolved when Phase 3 begins.
 
 ## Continuation Rule
 
