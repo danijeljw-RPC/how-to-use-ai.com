@@ -118,3 +118,7 @@ None required by ADR-02-0001 for this chapter; none added — consistent with "u
 ```text
 draft: add chapter 06 plan and draft (AI at home)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Meal Planning and Budgeting," "Parenting Support and Learning Hobbies," and "Organising Life and Getting Help When You Need It" into H3 subsections, each with an added concrete worked example. Word count grew from ~1,451 to ~1,600+. No existing content, placeholders, or takeaways were removed.
