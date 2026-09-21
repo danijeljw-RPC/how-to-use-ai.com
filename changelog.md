@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (15)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-14-plan.md` and drafted `docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md` ("Where AI Goes Next"), per `ADR-02-0001-book-01-structure.md`'s Chapter 14 direction. Covers agents, robotics, autonomous systems, and education/healthcare/transport/personal-assistant directions without hard predictions, explicitly inviting the reader to apply Chapter 11's evaluation method to this chapter's own claims. **This completes Part 4 and all 14 numbered chapters.** Only the Epilogue remains for the full manuscript arc.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 4 chapter list to mark Chapter 14 as drafted and Part 4 as complete.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-14-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (14)
 
 ### Added

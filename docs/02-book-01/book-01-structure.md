@@ -52,7 +52,7 @@ Purpose: end with practical confidence and future readiness; help the reader ada
 
 12. **How to Stay Relevant in the AI Era** — draft complete (`docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`)
 13. **Building Your Personal AI Toolkit** — draft complete (`docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`)
-14. Where AI Goes Next
+14. **Where AI Goes Next** — draft complete (`docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md`) — completes Part 4
 
 ### Epilogue — Don't Panic
 
@@ -123,5 +123,5 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 11 | AI Hype vs Reality | Done | Done |
 | 12 | How to Stay Relevant in the AI Era | Done | Done |
 | 13 | Building Your Personal AI Toolkit | Done | Done |
-| 14 | Where AI Goes Next | Not started | Not started |
+| 14 | Where AI Goes Next | Done | Done |
 | — | Epilogue — Don't Panic | Not started | Not started |
