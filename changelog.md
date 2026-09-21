@@ -2,6 +2,22 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (17)
+
+### Added
+
+- Added `publish-books.sh`, a root-level review script that concatenates each book's drafted chapters (in filename order) and converts them to a single PDF via pandoc, so the author can proof-read a full draft outside the Markdown source. Auto-detects any `docs/*-book-*/chapters/` directory with content (currently only `02-book-01`), or takes an explicit book directory name as an argument. Output goes to `./dist/` (gitignored), which is not tracked. This is a drafting/review convenience, not the series' final publishing pipeline — `ADR-03-0001-manuscript-source-format.md` still leaves that later decision open.
+
+### Files changed
+
+- `publish-books.sh` (new)
+- `.gitignore` (new)
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (16)
 
 ### Added
