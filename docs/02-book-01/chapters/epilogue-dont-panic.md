@@ -8,6 +8,8 @@ Fourteen chapters ago, this book opened with a simple claim: you've already been
 
 Not magic. Genuinely useful. Genuinely limited. Worth learning to use well. Genuinely risky, in specific, real ways. Often overhyped, in ways worth being able to spot. Worth adapting to, calmly, rather than either ignoring or panicking about. That's the whole arc, compressed. Everything from Chapter 1's spam filters to Chapter 14's cautious look ahead was really just that same idea, examined from a different angle each time.
 
+Strip away the chapter numbers and the book is really just one long answer to a single question: now that you know what this actually is, what do you do with it? Not "how impressed should you be," not "how worried should you be" — just, practically, what do you do with it, on an ordinary Tuesday, with an ordinary task in front of you. Everything else was in service of that.
+
 ## You Don't Need to Become an AI Engineer
 
 Nothing in this book required you to write a line of code, understand a mathematical formula, or learn what happens inside an AI system at a technical level. That was deliberate. Genuine AI literacy — the kind that lets you use these tools well, evaluate claims about them clearly, and make good decisions around them — doesn't require any of that. If you want to go deeper technically, that path exists, and this series can take you there in later books. But nothing about being a confident, capable AI user depends on taking it.
@@ -20,7 +22,7 @@ Chapter 1 called AI "pattern recognition at scale," and that plain-English descr
 
 This is the one that actually matters, and it's the one this whole book has been building, chapter by chapter, whether or not it was said this plainly along the way. AI literacy means understanding what AI actually is, what it's good at, where it genuinely falls short, how to get good results from it, where the real risks are, how to spot exaggerated claims about it, and how to keep adapting as it keeps changing. You now have all of that — not as scattered facts, but as one connected way of thinking about AI that you can apply to a tool you haven't even encountered yet.
 
-That's the actual measure of whether this book worked: not whether you remember every chapter's details, but whether you can now look at a new AI claim, a new AI tool, or a new AI-related decision, and think it through clearly.
+That's the actual measure of whether this book worked: not whether you remember every chapter's details, but whether you can now look at a new AI claim, a new AI tool, or a new AI-related decision, and think it through clearly. A new AI product launches; you ask what it can actually do versus what its marketing says. A friend forwards something suspicious an AI probably wrote; you notice the confident tone and check before believing it. A colleague worries aloud about their job; you can talk about augmentation and effort-versus-judgement instead of just guessing along with them. None of that requires re-reading this book. It requires having actually absorbed it.
 
 ## The People Who Adapt Calmly Will Do Well
 
