@@ -58,13 +58,21 @@ By the end of this chapter, the reader should be able to:
 1. Introduction — "Wait, Wasn't This Chapter 1 Again?"
 2. From Quiet Prediction to Loud Conversation
 3. What Changed: The Interface, Not the Idea
-4. Plain English: Language Models and Generative AI
-5. Why 2022 Felt Like a Turning Point
-6. Why Businesses Are Both Excited and Anxious
-7. Myth vs Reality
-8. Core Takeaway
-9. Chapter Recap
-10. Chapter Preview
+   - Filling Out a Form vs. Asking a Question
+   - Plain English: What a Language Model Actually Does
+   - Generative AI vs. Predictive AI
+4. Why 2022 Felt Like a Turning Point
+5. Why Businesses Are Both Excited and Anxious
+   - The Efficiency Case
+   - The Anxiety Case
+6. Myth table (retained per Chapter 1 precedent)
+7. Core Takeaway
+8. Chapter Recap
+9. Chapter Preview
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md` to add H3 subsections matching Chapter 1's depth pattern: a concrete "form vs. conversation" worked example, and splitting the business-reaction section into "The Efficiency Case" and "The Anxiety Case" with concrete examples of each. Word count grew from ~1,658 to ~2,121, in line with the plan's Chapter 1 parity target. No existing content, placeholders, or takeaways were removed.
 
 ## Required Examples
 
