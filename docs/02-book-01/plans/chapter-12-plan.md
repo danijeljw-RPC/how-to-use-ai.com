@@ -116,3 +116,7 @@ None required by ADR-02-0001 for this chapter; none added.
 ```text
 draft: add chapter 12 plan and draft (how to stay relevant in the AI era)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Nested the six durable skills under a single parent "The Six Durable Skills" section as H3 subsections, mirroring Chapter 1's per-example subsection pattern, and added a worked example each to Leadership and Systems Thinking. Word count grew from ~1,043 to ~1,119. No existing content, placeholders, or takeaways were removed.
