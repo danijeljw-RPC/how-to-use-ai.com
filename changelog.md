@@ -2,6 +2,35 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (19)
+
+### Added
+
+- Added `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`, the required plan for a >13-file change, covering a chapter-by-chapter depth expansion pass across Book 1.
+
+### Changed
+
+- Expanded chapters 2 through 14 and the epilogue (`docs/02-book-01/chapters/*.md`) to add H3 subsections and additional worked examples, matching the internal structure and depth already present in Chapter 1 (which the author flagged as the only chapter with real subsection structure — every other chapter was flat H2-only and noticeably thinner). Each chapter's section most naturally decomposing into a list of concrete cases (e.g. Chapter 3's writing/images/code/translation/tutoring categories, Chapter 8's creative domains, Chapter 9's risk categories, Chapter 10's four-way jobs framing, Chapter 12's six durable skills, Chapter 13's six tool categories, Chapter 14's education/healthcare/transport) was split into H3 subsections with its own concrete worked example. Thin sections elsewhere were fleshed out with additional worked examples per the style guide's guidance for thin sections. The epilogue received a lighter pass (no forced subsections, per its intentionally short and reflective design) adding texture to two existing sections. No factual content, placeholders (reflection/diagram), takeaways, or recaps were removed or altered in meaning — manuscript word count grew from ~20,200 to ~22,787 words. Each chapter's plan file (`docs/02-book-01/plans/chapter-XX-plan.md`, `epilogue-plan.md`) was updated with a "Depth Expansion" note documenting what changed and the resulting word count. Callout counts were held within the existing 1–3-per-chapter baseline from `ADR-04-0002` throughout — no new callouts were added, only prose and subsections.
+- The full 4,000–5,000 word per-chapter target from `ADR-02-0001` remains a longer-run goal, not met by this pass; see `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`'s "Scope Decision" section for the reasoning (Chapter 1, the depth benchmark used for this pass, is itself only ~2,070 words, well short of that target).
+
+### Files changed
+
+- `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md` through `chapter-14-where-ai-goes-next.md`, and `epilogue-dont-panic.md`
+- `docs/02-book-01/plans/chapter-02-plan.md` through `chapter-14-plan.md`, and `epilogue-plan.md`
+
+### Decisions added or changed
+
+- None — this pass followed existing `ADR-02-0001` and `ADR-04-0002` rather than introducing a new decision. The scope decision to target Chapter 1 parity rather than the full 4,000–5,000 word ADR-02-0001 target is documented in the plan file rather than a new ADR, since it's a working-scope note for this pass, not a change to the series' structural direction.
+
+### Open issues added or closed
+
+- None. The gap between this pass's ~2,000-word-per-chapter parity target and `ADR-02-0001`'s longer-run 4,000–5,000 word target is noted as a known follow-on in the plan file; no OI was opened for it since the author's request was specifically about matching Chapter 1's existing depth, not about reaching the full ADR target in this pass.
+
+### Commit
+
+- Fourteen commits, one per chapter/epilogue: `9c99901` (ch02) through `80d5d1d` (epilogue), on branch `worktree-chapter-expansion`.
+
 ## 2026-09-21 (18)
 
 ### Added
