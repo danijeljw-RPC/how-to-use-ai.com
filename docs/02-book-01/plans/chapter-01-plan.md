@@ -151,3 +151,7 @@ Mapped from the legacy draft onto the baseline system per `docs/04-style/callout
 ```text
 docs: reconcile legacy Chapter 1 draft, Book 1 structure, and legacy research notes
 ```
+
+## Depth Expansion (2026-09-21, follow-up)
+
+The initial depth-expansion pass (`docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`) used Chapter 1 as the depth *benchmark* for chapters 2–14 and never revisited Chapter 1 itself — leaving "What AI Actually Is," "Why AI Feels Suddenly New," and "The Problem With AI Hype" exactly as flat as they were originally, with only "AI Is Already Everywhere" carrying subsections. The author caught this after publishing a PDF built from the earlier pass. This follow-up adds H3 subsections to all three remaining sections: "A Specialised Tool, Not a General Mind" / "Pattern Recognition, at Scale" under "What AI Actually Is"; "Quiet for Years" / "Visible Almost Overnight" under "Why AI Feels Suddenly New"; and "Common Exaggerations" / "Why the Distinction Matters" / "Where the Confusion Comes From" under "The Problem With AI Hype." Word count grew from ~2,070 to ~2,238. No existing content, placeholders, or takeaways were removed. Chapter 1 now has subsections under every major section, matching the rest of the book.
