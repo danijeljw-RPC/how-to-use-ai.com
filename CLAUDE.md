@@ -35,7 +35,7 @@ Professionals should be able to read from a consumer perspective and apply the c
 
 The target style is a crossover between:
 
-- O’Reilly: structured, clear, technically trustworthy
+- O'Reilly: structured, clear, technically trustworthy
 - Dummies: approachable, conversational, practical, non-intimidating
 
 The tone should be:
@@ -90,6 +90,8 @@ The series is intended to support:
 - future learning material
 
 The book series should be structured so chapters can later be adapted into website articles and video scripts without rewriting the whole project.
+
+The working assumption is a 5-book progression from non-technical (Book 1) to technical (Book 5). See `docs/01-series/series-structure.md` for the full arc and for the author-background note that explains why Book 1's simplifications are deliberate, not a knowledge gap.
 
 ## Known Book 1 Direction
 
@@ -179,6 +181,8 @@ The plan must include:
 - research references
 - acceptance criteria
 
+Before writing a chapter plan from scratch, check `./legacy-data/` for prior drafted material covering that chapter. Chapter 1 already has a full legacy draft (`legacy-data/book1-part1-chapter1-draft.md`) — reconcile it into the plan and manuscript rather than starting over.
+
 ### Open Issues
 
 All unresolved questions must be written as OI files.
@@ -189,15 +193,7 @@ Naming pattern:
 OI-xxxx.md
 ```
 
-Where `xxxx` is the next available four-digit number in that directory.
-
-Examples:
-
-```text
-OI-0001.md
-OI-0002.md
-OI-0003.md
-```
+Where `xxxx` is the next available four-digit number **within that area's directory** (each area's OI numbers are independent — `docs/00-project/open-issues/OI-0001.md` and `docs/02-book-01/open-issues/OI-0001.md` can coexist).
 
 Use the relevant subdirectory:
 
@@ -222,17 +218,24 @@ In this project, ADR means:
 Naming pattern:
 
 ```text
-ADR-xxxx.md
+ADR-NN-xxxx.md
 ```
 
-Where `xxxx` is the next available four-digit number in that directory.
+Where `NN` is a fixed two-digit area code and `xxxx` is the next available four-digit number **within that area**:
+
+| Area | Code |
+|---|---|
+| Project (`00-project`) | `00` |
+| Series (`01-series`) | `01` |
+| Book 1 (`02-book-01`) | `02` |
+| Publishing (`03-publishing`) | `03` |
+| Style (`04-style`) | `04` |
 
 Examples:
 
 ```text
-ADR-0001.md
-ADR-0002.md
-ADR-0003.md
+ADR-00-0001.md   (project area, decision 1)
+ADR-02-0003.md   (book 1 area, decision 3)
 ```
 
 Use the relevant subdirectory:
@@ -259,6 +262,8 @@ Use ADRs for decisions about:
 - output targets
 - research handling
 - AI-tool workflow rules
+
+Before creating a new ADR, check `git status` and the relevant `decisions/` directory to confirm the decision does not already exist unfiled or half-implemented elsewhere in the repo — this has happened before in this project.
 
 ### Changelog
 
@@ -330,6 +335,7 @@ If unable to commit, record the reason in the session output.
 ```text
 .
 ├── CLAUDE.md
+├── prompt.md
 ├── changelog.md
 ├── legacy-data/
 └── docs/
@@ -359,6 +365,8 @@ If unable to commit, record the reason in the session output.
     └── 90-templates/
 ```
 
+All of the directories above already exist in the repository (placeholder `.gitkeep` files mark the ones that are currently empty). Do not recreate this structure — use it.
+
 ## Memory Files
 
 Claude Code must maintain project memory in Markdown, not private tool memory.
@@ -367,6 +375,7 @@ Primary files:
 
 ```text
 ./docs/00-project/memory/project-brief.md
+./docs/01-series/series-structure.md
 ./docs/00-project/memory/series-memory.md
 ./docs/00-project/memory/book-01-memory.md
 ./docs/04-style/style-guide.md
@@ -401,6 +410,13 @@ Rules:
 3. If legacy data conflicts with current docs, open an OI or ADR.
 4. When incorporating legacy material, summarise what was incorporated and where.
 5. Do not copy large legacy sections blindly into the manuscript without review.
+
+Current legacy files and their status:
+
+- `book1_ai_literacy_context_reference.md` — primary source for series arc and Book 1 structure; largely reconciled into `docs/01-series/series-structure.md` and `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+- `book1-part1-chapter1-draft.md` — a full first draft of Chapter 1. **Not yet migrated into `docs/02-book-01/chapters/`.** This should happen before Chapter 1 is drafted or redrafted from scratch.
+- `how-to-use-ai-book-chat-handoff.md` — broader planning conversation handoff; not yet reviewed for content not already captured elsewhere. Check for unreconciled ideas before treating current docs as complete.
+- `copilot_forced_ai_transcript_research_notes.md` — research notes; not yet reviewed or moved into `docs/02-book-01/research/`.
 
 ## Research Handling
 
@@ -472,6 +488,8 @@ Baseline callout types:
 - Example
 - Recap
 
+Note: the legacy Chapter 1 draft used a slightly different set of names (Note, Warning, Reference, Personal Reflection, Try This, Myth vs Reality, Diagram Opportunity). When reconciling that draft, map its callouts onto the baseline list above rather than introducing a second parallel system — open an OI if a legacy callout type doesn't map cleanly.
+
 ## Diagram Rules
 
 Use diagrams only where they add value.
@@ -507,7 +525,7 @@ Publishing decisions are tracked under:
 The initial publishing format decision is documented in:
 
 ```text
-./docs/03-publishing/decisions/ADR-0001-manuscript-source-format.md
+./docs/03-publishing/decisions/ADR-03-0001-manuscript-source-format.md
 ```
 
 ## Manuscript Source Expectations
@@ -565,7 +583,7 @@ Exceptions:
 ```text
 CLAUDE.md
 OI-xxxx.md
-ADR-xxxx.md
+ADR-NN-xxxx.md
 ```
 
 ## Markdown Style

@@ -1,1 +1,0 @@
-Your repository tells me the model needs to act as a co-author + editor + research organiser + continuity manager, while maintaining a beginner-first style: roughly O'Reilly structure/trustworthiness crossed with Dummies accessibility, 65% consumer / 35% professional, with the central framing that AI is pattern recognition at scale.

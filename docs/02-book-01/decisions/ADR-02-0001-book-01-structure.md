@@ -1,4 +1,4 @@
-# ADR-0001 — Book 1 Structure
+# ADR-02-0001 — Book 1 Structure
 
 ## Status
 
@@ -38,7 +38,7 @@ Professionals should be able to read the book from a consumer perspective while 
 
 The target style is a crossover between:
 
-- O’Reilly-style structure and technical credibility
+- O'Reilly-style structure and technical credibility
 - For Dummies-style accessibility and beginner friendliness
 
 The book should be:
@@ -100,7 +100,7 @@ Purpose:
 
 Chapters:
 
-1. You’ve Already Been Using AI
+1. You've Already Been Using AI
 2. Why Everyone Suddenly Talks About AI
 3. What AI Can Actually Do
 4. What AI Cannot Do
@@ -148,7 +148,7 @@ Chapters:
 13. Building Your Personal AI Toolkit
 14. Where AI Goes Next
 
-### Epilogue — Don’t Panic
+### Epilogue — Don't Panic
 
 Purpose:
 
@@ -160,7 +160,7 @@ Purpose:
 
 ## Chapter-by-Chapter Direction
 
-### Chapter 1 — You’ve Already Been Using AI
+### Chapter 1 — You've Already Been Using AI
 
 Summary:
 
@@ -192,6 +192,7 @@ Notes:
 - This chapter should include personal reflection placeholders.
 - This chapter should include diagram opportunity markers where they add value.
 - This chapter should establish the tone and structure for later chapters.
+- A full first draft of this chapter already exists in `legacy-data/book1-part1-chapter1-draft.md` and should be reconciled into `docs/02-book-01/chapters/` rather than redrafted from scratch.
 
 ### Chapter 2 — Why Everyone Suddenly Talks About AI
 
@@ -421,8 +422,8 @@ Summary:
 Debunk:
 
 - AGI panic
-- “AI will destroy humanity tomorrow”
-- “AI will solve everything”
+- "AI will destroy humanity tomorrow"
+- "AI will solve everything"
 - startup hype
 - fake demos
 - investor marketing
@@ -508,7 +509,7 @@ Core takeaway:
 
 > AI is not the end of human relevance. It is the beginning of a different technological era.
 
-### Epilogue — Don’t Panic
+### Epilogue — Don't Panic
 
 Summary:
 
@@ -551,17 +552,7 @@ Each chapter should:
 
 The callout system must be introduced in Chapter 1 and used consistently throughout the series.
 
-The Chapter 1 draft currently identifies these callout types:
-
-- Note
-- Warning
-- Reference
-- Personal Reflection
-- Try This
-- Myth vs Reality
-- Diagram Opportunity
-
-These callouts should be retained as the current baseline unless a later style ADR revises them.
+`docs/04-style/callout-guide.md` is the current source of truth for callout types (Key Idea, Plain English, Try This, Watch Out, Myth vs Reality, Author Note, Reflection, Example, Recap). Note that the original Chapter 1 legacy draft used a slightly different naming set (Note, Warning, Reference, Personal Reflection, Try This, Myth vs Reality, Diagram Opportunity) — these should be reconciled, not run in parallel. See linked Open Issue.
 
 ## Diagram Requirement
 
@@ -611,7 +602,7 @@ Structure:
 - Part 2: Using AI in Real Life
 - Part 3: Risks, Fear, and Reality
 - Part 4: Preparing for the Future
-- Epilogue: Don’t Panic
+- Epilogue: Don't Panic
 
 Pros:
 
@@ -701,7 +692,7 @@ Cons:
 
 - risks creating fear before confidence
 - may overemphasise negatives
-- weakens the “AI is already familiar” opening
+- weakens the "AI is already familiar" opening
 - less aligned with the stated goal of reducing intimidation
 
 ## Consequences
@@ -728,21 +719,13 @@ Negative or trade-offs:
 Claude Code must:
 
 1. Treat this ADR as the current Book 1 structural source of truth.
-2. Update `docs/02-book-01/book-01-structure.md` to reflect this ADR.
+2. Update `docs/02-book-01/book-01-structure.md` to reflect this ADR in full (it currently only documents Chapter 1 and is missing Parts 2–4 and the epilogue).
 3. Update `docs/00-project/memory/book-01-memory.md` to include the full four-part structure.
-4. Update `CLAUDE.md` so it references the Book 1 structure file and this ADR.
-5. Create a chapter plan before drafting or materially revising each chapter.
-6. Link each chapter plan back to this ADR.
-7. Create OI files for unresolved structure questions instead of making silent assumptions.
-8. Create further ADRs if any major structural change is proposed.
-
-## Suggested File Location
-
-This ADR should be placed at:
-
-```text
-docs/02-book-01/decisions/ADR-0001-book-01-structure.md
-```
+4. Create a chapter plan before drafting or materially revising each chapter.
+5. Link each chapter plan back to this ADR.
+6. Create OI files for unresolved structure questions instead of making silent assumptions (see Related Open Issues below for known ones).
+7. Create further ADRs if any major structural change is proposed.
+8. Reconcile `legacy-data/book1-part1-chapter1-draft.md` into `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md` and update `docs/02-book-01/plans/chapter-01-plan.md` accordingly, rather than drafting Chapter 1 from nothing.
 
 ## Related Files
 
@@ -756,12 +739,16 @@ docs/02-book-01/decisions/ADR-0001-book-01-structure.md
 
 ## Related Open Issues
 
-None yet.
+- OI-0001 (callout naming reconciliation between legacy Chapter 1 draft and current style guide)
+- OI-0002 (final Book 1 title decision — "AI for Normal People" is proposed but not confirmed)
+- OI-0003 (whether Book 1's four-part structure should be formally cross-referenced against the 5-book series arc described in legacy data)
 
 ## Review Notes
 
-This ADR is based on the uploaded Book 1 AI literacy context reference and the uploaded Part 1 Chapter 1 draft.
+This ADR is based on the uploaded Book 1 AI literacy context reference and the uploaded Part 1 Chapter 1 draft, both in `legacy-data/`.
 
 The Book 1 AI literacy context reference is the primary source for the overall structure.
 
-The Chapter 1 draft is supporting evidence for Chapter 1 direction, callout expectations, diagram markers, and tone.
+The Chapter 1 draft is supporting evidence for Chapter 1 direction, callout expectations, diagram markers, and tone, and should be reconciled into the working chapter draft rather than re-derived from summary alone.
+
+This ADR was recovered and relocated into its correct location (`docs/02-book-01/decisions/`) after being found sitting unfiled at the repository root — it had never actually been implemented per its own Implementation Requirements section.
