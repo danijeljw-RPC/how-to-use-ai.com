@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (16)
+
+### Added
+
+- Added `docs/02-book-01/plans/epilogue-plan.md` and drafted `docs/02-book-01/chapters/epilogue-dont-panic.md` ("Don't Panic"), per `ADR-02-0001-book-01-structure.md`'s Epilogue direction. Short and deliberately less structurally dense than the numbered chapters (one callout only), delivering the four-part closing message and a concrete, immediate next action. **This completes the full Book 1 manuscript arc: 14 chapters plus epilogue, all drafted.**
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Epilogue section to mark it drafted and note full manuscript completion.
+
+### Files changed
+
+- `docs/02-book-01/plans/epilogue-plan.md` (new)
+- `docs/02-book-01/chapters/epilogue-dont-panic.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (15)
 
 ### Added

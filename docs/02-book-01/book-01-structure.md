@@ -56,7 +56,7 @@ Purpose: end with practical confidence and future readiness; help the reader ada
 
 ### Epilogue — Don't Panic
 
-A short reflective ending: the reader does not need to become an AI engineer or understand the math, but does need to become AI literate.
+A short reflective ending: the reader does not need to become an AI engineer or understand the math, but does need to become AI literate. **Draft complete** (`docs/02-book-01/chapters/epilogue-dont-panic.md`) — this completes the full Book 1 manuscript arc.
 
 ## Chapter-by-Chapter Direction
 
@@ -124,4 +124,4 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 12 | How to Stay Relevant in the AI Era | Done | Done |
 | 13 | Building Your Personal AI Toolkit | Done | Done |
 | 14 | Where AI Goes Next | Done | Done |
-| — | Epilogue — Don't Panic | Not started | Not started |
+| — | Epilogue — Don't Panic | Done | Done |

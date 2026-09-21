@@ -101,7 +101,7 @@ This isn't unique to AI — similar concerns have followed other major technolog
 # Myth vs Reality
 
 | Myth | Reality |
-|---|---|
+| --- | --- |
 | AI risk is mostly overblown media hype. | Several of these risks — scams, deepfakes, bias in high-stakes decisions, privacy erosion — have concrete, documented real-world examples. |
 | AI risk means AI is fundamentally dangerous and should be avoided. | Taking risk seriously and finding AI genuinely useful (Parts 1–2 of this book) aren't contradictory positions — this book holds both at once. |
 | These are all abstract, distant problems that don't affect ordinary users. | Scams, misinformation, and privacy concerns affect ordinary individual users directly, not just institutions or governments. |
