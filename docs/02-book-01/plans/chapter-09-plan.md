@@ -118,3 +118,7 @@ Per ADR-02-0001's Chapter 9 topic list: misinformation, deepfakes, scams, bias, 
 ```text
 draft: add chapter 09 plan and draft (the problems nobody should ignore)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Misinformation and Deepfakes" and "Surveillance and Privacy" into H3 subsections, distinguishing text-based misinformation from audio/video deepfakes, and surveillance capability from the resulting privacy concern. Word count grew from ~1,358 to ~1,485. No existing content, placeholders, or takeaways were removed.

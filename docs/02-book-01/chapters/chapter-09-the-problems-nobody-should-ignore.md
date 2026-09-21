@@ -8,7 +8,13 @@ This chapter takes that other half seriously. Not with alarmist framing — the 
 
 ## Misinformation and Deepfakes
 
-Generative AI, covered back in Chapter 2, can produce convincing false text, images, audio, and video — including fabricated quotes, doctored photos, and "deepfake" videos that show real people appearing to say or do things they never actually said or did. This matters because it lowers the cost of producing convincing fake content dramatically. It used to take real skill and time to fake a photo or video convincingly. Now it can take minutes.
+### Misinformation
+
+Generative AI, covered back in Chapter 2, can produce convincing false text at a scale and speed that used to require a team of people — a flood of fake reviews, fabricated news-style articles, or convincing-sounding social media posts, all generated in seconds. What used to be limited by how fast a person could type is now limited only by how fast someone chooses to click "generate."
+
+### Deepfakes
+
+Beyond text, AI can produce convincing false images, audio, and video — including fabricated quotes, doctored photos, and "deepfake" videos that show real people appearing to say or do things they never actually said or did. This matters because it lowers the cost of producing convincing fake content dramatically. It used to take real skill and time to fake a photo or video convincingly. Now it can take minutes.
 
 > **Watch Out:** Treat unexpected, dramatic, or emotionally charged content — a video, an audio clip, a screenshot — with a little more scepticism than you might have a few years ago, especially if it's not from a source you trust directly. If something looks or sounds surprising, check whether it's been independently reported elsewhere before assuming it's real.
 
@@ -26,7 +32,13 @@ AI systems learn patterns from their training data, and if that data reflects ex
 
 ## Surveillance and Privacy
 
-AI makes certain kinds of surveillance dramatically cheaper and easier: automatically identifying faces in footage, transcribing and searching recorded conversations at scale, or building detailed profiles from scattered pieces of personal data that would have taken a human analyst far longer to piece together. This raises real privacy questions independent of whether any particular use is well-intentioned. The same capability that helps a business understand its customers can also enable much more invasive tracking than most people are aware of or have consented to.
+### Surveillance
+
+AI makes certain kinds of surveillance dramatically cheaper and easier: automatically identifying faces in footage, transcribing and searching recorded conversations at scale, or building detailed profiles from scattered pieces of personal data that would have taken a human analyst far longer to piece together. What used to require a dedicated team of investigators can now be done automatically, at a scale that changes what's practically possible, not just what's theoretically possible.
+
+### Privacy
+
+This raises real privacy questions independent of whether any particular use is well-intentioned. The same capability that helps a business understand its customers can also enable much more invasive tracking than most people are aware of or have consented to — often through terms and conditions nobody reads in full, which is part of why privacy concerns here feel different from a simple, single decision to opt in or out.
 
 ## Copyright Disputes
 
