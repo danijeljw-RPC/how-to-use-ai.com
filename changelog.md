@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (10)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-09-plan.md` and drafted `docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md` ("The Problems Nobody Should Ignore"), per `ADR-02-0001-book-01-structure.md`'s Chapter 9 direction. Opens Part 3. Covers misinformation, deepfakes, scams, bias, surveillance, copyright disputes, privacy, environmental costs, and monopolisation, each grounded in a concrete example, without citing unverified statistics.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 3 chapter list to mark Chapter 9 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-09-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (9)
 
 ### Added

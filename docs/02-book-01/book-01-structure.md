@@ -42,7 +42,7 @@ Purpose: transition from theory into practical life usage; show how AI helps ord
 
 Purpose: give the book credibility and balance; avoid hype and panic; explain real risks without sensationalism.
 
-9. The Problems Nobody Should Ignore
+9. **The Problems Nobody Should Ignore** — draft complete (`docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`)
 10. Will AI Replace Jobs?
 11. AI Hype vs Reality
 
@@ -118,7 +118,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 6 | AI at Home | Done | Done |
 | 7 | AI at Work | Done | Done |
 | 8 | AI and Creativity | Done | Done |
-| 9 | The Problems Nobody Should Ignore | Not started | Not started |
+| 9 | The Problems Nobody Should Ignore | Done | Done |
 | 10 | Will AI Replace Jobs? | Not started | Not started |
 | 11 | AI Hype vs Reality | Not started | Not started |
 | 12 | How to Stay Relevant in the AI Era | Not started | Not started |
