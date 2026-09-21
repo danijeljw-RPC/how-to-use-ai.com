@@ -117,3 +117,7 @@ Per ADR-02-0001's Chapter 13 topic list: chat AI, image AI, research AI, product
 ```text
 draft: add chapter 13 plan and draft (building your personal AI toolkit)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "The Six Categories" into six H3 subsections (Chat AI, Image AI, Research AI, Productivity AI, Coding AI, Voice AI), each with a short concrete example, directly mirroring Chapter 1's per-example subsection pattern. Word count grew from ~1,161 to ~1,249. No existing content, placeholders, or takeaways were removed.
