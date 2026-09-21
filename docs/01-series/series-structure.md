@@ -42,7 +42,9 @@ Each book should:
 - use consistent reader assumptions
 - clearly distinguish beginner concepts from advanced material
 
-Because the series ramps from non-technical (Book 1) to technical (Book 5), later books should explicitly reference which earlier-book concepts they assume, rather than re-explaining foundations or silently assuming knowledge the reader may not have if they started mid-series.
+Because the series ramps from non-technical (Book 1) to technical (Book 5), cross-referencing flows backward only: Book 2 may cite Book 1; Book 3 may cite Books 1–2; Book 4 may cite Books 1–3; Book 5 may cite Books 1–4. Book 1, being first in the series, has no earlier book to cite and is not cross-referenced against the rest of the arc.
+
+Each later book is responsible for explicitly citing which specific concepts or chapters from its predecessor(s) it assumes, at the time that later book is planned and drafted — not re-explaining those foundations or silently assuming knowledge the reader may not have if they started mid-series. This is a per-book citation practice, not a standing cross-reference artifact maintained here.
 
 ## Author Background
 

@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (7)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-06-plan.md` and drafted `docs/02-book-01/chapters/chapter-06-ai-at-home.md` ("AI at Home"), per `ADR-02-0001-book-01-structure.md`'s Chapter 6 direction. Applies Chapter 5's context/specificity pattern to meal planning, travel, budgeting, writing, parenting, hobbies, organising, and accessibility, and introduces over-reliance as a grounded, non-alarmist watch-out.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 2 chapter list to mark Chapter 6 as drafted.
+- **Closed `docs/01-series/open-issues/OI-0001.md`** — the author rejected the deferred "cross-reference table" framing directly in the file and clarified that cross-referencing flows backward only (Book 2 may cite Book 1, Book 3 may cite Books 1–2, etc.); Book 1 itself is not cross-referenced against the rest of the arc since it has no predecessor. Reworded `docs/01-series/series-structure.md`'s Continuity Rules section to state this explicitly and replace the deferred cross-reference-table idea with a per-book backward-citation practice.
+
+### Open issues added or closed
+
+- Closed: `docs/01-series/open-issues/OI-0001.md` (Book 1 cross-referencing — resolved: backward-only citation, no forward artifact needed from Book 1).
+
+### Decisions added or changed
+
+- `docs/01-series/series-structure.md`'s Continuity Rules updated to state the backward-only cross-referencing direction explicitly, per the author's resolution of OI-0001.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-06-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-06-ai-at-home.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `docs/01-series/open-issues/OI-0001.md`
+- `docs/01-series/series-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (6)
 
 ### Added
