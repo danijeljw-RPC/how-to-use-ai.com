@@ -2,6 +2,34 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (24)
+
+### Changed
+
+- Recorded the author's answers to Q1–Q2, Q4–Q14, and Q16–Q19 in `docs/00-project/plans/next-editorial-phases.md`; Q3 remains the only unresolved Phase 1 decision.
+- Confirmed the final Book 1 title, the new 65,000–80,000-word target, qualified beginner-first technical accuracy, selective personal reflections, Mermaid-first diagrams selected by teaching value, unobtrusive source notes, in-book and downloadable companion material, and author-owned placeholder-link domains.
+- Authorised use of the Johnny case study with his name and tribunal details, focused on how the author and her husband used AI to solve the problem. Required all relevant forced-AI/Copilot research to be retained, independently verified where factual, explained in plain English, and supported by a glossary or equivalent reader aid where helpful.
+- Recorded the Phase 3 governance answers and the exact public series name, **How To Use AI.com Book Series**, while preserving the existing phase order. Later-book scope boundaries are deferred until after Book 2 planning.
+- Confirmed that `legacy-data` is already absent and that its useful content had been reconciled before deletion.
+
+### Files changed
+
+- `docs/00-project/plans/next-editorial-phases.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Decision inputs were recorded in the active phase plan. Phase 3 remains responsible for propagating them into and formally resolving the relevant ADRs, OIs, and authoritative project files.
+
+### Open issues added or closed
+
+- Q3 remains open pending explanation and author confirmation.
+- Q15 retains two non-blocking Phase 3 implementation choices: local-only versus CI lint enforcement, and whether to backfill historical changelog hashes.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (23)
 
 ### Changed

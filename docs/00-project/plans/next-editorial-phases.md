@@ -2,7 +2,7 @@
 
 ## Status
 
-Queued. The author-decision gate below is in progress. Phase 1 remains the next work phase; none of the three phases has started.
+Queued. Author answers were recorded on 2026-09-21. Q3 is the only remaining Phase 1 decision. Phase 1 remains the next work phase; none of the three phases has started.
 
 ## Date Recorded
 
@@ -40,23 +40,23 @@ Resolve the questions in this section before starting the phase that depends on 
 
 #### Q1 — Book 1 title and subtitle
 
-Choose the final title and subtitle. The current working pair is **AI for Normal People: Understanding Artificial Intelligence Without the Hype**. Existing alternatives are **How to Use AI**, **The Beginner's Guide to AI**, **Everyday AI**, **AI Without the Buzzwords**, **AI Explained Like You're Human**, and **Artificial Intelligence for Everyone**.
+Final title and subtitle: **AI for Normal People: Understanding Artificial Intelligence Without the Hype**.
 
-Recommendation: settle the positioning before planning the next editorial pass, because it affects voice, promise, front matter, and market framing.
+Implementation note: use this exact title and subtitle in future positioning, front matter, and publishing work.
 
-Status: Awaiting author answer. Source: `docs/02-book-01/open-issues/OI-0002.md`.
+Status: Answered. Phase 3 must close `docs/02-book-01/open-issues/OI-0002.md` and propagate the final title to the authoritative structure and publishing files.
 
 #### Q2 — Intended final length
 
-Choose whether the original target of 55,000–80,000 words and roughly 4,000–5,000 words per chapter still stands, or whether Book 1 should become an intentionally shorter book. The current manuscript is approximately 23,000 words, with chapters ranging from approximately 1,100 to 2,200 words plus a shorter epilogue.
+The intended final range is **65,000–80,000 words**. The current manuscript is approximately 23,000 words, so the next editorial plan must define substantive expansion rather than padding.
 
-Recommendation: decide the desired reader experience and approximate target range before planning expansion; do not expand merely to satisfy a number.
+Implementation note: expand through genuine reader value—research, examples, stories, exercises, and clearer explanation—not by repeating ideas to satisfy the number.
 
-Status: Awaiting author answer. Source: `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md` and `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`.
+Status: Answered. Phase 3 must update the old 55,000–80,000-word target in `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
 
 #### Q3 — Four-part structure and audience balance
 
-Confirm whether the existing four-part, 14-chapter-plus-epilogue structure and approximately 65% consumer / 35% professional audience balance are accepted as the durable Book 1 structure.
+Confirm whether the existing four-part, 14-chapter-plus-epilogue structure and approximately 65% consumer / 35% professional audience balance are accepted as the durable Book 1 baseline. Accepting this does not freeze every chapter title or prevent the detailed critique from recommending a justified merge, move, or rewrite. It means the next editorial plan starts from the present architecture instead of reconsidering the book from scratch. The 65/35 balance is an editorial emphasis across examples and reader relevance, not a chapter or word-count quota.
 
 Recommendation: accept the structure as the editorial baseline unless the detailed critique reveals a specific chapter-level reason to revise it.
 
@@ -64,59 +64,59 @@ Status: Awaiting author answer. Source: proposed `docs/02-book-01/decisions/ADR-
 
 #### Q4 — Beginner simplicity versus technical qualification
 
-Choose the editorial rule for statements that are easy for beginners to understand but too absolute to remain technically accurate. Examples include fixed knowledge cutoffs, AI having no uncertainty signal, hallucination being inevitable in every configuration, predictive AI only selecting existing options, and all AI being reducible to the same pattern-prediction description.
+Keep explanations beginner-first, but qualify statements when the simplification would become false or date the book quickly. Examples requiring this treatment include fixed knowledge cutoffs, AI having no uncertainty signal, hallucination being inevitable in every configuration, predictive AI only selecting existing options, and all AI being reducible to the same pattern-prediction description.
 
 Recommendation: keep the beginner-first explanations but qualify claims where the simplification would become false or quickly date the book.
 
-Status: Awaiting author answer.
+Status: Answered.
 
 #### Q5 — Author voice and personal reflections
 
-Choose whether the final manuscript should contain a personal reflection in every chapter, a smaller curated set of high-value reflections, or no recurring personal-story device.
+Use a selective set of strong personal reflections rather than mechanically placing one in every chapter. Personal stories are also expected to provide substantial material for expanding the manuscript toward its 65,000–80,000-word target.
 
 Recommendation: use a selective set rather than mechanically filling all 15 placeholders; retain only stories that add authority, warmth, or a memorable teaching example.
 
-Status: Awaiting author answer. The complete prompt list appears under "Author Reflection Prompts" below.
+Status: Answered. Phase 2 will decide which prompts have the strongest editorial value and gather the relevant stories from the author. The complete candidate list appears under "Author Reflection Prompts" below.
 
 #### Q6 — Diagram scope
 
-Choose whether to produce all eight proposed diagrams, select only the diagrams that materially improve comprehension, or publish Book 1 without diagrams.
+Produce only diagrams that materially improve understanding. Prefer Mermaid for every suitable diagram. Use a generated image only if a valuable visual cannot reasonably be expressed in Mermaid; any such image will require a separate author decision before generation.
 
 Recommendation: select diagrams by teaching value during the critique rather than treating every placeholder as mandatory.
 
-Status: Awaiting author answer. The eight current candidates cover Chapters 1 (two diagrams), 2, 3, 4, 5, 9, and 13.
+Status: Answered. Phase 2 must evaluate the eight current candidates in Chapters 1 (two diagrams), 2, 3, 4, 5, 9, and 13 rather than automatically retaining all of them.
 
 #### Q7 — Evidence and citation model
 
-Choose how factual support should appear in the finished book: visible footnotes/endnotes, chapter-level source notes, a consolidated bibliography/resources section, or fact-checked prose without reader-visible citations.
+Use unobtrusive chapter endnotes or consolidated source notes. The detailed critique and next editorial plan should recommend the final choice based on readability and the volume of factual support required.
 
 Recommendation: use unobtrusive chapter endnotes or a consolidated source-notes section so the beginner voice remains clean while factual claims remain defensible.
 
-Status: Awaiting author answer.
+Status: Answered at the model level; exact endnote-versus-consolidated implementation remains an editorial recommendation for Phase 1.
 
 ### Required Before or During Phase 2
 
 #### Q8 — Johnny tenancy-tribunal case study
 
-Decide whether the first-hand Johnny scenario may be used. If yes, specify whether it should be a recurring case study or a single Chapter 4 example, and whether "Johnny" and the tenancy details require further anonymisation.
+Use the Johnny scenario. Johnny is the author's husband, his name may remain, and the tribunal details are safe to publish. The focus must be how the author and Johnny used AI to solve a problem, including the initial misunderstanding and the recovery workflow, rather than the tribunal dispute itself.
 
 Recommendation: use it once in Chapter 4 if permission and privacy are clear; its misunderstanding about background work and hallucinated completion strongly supports the book's core thesis.
 
-Status: Awaiting author answer. Source: `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md`.
+Status: Answered. Phase 2 should recommend the best placement and whether it works better once or as a light recurring thread. Source: `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md`.
 
 #### Q9 — Forced-AI / Copilot research material
 
-Decide whether to use the generic concepts "forced AI," "the workday test," "trust cost," and "shelfware." Separately decide whether any Microsoft/Copilot-specific claims should appear; doing so requires primary-source verification of every statistic and product claim listed in the research note.
+Include the relevant generic concepts "forced AI," "the workday test," "trust cost," and "shelfware," and do not discard useful research merely because a term may be unfamiliar. Explain unfamiliar or specialist terms in plain English and collect them into a glossary or equivalent reader aid where that improves accessibility. Include Microsoft/Copilot-specific material only after every claim and statistic has been independently verified against suitable primary or authoritative sources. Relevant material should be used without overstating what the evidence supports.
 
-Recommendation: use the generic evaluation concepts if they strengthen Chapters 7 or 11, but omit vendor-specific accusations and unverified figures unless the author explicitly wants a sourced case study.
+Implementation note: retain useful vendor-specific material only after verification, distinguish evidence from commentary, and do not repeat accusations or figures more strongly than the sources support.
 
-Status: Awaiting author answer. Source: `docs/02-book-01/research/research-note-copilot-forced-ai.md`.
+Status: Answered. Source verification and placement are Phase 2 tasks. Source: `docs/02-book-01/research/research-note-copilot-forced-ai.md`.
 
 #### Q10 — Individual author reflections
 
-If Q5 retains personal reflections, answer the prompts below during or before Phase 2. These are content inputs, not permission for an AI co-author to invent personal stories.
+Personal stories will be a major source of depth and expansion. Phase 2 should identify the strongest opportunities, ask focused follow-up questions, and preserve the author's own account and voice. These are content inputs, not permission for an AI co-author to invent personal stories.
 
-Status: Awaiting Q5 and then author-supplied material.
+Status: Strategy answered; individual stories will be gathered during Phase 2.
 
 ### Required During Phase 3
 
@@ -126,7 +126,7 @@ Confirm that `docs/02-book-01/open-issues/OI-0001.md` should close as superseded
 
 Recommendation: close as superseded; do not add a Reference callout unless the future manuscript develops a demonstrated need for one.
 
-Status: Awaiting author confirmation.
+Status: Answered — close as superseded during Phase 3.
 
 #### Q12 — Project working method
 
@@ -134,7 +134,7 @@ Accept, revise, or reject the workflow in proposed ADR-00-0001: Git-state review
 
 Recommendation: accept the workflow after removing stale `legacy-data` assumptions and simplifying any process that has become performative rather than useful.
 
-Status: Awaiting author answer.
+Status: Answered — accept during Phase 3 after removing stale assumptions.
 
 #### Q13 — Markdown-first source format
 
@@ -142,7 +142,7 @@ Confirm that Markdown remains the primary manuscript and project-memory source, 
 
 Recommendation: accept the Markdown-first decision; defer the final production toolchain until the manuscript and its asset requirements stabilise.
 
-Status: Awaiting author answer. Source: proposed ADR-03-0001.
+Status: Answered — accept during Phase 3. Source: proposed ADR-03-0001.
 
 #### Q14 — Beginner-first style baseline
 
@@ -150,49 +150,49 @@ Confirm whether the current conversational, practical, non-hype, technically tru
 
 Recommendation: accept the baseline while authorising Phase 2 to reduce formulaic repetition and strengthen the author's individual voice.
 
-Status: Awaiting author answer. Source: proposed ADR-04-0001.
+Status: Answered — suitable as the baseline. Phase 2 remains authorised to reduce formulaic repetition and strengthen the author's individual voice. Source: proposed ADR-04-0001.
 
 #### Q15 — Governance enforcement level
 
-Choose whether Phase 3 should only repair the current 61 Markdown lint errors or also add a repeatable local/CI lint command that prevents new errors. Also choose whether historical `pending commit` changelog entries should be backfilled where hashes are recoverable or left as historical records.
+Phase 3 must eliminate all current Markdown lint findings by fixing the Markdown or adding narrowly scoped ignores only where the rule is intentionally inappropriate for this repository. Broad ignores must not hide genuine formatting problems.
 
 Recommendation: fix the current errors and add a documented local check; only add CI if the repository will be actively collaborated on. Backfill unambiguous commit hashes, leaving grouped/ambiguous historical entries explained rather than guessed.
 
-Status: Awaiting author answer.
+Status: Partially answered. Still to decide during Phase 3: whether to add only a documented local lint command or also CI enforcement, and whether to backfill recoverable historical commit hashes or leave old `pending commit` entries as historical records.
 
 ### Series Questions That May Be Deferred
 
 #### Q16 — Full series title
 
-Decide whether **How-to-use-ai.com book series** is the final public series name or only the project/repository name.
+Final public series name: **How To Use AI.com Book Series**.
 
-Recommendation: defer until Book 1's title and positioning are settled.
+Implementation note: use this exact series name and capitalisation in future public-facing and authoritative project material.
 
-Status: Awaiting author answer or explicit deferral.
+Status: Answered. Phase 3 must propagate the exact name and capitalisation to authoritative project files.
 
 #### Q17 — Website and video structure
 
-Decide whether website articles and videos should mirror the books chapter for chapter or adapt the material into format-specific structures.
+Website and video content should use format-specific adaptations rather than being forced to mirror the book chapter for chapter.
 
 Recommendation: reuse concepts and assets, but permit format-specific structures rather than forcing chapter parity.
 
-Status: Awaiting author answer or explicit deferral.
+Status: Answered.
 
 #### Q18 — Exercises and companion resources
 
-Decide whether Book 1 or the wider series should include exercises, worksheets, checklists, or downloadable companion material.
+Include exercises, worksheets, checklists, or other useful companion material both within the book and as downloads. Use placeholder links during drafting. Download links may use either author-owned short domain: `trythis.sh/` or `ust.sh/`. Final destinations and slugs can be assigned when the companion assets are designed.
 
-Recommendation: decide the Book 1 principle during Phase 1 because exercises affect chapter endings and word count; defer exact assets until after the critique.
+Implementation note: Phase 1 must account for these materials because they affect chapter endings and word count; exact assets and final URLs can be designed after the critique.
 
-Status: Awaiting author answer.
+Status: Answered. Phase 1 must account for in-book exercises and downloadable counterparts in the word-count and chapter plan.
 
 #### Q19 — Boundaries between later books
 
-Decide the precise boundary between Book 2 (workflows/productivity) and Book 3 (business/operations), and between Book 4 (building/automation) and Book 5 (engineering/architecture).
+Defer the precise boundary between Book 2 (workflows/productivity) and Book 3 (business/operations), and between Book 4 (building/automation) and Book 5 (engineering/architecture), until after Book 2 planning.
 
 Recommendation: explicitly defer until Book 2 planning; Book 1 only needs to avoid obvious encroachment into those later scopes.
 
-Status: Awaiting explicit deferral or author direction.
+Status: Answered — deferred until after Book 2 planning.
 
 ## Author Reflection Prompts
 
@@ -220,13 +220,14 @@ If Q5 retains personal reflections, the manuscript currently asks for these 15 a
 - Cross-referencing flows backward from later books to earlier books. Book 1 does not need a forward-looking series cross-reference table.
 - The structural formatting and four-callout standard in ADR-04-0002 is accepted.
 - The `legacy-data` archive was intentionally removed after reconciliation. Phase 3 should remove stale live-path instructions without reopening the deletion decision.
+- The author reconfirmed that `legacy-data` may be removed if it is junk. It is already absent; the accepted removal decision records that its useful contents were reconciled before deletion.
 
 ## Phase Dependencies
 
-- Phase 1 must consume Q1–Q7 and Q18. It should not begin substantive planning while title, intended length, technical-qualification policy, author-voice approach, diagram scope, or citation model remain ambiguous.
+- Phase 1 must consume Q1–Q7 and Q18. Q3 is the only remaining Phase 1 author decision. Phase 1 must plan toward 65,000–80,000 words through substantive research, examples, personal stories, exercises, and useful explanation rather than padding.
 - Phase 2 must apply the Phase 1 decisions and consume Q8–Q10. Its critique should flag factual and structural findings without silently deciding unresolved authorial questions.
-- Phase 3 must record all author answers in the relevant ADRs/OIs, resolve Q11–Q15, remove already-resolved contradictions, and leave deferred series questions visibly deferred rather than accidentally "open forever."
-- Q16, Q17, and Q19 do not block Book 1 if the author explicitly defers them.
+- Phase 3 must record all author answers in the relevant ADRs/OIs, implement the Q11–Q15 governance decisions, remove already-resolved contradictions, propagate the exact series name, and leave the Q19 deferral visible rather than accidentally "open forever."
+- Q15 retains two non-blocking Phase 3 implementation choices: local-only versus CI lint enforcement, and whether to backfill historical changelog hashes.
 
 ## Suggested Answer Format
 
