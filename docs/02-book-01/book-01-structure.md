@@ -25,7 +25,7 @@ Four parts plus an epilogue, 14 chapters total.
 Purpose: remove myths, establish foundations, reduce intimidation, explain AI through familiar everyday systems.
 
 1. **You've Already Been Using AI** — draft complete (`docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`)
-2. Why Everyone Suddenly Talks About AI
+2. **Why Everyone Suddenly Talks About AI** — draft complete (`docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`)
 3. What AI Can Actually Do
 4. What AI Cannot Do
 
@@ -111,7 +111,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | # | Chapter | Plan | Draft |
 |---|---|---|---|
 | 1 | You've Already Been Using AI | Done | Done |
-| 2 | Why Everyone Suddenly Talks About AI | Not started | Not started |
+| 2 | Why Everyone Suddenly Talks About AI | Done | Done |
 | 3 | What AI Can Actually Do | Not started | Not started |
 | 4 | What AI Cannot Do | Not started | Not started |
 | 5 | Talking to AI Properly | Not started | Not started |

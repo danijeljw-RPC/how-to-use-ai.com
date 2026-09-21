@@ -2,6 +2,28 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (3)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-02-plan.md` and drafted `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md` ("Why Everyone Suddenly Talks About AI"), per `ADR-02-0001-book-01-structure.md`'s Chapter 2 direction. Builds directly on Chapter 1 (callbacks to the spam filter and recommendation examples rather than re-explaining them) and introduces "language model" and "generative AI" in plain English.
+- User directed drafting to proceed without a per-chapter review pause for this session; noted in `chapter-02-plan.md`'s Session Note.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 1 chapter list to mark Chapter 2 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-02-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (2)
 
 ### Added
