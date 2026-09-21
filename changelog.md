@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (12)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-11-plan.md` and drafted `docs/02-book-01/chapters/chapter-11-ai-hype-vs-reality.md` ("AI Hype vs Reality"), per `ADR-02-0001-book-01-structure.md`'s Chapter 11 direction. Covers AGI panic, doom claims, utopian claims, startup hype, fake demos, and investor marketing generically (no named companies/products), gives a reusable claim-evaluation method, and explicitly distinguishes hype-skepticism from denying Chapter 9's genuine risks. **This completes Part 3 (Risks, Fear, and Reality).**
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 3 chapter list to mark Chapter 11 as drafted and Part 3 as complete.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-11-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-11-ai-hype-vs-reality.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (11)
 
 ### Added
