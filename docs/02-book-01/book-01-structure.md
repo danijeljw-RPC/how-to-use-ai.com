@@ -33,7 +33,7 @@ Purpose: remove myths, establish foundations, reduce intimidation, explain AI th
 
 Purpose: transition from theory into practical life usage; show how AI helps ordinary people and professionals without requiring technical skill.
 
-5. Talking to AI Properly
+5. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
 6. AI at Home
 7. AI at Work
 8. AI and Creativity
@@ -114,7 +114,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 2 | Why Everyone Suddenly Talks About AI | Done | Done |
 | 3 | What AI Can Actually Do | Done | Done |
 | 4 | What AI Cannot Do | Done | Done |
-| 5 | Talking to AI Properly | Not started | Not started |
+| 5 | Talking to AI Properly | Done | Done |
 | 6 | AI at Home | Not started | Not started |
 | 7 | AI at Work | Not started | Not started |
 | 8 | AI and Creativity | Not started | Not started |

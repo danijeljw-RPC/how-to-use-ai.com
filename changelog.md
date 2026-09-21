@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (6)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-05-plan.md` and drafted `docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md` ("Talking to AI Properly"), per `ADR-02-0001-book-01-structure.md`'s Chapter 5 direction. Opens Part 2. Teaches context, specificity, examples, and iteration via before/after examples, deliberately avoiding "prompt engineering" jargon per the legacy handoff notes' guidance, and ties the explanation back to Chapter 3's "most likely answer" mechanic.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 2 chapter list to mark Chapter 5 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-05-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (5)
 
 ### Added
