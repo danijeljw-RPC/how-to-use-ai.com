@@ -2,6 +2,35 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (21)
+
+### Changed
+
+- Repository hygiene cleanup: a stray embedded worktree (`.claude/worktrees/composed-tumbling-dongarra`, branch `worktree-composed-tumbling-dongarra`) had been accidentally staged as a nested git repo via `git add .`. Its one unmerged commit (LaTeX word-break hyphenation fix in `publish-books.sh`) was merged into `main`, then the worktree and its now-fully-merged branch were removed, so `main` is the only branch and there are no outstanding worktrees.
+- Removed a stray, unrelated `Claude outputs/claude-settings.json` file (a local Claude Code permissions export, not book content) and a leftover vim swap file (`docs/02-book-01/chapters/.chapter-01-youve-already-been-using-ai.md.swp`). Added `*.swp` and `.claude/worktrees/` to `.gitignore` to prevent recurrence.
+- Added `.markdownlint.json` (untracked lint config) to version control.
+- Removed the `./legacy-data/` archive. All four substantive legacy files were already marked migrated/reviewed into current `docs/` sources per `CLAUDE.md`'s legacy data table, leaving nothing unreconciled to preserve. Documented as `docs/00-project/decisions/ADR-00-0002-remove-legacy-data-archive.md` per the CLAUDE.md rule that structural, hard-to-reverse changes get an ADR.
+
+### Files changed
+
+- `publish-books.sh` (merged from worktree branch)
+- `.gitignore`
+- `.markdownlint.json` (newly tracked)
+- `legacy-data/` (removed: `README.md`, `book1-part1-chapter1-draft.md`, `book1_ai_literacy_context_reference.md`, `copilot_forced_ai_transcript_research_notes.md`, `how-to-use-ai-book-chat-handoff.md`)
+- `docs/00-project/decisions/ADR-00-0002-remove-legacy-data-archive.md` (new)
+
+### Decisions added or changed
+
+- Added `ADR-00-0002-remove-legacy-data-archive.md`.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (20)
 
 ### Changed
