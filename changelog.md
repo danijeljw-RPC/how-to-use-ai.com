@@ -2,6 +2,33 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (4)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-03-plan.md` and drafted `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md` ("What AI Can Actually Do"), per `ADR-02-0001-book-01-structure.md`'s Chapter 3 direction. Covers writing, summarising, brainstorming, images, code, translation, tutoring, analysis, voice, and automation with concrete (non-product-specific) examples, and fully develops the "confident but wrong" idea Chapter 2 flagged but didn't expand on.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 1 chapter list to mark Chapter 3 as drafted.
+- **Closed `docs/01-series/open-issues/OI-0002.md`** — the author confirmed directly in the file that the 5-book series arc is final and the 3-book handoff-file version is superseded. Status set to Resolved, dated 2026-09-21.
+
+### Open issues added or closed
+
+- Closed: `docs/01-series/open-issues/OI-0002.md` (5-book vs 3-book series arc — resolved in favour of the 5-book arc).
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-03-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `docs/01-series/open-issues/OI-0002.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (3)
 
 ### Added
