@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (14)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-13-plan.md` and drafted `docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md` ("Building Your Personal AI Toolkit"), per `ADR-02-0001-book-01-structure.md`'s Chapter 13 direction. Introduces six AI tool categories without naming specific products, gives an evaluation checklist and scam/subscription-trap red flags, and ties "literacy over tool loyalty" back to the book's overall approach.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 4 chapter list to mark Chapter 13 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-13-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (13)
 
 ### Added
