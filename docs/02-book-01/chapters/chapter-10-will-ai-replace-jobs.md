@@ -6,7 +6,23 @@ If you've read this far hoping for a simple "yes, AI will take your job" or "no,
 
 ## Some Jobs Change, Some Disappear, Many Evolve, New Ones Emerge
 
-Four different things are happening at once, for different roles and different tasks within roles, and none of them cancels out the others. Some jobs change: the core role stays, but the day-to-day tasks shift toward more reviewing and directing AI-assisted output, and less manually producing a first draft from scratch. Some jobs disappear: roles built almost entirely around a single task AI now does well and cheaply are genuinely at risk, and it would be dishonest to pretend otherwise. Many jobs evolve: most roles are a bundle of many different tasks, only some of which AI meaningfully affects, so the role continues, reshaped around whatever remains distinctly human. And new jobs emerge entirely — roles around managing, auditing, and directing AI systems that didn't exist before the technology did.
+Four different things are happening at once, for different roles and different tasks within roles, and none of them cancels out the others.
+
+### Some Jobs Change
+
+The core role stays, but the day-to-day tasks shift toward more reviewing and directing AI-assisted output, and less manually producing a first draft from scratch. A copywriter's job might still be "write copy that sells," but more of their time now goes to editing and directing AI-drafted options than typing every word from a blank page.
+
+### Some Jobs Disappear
+
+Roles built almost entirely around a single task AI now does well and cheaply are genuinely at risk, and it would be dishonest to pretend otherwise. A role whose entire function was, say, basic transcription or simple first-pass translation is far more exposed than a role that bundles many different tasks together.
+
+### Many Jobs Evolve
+
+Most roles are a bundle of many different tasks, only some of which AI meaningfully affects, so the role continues, reshaped around whatever remains distinctly human. A manager's job includes drafting emails and reports, but also handling a difficult conversation with a team member, making a judgement call under uncertainty, and building trust — only the first of those is meaningfully AI-assisted.
+
+### New Jobs Emerge
+
+New roles appear entirely — around managing, auditing, and directing AI systems that didn't exist before the technology did. Someone whose job is checking AI-generated content for accuracy before it's published, for instance, is a role that simply didn't exist a few years ago.
 
 All four are happening simultaneously, across different industries and roles, which is exactly why a single yes/no answer was never going to be honest.
 
@@ -16,7 +32,15 @@ This isn't the first time a new technology has reshaped work, either. Mechanised
 
 ## Augmentation vs. Replacement
 
-Two different things get lumped together in most AI-and-jobs discussions, and separating them clears up a lot of confusion. Augmentation means AI helps a person do their existing job better or faster, with the person still directing the work and making the final calls. Replacement means AI performs the task entirely, without a person needed to do it at all.
+Two different things get lumped together in most AI-and-jobs discussions, and separating them clears up a lot of confusion.
+
+### Augmentation
+
+Augmentation means AI helps a person do their existing job better or faster, with the person still directing the work and making the final calls.
+
+### Replacement
+
+Replacement means AI performs the task entirely, without a person needed to do it at all.
 
 Most of what this book has covered so far — Chapters 6, 7, and 8's home, work, and creative examples — has been augmentation. A well-formed AI request drafts a report faster, but the person still decides what the report should say and checks it before it goes out. Full replacement is real and does happen, particularly for narrow, single-task roles with little judgement involved. But a large share of current AI use, across most professional roles, looks more like augmentation: the human is still there, still deciding, still accountable, just working with a tool that removes friction from the effort-heavy parts — the same distinction Chapter 6 introduced for home tasks and Chapter 7 extended to work.
 
