@@ -142,3 +142,7 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 ```text
 draft: add chapter 03 plan and draft (what AI can actually do)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. "Writing, Summarising, and Brainstorming" and "Images, Code, Translation, and Tutoring" split into H3 subsections per category, each with its own concrete worked example. Added a new "Analysis, Voice, and Automation" section (previously folded into the images/code section) and a "A Quick Example" subsection under the confidence/correctness discussion. Word count grew from ~1,435 to ~1,801. No existing content, placeholders, or takeaways were removed.
