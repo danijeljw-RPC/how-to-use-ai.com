@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (11)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-10-plan.md` and drafted `docs/02-book-01/chapters/chapter-10-will-ai-replace-jobs.md` ("Will AI Replace Jobs?"), per `ADR-02-0001-book-01-structure.md`'s Chapter 10 direction. Gives a balanced answer (change/disappear/evolve/emerge), explains augmentation vs. replacement, honestly acknowledges real historical transition costs rather than promising a painless outcome, and gives the reader a practical effort-vs-judgement self-assessment.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 3 chapter list to mark Chapter 10 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-10-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-10-will-ai-replace-jobs.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (10)
 
 ### Added
