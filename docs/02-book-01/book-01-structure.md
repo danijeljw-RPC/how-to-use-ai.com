@@ -35,7 +35,7 @@ Purpose: transition from theory into practical life usage; show how AI helps ord
 
 5. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
 6. **AI at Home** — draft complete (`docs/02-book-01/chapters/chapter-06-ai-at-home.md`)
-7. AI at Work
+7. **AI at Work** — draft complete (`docs/02-book-01/chapters/chapter-07-ai-at-work.md`)
 8. AI and Creativity
 
 ### Part 3 — Risks, Fear, and Reality
@@ -116,7 +116,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 4 | What AI Cannot Do | Done | Done |
 | 5 | Talking to AI Properly | Done | Done |
 | 6 | AI at Home | Done | Done |
-| 7 | AI at Work | Not started | Not started |
+| 7 | AI at Work | Done | Done |
 | 8 | AI and Creativity | Not started | Not started |
 | 9 | The Problems Nobody Should Ignore | Not started | Not started |
 | 10 | Will AI Replace Jobs? | Not started | Not started |

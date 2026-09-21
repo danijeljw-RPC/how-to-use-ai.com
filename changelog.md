@@ -2,6 +2,27 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (8)
+
+### Added
+
+- Added `docs/02-book-01/plans/chapter-07-plan.md` and drafted `docs/02-book-01/chapters/chapter-07-ai-at-work.md` ("AI at Work"), per `ADR-02-0001-book-01-structure.md`'s Chapter 7 direction. Covers reports, meeting summaries, customer support, presentations, spreadsheets, research, and brainstorming, then addresses confidentiality, company policy, and verification as practical workplace guardrails.
+
+### Changed
+
+- Updated `docs/02-book-01/book-01-structure.md`'s drafting-status table and Part 2 chapter list to mark Chapter 7 as drafted.
+
+### Files changed
+
+- `docs/02-book-01/plans/chapter-07-plan.md` (new)
+- `docs/02-book-01/chapters/chapter-07-ai-at-work.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (7)
 
 ### Added
