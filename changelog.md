@@ -2,6 +2,22 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (20)
+
+### Changed
+
+- Follow-up to entry (19): the depth-expansion pass used Chapter 1 as the depth benchmark for chapters 2–14 but never revisited Chapter 1 itself, so "What AI Actually Is," "Why AI Feels Suddenly New," and "The Problem With AI Hype" stayed flat while every other chapter gained subsections. The author caught this after rebuilding the PDF from the earlier pass and seeing only "AI Is Already Everywhere" nested in the table of contents. Added H3 subsections to all three remaining sections of `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`. Chapter 1 word count grew from ~2,070 to ~2,238. Documented in `docs/02-book-01/plans/chapter-01-plan.md`.
+- Merged the `worktree-chapter-expansion` branch (entries 19 and this one) into `main` so the full expansion — chapters 2–14, the epilogue, and this Chapter 1 follow-up — is included in the next PDF rebuild.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`
+- `docs/02-book-01/plans/chapter-01-plan.md`
+
+### Commit
+
+- `df43400` (chapter 1 subsections), merged to `main` alongside the branch's prior 15 commits.
+
 ## 2026-09-21 (19)
 
 ### Added
