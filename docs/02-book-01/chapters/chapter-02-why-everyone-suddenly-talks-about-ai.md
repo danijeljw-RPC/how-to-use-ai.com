@@ -20,11 +20,23 @@ Previously, if a company wanted to use AI, it usually meant hiring specialists t
 
 > [Diagram placeholder: Mermaid diagram contrasting a traditional software interface (menus, buttons, forms, dropdowns) with a conversational interface (a typed question in, a written answer out).]
 
-A **language model** is the software behind this shift — it has learned, from huge amounts of text, which words are likely to come next in a sentence. Ask it a question, and it predicts a likely, coherent response, one word (technically, one small chunk of a word) at a time. It's the same basic idea as your phone's autocomplete, just far more capable and trained on a vastly larger and more varied range of writing.
+### Filling Out a Form vs. Asking a Question
 
-Chapter 1's examples — recommendations, navigation, spam filters, fraud detection — all have something in common: they choose *between existing options*. A recommendation engine picks a movie from a catalogue that already exists. A spam filter sorts an email into a folder that already exists. None of them invent something new. **Generative AI**, by contrast, is AI that creates new content — text, images, audio, code — rather than only filtering, ranking, or sorting things that already exist. When you ask a chat tool to write an email, summarise a document, or describe an image, it isn't picking the closest existing example from a database. It's predicting, word by word (or pixel by pixel, for images), what a good response would plausibly look like.
+It helps to see the shift side by side. Imagine you want to return a pair of shoes you bought online because they don't fit. The traditional way: log in, find "Orders," find the right order among several, click "Return," select a reason from a dropdown that doesn't quite match your situation, print a label, and wait for a confirmation email. Every step exists because the software needs your intent broken down into fields it already knows how to handle.
 
-This is the real technical difference underneath the "sudden explosion." It's not that AI became smarter overnight. It's that a specific *kind* of AI — one that generates new content on demand, in response to a plain-language request — became widely available at the same moment.
+The conversational way: type "I bought these shoes last week and they don't fit, how do I send them back?" into a chat window, and get a written answer that asks a clarifying question or two and then tells you exactly what to do next — in your own words, not a form's. Nothing about the underlying business process changed. What changed is that you no longer have to translate your problem into the software's categories yourself; the AI does that translation for you, in conversation, before ever routing you to the right outcome.
+
+That small shift — from "find the button that means what I mean" to "just say what you mean" — is a big part of why generative AI felt so immediately usable to people who'd never think of themselves as technical. It removed a translation step most of us had stopped noticing we were doing.
+
+### Plain English: What a Language Model Actually Does
+
+A **language model** is the software behind this shift — it has learned, from huge amounts of text, which words are likely to come next in a sentence. Ask it a question, and it predicts a likely, coherent response, one word (technically, one small chunk of a word) at a time. It's the same basic idea as your phone's autocomplete, just far more capable and trained on a vastly larger and more varied range of writing. Autocomplete guesses one word ahead based on a handful of your recent messages; a language model has effectively read a huge slice of the internet's writing and uses that to guess entire paragraphs ahead, while staying coherent from the first word to the last.
+
+### Generative AI vs. Predictive AI
+
+Chapter 1's examples — recommendations, navigation, spam filters, fraud detection — all have something in common: they choose *between existing options*. A recommendation engine picks a movie from a catalogue that already exists. A spam filter sorts an email into a folder that already exists. None of them invent something new. **Generative AI**, by contrast, is AI that creates new content — text, images, audio, code — rather than only filtering, ranking, or sorting things that already exist. When you ask a chat tool to write an email, summarise a document, generate a picture, or draft a snippet of code, it isn't picking the closest existing example from a database. It's predicting, word by word (or pixel by pixel, for images, or line by line, for code), what a good response would plausibly look like, built fresh for your specific request.
+
+This is the real technical difference underneath the "sudden explosion." It's not that AI became smarter overnight. It's that a specific *kind* of AI — one that generates new content on demand, in response to a plain-language request — became widely available at the same moment. Chapter 3 picks this up properly and walks through what that generating ability is actually good for.
 
 ## Why 2022 Felt Like a Turning Point
 
@@ -36,7 +48,15 @@ That distinction matters for the rest of this book. When something feels brand n
 
 ## Why Businesses Are Both Excited and Anxious
 
-Once a technology becomes something ordinary people can access directly, businesses tend to react in two directions at once. There's excitement, because a tool that can draft, summarise, translate, brainstorm, and explain — instantly, on demand — looks like an enormous efficiency opportunity: tasks that used to take an employee an hour might now take minutes. And there's anxiety, for several overlapping reasons: competitors might adopt it faster and gain an advantage, employees might already be using it (with or without permission) in ways the business can't see or control, nobody wants to be the company left behind even if nobody is quite sure yet what "ahead" looks like, and some roles built around tasks generative AI is now reasonably good at — drafting, summarising, first-pass research — suddenly look less secure.
+Once a technology becomes something ordinary people can access directly, businesses tend to react in two directions at once.
+
+### The Efficiency Case
+
+There's excitement, because a tool that can draft, summarise, translate, brainstorm, and explain — instantly, on demand — looks like an enormous efficiency opportunity: tasks that used to take an employee an hour might now take minutes. A support team can draft a first-pass reply to a routine customer email in seconds instead of ten minutes. A manager can turn scattered meeting notes into a clean summary before the next meeting starts. A small business owner who could never afford a copywriter can get a usable first draft of a product description on demand. None of this requires the business to hire new specialists or buy expensive custom software — it's available through the same kind of text box a customer might use to ask a question.
+
+### The Anxiety Case
+
+And there's anxiety, for several overlapping reasons. Competitors might adopt it faster and gain an advantage, so nobody wants to be the company left behind — even if nobody is quite sure yet what "ahead" looks like. Employees might already be using it, with or without permission, in ways the business can't see or control, which raises real questions about confidentiality (a topic Chapter 7 covers in more depth). And some roles built around tasks generative AI is now reasonably good at — drafting, summarising, first-pass research — suddenly look less secure, which understandably worries the people doing them, even before anyone knows how the work will actually shake out.
 
 This mix of excitement and anxiety explains a lot of the noise around AI in the news, at work, and online. It isn't one unified reaction — it's two very different reactions happening in the same rooms, often among the same people, at the same time. Later chapters, particularly Chapter 7 (AI at Work) and Chapter 10 (Will AI Replace Jobs?), come back to this tension directly. For now, the important thing to notice is *why* the reaction is so loud: it's the same interface shift described above, just playing out at an organisational scale instead of a personal one.
 

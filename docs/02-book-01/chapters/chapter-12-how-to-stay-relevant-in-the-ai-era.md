@@ -4,29 +4,31 @@ Chapter 10 landed on adaptability as the honest, practical response to an uncert
 
 > **Key Idea:** Human capability becomes more important, not less.
 
-## Communication
+## The Six Durable Skills
+
+### Communication
 
 AI can draft a message, but deciding what actually needs to be said — to this specific person, in this specific situation, with this specific relationship and history — is a judgement call. As more first drafts come from AI, the skill of knowing what a message should actually accomplish, and checking that an AI-assisted draft achieves it, becomes more valuable, not less.
 
 Picture two people using the same AI tool to draft the same difficult message to a colleague. One sends it almost unedited. The other reads it with a clear sense of their working relationship with that colleague and adjusts three sentences accordingly. The difference between those two outcomes is entirely human communication judgement — the AI draft was identical.
 
-## Judgement
+### Judgement
 
 This is the throughline skill underneath nearly every example in this book: deciding what to do with AI's output. Chapter 3 explained that AI gives you a "most likely" answer. Judgement is the skill of knowing when that most-likely answer is actually right for your specific situation, and when it isn't. As AI produces more options, more drafts, and more first passes, the bottleneck increasingly shifts to the human step of evaluating them, which means judgement, far from becoming obsolete, becomes the part of the process that matters most.
 
-## Leadership
+### Leadership
 
-Leadership has always meant more than producing outputs — it means setting direction, making calls under uncertainty, and taking responsibility for outcomes. None of that is something AI does. If anything, as AI absorbs more of a team's routine effort-heavy work, the leadership work of deciding priorities, resolving ambiguity, and being accountable for the result becomes a clearer, larger share of what a leader actually does.
+Leadership has always meant more than producing outputs — it means setting direction, making calls under uncertainty, and taking responsibility for outcomes. None of that is something AI does. If anything, as AI absorbs more of a team's routine effort-heavy work, the leadership work of deciding priorities, resolving ambiguity, and being accountable for the result becomes a clearer, larger share of what a leader actually does. A team lead whose reports now arrive as clean AI-assisted drafts still has to decide which project gets prioritised this quarter, and stand behind that call when it doesn't work out.
 
-## Creativity
+### Creativity
 
 Chapter 8 already made this point specifically for creative work: AI changes creative workflows more than it replaces creativity itself. The same point generalises beyond art and writing. Creative problem-solving, in any field, is a judgement-heavy skill — deciding what's actually worth trying, recognising a genuinely good idea among many generated options — that AI's effort-heavy output generation doesn't replace.
 
-## Systems Thinking
+### Systems Thinking
 
-Systems thinking, understanding how different parts of a situation connect and where a change in one place causes effects somewhere else, is exactly the kind of broad, contextual judgement AI, per Chapter 4, doesn't reliably have. AI can help analyse a specific piece of a system, but stepping back to see how the pieces fit together, and to anticipate consequences AI wasn't specifically asked about, stays a human strength.
+Systems thinking, understanding how different parts of a situation connect and where a change in one place causes effects somewhere else, is exactly the kind of broad, contextual judgement AI, per Chapter 4, doesn't reliably have. AI can help analyse a specific piece of a system, but stepping back to see how the pieces fit together, and to anticipate consequences AI wasn't specifically asked about, stays a human strength. A business owner might ask AI to analyse this month's sales figures, but noticing that the dip correlates with a supplier change two months ago is the kind of connection that requires holding the whole picture in mind at once.
 
-## Emotional Intelligence
+### Emotional Intelligence
 
 Chapter 4 was direct about this: AI has no genuine emotions, empathy, or lived experience, only patterns that resemble them. Understanding what a specific person actually needs, reading a room, knowing when to push and when to hold back — this stays squarely human, and becomes more valuable as more of the surrounding routine work is AI-assisted, freeing up time and attention for exactly this kind of interpersonal judgement.
 

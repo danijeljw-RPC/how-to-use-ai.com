@@ -127,3 +127,7 @@ Per ADR-02-0001's Chapter 5 direction: simple before-and-after examples, avoidin
 ```text
 draft: add chapter 05 plan and draft (talking to AI properly)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split the context/specificity/examples paragraphs into H3 subsections, added a full worked before-and-after example (landlord repair email) under "Iteration Improves Results," and promoted the existing side-by-side examples into their own subsection with one more example. Word count grew from ~1,280 to ~1,580. No existing content, placeholders, or takeaways were removed.

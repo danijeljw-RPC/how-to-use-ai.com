@@ -6,7 +6,11 @@ This book has already asked you to be appropriately skeptical once: Chapter 4 ex
 
 ## AGI Panic and Doom Claims
 
+### Doom Claims
+
 You've likely encountered claims that a superintelligent AI is imminent and poses an existential threat to humanity, sometimes from serious researchers raising genuine long-term concerns, sometimes from far less careful sources using the same alarming language for attention. It's worth separating two different things here. Legitimate, ongoing research and policy debate about long-term AI safety is a real, serious field, with genuine disagreement among experts about timelines and risks, and it deserves real attention. Dramatic, attention-grabbing claims of imminent catastrophe with little specific reasoning behind them are a different thing entirely, and deserve the evaluation method later in this chapter instead.
+
+### Utopian Promises
 
 The mirror image of doom claims is AI framed as a near-magical solution to poverty, disease, climate change, or any other large problem, often with a suspiciously short timeline and suspiciously little detail about how it would actually work. Chapter 1 already established the core corrective here: AI is pattern recognition and prediction at scale, not magic. It can meaningfully accelerate research and problem-solving in specific, bounded ways. It cannot, on its own, "solve" a complex societal problem that also involves politics, economics, and human behaviour — no technology has ever worked that way, and there's no clear reason AI would be the first.
 
@@ -14,9 +18,13 @@ The mirror image of doom claims is AI framed as a near-magical solution to pover
 
 Companies raising money or selling a product have a strong incentive to present their AI as more capable, more autonomous, and more finished than it actually is. This shows up as demo videos that don't reflect real-world reliability, product descriptions using confident language about capabilities that are actually inconsistent, and investor pitches describing near-term breakthroughs that are, at best, uncertain. None of this makes every AI company dishonest — it means the incentive to exaggerate exists structurally, on top of whatever any individual company's honesty happens to be, which is exactly why it's worth evaluating claims on their own merits rather than trusting the confidence of the pitch.
 
+### Why Hype Persists
+
 It's worth understanding why hype is so persistent, because that explains why it won't simply go away on its own. Dramatic claims, whether doom or utopia, get more attention than careful, hedged ones. Attention drives clicks, views, and shares. Bold claims about capability help attract investment. And genuine fear, even when only loosely connected to the facts, is one of the most reliably attention-grabbing emotions there is. None of these incentives care whether a claim is accurate — they reward how attention-grabbing it is. That's not a conspiracy; it's just how attention, funding, and fear-driven engagement happen to work, and it applies to AI the same way it's applied to plenty of other topics before it.
 
-Part of getting a handle on this is knowing what you're actually looking at. A demo shows a capability working under carefully controlled, often cherry-picked conditions — useful for showing what's possible, not what's reliable. A product is what actually works reliably, day to day, for ordinary users under normal conditions, often noticeably less polished than the demo. A research claim is a specific, tested result, usually narrower and more hedged than headlines about it suggest. Knowing which of these three you're actually looking at is most of the battle.
+### Demo vs. Product vs. Research Claim
+
+Part of getting a handle on this is knowing what you're actually looking at. A demo shows a capability working under carefully controlled, often cherry-picked conditions — useful for showing what's possible, not what's reliable. A product is what actually works reliably, day to day, for ordinary users under normal conditions, often noticeably less polished than the demo. A research claim is a specific, tested result, usually narrower and more hedged than headlines about it suggest. Knowing which of these three you're actually looking at is most of the battle — a demo of a self-driving car navigating one pre-mapped route on a sunny day is a genuinely different thing from a product that has to handle every road, in every city, in the rain.
 
 ## A Practical Method for Evaluating AI Claims
 

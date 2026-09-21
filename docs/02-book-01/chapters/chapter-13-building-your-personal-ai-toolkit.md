@@ -6,7 +6,31 @@ This chapter deliberately won't recommend specific AI products by name. Not beca
 
 ## The Six Categories
 
-AI tools generally fall into six broad categories. Chat AI covers general-purpose conversational tools — the kind most people picture first, handling the writing, summarising, brainstorming, and explaining tasks from Chapter 3. Image AI generates or edits images from text descriptions, covered in Chapter 8's creative discussion and also useful for practical mockups and visual concepts. Research AI is oriented around finding, synthesising, and citing information, usually with more emphasis on sourcing and accuracy checks than general chat tools. Productivity AI refers to AI features built into everyday work tools — document editors, spreadsheets, email, calendars — automating specific tasks within software you may already use, connecting to Chapter 7's workplace examples. Coding AI is aimed at writing, explaining, or debugging code, relevant to the coding-assistance example from Chapter 3. And voice AI is built around spoken interaction, from voice assistants (Chapter 1's example) to more advanced voice-based AI conversation.
+AI tools generally fall into six broad categories.
+
+### Chat AI
+
+General-purpose conversational tools — the kind most people picture first, handling the writing, summarising, brainstorming, and explaining tasks from Chapter 3. This is usually the first category someone encounters, and often the only one they realise they're using.
+
+### Image AI
+
+Generates or edits images from text descriptions, covered in Chapter 8's creative discussion and also useful for practical mockups and visual concepts, like a quick draft of a flyer or a birthday card design.
+
+### Research AI
+
+Oriented around finding, synthesising, and citing information, usually with more emphasis on sourcing and accuracy checks than general chat tools — useful when the fabricated-citation risk from Chapter 4 matters more than usual, such as pulling together background for a decision that needs to be defensible.
+
+### Productivity AI
+
+AI features built into everyday work tools — document editors, spreadsheets, email, calendars — automating specific tasks within software you may already use, connecting to Chapter 7's workplace examples. Often the easiest category to start with, since it's already sitting inside software you're paying for anyway.
+
+### Coding AI
+
+Aimed at writing, explaining, or debugging code, relevant to the coding-assistance example from Chapter 3 — genuinely useful for anyone who writes code, from hobbyists to professionals.
+
+### Voice AI
+
+Built around spoken interaction, from voice assistants (Chapter 1's example) to more advanced voice-based AI conversation, useful anywhere typing isn't practical.
 
 Most people end up using a small handful of these — often just one or two — rather than all six, and that's normal. The point of knowing the categories isn't to use every one; it's to recognise what kind of tool you actually need for a given task.
 

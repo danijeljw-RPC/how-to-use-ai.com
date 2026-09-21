@@ -122,3 +122,7 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 ```text
 draft: add chapter 07 plan and draft (AI at work)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Drafting Reports and Summarising Meetings," "Customer Support, Presentations, and Spreadsheets," and "Confidentiality and Company Policy" into H3 subsections, each with an added concrete worked example (support thread summary, presentation outline, spreadsheet formula fix, supplier-proposal research). Word count grew from ~1,185 to ~1,379. No existing content, placeholders, or takeaways were removed.

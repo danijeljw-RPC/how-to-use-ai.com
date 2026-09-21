@@ -120,3 +120,7 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 ```text
 draft: add chapter 10 plan and draft (will AI replace jobs?)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Some Jobs Change, Some Disappear, Many Evolve, New Ones Emerge" into four H3 subsections, each with a concrete worked example, and split "Augmentation vs. Replacement" into two. Word count grew from ~1,303 to ~1,440+. No existing content, placeholders, or takeaways were removed.

@@ -118,3 +118,7 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 ```text
 draft: add chapter 08 plan and draft (AI and creativity)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AI Across Creative Domains" into five H3 subsections (Writing, Art, Music, Video, Design), each with a concrete worked example, mirroring Chapter 1's per-example subsection pattern directly. Word count grew from ~1,480 to ~1,603. No existing content, placeholders, or takeaways were removed.

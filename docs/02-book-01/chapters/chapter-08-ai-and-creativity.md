@@ -6,7 +6,25 @@ Everything so far in Part 2 has been fairly practical: does this save time, does
 
 ## AI Across Creative Domains
 
-In writing, AI can draft, suggest alternate phrasing, help overcome writer's block, or act as a brainstorming partner for plot or structure, much like Chapter 3's writing examples now applied to creative rather than practical writing. In art, AI image tools can generate illustrations, concept art, or visual mockups from a text description — useful for quick visual ideas, though distinct from the trained craft of a professional illustrator or photographer. In music, AI tools can generate backing tracks, suggest chord progressions, or produce rough demo compositions from a description of mood or style — a starting point some musicians build on, rather than a finished, releasable piece. In video, AI can assist with editing suggestions, generate short clips or effects from a description, or help storyboard an idea before full production begins. And in design, it can generate layout variations, suggest colour palettes, or mock up an early concept quickly, useful for exploring options before committing real design time to one direction.
+### Writing
+
+AI can draft, suggest alternate phrasing, help overcome writer's block, or act as a brainstorming partner for plot or structure, much like Chapter 3's writing examples now applied to creative rather than practical writing. A novelist stuck on how a scene should end might ask for three different possible directions the scene could take, not to copy one outright, but to jolt their own thinking loose.
+
+### Art
+
+AI image tools can generate illustrations, concept art, or visual mockups from a text description — useful for quick visual ideas, though distinct from the trained craft of a professional illustrator or photographer. A small business owner might generate a handful of rough logo concepts to figure out what direction they even like, before ever briefing a real designer.
+
+### Music
+
+AI tools can generate backing tracks, suggest chord progressions, or produce rough demo compositions from a description of mood or style — a starting point some musicians build on, rather than a finished, releasable piece. A songwriter with a melody but no accompaniment might generate a rough backing track just to hear how an idea sounds with rhythm underneath it.
+
+### Video
+
+AI can assist with editing suggestions, generate short clips or effects from a description, or help storyboard an idea before full production begins — useful for a content creator sketching out how a video might flow before ever picking up a camera.
+
+### Design
+
+AI can generate layout variations, suggest colour palettes, or mock up an early concept quickly, useful for exploring options before committing real design time to one direction — a poster designer might generate six rough colour palette options in the time it would take to test one by hand.
 
 Across every one of these domains, the pattern is the same: AI is good at quickly producing raw material and options. What happens next — selecting, refining, and deciding what actually says something — is still a human creative act.
 

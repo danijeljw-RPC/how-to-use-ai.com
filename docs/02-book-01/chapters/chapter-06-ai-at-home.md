@@ -8,7 +8,11 @@ The examples below aren't a feature list to skim. They're worked examples, each 
 
 ## Meal Planning and Budgeting
 
+### Meal Planning
+
 A well-formed request here might read: "I need a 5-day dinner plan for two adults, budget-conscious, no red meat, minimal cleanup on weeknights. Include a combined shopping list." Instead of staring at the fridge each evening trying to think of something to cook, that single request hands you a starting plan you can adjust — swap out a meal you don't like, keep the rest, and you've turned a recurring daily decision into a five-minute weekly one.
+
+### Budgeting
 
 The same approach works for budgeting. Try something like: "Here's my monthly spending by category [list it]. Suggest three realistic areas where I could cut back without giving up things that matter to me, like eating out with friends." Notice that the request includes both the data and the constraint — it's not just "help me save money," it's "help me save money without touching the two things I actually care about." That specificity is what turns a vague, slightly stressful task into something concrete you can act on.
 
@@ -22,13 +26,23 @@ Chapter 5 already covered this pattern for a work email, and at home the same ap
 
 ## Parenting Support and Learning Hobbies
 
-For parenting, AI can help explain a tricky topic in age-appropriate language, suggest activities for a rainy afternoon, or draft a note to a teacher — always as a starting point a parent reviews and adjusts, not a replacement for their own judgement about their own child. For hobbies, it's a patient, always-available explainer and practice partner: talking through a knitting technique you're stuck on, suggesting a beginner guitar practice routine, or walking through the basics of a new board game's rules before your friends arrive.
+### Parenting Support
+
+AI can help explain a tricky topic in age-appropriate language, suggest activities for a rainy afternoon, or draft a note to a teacher — always as a starting point a parent reviews and adjusts, not a replacement for their own judgement about their own child. A well-formed request might be: "Explain why the sky is blue to a curious seven-year-old, in two or three simple sentences, without oversimplifying to the point of being wrong." That gives a parent a solid starting explanation on the spot, rather than a half-remembered version of a physics class from years ago.
+
+### Learning Hobbies
+
+For hobbies, AI is a patient, always-available explainer and practice partner: talking through a knitting technique you're stuck on, suggesting a beginner guitar practice routine built around fifteen minutes a day, or walking through the basics of a new board game's rules before your friends arrive so you're not fumbling through a rulebook at the table. It won't replace a real teacher or years of practice, but it removes the specific friction of "I have one small question and don't want to book a lesson to ask it."
 
 ## Organising Life and Getting Help When You Need It
 
+### Organising Life
+
 AI is genuinely useful for the small organisational tasks that don't require deep expertise, just time and structure: drafting a packing list for a specific type of trip, turning a messy list of errands into a logical order, or summarising a long group chat thread about weekend plans into "here's what was actually decided." A parent might turn "we need groceries, plan the week, pack for a weekend trip, and I have no idea what to cook Thursday" into a single organised checklist, grouped by task and put in a sensible order, instead of holding all of it as one stressful mental list.
 
-For readers who benefit from it, AI can lower everyday barriers in ways that matter more than convenience: reading a dense form or letter aloud and explaining it in plain language, rephrasing complex text more simply, or helping draft a message for someone who finds writing difficult because of a disability, a language barrier, or simply a stressful moment. This is one of the clearest cases where AI's ability to explain and rewrite, covered back in Chapter 3, turns directly into a real improvement in someone's daily life rather than just a nice-to-have.
+### Accessibility Support
+
+For readers who benefit from it, AI can lower everyday barriers in ways that matter more than convenience: reading a dense form or letter aloud and explaining it in plain language, rephrasing complex text more simply, or helping draft a message for someone who finds writing difficult because of a disability, a language barrier, or simply a stressful moment. Someone navigating a confusing insurance letter, for instance, can paste it in and ask "what is this actually asking me to do, in plain language?" and get a direct answer instead of re-reading dense paragraphs of legal wording. This is one of the clearest cases where AI's ability to explain and rewrite, covered back in Chapter 3, turns directly into a real improvement in someone's daily life rather than just a nice-to-have.
 
 > **Try This:** Pick one real task you're dealing with this week — a meal plan, a trip, an awkward email, a cluttered to-do list — and try it with AI using Chapter 5's pattern: give context, be specific, and treat the first result as a draft to adjust.
 

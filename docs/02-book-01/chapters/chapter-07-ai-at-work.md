@@ -8,23 +8,43 @@ Everything from Chapter 5 and Chapter 6 still applies here: give AI good context
 
 ## Drafting Reports and Summarising Meetings
 
+### Drafting Reports
+
 A well-formed request for a report might look like: "Draft a one-page internal summary of this quarter's project status for a non-technical stakeholder audience. Structure it as: what shipped, what's delayed and why, and next steps. Here's my rough notes: [paste notes]." This is one of the clearest workplace wins available — turning scattered notes into a structured first draft in roughly the time it takes to describe what you need.
+
+### Summarising Meetings
 
 Meeting notes work the same way. "Here are my raw meeting notes [paste notes]. Summarise into: key decisions made, open questions, and action items with owners if mentioned" turns exactly the kind of unstructured, pattern-rich text AI handles well into something usable. It's the same "condense a long document" skill from Chapter 3, applied to a recurring workplace chore that would otherwise eat twenty minutes after every meeting. A project manager who tries this once, pasting a messy set of notes and getting back a clean list of decisions, open questions, and owners in under a minute, tends not to go back to writing them up by hand.
 
 ## Customer Support, Presentations, and Spreadsheets
 
-AI can draft first-pass responses to common customer questions, summarise a long support thread into "here's what the customer actually needs," or help a support team keep a consistent, on-brand tone across replies — always with a human reviewing before anything sensitive or unusual goes out. For presentations, it can turn a rough outline into structured slide content or suggest a clearer way to sequence an argument. For spreadsheets, it can explain a formula, suggest how to structure a new tracking sheet, or help interpret what a block of data seems to be showing — genuinely useful, while the final numbers still get the same human check any spreadsheet already needs.
+### Customer Support
+
+AI can draft first-pass responses to common customer questions, summarise a long support thread into "here's what the customer actually needs," or help a support team keep a consistent, on-brand tone across replies — always with a human reviewing before anything sensitive or unusual goes out. A support agent facing a long, frustrated email thread can ask "summarise what this customer actually wants, in one sentence, plus the three key facts from this thread" and get a usable starting point instead of re-reading the whole exchange from scratch.
+
+### Presentations
+
+For presentations, AI can turn a rough outline into structured slide content or suggest a clearer way to sequence an argument — for example, turning five loose bullet points about a project update into a suggested slide-by-slide structure, with a one-line takeaway for each slide, that you then adjust to your own voice.
+
+### Spreadsheets
+
+For spreadsheets, AI can explain a formula, suggest how to structure a new tracking sheet, or help interpret what a block of data seems to be showing — genuinely useful, while the final numbers still get the same human check any spreadsheet already needs. Pasting in a formula that isn't working and asking "why does this return an error, and how do I fix it" is often faster than searching for the exact same question online.
 
 ## Research and Brainstorming
 
-AI is well suited to a first pass on research: summarising background on a topic, generating an initial list of considerations for a decision, or brainstorming angles for a proposal. This is the same brainstorming and analysis strength from Chapter 3, now aimed at work problems. As always, anything used to inform a real decision should be checked against a reliable source before it's treated as the final word, not because AI is unusually unreliable here, but because "first pass" and "final answer" are different things.
+AI is well suited to a first pass on research: summarising background on a topic, generating an initial list of considerations for a decision, or brainstorming angles for a proposal. A common workplace version: "I'm preparing a proposal for switching from one supplier to another. List the main factors a decision-maker would want addressed — cost, risk, transition time, contract terms — and one question I should ask about each." This is the same brainstorming and analysis strength from Chapter 3, now aimed at work problems: it won't do the research for you, but it turns "where do I even start" into a checklist you can work through. As always, anything used to inform a real decision should be checked against a reliable source before it's treated as the final word, not because AI is unusually unreliable here, but because "first pass" and "final answer" are different things.
 
 ## Confidentiality and Company Policy
 
-Before pasting anything into an AI tool at work, it's worth pausing on two practical questions. The first is confidentiality: would you be comfortable with this information — a client's details, an unreleased product plan, an employee's personal data — being stored somewhere outside your organisation's control? Many AI tools process what you type in ways that aren't the same as a private, internal document. If you wouldn't paste it into a public forum, don't paste it into an AI tool without knowing exactly how that tool handles your data.
+Before pasting anything into an AI tool at work, it's worth pausing on two practical questions.
 
-The second is company policy. Many workplaces already have specific rules about which AI tools are approved for use, and for what kinds of information. Checking is a five-minute question to your manager or IT team, not a big undertaking, and it avoids a genuinely avoidable mistake.
+### Confidentiality
+
+Would you be comfortable with this information — a client's details, an unreleased product plan, an employee's personal data — being stored somewhere outside your organisation's control? Many AI tools process what you type in ways that aren't the same as a private, internal document. If you wouldn't paste it into a public forum, don't paste it into an AI tool without knowing exactly how that tool handles your data.
+
+### Company Policy
+
+Many workplaces already have specific rules about which AI tools are approved for use, and for what kinds of information. Checking is a five-minute question to your manager or IT team, not a big undertaking, and it avoids a genuinely avoidable mistake — the kind that's far more awkward to explain after the fact than to prevent up front.
 
 > **Watch Out:** Confidentiality and company policy aren't obstacles to using AI at work — they're the same kind of common-sense check you'd already apply to emailing a sensitive document to the wrong address, or using an unapproved app for company data. A quick check up front avoids a real problem later.
 

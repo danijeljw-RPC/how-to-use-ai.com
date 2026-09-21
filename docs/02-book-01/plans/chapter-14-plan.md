@@ -118,3 +118,7 @@ None required by ADR-02-0001 for this chapter; none added.
 ```text
 draft: add chapter 14 plan and draft (where AI goes next)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Education, Healthcare, and Transport" into three H3 subsections, and added a mental-model comparison paragraph to the "Agents" section. Word count grew from ~1,158 to ~1,270. No existing content, placeholders, or takeaways were removed.

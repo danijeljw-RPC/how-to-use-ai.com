@@ -65,7 +65,11 @@ Online stores lean on AI heavily because recommendations directly affect what yo
 
 ## What AI Actually Is
 
-At its simplest, AI is software designed to identify patterns and make predictions using data. That definition alone removes a lot of the mystery: AI systems don't need consciousness, emotion, self-awareness, or independent thought to be useful, or even commercially transformative. Most of the AI you actually encounter is a specialised tool, trained to do one narrow task extremely well.
+At its simplest, AI is software designed to identify patterns and make predictions using data. That definition alone removes a lot of the mystery: AI systems don't need consciousness, emotion, self-awareness, or independent thought to be useful, or even commercially transformative.
+
+### A Specialised Tool, Not a General Mind
+
+Most of the AI you actually encounter is a specialised tool, trained to do one narrow task extremely well, rather than a single all-purpose intelligence. The spam filter that protects your inbox has no idea how to suggest a route home, and the navigation app rerouting you around traffic has no idea what's in your inbox at all. Each one is narrow on purpose — a specialist, not a generalist.
 
 | Task | AI Purpose |
 | --- | --- |
@@ -75,21 +79,37 @@ At its simplest, AI is software designed to identify patterns and make predictio
 | Fraud detection | Predict suspicious behaviour |
 | Voice assistants | Predict user intent |
 
-Pattern recognition — the process of spotting recurring structures, behaviours, or relationships in data — is something humans already do naturally. AI systems do the same thing mathematically, at a scale no person could manage, which is exactly why this technology has quietly worked its way into so much of modern life without ever needing to look like science fiction.
+### Pattern Recognition, at Scale
+
+Pattern recognition — the process of spotting recurring structures, behaviours, or relationships in data — is something humans already do naturally. You recognise a friend's handwriting, notice a favourite café is busier on Fridays, or sense when a conversation is about to turn awkward, all through the same basic skill: spotting a pattern you've seen before. AI systems do the same thing mathematically, at a scale no person could manage — comparing millions of data points instead of a lifetime of personal experience — which is exactly why this technology has quietly worked its way into so much of modern life without ever needing to look like science fiction.
 
 ## Why AI Feels Suddenly New
 
-AI didn't appear overnight. What changed was accessibility. For years, most AI systems operated silently inside large platforms and enterprises, doing their pattern-matching work behind the scenes with no interface a regular person would ever see. Modern generative AI tools changed that, because for the first time, people could interact with AI directly through conversation — asking questions, generating images, writing documents, summarising information, brainstorming ideas — instead of only benefiting from predictions made invisibly on their behalf.
+AI didn't appear overnight. What changed was accessibility.
 
-That's what made AI visible to a huge number of consumers all at once. But the underlying concept barely changed: it's still pattern recognition, prediction, and probability. What's new is the interface, not the idea underneath it.
+### Quiet for Years
+
+For years, most AI systems operated silently inside large platforms and enterprises, doing their pattern-matching work behind the scenes with no interface a regular person would ever see. A bank's fraud system, an airline's pricing engine, a logistics company's delivery-route planner — all running AI, all invisible to the public, all without ever needing to explain themselves to an ordinary customer.
+
+### Visible Almost Overnight
+
+Modern generative AI tools changed that, because for the first time, people could interact with AI directly through conversation — asking questions, generating images, writing documents, summarising information, brainstorming ideas — instead of only benefiting from predictions made invisibly on their behalf. That's what made AI visible to a huge number of consumers all at once. But the underlying concept barely changed: it's still pattern recognition, prediction, and probability. What's new is the interface, not the idea underneath it.
 
 > [Author reflection placeholder: Add a short personal example or story here — for example, the first time you noticed AI recommendations becoming "too accurate," an experience with navigation apps changing routes dynamically, an interaction with spam filtering or fraud alerts, or a professional example of AI operating quietly inside enterprise systems long before public hype.]
 
 ## The Problem With AI Hype
 
-Part of what makes AI discussions confusing is that people naturally exaggerate new technology. It's easy to slip into describing AI as though it understands everything, thinks independently, replaces human judgment entirely, operates like a digital brain, or has some kind of intent or awareness. Most current AI systems do none of that. They're advanced prediction systems trained on enormous amounts of data — some of them incredibly powerful, some genuinely transformative for the businesses and people using them, but all still fundamentally pattern-based.
+Part of what makes AI discussions confusing is that people naturally exaggerate new technology.
+
+### Common Exaggerations
+
+It's easy to slip into describing AI as though it understands everything, thinks independently, replaces human judgment entirely, operates like a digital brain, or has some kind of intent or awareness. Most current AI systems do none of that. They're advanced prediction systems trained on enormous amounts of data — some of them incredibly powerful, some genuinely transformative for the businesses and people using them, but all still fundamentally pattern-based.
+
+### Why the Distinction Matters
 
 That distinction matters more than it might seem, because understanding what AI actually is makes it far easier to evaluate claims realistically, avoid fear-based narratives, understand where the real limitations sit, use AI effectively, and recognise where human judgment still needs to be in the loop.
+
+### Where the Confusion Comes From
 
 Part of the confusion comes from language. It's convenient to say an AI system "thinks," "understands," "learns," or "knows" something — but those are human words borrowed for a process that's really mathematical pattern matching. They're useful shorthand, but taken literally, they set up expectations the technology can't actually meet.
 

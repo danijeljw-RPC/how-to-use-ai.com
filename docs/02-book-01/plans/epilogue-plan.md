@@ -110,3 +110,7 @@ Per ADR-02-0001, the Epilogue is intentionally short and reflective; heavy callo
 ```text
 draft: add epilogue plan and draft (don't panic)
 ```
+
+## Depth Expansion (2026-09-21)
+
+Given a lighter expansion pass per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`'s epilogue note (no forced subsections, since the epilogue is intentionally short and reflective). Added a short closing-frame paragraph to "What This Book Was Actually About" and three concrete "you can now do this" examples to "You Do Need to Become AI Literate." Word count grew from ~794 to ~936. No existing content, placeholders, or takeaways were removed.
