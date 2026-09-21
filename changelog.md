@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-21 (18)
+
+### Added
+
+- Added `ADR-04-0002-book-01-structure-and-callout-standard.md`, a durable structural style decision: exactly one H1 per chapter file, no `---` dividers, and a consolidated four-type callout set (Key Idea, Try This, Watch Out, Recap), replacing the previous nine-type callout list. Written in response to author review feedback that chapter navigation was broken (every mid-chapter section was an H1, making sections look like sibling chapters), `---` dividers were overused, and callouts had sprawled past the point of being useful highlights.
+- Added `docs/02-book-01/plans/book-01-style-revision-plan.md`, the required plan for a >3-file change, covering the retroactive application of the new standard across all of Book 1.
+
+### Changed
+
+- Updated `docs/04-style/style-guide.md` and `docs/04-style/callout-guide.md` to codify the new structural standard (heading hierarchy, no dividers, four-type callout set, prose-over-scaffolding guidance) so it applies to the rest of the series by default, not just this revision.
+- Revised all 14 Book 1 chapters and the epilogue (`docs/02-book-01/chapters/*.md`) against `ADR-04-0002`: fixed heading hierarchy so every chapter has exactly one H1 with sections correctly nested under H2/H3; removed every `---` divider; moved "Chapter Purpose"/"Intended Reader Outcome" scaffolding out of the reader-facing manuscript (that content already lives in each chapter's plan file); consolidated all callouts to Key Idea/Try This/Watch Out/Recap, folding retired callout types (Plain English, Author Note, Reflection, Example) into surrounding prose rather than deleting them; rewrote bullet-heavy sections into connected paragraphs with bridging sentences between sections; and fleshed out thin sections with additional examples and plainer restatements. No factual content, cross-chapter references, or diagram/reflection placeholders were removed — manuscript word count grew from the pre-revision draft to roughly 20,200 words. Verified by rebuilding `dist/02-book-01.pdf` via `publish-books.sh` and confirming the table of contents now nests chapter sections correctly instead of listing them as sibling chapters.
+
+### Files changed
+
+- `docs/04-style/decisions/ADR-04-0002-book-01-structure-and-callout-standard.md` (new)
+- `docs/02-book-01/plans/book-01-style-revision-plan.md` (new)
+- `docs/04-style/style-guide.md`
+- `docs/04-style/callout-guide.md`
+- `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`
+- `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`
+- `docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`
+- `docs/02-book-01/chapters/chapter-06-ai-at-home.md`
+- `docs/02-book-01/chapters/chapter-07-ai-at-work.md`
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`
+- `docs/02-book-01/chapters/chapter-10-will-ai-replace-jobs.md`
+- `docs/02-book-01/chapters/chapter-11-ai-hype-vs-reality.md`
+- `docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`
+- `docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`
+- `docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md`
+- `docs/02-book-01/chapters/epilogue-dont-panic.md`
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (17)
 
 ### Added

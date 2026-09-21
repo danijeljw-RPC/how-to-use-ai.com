@@ -1,5 +1,15 @@
 # Style Guide
 
+## Document Structure
+
+See [[ADR-04-0002-book-01-structure-and-callout-standard]] for the full decision. In summary:
+
+- One H1 (`#`) per chapter file — the chapter title. Every other heading is H2 (`##`) or, for a subsection within a section, H3 (`###`). Never drop back to H1 mid-chapter.
+- No `---` horizontal rules inside a chapter. Headings and paragraph spacing separate sections; a `---` around a placeholder, table, or callout should be replaced with a sentence of surrounding prose instead.
+- "Chapter Purpose" and "Intended Reader Outcome" belong in the chapter's plan file under `docs/02-book-01/plans/`, not in the reader-facing manuscript. The chapter itself opens directly with the hook.
+- Write in connected paragraphs, not a sequence of scaffolded blocks (bullet list, callout, table, placeholder, divider, repeat). Bullet lists are for genuinely list-like content, not the default way to present an idea. Bridge each section into the next with a sentence or two rather than restarting cold under a new heading.
+- If a section reads thin, flesh it out: a second example, a plainer restatement, an in-line answer to the question a beginner would ask next.
+
 ## Audience
 
 Write for readers who may have never used AI before.
