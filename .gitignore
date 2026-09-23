@@ -2,3 +2,5 @@ dist/
 
 *.swp
 .claude/worktrees/
+
+.DS_Store
