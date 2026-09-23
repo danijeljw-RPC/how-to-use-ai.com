@@ -65,6 +65,18 @@ Be clear when:
 - a task is safe for AI assistance
 - a task needs expert review
 
+## Evidence and Citations
+
+Use unobtrusive Markdown footnotes as chapter endnotes when a factual claim depends materially on external research, statistics, a named study, or a contested interpretation. Keep publication details out of the main prose unless naming the source helps the explanation.
+
+Do not add citations to ordinary examples or authorial opinions merely to make a chapter appear researched. Qualify study findings to the population, task, and setting actually studied. Prefer primary, peer-reviewed, standards, government, and authoritative institutional sources.
+
+Evidence-heavy chapters should have a dedicated bibliography or research note that records source type, the claim supported, and important cautions. A later publishing pass may consolidate chapter notes into end-of-book source notes.
+
+When ChatGPT or Codex materially assists research or drafting, a short chapter note may acknowledge that assistance. The prose remains written from the author's viewpoint, and AI assistance must never be used to invent personal experience.
+
+See `docs/04-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md`.
+
 ## Humour
 
 A little humour is acceptable when it helps the reader relax.
