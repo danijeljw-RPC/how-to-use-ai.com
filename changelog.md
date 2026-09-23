@@ -2,6 +2,36 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (30)
+
+### Changed
+
+- Rewrote and expanded Chapter 3, “What AI Can Actually Do,” from approximately 1,801 to approximately 4,700 words using the supplied research pack and checked source material. The chapter now organises capability around four verbs—generate, transform, interpret, and act—develops every planned capability with beginner-friendly examples, explains the jagged technological frontier, corrects the earlier “most likely complete answer” simplification, and presents human direction and verification as part of a useful AI workflow.
+- Added unobtrusive Markdown endnotes for research-dependent claims and a dedicated Chapter 3 bibliography that records the sources actually used, their claim mapping, source type, and cautions.
+- Accepted ADR-04-0003, establishing the book's evidence-citation and AI-assisted drafting acknowledgement style. The chapter records that it was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex; no personal experience was invented.
+- Updated the Chapter 3 plan to reflect the full research-backed draft.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`
+- `docs/02-book-01/plans/chapter-03-plan.md`
+- `docs/02-book-01/research/chapter-03-bibliography.md` (new)
+- `docs/04-style/style-guide.md`
+- `docs/04-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- `ADR-04-0003` — accepted unobtrusive Markdown endnotes for research-dependent claims, dedicated research records for evidence-heavy chapters, and brief acknowledgement when ChatGPT or Codex materially assists research and drafting.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (29)
 
 ### Changed

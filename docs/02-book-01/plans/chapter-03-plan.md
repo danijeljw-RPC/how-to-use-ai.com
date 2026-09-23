@@ -91,11 +91,11 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 ## Callouts to Include
 
 - Key Idea: AI is useful because it compresses effort and accelerates thinking.
-- Plain English: why AI output is probabilistic (a "most likely" answer)
 - Try This: a low-stakes task to try AI on (e.g. asking it to summarise something you already understand, then checking the summary against what you know)
 - Watch Out: confident phrasing isn't the same as correctness — full development of the seed planted in Chapter 2
-- Myth vs Reality: "AI either can't help or can do anything" vs. "AI is genuinely useful for a specific, learnable set of tasks"
 - Recap: chapter recap
+
+The probabilistic-generation explanation belongs in connected prose. Myth-versus-reality framing belongs inside the Watch Out callout, in line with ADR-04-0002.
 
 ## Personal Reflection Placeholders
 
@@ -103,13 +103,16 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Research References
 
-- `legacy-data/book1_ai_literacy_context_reference.md` (Chapter 3 outline and core takeaway — already reconciled into ADR-02-0001)
-- No new external research required; content is conceptual/practical, not statistical
+- `docs/80-research/how-to-use-ai-ch03-research/` (supplied Chapter 3 research pack)
+- `docs/02-book-01/research/chapter-03-bibliography.md` (sources actually used in the manuscript, with claim mapping and cautions)
+- Chapter endnotes cite the research-dependent claims directly under ADR-04-0003.
 
 ## Linked ADRs
 
 - `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
 - `docs/04-style/decisions/ADR-04-0001-book-01-style-baseline.md`
+- `docs/04-style/decisions/ADR-04-0002-book-01-structure-and-callout-standard.md`
+- `docs/04-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md`
 
 ## Linked OIs
 
@@ -132,9 +135,11 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md` (new)
+- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`
 - `docs/02-book-01/plans/chapter-03-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/02-book-01/research/chapter-03-bibliography.md`
+- `docs/04-style/style-guide.md`
+- `docs/04-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md`
 - `changelog.md`
 
 ## Proposed Commit Message
@@ -146,3 +151,9 @@ draft: add chapter 03 plan and draft (what AI can actually do)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. "Writing, Summarising, and Brainstorming" and "Images, Code, Translation, and Tutoring" split into H3 subsections per category, each with its own concrete worked example. Added a new "Analysis, Voice, and Automation" section (previously folded into the images/code section) and a "A Quick Example" subsection under the confidence/correctness discussion. Word count grew from ~1,435 to ~1,801. No existing content, placeholders, or takeaways were removed.
+
+## Research-Led Full Draft (2026-09-23)
+
+Rewrote and expanded the chapter from approximately 1,801 to approximately 4,700 words using the supplied Chapter 3 research pack and verified primary or authoritative sources. The chapter now uses `generate`, `transform`, `interpret`, and `act` as its durable capability model; develops all ten required capability examples; explains the jagged frontier; corrects the earlier complete-"most likely answer" simplification with a token-by-token explanation; and presents direction, inspection, selection, verification, and refinement as the human role.
+
+The pass removed the retired standalone myth/reality table, retained the author-reflection and verification-loop diagram placeholders, and added unobtrusive chapter endnotes plus a dedicated bibliography. It also acknowledges that the chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex, without inventing personal experience.
