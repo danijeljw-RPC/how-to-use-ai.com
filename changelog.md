@@ -2,6 +2,32 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (27)
+
+### Changed
+
+- Performed an editorial expansion pass on Chapter 2 on branch `book01/chap02`, per direct author instruction. Removed the chapter's standalone "Myth vs Reality" table (folded its strongest pair into the existing `Watch Out` callout as prose; the remaining pairs were already covered elsewhere in the chapter's prose) — the same style-guide violation OI-0003 flagged for Chapter 1, which OI-0003's own chapter 2–9 survey had missed. Added a new H3 subsection, "Why This Wave Feels Different From Earlier Tech Shifts," closing an ADR-02-0001 topic gap ("why this feels different from previous technology waves") that the existing draft never addressed. Added a `Try This` callout (previously absent from this chapter). Word count grew from ~2,121 to ~2,399. No existing content, placeholder, or takeaway removed.
+- Corrected OI-0003's inaccurate "chapters 2–9 checked, none affected" note now that Chapter 2's instance has been found and fixed; OI-0003's scope remains Chapter 1-specific.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/open-issues/OI-0003.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None opened or closed. `OI-0003` corrected in place (see above); it remains open, scoped to Chapter 1.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (26)
 
 ### Changed

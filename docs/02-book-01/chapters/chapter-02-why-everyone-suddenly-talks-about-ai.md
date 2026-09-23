@@ -28,6 +28,8 @@ The conversational way: type "I bought these shoes last week and they don't fit,
 
 That small shift — from "find the button that means what I mean" to "just say what you mean" — is a big part of why generative AI felt so immediately usable to people who'd never think of themselves as technical. It removed a translation step most of us had stopped noticing we were doing.
 
+> **Try This:** Next time you have a routine question — how to change a booking, what a bill's line item means, how to phrase an awkward email — try asking a conversational AI tool in plain English before you go looking for the right menu, form, or search result. Notice how much of the "work" was just figuring out where to put your question.
+
 ### Plain English: What a Language Model Actually Does
 
 A **language model** is the software behind this shift — it has learned, from huge amounts of text, which words are likely to come next in a sentence. Ask it a question, and it predicts a likely, coherent response, one word (technically, one small chunk of a word) at a time. It's the same basic idea as your phone's autocomplete, just far more capable and trained on a vastly larger and more varied range of writing. Autocomplete guesses one word ahead based on a handful of your recent messages; a language model has effectively read a huge slice of the internet's writing and uses that to guess entire paragraphs ahead, while staying coherent from the first word to the last.
@@ -44,7 +46,13 @@ Late 2022 is widely treated as the moment AI went from "a thing that exists" to 
 
 That distinction matters for the rest of this book. When something feels brand new, it's worth asking: is the underlying idea actually new, or did the *access* to it just change? Very often, with AI, it's the second one.
 
-> **Watch Out:** Because generative AI responds in fluent, confident-sounding language, it's easy to assume the process behind it is fundamentally different — more "intelligent," more trustworthy — than the quieter AI systems from Chapter 1. It isn't; it's still pattern prediction. Confident phrasing is not the same thing as being correct, and this book will come back to that distinction more than once.
+### Why This Wave Feels Different From Earlier Tech Shifts
+
+It's a fair question to ask why this particular shift felt bigger than, say, the arrival of smartphones or the early internet — both of which were also framed as "everything changes now" moments in their time. The honest answer is that most earlier technology shifts changed how fast you could reach something that already existed. The internet let you read a newspaper article, send a message, or look up a fact in seconds instead of days. Smartphones put that same access in your pocket instead of on a desk. Search engines let you find an existing web page faster than flipping through a library catalogue. In every case, a human still had to do the actual work of writing the article, composing the message, or producing the answer — the technology just moved it to you quicker.
+
+Generative AI does something those earlier shifts didn't: it produces the thing itself, on request, in the moment you ask. Nobody had already written the email draft, the bill explanation, or the meal plan sitting somewhere online waiting to be fetched faster. The AI assembles a fresh, specific response to your specific request, out of patterns it learned rather than a page it looked up. That's a genuinely different kind of capability, not just a faster version of an old one — which is a reasonable part of why the reaction to it, both excited and uneasy, has felt more intense than "the internet got faster" ever did.
+
+> **Watch Out:** Because generative AI responds in fluent, confident-sounding language, it's easy to assume the process behind it is fundamentally different — more "intelligent," more trustworthy — than the quieter AI systems from Chapter 1. It isn't; it's still pattern prediction, not sudden intelligence. The tool didn't get smarter overnight in 2022 — it got newly accessible and conversational, and confident phrasing is not the same thing as being correct. This book will come back to that distinction more than once.
 
 ## Why Businesses Are Both Excited and Anxious
 
@@ -62,14 +70,7 @@ This mix of excitement and anxiety explains a lot of the noise around AI in the 
 
 > [Author reflection placeholder: Add a short personal example or story here — for example, your own first experience with a conversational AI tool feeling different from earlier, quieter enterprise AI systems you'd worked with, or a moment when a colleague or client's excitement/anxiety about AI first became obvious to you.]
 
-A few myths worth retiring before moving on:
-
-| Myth | Reality |
-| --- | --- |
-| AI suddenly became intelligent in 2022. | AI became newly accessible and conversational in 2022 — the underlying pattern-prediction idea didn't change. |
-| Generative AI is a completely different technology from the AI in Chapter 1. | Generative AI still relies on pattern recognition and prediction; it applies that idea to producing new content instead of filtering existing content. |
-| Businesses are only excited about AI, or only afraid of it. | Most businesses are reacting to the same shift with both excitement and anxiety at once. |
-| A "language model" is a mysterious black box unrelated to anything explained so far. | A language model works on the same basic principle as a spam filter or autocomplete — predicting a likely next step from learned patterns — just applied to generating full responses. |
+None of that excitement or anxiety requires a mysterious black box. A language model works on the same basic principle as a spam filter or autocomplete — predicting a likely next step from learned patterns — just applied to generating full responses instead of a single flag or suggestion. And it applies to one technology, not two competing ones: generative AI is not a different kind of AI from the recommendation engines and fraud detectors in Chapter 1, it's the same pattern-prediction idea pointed at producing new content instead of only filtering or ranking existing content.
 
 ## Core Takeaway
 

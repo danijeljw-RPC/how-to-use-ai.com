@@ -74,6 +74,53 @@ By the end of this chapter, the reader should be able to:
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md` to add H3 subsections matching Chapter 1's depth pattern: a concrete "form vs. conversation" worked example, and splitting the business-reaction section into "The Efficiency Case" and "The Anxiety Case" with concrete examples of each. Word count grew from ~1,658 to ~2,121, in line with the plan's Chapter 1 parity target. No existing content, placeholders, or takeaways were removed.
 
+## Second Expansion Pass — Editorial Readiness (2026-09-23)
+
+### Purpose
+
+User directive on branch `book01/chap02`: "go through all of chapter two and expand it out so it's suitable for use." Two things needed fixing beyond a straight length increase:
+
+1. **Style-guide violation.** The chapter still carried a standalone Markdown "Myth vs Reality" table. `docs/04-style/callout-guide.md` (accepted via `ADR-04-0002`) retired that as a separate type — its content belongs as prose inside a `Watch Out` callout, not a table. This is the same defect `OI-0003` flagged for Chapter 1, except OI-0003's own survey ("Chapters 2–9 were checked and none of them carry a standalone myth/reality table") was inaccurate for this chapter — corrected via a note on that OI rather than reopening its Chapter-1-specific scope.
+2. **Missing ADR-02-0001 topic.** The chapter's topic list includes "why this feels different from previous technology waves," which the existing draft never actually addressed.
+
+### Files Expected to Change
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md` (this file)
+- `docs/02-book-01/open-issues/OI-0003.md` (factual correction note only — scope stays Chapter 1)
+- `changelog.md`
+
+### Dependencies
+
+- ADRs: `ADR-02-0001-book-01-structure` (topic list), `ADR-04-0002-book-01-structure-and-callout-standard` (callout/heading rules)
+- OIs: `OI-0003` (correction note)
+
+### Changes Made
+
+- Removed the standalone Myth vs Reality table. Its strongest pair (AI didn't get smarter in 2022, it got more accessible) folded into the existing `Watch Out` callout as prose. The remaining pairs were already covered by surrounding prose elsewhere in the chapter (the "still pattern recognition" framing in the language-model/generative-AI sections; the "excited and anxious at once" framing in the business-reaction section), so nothing was lost — no duplicate prose was reintroduced.
+- Added a new H3 subsection, "Why This Wave Feels Different From Earlier Tech Shifts," under "Why 2022 Felt Like a Turning Point," closing the ADR-02-0001 topic gap.
+- Added a `Try This` callout (the chapter previously had none) — a concrete side-by-side action tied to the form-vs-conversation section, reinforcing the interface-shift core takeaway. Total callouts: Key Idea, Try This, Watch Out, Recap — 4, at the depth-expansion plan's cap, not over it.
+- No content, placeholder, or takeaway removed; existing reflection and diagram placeholders retained as-is.
+
+### Risks
+
+- Same risks as the original depth-expansion pass (jargon-in-definitions, ChatGPT-as-single-origin-story, unverifiable stats) — this pass reuses the same conceptual, non-statistical register, so none of these are newly introduced.
+- Scope risk: this is a chapter-level editorial pass, not the full-book Phase 1 length target (4,000–5,000 words per `ADR-02-0001` / 65,000–80,000 total per `docs/00-project/plans/next-editorial-phases.md` Q2). That full-book pass is still queued behind Phase 1, which has not started. This pass does not attempt to hit that target for Chapter 2 alone.
+
+### Acceptance Criteria
+
+- No standalone myth/reality table remains anywhere in the chapter.
+- The chapter addresses all five ADR-02-0001 Chapter 2 topics, including the previously-missing "why this feels different from previous technology waves."
+- Callout count stays within the depth-expansion plan's 1–4 budget.
+- Heading hierarchy and no-`---`-dividers rules from `ADR-04-0002` are preserved.
+- No existing content, placeholder, or takeaway is deleted.
+
+### Proposed Commit Message
+
+```text
+draft: fix chapter 02 style violation and close topic gap (why everyone suddenly talks about AI)
+```
+
 ## Required Examples
 
 - ChatGPT as the visible trigger point (named directly, per ADR-02-0001's topic list — "why 2022 changed everything")
