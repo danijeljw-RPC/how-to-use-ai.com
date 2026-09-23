@@ -2,6 +2,30 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (29)
+
+### Changed
+
+- Updated `ADR-02-0001`'s Chapter 2 topic list to formally include the four topics added in the prior expansion pass: a short history of prior AI hype/bust cycles, venture capital funding and circular financing deals, mainstream cultural adoption, and facts vs reality. Per direct author instruction to bring the ADR in line with the chapter as drafted. Closed the corresponding "topic drift" risk note in `chapter-02-plan.md` as resolved.
+
+### Files changed
+
+- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- `ADR-02-0001` — Chapter 2 topic list expanded to match the drafted chapter (see above).
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (28)
 
 ### Changed
