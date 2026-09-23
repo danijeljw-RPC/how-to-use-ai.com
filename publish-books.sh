@@ -111,20 +111,28 @@ for book_dir in "${book_dirs[@]}"; do
   } > "$combined_md"
 
   # xelatex/lualatex hyphenate words at line breaks by default (e.g.
-  # "impossible" -> "im-possible"); disable that for review PDFs.
+  # "impossible" -> "im-possible"); disable that for review PDFs, but only
+  # if the hyphenat LaTeX package is actually installed (e.g. BasicTeX
+  # installs often lack it), otherwise pandoc fails outright.
   no_hyphenate_args=()
-  if [[ "$PDF_ENGINE" == "xelatex" || "$PDF_ENGINE" == "lualatex" ]]; then
+  if [[ "$PDF_ENGINE" == "xelatex" || "$PDF_ENGINE" == "lualatex" ]] \
+      && command -v kpsewhich >/dev/null 2>&1 \
+      && kpsewhich hyphenat.sty >/dev/null 2>&1; then
     no_hyphenate_args=(-V header-includes='\usepackage[none]{hyphenat}')
   fi
 
-  pandoc "$combined_md" \
+  if ! pandoc "$combined_md" \
     -o "$output_pdf" \
     --pdf-engine="$PDF_ENGINE" \
     --toc \
     -V geometry:margin=1in \
     -V mainfont="Helvetica" \
-    "${no_hyphenate_args[@]}" 2>/dev/null || \
-  pandoc "$combined_md" -o "$output_pdf" --pdf-engine="$PDF_ENGINE" --toc -V geometry:margin=1in "${no_hyphenate_args[@]}"
+    "${no_hyphenate_args[@]+"${no_hyphenate_args[@]}"}" 2>/dev/null; then
+    # Retry without mainfont (Helvetica may not resolve for this engine).
+    # Drop hyphenat handling here too: a failure above means it's not the
+    # safe, always-available part of the command.
+    pandoc "$combined_md" -o "$output_pdf" --pdf-engine="$PDF_ENGINE" --toc -V geometry:margin=1in
+  fi
 
   echo "  -> $output_pdf"
   published_any=1
