@@ -2,6 +2,31 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (26)
+
+### Changed
+
+- Investigated a local llama.cpp session's failed attempt to re-run the Chapter 1 expansion: found the expansion was already complete and accepted (2026-09-21), and the session's only real edit was a broken, duplicated rewrite of "Streaming Recommendations" mixing US and AU spelling and inserting a diagram redundant with the existing placeholder. Reverted the chapter file to the clean, committed baseline (`git checkout`).
+- Performed an editorial publication-readiness review of Chapter 1 against the style guide, callout guide, and ADR-02-0001. Findings: word count (~2,238) is well short of the 4,000–5,000 target; the chapter uniquely retains a standalone "Myth vs Reality" table that the current callout guide retired in favour of folding myth/reality content into `Watch Out` callouts (checked chapters 2–9, none carry this pattern); the opening epigraph is styled as a quotation but is unattributed authorial framing. Diagram placeholders, reflection placeholder, examples, heading structure, and callout budget otherwise meet the bar.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md` (reverted to committed baseline, no net change)
+- `docs/02-book-01/open-issues/OI-0003.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- Opened `OI-0003` — Chapter 1's standalone Myth vs Reality table conflicts with the current callout guide's retirement of that type in favour of `Watch Out`. Related to the still-open `OI-0001`.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-21 (25)
 
 ### Changed
