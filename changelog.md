@@ -2,6 +2,36 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (31)
+
+### Changed
+
+- Re-audited Chapter 2 against the evidence-and-citation standard established for Chapter 3. Corrected its over-simple interface-only explanation, predictive-versus-generative binary, chatbot authority example, language-model anthropomorphism, AI-winter framing, investment categories, strategic-partnership claims, adoption claims, and productivity generalisations.
+- Added a six-question reader framework for separating demonstrated AI capability from adoption, financial, marketing, and forecasting claims, plus a direct statement of the series' position: use and scrutinise AI without surrendering judgement to either hype or reflexive dismissal.
+- Added 12 chapter notes and a dedicated Chapter 2 bibliography mapping retained claims to primary, peer-reviewed, government, university, intergovernmental, or clearly labelled first-party evidence, with source-specific cautions.
+- Removed weakly supported claims about 100 million users, a 3-per-cent paid-user share, sector revenue versus investment, a “house of cards,” and late-2025 circular-deal totals. Marked the initial Chapter 2 research note as superseded while preserving it as an audit trail.
+- Updated the Chapter 2 plan with the approved evidence-audit scope, editorial corrections, source hierarchy, reader-facing position, and acceptance criteria.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/research/chapter-02-bibliography.md` (new)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. This pass applies accepted `ADR-04-0003` to Chapter 2.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (30)
 
 ### Changed

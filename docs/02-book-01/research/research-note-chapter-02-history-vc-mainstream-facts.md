@@ -1,5 +1,7 @@
 # Research Note — Chapter 2: AI History Cycles, Venture Capital Funding, Mainstream Adoption, and Bubble Skepticism
 
+> **Status — Superseded as the citation source of truth (2026-09-23):** This file records the initial expansion research and is retained as an audit trail. Its weaker secondary sources and disputed figures are not authority for the revised manuscript. Use `chapter-02-bibliography.md` for the sources actually cited after the full evidence audit. In particular, the revised chapter removed the 100-million-user comparison, the approximate 3-per-cent paid-user claim, the sector-wide revenue-versus-investment comparison, the “house of cards” quotation, and the late-2025 circular-deal figures.
+
 ## Date Added
 
 2026-09-23

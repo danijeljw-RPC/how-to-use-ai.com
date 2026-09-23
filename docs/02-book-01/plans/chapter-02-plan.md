@@ -172,6 +172,67 @@ All historical dates, funding figures, and bubble-skepticism claims are sourced 
 draft: substantially expand chapter 02 with AI history, VC funding, mainstream adoption, and facts vs reality (why everyone suddenly talks about AI)
 ```
 
+## Fourth Pass — Evidence Audit, Bibliography, and Reader-Facing Position (2026-09-23)
+
+### Purpose
+
+After Chapter 3 established the project's citation standard, the author directed a full return to Chapter 2: research it properly, build a useful bibliography, form a clear opinion for the series' intended readers, and distinguish defensible information from the unsupported claims that accumulate around AI.
+
+The approved editorial design treats the existing chapter as substantial but not yet vouched. It audits the argument rather than merely attaching citations to the previous prose.
+
+### Files Expected to Change
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/research/chapter-02-bibliography.md` (new)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`
+- `changelog.md`
+
+### Dependencies
+
+- `ADR-02-0001-book-01-structure.md` — Chapter 2 scope and non-hype/non-doomist positioning
+- `ADR-04-0003-evidence-citation-and-ai-assistance.md` — Markdown chapter notes, evidence qualification, source hierarchy, and AI-assistance acknowledgement
+- `docs/04-style/style-guide.md` — beginner-facing prose, connected paragraphs, reader trust, and citation style
+
+### Editorial Corrections
+
+- Reframed “the interface changed” as the visible trigger rather than the complete cause. The revised explanation combines model capability, conversational access, computing infrastructure, investment, product distribution, and publicity.
+- Corrected the false binary between predictive and generative AI. Generative systems still predict, while real products may combine models with search, databases, and conventional software.
+- Qualified the shoe-return example so a chatbot's advice is not confused with permission or access to complete a return.
+- Replaced “the model read the internet” anthropomorphism with a token-level, training-data-qualified explanation.
+- Treated “AI winters” as retrospective descriptions of falling confidence and funding, not periods when research stopped.
+- Replaced disputed funding ranges with a dated Stanford AI Index figure whose category is named.
+- Replaced loosely sourced late-2025 “circular deal” allegations with primary company announcements and a careful explanation of incentive alignment. The chapter no longer implies that partnership revenue is automatically fake or fraudulent.
+- Replaced cultural ubiquity anecdotes with a Pew survey that distinguishes rapid adoption from universal use.
+- Added OECD and US Census evidence to distinguish task-level productivity, business adoption, and economy-wide forecasts.
+- Removed the unsupported 100-million-user comparison, approximate paid-user share, revenue-versus-investment comparison, economist quotation, and speculative late-2025 deal totals.
+
+### Reader-Facing Position
+
+The chapter now states the series' position directly: AI is capable enough to learn, use, and scrutinise, but unreliable enough that judgement, verification, and responsibility cannot be outsourced. Commercial confidence is not scientific proof. Readers should reject both compulsory enthusiasm and reflexive dismissal.
+
+A six-question “truth versus BS” framework asks readers to identify what was measured, the comparison baseline, the meaning of adoption, the type of money being counted, the source's incentives, and whether a claim reports an observation or predicts the future.
+
+### Research and Bibliography
+
+The new `chapter-02-bibliography.md` is the source-of-truth research record. It maps every retained research-dependent claim to primary, peer-reviewed, government, university, intergovernmental, or clearly labelled first-party sources and records cautions for later editing. The earlier research note is retained but prominently marked superseded because it documents the claims and weak sources rejected during this audit.
+
+### Acceptance Criteria
+
+- Every retained statistic, historical milestone, named research finding, and partnership term has a nearby chapter note and bibliography entry.
+- First-party company sources support only their own dates, terms, and disclosed limitations; they are not treated as independent validation.
+- No disputed 3-per-cent paid-use claim, unsupported sector revenue comparison, or unverified late-2025 deal figure remains.
+- The chapter distinguishes capability, adoption, investment, revenue, profit, and forecast rather than using them interchangeably.
+- The chapter expresses a useful, non-hype and non-doomist opinion aimed at beginner readers.
+- The chapter stays inside Chapter 2's role and points deeper capability and employment analysis to later chapters.
+- Markdown lint, internal citation integrity, repository checks, and the review PDF build complete without errors or warnings.
+
+### Proposed Commit Message
+
+```text
+research: substantiate chapter 02 and add truth-versus-hype framework
+```
+
 ## Required Examples
 
 - ChatGPT as the visible trigger point (named directly, per ADR-02-0001's topic list — "why 2022 changed everything")
@@ -184,12 +245,10 @@ draft: substantially expand chapter 02 with AI history, VC funding, mainstream a
 
 ## Callouts to Include
 
-- Key Idea: The interface changed from buttons and menus to conversation.
-- Plain English: definitions of "language model" and "generative AI"
-- Watch Out: generative AI producing confident-sounding text doesn't mean the underlying pattern-prediction process changed from Chapter 1 — it can still be wrong
-- Myth vs Reality: "AI suddenly became smart in 2022" vs. "AI became newly visible and conversational in 2022"
-- Reflection: prompt about the reader's own first encounter with a conversational AI tool
-- Recap: chapter recap
+- Key Idea: the interface shift mattered, but capability, access, investment, and publicity arrived together.
+- Try This: compare asking a question conversationally with finding the correct menu, form, or search result.
+- Watch Out: fluent, confident language is not evidence that a generated answer is correct.
+- Recap: generative AI did not arrive from nowhere; treat capability as real, forecasts as forecasts, and investment as a bet rather than proof.
 
 ## Personal Reflection Placeholders
 
@@ -198,7 +257,9 @@ draft: substantially expand chapter 02 with AI history, VC funding, mainstream a
 ## Research References
 
 - `legacy-data/book1_ai_literacy_context_reference.md` (Chapter 2 outline, simple framing, and core takeaway — already reconciled into ADR-02-0001)
-- No new external research required for this chapter; content is definitional/conceptual, not claims requiring verification
+- `docs/02-book-01/research/chapter-02-bibliography.md` (current source of truth for retained external claims)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` (superseded initial research pass, retained as an audit trail)
+- Chapter Notes in `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
 
 ## Linked ADRs
 
@@ -211,25 +272,28 @@ draft: substantially expand chapter 02 with AI history, VC funding, mainstream a
 
 ## Risks
 
-- Overusing jargon while trying to define jargon (language model, generative AI) — mitigated by defining both only in Plain English callouts, not building whole sections around technical mechanics
+- Overusing jargon while trying to define jargon — mitigated by short explanations grounded in familiar interfaces and tasks.
 - Repeating Chapter 1 examples verbatim instead of building on them — mitigated by treating spam filter/recommendations as a brief callback, not re-explained
-- Turning "why 2022 changed everything" into a single-company origin story (over-focusing on ChatGPT/OpenAI specifically) — mitigated by keeping the framing about the shift in interface and conversational access generally, not brand-specific
-- Making claims about adoption statistics or specific product timelines that could date or need verification — avoided by keeping the chapter conceptual rather than statistical
+- Turning 2022 into a single-company origin story — mitigated by treating ChatGPT as a public trigger within a longer research, infrastructure, investment, and product history.
+- Time-sensitive adoption and investment figures becoming stale — mitigated by naming the year, measurement, population, and source and flagging both for review before final print.
+- Allowing “truth versus BS” to become reflexive cynicism — mitigated by applying the same evidence questions to optimistic and pessimistic claims.
 
 ## Acceptance Criteria
 
 - The chapter is understandable to a reader who has only read Chapter 1 (no other AI background assumed)
 - The chapter builds on Chapter 1's framing rather than repeating it
 - The chapter defines "language model" and "generative AI" in plain English
-- The chapter explains the interface-shift core takeaway clearly
+- The chapter explains the interface shift without pretending it was the only material change
 - The chapter includes a reflection placeholder, a diagram placeholder, and baseline-system callouts only
-- The chapter avoids unverifiable statistics or dated product-specific claims
+- Every retained research-dependent claim is cited and mapped in the dedicated bibliography
+- The chapter gives readers a reusable framework for distinguishing measured evidence, adoption, investment, marketing, and forecasts
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md` (new)
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
 - `docs/02-book-01/plans/chapter-02-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/02-book-01/research/chapter-02-bibliography.md` (new)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`
 - `changelog.md`
 
 ## Session Note on Review Pause
@@ -239,5 +303,5 @@ The user explicitly said to draft Chapter 2 "no need to stop each time," which i
 ## Proposed Commit Message
 
 ```text
-draft: add chapter 02 plan and draft (why everyone suddenly talks about AI)
+research: substantiate chapter 02 and add truth-versus-hype framework
 ```
