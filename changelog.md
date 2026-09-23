@@ -2,6 +2,32 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (28)
+
+### Changed
+
+- Substantially expanded Chapter 2 on branch `book01/chap02`, per direct author instruction to cover a history of AI hype/bust cycles, venture capital funding, how AI bled into mainstream culture, and a fuller facts-vs-reality treatment. Added four new H2 sections: "AI Has Been Loud Before" (the two prior AI winters and deep learning's 2012–2017 recovery, with H3s per era), "The Money Behind the Moment" (VC funding-surge figures and circular financing deals explained in plain English, with H3s), "How It Bled Into Everyday Life" (Collins Dictionary word-of-the-year, pop-culture moments), and an expanded "Facts vs Reality: Sorting the Signal From the Noise" (adoption vs. paying-user gap, revenue-vs-investment gap and economist skepticism, and tying the bubble question back to the history section). Word count grew from ~2,399 to ~4,282, landing within `ADR-02-0001`'s 4,000–5,000-word chapter target. Callout count held at 4 (no new callouts added — new depth lives in prose per `ADR-04-0002`). No existing content, placeholder, or takeaway removed.
+- Added `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`, sourcing and citing every historical date, funding figure, and bubble-skepticism claim used in the expansion, with explicit dating/reliability caveats per `CLAUDE.md`'s Research Handling rules.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Note recorded in the chapter-02 plan: this pass extends beyond `ADR-02-0001`'s explicit Chapter 2 topic list (VC funding and bubble skepticism aren't separately named there) under direct author instruction; formalizing that in the ADR itself is left to the author.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (27)
 
 ### Changed

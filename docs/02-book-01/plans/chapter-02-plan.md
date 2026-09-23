@@ -121,6 +121,57 @@ User directive on branch `book01/chap02`: "go through all of chapter two and exp
 draft: fix chapter 02 style violation and close topic gap (why everyone suddenly talks about AI)
 ```
 
+## Third Expansion Pass — History, Venture Capital, Mainstream Adoption, Facts vs Reality (2026-09-23)
+
+### Purpose
+
+Direct author instruction: "I want a history of what is everyone talking about AI now, venture capital circles, how it's bled into mainstream, facts vs reality — I need this to be a FULLY fleshed out chapter!" This supersedes the earlier "keep it conceptual, no external research needed" framing in this plan's Research References section — the author is explicitly asking for grounded historical and financial content, not just conceptual explanation.
+
+### Files Expected to Change
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md` (this file)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` (new)
+- `changelog.md`
+
+### Dependencies
+
+- ADRs: `ADR-02-0001-book-01-structure` (Chapter 2 topic list — this pass draws on and extends "why 2022 changed everything" and "why businesses are panicking or excited," and adds material the ADR's topic list doesn't explicitly name — see Risks below); `ADR-04-0002-book-01-structure-and-callout-standard` (heading/callout rules — callout budget held at 4, new content lives in prose)
+- OIs: none directly; `docs/00-project/plans/next-editorial-phases.md` Q7 (citation/evidence model, not yet finally decided — this pass uses inline hedged attribution plus the research note, pending that decision)
+
+### New Sections Added
+
+1. **"AI Has Been Loud Before"** (new H2, with H3s for the two prior AI "winters" and the deep-learning/transformer recovery) — a short, non-technical history establishing that public excitement (and subsequent disappointment) about AI has happened at least twice before, which reframes "why is everyone suddenly talking about AI" as part of a pattern rather than a one-off.
+2. **"The Money Behind the Moment"** (new H2, with H3s on the VC funding surge and on circular financing deals) — plain-English explanation of why venture capital rushed toward generative AI after 2022, using hedged, dated funding figures, and demystifying "circular deals" (a supplier investing in a customer who spends that money buying from the supplier) using named, sourced real-world examples.
+3. **"How It Bled Into Everyday Life"** (new H2) — mainstream cultural adoption (word-of-the-year recognition, pop-culture moments), bridging into the existing "Why Businesses Are Both Excited and Anxious" section, which already covered the workplace angle and is retained as-is.
+4. **"Facts vs Reality: Sorting the Signal From the Noise"** (new H2, replacing the short paragraph that absorbed the old myth table in the previous pass) — a fuller, dedicated section addressing: actual AI usage/paying-customer levels versus perceived ubiquity; the revenue-versus-investment gap and economist skepticism about a possible bubble; and explicitly tying back to the new history section ("this kind of excitement has cratered before — that doesn't mean it will again, but it means betting everything on either story would be premature").
+
+### Research
+
+All historical dates, funding figures, and bubble-skepticism claims are sourced and cited in `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`, gathered via web search on 2026-09-23. Per the research note's caution section, dollar figures and user-count figures are hedged in the manuscript prose ("roughly," explicit year references, "by some trackers' estimates") rather than stated as fixed facts, since they will date and vary by tracking methodology.
+
+### Risks
+
+- **Topic drift beyond ADR-02-0001's Chapter 2 topic list.** The ADR lists "language models, generative AI, why 2022 changed everything, why this feels different from previous technology waves, why businesses are panicking or excited" — it does not explicitly list "venture capital funding" or "AI bubble skepticism." This is treated as a smallest-reversible-assumption extension under the author's direct instruction rather than a structural change requiring a new ADR, since it deepens the existing "why 2022 changed everything" and "why businesses are panicking or excited" topics rather than replacing them. If the author wants this formalized, `ADR-02-0001`'s Chapter 2 topic list should be updated to explicitly include it.
+- **Dating risk.** Funding figures and bubble-commentary are inherently time-sensitive (explicitly flagged in the research note and hedged in-text). This is the clearest candidate in the whole manuscript for the "may need verification/updating before final print" treatment `CLAUDE.md`'s Research Handling section requires.
+- **Non-hype, non-doomist tone risk.** Covering bubble skepticism could tip into fear-based framing (style guide) or a confident prediction the book isn't positioned to make. Mitigated by attributing claims to named economists/institutions rather than asserting a bubble will or won't happen, and by explicitly declining to predict the outcome.
+- **Vendor-specific content risk.** The circular-deals section names Microsoft, Nvidia, OpenAI, and Anthropic directly, which touches the same caution `next-editorial-phases.md` Q9 applies to vendor-specific material (verify before including, don't overstate). These are widely and consistently reported deal structures (multiple independent outlets, consistent order of magnitude) rather than a single unverified source, and are presented descriptively, not as an endorsement or condemnation of any company.
+- **Length risk mitigated, not created.** This pass intentionally pushes the chapter into the `ADR-02-0001` 4,000–5,000-word target range, ahead of the full-book Phase 1 length initiative in `next-editorial-phases.md`. That's acceptable here because it's explicit, chapter-scoped author direction, not an autonomous decision to run the full-book length pass early.
+
+### Acceptance Criteria
+
+- The chapter covers, with real (hedged, sourced) content: a brief history of prior AI hype/bust cycles; the venture-capital funding surge and circular financing deals; how AI became a mainstream cultural topic (not just a business one); and a substantive facts-vs-reality treatment of bubble skepticism.
+- No fabricated statistics — every figure traces to `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` and is hedged appropriately in-text.
+- Callout count stays at the existing 4 (Key Idea, Try This, Watch Out, Recap); new depth lives in prose, not new callouts.
+- Heading hierarchy (`ADR-04-0002`) and existing placeholders/takeaways are preserved.
+- Tone stays non-hype and non-doomist even when covering bubble-skepticism material.
+
+### Proposed Commit Message
+
+```text
+draft: substantially expand chapter 02 with AI history, VC funding, mainstream adoption, and facts vs reality (why everyone suddenly talks about AI)
+```
+
 ## Required Examples
 
 - ChatGPT as the visible trigger point (named directly, per ADR-02-0001's topic list — "why 2022 changed everything")
