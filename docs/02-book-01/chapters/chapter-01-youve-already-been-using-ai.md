@@ -23,6 +23,8 @@ When a streaming platform recommends a movie or series, it's trying to answer on
 
 This isn't the system "understanding" entertainment the way a person does — it's statistical prediction. Underneath, it's really just saying: people with similar viewing behaviour to yours often choose this next.
 
+In plain language, the system is making an educated guess. It takes signals (what you watched, skipped, finished, or searched), compares those signals with similar patterns from other viewers, and ranks what seems most likely to keep your attention. That word "rank" matters: recommendation systems don't just decide yes/no. They usually sort many options and place the most likely matches at the top.
+
 > [Diagram placeholder: Mermaid diagram showing the recommendation engine feedback loop — user watches content → system records behaviour → AI finds similar behaviour patterns → predicted interests generated → recommendations displayed → user interacts again → loop repeats.]
 
 ### Navigation and Traffic Prediction
@@ -31,11 +33,15 @@ When Google Maps suggests a faster route, it's drawing on an enormous amount of 
 
 The app isn't "thinking" like a human driver weighing up shortcuts. It's processing patterns across a dataset far larger and faster-changing than any person could track — which is exactly why it can reroute you around a traffic jam three suburbs away before you'd have any way of knowing it was there.
 
+You'll sometimes hear people describe this as "real-time prediction." That just means the system keeps updating its guess as new information arrives. If traffic suddenly builds, the recommendation can change. AI in this case is less like a one-time decision and more like a constant re-check.
+
 ### Spam Filters
 
 Email spam filtering is one of the oldest large-scale consumer AI systems still running today, quietly processing billions of emails every single day. It looks for patterns like suspicious wording, unusual links, sending behaviour, known scam structures, malicious attachments, and abnormal message volume, then predicts how likely a given message is to be unwanted or dangerous.
 
 Most people never think about spam filtering anymore, and that's precisely the point — some of the most successful AI systems become invisible once they're reliable enough. You only notice a spam filter when it gets something wrong.
+
+This is also a useful first example of probability in practice. A spam filter usually doesn't "know" an email is spam with perfect certainty. It estimates how likely spam is, then applies a threshold: above this level, move to spam; below it, leave in inbox. Different systems tune that threshold differently depending on how cautious they want to be.
 
 ### Social Media Algorithms
 
@@ -50,6 +56,8 @@ This is part of why social media can feel unusually "accurate" at times, almost 
 When you speak to Siri or Alexa, several AI systems are working together behind that single sentence. Say "set a timer for 15 minutes," and the assistant has to convert your speech into text, work out what you actually want, pull the number 15 out of the sentence, recognise "minutes" as the unit, and then execute the right action — all in about a second. That's speech recognition, language interpretation, intent prediction, response generation, and action execution, chained together so smoothly it feels like one simple step.
 
 Again, none of that is magic. It's highly refined pattern recognition, layered several systems deep.
+
+If you ever wonder why voice assistants sometimes fail in funny ways, this is a big reason. A small error early in the chain (for example, hearing one word incorrectly) can affect every step after that. The system still follows a pattern-driven process, but each stage depends on the previous one being close enough to right.
 
 ### Banking Fraud Detection
 
@@ -79,9 +87,26 @@ Most of the AI you actually encounter is a specialised tool, trained to do one n
 | Fraud detection | Predict suspicious behaviour |
 | Voice assistants | Predict user intent |
 
+Specialisation is one reason AI can feel both impressive and limited at the same time. A system can be excellent at one task and still useless outside that lane. That isn't a contradiction. That's exactly how most practical AI is built.
+
+### A Few Terms You'll See Often
+
+You don't need to memorise technical vocabulary to use AI well, but a few terms come up often enough that they're worth defining once in plain English:
+
+- **Data:** Recorded information the system can use (for example, clicks, text, locations, purchase history, or audio).
+- **Model:** The trained pattern-matching engine that takes input and produces a prediction.
+- **Training:** The process of showing the model many examples so it learns useful patterns.
+- **Algorithm:** The step-by-step method used to process information and produce an output.
+- **Prediction:** The system's best estimate of what is most likely, not a guaranteed fact.
+- **Probability:** How confident the system is in a possible outcome, usually expressed as a likelihood.
+
+You'll notice these words throughout the rest of the book. Whenever they appear, keep this mental model: input goes in, patterns are matched, a likely output comes out.
+
 ### Pattern Recognition, at Scale
 
 Pattern recognition — the process of spotting recurring structures, behaviours, or relationships in data — is something humans already do naturally. You recognise a friend's handwriting, notice a favourite café is busier on Fridays, or sense when a conversation is about to turn awkward, all through the same basic skill: spotting a pattern you've seen before. AI systems do the same thing mathematically, at a scale no person could manage — comparing millions of data points instead of a lifetime of personal experience — which is exactly why this technology has quietly worked its way into so much of modern life without ever needing to look like science fiction.
+
+One practical way to think about this: AI usually answers "what is likely next?" not "what is certainly true?" That distinction is small on paper but huge in real life. It explains both why AI can be useful (good guesses are valuable) and why AI can be wrong (guesses are still guesses).
 
 ## Why AI Feels Suddenly New
 
@@ -94,6 +119,8 @@ For years, most AI systems operated silently inside large platforms and enterpri
 ### Visible Almost Overnight
 
 Modern generative AI tools changed that, because for the first time, people could interact with AI directly through conversation — asking questions, generating images, writing documents, summarising information, brainstorming ideas — instead of only benefiting from predictions made invisibly on their behalf. That's what made AI visible to a huge number of consumers all at once. But the underlying concept barely changed: it's still pattern recognition, prediction, and probability. What's new is the interface, not the idea underneath it.
+
+Interface is a key word here. An interface is simply how you interact with a system — buttons, menus, voice commands, or chat. When AI moved into chat-style interfaces, it felt more human and more immediate, so people noticed it more. The visibility changed quickly; the core mechanics changed much more slowly.
 
 > [Author reflection placeholder: Add a short personal example or story here — for example, the first time you noticed AI recommendations becoming "too accurate," an experience with navigation apps changing routes dynamically, an interaction with spam filtering or fraud alerts, or a professional example of AI operating quietly inside enterprise systems long before public hype.]
 
@@ -112,6 +139,8 @@ That distinction matters more than it might seem, because understanding what AI 
 ### Where the Confusion Comes From
 
 Part of the confusion comes from language. It's convenient to say an AI system "thinks," "understands," "learns," or "knows" something — but those are human words borrowed for a process that's really mathematical pattern matching. They're useful shorthand, but taken literally, they set up expectations the technology can't actually meet.
+
+This is why clear wording matters in this book. If we say a system "understands," we'll usually mean "it produced an output that looked correct in this case," not "it has human-style understanding." Keeping those two meanings separate will help you evaluate tools more calmly and make better decisions about where to trust, where to check, and where to stop.
 
 A few of the myths worth retiring early, before they shape how you read the rest of this book:
 
