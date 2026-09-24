@@ -7,3 +7,5 @@ __pycache__/
 .claude/worktrees/
 
 .DS_Store
+prompt.txt
+prompt2.txt
