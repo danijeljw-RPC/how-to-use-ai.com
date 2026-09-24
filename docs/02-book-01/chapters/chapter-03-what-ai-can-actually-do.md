@@ -260,7 +260,7 @@ Research with knowledge workers suggests that AI can shift critical thinking tow
 
 The best result is not always the workflow with the least human effort. It is the workflow that spends human effort where it matters most.
 
-> [Diagram placeholder: Mermaid diagram showing goal and context → AI generates/transforms/interprets/acts → output → human judgement (keep, edit, verify, reject) → either use result or iterate back to the AI.]
+![Useful AI work is a loop: your goal and context go to the AI, which generates, transforms, interprets or acts; you judge the output by keeping, editing, verifying or rejecting it, then either use the result or refine and send it back to the AI.](../diagrams/human-judgement-ai-work-loop.mmd){ width=50% }
 
 The author reflection can then ground that workflow in lived experience:
 

@@ -937,42 +937,7 @@ Alternative:
 
 # 23. Suggested diagram
 
-```text
-                    ┌───────────────────────┐
-                    │       YOUR GOAL       │
-                    └───────────┬───────────┘
-                                │
-                                v
-                    ┌───────────────────────┐
-                    │ Context + instruction │
-                    └───────────┬───────────┘
-                                │
-                                v
-                    ┌───────────────────────┐
-                    │          AI           │
-                    │ generate / transform  │
-                    │ interpret / act       │
-                    └───────────┬───────────┘
-                                │
-                                v
-                    ┌───────────────────────┐
-                    │        OUTPUT         │
-                    └───────────┬───────────┘
-                                │
-                                v
-                    ┌───────────────────────┐
-                    │   Human judgement     │
-                    │ keep / edit / verify  │
-                    │ reject / ask again    │
-                    └───────────┬───────────┘
-                                │
-                 ┌──────────────┴──────────────┐
-                 │                             │
-                 v                             v
-            USE RESULT                    ITERATE
-                                               │
-                                               └──────> AI
-```
+![Useful AI work is a loop: goal and context → AI → output → human judgement → use the result, or refine and send it back to the AI.](../../02-book-01/diagrams/human-judgement-ai-work-loop.mmd)
 
 This is stronger than a one-way “input → AI → output” diagram because it shows that useful AI work is iterative.
 
