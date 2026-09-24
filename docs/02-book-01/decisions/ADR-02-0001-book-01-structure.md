@@ -207,6 +207,10 @@ Topics:
 - why 2022 changed everything
 - why this feels different from previous technology waves
 - why businesses are panicking or excited
+- a short history of prior AI hype/bust cycles (the two AI winters and deep learning's 2012–2017 recovery), establishing that public excitement about AI has happened, and collapsed, before
+- the venture capital funding surge behind generative AI and how circular financing deals work, in plain English
+- how AI became a mainstream cultural topic, not just a business one
+- facts vs reality: separating established adoption/investment facts from open questions (bubble skepticism, revenue vs. investment) without predicting the outcome
 
 Simple framing:
 
@@ -215,6 +219,8 @@ Simple framing:
 Core takeaway:
 
 > The interface changed from buttons and menus to conversation.
+
+Implementation note (2026-09-23): the four topics added above (history of hype cycles, VC funding/circular deals, mainstream cultural adoption, facts vs reality) were added retroactively to match a chapter expansion the author directed directly, ahead of this ADR being updated. See `docs/02-book-01/plans/chapter-02-plan.md` ("Third Expansion Pass") and `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` for the sourcing behind them.
 
 ### Chapter 3 — What AI Can Actually Do
 

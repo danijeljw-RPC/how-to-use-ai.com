@@ -2,6 +2,142 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-23 (31)
+
+### Changed
+
+- Re-audited Chapter 2 against the evidence-and-citation standard established for Chapter 3. Corrected its over-simple interface-only explanation, predictive-versus-generative binary, chatbot authority example, language-model anthropomorphism, AI-winter framing, investment categories, strategic-partnership claims, adoption claims, and productivity generalisations.
+- Added a six-question reader framework for separating demonstrated AI capability from adoption, financial, marketing, and forecasting claims, plus a direct statement of the series' position: use and scrutinise AI without surrendering judgement to either hype or reflexive dismissal.
+- Added 12 chapter notes and a dedicated Chapter 2 bibliography mapping retained claims to primary, peer-reviewed, government, university, intergovernmental, or clearly labelled first-party evidence, with source-specific cautions.
+- Removed weakly supported claims about 100 million users, a 3-per-cent paid-user share, sector revenue versus investment, a “house of cards,” and late-2025 circular-deal totals. Marked the initial Chapter 2 research note as superseded while preserving it as an audit trail.
+- Updated the Chapter 2 plan with the approved evidence-audit scope, editorial corrections, source hierarchy, reader-facing position, and acceptance criteria.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/research/chapter-02-bibliography.md` (new)
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. This pass applies accepted `ADR-04-0003` to Chapter 2.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-23 (30)
+
+### Changed
+
+- Rewrote and expanded Chapter 3, “What AI Can Actually Do,” from approximately 1,801 to approximately 4,700 words using the supplied research pack and checked source material. The chapter now organises capability around four verbs—generate, transform, interpret, and act—develops every planned capability with beginner-friendly examples, explains the jagged technological frontier, corrects the earlier “most likely complete answer” simplification, and presents human direction and verification as part of a useful AI workflow.
+- Added unobtrusive Markdown endnotes for research-dependent claims and a dedicated Chapter 3 bibliography that records the sources actually used, their claim mapping, source type, and cautions.
+- Accepted ADR-04-0003, establishing the book's evidence-citation and AI-assisted drafting acknowledgement style. The chapter records that it was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex; no personal experience was invented.
+- Updated the Chapter 3 plan to reflect the full research-backed draft.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`
+- `docs/02-book-01/plans/chapter-03-plan.md`
+- `docs/02-book-01/research/chapter-03-bibliography.md` (new)
+- `docs/04-style/style-guide.md`
+- `docs/04-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- `ADR-04-0003` — accepted unobtrusive Markdown endnotes for research-dependent claims, dedicated research records for evidence-heavy chapters, and brief acknowledgement when ChatGPT or Codex materially assists research and drafting.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-23 (29)
+
+### Changed
+
+- Updated `ADR-02-0001`'s Chapter 2 topic list to formally include the four topics added in the prior expansion pass: a short history of prior AI hype/bust cycles, venture capital funding and circular financing deals, mainstream cultural adoption, and facts vs reality. Per direct author instruction to bring the ADR in line with the chapter as drafted. Closed the corresponding "topic drift" risk note in `chapter-02-plan.md` as resolved.
+
+### Files changed
+
+- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- `ADR-02-0001` — Chapter 2 topic list expanded to match the drafted chapter (see above).
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-23 (28)
+
+### Changed
+
+- Substantially expanded Chapter 2 on branch `book01/chap02`, per direct author instruction to cover a history of AI hype/bust cycles, venture capital funding, how AI bled into mainstream culture, and a fuller facts-vs-reality treatment. Added four new H2 sections: "AI Has Been Loud Before" (the two prior AI winters and deep learning's 2012–2017 recovery, with H3s per era), "The Money Behind the Moment" (VC funding-surge figures and circular financing deals explained in plain English, with H3s), "How It Bled Into Everyday Life" (Collins Dictionary word-of-the-year, pop-culture moments), and an expanded "Facts vs Reality: Sorting the Signal From the Noise" (adoption vs. paying-user gap, revenue-vs-investment gap and economist skepticism, and tying the bubble question back to the history section). Word count grew from ~2,399 to ~4,282, landing within `ADR-02-0001`'s 4,000–5,000-word chapter target. Callout count held at 4 (no new callouts added — new depth lives in prose per `ADR-04-0002`). No existing content, placeholder, or takeaway removed.
+- Added `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md`, sourcing and citing every historical date, funding figure, and bubble-skepticism claim used in the expansion, with explicit dating/reliability caveats per `CLAUDE.md`'s Research Handling rules.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/research/research-note-chapter-02-history-vc-mainstream-facts.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Note recorded in the chapter-02 plan: this pass extends beyond `ADR-02-0001`'s explicit Chapter 2 topic list (VC funding and bubble skepticism aren't separately named there) under direct author instruction; formalizing that in the ADR itself is left to the author.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-23 (27)
+
+### Changed
+
+- Performed an editorial expansion pass on Chapter 2 on branch `book01/chap02`, per direct author instruction. Removed the chapter's standalone "Myth vs Reality" table (folded its strongest pair into the existing `Watch Out` callout as prose; the remaining pairs were already covered elsewhere in the chapter's prose) — the same style-guide violation OI-0003 flagged for Chapter 1, which OI-0003's own chapter 2–9 survey had missed. Added a new H3 subsection, "Why This Wave Feels Different From Earlier Tech Shifts," closing an ADR-02-0001 topic gap ("why this feels different from previous technology waves") that the existing draft never addressed. Added a `Try This` callout (previously absent from this chapter). Word count grew from ~2,121 to ~2,399. No existing content, placeholder, or takeaway removed.
+- Corrected OI-0003's inaccurate "chapters 2–9 checked, none affected" note now that Chapter 2's instance has been found and fixed; OI-0003's scope remains Chapter 1-specific.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`
+- `docs/02-book-01/plans/chapter-02-plan.md`
+- `docs/02-book-01/open-issues/OI-0003.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None opened or closed. `OI-0003` corrected in place (see above); it remains open, scoped to Chapter 1.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (26)
 
 ### Changed
