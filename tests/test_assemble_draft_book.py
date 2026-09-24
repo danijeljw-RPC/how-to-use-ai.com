@@ -65,6 +65,42 @@ class AssembleDraftBookTests(unittest.TestCase):
             self.assertAlmostEqual(float(page.mediabox.width), 504.0, places=1)
             self.assertAlmostEqual(float(page.mediabox.height), 720.0, places=1)
 
+    def test_preview_adds_end_of_preview_page_before_back_cover(self):
+        self.metadata["series"]["website"] = "how-to-use-ai.com"
+        assemble_draft_book(
+            self.front,
+            self.body,
+            self.back,
+            self.output,
+            self.metadata,
+            preview_chapters=[1, 2, 3],
+            total_chapters=14,
+        )
+
+        reader = PdfReader(self.output)
+        self.assertEqual(len(reader.pages), 6)
+        notice_text = reader.pages[1].extract_text().lower()
+        self.assertIn("preview edition", notice_text)
+        self.assertNotIn("internal and review distribution only", notice_text)
+        end_text = reader.pages[-2].extract_text().lower()
+        self.assertIn("end of preview", end_text)
+        self.assertIn("chapters 1–3", end_text)
+        self.assertIn("11 more chapters", end_text)
+        self.assertIn("how-to-use-ai.com", end_text)
+        self.assertIn("back cover", reader.pages[-1].extract_text().lower())
+        for page in reader.pages:
+            self.assertAlmostEqual(float(page.mediabox.width), 504.0, places=1)
+            self.assertAlmostEqual(float(page.mediabox.height), 720.0, places=1)
+
+    def test_preview_describes_non_contiguous_chapters(self):
+        assemble_draft_book(
+            self.front, self.body, self.back, self.output, self.metadata, preview_chapters=[1, 3]
+        )
+
+        end_text = PdfReader(self.output).pages[-2].extract_text().lower()
+        self.assertIn("chapters 1 and 3", end_text)
+        self.assertIn("continues from here", end_text)
+
 
 if __name__ == "__main__":
     unittest.main()

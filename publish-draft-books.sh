@@ -6,6 +6,13 @@
 #   ./publish-draft-books.sh book 1          # Book 1 by number
 #   ./publish-draft-books.sh 1               # shorthand for Book 1
 #   ./publish-draft-books.sh 02-book-01      # legacy source-directory selector
+#   ./publish-draft-books.sh book 1 chap 01,02,03
+#                                            # preview edition: chapters 1-3 plus
+#                                            # any front matter sorted before them,
+#                                            # an end-of-preview page, and the back
+#                                            # cover (ranges such as 01-03 also work)
+#
+# Preview editions are written to dist/<source-directory>-preview.pdf.
 
 set -euo pipefail
 
@@ -79,6 +86,33 @@ book_number_for_directory() {
   jq -er --arg directory "$1" '.books[] | select(.sourceDirectory == $directory) | .number' "$CONFIG"
 }
 
+# Space-delimited chapter numbers for a preview edition, e.g. " 1 2 3 ".
+preview_chapters=""
+parse_chapter_list() {
+  local list="$1" token start end number
+  local IFS=','
+  for token in $list; do
+    if [[ "$token" =~ ^([0-9]+)-([0-9]+)$ ]]; then
+      start=$((10#${BASH_REMATCH[1]}))
+      end=$((10#${BASH_REMATCH[2]}))
+    elif [[ "$token" =~ ^[0-9]+$ ]]; then
+      start=$((10#$token))
+      end=$start
+    else
+      echo "Error: '$token' is not a chapter number or range (use e.g. 01,02,03 or 01-03)." >&2
+      exit 1
+    fi
+    if (( start < 1 || end < start )); then
+      echo "Error: invalid chapter range '$token'." >&2
+      exit 1
+    fi
+    for ((number = start; number <= end; number++)); do
+      [[ " $preview_chapters " == *" $number "* ]] || preview_chapters+=" $number"
+    done
+  done
+  preview_chapters+=" "
+}
+
 if [[ $# -eq 0 ]]; then
   while IFS= read -r number; do
     source_directory="$(jq -er --argjson number "$number" '.books[] | select(.number == $number) | .sourceDirectory' "$CONFIG")"
@@ -88,6 +122,10 @@ if [[ $# -eq 0 ]]; then
   done < <(jq -r '.books[].number' "$CONFIG")
 elif [[ $# -eq 2 && "$1" == "book" && "$2" =~ ^[0-9]+$ ]]; then
   add_book_number "$2"
+elif [[ $# -eq 4 && "$1" == "book" && "$2" =~ ^[0-9]+$ \
+    && "$3" =~ ^(chap|chapter|chapters)$ ]]; then
+  add_book_number "$2"
+  parse_chapter_list "$4"
 else
   for selector in "$@"; do
     if [[ "$selector" =~ ^[0-9]+$ ]]; then
@@ -136,11 +174,51 @@ for book_number in "${book_numbers[@]}"; do
     continue
   fi
 
-  echo "Publishing $book_name (${#chapter_files[@]} manuscript files)..."
-  combined_md="$OUT_DIR/$book_name.md"
-  manuscript_pdf="$PDF_TMP_DIR/$book_name-manuscript.pdf"
+  edition_suffix=""
+  preview_args=()
+  if [[ -n "$preview_chapters" ]]; then
+    # Keep the requested chapters plus any non-chapter file (front matter) that
+    # sorts before the last requested chapter; drop everything else.
+    total_chapters=0
+    last_selected_index=-1
+    found_chapters=" "
+    for index in "${!chapter_files[@]}"; do
+      if [[ "$(basename "${chapter_files[$index]}")" =~ ^chapter-([0-9]+)- ]]; then
+        total_chapters=$((total_chapters + 1))
+        number=$((10#${BASH_REMATCH[1]}))
+        if [[ "$preview_chapters" == *" $number "* ]]; then
+          last_selected_index=$index
+          found_chapters+="$number "
+        fi
+      fi
+    done
+    for number in $preview_chapters; do
+      if [[ "$found_chapters" != *" $number "* ]]; then
+        echo "Error: $book_name has no chapter $number in $chapters_dir." >&2
+        exit 1
+      fi
+    done
+
+    preview_files=()
+    for index in "${!chapter_files[@]}"; do
+      (( index > last_selected_index )) && break
+      if [[ "$(basename "${chapter_files[$index]}")" =~ ^chapter-([0-9]+)- ]]; then
+        [[ "$preview_chapters" == *" $((10#${BASH_REMATCH[1]})) "* ]] || continue
+      fi
+      preview_files+=("${chapter_files[$index]}")
+    done
+    chapter_files=("${preview_files[@]}")
+
+    edition_suffix="-preview"
+    preview_list="$(echo $preview_chapters | tr ' ' ',')"
+    preview_args=(--preview-chapters "$preview_list" --total-chapters "$total_chapters")
+  fi
+
+  echo "Publishing $book_name$edition_suffix (${#chapter_files[@]} manuscript files)..."
+  combined_md="$OUT_DIR/$book_name$edition_suffix.md"
+  manuscript_pdf="$PDF_TMP_DIR/$book_name$edition_suffix-manuscript.pdf"
   diagram_output_dir="$PDF_TMP_DIR/$book_name-diagrams"
-  output_pdf="$OUT_DIR/$book_name.pdf"
+  output_pdf="$OUT_DIR/$book_name$edition_suffix.pdf"
 
   title_json="$(jq -cn --arg value "$book_title" '$value')"
   description_json="$(jq -cn --arg value "$book_description" '$value')"
@@ -157,8 +235,10 @@ for book_number in "${book_numbers[@]}"; do
     echo "classoption: oneside"
     echo "---"
     echo
-    echo "> Internal review draft. Not for sale or public distribution."
-    echo
+    if [[ -z "$preview_chapters" ]]; then
+      echo "> Internal review draft. Not for sale or public distribution."
+      echo
+    fi
     for chapter_file in "${chapter_files[@]}"; do
       chapter_namespace="$(basename "$chapter_file" .md)"
       "$PYTHON_BIN" "$ROOT_DIR/scripts/namespace_markdown_footnotes.py" \
@@ -205,7 +285,8 @@ for book_number in "${book_numbers[@]}"; do
     --front "$COVER_DIR/book-$padded_number-front-cover.pdf" \
     --manuscript "$manuscript_pdf" \
     --back "$COVER_DIR/book-$padded_number-back-cover.pdf" \
-    --output "$output_pdf"
+    --output "$output_pdf" \
+    "${preview_args[@]+"${preview_args[@]}"}"
 
   echo "  -> $output_pdf"
   published_any=1

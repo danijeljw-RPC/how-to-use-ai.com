@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (38)
+
+### Changed
+
+- `publish-draft-books.sh book 1 chap 01,02,03` (ranges such as `01-03` also work) now builds a preview edition at `dist/02-book-01-preview.pdf`. It contains the front cover, a "Preview edition" notice, the selected chapters plus any front matter sorted before them, an "End of preview" page, and the back cover. The full `book 1` build is unchanged.
+- Added `series.website` to `publishing/books.json` for the end-of-preview page.
+- Fixed an order-dependent integration-test assertion that picked an arbitrary diagram PDF. It now targets the Chapter 1 recommendation diagram by name. The test also builds and checks the preview edition.
+- Verification: 13/13 unit tests pass, and `tests/test_publish_draft_books.sh` passes for both the full and the preview builds.
+
+### Files changed
+
+- `publish-draft-books.sh`
+- `scripts/assemble_draft_book.py`
+- `publishing/books.json`
+- `tests/test_assemble_draft_book.py`
+- `tests/test_publish_draft_books.sh`
+- `docs/03-publishing/decisions/ADR-03-0005-chapter-preview-edition.md` (new)
+- `docs/03-publishing/open-issues/OI-0002.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `ADR-03-0005`: chapter preview edition built by the draft publisher.
+
+### Open issues added or closed
+
+- Opened publishing `OI-0002`: approve the preview edition wording. Publishing `OI-0001` (public preview file) stays open: the excerpt build now exists, but the file still has to be hosted at `PREVIEW_DOWNLOAD_URL`.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (37)
 
 ### Changed
@@ -28,7 +60,7 @@ All meaningful project changes should be recorded here.
 - `wwwroot/wrangler.jsonc`, `wwwroot/src/cloudflare-env.d.ts`, `wwwroot/src/middleware.ts` (new), `wwwroot/src/lib/canonical-host.ts` (new), `wwwroot/tests/canonical-host.test.ts` (new), `wwwroot/src/pages/api/checkout.ts`, `wwwroot/.dev.vars.example`, `wwwroot/README.md`, `wwwroot/IMPLEMENTATION_LEDGER.md`
 - `docs/03-publishing/decisions/ADR-03-0003-launch-site-cloudflare-workers.md`
 - `docs/03-publishing/decisions/ADR-03-0004-production-site-and-stripe-test-mode.md` (new)
-- `docs/03-publishing/open-issues/OI-0001.md` (new)
+- `docs/03-publishing/open-issues/OI-0002.md` (new)
 - `changelog.md`
 
 ### Decisions added or changed
