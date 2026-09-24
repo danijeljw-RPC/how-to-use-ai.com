@@ -2,6 +2,35 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (32)
+
+### Changed
+
+- Rewrote and expanded Chapter 4, “What AI Cannot Do,” from approximately 1,960 to approximately 4,800 words using the supplied research package. The manuscript now explains hallucination, human-like understanding, consciousness, emotion, intent, morality, common sense, knowledge cutoffs, training-data dependency, confidence, and sycophancy through connected beginner-friendly examples rather than a list of warnings.
+- Preserved the plan's practical, non-hype and non-doomist purpose while correcting claims the research identified as too absolute or outdated. The chapter now distinguishes base models, search/retrieval-enabled products, and tool-using agents; observable behaviour and subjective inner state; operational goal pursuit and human-like intent; ethical output and moral responsibility; apparent confidence, measured uncertainty, and correctness.
+- Added unobtrusive chapter endnotes and a dedicated Chapter 4 bibliography mapping each retained research-dependent claim to primary, peer-reviewed, standards, court, authoritative philosophical, or clearly labelled first-party sources and cautions.
+- Updated the Chapter 4 plan and Book 1 drafting status to record the completed research-backed manuscript pass. The unapproved Johnny scenario was not used.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`
+- `docs/02-book-01/plans/chapter-04-plan.md`
+- `docs/02-book-01/research/chapter-04-bibliography.md` (new)
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. This pass applies accepted `ADR-04-0002` and `ADR-04-0003` and follows the approved Chapter 4 plan.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-23 (31)
 
 ### Changed

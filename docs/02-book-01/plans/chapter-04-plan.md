@@ -144,3 +144,19 @@ draft: add chapter 04 plan and draft (what AI cannot do)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Added a concrete fabricated-citation example under hallucinations; split "No True Understanding, No Common Sense" and "Knowledge Cutoffs and Training-Data Dependency" into their own H3 subsections with an added concrete example each (a subtly-changed riddle; "current price" style questions). Word count grew from ~1,642 to ~1,960. No existing content, placeholders, or takeaways were removed.
+
+## Research-Backed Manuscript Pass (2026-09-24)
+
+Rewrote and expanded the chapter to approximately 4,800 words using `docs/80-research/chapter-04-research-package/`, while preserving this plan's scope, sequence, required examples, diagram, reflection placeholder, Part 1 recap, and non-doomist purpose. The manuscript now:
+
+- explains hallucination as a structural failure mode without claiming a fixed or unavoidable error rate;
+- separates fluent behaviour from verified reality and human-like grounded understanding;
+- preserves genuine scientific and philosophical uncertainty around understanding and consciousness;
+- distinguishes observable emotional language from felt emotion, operational agent goals from subjective intent, and ethical output from moral responsibility;
+- replaces the overly absolute "no common sense" treatment with a practical account of brittle, culturally situated common-sense reasoning;
+- distinguishes a base model, a search/retrieval-enabled AI product, and a tool-using agent;
+- treats apparent confidence, model uncertainty, and actual correctness as separate ideas;
+- adds unobtrusive chapter endnotes and `docs/02-book-01/research/chapter-04-bibliography.md` under accepted `ADR-04-0003`;
+- omits the unapproved Johnny scenario.
+
+The completed manuscript satisfies the planned learning outcomes through qualified, current formulations rather than categorical claims that the research package identifies as scientifically unsettled or operationally outdated.
