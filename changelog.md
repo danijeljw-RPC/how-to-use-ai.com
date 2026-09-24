@@ -2,6 +2,30 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (41)
+
+### Changed
+
+- Reviewed the Seobility on-page check of the launch site homepage (81%, one critical issue) against production (`curl`) and `wwwroot/src`. Confirmed findings: plain HTTP is served with `200` instead of redirecting to HTTPS, the HTML `Content-Type` has no charset, `favicon.svg` exists but is not linked, there is no Apple touch icon, the homepage title is only the site name, the H1 terms are not reused in the body, and the homepage is under 250 words. Wrote a prioritised fix plan. No site code changed yet; awaiting author review.
+
+### Files changed
+
+- `docs/03-publishing/plans/site-seo-fixes-plan.md` (new)
+- `docs/03-publishing/open-issues/OI-0003.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- Added `docs/03-publishing/open-issues/OI-0003.md` — homepage title, homepage copy, external links, social sharing, HSTS preload.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (40)
 
 ### Changed
