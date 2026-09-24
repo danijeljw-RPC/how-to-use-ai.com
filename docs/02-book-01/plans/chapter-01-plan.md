@@ -84,7 +84,7 @@ All present in the migrated draft.
 ## Possible Diagrams
 
 - Recommendation engine feedback loop (used — placeholder present in draft)
-- Normal vs abnormal travel pattern / fraud risk trigger (used — placeholder present in draft)
+- Normal vs abnormal travel pattern / fraud risk trigger (done — rendered from `docs/02-book-01/diagrams/fraud-detection-travel-pattern.mmd`, 2026-09-24)
 - General "everyday AI around a person" diagram (not yet added — candidate for a future revision pass if the chapter is illustrated)
 
 ## Callouts to Include

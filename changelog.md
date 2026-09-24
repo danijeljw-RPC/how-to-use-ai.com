@@ -2,6 +2,32 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (40)
+
+### Changed
+
+- Replaced the Chapter 1 fraud-detection diagram placeholder with a real Mermaid diagram. It puts a normal travel pattern (Sydney → Parramatta → Chatswood → payment approved) beside an abnormal one (Sydney → Singapore 20 minutes later → impossible travel → fraud risk flagged). It follows the existing `.mmd` image-reference convention, so the publishing pipeline renders it to a vector PDF.
+- Verification: `mmdc` renders the diagram; `scripts/render_mermaid_diagrams.py` resolves the Chapter 1 reference; `tests.test_render_mermaid_diagrams` passes.
+
+### Files changed
+
+- `docs/02-book-01/diagrams/fraud-detection-travel-pattern.mmd` (new)
+- `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`
+- `docs/02-book-01/plans/chapter-01-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (39)
 
 ### Changed
