@@ -25,34 +25,34 @@ Four parts plus an epilogue, 14 chapters total.
 Purpose: remove myths, establish foundations, reduce intimidation, explain AI through familiar everyday systems.
 
 1. **You've Already Been Using AI** — draft complete (`docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`)
-2. **Why Everyone Suddenly Talks About AI** — draft complete (`docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`)
-3. **What AI Can Actually Do** — draft complete (`docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`)
-4. **What AI Cannot Do** — draft complete (`docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`) — completes Part 1
+1. **Why Everyone Suddenly Talks About AI** — draft complete (`docs/02-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`)
+1. **What AI Can Actually Do** — draft complete (`docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md`)
+1. **What AI Cannot Do** — draft complete (`docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`) — completes Part 1
 
 ### Part 2 — Using AI in Real Life
 
 Purpose: transition from theory into practical life usage; show how AI helps ordinary people and professionals without requiring technical skill.
 
-5. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
-6. **AI at Home** — draft complete (`docs/02-book-01/chapters/chapter-06-ai-at-home.md`)
-7. **AI at Work** — draft complete (`docs/02-book-01/chapters/chapter-07-ai-at-work.md`)
-8. **AI and Creativity** — draft complete (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
+1. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
+1. **AI at Home** — draft complete (`docs/02-book-01/chapters/chapter-06-ai-at-home.md`)
+1. **AI at Work** — draft complete (`docs/02-book-01/chapters/chapter-07-ai-at-work.md`)
+1. **AI and Creativity** — draft complete (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
 
 ### Part 3 — Risks, Fear, and Reality
 
 Purpose: give the book credibility and balance; avoid hype and panic; explain real risks without sensationalism.
 
-9. **The Problems Nobody Should Ignore** — draft complete (`docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`)
-10. **Will AI Replace Jobs?** — draft complete (`docs/02-book-01/chapters/chapter-10-will-ai-replace-jobs.md`)
-11. **AI Hype vs Reality** — draft complete (`docs/02-book-01/chapters/chapter-11-ai-hype-vs-reality.md`) — completes Part 3
+1. **The Problems Nobody Should Ignore** — draft complete (`docs/02-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`)
+1. **Will AI Replace Jobs?** — draft complete (`docs/02-book-01/chapters/chapter-10-will-ai-replace-jobs.md`)
+1. **AI Hype vs Reality** — draft complete (`docs/02-book-01/chapters/chapter-11-ai-hype-vs-reality.md`) — completes Part 3
 
 ### Part 4 — Preparing for the Future
 
 Purpose: end with practical confidence and future readiness; help the reader adapt calmly; explain why AI literacy matters more than tool loyalty.
 
-12. **How to Stay Relevant in the AI Era** — draft complete (`docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`)
-13. **Building Your Personal AI Toolkit** — draft complete (`docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`)
-14. **Where AI Goes Next** — draft complete (`docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md`) — completes Part 4
+1. **How to Stay Relevant in the AI Era** — draft complete (`docs/02-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`)
+1. **Building Your Personal AI Toolkit** — draft complete (`docs/02-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`)
+1. **Where AI Goes Next** — draft complete (`docs/02-book-01/chapters/chapter-14-where-ai-goes-next.md`) — completes Part 4
 
 ### Epilogue — Don't Panic
 
@@ -109,7 +109,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 ## Drafting Status
 
 | # | Chapter | Plan | Draft |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | You've Already Been Using AI | Done | Done |
 | 2 | Why Everyone Suddenly Talks About AI | Done | Done |
 | 3 | What AI Can Actually Do | Done | Done |
