@@ -18,6 +18,7 @@
   },
   "vars": {
     "SITE_URL": "https://how-to-use-ai.com",
+    "PREVIEW_DOWNLOAD_URL": "https://how-to-use-ai.com/downloads/ai-for-normal-people-preview.pdf",
     "COMMERCE_ENABLED": "false",
     "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi",
     "STRIPE_PRICE_EBOOK": "price_1UJ6TX4BF2uOrrJb7uyZM1iR"
