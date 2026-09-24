@@ -2,6 +2,33 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (43)
+
+### Added
+
+- Recorded the publisher and National Library catalogue metadata discussion as ADR-03-0006: RePass Cloud Pty Ltd is the publisher (full legal name), How To Use AI.com is the imprint and series, each book keeps its own title and series number, and Book 1's NLA values are listed (General audience, Non-fiction genre, eBook — PDF, first edition). It also gives a copyright-page template.
+- Opened OI-0004 for the values still to settle: the final title, the exact series wording, the ISBN, price, month, life dates, the copyright holder, and the publisher category.
+- Deleted the source discussion file at the author's request. Its content is captured in ADR-03-0006.
+
+### Files changed
+
+- `docs/03-publishing/decisions/ADR-03-0006-publisher-imprint-and-catalogue-metadata.md` (new)
+- `docs/03-publishing/open-issues/OI-0004.md` (new)
+- `docs/03-publishing/how-to-use-ai-publisher-metadata-discussion.md` (removed; it was never committed)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `ADR-03-0006`.
+
+### Open issues added or closed
+
+- Opened `docs/03-publishing/open-issues/OI-0004.md`.
+
+### Commit
+
+pending commit
+
 ## 2026-09-24 (42)
 
 ### Changed
