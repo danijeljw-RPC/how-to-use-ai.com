@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (44)
+
+### Added
+
+- Reviewed the Astro launch site's existing privacy and terms pages, data flows,
+  form handling, Cloudflare/D1/Turnstile integration, dormant Stripe checkout,
+  preview redirect, and retailer-link configuration.
+- Added a fill-in legal-policy questionnaire covering the factual, operational,
+  privacy, marketing, consumer-law, fulfilment, refund, licensing, liability,
+  and dispute details needed to draft complete replacement policies without
+  inventing missing information.
+- Included a strict ChatGPT handoff prompt that stops on unresolved blockers,
+  separates current from planned behaviour, preserves supplied facts verbatim,
+  and returns clean Markdown for the two Astro routes.
+
+### Files changed
+
+- `wwwroot/legal-policy-questionnaire.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None. Unresolved policy facts are intentionally collected in the questionnaire.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (43)
 
 ### Added
