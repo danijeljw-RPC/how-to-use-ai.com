@@ -113,7 +113,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 1 | You've Already Been Using AI | Done | Done |
 | 2 | Why Everyone Suddenly Talks About AI | Done | Done |
 | 3 | What AI Can Actually Do | Done | Done |
-| 4 | What AI Cannot Do | Done | Done |
+| 4 | What AI Cannot Do | Done | Done — research-backed manuscript |
 | 5 | Talking to AI Properly | Done | Done |
 | 6 | AI at Home | Done | Done |
 | 7 | AI at Work | Done | Done |

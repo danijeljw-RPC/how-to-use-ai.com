@@ -1,4 +1,7 @@
 dist/
+tmp/
+__pycache__/
+*.pyc
 
 *.swp
 .claude/worktrees/
