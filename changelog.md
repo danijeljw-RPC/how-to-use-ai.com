@@ -2,6 +2,31 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (39)
+
+### Changed
+
+- Added a `--webpub` (or `-webpub`) flag to `publish-draft-books.sh`. With a preview build (`book 1 chap 01-03 --webpub`), it also copies the preview to `wwwroot/public/downloads/ai-for-normal-people-preview.pdf`, the file behind the site's `PREVIEW_DOWNLOAD_URL`. The flag is refused for full internal-review builds.
+- Verification: the full build with `--webpub` is rejected; the preview build copies a file identical to `dist/02-book-01-preview.pdf`.
+
+### Files changed
+
+- `publish-draft-books.sh`
+- `docs/03-publishing/decisions/ADR-03-0005-chapter-preview-edition.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Updated `ADR-03-0005` with the `--webpub` site-publishing step.
+
+### Open issues added or closed
+
+- None. Publishing `OI-0001` stays open until the preview PDF is deployed to the live site.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (38)
 
 ### Changed

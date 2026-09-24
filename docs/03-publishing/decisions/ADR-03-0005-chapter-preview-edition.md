@@ -26,6 +26,7 @@ The launch site offers a free preview download (`PREVIEW_DOWNLOAD_URL` in `wwwro
 - The "Internal review edition" notice and the internal-review line in the manuscript are left out of the preview.
 - The end-of-preview page shows the included chapters, how many chapters remain, and the optional `series.website` value from `publishing/books.json`.
 - The output goes to `dist/<source-directory>-preview.pdf`, so the full review PDF is not overwritten.
+- With `--webpub` (or `-webpub`), the preview is also copied to `wwwroot/public/downloads/<title-slug>-preview.pdf`, where the site serves it. For Book 1 that is `ai-for-normal-people-preview.pdf`, which matches `PREVIEW_DOWNLOAD_URL`. The flag is refused for full builds, so an internal-review edition can never be copied into the public site.
 
 ## Options Considered
 

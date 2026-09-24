@@ -11,8 +11,13 @@
 #                                            # any front matter sorted before them,
 #                                            # an end-of-preview page, and the back
 #                                            # cover (ranges such as 01-03 also work)
+#   ./publish-draft-books.sh book 1 chap 01-03 --webpub
+#                                            # also copy the preview to the site:
+#                                            # wwwroot/public/downloads/<title-slug>-preview.pdf
 #
 # Preview editions are written to dist/<source-directory>-preview.pdf.
+# --webpub (or -webpub) is only accepted for preview editions, so internal-review
+# builds are never copied into the public site.
 
 set -euo pipefail
 
@@ -22,6 +27,19 @@ OUT_DIR="$ROOT_DIR/dist"
 COVER_DIR="$OUT_DIR/covers"
 PDF_TMP_DIR="$ROOT_DIR/tmp/pdfs"
 CONFIG="$ROOT_DIR/publishing/books.json"
+WEB_DOWNLOADS_DIR="$ROOT_DIR/wwwroot/public/downloads"
+
+# Pull the --webpub flag out of the arguments so the selectors below stay positional.
+web_publish=0
+remaining_args=()
+for argument in "$@"; do
+  if [[ "$argument" == "--webpub" || "$argument" == "-webpub" ]]; then
+    web_publish=1
+  else
+    remaining_args+=("$argument")
+  fi
+done
+set -- "${remaining_args[@]+"${remaining_args[@]}"}"
 
 require_command() {
   local command_name="$1"
@@ -142,6 +160,11 @@ fi
 
 if [[ ${#book_numbers[@]} -eq 0 ]]; then
   echo "No configured books with drafted chapter content were found." >&2
+  exit 1
+fi
+
+if [[ "$web_publish" -eq 1 && -z "$preview_chapters" ]]; then
+  echo "Error: --webpub only publishes preview editions; add 'chap <list>' (e.g. book 1 chap 01-03)." >&2
   exit 1
 fi
 
@@ -289,6 +312,15 @@ for book_number in "${book_numbers[@]}"; do
     "${preview_args[@]+"${preview_args[@]}"}"
 
   echo "  -> $output_pdf"
+
+  if [[ "$web_publish" -eq 1 ]]; then
+    title_slug="$(printf '%s' "$book_title" | tr '[:upper:]' '[:lower:]' \
+      | sed -e 's/[^a-z0-9]\{1,\}/-/g' -e 's/^-//' -e 's/-$//')"
+    web_pdf="$WEB_DOWNLOADS_DIR/$title_slug-preview.pdf"
+    mkdir -p "$WEB_DOWNLOADS_DIR"
+    cp "$output_pdf" "$web_pdf"
+    echo "  -> $web_pdf (site download)"
+  fi
   published_any=1
 done
 
