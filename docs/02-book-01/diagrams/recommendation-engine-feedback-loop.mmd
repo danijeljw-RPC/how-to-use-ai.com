@@ -1,0 +1,15 @@
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TB
+    A["User watches<br/>content"]
+    B["System records<br/>behaviour"]
+    C["AI finds similar<br/>behaviour patterns"]
+    D["Predicted interests<br/>are generated"]
+    E["Recommendations<br/>are displayed"]
+    F["User interacts<br/>again"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F -.->|Feedback loop| B

@@ -23,7 +23,7 @@ When a streaming platform recommends a movie or series, it's trying to answer on
 
 This isn't the system "understanding" entertainment the way a person does — it's statistical prediction. Underneath, it's really just saying: people with similar viewing behaviour to yours often choose this next.
 
-> [Diagram placeholder: Mermaid diagram showing the recommendation engine feedback loop — user watches content → system records behaviour → AI finds similar behaviour patterns → predicted interests generated → recommendations displayed → user interacts again → loop repeats.]
+![Recommendation engine feedback loop: watching content produces behavioural data, which the AI uses to predict interests and display recommendations; later interactions feed back into the system.](../diagrams/recommendation-engine-feedback-loop.mmd){ width=50% }
 
 ### Navigation and Traffic Prediction
 

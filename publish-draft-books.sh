@@ -139,6 +139,7 @@ for book_number in "${book_numbers[@]}"; do
   echo "Publishing $book_name (${#chapter_files[@]} manuscript files)..."
   combined_md="$OUT_DIR/$book_name.md"
   manuscript_pdf="$PDF_TMP_DIR/$book_name-manuscript.pdf"
+  diagram_output_dir="$PDF_TMP_DIR/$book_name-diagrams"
   output_pdf="$OUT_DIR/$book_name.pdf"
 
   title_json="$(jq -cn --arg value "$book_title" '$value')"
@@ -161,7 +162,11 @@ for book_number in "${book_numbers[@]}"; do
     for chapter_file in "${chapter_files[@]}"; do
       chapter_namespace="$(basename "$chapter_file" .md)"
       "$PYTHON_BIN" "$ROOT_DIR/scripts/namespace_markdown_footnotes.py" \
-        "$chapter_file" "$chapter_namespace" | sed 's/\\newpage[[:space:]]*$//'
+        "$chapter_file" "$chapter_namespace" \
+        | "$PYTHON_BIN" "$ROOT_DIR/scripts/render_mermaid_diagrams.py" \
+          --source-dir "$(dirname "$chapter_file")" \
+          --output-dir "$diagram_output_dir" \
+        | sed 's/\\newpage[[:space:]]*$//'
       echo
       printf '%s\n' '\newpage'
       echo
@@ -183,6 +188,7 @@ for book_number in "${book_numbers[@]}"; do
   pandoc "$combined_md" \
     -o "$manuscript_pdf" \
     --pdf-engine="$PDF_ENGINE" \
+    --resource-path="$chapters_dir:$ROOT_DIR" \
     --toc \
     --toc-depth=2 \
     --top-level-division=chapter \
