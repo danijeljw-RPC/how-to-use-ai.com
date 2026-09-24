@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 import { site } from '../content/site';
+import { bookOne } from '../content/books';
 import { getCommerceConfig } from '../lib/config';
 
 interface Props {
@@ -27,7 +28,8 @@ const runtimeEnv = siteEnv();
 const resolvedCommerceEnabled = commerceEnabled ?? getCommerceConfig(runtimeEnv).enabled;
 const turnstileSiteKey = runtimeEnv.TURNSTILE_SITE_KEY ?? '';
 const canonical = new URL(canonicalPath, Astro.site);
-const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const fullTitle = title.startsWith(site.name) ? title : `${title} | ${site.name}`;
+const ogImage = new URL(bookOne.cover, Astro.site);
 const structuredDataJson = structuredData ? JSON.stringify(structuredData).replaceAll('<', '\\u003c') : '';
 ---
 
@@ -41,11 +43,15 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData).repla
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={`Cover of ${bookOne.title}`} />
     <meta name="theme-color" content="#24173a" />
     {structuredData && <script type="application/ld+json" set:html={structuredDataJson} />}
   </head>

@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (42)
+
+### Changed
+
+- Implemented the launch site SEO fixes plan, applying the resolved OI-0003 recommendations:
+  - HTTP on the production host now `301`s to HTTPS, and `http://www.` goes straight to `https://how-to-use-ai.com` in one hop.
+  - HTML responses send `charset=utf-8`, and HTTPS responses send HSTS (1 year, no preload).
+  - The layout links `favicon.svg` and a new 180×180 `apple-touch-icon.png`, and adds `og:image` (the Book 1 cover).
+  - The homepage has a longer title and a new "Who this is for" section (word count now over 250, and the H1's terms are reused). The series titles use a styled span instead of `<strong>`, bringing the homepage to 2 bold tags.
+- Verification: `npm test` (60 passed), `npm run check` (0 errors), and `npm run build` all pass. A local `astro preview` confirmed the charset header, the 56-character title, both icon links, 2 bold tags, and about 355 words.
+
+### Files changed
+
+- `wwwroot/src/lib/canonical-host.ts`
+- `wwwroot/src/lib/response-headers.ts` (new)
+- `wwwroot/src/middleware.ts`
+- `wwwroot/src/layouts/BaseLayout.astro`
+- `wwwroot/src/pages/index.astro`
+- `wwwroot/src/styles/global.css`
+- `wwwroot/public/apple-touch-icon.png` (new)
+- `wwwroot/tests/canonical-host.test.ts`
+- `wwwroot/tests/response-headers.test.ts` (new)
+- `docs/03-publishing/plans/site-seo-fixes-plan.md`
+- `docs/03-publishing/open-issues/OI-0003.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None (the choices are recorded as the resolution of OI-0003).
+
+### Open issues added or closed
+
+- Closed `docs/03-publishing/open-issues/OI-0003.md`.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (41)
 
 ### Changed

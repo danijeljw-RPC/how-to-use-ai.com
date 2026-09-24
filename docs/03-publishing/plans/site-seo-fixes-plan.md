@@ -2,7 +2,13 @@
 
 ## Status
 
-Proposed — awaiting author review. No site code has been changed yet.
+Implemented — 2026-09-24. The author approved the plan and the OI-0003 recommendations. The work was done directly on `book01/chap03`.
+
+Deviations from the plan:
+
+- HSTS ships in the same change as the redirect. It is only sent on HTTPS responses, which already work, so it cannot lock anyone out. It has no `preload`.
+- The redirect and headers were verified by unit tests and a local `astro preview`. The live `curl` checks and the Seobility re-check happen after deployment.
+- Enabling Cloudflare's **Always Use HTTPS** is still recommended. The Worker now upgrades HTTP for every page, but static files served directly from `public/` (images, PDF, favicon) never reach the Worker.
 
 ## Purpose
 
