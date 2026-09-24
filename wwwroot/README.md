@@ -2,7 +2,7 @@
 
 This directory is a standalone Astro application for the Book 1 launch site. It uses server output, the Cloudflare adapter, a Cloudflare Worker with static assets, one D1 binding (`SITE_DB`), Turnstile-protected forms, and dormant Stripe Checkout/webhook contracts.
 
-Direct commerce is unavailable unless `COMMERCE_ENABLED` is exactly `true` and all required Stripe settings are present. The repository contains no working secret, Stripe Product, Price, webhook endpoint, or Cloudflare resource identifier.
+Direct commerce is unavailable unless `COMMERCE_ENABLED` is exactly `true` and all required Stripe settings are present. The repository contains no secret. It does contain public identifiers: the production D1 database ID, the Turnstile site key, and the Stripe test-mode Price ID.
 
 ## Why this targets Workers, not Pages
 
@@ -24,7 +24,11 @@ npx wrangler d1 migrations apply SITE_DB --local
 npm run dev
 ```
 
-Replace only local placeholder values in `.dev.vars`; the file is ignored. `TURNSTILE_SECRET_KEY`, `STRIPE_SECRET_KEY`, and `STRIPE_WEBHOOK_SECRET` must never enter tracked files, browser code, generated pages, or logs.
+Replace only local placeholder values in `.dev.vars`; the file is ignored. `SITE_URL` must be an HTTPS URL even locally (checkout refuses anything else), so keep it at `https://how-to-use-ai.com`. Use Turnstile's documented always-pass test keys locally (`1x00000000000000000000AA` / `1x0000000000000000000000000000000AA`).
+
+There is one D1 database, and it is production. There is no remote development database: `npm run dev` and `npm run preview` use Wrangler's local D1 simulation under `.wrangler/state`. Re-run `npx wrangler d1 migrations apply SITE_DB --local` whenever the local state is cleared or the database ID changes.
+
+`astro build` copies `.dev.vars` into `dist/server/.dev.vars` for local preview, so rebuild after editing `.dev.vars`. That copy is never uploaded by `wrangler deploy`, but delete `.dev.vars` and `dist/` after using real test keys. `TURNSTILE_SECRET_KEY`, `STRIPE_SECRET_KEY`, and `STRIPE_WEBHOOK_SECRET` must never enter tracked files, browser code, generated pages, or logs.
 
 For a production-shaped local build in the Workers runtime:
 
@@ -51,20 +55,29 @@ npm audit
 
 The tests use fake D1, Turnstile, Checkout, and fulfilment adapters. Stripe signature tests use Stripe's real signing and verification implementation with test-only payloads and secrets. No test makes a Stripe API call.
 
-## Cloudflare Workers setup (later)
+## Production deployment
 
-No item in this section has been performed by this implementation.
+Production runs as the Worker `how-to-use-ai` on the custom domains `how-to-use-ai.com` and `www.how-to-use-ai.com`. `workers.dev` and preview URLs are disabled, and the middleware (`src/middleware.ts`) permanently redirects `www` to the apex host.
 
-1. Create separate preview and production D1 databases. Replace the placeholder `database_id` in `wrangler.jsonc` (or use a Wrangler environment per stage) without allowing automatic provisioning.
-2. Apply `migrations/0001_launch_site.sql` to each intended database with `npx wrangler d1 migrations apply SITE_DB --remote`, confirming the target first.
-3. Deploy with `npm run build && npx wrangler deploy`, or connect Workers Builds with root directory `wwwroot`, build command `npm run build`, and deploy command `npx wrangler deploy`.
-4. Keep preview and production bound to different `SITE_DB` databases; never point preview at production data.
-5. Set public variables: `SITE_URL`, `PREVIEW_DOWNLOAD_URL`, `TURNSTILE_SITE_KEY`, `COMMERCE_ENABLED=false`, and only verified retailer URLs.
-6. Add `TURNSTILE_SECRET_KEY` with `npx wrangler secret put TURNSTILE_SECRET_KEY`. Keep the site key and secret paired with the correct hostname and environment.
-7. Attach the custom domain to the Worker.
-8. Verify every route, the actual Turnstile widget, two duplicate newsletter submissions, one contact submission, D1 rows, canonical host, TLS, robots, sitemap, and the custom domain on a non-production deployment before production.
+| Item | Value |
+|---|---|
+| D1 database | `how-to-use-ai-site` (`681b856b-e2b1-4eea-8ec0-1d355ec0c770`), Oceania, migration `0001` applied |
+| Turnstile widget | `How To Use AI PROD`, managed mode, site key `0x4AAAAAAFB56_6HtJDzcLZi` |
+| Worker secrets | `TURNSTILE_SECRET_KEY` only |
+| Variables | `SITE_URL`, `COMMERCE_ENABLED=false`, `TURNSTILE_SITE_KEY`, `STRIPE_PRICE_EBOOK` |
+| Not set | `PREVIEW_DOWNLOAD_URL`, retailer URLs, all Stripe secrets |
 
-The `wrangler.jsonc` D1 UUID is deliberately non-functional. Replace it only when a reviewed deployment is being prepared.
+To deploy a change:
+
+```sh
+rm -rf dist
+npm run build
+npx wrangler deploy
+```
+
+Apply new migrations to production with `npx wrangler d1 migrations apply SITE_DB --remote` before deploying code that needs them. `wrangler deploy` replaces dashboard-edited variables with the values in `wrangler.jsonc`, so change variables in the file.
+
+To publish the preview, upload the preview PDF somewhere with a stable HTTPS URL, add `PREVIEW_DOWNLOAD_URL` to `vars`, and redeploy. Until then `/api/preview/` returns a controlled "unavailable" page.
 
 ## Preview behaviour
 
@@ -74,16 +87,33 @@ The `wrangler.jsonc` D1 UUID is deliberately non-functional. Replace it only whe
 
 Both endpoints require same-origin browser form submissions, bounded input, HTML-free fields, and action-specific Turnstile verification. Newsletter submissions always append a new row; duplicate emails are intentional. The site records addresses and messages but does not send email, suppress duplicates, manage subscribers, or promise a response.
 
+## Stripe test mode
+
+Stripe is set up in test mode in the **Peach Freestyle** account (`acct_1SJ3Xb4BF2uOrrJb`):
+
+- Product `prod_VJjxyKYLjkU457`, "AI for Normal People (ebook)", tax code `txcd_10302000`, metadata `project=how-to-use-ai.com`.
+- Price `price_1UJ6TX4BF2uOrrJb7uyZM1iR`, AUD 19.99 one-time, tax-inclusive. It is a placeholder test price, not a commercial decision.
+
+Commerce stays off in production. No production webhook endpoint is registered on purpose: the webhook returns 503 while commerce is off, and Stripe sends every test event in the account to every endpoint, so a registered endpoint would fail repeatedly and be auto-disabled.
+
+To test checkout end to end locally:
+
+1. Write `.dev.vars` with `COMMERCE_ENABLED="true"`, the test `STRIPE_SECRET_KEY`, `STRIPE_PRICE_EBOOK`, and `STRIPE_WEBHOOK_SECRET` from `stripe listen --print-secret`.
+2. `npm run build`, `npx wrangler d1 migrations apply SITE_DB --local`, then `npx astro preview --port 4399`.
+3. `stripe listen --forward-to localhost:4399/api/stripe/webhook/ --events checkout.session.completed`
+4. POST the purchase form, or run `stripe trigger checkout.session.completed --override checkout_session:metadata.format=ebook`.
+5. Inspect local `commerce_orders` and `stripe_events`. Resend the same event with `stripe events resend <evt_id>` to confirm a `duplicate` outcome.
+6. Delete `.dev.vars` and `dist/`.
+
 ## Stripe activation (later)
 
 Do not enable commerce until the book, commercial terms, policies, and fulfilment process are ready.
 
-1. In Stripe test mode, create one ebook Product and one-time Price. Create a separate print Product only if direct print fulfilment genuinely differs.
-2. Register `/api/stripe/webhook/` (trailing slash) for `checkout.session.completed` and store its signing secret as `STRIPE_WEBHOOK_SECRET` (a Worker secret).
-3. Add `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and `STRIPE_PRICE_EBOOK`; add `STRIPE_PRICE_PRINT` only when supported.
-4. Keep `COMMERCE_ENABLED=false`, run test-mode Checkout and signed duplicate webhook deliveries, then inspect `stripe_events` and `commerce_orders` in the non-production D1 database.
-5. Implement and verify a real secure fulfilment adapter. The current contract deliberately records `manual_pending`; it does not deliver a file.
-6. Complete legal, tax, refund, and any physical-shipping review. Only then set `COMMERCE_ENABLED=true`.
+1. Create the live Product and Price in the chosen live account, and set `STRIPE_PRICE_EBOOK` (plus `STRIPE_PRICE_PRINT` only if direct print is supported).
+2. Register `https://how-to-use-ai.com/api/stripe/webhook/` (trailing slash) for `checkout.session.completed`.
+3. `npx wrangler secret put STRIPE_SECRET_KEY` and `npx wrangler secret put STRIPE_WEBHOOK_SECRET`.
+4. Implement and verify a real secure fulfilment adapter. The current contract deliberately records `manual_pending`; it does not deliver a file.
+5. Complete legal, tax, refund, and any physical-shipping review. Only then set `COMMERCE_ENABLED="true"` and redeploy.
 
 The browser cannot supply an amount, currency, Price ID, or return URL. The server maps only `ebook` or `print` to configured Price IDs. The success page is informational; a verified, idempotently recorded webhook is the order trigger.
 
@@ -91,5 +121,5 @@ The browser cannot supply an amount, currency, Price ID, or return URL. The serv
 
 - No login, customer account, admin dashboard, analytics, comments, mailing provider, automatic email, coupon generation, or unsubscribe workflow.
 - No public permanent ebook entitlement URL.
-- No Cloudflare or Stripe resources are created by repository scripts.
+- No Cloudflare or Stripe resources are created by repository scripts; the resources above were created once by hand.
 - Privacy and terms pages are launch-stage plain-language drafts marked for legal review before paid sales.

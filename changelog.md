@@ -2,6 +2,48 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (37)
+
+### Changed
+
+- Deployed the launch site to production as the Cloudflare Worker `how-to-use-ai` on `how-to-use-ai.com` and `www.how-to-use-ai.com`. `www` permanently redirects to the apex host, and `workers.dev` and preview URLs are disabled.
+- Created the single production D1 database `how-to-use-ai-site` (Oceania) and applied migration `0001`. There is no remote development database; local testing uses Wrangler's local D1.
+- Created the managed Turnstile widget `How To Use AI PROD` and stored its secret as a Worker secret.
+- Set up Stripe test mode in the Peach Freestyle account: Product `prod_VJjxyKYLjkU457` with placeholder Price `price_1UJ6TX4BF2uOrrJb7uyZM1iR` (AUD 19.99). Commerce remains off in production, and no production webhook endpoint is registered.
+- Verified the Stripe flow locally in the Workers runtime:
+  - a real test Checkout session was created;
+  - a signed paid event recorded one order;
+  - a resent event was acknowledged as a duplicate, with no second order;
+  - a forged signature was rejected.
+- Added the `www`-to-apex middleware (with tests) and structured logging for failed Checkout creation.
+- Live checks passed:
+  - all 13 pages returned 200 and unknown paths 404;
+  - `www` redirected to the apex host;
+  - checkout was refused with 503, and cross-origin posts with 403.
+- The preview link is unavailable until a preview file URL is set (see OI below).
+- Not yet verified: a real-browser Turnstile solve and a live form submission.
+
+### Files changed
+
+- `wwwroot/wrangler.jsonc`, `wwwroot/src/cloudflare-env.d.ts`, `wwwroot/src/middleware.ts` (new), `wwwroot/src/lib/canonical-host.ts` (new), `wwwroot/tests/canonical-host.test.ts` (new), `wwwroot/src/pages/api/checkout.ts`, `wwwroot/.dev.vars.example`, `wwwroot/README.md`, `wwwroot/IMPLEMENTATION_LEDGER.md`
+- `docs/03-publishing/decisions/ADR-03-0003-launch-site-cloudflare-workers.md`
+- `docs/03-publishing/decisions/ADR-03-0004-production-site-and-stripe-test-mode.md` (new)
+- `docs/03-publishing/open-issues/OI-0001.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `ADR-03-0004`: single production database, production resource layout, Stripe test mode in Peach Freestyle, commerce off in production, and no production webhook until activation.
+- Updated `ADR-03-0003` status to deployed.
+
+### Open issues added or closed
+
+- Opened `docs/03-publishing/open-issues/OI-0001.md`: public preview file for the launch site.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (36)
 
 ### Changed

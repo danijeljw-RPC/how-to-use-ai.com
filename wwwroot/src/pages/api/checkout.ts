@@ -14,7 +14,13 @@ export const ALL: APIRoute = ({ request }) => {
     env,
     createCheckout: async (params) => {
       if (!commerce.enabled) throw new Error('Commerce is unavailable');
-      return createStripeClient(commerce.secretKey).checkout.sessions.create(params);
+      try {
+        return await createStripeClient(commerce.secretKey).checkout.sessions.create(params);
+      } catch (error) {
+        const { type, code, name } = (error ?? {}) as { type?: string; code?: string; name?: string };
+        logStructured({ event: 'checkout_create_failed', errorType: type ?? name ?? 'unknown', errorCode: code ?? 'none' });
+        throw error;
+      }
     },
     logger: logStructured,
   });

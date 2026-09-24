@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted. Implemented in `wwwroot/`; not yet deployed.
+Accepted. Implemented in `wwwroot/` and deployed to production on 2026-09-24 (see `ADR-03-0004`).
 
 ## Date
 
@@ -62,6 +62,5 @@ Supporting rules:
   compared with static HTML. That is acceptable at launch scale.
 - A deploy dry run is now available before the first real deployment, which
   Pages did not offer.
-- No Cloudflare or Stripe resource has been created. Live verification of
-  Turnstile, D1 bindings, the custom domain, and Stripe test mode remains
-  outstanding.
+- Production resources and Stripe test-mode setup are recorded in
+  `ADR-03-0004`.

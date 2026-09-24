@@ -7,18 +7,27 @@
   "assets": {
     "binding": "ASSETS"
   },
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "how-to-use-ai.com", "custom_domain": true },
+    { "pattern": "www.how-to-use-ai.com", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   },
   "vars": {
     "SITE_URL": "https://how-to-use-ai.com",
-    "COMMERCE_ENABLED": "false"
+    "COMMERCE_ENABLED": "false",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi",
+    "STRIPE_PRICE_EBOOK": "price_1UJ6TX4BF2uOrrJb7uyZM1iR"
   },
+  // Production only. Local development uses Wrangler's local D1 simulation; there is no remote dev database.
   "d1_databases": [
     {
       "binding": "SITE_DB",
       "database_name": "how-to-use-ai-site",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "681b856b-e2b1-4eea-8ec0-1d355ec0c770",
       "migrations_dir": "migrations"
     }
   ]
