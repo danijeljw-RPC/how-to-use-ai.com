@@ -22,7 +22,7 @@ It's worth being precise about what actually changed, because two opposite stori
 
 Previously, direct experimentation with leading language systems usually required technical skill, specialist access, or a product built by somebody else. After the public release of ChatGPT on 30 November 2022, millions of people could encounter a conversational language model through an ordinary website.[^1] Access was not literally universal—cost, connectivity, language, disability, geography, and account restrictions still matter—but the barrier was dramatically lower.
 
-> [Diagram placeholder: Mermaid diagram contrasting a traditional software interface (menus, buttons, forms, dropdowns) with a conversational interface (a typed question in, a written answer out).]
+![A traditional interface makes you translate what you want into menus, buttons, forms and dropdowns, while a conversational interface lets you type a question and get a written answer back.](../diagrams/traditional-versus-conversational-interface.mmd){ width=75% }
 
 ### Filling Out a Form vs. Asking a Question
 

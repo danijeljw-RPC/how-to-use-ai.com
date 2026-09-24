@@ -241,7 +241,7 @@ research: substantiate chapter 02 and add truth-versus-hype framework
 
 ## Possible Diagrams
 
-- [Diagram placeholder] Traditional software interface (menus/buttons/forms) vs. conversational interface (typed question → generated answer) — per ADR-02-0001's suggested Chapter 2 diagram opportunity.
+- Traditional software interface (menus/buttons/forms/dropdowns) vs. conversational interface (typed question → written answer) — per ADR-02-0001's suggested Chapter 2 diagram opportunity. Done 2026-09-24: rendered from `docs/02-book-01/diagrams/traditional-versus-conversational-interface.mmd`, using the chapter's shoe-return example.
 
 ## Callouts to Include
 

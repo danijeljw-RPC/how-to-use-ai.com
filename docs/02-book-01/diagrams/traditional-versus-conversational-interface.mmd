@@ -1,0 +1,34 @@
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TB
+    subgraph conversational["Conversational interface"]
+        direction TB
+        C1["You want to return<br/>shoes that don't fit"]
+        C2["Type a question:<br/>How do I send these back?"]
+        C3["AI interprets<br/>your request"]
+        C4["Written answer<br/>appears"]
+
+        C1 --> C2
+        C2 --> C3
+        C3 --> C4
+    end
+
+    subgraph traditional["Traditional interface"]
+        direction TB
+        T1["You want to return<br/>shoes that don't fit"]
+        T2["Menus:<br/>find Orders"]
+        T3["Buttons:<br/>click Return"]
+        T4["Forms:<br/>fill in the details"]
+        T5["Dropdowns:<br/>pick the closest reason"]
+        T6["Return<br/>is lodged"]
+
+        T1 --> T2
+        T2 --> T3
+        T3 --> T4
+        T4 --> T5
+        T5 --> T6
+    end
+
+    classDef you fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef result fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    class T1,C1 you
+    class T6,C4 result
