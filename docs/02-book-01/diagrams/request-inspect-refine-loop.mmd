@@ -1,0 +1,12 @@
+flowchart TB
+    A["Make a clear<br/>first request"]
+    B["Inspect the<br/>response"]
+    C["Identify what to keep,<br/>change or verify"]
+    D["Give focused<br/>feedback"]
+    E["Check the revised result<br/>before using it"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -.->|Refine again if needed| B
+    D --> E

@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (35)
+
+### Changed
+
+- Rewrote and expanded Chapter 5, “Talking to AI Properly,” from approximately 1,580 words into a complete research-backed manuscript built around context, specificity, examples, and iteration. The chapter now explains why these habits change the range of plausible output, demonstrates source-grounded requests and output shapes, shows how to ask clarifying questions and split complex work into stages, and treats inspection and verification as part of the conversation.
+- Preserved the approved beginner-facing, anti-guru framing while adding evidence-based nuance: short prompts can be clear, long prompts can contain distracting material, examples are useful rather than mandatory, models and tasks respond differently to exact wording, and better prompts improve relevance rather than guaranteeing truth.
+- Added four distinct before-and-after examples, a focused reader exercise, the required author-reflection placeholder, 11 unobtrusive chapter endnotes, and a dedicated Chapter 5 bibliography with source types, claim mapping, and cautions.
+- Replaced the vague-versus-contextual diagram placeholder with a portrait-friendly Mermaid diagram and added a second focused diagram for the request-inspect-refine loop. Both diagrams are inserted with explanatory alt text and use raw Mermaid source.
+- Updated the Chapter 5 plan and Book 1 drafting status to record the research-backed manuscript pass.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`
+- `docs/02-book-01/diagrams/vague-versus-clear-request.mmd` (new)
+- `docs/02-book-01/diagrams/request-inspect-refine-loop.mmd` (new)
+- `docs/02-book-01/research/chapter-05-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-05-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. This pass applies accepted `ADR-04-0002` and `ADR-04-0003` and follows the approved Chapter 5 plan.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (34)
 
 ### Changed

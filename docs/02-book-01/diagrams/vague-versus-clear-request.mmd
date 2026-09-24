@@ -1,0 +1,15 @@
+flowchart TB
+    A["The user's real goal"]
+    B["Vague request<br/>'Plan dinner'"]
+    C["Clear request<br/>People, diet, budget,<br/>time and output"]
+    D["AI must infer<br/>important choices"]
+    E["AI receives the choices<br/>that shape usefulness"]
+    F["Broad range of<br/>plausible answers"]
+    G["Narrower range of<br/>relevant answers"]
+
+    A --> B
+    A --> C
+    B --> D
+    C --> E
+    D --> F
+    E --> G

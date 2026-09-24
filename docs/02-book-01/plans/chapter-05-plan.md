@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved (proceeding without per-chapter review pause per user direction in this session)
+Complete — research-backed manuscript pass finished 2026-09-24
 
 ## Date
 
@@ -131,3 +131,23 @@ draft: add chapter 05 plan and draft (talking to AI properly)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split the context/specificity/examples paragraphs into H3 subsections, added a full worked before-and-after example (landlord repair email) under "Iteration Improves Results," and promoted the existing side-by-side examples into their own subsection with one more example. Word count grew from ~1,280 to ~1,580. No existing content, placeholders, or takeaways were removed.
+
+## Research-Backed Manuscript Pass (2026-09-24)
+
+Rewrote and expanded the chapter using `docs/80-research/chapter-05-research-package/` while preserving this plan's approved four-lever structure: context, specificity, examples, and iteration.
+
+The completed manuscript:
+
+- distinguishes a prompt's length from its clarity and teaches readers to include details that materially change the answer;
+- treats desired output shape and supplied source material as practical forms of specificity and context;
+- presents examples as an optional lever rather than a mandatory ingredient;
+- adds clarifying questions, preservation-focused follow-ups, staged work, and a lightweight response-evaluation checklist under iteration;
+- distinguishes improved relevance and instruction following from factual accuracy;
+- avoids rigid templates, model-specific incantations, chain-of-thought advice, and advanced prompt-engineering terminology;
+- retains the required landlord email, planning, and explanation examples and adds a source-grounded summary example;
+- replaces the diagram placeholder with `vague-versus-clear-request.mmd` and adds `request-inspect-refine-loop.mmd` where a second visual materially reduces cognitive load;
+- uses only the baseline Key Idea, Try This, Watch Out, and Recap callouts;
+- retains the author-reflection placeholder without inventing personal experience; and
+- adds 11 unobtrusive endnotes plus `docs/02-book-01/research/chapter-05-bibliography.md` for source traceability and cautions.
+
+The central qualification is that clearer requests improve the odds of relevant, usable output; they do not guarantee truth, eliminate model limitations, or provide one universal syntax across products and tasks.
