@@ -2,6 +2,30 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (34)
+
+### Changed
+
+- Replaced Chapter 4's confidence-versus-correctness diagram placeholder with a Mermaid quadrant chart. The chart makes the intended point explicit: apparent confidence and factual correctness are independent, so an incorrect answer can still sound confident.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md`
+- `docs/02-book-01/diagrams/confidence-versus-correctness.mmd` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. The diagram implements the existing Chapter 4 plan.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (33)
 
 ### Changed

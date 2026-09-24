@@ -168,7 +168,9 @@ So keep three ideas separate:
 
 Only the third answers the question, “Is this true?”
 
-> [Diagram placeholder: Mermaid quadrant chart with “Correctness — wrong to right” on the horizontal axis and “Apparent confidence — uncertain-sounding to confident-sounding” on the vertical axis. Show four examples: correct and confident, incorrect and confident, correct and cautious, incorrect and cautious. Caption: “Sounding certain is a property of the answer. Being correct is a property of the claim.”]
+![Apparent confidence and correctness are separate: an answer can be correct or incorrect, and it can sound cautious or confident.](../diagrams/confidence-versus-correctness.mmd){ width=50% }
+
+*Sounding certain is a property of the answer. Being correct is a property of the claim.*
 
 Another trap is agreement. An assistant may mirror a user's belief, accept a false premise, or become overly flattering because agreeable answers have sometimes been rewarded during training. Researchers call this **sycophancy**. “Yes, your reasoning is exactly right” may feel like independent confirmation when it is really the system following the direction supplied by the question.[^13]
 
