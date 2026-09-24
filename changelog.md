@@ -2,6 +2,94 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (42)
+
+### Changed
+
+- Implemented the launch site SEO fixes plan, applying the resolved OI-0003 recommendations:
+  - HTTP on the production host now `301`s to HTTPS, and `http://www.` goes straight to `https://how-to-use-ai.com` in one hop.
+  - HTML responses send `charset=utf-8`, and HTTPS responses send HSTS (1 year, no preload).
+  - The layout links `favicon.svg` and a new 180×180 `apple-touch-icon.png`, and adds `og:image` (the Book 1 cover).
+  - The homepage has a longer title and a new "Who this is for" section (word count now over 250, and the H1's terms are reused). The series titles use a styled span instead of `<strong>`, bringing the homepage to 2 bold tags.
+- Verification: `npm test` (60 passed), `npm run check` (0 errors), and `npm run build` all pass. A local `astro preview` confirmed the charset header, the 56-character title, both icon links, 2 bold tags, and about 355 words.
+
+### Files changed
+
+- `wwwroot/src/lib/canonical-host.ts`
+- `wwwroot/src/lib/response-headers.ts` (new)
+- `wwwroot/src/middleware.ts`
+- `wwwroot/src/layouts/BaseLayout.astro`
+- `wwwroot/src/pages/index.astro`
+- `wwwroot/src/styles/global.css`
+- `wwwroot/public/apple-touch-icon.png` (new)
+- `wwwroot/tests/canonical-host.test.ts`
+- `wwwroot/tests/response-headers.test.ts` (new)
+- `docs/03-publishing/plans/site-seo-fixes-plan.md`
+- `docs/03-publishing/open-issues/OI-0003.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None (the choices are recorded as the resolution of OI-0003).
+
+### Open issues added or closed
+
+- Closed `docs/03-publishing/open-issues/OI-0003.md`.
+
+### Commit
+
+- pending commit
+
+## 2026-09-24 (41)
+
+### Changed
+
+- Reviewed the Seobility on-page check of the launch site homepage (81%, one critical issue) against production (`curl`) and `wwwroot/src`. Confirmed findings: plain HTTP is served with `200` instead of redirecting to HTTPS, the HTML `Content-Type` has no charset, `favicon.svg` exists but is not linked, there is no Apple touch icon, the homepage title is only the site name, the H1 terms are not reused in the body, and the homepage is under 250 words. Wrote a prioritised fix plan. No site code changed yet; awaiting author review.
+
+### Files changed
+
+- `docs/03-publishing/plans/site-seo-fixes-plan.md` (new)
+- `docs/03-publishing/open-issues/OI-0003.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- Added `docs/03-publishing/open-issues/OI-0003.md` — homepage title, homepage copy, external links, social sharing, HSTS preload.
+
+### Commit
+
+- pending commit
+
+## 2026-09-24 (40)
+
+### Changed
+
+- Replaced the Chapter 1 fraud-detection diagram placeholder with a real Mermaid diagram. It puts a normal travel pattern (Sydney → Parramatta → Chatswood → payment approved) beside an abnormal one (Sydney → Singapore 20 minutes later → impossible travel → fraud risk flagged). It follows the existing `.mmd` image-reference convention, so the publishing pipeline renders it to a vector PDF.
+- Verification: `mmdc` renders the diagram; `scripts/render_mermaid_diagrams.py` resolves the Chapter 1 reference; `tests.test_render_mermaid_diagrams` passes.
+
+### Files changed
+
+- `docs/02-book-01/diagrams/fraud-detection-travel-pattern.mmd` (new)
+- `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`
+- `docs/02-book-01/plans/chapter-01-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (39)
 
 ### Changed

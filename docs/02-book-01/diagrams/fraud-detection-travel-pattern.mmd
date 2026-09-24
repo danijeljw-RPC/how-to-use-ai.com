@@ -1,0 +1,32 @@
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TB
+    subgraph abnormal["Abnormal pattern"]
+        direction TB
+        A1["Card used<br/>in Sydney"]
+        A2["Card used in Singapore<br/>20 minutes later"]
+        A3["Impossible travel:<br/>doesn't match your pattern"]
+        A4["Fraud risk flagged"]
+
+        A1 --> A2
+        A2 --> A3
+        A3 --> A4
+    end
+
+    subgraph normal["Normal pattern"]
+        direction TB
+        N1["Card used<br/>in Sydney"]
+        N2["Card used in Parramatta<br/>an hour later"]
+        N3["Card used in Chatswood<br/>that afternoon"]
+        N4["Matches your usual<br/>behaviour"]
+        N5["Payment approved"]
+
+        N1 --> N2
+        N2 --> N3
+        N3 --> N4
+        N4 --> N5
+    end
+
+    classDef ok fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef risk fill:#ffebee,stroke:#c62828,color:#b71c1c
+    class N5 ok
+    class A4 risk

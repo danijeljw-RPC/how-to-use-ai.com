@@ -57,7 +57,7 @@ Banks rely on AI because modern financial systems generate far more transactions
 
 If your card is used in Sydney and then, twenty minutes later, in another country, the system doesn't need a human to tell it something's wrong — it flags the pattern immediately, because it's really just asking whether this behaviour matches your normal pattern. That's anomaly detection: identifying behaviour that differs from what's expected, at a speed that makes it useful for actually stopping fraud rather than just reporting it afterward.
 
-> [Diagram placeholder: Mermaid diagram contrasting a normal travel pattern (Sydney → Parramatta → Chatswood) with an abnormal one (Sydney → Singapore, 20 minutes later) triggering a fraud risk flag.]
+![Fraud detection compares new card activity with your normal pattern: purchases in Sydney, Parramatta and Chatswood fit the pattern and are approved, while a purchase in Singapore twenty minutes after one in Sydney is impossible travel and is flagged as a fraud risk.](../diagrams/fraud-detection-travel-pattern.mmd){ width=75% }
 
 ### Online Shopping Recommendations
 

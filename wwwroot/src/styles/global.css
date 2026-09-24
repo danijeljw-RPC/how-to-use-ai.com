@@ -79,7 +79,7 @@ button:disabled { cursor: wait; opacity: 0.65; }
 .topic-list li { break-inside: avoid; margin-bottom: 0.65rem; }
 .series-list { display: grid; gap: 1px; border: 1px solid var(--line); background: var(--line); }
 .series-item { display: grid; grid-template-columns: 3rem 1fr auto; gap: 1rem; align-items: center; padding: 1.15rem; background: white; }
-.series-item strong { font-family: Georgia, serif; font-size: 1.25rem; }
+.series-item .series-title { font-family: Georgia, serif; font-size: 1.25rem; }
 .series-item .number { color: var(--violet); font-weight: 800; }
 .status { border: 1px solid var(--line); border-radius: 99px; padding: 0.2rem 0.6rem; color: var(--ink-soft); font-size: 0.82rem; }
 .status.active { border-color: var(--violet); color: var(--violet-dark); }

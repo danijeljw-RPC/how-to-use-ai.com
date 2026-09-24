@@ -86,7 +86,7 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Possible Diagrams
 
-- [Diagram placeholder] Input → AI model → output, with a verification loop back to the human — per ADR-02-0001's suggested Chapter 3 diagram opportunity. This also visually sets up Chapter 4's limitations discussion.
+- Goal and context → AI → output → human judgement, with a refine loop back to the AI — per ADR-02-0001's suggested Chapter 3 diagram opportunity. This also visually sets up Chapter 4's limitations discussion. Done 2026-09-24: [`human-judgement-ai-work-loop.mmd`](../diagrams/human-judgement-ai-work-loop.mmd).
 
 ## Callouts to Include
 
@@ -131,7 +131,7 @@ The probabilistic-generation explanation belongs in connected prose. Myth-versus
 - The chapter explains probabilistic output and confident-wrongness in plain English, without technical jargon
 - The chapter does not overclaim AI capability in ways that would require walking back in Chapter 4
 - The chapter avoids naming specific dated products/tools as the examples themselves
-- The chapter includes a reflection placeholder, a diagram placeholder, and baseline-system callouts only
+- The chapter includes a reflection placeholder, a linked Mermaid diagram (`.mmd`), and baseline-system callouts only
 
 ## Proposed Files to Change
 
