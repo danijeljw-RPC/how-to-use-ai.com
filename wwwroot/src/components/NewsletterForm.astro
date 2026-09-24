@@ -10,11 +10,11 @@ const { sourcePage, siteKey = '' } = Astro.props;
       <label for="newsletter-email">Email address</label>
       <input id="newsletter-email" name="email" type="email" autocomplete="email" maxlength="254" required />
     </div>
-    <button type="submit">Record my address</button>
+    <button type="submit">Keep me updated</button>
   </div>
   <label class="check-row" for="newsletter-consent">
     <input id="newsletter-consent" name="consent" type="checkbox" value="yes" required />
-    <span>I agree to have this address stored for launch and coupon notifications.</span>
+    <span>I agree to have my email address stored for launch and coupon notifications.</span>
   </label>
   {siteKey ? (
     <div class="cf-turnstile" data-sitekey={siteKey} data-action="newsletter-signup" data-response-field-name="turnstileToken"></div>

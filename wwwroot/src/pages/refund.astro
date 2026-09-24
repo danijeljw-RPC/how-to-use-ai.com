@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from 'astro:content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const policy = await getEntry('legal', 'refund-policy');
+if (!policy) throw new Error('Missing How To Use AI.com refund policy');
+const { Content } = await render(policy);
+---
+
+<LegalLayout
+  title="Refund Policy"
+  description="Refunds, replacements, returns, and consumer remedies for purchases made directly from How To Use AI.com."
+  canonicalPath="/refund/"
+>
+  <Content />
+</LegalLayout>

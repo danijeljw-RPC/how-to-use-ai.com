@@ -136,7 +136,7 @@ components.
 | `/purchase/` | Explains direct sales are not available yet; shows only configured retailer links | Shows configured formats and direct purchase buttons |
 | `/blog/` and `/blog/[slug]/` | Small content collection of launch articles | Normal long-form companion content |
 | `/contact/` | Turnstile-protected contact form | Same, with a later response workflow if wanted |
-| `/privacy/`, `/terms/` | Plain launch policies, deliberately marked for legal review | Updated before paid sales launch |
+| `/privacy/`, `/terms/`, `/refund/` | Site-specific policies sourced from the RePass Cloud legal pack | Published with links to the RePass Cloud master policies |
 | `/checkout/success/`, `/checkout/cancel/` | Not linked while commerce is off | Human-facing outcomes; never the proof of fulfilment |
 
 The header includes Home, Books, Preview, Blog, and Contact. Purchase is not a

@@ -1,0 +1,115 @@
+{
+  "generated": "24 September 2026",
+  "files": [
+    {
+      "path": "PUBLICATION-MAP.md",
+      "bytes": 2024,
+      "lines": 42
+    },
+    {
+      "path": "README.md",
+      "bytes": 4379,
+      "lines": 99
+    },
+    {
+      "path": "aethonjobs.com/legal-routing.md",
+      "bytes": 1101,
+      "lines": 35
+    },
+    {
+      "path": "aethonjobs.com/marketing-privacy-notice.md",
+      "bytes": 2248,
+      "lines": 52
+    },
+    {
+      "path": "aethonjobs.com/marketing-terms.md",
+      "bytes": 2177,
+      "lines": 55
+    },
+    {
+      "path": "cinturon360.com/legal-routing.md",
+      "bytes": 941,
+      "lines": 27
+    },
+    {
+      "path": "cinturon360.com/marketing-privacy-notice.md",
+      "bytes": 2010,
+      "lines": 54
+    },
+    {
+      "path": "cinturon360.com/marketing-terms.md",
+      "bytes": 1799,
+      "lines": 48
+    },
+    {
+      "path": "how-to-use-ai.com/legal-footer.md",
+      "bytes": 651,
+      "lines": 18
+    },
+    {
+      "path": "how-to-use-ai.com/privacy-policy.md",
+      "bytes": 17145,
+      "lines": 377
+    },
+    {
+      "path": "how-to-use-ai.com/refund-policy.md",
+      "bytes": 3923,
+      "lines": 102
+    },
+    {
+      "path": "how-to-use-ai.com/terms-of-service.md",
+      "bytes": 17773,
+      "lines": 364
+    },
+    {
+      "path": "operations/consent-and-checkout-copy.md",
+      "bytes": 2385,
+      "lines": 64
+    },
+    {
+      "path": "operations/implementation-consistency-checks.md",
+      "bytes": 6938,
+      "lines": 146
+    },
+    {
+      "path": "operations/launch-blockers-and-legal-review.md",
+      "bytes": 5551,
+      "lines": 128
+    },
+    {
+      "path": "operations/sources-and-verification.md",
+      "bytes": 5036,
+      "lines": 106
+    },
+    {
+      "path": "repasscloud.com/privacy-policy.md",
+      "bytes": 22021,
+      "lines": 406
+    },
+    {
+      "path": "repasscloud.com/refund-policy.md",
+      "bytes": 9149,
+      "lines": 201
+    },
+    {
+      "path": "repasscloud.com/terms-of-service.md",
+      "bytes": 19691,
+      "lines": 363
+    },
+    {
+      "path": "reusable-tools/legal-footer.md",
+      "bytes": 535,
+      "lines": 9
+    },
+    {
+      "path": "reusable-tools/privacy-notice.md",
+      "bytes": 1129,
+      "lines": 27
+    },
+    {
+      "path": "reusable-tools/terms.md",
+      "bytes": 858,
+      "lines": 25
+    }
+  ]
+}

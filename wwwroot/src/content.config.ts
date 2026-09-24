@@ -11,4 +11,11 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { articles };
+const legal = defineCollection({
+  loader: glob({
+    pattern: ['privacy-policy.md', 'terms-of-service.md', 'refund-policy.md'],
+    base: new URL('../../repasscloud-legal-pack-2026-09-24/how-to-use-ai.com', import.meta.url),
+  }),
+});
+
+export const collections = { articles, legal };

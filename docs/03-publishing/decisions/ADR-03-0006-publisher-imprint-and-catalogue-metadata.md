@@ -66,7 +66,7 @@ The metadata must follow what actually appears on each book's title page and cov
 ### Book 1 catalogue values
 
 | Field | Value |
-|---|---|
+| --- | --- |
 | Title | AI for Normal People (working title, see ADR-02-0001; confirm before submission) |
 | Subtitle | Understanding Artificial Intelligence Without the Hype (from `publishing/books.json`) |
 | Series title | How To Use AI.com (exact wording open, see OI-0004) |
@@ -90,7 +90,7 @@ Reasons:
 ### Creator values
 
 | Field | Value |
-|---|---|
+| --- | --- |
 | Name | The author name used on the publication |
 | Life dates | Birth year, if supplied, in the form `YYYY–` for a living person (open, see OI-0004) |
 | Role | Author |

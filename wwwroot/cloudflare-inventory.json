@@ -1,0 +1,699 @@
+{
+  "generated_for": "how-to-use-ai.com",
+  "zone_id": "ff1d2ccd3cdc81d1113a441604f6f6d1",
+  "account_id": "8d7f0c4cf8b2408a145786b0996af45b",
+  "zone": {
+    "result": {
+      "id": "ff1d2ccd3cdc81d1113a441604f6f6d1",
+      "name": "how-to-use-ai.com",
+      "status": "active",
+      "paused": false,
+      "type": "full",
+      "development_mode": 0,
+      "name_servers": [
+        "bart.ns.cloudflare.com",
+        "melody.ns.cloudflare.com"
+      ],
+      "original_name_servers": null,
+      "original_registrar": null,
+      "original_dnshost": null,
+      "modified_on": "2026-09-24T04:00:17.870565Z",
+      "created_on": "2026-09-24T04:00:17.195666Z",
+      "activated_on": "2026-09-24T04:00:17.712817Z",
+      "vanity_name_servers": [],
+      "vanity_name_servers_ips": null,
+      "meta": {
+        "step": 4,
+        "custom_certificate_quota": 0,
+        "page_rule_quota": 3,
+        "phishing_detected": false
+      },
+      "owner": {
+        "id": null,
+        "type": "user",
+        "email": null
+      },
+      "account": {
+        "id": "8d7f0c4cf8b2408a145786b0996af45b",
+        "name": "Danijel@repasscloud.com's Account"
+      },
+      "tenant": {
+        "id": null,
+        "name": null
+      },
+      "tenant_unit": {
+        "id": null
+      },
+      "permissions": [
+        "#organization:edit",
+        "#organization:read",
+        "#zone_settings:edit",
+        "#dns_records:edit",
+        "#zone_settings:read",
+        "#dns_records:read",
+        "#connectivity_read",
+        "#connectivity_write",
+        "#worker:edit",
+        "#worker:read",
+        "#ssl:read",
+        "#ssl:edit",
+        "#d1:edit",
+        "#analytics:read",
+        "#zone:read",
+        "#r2_bucket_warehouse_sql:read",
+        "#r2_bucket_warehouse:read",
+        "#r2_bucket_warehouse:edit",
+        "#vectorize:read",
+        "#vectorize:edit",
+        "#query_cache:read",
+        "#query_cache:edit",
+        "#r2_bucket_item:read",
+        "#r2_bucket_item:edit",
+        "#r2_bucket:read",
+        "#r2_bucket:edit",
+        "#member:read"
+      ],
+      "plan": {
+        "id": "0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "name": "Free Website",
+        "price": 0,
+        "currency": "USD",
+        "frequency": "",
+        "is_subscribed": false,
+        "can_subscribe": false,
+        "legacy_id": "free",
+        "legacy_discount": false,
+        "externally_managed": false
+      }
+    },
+    "success": true,
+    "errors": [],
+    "messages": []
+  },
+  "zone_settings": {
+    "success": false,
+    "errors": [
+      {
+        "code": 9109,
+        "message": "Unauthorized to access requested resource"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "rulesets": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/rulesets/methods/list"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "logpush_jobs_zone": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/logpush/subresources/jobs/methods/list"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "logpush_datasets_zone": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10001,
+        "message": "Unable to authenticate request"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "log_retention": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/logs/subresources/control/subresources/retention/methods/get"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "workers_scripts": {
+    "result": [
+      {
+        "created_on": "2026-04-15T14:56:46.171207Z",
+        "modified_on": "2026-04-15T14:57:51.441802Z",
+        "id": "aethon-software-wwwroot",
+        "tag": "86ce81e118a846a1ae66f28368c568e2",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": false,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "498c2261840b35f04c207413633a7db82d13534f2d286346f933b0f18f410e8b",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-04-15",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-04-10T02:47:34.103113Z",
+        "modified_on": "2026-04-15T14:54:31.31899Z",
+        "id": "aethon-wwwroot",
+        "tag": "78733fdb479247d88ab0dfe0cdf31317",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": false,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "d183eb36842c1f324289643708001151b1acae2bd343caba9ab062dba02f2a1c",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-04-15",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-05-27T07:54:34.876829Z",
+        "modified_on": "2026-05-28T00:28:32.726256Z",
+        "id": "assetdisposalcertificategen",
+        "tag": "223f2a0da411493ea0c006c8f7e7d9c2",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": false,
+        "etag": "",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "",
+        "compatibility_date": "2026-05-27",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-04-23T00:55:13.321824Z",
+        "modified_on": "2026-04-23T08:43:10.530811Z",
+        "id": "cinturon360-www",
+        "tag": "c31da58b82e543658b0ddfebe609ba99",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": false,
+        "etag": "",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "",
+        "compatibility_date": "2026-04-22",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-09-24T06:51:38.824252Z",
+        "modified_on": "2026-09-24T08:59:49.103968Z",
+        "id": "how-to-use-ai",
+        "tag": "cd37e8347b8c4d989ef03d41104821fa",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": false,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "a778f800dc6bc5032327b5dfadb217da5f5f8983ba62e9f0df52ae9adbc33b5b",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-09-21",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-08-29T04:24:19.382661Z",
+        "modified_on": "2026-08-29T04:24:32.726102Z",
+        "id": "livekit-meet",
+        "tag": "73dc6ad2101c4e71910dc2d9b373255e",
+        "tags": null,
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "23f90a7aabe3b0d55790e3fc4d82058d17b57664859b4c2840cfd26e4f1c8ddb",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-08-29",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "cache_options": {
+          "enabled": true,
+          "cross_version_cache": false
+        },
+        "routes": null
+      },
+      {
+        "created_on": "2026-04-10T16:10:35.000623Z",
+        "modified_on": "2026-08-25T03:43:25.556932Z",
+        "id": "repasscloud-wwwroot",
+        "tag": "7ce5e9fae2a34ad8948220ad174266a2",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": false,
+        "etag": "",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "",
+        "compatibility_date": "2025-01-01",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-08-10T04:40:44.564682Z",
+        "modified_on": "2026-08-10T04:40:49.077168Z",
+        "id": "rtgt-app-launch",
+        "tag": "f4443db8ad014a2e805768be1e090978",
+        "tags": null,
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "3ce69e8ec18d8c543dac6905466d3a023655e7255113428948ef47bf21e1933d",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-08-08",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-08-10T04:32:49.759868Z",
+        "modified_on": "2026-08-10T04:40:38.736018Z",
+        "id": "rtgt-corporate-launch",
+        "tag": "1175af354e194e2a8d22b5ffb15ee2db",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "3ce69e8ec18d8c543dac6905466d3a023655e7255113428948ef47bf21e1933d",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-08-08",
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-09-14T09:14:16.048109Z",
+        "modified_on": "2026-09-18T09:38:52.393978Z",
+        "id": "swm-blog-dev",
+        "tag": "6df5f2ae5ec541bc822e837bf186575f",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": true,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "9ee2e4d07b73b9680898f724c3dd8b2dd3fff999acc61544fd8b0e161fcd7502",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-09-10",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-09-14T10:02:03.112193Z",
+        "modified_on": "2026-09-15T13:26:03.913749Z",
+        "id": "swm-blog-prod",
+        "tag": "dcc38684f6d441c1a1c14dba597e3a66",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": true,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "fb57019b43aa149cb4194adb74509797c4e6420cd36fe2ecfdb32c05222f2655",
+        "handlers": [
+          "fetch"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-09-10",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "routes": null
+      },
+      {
+        "created_on": "2026-09-18T00:49:09.058057Z",
+        "modified_on": "2026-09-23T12:03:27.057531Z",
+        "id": "ustsh-blog",
+        "tag": "42a0883f36754b8caeea3b6b98791c18",
+        "tags": [],
+        "deployment_id": "",
+        "tail_consumers": null,
+        "logpush": false,
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1,
+          "redact_query_string": false,
+          "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "persist": true,
+            "invocation_logs": true
+          },
+          "traces": {
+            "enabled": true,
+            "persist": true,
+            "head_sampling_rate": 1
+          }
+        },
+        "has_assets": true,
+        "has_modules": true,
+        "etag": "889a32555717a7c5c0f84d4c04a7be888793d0bf2f9943981b30219b4c53d152",
+        "handlers": [
+          "fetch",
+          "scheduled"
+        ],
+        "last_deployed_from": "wrangler",
+        "compatibility_date": "2026-09-17",
+        "usage_model": "standard",
+        "routes": null
+      }
+    ],
+    "success": true,
+    "errors": [],
+    "messages": []
+  },
+  "workers_subdomain": {
+    "result": {
+      "subdomain": "danijel-8d7"
+    },
+    "success": true,
+    "errors": [],
+    "messages": []
+  },
+  "pages_projects": {
+    "result": [],
+    "success": true,
+    "errors": [],
+    "messages": [],
+    "result_info": {
+      "page": 1,
+      "per_page": 10,
+      "count": 0,
+      "total_count": 0,
+      "total_pages": 0
+    }
+  },
+  "d1_databases": {
+    "result": [
+      {
+        "uuid": "681b856b-e2b1-4eea-8ec0-1d355ec0c770",
+        "name": "how-to-use-ai-site",
+        "created_at": "2026-09-24T06:03:45.959Z",
+        "version": "production",
+        "num_tables": 0,
+        "file_size": 69632,
+        "jurisdiction": null
+      },
+      {
+        "uuid": "797ed808-a6f3-43a6-9b49-146db37aa8ff",
+        "name": "ustsh-blog-submissions",
+        "created_at": "2026-09-17T16:54:47.993Z",
+        "version": "production",
+        "num_tables": 0,
+        "file_size": 45056,
+        "jurisdiction": null
+      },
+      {
+        "uuid": "47fdbd25-5492-4159-ac6b-983fbdc9f2ac",
+        "name": "sisters-with-mirrors-submissions-prod",
+        "created_at": "2026-09-14T00:36:33.818Z",
+        "version": "production",
+        "num_tables": 0,
+        "file_size": 69632,
+        "jurisdiction": null
+      },
+      {
+        "uuid": "f73f4f7b-6b95-4ed3-8f2b-bfd990abf8f1",
+        "name": "sisters-with-mirrors-submissions-dev",
+        "created_at": "2026-09-14T00:36:02.132Z",
+        "version": "production",
+        "num_tables": 0,
+        "file_size": 69632,
+        "jurisdiction": null
+      },
+      {
+        "uuid": "7d70a93b-35a1-4a79-b9fd-d71d13637291",
+        "name": "rtgt-launch-signups",
+        "created_at": "2026-08-10T02:58:10.721Z",
+        "version": "production",
+        "num_tables": 0,
+        "file_size": 28672,
+        "jurisdiction": null
+      }
+    ],
+    "errors": [],
+    "messages": [],
+    "success": true,
+    "result_info": {
+      "count": 5,
+      "page": 1,
+      "per_page": 100,
+      "total_count": 5
+    }
+  },
+  "turnstile_widgets": {
+    "result": [
+      {
+        "sitekey": "0x4AAAAAAEzsAus__nqEoK4h",
+        "modified_on": "2026-09-14T10:00:50.074268Z",
+        "created_on": "2026-09-14T10:00:50.074268Z",
+        "mode": "managed",
+        "domains": [
+          "dev.sisterswithmirrors.com"
+        ],
+        "name": "Sisters with Mirrors DEV",
+        "bot_fight_mode": false,
+        "region": "world",
+        "offlabel": false,
+        "ephemeral_id": false,
+        "clearance_level": "no_clearance",
+        "deployed_via": "wrangler",
+        "last_modified_via": "wrangler"
+      },
+      {
+        "sitekey": "0x4AAAAAAEzsA-MFyyc6XMYq",
+        "modified_on": "2026-09-14T10:00:52.36727Z",
+        "created_on": "2026-09-14T10:00:52.36727Z",
+        "mode": "managed",
+        "domains": [
+          "sisterswithmirrors.com"
+        ],
+        "name": "Sisters with Mirrors PROD",
+        "bot_fight_mode": false,
+        "region": "world",
+        "offlabel": false,
+        "ephemeral_id": false,
+        "clearance_level": "no_clearance",
+        "deployed_via": "wrangler",
+        "last_modified_via": "wrangler"
+      },
+      {
+        "sitekey": "0x4AAAAAAE7HNDhN9kBNe2o9",
+        "modified_on": "2026-09-18T00:18:25.871747Z",
+        "created_on": "2026-09-18T00:18:25.871747Z",
+        "mode": "managed",
+        "domains": [
+          "usefulstash.com"
+        ],
+        "name": "ustsh-blog-contact",
+        "bot_fight_mode": false,
+        "region": "world",
+        "offlabel": false,
+        "ephemeral_id": false,
+        "clearance_level": "no_clearance",
+        "deployed_via": "dashboard",
+        "last_modified_via": "dashboard"
+      },
+      {
+        "sitekey": "0x4AAAAAAFB56_6HtJDzcLZi",
+        "modified_on": "2026-09-24T06:04:11.072166Z",
+        "created_on": "2026-09-24T06:04:11.072166Z",
+        "mode": "managed",
+        "domains": [
+          "how-to-use-ai.com",
+          "www.how-to-use-ai.com"
+        ],
+        "name": "How To Use AI PROD",
+        "bot_fight_mode": false,
+        "region": "world",
+        "offlabel": false,
+        "ephemeral_id": false,
+        "clearance_level": "no_clearance",
+        "deployed_via": "wrangler",
+        "last_modified_via": "wrangler"
+      }
+    ],
+    "success": true,
+    "errors": [],
+    "messages": [],
+    "result_info": {
+      "page": 1,
+      "per_page": 25,
+      "count": 4,
+      "total_count": 4,
+      "total_pages": 1
+    }
+  },
+  "logpush_jobs_account": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/logpush/subresources/jobs/methods/list"
+      }
+    ],
+    "messages": [],
+    "result": null
+  },
+  "logpush_datasets_account": {
+    "success": false,
+    "errors": [
+      {
+        "code": 10001,
+        "message": "Unable to authenticate request"
+      }
+    ],
+    "messages": [],
+    "result": null
+  }
+}

@@ -1,23 +1,16 @@
 ---
-import { siteEnv } from '../lib/runtime-env';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../lib/config';
-const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+import { getEntry, render } from 'astro:content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const policy = await getEntry('legal', 'terms-of-service');
+if (!policy) throw new Error('Missing How To Use AI.com website terms');
+const { Content } = await render(policy);
 ---
-<BaseLayout title="Terms" description="Launch-stage terms for How To Use AI.com." canonicalPath="/terms/" {commerceEnabled}>
-  <article class="page-section">
-    <div class="narrow prose">
-      <p class="kicker">Terms</p>
-      <h1>A straightforward launch-stage note.</h1>
-      <p class="policy-note"><strong>Launch policy:</strong> These terms are intentionally limited and must receive legal review before paid sales are enabled.</p>
-      <h2>Information, not professional advice</h2>
-      <p>The site and preview provide general educational material. They are not a substitute for professional advice in situations where accuracy, safety, law, health, finance, or other high-stakes judgement matters.</p>
-      <h2>The working preview</h2>
-      <p>The preview can change as the manuscript develops. Access to it does not promise a finished book, a particular release schedule, a price, or continued availability of the same file.</p>
-      <h2>Forms</h2>
-      <p>Do not submit unlawful material, secrets, payment details, or sensitive personal information through the contact form. Automated abuse may be rejected.</p>
-      <h2>Commerce</h2>
-      <p>Direct commerce starts disabled. If purchase options are activated later, the purchase page will show only the channels configured at that time, and additional sale-specific terms will need to be reviewed before activation.</p>
-    </div>
-  </article>
-</BaseLayout>
+
+<LegalLayout
+  title="Website Terms"
+  description="Terms for using How To Use AI.com, its content, previews, forms, and direct sales."
+  canonicalPath="/terms/"
+>
+  <Content />
+</LegalLayout>

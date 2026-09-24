@@ -122,4 +122,4 @@ The browser cannot supply an amount, currency, Price ID, or return URL. The serv
 - No login, customer account, admin dashboard, analytics, comments, mailing provider, automatic email, coupon generation, or unsubscribe workflow.
 - No public permanent ebook entitlement URL.
 - No Cloudflare or Stripe resources are created by repository scripts; the resources above were created once by hand.
-- Privacy and terms pages are launch-stage plain-language drafts marked for legal review before paid sales.
+- Privacy, website terms, and refund pages render the site-specific documents in `../repasscloud-legal-pack-2026-09-24/how-to-use-ai.com/` and link to the RePass Cloud master policies.
