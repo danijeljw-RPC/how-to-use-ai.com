@@ -2,6 +2,43 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (33)
+
+### Changed
+
+- Replaced the review-only draft export with a publication-structured 7 by 10 inch PDF pipeline. Draft books now include a generated front cover, an inside-cover internal-review notice, a title page, contents, the manuscript, and a matching back cover.
+- Added one data-driven cover system for the five-book `How To Use AI.com` series. Shared branding, typography, composition, spacing, badge treatment, illustration region, and author footer live in one renderer; volume content and accent colours live in JSON.
+- Added all five volume metadata records and illustration paths. Book 1 uses the accepted title `AI for Normal People: Understanding Artificial Intelligence Without the Hype`, and all volumes use the author name `Danijel-James Wynyard-McClay`.
+- Added a deterministic 1800 by 2700 pixel `Preview Publication Only` placeholder. Missing configured artwork now falls back to that image without blocking an internal review build.
+- Added standalone 2100 by 3000 pixel front/back cover artwork, 7 by 10 inch cover PDFs, development previews, precise missing-book errors, chapter-scoped footnote identifiers, and warning-free PDF assembly that preserves the manuscript document tree.
+- Added automated coverage for metadata selection, fallback artwork, output dimensions, PDF size and order, optional copy, footnote namespacing, and the real `book 1` publishing command.
+
+### Files changed
+
+- `publish-books.sh` renamed to `publish-draft-books.sh` and expanded
+- `publishing/books.json` (new)
+- `scripts/cover_generator.py` (new)
+- `scripts/assemble_draft_book.py` (new)
+- `scripts/namespace_markdown_footnotes.py` (new)
+- `assets/covers/preview-placeholder.png` (new generated fallback asset)
+- `tests/` (new publishing regression coverage)
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md` (new)
+- `docs/03-publishing/plans/book-cover-and-draft-publication-plan.md` (new)
+- `.gitignore`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Accepted `ADR-03-0002`: series covers are generated from one shared layout and JSON metadata; missing illustrations use the internal-review placeholder.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (32)
 
 ### Changed

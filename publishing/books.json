@@ -1,0 +1,90 @@
+{
+  "series": {
+    "title": "How To Use AI.com",
+    "descriptor": "THE COMPLETE GUIDE SERIES",
+    "tagline": "Understand • Explore • Apply • Grow",
+    "author": "Danijel-James Wynyard-McClay",
+    "page": {
+      "widthInches": 7,
+      "heightInches": 10
+    },
+    "coverArtwork": {
+      "widthPixels": 2100,
+      "heightPixels": 3000,
+      "previewWidthPixels": 630
+    },
+    "illustration": {
+      "widthPixels": 1800,
+      "heightPixels": 2700,
+      "placeholder": "assets/covers/preview-placeholder.png"
+    }
+  },
+  "books": [
+    {
+      "number": 1,
+      "sourceDirectory": "02-book-01",
+      "title": "AI for Normal People",
+      "description": "Understanding Artificial Intelligence Without the Hype",
+      "descriptor": "No technical skills required",
+      "accentColour": "#7C3AED",
+      "supportingAccentColours": [
+        "#0EA5E9",
+        "#F2C96D"
+      ],
+      "image": "assets/covers/book-01.png",
+      "theme": "understand"
+    },
+    {
+      "number": 2,
+      "sourceDirectory": "03-book-02",
+      "title": "Practical AI Workflows & Productivity",
+      "description": "",
+      "descriptor": "Work smarter with practical AI",
+      "accentColour": "#0284C7",
+      "supportingAccentColours": [
+        "#38BDF8"
+      ],
+      "image": "assets/covers/book-02.png",
+      "theme": "use"
+    },
+    {
+      "number": 3,
+      "sourceDirectory": "04-book-03",
+      "title": "AI for Business & Operations",
+      "description": "",
+      "descriptor": "Turn capability into operations",
+      "accentColour": "#D97706",
+      "supportingAccentColours": [
+        "#FBBF24"
+      ],
+      "image": "assets/covers/book-03.png",
+      "theme": "operate"
+    },
+    {
+      "number": 4,
+      "sourceDirectory": "05-book-04",
+      "title": "Building AI Systems & Automation",
+      "description": "",
+      "descriptor": "Connect tools, systems and workflows",
+      "accentColour": "#059669",
+      "supportingAccentColours": [
+        "#34D399"
+      ],
+      "image": "assets/covers/book-04.png",
+      "theme": "build"
+    },
+    {
+      "number": 5,
+      "sourceDirectory": "06-book-05",
+      "title": "AI Engineering & Architecture",
+      "description": "",
+      "descriptor": "Design reliable AI infrastructure",
+      "accentColour": "#BE123C",
+      "supportingAccentColours": [
+        "#FB7185"
+      ],
+      "image": "assets/covers/book-05.png",
+      "theme": "engineer"
+    }
+  ]
+}
