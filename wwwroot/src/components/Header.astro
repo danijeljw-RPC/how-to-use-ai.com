@@ -1,0 +1,29 @@
+---
+interface Props { commerceEnabled?: boolean }
+const { commerceEnabled = false } = Astro.props;
+const path = Astro.url.pathname;
+const links: Array<[string, string]> = [
+  ['/', 'Home'],
+  ['/books/', 'Books'],
+  ['/preview/', 'Preview'],
+  ['/blog/', 'Blog'],
+  ['/contact/', 'Contact'],
+];
+if (commerceEnabled) links.splice(3, 0, ['/purchase/', 'Purchase']);
+---
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="wordmark" href="/" aria-label="How To Use AI.com home">
+      <span class="wordmark-mark" aria-hidden="true">AI</span>
+      <span>How To Use AI<span class="dot">.com</span></span>
+    </a>
+    <nav class="nav-menu" aria-label="Primary navigation">
+      <ul>
+        {links.map(([href, label]) => (
+          <li><a href={href} aria-current={path === href || (href !== '/' && path.startsWith(href)) ? 'page' : undefined}>{label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

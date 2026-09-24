@@ -1,0 +1,46 @@
+---
+import { siteEnv } from '../../lib/runtime-env';
+import BookCover from '../../components/BookCover.astro';
+import { bookOne } from '../../content/books';
+import { site } from '../../content/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../../lib/config';
+const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: bookOne.title,
+  alternateName: bookOne.subtitle,
+  description: bookOne.summary,
+  author: { '@type': 'Person', name: site.author },
+};
+---
+<BaseLayout title={bookOne.title} description={bookOne.summary} canonicalPath="/books/ai-for-normal-people/" {commerceEnabled} {structuredData}>
+  <section class="page-section">
+    <div class="shell book-detail">
+      <BookCover priority />
+      <div>
+        <p class="kicker">Book 1 · {bookOne.descriptor}</p>
+        <h1>{bookOne.title}</h1>
+        <p class="section-intro">{bookOne.subtitle}</p>
+        <p>{bookOne.summary}</p>
+        <div class="button-row">
+          <a class="button" href="/api/preview/">Read today’s preview</a>
+          <a class="button secondary" href="/preview/">How the preview works</a>
+          {commerceEnabled && <a class="button secondary" href="/purchase/">Purchase options</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="shell split">
+      <div>
+        <p class="kicker">Inside Book 1</p>
+        <h2>The questions normal people actually have.</h2>
+      </div>
+      <ol class="topic-list">
+        {bookOne.topics.map((topic) => <li>{topic}</li>)}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

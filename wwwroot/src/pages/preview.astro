@@ -1,0 +1,20 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../lib/config';
+const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+---
+<BaseLayout title="Book preview" description="Read the publisher-managed daily preview of AI for Normal People without joining a mailing list." canonicalPath="/preview/" {commerceEnabled}>
+  <section class="page-section">
+    <div class="narrow">
+      <p class="kicker">A preview, not a promise</p>
+      <h1>Read today’s working preview.</h1>
+      <p class="section-intro">The preview is maintained separately and can change as the manuscript develops. You do not need to provide an email address to read it.</p>
+      <div class="button-row">
+        <a class="button" href="/api/preview/">Open the current preview</a>
+        <a class="button secondary" href="/books/ai-for-normal-people/">About Book 1</a>
+      </div>
+      <p class="muted">If no preview destination is configured, the site will say so plainly instead of sending you to a broken file.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../lib/config';
+const env = siteEnv();
+const commerceEnabled = getCommerceConfig(env).enabled;
+const siteKey = env.TURNSTILE_SITE_KEY ?? '';
+---
+<BaseLayout title="Contact" description="Send a message about the AI for Normal People book series." canonicalPath="/contact/" {commerceEnabled}>
+  <section class="page-section">
+    <div class="narrow">
+      <p class="kicker">Contact</p>
+      <h1>Send a message.</h1>
+      <p class="section-intro">The site records your message for later review. It does not send an automatic reply or promise a response time.</p>
+      <form class="stack-form" action="/api/contact/" method="post" data-progressive-form>
+        <div class="field">
+          <label for="contact-name">Name <span class="muted">(optional)</span></label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" />
+        </div>
+        <div class="field">
+          <label for="contact-email">Email address</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+        </div>
+        <div class="field">
+          <label for="contact-subject">Subject <span class="muted">(optional)</span></label>
+          <input id="contact-subject" name="subject" type="text" maxlength="150" />
+        </div>
+        <div class="field">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" maxlength="5000" required></textarea>
+        </div>
+        {siteKey ? (
+          <div class="cf-turnstile" data-sitekey={siteKey} data-action="contact-message" data-response-field-name="turnstileToken"></div>
+        ) : (
+          <p class="form-note">Bot verification is not configured in this environment, so contact submission will fail closed.</p>
+        )}
+        <div><button type="submit">Record my message</button></div>
+        <p class="form-status" aria-live="polite" data-form-status></p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

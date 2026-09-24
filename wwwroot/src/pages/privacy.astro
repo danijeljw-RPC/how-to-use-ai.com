@@ -1,0 +1,25 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../lib/config';
+const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+---
+<BaseLayout title="Privacy" description="Launch-stage privacy information for How To Use AI.com." canonicalPath="/privacy/" {commerceEnabled}>
+  <article class="page-section">
+    <div class="narrow prose">
+      <p class="kicker">Privacy</p>
+      <h1>What this launch site records.</h1>
+      <p class="policy-note"><strong>Launch policy:</strong> This plain-language policy must receive legal review before paid sales are enabled.</p>
+      <h2>Newsletter signups</h2>
+      <p>When you join the launch list, the site records your email address, the consent wording version, the page where you submitted it, the submission time, and limited request information such as country and browser user agent when available. Every valid submission creates a new row, including repeat submissions.</p>
+      <h2>Contact messages</h2>
+      <p>When you use the contact form, the site records the fields you provide, the submission time, and request country when available. The message is stored for later review; the site does not send an automatic response.</p>
+      <h2>Bot protection</h2>
+      <p>Newsletter and contact forms use Cloudflare Turnstile to reduce automated abuse. Turnstile checks are specific to the action being submitted.</p>
+      <h2>Payments</h2>
+      <p>Direct commerce begins disabled. If it is activated later, checkout occurs through Stripe and signed webhook events are recorded to prevent duplicate order processing. The return page is not treated as proof of payment.</p>
+      <h2>Your questions</h2>
+      <p>Use the <a href="/contact/">contact form</a> for privacy questions. A subscriber-management or automatic unsubscribe system is not part of this launch site.</p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import { site } from '../content/site';
+import { getCommerceConfig } from '../lib/config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  commerceEnabled?: boolean;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  robots?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  commerceEnabled,
+  structuredData,
+  robots = 'index, follow',
+} = Astro.props;
+const runtimeEnv = siteEnv();
+const resolvedCommerceEnabled = commerceEnabled ?? getCommerceConfig(runtimeEnv).enabled;
+const turnstileSiteKey = runtimeEnv.TURNSTILE_SITE_KEY ?? '';
+const canonical = new URL(canonicalPath, Astro.site);
+const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const structuredDataJson = structuredData ? JSON.stringify(structuredData).replaceAll('<', '\\u003c') : '';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#24173a" />
+    {structuredData && <script type="application/ld+json" set:html={structuredDataJson} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header commerceEnabled={resolvedCommerceEnabled} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer {turnstileSiteKey} />
+  </body>
+</html>

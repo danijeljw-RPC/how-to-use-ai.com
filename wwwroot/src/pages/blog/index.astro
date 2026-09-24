@@ -1,0 +1,25 @@
+---
+import { siteEnv } from '../../lib/runtime-env';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../../lib/config';
+const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
+const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+---
+<BaseLayout title="Companion articles" description="Short, plain-English notes about understanding AI without the hype." canonicalPath="/blog/" {commerceEnabled}>
+  <section class="page-section">
+    <div class="shell">
+      <p class="kicker">Companion articles</p>
+      <h1>Useful ideas, without the performance.</h1>
+      <p class="section-intro">A small collection drawn from the same beginner-friendly foundations as Book 1.</p>
+      <div class="article-grid">
+        {articles.map((article) => (
+          <article class="article-card">
+            <h2><a href={`/blog/${article.id}/`}>{article.data.title}</a></h2>
+            <p>{article.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

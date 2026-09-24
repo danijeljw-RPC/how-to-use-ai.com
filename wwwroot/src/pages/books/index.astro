@@ -1,0 +1,25 @@
+---
+import { siteEnv } from '../../lib/runtime-env';
+import { series } from '../../content/books';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../../lib/config';
+const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+---
+<BaseLayout title="Books" description="The working five-book progression from everyday AI literacy to engineering and architecture." canonicalPath="/books/" {commerceEnabled}>
+  <section class="page-section">
+    <div class="shell">
+      <p class="kicker">The series</p>
+      <h1>One sensible step at a time.</h1>
+      <p class="section-intro">The series begins with everyday understanding, then moves through practical use, operations, building, and engineering. Only Book 1 is substantive at launch; the later volumes remain a working direction.</p>
+      <div class="series-list">
+        {series.progression.map((book) => (
+          <div class="series-item">
+            <span class="number">{book.number}</span>
+            <strong>{book.active ? <a href="/books/ai-for-normal-people/">{book.title}</a> : book.title}</strong>
+            <span class:list={['status', { active: book.active }]}>{book.active ? 'Explore Book 1' : book.theme}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

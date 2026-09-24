@@ -1,0 +1,46 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import { bookOne } from '../content/books';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCommerceConfig, getRetailers } from '../lib/config';
+const env = siteEnv();
+const commerce = getCommerceConfig(env);
+const retailers = getRetailers(env);
+---
+<BaseLayout title="Purchase options" description="Current configured purchase options for AI for Normal People." canonicalPath="/purchase/" commerceEnabled={commerce.enabled}>
+  <section class="page-section">
+    <div class="narrow">
+      <p class="kicker">Purchase options</p>
+      <h1>{bookOne.title}</h1>
+      {!commerce.enabled && retailers.length === 0 && (
+        <>
+          <p class="section-intro">Direct sales are not available. No retailer destination has been configured yet.</p>
+          <p>You can read the preview now or record your email in the footer for launch and coupon notifications.</p>
+          <div class="button-row"><a class="button" href="/api/preview/">Read today’s preview</a></div>
+        </>
+      )}
+      {retailers.length > 0 && (
+        <section aria-labelledby="retailer-title">
+          <h2 id="retailer-title">Configured retailers</h2>
+          <ul class="retailer-list">
+            {retailers.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer">View at {retailer.label}</a></li>)}
+          </ul>
+        </section>
+      )}
+      {commerce.enabled && (
+        <section aria-labelledby="direct-title">
+          <h2 id="direct-title">Direct checkout</h2>
+          <p>Checkout takes place on Stripe. Payment confirmation and fulfilment are handled by the signed webhook, not by the page you return to.</p>
+          <form action="/api/checkout/" method="post">
+            <button type="submit" name="format" value="ebook">Continue to ebook checkout</button>
+          </form>
+          {commerce.prices.print && (
+            <form action="/api/checkout/" method="post">
+              <button type="submit" name="format" value="print">Continue to print checkout</button>
+            </form>
+          )}
+        </section>
+      )}
+    </div>
+  </section>
+</BaseLayout>

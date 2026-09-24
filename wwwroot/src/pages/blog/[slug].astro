@@ -1,0 +1,27 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const prerender = false;
+const article = Astro.params.slug ? await getEntry('articles', Astro.params.slug) : undefined;
+if (!article) Astro.response.status = 404;
+const rendered = article ? await render(article) : undefined;
+const Content = rendered?.Content;
+---
+{article && Content ? (
+  <BaseLayout title={article.data.title} description={article.data.description} canonicalPath={`/blog/${article.id}/`}>
+    <article class="page-section">
+      <div class="narrow prose">
+        <p class="kicker">Companion article</p>
+        <h1>{article.data.title}</h1>
+        <p class="section-intro">{article.data.description}</p>
+        <Content />
+        <p><a href="/blog/">Back to all articles</a></p>
+      </div>
+    </article>
+  </BaseLayout>
+) : (
+  <BaseLayout title="Article not found" description="The requested companion article could not be found." canonicalPath={Astro.url.pathname} robots="noindex, nofollow">
+    <section class="page-section"><div class="narrow"><h1>That article is not here.</h1><p><a href="/blog/">Browse the available articles</a></p></div></section>
+  </BaseLayout>
+)}

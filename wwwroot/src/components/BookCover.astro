@@ -1,0 +1,17 @@
+---
+import { bookOne } from '../content/books';
+interface Props { priority?: boolean }
+const { priority = false } = Astro.props;
+---
+
+<figure class="cover-figure">
+  <span class="cover-shadow" aria-hidden="true"></span>
+  <img
+    src={bookOne.cover}
+    alt={`Preview cover for ${bookOne.title}`}
+    width="630"
+    height="945"
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+  />
+</figure>

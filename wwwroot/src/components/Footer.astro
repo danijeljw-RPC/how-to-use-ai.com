@@ -1,0 +1,24 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+interface Props { turnstileSiteKey?: string }
+const { turnstileSiteKey = '' } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <section aria-labelledby="footer-newsletter-title">
+      <p class="kicker">Launch notes, minus the noise</p>
+      <h2 id="footer-newsletter-title">Hear when the book or a coupon is ready.</h2>
+      <p>Each signup records your address. No email is sent automatically from this site.</p>
+      <NewsletterForm sourcePage={Astro.url.pathname} siteKey={turnstileSiteKey} />
+    </section>
+    <div class="footer-links">
+      <p><strong>How To Use AI.com</strong><br />Understand. Explore. Apply. Grow.</p>
+      <nav aria-label="Footer navigation">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>

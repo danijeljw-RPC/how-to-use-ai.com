@@ -2,6 +2,35 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-24 (36)
+
+### Changed
+
+- Added the companion-website launch site as a standalone Astro SSR application in `wwwroot/`, built from the approved design `wwwroot/2026-09-24-launch-site-design.md`. It includes home, book/series, preview, purchase, blog (two articles), contact, privacy, terms, checkout success/cancel, and 404 pages, and uses the Book 1 cover and its palette.
+- Server endpoints cover newsletter capture (append-only D1 rows; duplicate emails are kept on purpose), contact messages, the preview redirect configured through `PREVIEW_DOWNLOAD_URL`, dormant Stripe Checkout, and a signature-verified, idempotent Stripe webhook. Forms require a same-origin request and an action-specific Turnstile check. Commerce stays off unless `COMMERCE_ENABLED` is exactly `true`.
+- Codex did the initial implementation on Astro 5 / Cloudflare Pages. That pin failed `npm audit` (1 critical, 6 high, 1 low), so the site was migrated to Astro 7.3.4 and `@astrojs/cloudflare` 14.3.3 on Cloudflare Workers. `npm audit` is now clean.
+- Fixed forms and preview links that targeted `/api/*` without a trailing slash, which caused an extra redirect on every submission.
+- Verification: 52/52 tests pass; `astro check` reports 0 errors, warnings, and hints; the build is clean; `wrangler deploy --dry-run` shows only the `SITE_DB`, `ASSETS`, `SITE_URL`, and `COMMERCE_ENABLED` bindings; a local Workers-runtime smoke test returned the expected status for every route.
+- No Cloudflare or Stripe resources were created. The D1 database ID in `wwwroot/wrangler.jsonc` is a placeholder.
+
+### Files changed
+
+- `wwwroot/` (new: application source, tests, D1 migration, configuration, `README.md`, implementation plan and ledger, approved design specification)
+- `docs/03-publishing/decisions/ADR-03-0003-launch-site-cloudflare-workers.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `ADR-03-0003`: deploy the launch site as a Cloudflare Worker, not Pages, on patched Astro and adapter releases, with pages kept server-rendered to preserve the runtime commerce gate.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (35)
 
 ### Changed

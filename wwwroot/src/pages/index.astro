@@ -1,0 +1,69 @@
+---
+import { siteEnv } from '../lib/runtime-env';
+import BookCover from '../components/BookCover.astro';
+import Callout from '../components/Callout.astro';
+import { bookOne, series } from '../content/books';
+import { site } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCommerceConfig } from '../lib/config';
+
+const env = siteEnv();
+const commerceEnabled = getCommerceConfig(env).enabled;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: new URL('/', Astro.site).href,
+  description: site.description,
+};
+---
+
+<BaseLayout title={site.name} description={site.description} canonicalPath="/" {commerceEnabled} {structuredData}>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">The complete guide series</p>
+        <h1>AI, explained for people who have other things to do.</h1>
+        <p class="lede">{bookOne.title} is a genuinely non-technical place to start: what AI is, what it can do, where it fails, and how to use it without swallowing the hype.</p>
+        <div class="button-row">
+          <a class="button" href="/api/preview/">Read today’s preview</a>
+          <a class="button secondary" href="/books/ai-for-normal-people/">Explore Book 1</a>
+          {commerceEnabled && <a class="button secondary" href="/purchase/">Purchase options</a>}
+        </div>
+      </div>
+      <BookCover priority />
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="shell split">
+      <div>
+        <p class="kicker">A useful first principle</p>
+        <h2>AI is not magic.</h2>
+      </div>
+      <div>
+        <p class="section-intro">It is software that finds patterns and makes predictions. That idea is simple enough to remember and useful enough to cut through a surprising amount of nonsense.</p>
+        <Callout title="The point of the book">
+          <p>Understand the tool well enough to make your own decisions—not to become an engineer, and not to pretend every confident answer is correct.</p>
+        </Callout>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="shell">
+      <p class="kicker">A five-book progression</p>
+      <h2>Start with understanding. Go technical only if you want to.</h2>
+      <p class="section-intro">The later volumes are a working direction. Book 1 is the active volume.</p>
+      <div class="series-list">
+        {series.progression.map((book) => (
+          <div class="series-item">
+            <span class="number">{book.number}</span>
+            <strong>{book.title}</strong>
+            <span class:list={['status', { active: book.active }]}>{book.active ? 'Active volume' : book.theme}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
