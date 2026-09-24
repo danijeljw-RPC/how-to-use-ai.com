@@ -168,7 +168,7 @@ So keep three ideas separate:
 
 Only the third answers the question, “Is this true?”
 
-![Apparent confidence and correctness are separate: an answer can be correct or incorrect, and it can sound cautious or confident.](../diagrams/confidence-versus-correctness.mmd){ width=50% }
+![Apparent confidence and correctness are separate: an answer can be correct or incorrect, and it can sound cautious or confident.](../diagrams/confidence-versus-correctness.mmd){ width=75% }
 
 *Sounding certain is a property of the answer. Being correct is a property of the claim.*
 
