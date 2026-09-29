@@ -14,6 +14,7 @@ All meaningful project changes should be recorded here.
 - Expanded Chapter 6 again after author review from a careful but overly antiseptic treatment to approximately 7,700 reader-facing words before endnotes, bringing the research data and competing judgements into the prose.
 - Added a substantial university, TAFE and Free TAFE decision case with current Australian outcomes, completion figures, the invalid cumulative-ratio trap, arguments from both ends and an extended ChatGPT pathway-comparison workflow.
 - Added a practical fit-for-purpose comparison of ChatGPT, Claude, Gemini, Perplexity, Microsoft Copilot and DeepSeek, using ChatGPT as the main beginner example without claiming a permanent universal ranking.
+- Removed the standalone Chapter Recap and Chapter Preview so Chapter 6 now ends consistently with the other Book 1 chapters: Core Takeaway followed by Chapter Notes.
 - Extended the real-world evidence and examples for meals, travel, writing, parenting, tutoring and AI-search behaviour, and rewrote Myth vs Reality as explicit competing claims readers can judge.
 
 ### Files changed
