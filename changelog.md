@@ -9,8 +9,12 @@ All meaningful project changes should be recorded here.
 - Rewrote Chapter 6 as a complete research-backed household chapter using both complementary research packages and the approved Chapter 6 plan.
 - Added original contextual requests across all eight practical areas, a worked meal-plan/refinement example, meaningful accessibility coverage, and proportionate guidance on offloading and judgement.
 - Added chapter endnotes and a dedicated bibliography with claim mapping, source limits, live verification notes, corrected nutrition author order, a changed product-link exclusion and the retracted-paper exclusion.
-- Retained the author-reflection placeholder; no author experience was invented and no diagram was needed.
+- Represented the author's stated first-hand education-research motivation without inventing the underlying conversations; no diagram was needed.
 - Updated drafting status and the existing plan with the revision scope and review record. Preserved the user-added research packages and unrelated `.DS_Store` change.
+- Expanded Chapter 6 again after author review from a careful but overly antiseptic treatment to approximately 7,700 reader-facing words before endnotes, bringing the research data and competing judgements into the prose.
+- Added a substantial university, TAFE and Free TAFE decision case with current Australian outcomes, completion figures, the invalid cumulative-ratio trap, arguments from both ends and an extended ChatGPT pathway-comparison workflow.
+- Added a practical fit-for-purpose comparison of ChatGPT, Claude, Gemini, Perplexity, Microsoft Copilot and DeepSeek, using ChatGPT as the main beginner example without claiming a permanent universal ranking.
+- Extended the real-world evidence and examples for meals, travel, writing, parenting, tutoring and AI-search behaviour, and rewrote Myth vs Reality as explicit competing claims readers can judge.
 
 ### Files changed
 

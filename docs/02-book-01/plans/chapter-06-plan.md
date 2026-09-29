@@ -125,7 +125,7 @@ Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Sp
 
 ## Research-Based Manuscript Revision — 29 September 2026
 
-The author's supplied Chapter 6 brief authorises the complete manuscript revision and associated source/status updates. The approved scope, reader outcomes and twelve-part sequence above remain authoritative. This is an execution record for that revision, not a replacement chapter plan.
+The author's supplied Chapter 6 brief authorises the complete manuscript revision and associated source/status updates. The approved reader outcomes and twelve-part sequence above were the baseline for the first research revision. The later author-directed depth revision in this plan explicitly supersedes that sequence where it adds education, adoption evidence, tool choice and competing viewpoints.
 
 ### Starting State and Inputs
 
@@ -150,7 +150,7 @@ Write connected beginner prose covering all eight home-use areas, applying Chapt
 - Apply ADR-02-0001 and ADR-04-0001/0002/0003: original connected prose, four recognised callout types, unobtrusive Markdown endnotes and an AI-assistance acknowledgement.
 - OI-0001's older callout mapping is superseded by ADR-04-0002; OI-0003 concerns Chapter 1. Use ordinary worked-example prose and a short Myth vs Reality section with a Watch Out callout, without reviving retired callout types.
 - Preserve the real-author-experience placeholder. No approved Chapter 6 personal story was identified in the reviewed current material.
-- Keep deeper education-policy, adoption-statistics and cognitive-decline debates out of this household chapter. Exclude the retracted paper flagged in package-02.
+- Superseded by the later author-directed depth revision: the first pass kept deeper education-policy and adoption evidence out of the household chapter. The author subsequently required that relational evidence to be included so readers could make a fair judgement. The retracted paper remains excluded.
 - No diagram is planned: the examples and short explanatory paragraphs carry the distinctions adequately.
 
 ### Risks and Acceptance Checks
@@ -169,3 +169,25 @@ Proposed commit message: `draft: write research-backed chapter 06 AI at home`.
 - Markdown lint passed for all five changed files. Pandoc parsed the manuscript without diagnostics; all 15 footnote definitions resolve, including repeated references. Bibliography mappings and local research-package links passed.
 - Reviewed the complete manuscript diff and supporting-file changes. A normalised 16-word overlap scan found no exact reader-facing passages copied from either research package.
 - The user-added research directories and unrelated `.DS_Store` remain untouched and outside the scoped commit. No full-book PDF publication or live product demonstrations were performed.
+
+## Author-Directed Depth Revision — 29 September 2026
+
+The author rejected the first research-based revision as too antiseptic for the volume of supplied evidence and real-world material. This direction supersedes the earlier choice to keep education-policy and adoption evidence out of the chapter.
+
+### Revised Editorial Requirements
+
+- Expand the reader-facing chapter into the 6,500–8,500-word range where the evidence supports it.
+- State defensible editorial judgements from competing sides rather than narrowing every disputed issue to a neutral warning.
+- Include the author's first-hand motivation for investigating how AI is changing perceptions of university and TAFE, without inventing the underlying conversations or personal details.
+- Give readers the university, VET and Free TAFE evidence needed to reach their own view, including the limits and incompatible denominators inside headline figures.
+- Use ChatGPT openly as the principal beginner example because it is widely recognised and accessible on the web, while adding a practical fit-for-purpose guide to Claude, Gemini, Perplexity, Copilot and DeepSeek.
+- Extend prompts into multi-turn demonstrations that expose assumptions, request competing cases and lead into real checking or human conversations.
+
+### Resulting Scope
+
+- Added an education decision section covering the strongest case for and against the changing value of formal study, current Australian university and VET outcomes, national completion data and the Free TAFE arithmetic trap.
+- Added an extended ChatGPT pathway-comparison workflow and represented the author's stated first-hand research motivation without inventing the private conversations or leaving a visible editorial placeholder.
+- Added current product-orientation guidance without turning vendor marketing or affiliate rankings into independent “best tool” findings.
+- Brought high-value statistics into the body for household adoption, meal planning, travel, writing, children's use, tutoring and answer-first search.
+- Expanded Myth vs Reality into explicit competing claims while preserving the established callout taxonomy.
+- Target reader-facing length after revision: approximately 7,700 words before endnotes, within the authorised 6,500–8,500-word range.
