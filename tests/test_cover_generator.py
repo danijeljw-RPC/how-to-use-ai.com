@@ -156,6 +156,26 @@ class CoverGeneratorTests(unittest.TestCase):
         self.assertGreater(name_rows[-1], rule_rows[-1])
         self.assertNotEqual(right_rule_at_name_height, (255, 255, 255))
 
+    def test_book_badge_text_is_centred_in_its_pill(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            region = cover.crop((600, 880, 1500, 1040))
+            pixels = region.load()
+            is_accent = lambda colour: colour[2] > 180 and colour[1] < 110 and colour[0] < 170
+            columns = [x for x in range(region.width) if sum(is_accent(pixels[x, y]) for y in range(region.height)) > 60]
+            rows = [y for y in range(region.height) if sum(is_accent(pixels[x, y]) for x in range(region.width)) > 150]
+            left, right, top, bottom = columns[0], columns[-1], rows[0], rows[-1]
+            white = [
+                (x, y)
+                for y in range(top + 10, bottom - 10)
+                for x in range(left + 35, right - 35)
+                if min(pixels[x, y]) > 200
+            ]
+        xs, ys = [x for x, _ in white], [y for _, y in white]
+        self.assertLessEqual(abs((min(xs) - left) - (right - max(xs))), 2)
+        self.assertLessEqual(abs((min(ys) - top) - (bottom - max(ys))), 2)
+
     def test_descriptor_text_does_not_spill_left_of_its_badge(self):
         result = render_book_cover(self.config, 1, self.root, self.output)
 

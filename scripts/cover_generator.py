@@ -115,6 +115,31 @@ class _Font:
     def width(self, text: str) -> float:
         return pdfmetrics.stringWidth(text, self.name, self.size)
 
+    def ink_box(self, text: str) -> tuple[float, float, float, float]:
+        """Visible glyph extents (left, top, right, bottom) relative to the pen at the baseline.
+
+        Side bearings and digit padding make advance-width centring look off
+        (e.g. the space to the right of "1"), so badges centre on the ink.
+        """
+        scale = 10
+        measure = ImageFont.truetype(_font_path(self.name == _pdf_font_name(True)), int(self.size * scale))
+        glyphs = [_glyph_ink(character, measure) for character in text if not character.isspace()]
+        top = min(glyph[1] for glyph in glyphs) / scale
+        bottom = max(glyph[3] for glyph in glyphs) / scale
+        left = glyphs[0][0] / scale
+        right = self.width(text) - self.width(text[-1]) + glyphs[-1][2] / scale
+        return left, top, right, bottom
+
+
+def _glyph_ink(character: str, font: ImageFont.FreeTypeFont) -> tuple[int, int, int, int]:
+    """Rendered ink box of one glyph relative to its pen position on the baseline."""
+    size = font.size
+    origin = (size, 2 * size)
+    mask = Image.new("L", (4 * size, 4 * size), 0)
+    ImageDraw.Draw(mask).text(origin, character, font=font, fill=255, anchor="ls")
+    box = mask.getbbox() or (origin[0], origin[1], origin[0], origin[1])
+    return box[0] - origin[0], box[1] - origin[1], box[2] - origin[0], box[3] - origin[1]
+
 
 def _font(size: float, bold: bool = False) -> _Font:
     return _Font(_pdf_font_name(bold), size)
@@ -199,6 +224,16 @@ class _Page:
         self.pdf.setFillColor(_pdf_colour(colour))
         self.pdf.setFont(font.name, font.size)
         self.pdf.drawString(x, self._y(y + font.ascent), text)
+
+    def text_centred_in(self, box, text: str, font: _Font, colour) -> None:
+        """Centre the visible ink of ``text`` both ways inside ``box``."""
+        left, top, right, bottom = font.ink_box(text)
+        centre_x, centre_y = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
+        pen_x = centre_x - (left + right) / 2
+        baseline = centre_y - (top + bottom) / 2
+        self.pdf.setFillColor(_pdf_colour(colour))
+        self.pdf.setFont(font.name, font.size)
+        self.pdf.drawString(pen_x, self._y(baseline), text)
 
     def image(self, image: Image.Image, x: float, y: float, width: float, height: float) -> None:
         self.pdf.drawImage(ImageReader(image), x, self._y(y + height), width=width, height=height)
@@ -391,7 +426,7 @@ def _render_front(page: _Page, series: dict[str, Any], book: dict[str, Any], ill
     badge_width = int(badge_font.width(badge_text) + 120)
     badge_box = ((width - badge_width) // 2, 902, (width + badge_width) // 2, 1022)
     page.rounded_rect(badge_box, 34, fill=accent)
-    page.text((width - badge_font.width(badge_text)) / 2, 922, badge_text, badge_font, WHITE)
+    page.text_centred_in(badge_box, badge_text, badge_font, WHITE)
     page.line(250, 962, badge_box[0] - 42, 962, accent, 3)
     page.line(badge_box[2] + 42, 962, width - 250, 962, accent, 3)
 
@@ -439,8 +474,8 @@ def _render_front(page: _Page, series: dict[str, Any], book: dict[str, Any], ill
         )
         descriptor_font = _font(43, bold=True)
         descriptor_lines = _wrap_text(descriptor, descriptor_font, circle_size - 72)
-        line_height = descriptor_font.cap_height + 8
-        descriptor_y = circle_box[1] + (circle_size - len(descriptor_lines) * line_height) / 2
+        block_height = len(descriptor_lines) * descriptor_font.cap_height + (len(descriptor_lines) - 1) * 8
+        descriptor_y = circle_box[1] + (circle_size - block_height) / 2
         descriptor_y -= descriptor_font.ascent - descriptor_font.cap_height
         _draw_centered_lines(
             page,
@@ -473,7 +508,7 @@ def _render_back(page: _Page, series: dict[str, Any], book: dict[str, Any]) -> N
     badge_width = int(badge_font.width(badge_text) + 100)
     badge_box = ((width - badge_width) // 2, 500, (width + badge_width) // 2, 602)
     page.rounded_rect(badge_box, 28, fill=accent)
-    page.text((width - badge_font.width(badge_text)) / 2, 518, badge_text, badge_font, WHITE)
+    page.text_centred_in(badge_box, badge_text, badge_font, WHITE)
 
     title = str(book["title"]).upper()
     title_font = _fit_font(title, width - 360, 118, 76, bold=True)

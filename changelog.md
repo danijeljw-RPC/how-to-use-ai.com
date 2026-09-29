@@ -2,6 +2,33 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (49)
+
+### Changed
+
+- "BOOK 1" (and the back-cover "BOOK n • THEME") is now centred on its visible letters inside the pill, both ways. It previously sat 6 px high and looked left-shifted because of the empty space built into the "1" glyph.
+- The gold seal text block is now vertically centred exactly (it was about 4 px high).
+- Added a regression test for badge text centring.
+- Confirmed the pill and seal are vector paths in the PDF (no raster edges); the illustration is the only image.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-30 (48)
 
 ### Changed
