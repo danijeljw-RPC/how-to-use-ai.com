@@ -122,3 +122,72 @@ draft: add chapter 06 plan and draft (AI at home)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Meal Planning and Budgeting," "Parenting Support and Learning Hobbies," and "Organising Life and Getting Help When You Need It" into H3 subsections, each with an added concrete worked example. Word count grew from ~1,451 to ~1,600+. No existing content, placeholders, or takeaways were removed.
+
+## Research-Based Manuscript Revision — 29 September 2026
+
+The author's supplied Chapter 6 brief authorises the complete manuscript revision and associated source/status updates. The approved reader outcomes and twelve-part sequence above were the baseline for the first research revision. The later author-directed depth revision in this plan explicitly supersedes that sequence where it adds education, adoption evidence, tool choice and competing viewpoints.
+
+### Starting State and Inputs
+
+- Branch: `book01/chap06`; latest commit at inspection: `e8164e3`.
+- Both research directories were present as user-added, untracked inputs: `docs/80-research/chapter-06-research-package/package-01/` and `package-02/`. They are complementary and will remain unchanged.
+- The pre-existing modification to `docs/80-research/.DS_Store` is unrelated and will remain untouched.
+- The current chapter is a structural reference, not approved final prose.
+- Legacy material has already been reconciled into current docs; ADR-00-0002 authorises removal of the old archive.
+
+### Purpose and Files
+
+Write connected beginner prose covering all eight home-use areas, applying Chapter 5 through original requests, refinement and proportionate checking. Expected changes:
+
+- `docs/02-book-01/chapters/chapter-06-ai-at-home.md`
+- `docs/02-book-01/research/chapter-06-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-06-plan.md` (this execution/review record)
+- `docs/02-book-01/book-01-structure.md` (drafting status)
+- `changelog.md`
+
+### Dependencies and Editorial Choices
+
+- Apply ADR-02-0001 and ADR-04-0001/0002/0003: original connected prose, four recognised callout types, unobtrusive Markdown endnotes and an AI-assistance acknowledgement.
+- OI-0001's older callout mapping is superseded by ADR-04-0002; OI-0003 concerns Chapter 1. Use ordinary worked-example prose and a short Myth vs Reality section with a Watch Out callout, without reviving retired callout types.
+- Preserve the real-author-experience placeholder. No approved Chapter 6 personal story was identified in the reviewed current material.
+- Superseded by the later author-directed depth revision: the first pass kept deeper education-policy and adoption evidence out of the household chapter. The author subsequently required that relational evidence to be included so readers could make a fair judgement. The retracted paper remains excluded.
+- No diagram is planned: the examples and short explanatory paragraphs carry the distinctions adequately.
+
+### Risks and Acceptance Checks
+
+Check all eight practical areas, contextual requests and explanations of why they help; a complete meal example with illustrative response, refinement and checking; meaningful accessibility; neutral cognitive-offloading treatment; a proportionate over-reliance section; source limitations and product availability; source-to-claim mapping; Chapter 7 transition; Markdown and footnote integrity; accidental copying from the research; and a scoped final Git diff.
+
+Proposed commit message: `draft: write research-backed chapter 06 AI at home`.
+
+### Completed Review
+
+- Completed approximately 4,350 words of reader-facing prose, plus 15 distinct source endnotes. All twelve planned sections and eight practical areas are present; each area includes a contextual request and explanation.
+- Used package-01 for the household foundation, nutrition, financial boundaries, travel logistics, mixed tutoring evidence, TalkBack and appropriate reliance; package-02 adds Smartraveller, photo examples, Seeing AI, learning modes, cognitive offloading and source-checking behaviour.
+- The over-reliance discussion occupies approximately 11% of the reader-facing chapter. Accessibility has its own substantial section and includes alternatives for checking information when the original is inaccessible.
+- Preserved one author-reflection placeholder, the Chapter 7 transition and only the four established callout types. The requested callouts justify four boxes; worked examples remain in ordinary prose. No diagrams or temporary repository files were created.
+- Checked cited government/product pages and research abstracts or publisher text as recorded in the bibliography. Excluded the retracted paper; corrected the nutrition author order and replaced a changed Samsung source link.
+- Markdown lint passed for all five changed files. Pandoc parsed the manuscript without diagnostics; all 15 footnote definitions resolve, including repeated references. Bibliography mappings and local research-package links passed.
+- Reviewed the complete manuscript diff and supporting-file changes. A normalised 16-word overlap scan found no exact reader-facing passages copied from either research package.
+- The user-added research directories and unrelated `.DS_Store` remain untouched and outside the scoped commit. No full-book PDF publication or live product demonstrations were performed.
+
+## Author-Directed Depth Revision — 29 September 2026
+
+The author rejected the first research-based revision as too antiseptic for the volume of supplied evidence and real-world material. This direction supersedes the earlier choice to keep education-policy and adoption evidence out of the chapter.
+
+### Revised Editorial Requirements
+
+- Expand the reader-facing chapter into the 6,500–8,500-word range where the evidence supports it.
+- State defensible editorial judgements from competing sides rather than narrowing every disputed issue to a neutral warning.
+- Include the author's first-hand motivation for investigating how AI is changing perceptions of university and TAFE, without inventing the underlying conversations or personal details.
+- Give readers the university, VET and Free TAFE evidence needed to reach their own view, including the limits and incompatible denominators inside headline figures.
+- Use ChatGPT openly as the principal beginner example because it is widely recognised and accessible on the web, while adding a practical fit-for-purpose guide to Claude, Gemini, Perplexity, Copilot and DeepSeek.
+- Extend prompts into multi-turn demonstrations that expose assumptions, request competing cases and lead into real checking or human conversations.
+
+### Resulting Scope
+
+- Added an education decision section covering the strongest case for and against the changing value of formal study, current Australian university and VET outcomes, national completion data and the Free TAFE arithmetic trap.
+- Added an extended ChatGPT pathway-comparison workflow and represented the author's stated first-hand research motivation without inventing the private conversations or leaving a visible editorial placeholder.
+- Added current product-orientation guidance without turning vendor marketing or affiliate rankings into independent “best tool” findings.
+- Brought high-value statistics into the body for household adoption, meal planning, travel, writing, children's use, tutoring and answer-first search.
+- Expanded Myth vs Reality into explicit competing claims while preserving the established callout taxonomy.
+- Target reader-facing length after revision: approximately 7,700 words before endnotes, within the authorised 6,500–8,500-word range.
