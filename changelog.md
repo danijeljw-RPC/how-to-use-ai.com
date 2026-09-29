@@ -2,6 +2,36 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-29 (45)
+
+### Changed
+
+- Rewrote Chapter 6 as a complete research-backed household chapter using both complementary research packages and the approved Chapter 6 plan.
+- Added original contextual requests across all eight practical areas, a worked meal-plan/refinement example, meaningful accessibility coverage, and proportionate guidance on offloading and judgement.
+- Added chapter endnotes and a dedicated bibliography with claim mapping, source limits, live verification notes, corrected nutrition author order, a changed product-link exclusion and the retracted-paper exclusion.
+- Retained the author-reflection placeholder; no author experience was invented and no diagram was needed.
+- Updated drafting status and the existing plan with the revision scope and review record. Preserved the user-added research packages and unrelated `.DS_Store` change.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-06-ai-at-home.md`
+- `docs/02-book-01/research/chapter-06-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-06-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Applied the existing structure, style and evidence ADRs.
+
+### Open issues added or closed
+
+- None. The planned author-reflection placeholder remains for the author.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-24 (44)
 
 ### Added
