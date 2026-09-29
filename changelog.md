@@ -2,6 +2,36 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (46)
+
+### Changed
+
+- Cover illustrations with a transparent background are now shown whole on white: empty margins are trimmed and the subject is fitted inside the picture band instead of being fill-cropped. Previously transparent areas rendered black and tall art lost its top and bottom.
+- Cut-out illustrations skip the white top fade and the accent side bars; fully opaque (full-bleed) illustrations render exactly as before.
+- Added the Book 1 octopus cover illustration (`assets/covers/book-01.png`, 1800 x 2700 transparent PNG).
+- Added a unit test for transparent cover art.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `assets/covers/book-01.png` (new)
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/transparent-cover-illustration-plan.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: cut-out (transparent) illustrations are fitted whole on white without the fade or side bars.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-29 (45)
 
 ### Changed

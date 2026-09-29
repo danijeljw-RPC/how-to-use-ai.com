@@ -151,6 +151,25 @@ def _cover_crop(image: Image.Image, size: tuple[int, int]) -> Image.Image:
     return ImageOps.fit(image.convert("RGB"), size, method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
 
 
+def _has_transparency(image: Image.Image) -> bool:
+    if image.mode in ("RGBA", "LA") or (image.mode == "P" and "transparency" in image.info):
+        return image.convert("RGBA").getchannel("A").getextrema()[0] < 255
+    return False
+
+
+def _cutout_fit(image: Image.Image, size: tuple[int, int], margin: int) -> Image.Image:
+    """Trim transparent margins, fit the whole subject inside ``size``, and flatten onto white."""
+    image = image.convert("RGBA")
+    subject_box = image.getchannel("A").getbbox()
+    if subject_box:
+        image = image.crop(subject_box)
+    inner = (size[0] - 2 * margin, size[1] - 2 * margin)
+    image = ImageOps.contain(image, inner, method=Image.Resampling.LANCZOS)
+    background = Image.new("RGBA", size, WHITE)
+    background.alpha_composite(image, ((size[0] - image.width) // 2, (size[1] - image.height) // 2))
+    return background.convert("RGB")
+
+
 def _generate_placeholder(path: Path, width: int, height: int) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     background = Image.new("RGB", (width, height), "#E8EDF6")
@@ -247,19 +266,25 @@ def _render_front(
     _draw_centered_lines(draw, description_lines, title_bottom + 28, description_font, SLATE, width, 12)
 
     art_top, art_bottom = 1440, 2700
+    art_size = (width, art_bottom - art_top)
     with Image.open(illustration_path) as illustration:
-        art = _cover_crop(illustration, (width, art_bottom - art_top))
+        # Cut-out art (transparent background) is shown whole on white; full-bleed
+        # art is cropped to fill the band and blended in with a fade and side bars.
+        cutout = _has_transparency(illustration)
+        art = _cutout_fit(illustration, art_size, 40) if cutout else _cover_crop(illustration, art_size)
     cover.paste(art, (0, art_top))
-    fade = Image.new("RGBA", (width, 310), (255, 255, 255, 0))
-    fade_pixels = fade.load()
-    for y in range(fade.height):
-        alpha = int(255 * (1 - y / fade.height) ** 1.8)
-        for x in range(width):
-            fade_pixels[x, y] = (255, 255, 255, alpha)
-    cover.paste(fade, (0, art_top), fade)
+    if not cutout:
+        fade = Image.new("RGBA", (width, 310), (255, 255, 255, 0))
+        fade_pixels = fade.load()
+        for y in range(fade.height):
+            alpha = int(255 * (1 - y / fade.height) ** 1.8)
+            for x in range(width):
+                fade_pixels[x, y] = (255, 255, 255, alpha)
+        cover.paste(fade, (0, art_top), fade)
     draw = ImageDraw.Draw(cover)
-    draw.rectangle((0, art_top, 18, art_bottom), fill=accent)
-    draw.rectangle((width - 18, art_top, width, art_bottom), fill=accent)
+    if not cutout:
+        draw.rectangle((0, art_top, 18, art_bottom), fill=accent)
+        draw.rectangle((width - 18, art_top, width, art_bottom), fill=accent)
 
     descriptor = str(book.get("descriptor", "")).upper().strip()
     if descriptor:

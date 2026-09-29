@@ -101,6 +101,24 @@ class CoverGeneratorTests(unittest.TestCase):
         self.assertFalse(result.used_placeholder)
         self.assertEqual(result.illustration, illustration)
 
+    def test_transparent_art_is_shown_whole_on_white_without_bars(self):
+        illustration = self.root / "assets/covers/book-01.png"
+        illustration.parent.mkdir(parents=True)
+        art = Image.new("RGBA", (1800, 2700), (0, 0, 0, 0))
+        art.paste((200, 30, 30, 255), (600, 300, 1200, 2400))
+        art.save(illustration)
+
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            # Transparent areas and side-bar positions are white, not black or accent.
+            self.assertEqual(cover.getpixel((5, 2000)), (255, 255, 255))
+            self.assertEqual(cover.getpixel((2095, 2000)), (255, 255, 255))
+            self.assertEqual(cover.getpixel((600, 2600)), (255, 255, 255))
+            # The subject's top and bottom survive (no crop) and are not faded.
+            self.assertEqual(cover.getpixel((1050, 1490)), (200, 30, 30))
+            self.assertEqual(cover.getpixel((1050, 2650)), (200, 30, 30))
+
     def test_descriptor_text_does_not_spill_left_of_its_badge(self):
         result = render_book_cover(self.config, 1, self.root, self.output)
 
