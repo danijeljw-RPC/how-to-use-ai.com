@@ -2,6 +2,32 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (47)
+
+### Changed
+
+- Cut-out (transparent) cover art now fills all the clear space between the subtitle and the author name, making the Book 1 octopus about 25% larger. A full 50% would overlap the subtitle or author name.
+- The front-cover descriptor badge is now a gold seal across the series. The Book 1 wording "No technical skills required" is kept, not replaced with "First Edition".
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/transparent-cover-illustration-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: cut-out art sizing and the gold descriptor seal.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-30 (46)
 
 ### Changed

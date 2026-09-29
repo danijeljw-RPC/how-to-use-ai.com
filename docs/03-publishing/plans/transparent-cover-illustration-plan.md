@@ -61,6 +61,19 @@ The author asked for this directly in session on 2026-09-30 ("Can you not make
 it work with transparent for me?") after the approach was proposed, so work
 proceeded without a separate review stop.
 
+## Follow-up (2026-09-30)
+
+The author asked for the octopus to be 50% bigger and for the descriptor badge
+to become gold (or say "First Edition").
+
+- Cut-out art now uses all clear space from just below the subtitle to just
+  above the author name. That is the largest size that avoids both texts:
+  about 25% bigger than the first fix, not 50%.
+- The descriptor badge becomes a gold seal for the whole series. The text stays
+  "No technical skills required": it speaks directly to Book 1's audience,
+  while "First Edition" tells a beginner nothing and belongs on the copyright
+  page.
+
 ## Proposed commit message
 
 ```text

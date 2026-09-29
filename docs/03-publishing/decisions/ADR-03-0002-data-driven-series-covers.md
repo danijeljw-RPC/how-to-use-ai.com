@@ -37,12 +37,19 @@ therefore does not block internal PDF review.
 
 Amendment (2026-09-30): an illustration with a transparent background is
 treated as cut-out art. Its empty margins are trimmed and the whole subject is
-fitted inside the 2100 by 1260 pixel picture band on white, with no cropping,
-no top fade, and no accent side bars. Fully opaque illustrations keep the
+fitted on white into all the clear space between the subtitle and the author
+name (not just the 2100 by 1260 pixel picture band), with no cropping, no top
+fade, and no accent side bars. Fully opaque illustrations keep the
 original fill-crop, fade, and side bars. Transparent illustrations need no
 particular size. Opaque art is cropped to the band's 5:3 shape, so it should be
 supplied at 2100 by 1260 pixels (or larger at 5:3) to avoid losing its top and
 bottom; the 1800 by 2700 figure above only governs the generated placeholder.
+
+Amendment (2026-09-30): the front-cover descriptor badge is a series-wide gold
+seal (fill `#E9C46A`, ring `#B8892E`, navy text) rather than cream with the
+book accent outline. Its text stays book-specific audience copy (Book 1: `No
+technical skills required`), not edition wording; edition statements belong on
+the copyright page.
 
 The draft publication pipeline produces:
 

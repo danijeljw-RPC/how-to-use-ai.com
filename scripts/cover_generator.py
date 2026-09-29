@@ -17,6 +17,8 @@ from reportlab.pdfgen import canvas
 NAVY = "#061532"
 SLATE = "#5E6F89"
 WHITE = "#FFFFFF"
+GOLD = "#E9C46A"
+GOLD_DARK = "#B8892E"
 
 
 class CoverConfigurationError(ValueError):
@@ -263,15 +265,21 @@ def _render_front(
     title_bottom = _draw_centered_lines(draw, title_lines, 1070, title_font, NAVY, width, 12)
     description_font = _load_font(52)
     description_lines = _wrap_text(str(book.get("description", "")), description_font, width - 460)
-    _draw_centered_lines(draw, description_lines, title_bottom + 28, description_font, SLATE, width, 12)
+    text_bottom = _draw_centered_lines(
+        draw, description_lines, title_bottom + 28, description_font, SLATE, width, 12
+    )
 
     art_top, art_bottom = 1440, 2700
-    art_size = (width, art_bottom - art_top)
     with Image.open(illustration_path) as illustration:
-        # Cut-out art (transparent background) is shown whole on white; full-bleed
+        # Cut-out art (transparent background) is shown whole on white and may use
+        # all the clear space between the subtitle and the author name; full-bleed
         # art is cropped to fill the band and blended in with a fade and side bars.
         cutout = _has_transparency(illustration)
-        art = _cutout_fit(illustration, art_size, 40) if cutout else _cover_crop(illustration, art_size)
+        if cutout:
+            art_top, art_bottom = text_bottom + 30, 2765
+            art = _cutout_fit(illustration, (width, art_bottom - art_top), 0)
+        else:
+            art = _cover_crop(illustration, (width, art_bottom - art_top))
     cover.paste(art, (0, art_top))
     if not cutout:
         fade = Image.new("RGBA", (width, 310), (255, 255, 255, 0))
@@ -290,7 +298,12 @@ def _render_front(
     if descriptor:
         circle_size = 360
         circle_box = (70, 1510, 70 + circle_size, 1510 + circle_size)
-        draw.ellipse(circle_box, fill="#FFF3D6", outline=accent, width=12)
+        draw.ellipse(circle_box, fill=GOLD, outline=GOLD_DARK, width=12)
+        draw.ellipse(
+            (circle_box[0] + 22, circle_box[1] + 22, circle_box[2] - 22, circle_box[3] - 22),
+            outline=GOLD_DARK,
+            width=3,
+        )
         descriptor_font = _load_font(43, bold=True)
         descriptor_lines = _wrap_text(descriptor, descriptor_font, circle_size - 72)
         line_height = descriptor_font.size + 8
@@ -306,7 +319,8 @@ def _render_front(
             center_x=circle_box[0] + circle_size / 2,
         )
 
-    draw.rectangle((0, 2700, width, height), fill=WHITE)
+    if not cutout:
+        draw.rectangle((0, 2700, width, height), fill=WHITE)
     draw.line((180, 2845, 590, 2845), fill=accent, width=3)
     draw.line((width - 590, 2845, width - 180, 2845), fill=accent, width=3)
     author_font = _fit_font(series["author"].upper(), width - 1260, 54, 40, bold=True)
