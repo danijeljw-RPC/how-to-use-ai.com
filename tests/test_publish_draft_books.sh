@@ -52,7 +52,7 @@ for page in reader.pages:
     assert abs(float(page.mediabox.width) - 504.0) < 0.5
     assert abs(float(page.mediabox.height) - 720.0) < 0.5
 assert "internal and review distribution only" in (reader.pages[1].extract_text() or "").lower()
-assert "/XObject" in reader.pages[-1]["/Resources"]
+assert "/Font" in reader.pages[-1]["/Resources"]  # vector back cover
 diagram_page = diagram.pages[0]
 diagram_text = diagram_page.extract_text() or ""
 assert "User watches" in diagram_text
@@ -82,7 +82,7 @@ manuscript = PdfReader(os.environ["MANUSCRIPT_PDF"])
 assert len(reader.pages) == len(manuscript.pages) + 4
 assert "preview edition" in (reader.pages[1].extract_text() or "").lower()
 assert "end of preview" in (reader.pages[-2].extract_text() or "").lower()
-assert "/XObject" in reader.pages[-1]["/Resources"]
+assert "/Font" in reader.pages[-1]["/Resources"]  # vector back cover
 PY
 
 echo "Draft publication integration test passed."

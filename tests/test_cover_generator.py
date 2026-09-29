@@ -119,6 +119,43 @@ class CoverGeneratorTests(unittest.TestCase):
             self.assertEqual(cover.getpixel((1050, 1490)), (200, 30, 30))
             self.assertEqual(cover.getpixel((1050, 2650)), (200, 30, 30))
 
+    def test_cover_pdfs_are_vector_with_embedded_fonts(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        for pdf_path, expected_images, expected_text in (
+            (result.front_pdf, 1, "AI FOR NORMAL PEOPLE"),
+            (result.back_pdf, 0, "INTERNAL REVIEW EDITION"),
+        ):
+            page = PdfReader(pdf_path).pages[0]
+            resources = page["/Resources"]
+            # Only the illustration is a raster image; shapes and text are vector.
+            images = resources.get("/XObject", {})
+            self.assertEqual(len(images), expected_images, pdf_path)
+            fonts = [font.get_object() for font in resources["/Font"].values()]
+            self.assertTrue(fonts)
+            for font in fonts:
+                descriptor = font.get("/FontDescriptor")
+                self.assertIsNotNone(descriptor, f"unembedded font {font.get('/BaseFont')} in {pdf_path}")
+            self.assertIn(expected_text, page.extract_text())
+
+    def test_author_name_sits_between_centred_rules(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            footer = cover.crop((0, 2760, 2100, 2880))
+            rule_rows = [y for y in range(footer.height) if footer.getpixel((250, y)) != (255, 255, 255)]
+            name_rows = [
+                y
+                for y in range(footer.height)
+                if any(footer.getpixel((x, y))[2] < 120 for x in range(1000, 1100))
+            ]
+            right_rule_at_name_height = footer.getpixel((1850, rule_rows[0]))
+        self.assertTrue(rule_rows, "left rule not found")
+        self.assertTrue(name_rows, "author name not found")
+        self.assertLess(name_rows[0], rule_rows[0])
+        self.assertGreater(name_rows[-1], rule_rows[-1])
+        self.assertNotEqual(right_rule_at_name_height, (255, 255, 255))
+
     def test_descriptor_text_does_not_spill_left_of_its_badge(self):
         result = render_book_cover(self.config, 1, self.root, self.output)
 

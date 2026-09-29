@@ -2,6 +2,39 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (48)
+
+### Changed
+
+- Front and back covers are now drawn as vector PDF: circles, badges, rules and bars are PDF shapes, and all text uses embedded Arial. They stay sharp at any zoom and in print. The illustration is the only image and is embedded at source resolution (the Book 1 octopus prints at about 459 ppi).
+- The cover PDFs no longer reference unembedded Helvetica.
+- The author name now sits between the two accent rules, vertically centred on them, on both covers.
+- Cover PNGs and previews are rasterised from the vector PDF with `pdftoppm`, which `publish-draft-books.sh` now requires.
+- Added tests for vector output (one image on the front, none on the back, fonts embedded) and for the name placement; the integration test now expects a vector back cover.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `tests/test_publish_draft_books.sh`
+- `publish-draft-books.sh`
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/vector-cover-rendering-plan.md` (new)
+- `docs/03-publishing/open-issues/OI-0005.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: vector cover output and the centred author-name rule.
+
+### Open issues added or closed
+
+- Added `docs/03-publishing/open-issues/OI-0005.md`: print readiness of the assembled book (unembedded Helvetica on generated notice pages, bleed, colour space, wrap-around cover, review wording on public previews).
+
+### Commit
+
+- pending commit
+
 ## 2026-09-30 (47)
 
 ### Changed

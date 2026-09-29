@@ -1,16 +1,27 @@
 #!/usr/bin/env python3
-"""Render the shared How To Use AI.com series cover from JSON metadata."""
+"""Render the shared How To Use AI.com series cover from JSON metadata.
+
+Covers are drawn as vector PDF content (shapes and embedded fonts) so they stay
+sharp in print. The illustration is the only raster element and is embedded at
+its source resolution. PNG outputs are rasterised from the PDF.
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
+import shutil
+import subprocess
+import tempfile
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Callable, Iterable
 
-from PIL import Image, ImageColor, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageColor, ImageDraw, ImageFont
+from reportlab.lib.colors import Color
 from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 
 
@@ -19,6 +30,18 @@ SLATE = "#5E6F89"
 WHITE = "#FFFFFF"
 GOLD = "#E9C46A"
 GOLD_DARK = "#B8892E"
+
+REGULAR_FONTS = [
+    "/System/Library/Fonts/Supplemental/Arial.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+]
+BOLD_FONTS = [
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+]
+# Characters whose ink drops below the baseline; used to match line spacing to
+# the visible text rather than the font's full line box.
+DESCENDERS = set("gjpqyQ,;()[]{}|/")
 
 
 class CoverConfigurationError(ValueError):
@@ -42,22 +65,59 @@ class RenderedCoverAssets:
         return {key: str(value) if isinstance(value, Path) else value for key, value in values.items()}
 
 
-def _load_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-    candidates = (
-        [
-            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        ]
-        if bold
-        else [
-            "/System/Library/Fonts/Supplemental/Arial.ttf",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        ]
-    )
+def _font_path(bold: bool) -> str:
+    candidates = BOLD_FONTS if bold else REGULAR_FONTS
     for candidate in candidates:
         if Path(candidate).is_file():
-            return ImageFont.truetype(candidate, size=size)
-    return ImageFont.truetype("DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf", size=size)
+            return candidate
+    return "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
+
+
+def _load_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
+    """Pillow font, used only for the raster placeholder illustration."""
+    return ImageFont.truetype(_font_path(bold), size=size)
+
+
+_REGISTERED_FONTS: dict[bool, str] = {}
+
+
+def _pdf_font_name(bold: bool) -> str:
+    if bold not in _REGISTERED_FONTS:
+        name = "CoverBold" if bold else "CoverRegular"
+        pdfmetrics.registerFont(TTFont(name, _font_path(bold)))
+        _REGISTERED_FONTS[bold] = name
+    return _REGISTERED_FONTS[bold]
+
+
+@dataclass(frozen=True)
+class _Font:
+    """A PDF font at a size, measured in cover pixels."""
+
+    name: str
+    size: float
+
+    @property
+    def _face(self):
+        return pdfmetrics.getFont(self.name).face
+
+    @property
+    def ascent(self) -> float:
+        return self._face.ascent * self.size / 1000
+
+    @property
+    def cap_height(self) -> float:
+        return self._face.capHeight * self.size / 1000
+
+    @property
+    def descent(self) -> float:
+        return -self._face.descent * self.size / 1000
+
+    def width(self, text: str) -> float:
+        return pdfmetrics.stringWidth(text, self.name, self.size)
+
+
+def _font(size: float, bold: bool = False) -> _Font:
+    return _Font(_pdf_font_name(bold), size)
 
 
 def _hex_colour(value: str, field: str) -> tuple[int, int, int]:
@@ -68,6 +128,80 @@ def _hex_colour(value: str, field: str) -> tuple[int, int, int]:
     if len(colour) != 3:
         raise CoverConfigurationError(f"{field} must be an opaque RGB colour")
     return colour
+
+
+def _pdf_colour(value: str | tuple[int, int, int]) -> Color:
+    red, green, blue = ImageColor.getrgb(value) if isinstance(value, str) else value
+    return Color(red / 255, green / 255, blue / 255)
+
+
+class _Page:
+    """Vector drawing surface in cover pixels with a top-left origin.
+
+    Outlines are drawn inside their boxes, and text ``y`` is the top of the
+    font's ascent, matching the original Pillow layout coordinates.
+    """
+
+    def __init__(self, pdf: canvas.Canvas, width: int, height: int) -> None:
+        self.pdf = pdf
+        self.width = width
+        self.height = height
+
+    def _y(self, y: float) -> float:
+        return self.height - y
+
+    def rect(self, box: tuple[float, float, float, float], fill) -> None:
+        x0, y0, x1, y1 = box
+        self.pdf.setFillColor(_pdf_colour(fill))
+        self.pdf.rect(x0, self._y(y1), x1 - x0, y1 - y0, stroke=0, fill=1)
+
+    def rounded_rect(self, box, radius: float, fill=None, outline=None, width: float = 0) -> None:
+        x0, y0, x1, y1 = box
+        inset = width / 2 if outline else 0
+        if fill:
+            self.pdf.setFillColor(_pdf_colour(fill))
+        if outline:
+            self.pdf.setStrokeColor(_pdf_colour(outline))
+            self.pdf.setLineWidth(width)
+        self.pdf.roundRect(
+            x0 + inset,
+            self._y(y1) + inset,
+            x1 - x0 - 2 * inset,
+            y1 - y0 - 2 * inset,
+            max(0, radius - inset),
+            stroke=1 if outline else 0,
+            fill=1 if fill else 0,
+        )
+
+    def ellipse(self, box, fill=None, outline=None, width: float = 0) -> None:
+        x0, y0, x1, y1 = box
+        inset = width / 2 if outline else 0
+        if fill:
+            self.pdf.setFillColor(_pdf_colour(fill))
+        if outline:
+            self.pdf.setStrokeColor(_pdf_colour(outline))
+            self.pdf.setLineWidth(width)
+        self.pdf.ellipse(
+            x0 + inset,
+            self._y(y1) + inset,
+            x1 - inset,
+            self._y(y0) - inset,
+            stroke=1 if outline else 0,
+            fill=1 if fill else 0,
+        )
+
+    def line(self, x0: float, y0: float, x1: float, y1: float, colour, width: float) -> None:
+        self.pdf.setStrokeColor(_pdf_colour(colour))
+        self.pdf.setLineWidth(width)
+        self.pdf.line(x0, self._y(y0), x1, self._y(y1))
+
+    def text(self, x: float, y: float, text: str, font: _Font, colour) -> None:
+        self.pdf.setFillColor(_pdf_colour(colour))
+        self.pdf.setFont(font.name, font.size)
+        self.pdf.drawString(x, self._y(y + font.ascent), text)
+
+    def image(self, image: Image.Image, x: float, y: float, width: float, height: float) -> None:
+        self.pdf.drawImage(ImageReader(image), x, self._y(y + height), width=width, height=height)
 
 
 def _load_config(config_path: Path) -> dict[str, Any]:
@@ -87,22 +221,22 @@ def _select_book(config: dict[str, Any], book_number: int) -> dict[str, Any]:
     raise CoverConfigurationError(f"Book {book_number} is not defined in the cover configuration")
 
 
-def _fit_font(text: str, max_width: int, start_size: int, minimum_size: int, bold: bool = True):
+def _fit_font(text: str, max_width: int, start_size: int, minimum_size: int, bold: bool = True) -> _Font:
     for size in range(start_size, minimum_size - 1, -2):
-        font = _load_font(size, bold=bold)
-        if font.getlength(text) <= max_width:
+        font = _font(size, bold=bold)
+        if font.width(text) <= max_width:
             return font
-    return _load_font(minimum_size, bold=bold)
+    return _font(minimum_size, bold=bold)
 
 
-def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[str]:
+def _wrap_text(text: str, font: _Font, max_width: int) -> list[str]:
     if not text.strip():
         return []
     lines: list[str] = []
     current: list[str] = []
     for word in text.split():
         candidate = " ".join([*current, word])
-        if current and font.getlength(candidate) > max_width:
+        if current and font.width(candidate) > max_width:
             lines.append(" ".join(current))
             current = [word]
         else:
@@ -112,45 +246,49 @@ def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[
     return lines
 
 
+def _ink_height(line: str, font: _Font) -> float:
+    return font.cap_height + (font.descent if DESCENDERS & set(line) else 0)
+
+
 def _draw_centered_lines(
-    draw: ImageDraw.ImageDraw,
+    page: _Page,
     lines: Iterable[str],
-    y: int,
-    font: ImageFont.FreeTypeFont,
-    fill: str | tuple[int, int, int],
-    canvas_width: int,
-    spacing: int,
+    y: float,
+    font: _Font,
+    fill,
+    spacing: float,
     center_x: float | None = None,
-) -> int:
+) -> float:
     current_y = y
-    resolved_center_x = canvas_width / 2 if center_x is None else center_x
+    resolved_center_x = page.width / 2 if center_x is None else center_x
     for line in lines:
-        box = draw.textbbox((0, 0), line, font=font)
-        line_width = box[2] - box[0]
-        draw.text((resolved_center_x - line_width / 2, current_y), line, font=font, fill=fill)
-        current_y += (box[3] - box[1]) + spacing
+        page.text(resolved_center_x - font.width(line) / 2, current_y, line, font, fill)
+        current_y += _ink_height(line, font) + spacing
     return current_y
 
 
 def _draw_spaced_text(
-    draw: ImageDraw.ImageDraw,
-    text: str,
-    center_x: int,
-    y: int,
-    font: ImageFont.FreeTypeFont,
-    fill: str,
-    spacing: int,
-) -> None:
-    widths = [draw.textlength(character, font=font) for character in text]
+    page: _Page, text: str, center_x: float, y: float, font: _Font, fill, spacing: float
+) -> tuple[float, float]:
+    """Draw letter-spaced text centred on ``center_x``; return its left and right edges."""
+    widths = [font.width(character) for character in text]
     total = sum(widths) + spacing * max(0, len(text) - 1)
-    x = center_x - total / 2
+    x = start = center_x - total / 2
     for character, width in zip(text, widths):
-        draw.text((x, y), character, font=font, fill=fill)
+        page.text(x, y, character, font, fill)
         x += width + spacing
+    return start, start + total
 
 
-def _cover_crop(image: Image.Image, size: tuple[int, int]) -> Image.Image:
-    return ImageOps.fit(image.convert("RGB"), size, method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+def _draw_name_rule(
+    page: _Page, name: str, y: float, font: _Font, fill, rule_colour, margin: float, spacing: float
+) -> None:
+    """Draw ``——— NAME ———``: rules either side of the name, centred on its capitals."""
+    left, right = _draw_spaced_text(page, name, page.width / 2, y, font, fill, spacing)
+    rule_y = y + font.ascent - font.cap_height / 2
+    gap = 48
+    page.line(margin, rule_y, left - gap, rule_y, rule_colour, 3)
+    page.line(right + gap, rule_y, page.width - margin, rule_y, rule_colour, 3)
 
 
 def _has_transparency(image: Image.Image) -> bool:
@@ -159,17 +297,31 @@ def _has_transparency(image: Image.Image) -> bool:
     return False
 
 
-def _cutout_fit(image: Image.Image, size: tuple[int, int], margin: int) -> Image.Image:
-    """Trim transparent margins, fit the whole subject inside ``size``, and flatten onto white."""
+def _cutout_art(image: Image.Image) -> Image.Image:
+    """Trim transparent margins and flatten onto white, keeping source resolution."""
     image = image.convert("RGBA")
     subject_box = image.getchannel("A").getbbox()
     if subject_box:
         image = image.crop(subject_box)
-    inner = (size[0] - 2 * margin, size[1] - 2 * margin)
-    image = ImageOps.contain(image, inner, method=Image.Resampling.LANCZOS)
-    background = Image.new("RGBA", size, WHITE)
-    background.alpha_composite(image, ((size[0] - image.width) // 2, (size[1] - image.height) // 2))
+    background = Image.new("RGBA", image.size, WHITE)
+    background.alpha_composite(image)
     return background.convert("RGB")
+
+
+def _full_bleed_art(image: Image.Image, size: tuple[int, int], fade_height: int) -> Image.Image:
+    """Centre-crop to ``size``'s shape at source resolution and fade the top edge into white."""
+    image = image.convert("RGB")
+    scale = max(size[0] / image.width, size[1] / image.height)
+    crop_width, crop_height = round(size[0] / scale), round(size[1] / scale)
+    left, top = (image.width - crop_width) // 2, (image.height - crop_height) // 2
+    art = image.crop((left, top, left + crop_width, top + crop_height))
+    fade_pixels = max(1, round(fade_height / scale))
+    column = Image.new("L", (1, fade_pixels))
+    column.putdata([int(255 * (1 - y / fade_pixels) ** 1.8) for y in range(fade_pixels)])
+    mask = Image.new("L", art.size, 0)
+    mask.paste(column.resize((art.width, fade_pixels)), (0, 0))
+    art.paste(Image.new("RGB", art.size, WHITE), (0, 0), mask)
+    return art
 
 
 def _generate_placeholder(path: Path, width: int, height: int) -> Path:
@@ -187,24 +339,14 @@ def _generate_placeholder(path: Path, width: int, height: int) -> Path:
     )
     title_font = _load_font(max(72, width // 12), bold=True)
     detail_font = _load_font(max(36, width // 28), bold=False)
-    _draw_centered_lines(
-        draw,
-        ["PREVIEW", "PUBLICATION ONLY"],
-        height // 2 - title_font.size,
-        title_font,
-        NAVY,
-        width,
-        title_font.size // 3,
-    )
-    _draw_centered_lines(
-        draw,
-        ["Illustration pending"],
-        height // 2 + title_font.size * 2,
-        detail_font,
-        SLATE,
-        width,
-        0,
-    )
+    y = height // 2 - title_font.size
+    for line in ["PREVIEW", "PUBLICATION ONLY"]:
+        box = draw.textbbox((0, 0), line, font=title_font)
+        draw.text(((width - (box[2] - box[0])) / 2, y), line, font=title_font, fill=NAVY)
+        y += (box[3] - box[1]) + title_font.size // 3
+    detail = "Illustration pending"
+    box = draw.textbbox((0, 0), detail, font=detail_font)
+    draw.text(((width - (box[2] - box[0])) / 2, height // 2 + title_font.size * 2), detail, font=detail_font, fill=SLATE)
     background.save(path, format="PNG", optimize=True)
     return path
 
@@ -227,195 +369,196 @@ def _resolve_illustration(
     return placeholder_path, True
 
 
-def _render_front(
-    series: dict[str, Any], book: dict[str, Any], illustration_path: Path
-) -> Image.Image:
-    output = series["coverArtwork"]
-    width, height = int(output["widthPixels"]), int(output["heightPixels"])
+def _render_front(page: _Page, series: dict[str, Any], book: dict[str, Any], illustration_path: Path) -> None:
+    width = page.width
     accent = _hex_colour(book["accentColour"], "accentColour")
     supporting = book.get("supportingAccentColours") or [book["accentColour"]]
     supporting_colour = _hex_colour(supporting[0], "supportingAccentColours[0]")
-    cover = Image.new("RGB", (width, height), WHITE)
-    draw = ImageDraw.Draw(cover)
+    page.rect((0, 0, width, page.height), WHITE)
 
-    _draw_spaced_text(draw, series.get("descriptor", ""), width // 2, 78, _load_font(44), SLATE, 16)
-    _draw_centered_lines(draw, ["How To Use"], 190, _load_font(260, bold=True), NAVY, width, 0)
+    _draw_spaced_text(page, series.get("descriptor", ""), width / 2, 78, _font(44), SLATE, 16)
+    _draw_centered_lines(page, ["How To Use"], 190, _font(260, bold=True), NAVY, 0)
 
-    ai_font = _load_font(330, bold=True)
+    ai_font = _font(330, bold=True)
     ai_text, com_text = "AI", ".com"
-    combined_width = ai_font.getlength(ai_text) + ai_font.getlength(com_text)
-    start_x = (width - combined_width) / 2
-    draw.text((start_x, 440), ai_text, font=ai_font, fill=supporting_colour)
-    draw.text((start_x + ai_font.getlength(ai_text), 440), com_text, font=ai_font, fill=NAVY)
-    _draw_spaced_text(draw, series.get("tagline", ""), width // 2, 785, _load_font(42, bold=True), NAVY, 8)
+    start_x = (width - ai_font.width(ai_text) - ai_font.width(com_text)) / 2
+    page.text(start_x, 440, ai_text, ai_font, supporting_colour)
+    page.text(start_x + ai_font.width(ai_text), 440, com_text, ai_font, NAVY)
+    _draw_spaced_text(page, series.get("tagline", ""), width / 2, 785, _font(42, bold=True), NAVY, 8)
 
     badge_text = f"BOOK {book['number']}"
-    badge_font = _load_font(62, bold=True)
-    badge_width = int(badge_font.getlength(badge_text) + 120)
+    badge_font = _font(62, bold=True)
+    badge_width = int(badge_font.width(badge_text) + 120)
     badge_box = ((width - badge_width) // 2, 902, (width + badge_width) // 2, 1022)
-    draw.rounded_rectangle(badge_box, radius=34, fill=accent)
-    badge_text_width = badge_font.getlength(badge_text)
-    draw.text(((width - badge_text_width) / 2, 922), badge_text, font=badge_font, fill=WHITE)
-    draw.line((250, 962, badge_box[0] - 42, 962), fill=accent, width=3)
-    draw.line((badge_box[2] + 42, 962, width - 250, 962), fill=accent, width=3)
+    page.rounded_rect(badge_box, 34, fill=accent)
+    page.text((width - badge_font.width(badge_text)) / 2, 922, badge_text, badge_font, WHITE)
+    page.line(250, 962, badge_box[0] - 42, 962, accent, 3)
+    page.line(badge_box[2] + 42, 962, width - 250, 962, accent, 3)
 
     title = str(book["title"]).upper()
     title_font = _fit_font(title, width - 300, 116, 78, bold=True)
     title_lines = _wrap_text(title, title_font, width - 300)
-    title_bottom = _draw_centered_lines(draw, title_lines, 1070, title_font, NAVY, width, 12)
-    description_font = _load_font(52)
+    title_bottom = _draw_centered_lines(page, title_lines, 1070, title_font, NAVY, 12)
+    description_font = _font(52)
     description_lines = _wrap_text(str(book.get("description", "")), description_font, width - 460)
-    text_bottom = _draw_centered_lines(
-        draw, description_lines, title_bottom + 28, description_font, SLATE, width, 12
-    )
+    text_bottom = _draw_centered_lines(page, description_lines, title_bottom + 28, description_font, SLATE, 12)
 
-    art_top, art_bottom = 1440, 2700
     with Image.open(illustration_path) as illustration:
         # Cut-out art (transparent background) is shown whole on white and may use
         # all the clear space between the subtitle and the author name; full-bleed
         # art is cropped to fill the band and blended in with a fade and side bars.
         cutout = _has_transparency(illustration)
         if cutout:
-            art_top, art_bottom = text_bottom + 30, 2765
-            art = _cutout_fit(illustration, (width, art_bottom - art_top), 0)
+            art = _cutout_art(illustration)
+            region_top, region_bottom = text_bottom + 30, 2765
+            scale = min(width / art.width, (region_bottom - region_top) / art.height)
+            art_width, art_height = art.width * scale, art.height * scale
+            page.image(
+                art,
+                (width - art_width) / 2,
+                region_top + (region_bottom - region_top - art_height) / 2,
+                art_width,
+                art_height,
+            )
         else:
-            art = _cover_crop(illustration, (width, art_bottom - art_top))
-    cover.paste(art, (0, art_top))
-    if not cutout:
-        fade = Image.new("RGBA", (width, 310), (255, 255, 255, 0))
-        fade_pixels = fade.load()
-        for y in range(fade.height):
-            alpha = int(255 * (1 - y / fade.height) ** 1.8)
-            for x in range(width):
-                fade_pixels[x, y] = (255, 255, 255, alpha)
-        cover.paste(fade, (0, art_top), fade)
-    draw = ImageDraw.Draw(cover)
-    if not cutout:
-        draw.rectangle((0, art_top, 18, art_bottom), fill=accent)
-        draw.rectangle((width - 18, art_top, width, art_bottom), fill=accent)
+            art_top, art_bottom = 1440, 2700
+            art = _full_bleed_art(illustration, (width, art_bottom - art_top), 310)
+            page.image(art, 0, art_top, width, art_bottom - art_top)
+            page.rect((0, art_top, 18, art_bottom), accent)
+            page.rect((width - 18, art_top, width, art_bottom), accent)
 
     descriptor = str(book.get("descriptor", "")).upper().strip()
     if descriptor:
         circle_size = 360
         circle_box = (70, 1510, 70 + circle_size, 1510 + circle_size)
-        draw.ellipse(circle_box, fill=GOLD, outline=GOLD_DARK, width=12)
-        draw.ellipse(
+        page.ellipse(circle_box, fill=GOLD, outline=GOLD_DARK, width=12)
+        page.ellipse(
             (circle_box[0] + 22, circle_box[1] + 22, circle_box[2] - 22, circle_box[3] - 22),
             outline=GOLD_DARK,
             width=3,
         )
-        descriptor_font = _load_font(43, bold=True)
+        descriptor_font = _font(43, bold=True)
         descriptor_lines = _wrap_text(descriptor, descriptor_font, circle_size - 72)
-        line_height = descriptor_font.size + 8
-        descriptor_y = circle_box[1] + (circle_size - len(descriptor_lines) * line_height) // 2
+        line_height = descriptor_font.cap_height + 8
+        descriptor_y = circle_box[1] + (circle_size - len(descriptor_lines) * line_height) / 2
+        descriptor_y -= descriptor_font.ascent - descriptor_font.cap_height
         _draw_centered_lines(
-            draw,
+            page,
             descriptor_lines,
             descriptor_y,
             descriptor_font,
             NAVY,
-            width,
             8,
             center_x=circle_box[0] + circle_size / 2,
         )
 
-    if not cutout:
-        draw.rectangle((0, 2700, width, height), fill=WHITE)
-    draw.line((180, 2845, 590, 2845), fill=accent, width=3)
-    draw.line((width - 590, 2845, width - 180, 2845), fill=accent, width=3)
-    author_font = _fit_font(series["author"].upper(), width - 1260, 54, 40, bold=True)
-    _draw_spaced_text(draw, series["author"].upper(), width // 2, 2795, author_font, NAVY, 9)
-    return cover
+    author = series["author"].upper()
+    author_font = _fit_font(author, width - 1260, 54, 40, bold=True)
+    _draw_name_rule(page, author, 2795, author_font, NAVY, accent, 180, 9)
 
 
-def _render_back(series: dict[str, Any], book: dict[str, Any]) -> Image.Image:
-    output = series["coverArtwork"]
-    width, height = int(output["widthPixels"]), int(output["heightPixels"])
+def _render_back(page: _Page, series: dict[str, Any], book: dict[str, Any]) -> None:
+    width, height = page.width, page.height
     accent = _hex_colour(book["accentColour"], "accentColour")
-    cover = Image.new("RGB", (width, height), WHITE)
-    draw = ImageDraw.Draw(cover)
-    draw.rectangle((0, 0, 56, height), fill=accent)
-    draw.rectangle((width - 56, 0, width, height), fill=accent)
-    draw.rectangle((56, 0, width - 56, 360), fill=NAVY)
+    page.rect((0, 0, width, height), WHITE)
+    page.rect((0, 0, 56, height), accent)
+    page.rect((width - 56, 0, width, height), accent)
+    page.rect((56, 0, width - 56, 360), NAVY)
 
-    _draw_spaced_text(draw, series.get("descriptor", ""), width // 2, 90, _load_font(38), WHITE, 12)
-    _draw_centered_lines(draw, [series["title"]], 170, _load_font(104, bold=True), WHITE, width, 0)
+    _draw_spaced_text(page, series.get("descriptor", ""), width / 2, 90, _font(38), WHITE, 12)
+    _draw_centered_lines(page, [series["title"]], 170, _font(104, bold=True), WHITE, 0)
 
     badge_text = f"BOOK {book['number']}  •  {str(book['theme']).upper()}"
-    badge_font = _load_font(44, bold=True)
-    badge_width = int(badge_font.getlength(badge_text) + 100)
+    badge_font = _font(44, bold=True)
+    badge_width = int(badge_font.width(badge_text) + 100)
     badge_box = ((width - badge_width) // 2, 500, (width + badge_width) // 2, 602)
-    draw.rounded_rectangle(badge_box, radius=28, fill=accent)
-    draw.text(((width - badge_font.getlength(badge_text)) / 2, 518), badge_text, font=badge_font, fill=WHITE)
+    page.rounded_rect(badge_box, 28, fill=accent)
+    page.text((width - badge_font.width(badge_text)) / 2, 518, badge_text, badge_font, WHITE)
 
-    title_font = _fit_font(str(book["title"]).upper(), width - 360, 118, 76, bold=True)
-    title_lines = _wrap_text(str(book["title"]).upper(), title_font, width - 360)
-    title_bottom = _draw_centered_lines(draw, title_lines, 770, title_font, NAVY, width, 18)
+    title = str(book["title"]).upper()
+    title_font = _fit_font(title, width - 360, 118, 76, bold=True)
+    title_lines = _wrap_text(title, title_font, width - 360)
+    title_bottom = _draw_centered_lines(page, title_lines, 770, title_font, NAVY, 18)
 
     description = str(book.get("backCoverDescription") or book.get("description") or "")
-    description_font = _load_font(54)
+    description_font = _font(54)
     description_lines = _wrap_text(description, description_font, width - 520)
     description_bottom = _draw_centered_lines(
-        draw, description_lines, title_bottom + 80, description_font, SLATE, width, 18
+        page, description_lines, title_bottom + 80, description_font, SLATE, 18
     )
 
-    draw.line((360, description_bottom + 90, width - 360, description_bottom + 90), fill=accent, width=5)
-    progression_font = _load_font(48, bold=True)
+    page.line(360, description_bottom + 90, width - 360, description_bottom + 90, accent, 5)
     _draw_centered_lines(
-        draw,
+        page,
         ["UNDERSTAND  →  USE  →  OPERATE", "BUILD  →  ENGINEER"],
         description_bottom + 170,
-        progression_font,
+        _font(48, bold=True),
         NAVY,
-        width,
         28,
     )
 
-    draw.rounded_rectangle((280, 1940, width - 280, 2380), radius=48, fill="#F4F6FA", outline=accent, width=5)
+    page.rounded_rect((280, 1940, width - 280, 2380), 48, fill="#F4F6FA", outline=accent, width=5)
     _draw_centered_lines(
-        draw,
+        page,
         ["INTERNAL REVIEW EDITION", "Not for sale or public distribution"],
         2040,
-        _load_font(52, bold=True),
+        _font(52, bold=True),
         NAVY,
-        width,
         34,
     )
 
-    draw.line((220, 2755, 620, 2755), fill=accent, width=3)
-    draw.line((width - 620, 2755, width - 220, 2755), fill=accent, width=3)
-    author_font = _fit_font(series["author"].upper(), width - 1320, 52, 38, bold=True)
-    _draw_spaced_text(draw, series["author"].upper(), width // 2, 2705, author_font, NAVY, 8)
-    _draw_centered_lines(draw, [series.get("tagline", "")], 2860, _load_font(34), SLATE, width, 0)
-    return cover
+    author = series["author"].upper()
+    author_font = _fit_font(author, width - 1320, 52, 38, bold=True)
+    _draw_name_rule(page, author, 2705, author_font, NAVY, accent, 220, 8)
+    _draw_centered_lines(page, [series.get("tagline", "")], 2860, _font(34), SLATE, 0)
 
 
-def _write_pdf(image: Image.Image, path: Path, page_width_inches: float, page_height_inches: float) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    page_size = (page_width_inches * 72, page_height_inches * 72)
-    pdf = canvas.Canvas(str(path), pagesize=page_size, pageCompression=1)
-    pdf.drawImage(ImageReader(image), 0, 0, width=page_size[0], height=page_size[1])
-    pdf.showPage()
-    pdf.save()
+def _rasterise(pdf_path: Path, png_path: Path, dpi: int) -> None:
+    pdftoppm = shutil.which("pdftoppm")
+    if not pdftoppm:
+        raise RuntimeError("pdftoppm is required to render cover PNGs (brew install poppler)")
+    with tempfile.TemporaryDirectory() as scratch:
+        stem = Path(scratch) / "page"
+        subprocess.run(
+            [pdftoppm, "-png", "-r", str(dpi), "-singlefile", str(pdf_path), str(stem)],
+            check=True,
+        )
+        with Image.open(stem.with_suffix(".png")) as rendered:
+            rendered.convert("RGB").save(png_path, format="PNG", dpi=(dpi, dpi), optimize=True)
 
 
 def _write_outputs(
-    image: Image.Image,
+    draw: Callable[[_Page], None],
     stem: str,
     output_dir: Path,
-    page: dict[str, Any],
-    preview_width: int,
+    series: dict[str, Any],
 ) -> tuple[Path, Path, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
     png_path = output_dir / f"{stem}.png"
     pdf_path = output_dir / f"{stem}.pdf"
     preview_path = output_dir / f"{stem}-preview.png"
-    image.save(png_path, format="PNG", dpi=(300, 300), optimize=True)
-    preview_height = round(image.height * preview_width / image.width)
-    image.resize((preview_width, preview_height), Image.Resampling.LANCZOS).save(
-        preview_path, format="PNG", optimize=True
+
+    artwork, page_inches = series["coverArtwork"], series["page"]
+    width, height = int(artwork["widthPixels"]), int(artwork["heightPixels"])
+    page_size = (float(page_inches["widthInches"]) * 72, float(page_inches["heightInches"]) * 72)
+    # Start on an embedded font so the PDF never references unembedded Helvetica,
+    # which print preflight checks reject.
+    pdf = canvas.Canvas(
+        str(pdf_path), pagesize=page_size, pageCompression=1, initialFontName=_pdf_font_name(False)
     )
-    _write_pdf(image, pdf_path, float(page["widthInches"]), float(page["heightInches"]))
+    pdf.scale(page_size[0] / width, page_size[1] / height)
+    draw(_Page(pdf, width, height))
+    pdf.showPage()
+    pdf.save()
+
+    # Rasterise at the resolution that reproduces the configured artwork pixels.
+    _rasterise(pdf_path, png_path, round(width / float(page_inches["widthInches"])))
+    preview_width = int(artwork.get("previewWidthPixels", 630))
+    with Image.open(png_path) as image:
+        preview_height = round(image.height * preview_width / image.width)
+        image.resize((preview_width, preview_height), Image.Resampling.LANCZOS).save(
+            preview_path, format="PNG", optimize=True
+        )
     return png_path, pdf_path, preview_path
 
 
@@ -433,14 +576,17 @@ def render_book_cover(
     book = _select_book(config, int(book_number))
     illustration, used_placeholder = _resolve_illustration(root_dir, series, book)
 
-    front = _render_front(series, book, illustration)
-    back = _render_back(series, book)
-    preview_width = int(series["coverArtwork"].get("previewWidthPixels", 630))
     front_png, front_pdf, front_preview = _write_outputs(
-        front, f"book-{book_number:02d}-front-cover", output_dir, series["page"], preview_width
+        lambda page: _render_front(page, series, book, illustration),
+        f"book-{book_number:02d}-front-cover",
+        output_dir,
+        series,
     )
     back_png, back_pdf, back_preview = _write_outputs(
-        back, f"book-{book_number:02d}-back-cover", output_dir, series["page"], preview_width
+        lambda page: _render_back(page, series, book),
+        f"book-{book_number:02d}-back-cover",
+        output_dir,
+        series,
     )
     return RenderedCoverAssets(
         book_number=int(book_number),

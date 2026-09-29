@@ -51,6 +51,14 @@ book accent outline. Its text stays book-specific audience copy (Book 1: `No
 technical skills required`), not edition wording; edition statements belong on
 the copyright page.
 
+Amendment (2026-09-30): covers are print output, so the cover PDFs are drawn
+as vector content. Shapes are PDF paths and text uses embedded fonts; the
+illustration is the only raster element and is embedded at its source
+resolution. The PNG outputs are rasterised from the PDF with `pdftoppm`. The
+author name sits between two accent rules, vertically centred on them
+(`——— NAME ———`), on both covers. Print gaps beyond the covers are tracked in
+`docs/03-publishing/open-issues/OI-0005.md`.
+
 The draft publication pipeline produces:
 
 - a 2100 by 3000 pixel front cover (7 by 10 inches at 300 DPI);

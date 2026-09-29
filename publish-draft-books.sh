@@ -52,6 +52,7 @@ require_command() {
 
 require_command pandoc "brew install pandoc"
 require_command jq "install jq with your package manager"
+require_command pdftoppm "brew install poppler"
 
 PDF_ENGINE=""
 for engine in xelatex lualatex; do
