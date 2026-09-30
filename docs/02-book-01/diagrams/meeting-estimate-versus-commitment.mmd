@@ -1,0 +1,14 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    A["Two dates in the<br/>same meeting"]
+    B["Supplier: patch might<br/>be ready 9 October"]
+    C["Noah: report status<br/>8 October, 2 pm"]
+    D["Estimate<br/>Fix date unconfirmed"]
+    E["Commitment<br/>Noah owns the report"]
+    F["Record both meanings<br/>Do not promise the patch"]
+    A --> B --> D --> F
+    A --> C --> E --> F
+    classDef estimate fill:#fff4d6,stroke:#916700,color:#332500
+    classDef commitment fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    class B,D estimate
+    class C,E commitment

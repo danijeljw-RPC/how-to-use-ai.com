@@ -1,0 +1,84 @@
+{
+  "created": "2026-09-30",
+  "purpose": "Supplementary research for Chapter 7 \u2014 AI at Work",
+  "files": [
+    {
+      "name": "00-delta-scope-and-research-method.md",
+      "bytes": 7029,
+      "lines": 133,
+      "sha256": "44827da2746f040fccffb3e699551fcdab98289c19339a7d599caf35ecb3180c"
+    },
+    {
+      "name": "01-workplace-multiplier-and-workday-test.md",
+      "bytes": 12420,
+      "lines": 226,
+      "sha256": "1557640d1914d31c911aa8528fc07795eea8325cf0a0ea3a1b497baf8e7b3cf1"
+    },
+    {
+      "name": "02-practical-workflows-and-role-diverse-examples.md",
+      "bytes": 15654,
+      "lines": 379,
+      "sha256": "552486107485f4b8d81a90bd49309d83525947487d73f816e11cdb297dbec173"
+    },
+    {
+      "name": "03-meeting-summaries-worked-example-research.md",
+      "bytes": 9717,
+      "lines": 255,
+      "sha256": "df3d45048cd4cdf2460a06559955ca0e79934b3ccb1661f6623f4c5086ad87e7"
+    },
+    {
+      "name": "04-confidentiality-company-policy-and-tool-types.md",
+      "bytes": 11830,
+      "lines": 271,
+      "sha256": "552af73769a010009ca19e1434ff4ddcc4f481d5afcfa3b6fba49b1bb86e9b21"
+    },
+    {
+      "name": "05-verification-human-judgement-capability-and-dependency.md",
+      "bytes": 9608,
+      "lines": 240,
+      "sha256": "c76f35d59a3c5e6e6acbd05f6d26779d79dd0f16beeca745c64bab550b3442dc"
+    },
+    {
+      "name": "06-claims-myths-and-qualification.md",
+      "bytes": 9626,
+      "lines": 202,
+      "sha256": "86c5f9fa542ae07ab4b1ae273b541e4f0930398f9996660ace885624df55481f"
+    },
+    {
+      "name": "07-chapter-ready-example-pool-and-demonstrations.md",
+      "bytes": 11096,
+      "lines": 299,
+      "sha256": "fbbb9d855d302a084a469d304eacffdea53e5696b7cc08426d5106a2dd0c828f"
+    },
+    {
+      "name": "08-better-reserved-for-later-and-editorial-observations.md",
+      "bytes": 4999,
+      "lines": 99,
+      "sha256": "af15859fcbb473dc4323ccf243b46e1829694ed6cf6a1c9ecca89275721ac0fd"
+    },
+    {
+      "name": "09-strongest-chapter-ready-findings.md",
+      "bytes": 6631,
+      "lines": 156,
+      "sha256": "2826369b7d659466c02a3994e6d4410db6f0d99e761d6ca9d142d42a70c4aa18"
+    },
+    {
+      "name": "10-source-catalogue.md",
+      "bytes": 13147,
+      "lines": 251,
+      "sha256": "f4b938f03b84d860dbbdb568c909d3b06f52521ece3d30ac4bcb565575ffa5a8"
+    },
+    {
+      "name": "11-research-area-crosswalk.md",
+      "bytes": 4191,
+      "lines": 49,
+      "sha256": "ac5da49c5b757ddc6254cbe48c5ec6f929bdfcd11fa43690e157ef5f349e17ae"
+    },
+    {
+      "name": "README.md",
+      "bytes": 4812,
+      "lines": 57,
+      "sha256": "e9d234a519834f26d75134be9290c1bd7e355afe84e83bca156702d97f433b5c"
+    }
+  ]
+}

@@ -116,7 +116,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 4 | What AI Cannot Do | Done | Done — research-backed manuscript |
 | 5 | Talking to AI Properly | Done | Done — research-backed manuscript |
 | 6 | AI at Home | Done | Done — research-backed manuscript; author reflection pending |
-| 7 | AI at Work | Done | Done |
+| 7 | AI at Work | Done | Done — research-backed manuscript; author reflection pending |
 | 8 | AI and Creativity | Done | Done |
 | 9 | The Problems Nobody Should Ignore | Done | Done |
 | 10 | Will AI Replace Jobs? | Done | Done |

@@ -33,7 +33,11 @@
         "#F2C96D"
       ],
       "image": "assets/covers/book-01.png",
-      "theme": "understand"
+      "theme": "understand",
+      "epigraph": {
+        "quote": "Any sufficiently advanced technology is indistinguishable from magic.",
+        "author": "Arthur C. Clarke"
+      }
     },
     {
       "number": 2,
@@ -46,7 +50,11 @@
         "#38BDF8"
       ],
       "image": "assets/covers/book-02.png",
-      "theme": "use"
+      "theme": "use",
+      "epigraph": {
+        "quote": "There is surely nothing quite so useless as doing with great efficiency something that should not be done at all.",
+        "author": "Peter F. Drucker"
+      }
     },
     {
       "number": 3,
@@ -59,7 +67,11 @@
         "#FBBF24"
       ],
       "image": "assets/covers/book-03.png",
-      "theme": "operate"
+      "theme": "operate",
+      "epigraph": {
+        "quote": "A system must be managed. It will not manage itself.",
+        "author": "W. Edwards Deming"
+      }
     },
     {
       "number": 4,
@@ -72,7 +84,11 @@
         "#34D399"
       ],
       "image": "assets/covers/book-04.png",
-      "theme": "build"
+      "theme": "build",
+      "epigraph": {
+        "quote": "The future cannot be predicted, but futures can be invented.",
+        "author": "Dennis Gabor"
+      }
     },
     {
       "number": 5,
@@ -85,7 +101,11 @@
         "#FB7185"
       ],
       "image": "assets/covers/book-05.png",
-      "theme": "engineer"
+      "theme": "engineer",
+      "epigraph": {
+        "quote": "Programs must be written for people to read, and only incidentally for machines to execute.",
+        "author": "Harold Abelson, Gerald Jay Sussman, and Julie Sussman, Structure and Interpretation of Computer Programs"
+      }
     }
   ]
 }
