@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved (proceeding without per-chapter review pause per user direction in this session)
+Approved; full research-backed manuscript drafted for author review
 
 ## Date
 
@@ -81,7 +81,11 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 ## Research References
 
 - `legacy-data/book1_ai_literacy_context_reference.md` (Chapter 8 outline and core takeaway — reconciled into ADR-02-0001)
-- No new external research required; the theft/replacement/creativity questions are treated as genuinely unsettled rather than requiring cited statistics
+- `docs/80-research/chapter-08-research-package/chapter-08-research-package-basic/` (broad foundation, domain research, copyright/licensing and original source catalogue)
+- `docs/80-research/chapter-08-research-package/chapter-08-research-package-extended/` (supplementary domain, creativity, labour, legal, real-world, viewpoint and template-improvement research)
+- `docs/02-book-01/research/chapter-08-bibliography.md` (manuscript claim mapping, source limitations and publication recheck record)
+
+The two Chapter 8 packages are complementary. The extended package deepens and qualifies the basic package; it does not replace it. Research-dependent claims use manuscript endnotes under ADR-04-0003.
 
 ## Linked ADRs
 
@@ -108,17 +112,42 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md` (new)
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md` (substantial research-backed revision)
 - `docs/02-book-01/plans/chapter-08-plan.md` (this file)
+- `docs/02-book-01/research/chapter-08-bibliography.md` (new evidence record)
 - `docs/02-book-01/book-01-structure.md` (update drafting-status table)
 - `changelog.md`
 
 ## Proposed Commit Message
 
 ```text
-draft: add chapter 08 plan and draft (AI and creativity)
+draft: write research-backed chapter 08
 ```
 
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AI Across Creative Domains" into five H3 subsections (Writing, Art, Music, Video, Design), each with a concrete worked example, mirroring Chapter 1's per-example subsection pattern directly. Word count grew from ~1,480 to ~1,603. No existing content, placeholders, or takeaways were removed.
+
+## Full Research-Backed Revision (2026-09-30)
+
+The 1,603-word template was replaced with a complete manuscript using both complementary Chapter 8 research packages. The revision:
+
+- treats effort versus judgement as a creative loop rather than a clean human/machine split;
+- gives substantial workflows across writing, art/image creation, music/audio, video/film and design;
+- distinguishes surface polish from fitness for purpose;
+- explains training, weights, retrieval and memorisation in beginner language;
+- separates legal, ethical, technical and economic meanings of “stealing”;
+- gives a compact Australia/US/EU/UK jurisdiction comparison;
+- separates provider terms, commercial permission, copyright, exclusivity and third-party rights;
+- uses measured task-level labour evidence rather than occupation slogans;
+- represents creator concerns and creative AI use without pretending creators have one position;
+- uses creativity experiments on individual improvement, collective similarity and design fixation;
+- limits long-term deskilling and cultural-homogenisation claims to what the evidence supports;
+- retains the genuine author-reflection placeholder;
+- closes Part 2 and transitions into Chapter 9.
+
+No Mermaid diagram was added. The involvement continuum and creative loop are readable in prose, and a new figure was not necessary to understand the relationships.
+
+Time-sensitive Australian, US, EU and UK policy; provider terms; YouTube disclosure rules; Deezer figures; and C2PA material were checked on 30 September 2026 and are marked for recheck before publication in the bibliography.
+
+The user-supplied research-package directories remain unchanged and outside the scoped manuscript commit.

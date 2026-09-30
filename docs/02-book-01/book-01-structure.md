@@ -36,7 +36,7 @@ Purpose: transition from theory into practical life usage; show how AI helps ord
 1. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
 1. **AI at Home** — draft complete (`docs/02-book-01/chapters/chapter-06-ai-at-home.md`)
 1. **AI at Work** — draft complete (`docs/02-book-01/chapters/chapter-07-ai-at-work.md`)
-1. **AI and Creativity** — draft complete (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
+1. **AI and Creativity** — research-backed manuscript complete; author reflection pending (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
 
 ### Part 3 — Risks, Fear, and Reality
 
@@ -117,7 +117,7 @@ Use `docs/04-style/callout-guide.md`'s baseline set consistently. See `docs/02-b
 | 5 | Talking to AI Properly | Done | Done — research-backed manuscript |
 | 6 | AI at Home | Done | Done — research-backed manuscript; author reflection pending |
 | 7 | AI at Work | Done | Done — research-backed manuscript; author reflection pending |
-| 8 | AI and Creativity | Done | Done |
+| 8 | AI and Creativity | Done | Done — research-backed manuscript; author reflection pending |
 | 9 | The Problems Nobody Should Ignore | Done | Done |
 | 10 | Will AI Replace Jobs? | Done | Done |
 | 11 | AI Hype vs Reality | Done | Done |

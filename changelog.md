@@ -2,6 +2,37 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (52)
+
+### Changed
+
+- Replaced the 1,603-word Chapter 8 template with a complete research-backed manuscript of approximately 7,400 words including source notes, using both complementary Chapter 8 research packages and Chapters 5–7 for continuity.
+- Developed practical workflows across writing, art/image creation, music/audio, video/film and design; reframed effort versus judgement as an iterative creative loop in which craft and execution also contain judgement.
+- Added plain-English training, retrieval and memorisation distinctions; separated legal, ethical and economic objections; and added a compact Australia/US/EU/UK copyright comparison.
+- Added empirical creativity, fixation and freelance-market evidence; creator and pro-use perspectives; commercial-rights versus copyright guidance; voice/likeness, provenance, accessibility and abundance/discoverability material.
+- Added a dedicated Chapter 8 bibliography with claim mapping, source limitations and time-sensitive publication checks. Retained the genuine author-reflection placeholder; no new diagram was necessary.
+- Updated the Chapter 8 plan and Book 1 drafting status for detailed author review.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/research/chapter-08-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None; applied the authoritative Chapter 8 plan and existing evidence/style ADRs.
+
+### Open issues added or closed
+
+- None; the genuine author-reflection placeholder remains pending in the manuscript.
+
+### Commit
+
+- This entry accompanies `draft: write research-backed chapter 08`.
+
 ## 2026-09-30 (51)
 
 ### Changed
