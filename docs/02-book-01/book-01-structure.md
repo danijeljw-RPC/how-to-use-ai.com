@@ -36,7 +36,7 @@ Purpose: transition from theory into practical life usage; show how AI helps ord
 1. **Talking to AI Properly** — draft complete (`docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
 1. **AI at Home** — draft complete (`docs/02-book-01/chapters/chapter-06-ai-at-home.md`)
 1. **AI at Work** — draft complete (`docs/02-book-01/chapters/chapter-07-ai-at-work.md`)
-1. **AI and Creativity** — research-backed manuscript complete; author reflection pending (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
+1. **AI and Creativity** — expanded research-backed manuscript with six diagrams ready for author review; author reflection pending (`docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
 
 ### Part 3 — Risks, Fear, and Reality
 

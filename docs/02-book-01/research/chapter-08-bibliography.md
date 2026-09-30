@@ -54,6 +54,16 @@ This is editorial research, not legal advice.
 | Creator concerns and mixed use | ASA/Macquarie; ASA; APRA AMCOS | Respondent concerns, use and attitudes with sample cautions |
 | Individual uplift/group similarity | Doshi and Hauser | Flagship creativity result |
 | Creativity interpretation debate | Meincke et al.; Lee and Chung | Limits over-generalisation of diversity findings |
+| Spam is not the same as AI | Spotify | Platform governance of cheap supply |
+| “You can always tell” retired | Deezer/Ipsos; YouTube | Detection by eye/ear is unreliable |
+| Bounded video assistance | Adobe Generative Extend | Production-assistant rung of the ladder |
+| Design generation capability | Canva Magic Design | Capability versus fit to brief |
+| US cases are fact-specific | Anthropic settlement; Thomson Reuters v. ROSS | Neither “training is fair use” nor “isn't” is settled |
+| Provenance in practice | Adobe; OpenAI | Credentials and watermarks, not detection |
+| UK creator-reported losses | Society of Authors 2026 | Testimony, not statistics |
+| Forecasts labelled as forecasts | CISAC/PMP | Scenario, not observed loss |
+| Creators who use AI | Authors Guild; practitioner research | Avoids a false two-camp framing |
+| Defining creativity | Runco and Jaeger | Originality plus effectiveness |
 
 ## Sources
 
@@ -67,9 +77,13 @@ Amazon KDP. “Content Guidelines — Artificial intelligence (AI) content.” <
 - Limits: platform-specific definition, not copyright law; can change.
 - Recheck before publication: **Yes**.
 
-### Generated-Image Bias — ch8-bias (S47)
+### Generated-Image Bias — ch8-bias (S45, S46, S47)
 
-AlDahoul, Nouar, Zubair Rahwan and Yasir Zaki. “Racial and gender biases in text-to-image generation across professions and attributes.” *Scientific Reports* (2025). <https://www.nature.com/articles/s41598-025-99623-3>.
+“Generative AI and demographic representation in images of paramedics.” 2024. <https://pubmed.ncbi.nlm.nih.gov/39627045/> (S45; Australian-relevant; narrow occupation and model snapshot).
+
+“DALL-E 3 demographic bias in generated healthcare-profession imagery.” 2024. <https://pubmed.ncbi.nlm.nih.gov/39438058/> (S46; specific model and healthcare context).
+
+AlDahoul, Rahwan and Zaki (author given names should be confirmed from the article record before publication; earlier drafts listed them inconsistently). “Racial and gender biases in text-to-image generation across professions and attributes.” *Scientific Reports* (2025). <https://www.nature.com/articles/s41598-025-99623-3>.
 
 - Type: peer-reviewed empirical research.
 - Supports: demographic stereotypes and homogenisation in tested professional-image prompts/models.
@@ -114,10 +128,14 @@ SAG-AFTRA. “Interactive Digital Replicas and Consent — Contract Bulletin.”
 
 ### Deezer AI Music Uploads and Listening — ch8-deezer (S34)
 
+Deezer. “Deezer confirms demonetization of up to 85% of AI-music streams due to fraud.” 29 January 2026. <https://newsroom-deezer.com/2026/01/deezer-confirms-demonetization-of-ai-music/>.
+
+Deezer. “AI-generated tracks now represent 44% of all new uploaded music.” 20 April 2026. <https://newsroom-deezer.com/2026/04/ai-generated-tracks-represent-44-of-new-uploaded-music/>.
+
 Deezer. “AI music has surpassed 50% of new music uploads for the first time.” 21 July 2026. <https://newsroom-deezer.com/2026/07/ai-music-exceeds-50-percent-daily-uploads-deezer/>.
 
 - Type: company operational data.
-- Supports: approximately 90,000 fully AI-generated daily uploads; over 50% at peak; approximately 1–3% of streams; platform exclusion from recommendations/editorial playlists.
+- Supports: growth from about 10% of daily uploads at detector launch (January 2025) to about 44% (April 2026) and over 50% at a June 2026 peak (about 90,000/day), per the basic package timeline; demonetisation of identified fraudulent streams; approximately 1–3% of streams; platform exclusion from recommendations/editorial playlists.
 - Use: supply abundance does not establish audience demand.
 - Limits: one platform, proprietary detector and policy environment; company interest in its detection approach.
 - Check: current page retrieved 30 September 2026.
@@ -160,7 +178,9 @@ Carlini, Nicholas et al. “Extracting Training Data from Large Language Models.
 
 Carlini, Nicholas et al. “Extracting Training Data from Diffusion Models.” *USENIX Security 2023*. <https://www.usenix.org/conference/usenixsecurity23/presentation/carlini>.
 
-Kandpal, Nikhil et al. “Deduplicating Training Data Mitigates Privacy Risks in Language Models.” *ACL 2022*. <https://aclanthology.org/2022.acl-long.577/>.
+Kandpal, Nikhil, Eric Wallace and Colin Raffel. “Deduplicating Training Data Mitigates Privacy Risks in Language Models.” *ICML 2022* (PMLR 162). <https://proceedings.mlr.press/v162/kandpal22a.html>.
+
+- Correction (2026-09-30 expansion): both research-package catalogues and the previous manuscript paired this title with an ACL Anthology URL that belongs to a different paper (Lee et al., “Deduplicating Training Data Makes Language Models Better”). The PMLR record was fetched and confirmed on 30 September 2026.
 
 Somepalli, Gowthami et al. “Understanding and Mitigating Copying in Diffusion Models.” *NeurIPS 2023*. <https://papers.neurips.cc/paper_files/paper/2023/hash/9521b6e7f33e039e7d92e23f5e37bbf4-Abstract-Conference.html>.
 
@@ -170,11 +190,13 @@ Somepalli, Gowthami et al. “Understanding and Mitigating Copying in Diffusion 
 - Limits: model and dataset specific; several experiments use older systems; no universal current copying rate inferred.
 - Recheck before publication: No, unless publication is substantially delayed.
 
-### Open-Culture and Broad-Analysis Arguments — ch8-open-culture (S53, S55)
+### Open-Culture and Broad-Analysis Arguments — ch8-open-culture (S53, S55, S56)
 
 Creative Commons. “Creative Commons' Position on Key Copyright Issues.” <https://creativecommons.org/ccs-position-on-key-copyright-issues/>.
 
 Electronic Frontier Foundation. “Comments to the U.S. Copyright Office regarding Generative AI.” 2023. <https://www.eff.org/files/2023/11/08/comments_of_eff_to_copyright_office_re_generative_ai.pdf>.
+
+Public Knowledge. “Piracy vs. Fair Use: How AI Training Intersects with Copyright Law.” <https://publicknowledge.org/piracy-vs-fair-use-how-ai-training-intersects-with-copyright-law/> (S56).
 
 - Type: advocacy/policy positions.
 - Supports: arguments for room for text/data mining, research, open knowledge and fair use; concerns about mandatory licensing and incumbent advantage.
@@ -182,9 +204,11 @@ Electronic Frontier Foundation. “Comments to the U.S. Copyright Office regardi
 - Limits: normative advocacy, not court decisions or neutral legal statements.
 - Recheck before publication: **Yes** for current organisational positions.
 
-### Emerging Licensing Models — ch8-licensing (S35, S38)
+### Emerging Licensing Models — ch8-licensing (S35, S36, S38)
 
 Universal Music Group and Udio. “Strategic Agreements for New Licensed AI Music Creation Platform.” 29 October 2025. <https://www.universalmusic.com/universal-music-group-and-udio-announce-udios-first-strategic-agreements-for-new-licensed-ai-music-creation-platform/>.
+
+Warner Music Group. “Warner Music Group and Suno Forge Groundbreaking Partnership.” 25 November 2025. <https://www.wmg.com/news/warner-music-group-and-suno-forge-groundbreaking-partnership>.
 
 Adobe Stock Contributor. “Firefly FAQ.” Updated 16 September 2026. <https://helpx.adobe.com/stock/contributor/submit-your-content/submit-generative-ai-content/firefly-faq.html>.
 
@@ -194,11 +218,16 @@ Adobe Stock Contributor. “Firefly FAQ.” Updated 16 September 2026. <https://
 - Limits: interested parties, future implementation and sector-specific models; no proof of universal feasibility or fairness.
 - Recheck before publication: **Yes**.
 
-### Australia: Copyright and AI — ch8-australia (S01, S03)
+### Australia: Copyright and AI — ch8-australia (S01, S03, S04)
 
 Australian Attorney-General's Department. “Copyright and Artificial Intelligence Reference Group (CAIRG).” <https://www.ag.gov.au/rights-and-protections/copyright/copyright-and-artificial-intelligence-reference-group-cairg>.
 
 Australian Government. *Copyright Act 1968* (Cth), current compilation. <https://www.legislation.gov.au/C1968A00063/latest/text>.
+
+Arts Law Centre of Australia. “Artificial Intelligence (AI) and Copyright.” <https://www.artslaw.com.au/information-sheet/artificial-intelligence-ai-and-copyright/> (S04).
+
+- Arts Law supports: purely AI-generated material without sufficient human authorship may not be protected in Australia, while human contributions to AI-assisted work can be; the threshold is unsettled.
+- Unsourced general legal context added in the 2026-09-30 expansion: the Music section says Australia has no single general right of publicity and that identity-misuse complaints tend to proceed through passing off or misleading-conduct law. This is standard Australian legal background but is not drawn from either research package. **Add a citation (for example an Arts Law or ACCC source) or have it legally reviewed before publication.**
 
 - Type: government policy and legislation.
 - Supports: current priority areas; government statement that it is not considering a TDM exception; Australian specific-exception/fair-dealing context.
@@ -220,11 +249,13 @@ U.S. Copyright Office. *Copyright and Artificial Intelligence, Part 3: Generativ
 - Check: USCO hub retrieved 30 September 2026; Part 3 remains labelled pre-publication with no substantive final changes expected.
 - Recheck before publication: **Yes**.
 
-### European Union: TDM and GPAI Duties — ch8-eu (S11, S12)
+### European Union: TDM and GPAI Duties — ch8-eu (S11, S12, S13)
 
 European Union. Directive (EU) 2019/790 on copyright and related rights in the Digital Single Market, Articles 3–4. <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0790>.
 
 European Commission. “General-purpose AI obligations under the AI Act.” <https://digital-strategy.ec.europa.eu/en/factpages/general-purpose-ai-obligations-under-ai-act>.
+
+European Commission. “Template for general-purpose AI model providers to summarise their training content.” <https://digital-strategy.ec.europa.eu/en/faqs/template-general-purpose-ai-model-providers-summarise-their-training-content> (S13). Supports the plain-English point that training sources are categorised (scraped, licensed/private, user, synthetic) and that the summary is not an item-by-item list.
 
 - Type: EU legislation/directive and regulator guidance.
 - Supports: conditional TDM framework; GPAI technical documentation, copyright-policy and training-content-summary duties.
@@ -238,7 +269,9 @@ European Commission. “General-purpose AI obligations under the AI Act.” <htt
 UK Government. *Report on Copyright and Artificial Intelligence*. 18 March 2026. <https://www.gov.uk/government/publications/report-and-impact-assessment-on-copyright-and-artificial-intelligence/report-on-copyright-and-artificial-intelligence>.
 
 - Type: government policy report.
-- Supports: current non-commercial research data-mining exception and conditions; policy options, consultation disagreement and continuing reform.
+House of Lords Communications and Digital Committee. “UK creative industries face a clear and present danger from generative AI.” 6 March 2026. <https://committees.parliament.uk/committee/170/communications-and-digital-committee/news/212361/uk-creative-industries-face-a-clear-and-present-danger-from-generative-ai> (basic package).
+
+- Supports: current non-commercial research data-mining exception and conditions; broad opt-out exception no longer preferred (March 2026); computer-generated-works category with 50-year protection and the proposal to remove it; policy options, consultation disagreement and continuing reform. The committee press release supports only the attributed statement that the committee warned creators' rights were under threat.
 - Use: prevents proposals from being presented as settled law.
 - Limits: report contains analysis and proposals as well as descriptions of current law.
 - Check: current report retrieved 30 September 2026.
@@ -316,10 +349,13 @@ Doshi, Anil R. and Oliver P. Hauser. “Generative AI enhances individual creati
 - Type: peer-reviewed controlled experiment with 293 short-story writers.
 - Supports: higher immediate story ratings, stronger gains among lower-baseline-creativity participants, and increased similarity across AI-assisted stories.
 - Use: flagship explanation that individual improvement and group convergence can coexist.
+- Numbers used: for lower-baseline (Divergent Association Task) writers in the five-idea condition, novelty +10.7% (“about 11 per cent”), well written up to +26.6% and enjoyable up to +22.6% (“more than 20 per cent”), per the basic package; highly creative writers showed little gain.
 - Limits: eight-sentence experimental stories, nonprofessional sample and short-term outcomes; no longitudinal skill claim.
 - Recheck before publication: No, unless publication is substantially delayed.
 
-### Creativity Diversity Interpretation — ch8-creativity-debate (S19, S20)
+### Creativity Diversity Interpretation — ch8-creativity-debate (S19, S20, Lee and Chung 2024)
+
+Lee, Byung Cheol and Jaeyeon Chung. “An empirical investigation of the impact of ChatGPT on creativity.” *Nature Human Behaviour* 8 (2024). <https://doi.org/10.1038/s41562-024-01953-1>. Supports: ChatGPT assistance increased assessed creativity of solutions to everyday problems (context for the reply).
 
 Meincke, Lennart, Gideon Nave and Christian Terwiesch. “Generative AI can harm learning and collective creativity even while improving individual performance.” *Nature Human Behaviour* (2025). <https://www.nature.com/articles/s41562-025-02173-x>.
 
@@ -330,6 +366,107 @@ Lee, Byung Cheol and Jaeyeon Chung. “Reply to: Generative AI can harm learning
 - Use: preserves a meaningful scholarly disagreement.
 - Limits: interpretation of specific experimental data, not new longitudinal cultural evidence.
 - Recheck before publication: No, unless publication is substantially delayed.
+
+### Spotify Spam and Impersonation — ch8-spotify (S33)
+
+Spotify. “Spotify Strengthens AI Protections for Artists, Songwriters, and Producers.” 25 September 2025. <https://newsroom.spotify.com/2025-09-25/spotify-strengthens-ai-protections/>.
+
+- Type: company announcement and operational figure.
+- Supports: removal of more than 75 million “spammy” tracks in the prior 12 months; anti-impersonation and mass-upload measures.
+- Use: platform governance of cheap supply; the manuscript explicitly says the figure is spam, not AI-generated tracks.
+- Limits: company-reported; category definition is Spotify's.
+- Recheck before publication: **Yes**.
+
+### Deezer/Ipsos Listener Survey — ch8-deezer-survey (basic package)
+
+Deezer/Ipsos. Survey on AI music perception. 12 November 2025. <https://newsroom-deezer.com/2025/11/deezer-ipsos-survey-ai-music/>.
+
+- Type: company-commissioned survey.
+- Supports: 97% of respondents failed to identify fully AI-generated tracks in the blind test used.
+- Use: replaces the retired “you can always tell” claim, alongside disclosure policies.
+- Limits: commissioned by an interested company; result depends on tracks and method.
+- Recheck before publication: No, historical survey.
+
+### Bounded Video Production Assistance — ch8-premiere (S39)
+
+Adobe. “Generative Extend in Adobe Premiere.” <https://www.adobe.com/au/products/premiere/extend-video.html>.
+
+- Type: product documentation/marketing.
+- Supports: generating additional frames to lengthen a clip.
+- Use: production-assistant example on the involvement ladder; no quality claim made.
+- Recheck before publication: **Yes**.
+
+### Mainstream Design Generation — ch8-magic-design (S40)
+
+Canva. “Magic Design.” <https://www.canva.com/magic-design/>.
+
+- Type: product page.
+- Supports: layout options generated from a short description or uploaded image.
+- Use: illustrates capability before the bakery brief shows its limits.
+- Recheck before publication: **Yes**.
+
+### US Litigation Examples — ch8-us-cases (S09, S10, basic package)
+
+Authors Guild. “Court Grants Final Approval of $1.5 Billion Anthropic Copyright Settlement.” 21 July 2026. <https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/>.
+
+Reuters. “US appeals court upholds Thomson Reuters' landmark win in AI training lawsuit.” 29 September 2026. <https://www.reuters.com/business/media-telecom/us-appeals-court-upholds-thomson-reuters-landmark-win-ai-training-lawsuit-2026-09-29/>.
+
+LawSites. “3rd Circuit Issues Opinion in Thomson Reuters v. ROSS Case, But For Now It Is Sealed.” 29 September 2026. <https://www.lawnext.com/2026/09/3rd-circuit-issues-opinion-in-thomson-reuters-v-ross-case-but-for-now-it-is-sealed.html>.
+
+- Type: advocacy summary of a court development; news reports of an appellate decision.
+- Supports: US$1.5 billion Anthropic settlement with final approval in July 2026; Third Circuit affirmance of Thomson Reuters' win against ROSS, reasoning sealed at cut-off.
+- Additional context not in either package: the manuscript's description of the 2025 trial-court ruling in *Bartz v. Anthropic* (training on lawfully acquired books held fair use; pirated library copies treated separately) comes from general knowledge of the June 2025 order. **Confirm against the court order before publication.**
+- Use: shows US outcomes are fact-specific and that neither global slogan is accurate.
+- Limits: not universal precedent; secondary sources; ROSS concerns a non-generative legal-research tool.
+- Recheck before publication: **Urgent**.
+
+### Provenance Practices of Tool Providers — ch8-provenance-tools (basic package)
+
+Adobe. “Content Credentials overview.” <https://helpx.adobe.com/firefly/web/get-started/learn-the-basics/content-credentials-overview.html>.
+
+OpenAI. “Advancing content provenance for a safer, more transparent AI ecosystem.” 2026. <https://openai.com/index/advancing-content-provenance/>.
+
+- Type: vendor documentation.
+- Supports: Adobe auto-applies Content Credentials to fully Firefly-generated images; OpenAI uses C2PA metadata and invisible watermarking and notes metadata can be lost.
+- Use: makes provenance concrete while the manuscript stresses it is not detection.
+- Recheck before publication: **Yes**.
+
+### UK Creator-Reported Impacts — ch8-soa (basic package)
+
+Society of Authors and partner organisations. “Brave New World? Justice for creators in the age of GenAI.” 30 January 2026. <https://societyofauthors.org/2026/01/30/brave-new-world/>.
+
+- Type: advocacy research, more than 10,000 self-selected creator responses.
+- Supports: about a third (32%) of illustrators reporting lost or cancelled commissions attributed to generative AI.
+- Use: creator testimony, explicitly distinguished from labour-market statistics.
+- Limits: advocacy sample and question design; inspect methodology before relying on precise figures.
+- Recheck before publication: No, historical report.
+
+### Commissioned Forecast — ch8-cisac (basic package)
+
+CISAC. “Global economic study shows human creators' future at risk from generative AI.” 2 December 2024. <https://www.cisac.org/Newsroom/news-releases/global-economic-study-shows-human-creators-future-risk-generative-ai>.
+
+- Type: commissioned forecast (PMP Strategy).
+- Supports: projection that about 24% of music creators' revenues could be at risk by 2028.
+- Use: labelled in the manuscript as a modelled scenario from an interested party.
+- Limits: forecast, not observed loss.
+
+### Creators Who Use AI — ch8-practitioners (S22, S52)
+
+Authors Guild. “AG Updates AI Best Practices for Writers.” 11 May 2026. <https://authorsguild.org/news/ag-updates-ai-best-practices-for-writers/>.
+
+Microsoft Research. “Evolving Roles and Workflows of Creative Practitioners in the Age of Generative AI.” 2024. <https://www.microsoft.com/en-us/research/publication/evolving-roles-and-workflows-of-creative-practitioners-in-the-age-of-generative-ai/>.
+
+- Type: advocacy guidance; qualitative practitioner research by AI-company-affiliated authors.
+- Use: shows creator organisations and practitioners combine AI use with rights concerns.
+- Limits: not economy-wide evidence.
+
+### Definition of Creativity — ch8-definition (S16)
+
+Runco, Mark A. and Garrett J. Jaeger. “The Standard Definition of Creativity.” *Creativity Research Journal* 24 (2012). <https://www.tandfonline.com/doi/full/10.1080/10400419.2012.650092>.
+
+- Type: academic conceptual paper.
+- Supports: originality plus effectiveness as the standard research definition.
+- Limits: artistic meaning extends beyond it.
 
 ## Time-Sensitive Publication Checklist
 
@@ -346,6 +483,11 @@ Recheck immediately before publication:
 - Adobe Firefly training/contributor statements.
 - UMG/Udio licensing-platform implementation.
 - Digital-replica rules and relevant performer agreements.
+- WMG/Suno licensed models and artist opt-in controls.
+- Anthropic settlement status and the public reasoning in *Thomson Reuters v. ROSS*; any newer major US decisions.
+- Deezer fraud/demonetisation figures and Spotify spam figures.
+- Adobe and OpenAI provenance practices; Adobe Generative Extend and Canva Magic Design capability.
+- Citation for the Australian publicity-right sentence (currently unsourced general legal context).
 
 ## Exclusions and Boundaries
 
@@ -355,8 +497,9 @@ Recheck immediately before publication:
 - No forecast is presented as an observed outcome.
 - No laboratory task is presented as proof of long-term professional creativity or deskilling.
 - No personal author experience is inferred from research or tool use.
-- No diagram was created: the continuum and iterative creative loop were clear in prose and a new figure was not necessary for comprehension.
+- Six Mermaid diagrams were added in the 2026-09-30 expansion at the author's request (involvement continuum, creative judgement loop, abundance bottleneck, four questions inside “stealing”, training/generation/retrieval, individual uplift versus group similarity). The Deezer diagram carries dated company figures and must be updated with the prose if rechecked figures change.
+- The music chord example, bike-shop, bakery, wedding-toast, radio-story and opening vignettes are original teaching illustrations, not sourced claims.
 
 ## AI-Assistance Note
 
-The research packages were prepared and synthesised with material assistance from ChatGPT and Codex. The chapter remains written from the author's viewpoint and retains an explicit placeholder for a genuine author reflection.
+The research packages were prepared and synthesised with material assistance from ChatGPT and Codex. The 2026-09-30 expansion was drafted with assistance from Claude (Claude Code), using both packages; source facts added in that pass came from the packages except where marked above as needing confirmation. The chapter remains written from the author's viewpoint and retains an explicit placeholder for a genuine author reflection.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved; full research-backed manuscript drafted for author review
+Approved; expanded research-backed manuscript with diagrams ready for detailed author review
 
 ## Date
 
@@ -63,7 +63,7 @@ Per ADR-02-0001's Chapter 8 topic list: writing, art, music, video, design. Each
 
 ## Possible Diagrams
 
-None required by ADR-02-0001 for this chapter; none added, consistent with using diagrams only where they add value.
+None required by ADR-02-0001. Superseded on 2026-09-30 by the author's request for useful visual explanations: six Mermaid diagrams added (see Expansion section below).
 
 ## Callouts to Include
 
@@ -151,3 +151,31 @@ No Mermaid diagram was added. The involvement continuum and creative loop are re
 Time-sensitive Australian, US, EU and UK policy; provider terms; YouTube disclosure rules; Deezer figures; and C2PA material were checked on 30 September 2026 and are marked for recheck before publication in the bibliography.
 
 The user-supplied research-package directories remain unchanged and outside the scoped manuscript commit.
+
+## Expansion With Diagrams (2026-09-30)
+
+The author reviewed the research-backed revision and judged it too dry, missing information and lacking useful diagrams. This pass expanded the manuscript from about 5,900 to about 15,000 words of prose (before notes) and supersedes the earlier "no diagram" decision.
+
+Changes:
+
+- Added an opening built on three contrasting fictional users (a grandparent, a freelance illustrator, a songwriter) to make the stakes concrete, and a chapter roadmap.
+- Added worked prompts and illustrative outputs in every domain, matching Chapters 5–7: radio-story scene directions and critic prompt, a one-line voice-smoothing example, a wedding-toast example, a festival-poster direction prompt, a chord-progression prompt, a bike-shop video with a five-level intervention scale, family-video restoration, and a bakery design brief with explicit constraints.
+- Added a cross-domain "conventional tool or person is better" table.
+- Split the effort/judgement section into three subsections, adding the option-cost versus decision-cost reversal and the "which skills do you want to keep" question.
+- Expanded "Is AI Stealing?" with ten meanings of the accusation, a four-question diagram, a fuller plain-English training explanation (parameters, generation, retrieval, memorisation, deduplication, varied data sources, EU template), creator survey figures, open-culture arguments including Public Knowledge, the WMG/Suno agreement, a four-jurisdiction table with Australia first, US case examples (Anthropic settlement, Thomson Reuters v. ROSS), the UK computer-generated-works rule and House of Lords committee, a style/voice/likeness subsection, a five-question ownership table, record-keeping advice, and a provenance/disclosure/detection subsection.
+- Expanded "Is AI Replacing Artists?" with an effect taxonomy, study design and limits for the three freelance studies, UK Society of Authors testimony, the CISAC forecast labelled as a forecast, creators who use AI, and substitution conditions.
+- Expanded "Does AI Kill Creativity?" with the standard definition, fuller Doshi and Hauser method and figures, the Lee and Chung/Meincke exchange, an A/B/C/D versus A1–A4 fixation illustration, practical techniques, authenticity meanings and historical comparisons with their limits.
+- Added more myths (including "you can always tell") and folded reflection questions into the Recap callout per the callout standard.
+
+Diagrams (all in `docs/02-book-01/diagrams/`, validated with Mermaid CLI and the project PDF renderer):
+
+- `creative-ai-involvement-continuum.mmd`
+- `creative-judgement-loop.mmd`
+- `creative-abundance-bottleneck.mmd`
+- `four-questions-inside-ai-stealing.mmd`
+- `training-generation-retrieval.mmd`
+- `individual-uplift-group-similarity.mmd`
+
+Length is above the 6,500–8,500 guidance given to the earlier drafting pass; this follows the author's explicit request for substantially more text. Candidate cuts, if needed, are listed in the changelog entry.
+
+Items marked in the bibliography as needing confirmation before publication: the Bartz v. Anthropic trial-ruling description, the Australian publicity-right sentence, and AlDahoul et al. author given names.

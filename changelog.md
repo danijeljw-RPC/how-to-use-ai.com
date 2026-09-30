@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (53)
+
+### Changed
+
+- Expanded Chapter 8 from about 5,900 to about 15,000 words of prose (before notes) after the author judged the previous revision too dry, missing information and lacking diagrams.
+- Added worked prompts and illustrative outputs in all five creative domains, a new three-person opening, a conventional-tool comparison table, a four-jurisdiction copyright table (Australia first), a five-question ownership table, and new subsections on style/voice/likeness and on disclosure, provenance and detection.
+- Brought more of both research packages into the text: Deezer's upload trend and fraud figures, Spotify spam removals, WMG/Suno licensing, US case examples, the UK computer-generated-works rule, creator survey and UK testimony figures, a labelled CISAC forecast, the Doshi and Hauser method and figures, the Lee and Chung/Meincke exchange, and the standard definition of creativity.
+- Added six Mermaid diagrams, validated with Mermaid CLI and the project PDF renderer.
+- Updated the Chapter 8 bibliography with new sources, claim-map rows and recheck items. Corrected the Kandpal et al. deduplication citation: the research packages and previous draft linked a different ACL paper. The corrected PMLR record was confirmed online.
+- Flagged for confirmation before publication: the description of the 2025 Bartz v. Anthropic trial ruling, the Australian publicity-right sentence (general legal context without a package source), and the AlDahoul et al. author given names.
+- Possible cuts if the chapter is too long: the wedding-toast and family-video asides, the historical-comparisons paragraph, and the effect list in "Ask About Tasks, Not Titles".
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/research/chapter-08-bibliography.md`
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `docs/02-book-01/diagrams/creative-ai-involvement-continuum.mmd` (new)
+- `docs/02-book-01/diagrams/creative-judgement-loop.mmd` (new)
+- `docs/02-book-01/diagrams/creative-abundance-bottleneck.mmd` (new)
+- `docs/02-book-01/diagrams/four-questions-inside-ai-stealing.mmd` (new)
+- `docs/02-book-01/diagrams/training-generation-retrieval.mmd` (new)
+- `docs/02-book-01/diagrams/individual-uplift-group-similarity.mmd` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- The Chapter 8 plan's "no diagram" note is superseded at the author's request. No new ADR was needed because the existing diagram and callout standards were applied.
+
+### Open issues added or closed
+
+- None. Items needing confirmation are tracked in the bibliography's publication checklist. The author reflection placeholder remains open.
+
+### Commit
+
+- `draft: expand chapter 08 with examples, evidence and diagrams`
+
 ## 2026-09-30 (52)
 
 ### Changed

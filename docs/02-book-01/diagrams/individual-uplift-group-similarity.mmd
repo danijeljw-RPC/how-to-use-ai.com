@@ -1,0 +1,18 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    A["Short-story experiment<br/>293 writers, some<br/>given AI story ideas"]
+    B["Measured one<br/>story at a time"]
+    C["Measured across<br/>the whole group"]
+    D["Average ratings rose,<br/>most for writers with<br/>lower starting scores"]
+    E["AI-assisted stories<br/>became more similar<br/>to one another"]
+    F["Same study, both results:<br/>better single stories,<br/>a narrower collection"]
+    A --> B --> D --> F
+    A --> C --> E --> F
+    classDef up fill:#e8f5e9,stroke:#2e7d32,color:#153b18
+    classDef down fill:#fff4d6,stroke:#916700,color:#332500
+    classDef result fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef start fill:#f5f5f5,stroke:#616161,color:#212121
+    class A start
+    class B,D up
+    class C,E down
+    class F result
