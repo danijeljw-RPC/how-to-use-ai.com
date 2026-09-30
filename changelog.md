@@ -2,6 +2,37 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (51)
+
+### Changed
+
+- Corrected Chapter 7 to end with Core Takeaway and Chapter Notes; removed its recap, recap callout and next-chapter preview.
+- Added three original Mermaid diagrams tied to the meeting, customer-support and workday-test examples.
+- Developed hiring and staff-training examples and reader exercises to make the workplace guidance easier to apply.
+- Published and visually checked all three figures in the full book. Corrected an oversized timing figure; the final build and publication integration test pass without warnings. Markdown lint and the focused Mermaid renderer test pass.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-07-ai-at-work.md`
+- `docs/02-book-01/plans/chapter-07-plan.md`
+- `docs/02-book-01/research/chapter-07-bibliography.md`
+- `docs/02-book-01/diagrams/meeting-estimate-versus-commitment.mmd` (new)
+- `docs/02-book-01/diagrams/support-draft-and-authority.mmd` (new)
+- `docs/02-book-01/diagrams/workday-test-completion-time.mmd` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Applied the author's explicit correction to the chapter ending and diagram requirements; updated the chapter plan to supersede its earlier scope.
+
+### Open issues added or closed
+
+- None; the genuine author-reflection placeholder remains.
+
+### Commit
+
+- This entry accompanies `draft: improve chapter 07 diagrams and workplace examples`.
+
 ## 2026-09-30 (50)
 
 ### Changed

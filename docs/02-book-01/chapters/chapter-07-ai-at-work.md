@@ -125,6 +125,8 @@ Consider this fictional meeting about introducing a new appointment-booking proc
 
 “Summarise this meeting” might produce a readable paragraph. But what does *summarise* mean here? A person who missed the discussion needs context. A project coordinator needs decisions, actions and missing assignments. Those are related outputs with different priorities.
 
+Before reading the structured version, try extracting the actions yourself. Which person has made an unconditional commitment? Which date is merely an estimate? Where would you need to ask a follow-up question?
+
 A plausible but wrong summary would be:
 
 > Both offices will launch on 20 October. Noah will deliver the supplier patch by 9 October, Tess will complete South training, and Owen will finish the FAQ before the 13 October review.
@@ -170,6 +172,12 @@ Tess suggested starting with North only. Owen preferred both offices together be
 Who will check the roster, by when? Can Tess confirm ownership of training once staffing is settled? Who owns the template correction? When does Owen need to finish reviewing the FAQ? What evidence will show that retesting has passed?
 
 The empty assignments are useful. Filling them with guesses would conceal unfinished coordination. A summary can reveal work the meeting failed to settle; it should not quietly settle that work itself.
+
+The two dates attached to the supplier problem show why this distinction matters:
+
+![The supplier's possible patch date is an estimate; Noah's promised status report has an owner and a firm deadline.](../diagrams/meeting-estimate-versus-commitment.mmd){ width=85% }
+
+If you were updating the team's calendar, you could create Noah's reporting reminder for 8 October at 2 pm. You could record 9 October as a tentative supplier estimate, but you could not turn it into Noah's delivery deadline. The diagram separates two meanings that a compressed paragraph can easily merge.
 
 ### Check Meaning, Then Pass It On
 
@@ -226,6 +234,10 @@ An illustrative reply might say:
 Before sending, verify that this is the correct and current guidance, that the customer has not already supplied the requested details elsewhere, and that you can perform the promised next step. Then actually make the handover. A well-written email does not move a ticket by itself.
 
 The subtle failure to watch for is “Your service credit has been approved.” Another is “We expect to resolve this before Friday.” Both would make the customer happier for a moment. Neither is supported.
+
+![AI can prepare the support reply, while the authorised business process determines whether a service credit may be promised.](../diagrams/support-draft-and-authority.mmd){ width=85% }
+
+Our example follows the “No” branch: the worker can request a review, but no credit has been authorised. The “Yes” branch would require a real approval under the business's process. Asking the AI for a more reassuring tone cannot move the case from one branch to the other.
 
 This distinction extends to sales. An assistant can summarise a conversation, separate stated needs from unanswered questions and prepare a follow-up. It should not turn “the customer asked about a discount” into “we offered ten per cent”, or invent a product feature to overcome an objection.
 
@@ -370,11 +382,33 @@ A separate short-story experiment found that AI ideas improved evaluated creativ
 
 A practical response is to write down a few ideas yourself before asking AI, or let team members think independently before sharing a generated list. Then ask for missing approaches, objections or a different framing. These are reasonable techniques to try, not research-proven cures for conformity. Their purpose is to keep the first plausible answer from setting every subsequent boundary.
 
-The same approach works beyond marketing. An educator can request several ways to practise a concept from approved teaching notes, then check accuracy and difficulty. A team leader can explore meeting formats that fit part-time staff. An HR worker can improve a generic role description without supplying candidate information. In each case, keep the real constraints and inspect the result against the purpose.
+The same approach works beyond marketing, especially where the useful output needs to help another person understand what to do. Two ordinary examples are explaining a job and helping a colleague practise a process.
 
 Job advertisements provide a particularly useful warning about purpose. In a large online labour-market field experiment, offering employers AI-written first drafts reduced time spent writing posts by 44 per cent and increased posting by 19 per cent. Yet the researchers found no discernible increase in matches, and the posts became more generic and less informative.[^ch7-jobposts] This working paper concerns one platform intervention, not every edited job advertisement. Its lesson travels well: quicker writing can lose value if it removes the details other people need.
 
-For a role description, “excellent communicator in a dynamic environment” tells applicants less than the actual duties, working hours and decisions the person will handle. Ask AI to clarify those specifics and flag missing information. Do not let it polish them away.
+### Make a Job Advertisement More Informative
+
+Imagine an HR coordinator receives an approved outline for a part-time reception role: 20 hours each week, Monday to Thursday mornings, at the office; answer calls, organise appointments and greet visitors; no staff supervision. The pay range has not yet been supplied.
+
+“Make this job sound exciting” could produce the usual fog about passionate team players. The useful task is to help applicants recognise the actual work:
+
+> Turn this approved role outline into a clear 180-word job advertisement. Describe the duties, hours and location plainly. Do not invent salary, benefits, remote work, qualifications or promotion prospects. Separate information we need from the hiring manager before publication. Replace vague phrases with concrete duties supported by the outline.
+
+A useful sentence might be: “You will answer incoming calls, organise appointments and welcome visitors during our Monday-to-Thursday morning reception hours.” That tells the reader something they can picture. “Enjoy flexible hours and a pathway into management” would add two promises the outline does not support.
+
+The missing pay range belongs in the questions for the hiring manager, not in a guessed salary band. Check the draft against the approved role and your normal recruitment requirements before publishing. AI has helped communicate the job; it has not decided who should get it.
+
+### Turn a Procedure Into Staff Practice
+
+An office supervisor can use the damaged-delivery procedure from earlier in the chapter to prepare a ten-minute induction exercise. “Create some training” is vague. The supervisor needs a new receiving officer to recognise the sequence and know where the instructions stop.
+
+> Using only the checked damaged-delivery procedure, make three short practice situations for a new receiving officer. Ask what they would do next, then put an answer guide separately for me. Include one routine case and one case where the procedure leaves a question unanswered. Do not supply missing approval rules. Keep the language suitable for someone's first week.
+
+One scenario could read: “Three boxes arrive, and two contain damaged folders. You have photographed the damage. What should happen next?” The answer guide should point to recording the purchase-order number and damaged quantity, moving affected goods to the hold area and notifying purchasing with the log reference.
+
+Another could ask: “An urgent customer order needs those folders today. Can you release the damaged stock?” The useful answer preserves the instruction not to put damaged items into available stock, then identifies the unanswered urgent-order question for the process owner. It should not invent permission to release them or a substitute approval chain.
+
+The supervisor checks the answer guide before using it, then asks the colleague to explain their choice. This turns generated material into a conversation about the actual work. If the colleague spots that an instruction is unclear, improve the procedure too. The exercise can reveal a documentation gap rather than teaching someone to memorise it.
 
 ## Watch Out: Confidentiality and Company Policy
 
@@ -438,6 +472,12 @@ Count preparation, prompting, reading, correction, verification and any rework p
 
 Consider two fictional report workflows. Your usual update takes 30 minutes, including checking. With AI, preparing the notes takes six minutes, generating and refining takes three, editing takes five, and verification takes six. Twenty minutes for acceptable work is a ten-minute saving. If the draft instead needs 25 minutes of source reconstruction, the attractive first response has not helped the timetable.
 
+The example's full time looks like this. These are illustrative timings, not a promised saving:
+
+![Preparing, generating, editing and verifying the fictional update total 20 minutes, compared with 30 minutes for the usual workflow.](../diagrams/workday-test-completion-time.mmd){ width=48% }
+
+The generation stage occupies only three of the twenty minutes. If verification grows to sixteen minutes, the total becomes thirty and the time saving disappears. That does not make verification wasted effort; it tells you the whole workflow needs to earn its place.
+
 Quality matters too. A workflow might take the same time but expose a missing decision or produce clearer instructions. That can be worthwhile. A faster workflow that makes the next person's work harder may not be. The job-advertisement experiment showed why looking beyond the writer's time matters.
 
 Measured research also warns against relying entirely on how productive the experience feels. In an early-2025 randomised study, 16 experienced open-source developers worked on 246 real tasks in projects they knew well. Allowing AI increased completion time by 19 per cent, although participants expected a speed-up and still perceived one afterwards.[^ch7-metr]
@@ -447,6 +487,8 @@ That narrow result does not establish that AI slows developers generally, let al
 Other workplace evidence shows more modest, targeted changes. A revised working paper covering a six-month experiment with 7,137 workers across 66 firms reported that treated workers who used the integrated assistant spent about two fewer hours per week on email in the later period. The researchers did not detect broader changes in the quantity or composition of tasks from providing individuals with AI.[^ch7-workpatterns] Some authors worked for Microsoft, whose tool was studied. Saving time on email can be useful without proving an entire job has been transformed.
 
 For your own trial, choose one recurring task and note the normal completion time and standard of work. Try AI on several comparable instances. Record the full time and any important corrections. This is a practical comparison, not a controlled experiment: task difficulty and your familiarity will vary. It is still better than judging usefulness by the speed at which paragraphs appear.
+
+> **Try This:** Choose a recurring work task and record the minutes spent preparing, generating, editing and checking. Add any rework discovered later. Compare the total and quality with your usual approach. Keep the parts that help; change or drop the parts that add work.
 
 If the tool keeps producing more checking than usable work, change its role. Ask for an outline instead of a finished report, questions instead of conclusions, or an explanation instead of an answer. You can also stop using it for that task. A tool does not need to help everywhere to earn its place somewhere.
 
@@ -479,16 +521,6 @@ You do not need to recreate every tool manually. An accountant does not have to 
 AI can multiply what you get from information and expertise you already have. Give it a useful task, appropriate source material and a clear destination. Keep missing facts visible, check what matters and decide whether the finished work is better for having used it.
 
 The most useful professional habit is knowing which part to hand over and which part requires your judgement.
-
-## Chapter Recap
-
-> **Recap:** Use AI to structure reports, document known processes, extract meeting actions, prepare support replies, organise presentations, explain spreadsheet logic and widen research or brainstorming. Choose an approved tool for the information involved. Check facts, conditions and commitments against sources, with more scrutiny where errors matter more. Count the whole task when deciding whether AI helped.
-
-Choose one task you could try tomorrow with public, fictional or appropriately approved material. Decide what a useful result would look like and how you would recognise a mistake. That is enough for a meaningful first experiment.
-
-## Chapter Preview
-
-Workplace brainstorming opens a wider question: what happens when the output itself is creative? Chapter 8 explores writing, art, music, video and design, including how AI can support creative work and what still depends on the person making it.
 
 ## Chapter Notes
 

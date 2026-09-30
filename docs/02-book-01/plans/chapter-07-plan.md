@@ -58,8 +58,8 @@ By the end of this chapter, the reader should be able to:
 8. Watch Out: Verification at Work
 9. Myth vs Reality
 10. Core Takeaway
-11. Chapter Recap
-12. Chapter Preview
+
+Author correction, 30 September 2026: end the reader-facing chapter with Core Takeaway, followed by Chapter Notes. Do not include a recap section/callout or a preview of the next chapter. This instruction supersedes the earlier template and recap requirement for this revision.
 
 ## Required Examples
 
@@ -67,7 +67,7 @@ Per ADR-02-0001's Chapter 7 topic list: drafting reports, summarising meetings, 
 
 ## Possible Diagrams
 
-None required by ADR-02-0001 for this chapter; none added, consistent with using diagrams only where they add value — this chapter is example- and guardrail-driven, not conceptual.
+Three worked-example diagrams: meeting estimate versus commitment, support draft versus remedy authority, and full-task time accounting. Use raw Mermaid sources under `docs/02-book-01/diagrams`, portrait-friendly layouts, meaningful manuscript references and publication-size visual validation.
 
 ## Callouts to Include
 
@@ -77,7 +77,6 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 - Watch Out: company policy — check what your employer allows before assuming any AI tool is fine to use
 - Watch Out: verification — professional output (numbers, quotes, claims, client-facing text) needs a human check before it goes out, echoing Chapter 4's confidence-vs-correctness point at higher stakes
 - Myth vs Reality
-- Recap
 
 ## Personal Reflection Placeholders
 
@@ -168,3 +167,26 @@ Authorised by the supplied Chapter 7 drafting request. Preserve the approved sco
 - Checks: five changed Markdown files lint cleanly; Pandoc parses the chapter without warnings; footnote definitions/references and local bibliography links match. Seven spreadsheet business-rule cases and the arithmetic examples independently checked. The formula was not executed in Excel; no live AI-output accuracy test is claimed.
 - Originality/scope: no 24-word prose sequence from either research package found in the manuscript body; editorial review confirms synthetic examples and no invented author anecdote. One genuine author reflection remains. No diagram or unrelated file change.
 - Delivery: ready for detailed author review, not a claim of final author approval or print-layout verification. Full-book PDF publication was outside this manuscript request.
+
+## Author Correction: Ending, Diagrams and Engagement — 2026-09-30
+
+Purpose: remove the recap and next-chapter preview, following the author's explicit correction and Chapter 6's Core Takeaway → Chapter Notes ending. Make the visual teaching specific to the workplace examples and deepen opportunities for readers to try the techniques.
+
+The initial revision's no-diagram decision and twelve-section acceptance check are superseded. Historical completion notes above describe the previous commit only.
+
+Files: Chapter 7 manuscript, bibliography, this plan, changelog, and three new `.mmd` sources (`meeting-estimate-versus-commitment`, `support-draft-and-authority`, `workday-test-completion-time`). No changes to Chapters 5 or 6 or unrelated files.
+
+Dependencies: existing manuscript source and diagram publication conventions; ADR-02-0001, ADR-04-0002 and ADR-04-0003, with the author's current ending instruction taking precedence. OI-0001 remains unaffected.
+
+Acceptance: no recap/preview or next-chapter teaser; three referenced and readable diagrams; developed HR and staff-training examples; a meeting exercise with a checkable answer; unchanged factual source mappings; publication, focused renderer checks, Markdown lint and diff review. Main risks are unreadable diagram labels, duplicated generic workflows and padding; prevent these through task-specific figures and visual inspection at book size.
+
+Proposed commit: `draft: improve chapter 07 diagrams and workplace examples`.
+
+### Correction Completion Review
+
+- Removed Chapter Recap, its recap callout, Chapter Preview and the Chapter 8 teaser. The ending now runs Core Takeaway → Chapter Notes. Chapters 5 and 6 remain unchanged.
+- Added three original workplace diagrams: supplier estimate versus Noah's commitment; drafting a support response versus authorising a credit; and the full time needed to complete the fictional report.
+- Developed hiring and staff-induction examples with usable prompts, sample responses and concrete checks. Added a meeting extraction exercise and a timed workday trial. Body length is 9,052 whitespace-counted words before Chapter Notes.
+- All 18 endnote mappings remain intact; all three relative diagram links resolve. The new examples are synthetic applications, not new empirical claims.
+- Published the full book and inspected the three figures on PDF pages 88, 91 and 102 (printed pages 81, 84 and 95). Reduced the timing figure to 48% width after the first build reported an oversized float; the corrected publication and integration test pass without warnings. Diagram PDFs contain searchable text and no raster images.
+- Focused Mermaid renderer test, full/preview publication integration test, changed-file Markdown lint and whitespace checks pass. Generated review PDFs remain ignored and are not committed.
