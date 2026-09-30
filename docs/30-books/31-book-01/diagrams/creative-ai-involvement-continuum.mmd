@@ -1,0 +1,15 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    A["1. Blank-page breaker<br/>You set the problem<br/>AI suggests starts"]
+    B["2. Variation engine<br/>You give a direction<br/>AI offers alternatives"]
+    C["3. Production assistant<br/>You own the plan<br/>AI does a bounded task"]
+    D["4. Co-generator<br/>AI supplies material<br/>You select and reshape"]
+    E["5. AI-led generation<br/>A short instruction<br/>AI fills in the detail"]
+    F["6. Automated content<br/>Many outputs, little<br/>case-by-case attention"]
+    A --> B --> C --> D --> E --> F
+    classDef human fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef mixed fill:#fff4d6,stroke:#916700,color:#332500
+    classDef machine fill:#fdecea,stroke:#b3261e,color:#410e0b
+    class A,B,C human
+    class D mixed
+    class E,F machine

@@ -1,0 +1,22 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    S["“AI stole my work”"]
+    T["TECHNICAL<br/>Was it copied into<br/>a dataset? Can the<br/>model reproduce it?"]
+    L["LEGAL<br/>Did a licence or<br/>exception apply? Does<br/>an output infringe?"]
+    E["ETHICAL<br/>Should consent<br/>or credit have<br/>been required?"]
+    M["ECONOMIC<br/>Was anyone paid?<br/>Does the system<br/>compete with them?"]
+    X["Each question can have<br/>a different answer.<br/>The legal one also<br/>changes by country."]
+    S --> T
+    S --> L
+    T ~~~ E
+    L ~~~ M
+    T --> X
+    L --> X
+    E --> X
+    M --> X
+    classDef claim fill:#fdecea,stroke:#b3261e,color:#410e0b
+    classDef question fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef result fill:#fff4d6,stroke:#916700,color:#332500
+    class S claim
+    class T,L,E,M question
+    class X result

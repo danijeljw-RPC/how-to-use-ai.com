@@ -1,0 +1,27 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    A["Frame the intention<br/>or brief"]
+    B["Make or generate<br/>material"]
+    C["Inspect what<br/>appeared"]
+    D["Select, reject<br/>or combine"]
+    E["Revise, regenerate<br/>or perform again"]
+    F["Test against intention,<br/>audience, rights<br/>and context"]
+    G{"Worth using?"}
+    H["Publish, perform<br/>or use it"]
+    I["Stop: not worth<br/>releasing"]
+    N["AI can join any step.<br/>What it shows first<br/>shapes what you<br/>judge next."]
+    A --> B --> C --> D --> E --> F --> G
+    G -->|Yes| H
+    G -->|No| I
+    G -.->|Not yet| B
+    N -.-> C
+    classDef judge fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef make fill:#f3e5f5,stroke:#6a1b9a,color:#2a0a3a
+    classDef note fill:#fff4d6,stroke:#916700,color:#332500
+    classDef result fill:#e8f5e9,stroke:#2e7d32,color:#153b18
+    classDef stop fill:#f5f5f5,stroke:#616161,color:#212121
+    class A,C,D,F,G judge
+    class B,E make
+    class N note
+    class H result
+    class I stop

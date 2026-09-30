@@ -19,7 +19,7 @@ if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
   exit 1
 fi
 
-test -f dist/02-book-01.pdf
+test -f dist/31-book-01.pdf
 test -f dist/covers/book-01-front-cover.png
 test -f dist/covers/book-01-front-cover.pdf
 test -f dist/covers/book-01-front-cover-preview.png
@@ -28,9 +28,9 @@ test -f dist/covers/book-01-back-cover.pdf
 test -f dist/covers/book-01-back-cover-preview.png
 test -f assets/covers/preview-placeholder.png
 
-diagram_pdf="$(find tmp/pdfs/02-book-01-diagrams -maxdepth 1 -type f -name 'recommendation-engine-feedback-loop-*.pdf' -print -quit)"
+diagram_pdf="$(find tmp/pdfs/31-book-01-diagrams -maxdepth 1 -type f -name 'recommendation-engine-feedback-loop-*.pdf' -print -quit)"
 test -n "$diagram_pdf"
-if rg -n '!\[[^]]+\]\([^)]*\.mmd' dist/02-book-01.md; then
+if rg -n '!\[[^]]+\]\([^)]*\.mmd' dist/31-book-01.md; then
   echo "Combined manuscript still contains an unrendered Mermaid image." >&2
   exit 1
 fi
@@ -40,7 +40,7 @@ placeholder_dimensions="$(identify -format '%wx%h' assets/covers/preview-placeho
 [[ "$front_dimensions" == "2100x3000" ]]
 [[ "$placeholder_dimensions" == "1800x2700" ]]
 
-BOOK_PDF="$ROOT_DIR/dist/02-book-01.pdf" MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/02-book-01-manuscript.pdf" DIAGRAM_PDF="$diagram_pdf" "$TEST_PYTHON" - <<'PY'
+BOOK_PDF="$ROOT_DIR/dist/31-book-01.pdf" MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/31-book-01-manuscript.pdf" DIAGRAM_PDF="$diagram_pdf" "$TEST_PYTHON" - <<'PY'
 import os
 from pypdf import PdfReader
 
@@ -66,14 +66,14 @@ if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
   echo "Preview publication emitted warnings." >&2
   exit 1
 fi
-test -f dist/02-book-01-preview.pdf
-[[ "$(rg -c '^# Chapter ' dist/02-book-01-preview.md)" == "3" ]]
-if rg -n 'Internal review draft|^# Epilogue' dist/02-book-01-preview.md; then
+test -f dist/31-book-01-preview.pdf
+[[ "$(rg -c '^# Chapter ' dist/31-book-01-preview.md)" == "3" ]]
+if rg -n 'Internal review draft|^# Epilogue' dist/31-book-01-preview.md; then
   echo "Preview manuscript contains review-only or out-of-range content." >&2
   exit 1
 fi
 
-BOOK_PDF="$ROOT_DIR/dist/02-book-01-preview.pdf" MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/02-book-01-preview-manuscript.pdf" "$TEST_PYTHON" - <<'PY'
+BOOK_PDF="$ROOT_DIR/dist/31-book-01-preview.pdf" MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/31-book-01-preview-manuscript.pdf" "$TEST_PYTHON" - <<'PY'
 import os
 from pypdf import PdfReader
 

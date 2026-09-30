@@ -5,7 +5,7 @@
 #   ./publish-draft-books.sh                 # every configured book with chapters
 #   ./publish-draft-books.sh book 1          # Book 1 by number
 #   ./publish-draft-books.sh 1               # shorthand for Book 1
-#   ./publish-draft-books.sh 02-book-01      # legacy source-directory selector
+#   ./publish-draft-books.sh 31-book-01      # book-folder selector (30-books/31-book-01 also works)
 #   ./publish-draft-books.sh book 1 chap 01,02,03
 #                                            # preview edition: chapters 1-3 plus
 #                                            # any front matter sorted before them,
@@ -15,7 +15,8 @@
 #                                            # also copy the preview to the site:
 #                                            # wwwroot/public/downloads/<title-slug>-preview.pdf
 #
-# Preview editions are written to dist/<source-directory>-preview.pdf.
+# Preview editions are written to dist/<book-folder>-preview.pdf, e.g.
+# dist/31-book-01-preview.pdf for docs/30-books/31-book-01.
 # --webpub (or -webpub) is only accepted for preview editions, so internal-review
 # builds are never copied into the public site.
 
@@ -102,7 +103,8 @@ add_book_number() {
 }
 
 book_number_for_directory() {
-  jq -er --arg directory "$1" '.books[] | select(.sourceDirectory == $directory) | .number' "$CONFIG"
+  jq -er --arg directory "$1" \
+    '.books[] | select(.sourceDirectory == $directory or (.sourceDirectory | split("/") | last) == $directory) | .number' "$CONFIG"
 }
 
 # Space-delimited chapter numbers for a preview edition, e.g. " 1 2 3 ".
@@ -176,12 +178,14 @@ for book_number in "${book_numbers[@]}"; do
     exit 1
   fi
 
-  book_name="$(jq -r '.sourceDirectory' <<<"$book_json")"
+  source_directory="$(jq -r '.sourceDirectory' <<<"$book_json")"
+  # Output files use the book folder alone: 30-books/31-book-01 -> 31-book-01.
+  book_name="$(basename "$source_directory")"
   book_title="$(jq -r '.title' <<<"$book_json")"
   book_description="$(jq -r '.description // ""' <<<"$book_json")"
   series_title="$(jq -r '.series.title' "$CONFIG")"
   author="$(jq -r '.series.author' "$CONFIG")"
-  chapters_dir="$DOCS_DIR/$book_name/chapters"
+  chapters_dir="$DOCS_DIR/$source_directory/chapters"
 
   if [[ ! -d "$chapters_dir" ]]; then
     echo "Skipping $book_name: no chapters/ directory." >&2

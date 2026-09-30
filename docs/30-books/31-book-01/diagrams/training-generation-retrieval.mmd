@@ -1,0 +1,22 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    T1["TRAINING<br/>Many examples:<br/>text, images, audio"]
+    T2["Repeated adjustment<br/>to predict patterns"]
+    T3["Model parameters<br/>a vast set of numbers,<br/>not a folder of works"]
+    W["Exception: some<br/>examples, often<br/>duplicated ones, can<br/>be memorised"]
+    G1["GENERATION<br/>Your prompt"]
+    R1["RETRIEVAL (optional)<br/>A source is fetched<br/>when you ask"]
+    G2["New output from<br/>learned patterns,<br/>plus any fetched source"]
+    T1 --> T2 --> T3
+    T3 -.-> W
+    T3 --> G2
+    G1 --> G2
+    R1 -.-> G2
+    classDef train fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef gen fill:#e8f5e9,stroke:#2e7d32,color:#153b18
+    classDef fetch fill:#f3e5f5,stroke:#6a1b9a,color:#2a0a3a
+    classDef warn fill:#fff4d6,stroke:#916700,color:#332500
+    class T1,T2,T3 train
+    class G1,G2 gen
+    class R1 fetch
+    class W warn

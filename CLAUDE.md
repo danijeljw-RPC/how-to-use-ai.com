@@ -91,7 +91,7 @@ The series is intended to support:
 
 The book series should be structured so chapters can later be adapted into website articles and video scripts without rewriting the whole project.
 
-The working assumption is a 5-book progression from non-technical (Book 1) to technical (Book 5). See `docs/01-series/series-structure.md` for the full arc and for the author-background note that explains why Book 1's simplifications are deliberate, not a knowledge gap.
+The working assumption is a 5-book progression from non-technical (Book 1) to technical (Book 5). See `docs/10-series/series-structure.md` for the full arc and for the author-background note that explains why Book 1's simplifications are deliberate, not a knowledge gap.
 
 ## Known Book 1 Direction
 
@@ -153,7 +153,7 @@ Every chapter must have a planning stage before drafting or substantial revision
 The chapter plan must be saved as Markdown in:
 
 ```text
-./docs/02-book-01/plans/
+./docs/30-books/31-book-01/plans/
 ```
 
 Use this naming pattern:
@@ -193,16 +193,16 @@ Naming pattern:
 OI-xxxx.md
 ```
 
-Where `xxxx` is the next available four-digit number **within that area's directory** (each area's OI numbers are independent — `docs/00-project/open-issues/OI-0001.md` and `docs/02-book-01/open-issues/OI-0001.md` can coexist).
+Where `xxxx` is the next available four-digit number **within that area's directory** (each area's OI numbers are independent — `docs/00-project/open-issues/OI-0001.md` and `docs/30-books/31-book-01/open-issues/OI-0001.md` can coexist).
 
 Use the relevant subdirectory:
 
 ```text
 ./docs/00-project/open-issues/
-./docs/01-series/open-issues/
-./docs/02-book-01/open-issues/
-./docs/03-publishing/open-issues/
-./docs/04-style/open-issues/
+./docs/10-series/open-issues/
+./docs/20-style/open-issues/
+./docs/30-books/31-book-01/open-issues/
+./docs/40-publishing/open-issues/
 ```
 
 Do not leave durable questions only in chat, commit messages, or inline comments.
@@ -221,15 +221,17 @@ Naming pattern:
 ADR-NN-xxxx.md
 ```
 
-Where `NN` is a fixed two-digit area code and `xxxx` is the next available four-digit number **within that area**:
+Where `NN` is a fixed two-digit area code and `xxxx` is the next available four-digit number **within that area**.
 
-| Area | Code |
-|---|---|
-| Project (`00-project`) | `00` |
-| Series (`01-series`) | `01` |
-| Book 1 (`02-book-01`) | `02` |
-| Publishing (`03-publishing`) | `03` |
-| Style (`04-style`) | `04` |
+ADR area codes are stable identifiers. They predate the `docs/` folder renumbering (see `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md`) and deliberately do not match the folder numbers, so existing ADR IDs and cross-references stay valid:
+
+| Area | Folder | Code |
+|---|---|---|
+| Project | `00-project` | `00` |
+| Series | `10-series` | `01` |
+| Style | `20-style` | `04` |
+| Book 1 | `30-books/31-book-01` | `02` |
+| Publishing | `40-publishing` | `03` |
 
 Examples:
 
@@ -242,10 +244,10 @@ Use the relevant subdirectory:
 
 ```text
 ./docs/00-project/decisions/
-./docs/01-series/decisions/
-./docs/02-book-01/decisions/
-./docs/03-publishing/decisions/
-./docs/04-style/decisions/
+./docs/10-series/decisions/
+./docs/20-style/decisions/
+./docs/30-books/31-book-01/decisions/
+./docs/40-publishing/decisions/
 ```
 
 Use ADRs for decisions about:
@@ -344,26 +346,31 @@ If unable to commit, record the reason in the session output.
     │   ├── plans/
     │   ├── open-issues/
     │   └── decisions/
-    ├── 01-series/
+    ├── 10-series/
     │   ├── plans/
     │   ├── open-issues/
     │   └── decisions/
-    ├── 02-book-01/
-    │   ├── chapters/
-    │   ├── research/
+    ├── 20-style/
     │   ├── plans/
     │   ├── open-issues/
     │   └── decisions/
-    ├── 03-publishing/
+    ├── 30-books/
+    │   └── 31-book-01/
+    │       ├── chapters/
+    │       ├── diagrams/
+    │       ├── research/
+    │       ├── plans/
+    │       ├── open-issues/
+    │       └── decisions/
+    ├── 40-publishing/
     │   ├── plans/
     │   ├── open-issues/
     │   └── decisions/
-    ├── 04-style/
-    │   ├── plans/
-    │   ├── open-issues/
-    │   └── decisions/
+    ├── 80-research/
     └── 90-templates/
 ```
+
+Folder numbering rule: top-level areas use tens (`00`, `10`, `20`, `30`, `40`, …). A sub-area inside an area takes the next unit number of its parent — for example `30-books/31-book-01`, with later books as `32-book-02` through `35-book-05`. `80-` and `90-` are reserved for research packages and templates.
 
 All of the directories above already exist in the repository (placeholder `.gitkeep` files mark the ones that are currently empty). Do not recreate this structure — use it.
 
@@ -375,11 +382,11 @@ Primary files:
 
 ```text
 ./docs/00-project/memory/project-brief.md
-./docs/01-series/series-structure.md
+./docs/10-series/series-structure.md
 ./docs/00-project/memory/series-memory.md
 ./docs/00-project/memory/book-01-memory.md
-./docs/04-style/style-guide.md
-./docs/04-style/callout-guide.md
+./docs/20-style/style-guide.md
+./docs/20-style/callout-guide.md
 ```
 
 Update memory when:
@@ -413,10 +420,10 @@ Rules:
 
 Current legacy files and their status:
 
-- `book1_ai_literacy_context_reference.md` — primary source for series arc and Book 1 structure; reconciled into `docs/01-series/series-structure.md` and `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
-- `book1-part1-chapter1-draft.md` — a full first draft of Chapter 1. **Migrated** into `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md` (2026-09-21). Callout naming reconciled per `docs/02-book-01/open-issues/OI-0001.md`.
-- `how-to-use-ai-book-chat-handoff.md` — broader planning conversation handoff. **Reviewed** (2026-09-21). The Johnny tenancy-tribunal scenario was extracted to `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md` (not yet approved for manuscript use). A conflicting 3-book series arc found in this file was flagged in `docs/01-series/open-issues/OI-0002.md`.
-- `copilot_forced_ai_transcript_research_notes.md` — research notes. **Reviewed and moved** into `docs/02-book-01/research/research-note-copilot-forced-ai.md` (2026-09-21), with reliability caveats preserved.
+- `book1_ai_literacy_context_reference.md` — primary source for series arc and Book 1 structure; reconciled into `docs/10-series/series-structure.md` and `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+- `book1-part1-chapter1-draft.md` — a full first draft of Chapter 1. **Migrated** into `docs/30-books/31-book-01/chapters/chapter-01-youve-already-been-using-ai.md` (2026-09-21). Callout naming reconciled per `docs/30-books/31-book-01/open-issues/OI-0001.md`.
+- `how-to-use-ai-book-chat-handoff.md` — broader planning conversation handoff. **Reviewed** (2026-09-21). The Johnny tenancy-tribunal scenario was extracted to `docs/30-books/31-book-01/research/research-note-johnny-tribunal-scenario.md` (not yet approved for manuscript use). A conflicting 3-book series arc found in this file was flagged in `docs/10-series/open-issues/OI-0002.md`.
+- `copilot_forced_ai_transcript_research_notes.md` — research notes. **Reviewed and moved** into `docs/30-books/31-book-01/research/research-note-copilot-forced-ai.md` (2026-09-21), with reliability caveats preserved.
 
 ## Research Handling
 
@@ -425,7 +432,7 @@ Research should go under the relevant `research` directory.
 For Book 1:
 
 ```text
-./docs/02-book-01/research/
+./docs/30-books/31-book-01/research/
 ```
 
 Research notes should include:
@@ -473,7 +480,7 @@ Use diagram placeholders like:
 Use callouts consistently. The detailed guide is in:
 
 ```text
-./docs/04-style/callout-guide.md
+./docs/20-style/callout-guide.md
 ```
 
 Baseline callout types:
@@ -519,13 +526,13 @@ The series should support:
 Publishing decisions are tracked under:
 
 ```text
-./docs/03-publishing/
+./docs/40-publishing/
 ```
 
 The initial publishing format decision is documented in:
 
 ```text
-./docs/03-publishing/decisions/ADR-03-0001-manuscript-source-format.md
+./docs/40-publishing/decisions/ADR-03-0001-manuscript-source-format.md
 ```
 
 ## Manuscript Source Expectations

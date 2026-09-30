@@ -1,0 +1,127 @@
+# Book 1 Structure
+
+## Working Purpose
+
+Book 1 introduces AI to non-technical readers who may have never used AI before.
+
+This file mirrors the full structure decided in `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`, which remains the source of truth if the two ever diverge.
+
+## Working Title
+
+> AI for Normal People
+
+Working subtitle:
+
+> Understanding Artificial Intelligence Without the Hype
+
+Not yet confirmed — see `docs/30-books/31-book-01/open-issues/OI-0002.md`.
+
+## Structure Overview
+
+Four parts plus an epilogue, 14 chapters total.
+
+### Part 1 — What AI Actually Is
+
+Purpose: remove myths, establish foundations, reduce intimidation, explain AI through familiar everyday systems.
+
+1. **You've Already Been Using AI** — draft complete (`docs/30-books/31-book-01/chapters/chapter-01-youve-already-been-using-ai.md`)
+1. **Why Everyone Suddenly Talks About AI** — draft complete (`docs/30-books/31-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`)
+1. **What AI Can Actually Do** — draft complete (`docs/30-books/31-book-01/chapters/chapter-03-what-ai-can-actually-do.md`)
+1. **What AI Cannot Do** — draft complete (`docs/30-books/31-book-01/chapters/chapter-04-what-ai-cannot-do.md`) — completes Part 1
+
+### Part 2 — Using AI in Real Life
+
+Purpose: transition from theory into practical life usage; show how AI helps ordinary people and professionals without requiring technical skill.
+
+1. **Talking to AI Properly** — draft complete (`docs/30-books/31-book-01/chapters/chapter-05-talking-to-ai-properly.md`)
+1. **AI at Home** — draft complete (`docs/30-books/31-book-01/chapters/chapter-06-ai-at-home.md`)
+1. **AI at Work** — draft complete (`docs/30-books/31-book-01/chapters/chapter-07-ai-at-work.md`)
+1. **AI and Creativity** — expanded research-backed manuscript with six diagrams ready for author review; author reflection pending (`docs/30-books/31-book-01/chapters/chapter-08-ai-and-creativity.md`) — completes Part 2
+
+### Part 3 — Risks, Fear, and Reality
+
+Purpose: give the book credibility and balance; avoid hype and panic; explain real risks without sensationalism.
+
+1. **The Problems Nobody Should Ignore** — draft complete (`docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`)
+1. **Will AI Replace Jobs?** — draft complete (`docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`)
+1. **AI Hype vs Reality** — draft complete (`docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`) — completes Part 3
+
+### Part 4 — Preparing for the Future
+
+Purpose: end with practical confidence and future readiness; help the reader adapt calmly; explain why AI literacy matters more than tool loyalty.
+
+1. **How to Stay Relevant in the AI Era** — draft complete (`docs/30-books/31-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`)
+1. **Building Your Personal AI Toolkit** — draft complete (`docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`)
+1. **Where AI Goes Next** — draft complete (`docs/30-books/31-book-01/chapters/chapter-14-where-ai-goes-next.md`) — completes Part 4
+
+### Epilogue — Don't Panic
+
+A short reflective ending: the reader does not need to become an AI engineer or understand the math, but does need to become AI literate. **Draft complete** (`docs/30-books/31-book-01/chapters/epilogue-dont-panic.md`) — this completes the full Book 1 manuscript arc.
+
+## Chapter-by-Chapter Direction
+
+Full topic lists, examples, and core takeaways for every chapter live in `ADR-02-0001-book-01-structure.md` (§"Chapter-by-Chapter Direction") rather than being duplicated here, to avoid the two files drifting out of sync. This file tracks structure and drafting status; the ADR tracks content direction and rationale.
+
+## Chapter Planning Rule
+
+Before drafting or revising each chapter, create a plan in:
+
+```text
+./docs/30-books/31-book-01/plans/
+```
+
+Use:
+
+```text
+chapter-XX-plan.md
+```
+
+## Chapter Draft Location
+
+Draft chapter files go in:
+
+```text
+./docs/30-books/31-book-01/chapters/
+```
+
+Naming pattern:
+
+```text
+chapter-XX-<slug>.md
+```
+
+## Personal Reflection Placeholders
+
+```markdown
+> [Author reflection placeholder: Add a short personal example or story here.]
+```
+
+## Diagram Placeholders
+
+```markdown
+> [Diagram placeholder: Describe the diagram to be added here.]
+```
+
+## Callout System
+
+Use `docs/20-style/callout-guide.md`'s baseline set consistently. See `docs/30-books/31-book-01/open-issues/OI-0001.md` for the one unresolved naming gap (legacy "Reference" type) found while migrating Chapter 1.
+
+## Drafting Status
+
+| # | Chapter | Plan | Draft |
+| --- | --- | --- | --- |
+| 1 | You've Already Been Using AI | Done | Done |
+| 2 | Why Everyone Suddenly Talks About AI | Done | Done |
+| 3 | What AI Can Actually Do | Done | Done |
+| 4 | What AI Cannot Do | Done | Done — research-backed manuscript |
+| 5 | Talking to AI Properly | Done | Done — research-backed manuscript |
+| 6 | AI at Home | Done | Done — research-backed manuscript; author reflection pending |
+| 7 | AI at Work | Done | Done — research-backed manuscript; author reflection pending |
+| 8 | AI and Creativity | Done | Done — research-backed manuscript; author reflection pending |
+| 9 | The Problems Nobody Should Ignore | Done | Done |
+| 10 | Will AI Replace Jobs? | Done | Done |
+| 11 | AI Hype vs Reality | Done | Done |
+| 12 | How to Stay Relevant in the AI Era | Done | Done |
+| 13 | Building Your Personal AI Toolkit | Done | Done |
+| 14 | Where AI Goes Next | Done | Done |
+| — | Epilogue — Don't Panic | Done | Done |

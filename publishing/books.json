@@ -23,7 +23,7 @@
   "books": [
     {
       "number": 1,
-      "sourceDirectory": "02-book-01",
+      "sourceDirectory": "30-books/31-book-01",
       "title": "AI for Normal People",
       "description": "Understanding Artificial Intelligence Without the Hype",
       "descriptor": "No technical skills required",
@@ -41,7 +41,7 @@
     },
     {
       "number": 2,
-      "sourceDirectory": "03-book-02",
+      "sourceDirectory": "30-books/32-book-02",
       "title": "Practical AI Workflows & Productivity",
       "description": "",
       "descriptor": "Work smarter with practical AI",
@@ -58,7 +58,7 @@
     },
     {
       "number": 3,
-      "sourceDirectory": "04-book-03",
+      "sourceDirectory": "30-books/33-book-03",
       "title": "AI for Business & Operations",
       "description": "",
       "descriptor": "Turn capability into operations",
@@ -75,7 +75,7 @@
     },
     {
       "number": 4,
-      "sourceDirectory": "05-book-04",
+      "sourceDirectory": "30-books/34-book-04",
       "title": "Building AI Systems & Automation",
       "description": "",
       "descriptor": "Connect tools, systems and workflows",
@@ -92,7 +92,7 @@
     },
     {
       "number": 5,
-      "sourceDirectory": "06-book-05",
+      "sourceDirectory": "30-books/35-book-05",
       "title": "AI Engineering & Architecture",
       "description": "",
       "descriptor": "Design reliable AI infrastructure",

@@ -2,6 +2,138 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (55)
+
+### Changed
+
+- Renumbered the `docs/` folders in tens, as the author asked. `01-series` is now `10-series`, `04-style` is `20-style`, `02-book-01` is `30-books/31-book-01` and `03-publishing` is `40-publishing`. `00-project`, `80-research` and `90-templates` are unchanged. Books 2 to 5 will go in `30-books/32-book-02` through `35-book-05`.
+- Updated every path reference in `docs/`, `CLAUDE.md`, `publishing/books.json`, the publish script and the tests. Relative links that leave the Book 1 folder gained one extra `../`. Earlier entries in this changelog keep their original paths.
+- `publish-draft-books.sh` now names build outputs after the book folder alone: `dist/31-book-01.pdf` and `dist/31-book-01-preview.pdf`, which replace `dist/02-book-01*.pdf`. It also accepts `31-book-01` as a selector.
+- ADR area codes and OI numbers are unchanged. `CLAUDE.md` now maps each code to its new folder.
+
+### Files changed
+
+- Folder moves (`git mv`): `docs/10-series/`, `docs/20-style/`, `docs/30-books/31-book-01/`, `docs/40-publishing/`
+- Path updates in about 60 Markdown files under `docs/`
+- `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md` (new)
+- `docs/00-project/plans/docs-folder-renumbering-plan.md` (new)
+- `docs/README.md`
+- `CLAUDE.md`
+- `publishing/books.json`
+- `publish-draft-books.sh`
+- `tests/test_publish_draft_books.sh`
+- `tests/test_cover_generator.py`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md`.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `chore: renumber docs folders in tens and nest books under 30-books`
+
+## 2026-10-01 (54)
+
+### Changed
+
+- Added a single review checklist for Chapter 8's flagged claims: three claims needing confirmation, one citation correction already made, time-sensitive facts to recheck near publication, and decisions for the author.
+- Fixed the LaTeX "Float too large for page" warning in the Book 1 build. The involvement-continuum diagram was about 10.8 inches tall at its set width, on a page with 8.4 inches of text height. Its start, end and summary labels moved into the caption, and the figure widths for the continuum (32%), the creative loop (42%) and the abundance diagram (36%) were reduced. Book 1 now builds without warnings, and the continuum page was checked visually.
+
+### Files changed
+
+- `docs/02-book-01/open-issues/OI-0004.md` (new)
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/diagrams/creative-ai-involvement-continuum.mmd`
+- `docs/02-book-01/research/chapter-08-bibliography.md`
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- Added `docs/02-book-01/open-issues/OI-0004.md`.
+
+### Commit
+
+- `docs: add chapter 08 claim-review issue and fix oversized figure`
+
+## 2026-09-30 (53)
+
+### Changed
+
+- Expanded Chapter 8 from about 5,900 to about 15,000 words of prose (before notes) after the author judged the previous revision too dry, missing information and lacking diagrams.
+- Added worked prompts and illustrative outputs in all five creative domains, a new three-person opening, a conventional-tool comparison table, a four-jurisdiction copyright table (Australia first), a five-question ownership table, and new subsections on style/voice/likeness and on disclosure, provenance and detection.
+- Brought more of both research packages into the text: Deezer's upload trend and fraud figures, Spotify spam removals, WMG/Suno licensing, US case examples, the UK computer-generated-works rule, creator survey and UK testimony figures, a labelled CISAC forecast, the Doshi and Hauser method and figures, the Lee and Chung/Meincke exchange, and the standard definition of creativity.
+- Added six Mermaid diagrams, validated with Mermaid CLI and the project PDF renderer.
+- Updated the Chapter 8 bibliography with new sources, claim-map rows and recheck items. Corrected the Kandpal et al. deduplication citation: the research packages and previous draft linked a different ACL paper. The corrected PMLR record was confirmed online.
+- Flagged for confirmation before publication: the description of the 2025 Bartz v. Anthropic trial ruling, the Australian publicity-right sentence (general legal context without a package source), and the AlDahoul et al. author given names.
+- Possible cuts if the chapter is too long: the wedding-toast and family-video asides, the historical-comparisons paragraph, and the effect list in "Ask About Tasks, Not Titles".
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/research/chapter-08-bibliography.md`
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `docs/02-book-01/diagrams/creative-ai-involvement-continuum.mmd` (new)
+- `docs/02-book-01/diagrams/creative-judgement-loop.mmd` (new)
+- `docs/02-book-01/diagrams/creative-abundance-bottleneck.mmd` (new)
+- `docs/02-book-01/diagrams/four-questions-inside-ai-stealing.mmd` (new)
+- `docs/02-book-01/diagrams/training-generation-retrieval.mmd` (new)
+- `docs/02-book-01/diagrams/individual-uplift-group-similarity.mmd` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- The Chapter 8 plan's "no diagram" note is superseded at the author's request. No new ADR was needed because the existing diagram and callout standards were applied.
+
+### Open issues added or closed
+
+- None. Items needing confirmation are tracked in the bibliography's publication checklist. The author reflection placeholder remains open.
+
+### Commit
+
+- `draft: expand chapter 08 with examples, evidence and diagrams`
+
+## 2026-09-30 (52)
+
+### Changed
+
+- Replaced the 1,603-word Chapter 8 template with a complete research-backed manuscript of approximately 7,400 words including source notes, using both complementary Chapter 8 research packages and Chapters 5–7 for continuity.
+- Developed practical workflows across writing, art/image creation, music/audio, video/film and design; reframed effort versus judgement as an iterative creative loop in which craft and execution also contain judgement.
+- Added plain-English training, retrieval and memorisation distinctions; separated legal, ethical and economic objections; and added a compact Australia/US/EU/UK copyright comparison.
+- Added empirical creativity, fixation and freelance-market evidence; creator and pro-use perspectives; commercial-rights versus copyright guidance; voice/likeness, provenance, accessibility and abundance/discoverability material.
+- Added a dedicated Chapter 8 bibliography with claim mapping, source limitations and time-sensitive publication checks. Retained the genuine author-reflection placeholder; no new diagram was necessary.
+- Updated the Chapter 8 plan and Book 1 drafting status for detailed author review.
+
+### Files changed
+
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/research/chapter-08-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None; applied the authoritative Chapter 8 plan and existing evidence/style ADRs.
+
+### Open issues added or closed
+
+- None; the genuine author-reflection placeholder remains pending in the manuscript.
+
+### Commit
+
+- This entry accompanies `draft: write research-backed chapter 08`.
+
 ## 2026-09-30 (51)
 
 ### Changed
