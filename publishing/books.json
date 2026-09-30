@@ -103,8 +103,8 @@
       "image": "assets/covers/book-05.png",
       "theme": "engineer",
       "epigraph": {
-        "quote": "Architecture is the learned game, correct and magnificent, of forms assembled in the light.",
-        "author": "Le Corbusier"
+        "quote": "Programs must be written for people to read, and only incidentally for machines to execute.",
+        "author": "Harold Abelson and Gerald Jay Sussman, with Julie Sussman"
       }
     }
   ]
