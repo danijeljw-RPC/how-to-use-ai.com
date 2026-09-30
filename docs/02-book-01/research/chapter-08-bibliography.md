@@ -470,6 +470,9 @@ Runco, Mark A. and Garrett J. Jaeger. â€œThe Standard Definition of Creativity.â
 
 ## Time-Sensitive Publication Checklist
 
+A consolidated, tickable review list of these items and the claims needing confirmation is in `docs/02-book-01/open-issues/OI-0004.md`.
+
+
 Recheck immediately before publication:
 
 - Australian CAIRG priorities and TDM policy.

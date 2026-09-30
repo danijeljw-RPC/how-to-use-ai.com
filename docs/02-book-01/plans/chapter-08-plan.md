@@ -95,6 +95,7 @@ The two Chapter 8 packages are complementary. The extended package deepens and q
 ## Linked OIs
 
 - `docs/02-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
+- `docs/02-book-01/open-issues/OI-0004.md` (Chapter 8 claims flagged for author review before publication)
 
 ## Risks
 

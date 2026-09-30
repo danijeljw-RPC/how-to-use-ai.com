@@ -2,6 +2,34 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (54)
+
+### Changed
+
+- Added a single review checklist for Chapter 8's flagged claims: three claims needing confirmation, one citation correction already made, time-sensitive facts to recheck near publication, and decisions for the author.
+- Fixed the LaTeX "Float too large for page" warning in the Book 1 build. The involvement-continuum diagram was about 10.8 inches tall at its set width, on a page with 8.4 inches of text height. Its start, end and summary labels moved into the caption, and the figure widths for the continuum (32%), the creative loop (42%) and the abundance diagram (36%) were reduced. Book 1 now builds without warnings, and the continuum page was checked visually.
+
+### Files changed
+
+- `docs/02-book-01/open-issues/OI-0004.md` (new)
+- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md`
+- `docs/02-book-01/diagrams/creative-ai-involvement-continuum.mmd`
+- `docs/02-book-01/research/chapter-08-bibliography.md`
+- `docs/02-book-01/plans/chapter-08-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- Added `docs/02-book-01/open-issues/OI-0004.md`.
+
+### Commit
+
+- `docs: add chapter 08 claim-review issue and fix oversized figure`
+
 ## 2026-09-30 (53)
 
 ### Changed
