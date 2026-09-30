@@ -101,6 +101,81 @@ class CoverGeneratorTests(unittest.TestCase):
         self.assertFalse(result.used_placeholder)
         self.assertEqual(result.illustration, illustration)
 
+    def test_transparent_art_is_shown_whole_on_white_without_bars(self):
+        illustration = self.root / "assets/covers/book-01.png"
+        illustration.parent.mkdir(parents=True)
+        art = Image.new("RGBA", (1800, 2700), (0, 0, 0, 0))
+        art.paste((200, 30, 30, 255), (600, 300, 1200, 2400))
+        art.save(illustration)
+
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            # Transparent areas and side-bar positions are white, not black or accent.
+            self.assertEqual(cover.getpixel((5, 2000)), (255, 255, 255))
+            self.assertEqual(cover.getpixel((2095, 2000)), (255, 255, 255))
+            self.assertEqual(cover.getpixel((600, 2600)), (255, 255, 255))
+            # The subject's top and bottom survive (no crop) and are not faded.
+            self.assertEqual(cover.getpixel((1050, 1490)), (200, 30, 30))
+            self.assertEqual(cover.getpixel((1050, 2650)), (200, 30, 30))
+
+    def test_cover_pdfs_are_vector_with_embedded_fonts(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        for pdf_path, expected_images, expected_text in (
+            (result.front_pdf, 1, "AI FOR NORMAL PEOPLE"),
+            (result.back_pdf, 0, "INTERNAL REVIEW EDITION"),
+        ):
+            page = PdfReader(pdf_path).pages[0]
+            resources = page["/Resources"]
+            # Only the illustration is a raster image; shapes and text are vector.
+            images = resources.get("/XObject", {})
+            self.assertEqual(len(images), expected_images, pdf_path)
+            fonts = [font.get_object() for font in resources["/Font"].values()]
+            self.assertTrue(fonts)
+            for font in fonts:
+                descriptor = font.get("/FontDescriptor")
+                self.assertIsNotNone(descriptor, f"unembedded font {font.get('/BaseFont')} in {pdf_path}")
+            self.assertIn(expected_text, page.extract_text())
+
+    def test_author_name_sits_between_centred_rules(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            footer = cover.crop((0, 2760, 2100, 2880))
+            rule_rows = [y for y in range(footer.height) if footer.getpixel((250, y)) != (255, 255, 255)]
+            name_rows = [
+                y
+                for y in range(footer.height)
+                if any(footer.getpixel((x, y))[2] < 120 for x in range(1000, 1100))
+            ]
+            right_rule_at_name_height = footer.getpixel((1850, rule_rows[0]))
+        self.assertTrue(rule_rows, "left rule not found")
+        self.assertTrue(name_rows, "author name not found")
+        self.assertLess(name_rows[0], rule_rows[0])
+        self.assertGreater(name_rows[-1], rule_rows[-1])
+        self.assertNotEqual(right_rule_at_name_height, (255, 255, 255))
+
+    def test_book_badge_text_is_centred_in_its_pill(self):
+        result = render_book_cover(self.config, 1, self.root, self.output)
+
+        with Image.open(result.front_png).convert("RGB") as cover:
+            region = cover.crop((600, 880, 1500, 1040))
+            pixels = region.load()
+            is_accent = lambda colour: colour[2] > 180 and colour[1] < 110 and colour[0] < 170
+            columns = [x for x in range(region.width) if sum(is_accent(pixels[x, y]) for y in range(region.height)) > 60]
+            rows = [y for y in range(region.height) if sum(is_accent(pixels[x, y]) for x in range(region.width)) > 150]
+            left, right, top, bottom = columns[0], columns[-1], rows[0], rows[-1]
+            white = [
+                (x, y)
+                for y in range(top + 10, bottom - 10)
+                for x in range(left + 35, right - 35)
+                if min(pixels[x, y]) > 200
+            ]
+        xs, ys = [x for x, _ in white], [y for _, y in white]
+        self.assertLessEqual(abs((min(xs) - left) - (right - max(xs))), 2)
+        self.assertLessEqual(abs((min(ys) - top) - (bottom - max(ys))), 2)
+
     def test_descriptor_text_does_not_spill_left_of_its_badge(self):
         result = render_book_cover(self.config, 1, self.root, self.output)
 

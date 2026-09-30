@@ -35,6 +35,30 @@ If an illustration is missing, the renderer generates and uses a same-size
 placeholder labelled `Preview Publication Only`. Missing commissioned artwork
 therefore does not block internal PDF review.
 
+Amendment (2026-09-30): an illustration with a transparent background is
+treated as cut-out art. Its empty margins are trimmed and the whole subject is
+fitted on white into all the clear space between the subtitle and the author
+name (not just the 2100 by 1260 pixel picture band), with no cropping, no top
+fade, and no accent side bars. Fully opaque illustrations keep the
+original fill-crop, fade, and side bars. Transparent illustrations need no
+particular size. Opaque art is cropped to the band's 5:3 shape, so it should be
+supplied at 2100 by 1260 pixels (or larger at 5:3) to avoid losing its top and
+bottom; the 1800 by 2700 figure above only governs the generated placeholder.
+
+Amendment (2026-09-30): the front-cover descriptor badge is a series-wide gold
+seal (fill `#E9C46A`, ring `#B8892E`, navy text) rather than cream with the
+book accent outline. Its text stays book-specific audience copy (Book 1: `No
+technical skills required`), not edition wording; edition statements belong on
+the copyright page.
+
+Amendment (2026-09-30): covers are print output, so the cover PDFs are drawn
+as vector content. Shapes are PDF paths and text uses embedded fonts; the
+illustration is the only raster element and is embedded at its source
+resolution. The PNG outputs are rasterised from the PDF with `pdftoppm`. The
+author name sits between two accent rules, vertically centred on them
+(`——— NAME ———`), on both covers. Print gaps beyond the covers are tracked in
+`docs/03-publishing/open-issues/OI-0005.md`.
+
 The draft publication pipeline produces:
 
 - a 2100 by 3000 pixel front cover (7 by 10 inches at 300 DPI);

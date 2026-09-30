@@ -347,14 +347,6 @@ Useful AI at home begins with something you need: a dinner idea, a clearer messa
 
 Sometimes you want the task finished. Sometimes you want to understand how to do it yourself. Both are reasonable goals. Choosing the kind of help you want is part of using AI well.
 
-## Chapter Recap
-
-> **Recap:** AI can help with meals, budgets, travel, writing, parenting, hobbies, organisation and accessibility. Context makes those uses more practical: people, time, resources, preferences and constraints all change the answer. Use an appropriate source for consequential or live facts, practise when learning matters, and keep simpler tools where they already work well.
-
-## Chapter Preview
-
-Chapter 7 takes these habits into work. Drafting, explaining and organising remain useful, while company policies, confidential information and responsibility to colleagues and customers add requirements of their own.
-
 ## Chapter Notes
 
 This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. Both Chapter 6 research packages informed the manuscript. Household requests and sample outputs are illustrative examples; no personal experience or product test has been invented. The dedicated Chapter 6 bibliography records source checks and limitations.

@@ -2,6 +2,122 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-09-30 (49)
+
+### Changed
+
+- "BOOK 1" (and the back-cover "BOOK n • THEME") is now centred on its visible letters inside the pill, both ways. It previously sat 6 px high and looked left-shifted because of the empty space built into the "1" glyph.
+- The gold seal text block is now vertically centred exactly (it was about 4 px high).
+- Added a regression test for badge text centring.
+- Confirmed the pill and seal are vector paths in the PDF (no raster edges); the illustration is the only image.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-30 (48)
+
+### Changed
+
+- Front and back covers are now drawn as vector PDF: circles, badges, rules and bars are PDF shapes, and all text uses embedded Arial. They stay sharp at any zoom and in print. The illustration is the only image and is embedded at source resolution (the Book 1 octopus prints at about 459 ppi).
+- The cover PDFs no longer reference unembedded Helvetica.
+- The author name now sits between the two accent rules, vertically centred on them, on both covers.
+- Cover PNGs and previews are rasterised from the vector PDF with `pdftoppm`, which `publish-draft-books.sh` now requires.
+- Added tests for vector output (one image on the front, none on the back, fonts embedded) and for the name placement; the integration test now expects a vector back cover.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `tests/test_publish_draft_books.sh`
+- `publish-draft-books.sh`
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/vector-cover-rendering-plan.md` (new)
+- `docs/03-publishing/open-issues/OI-0005.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: vector cover output and the centred author-name rule.
+
+### Open issues added or closed
+
+- Added `docs/03-publishing/open-issues/OI-0005.md`: print readiness of the assembled book (unembedded Helvetica on generated notice pages, bleed, colour space, wrap-around cover, review wording on public previews).
+
+### Commit
+
+- pending commit
+
+## 2026-09-30 (47)
+
+### Changed
+
+- Cut-out (transparent) cover art now fills all the clear space between the subtitle and the author name, making the Book 1 octopus about 25% larger. A full 50% would overlap the subtitle or author name.
+- The front-cover descriptor badge is now a gold seal across the series. The Book 1 wording "No technical skills required" is kept, not replaced with "First Edition".
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/transparent-cover-illustration-plan.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: cut-out art sizing and the gold descriptor seal.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
+## 2026-09-30 (46)
+
+### Changed
+
+- Cover illustrations with a transparent background are now shown whole on white: empty margins are trimmed and the subject is fitted inside the picture band instead of being fill-cropped. Previously transparent areas rendered black and tall art lost its top and bottom.
+- Cut-out illustrations skip the white top fade and the accent side bars; fully opaque (full-bleed) illustrations render exactly as before.
+- Added the Book 1 octopus cover illustration (`assets/covers/book-01.png`, 1800 x 2700 transparent PNG).
+- Added a unit test for transparent cover art.
+
+### Files changed
+
+- `scripts/cover_generator.py`
+- `tests/test_cover_generator.py`
+- `assets/covers/book-01.png` (new)
+- `docs/03-publishing/decisions/ADR-03-0002-data-driven-series-covers.md`
+- `docs/03-publishing/plans/transparent-cover-illustration-plan.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- Amended ADR-03-0002: cut-out (transparent) illustrations are fitted whole on white without the fade or side bars.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- pending commit
+
 ## 2026-09-29 (45)
 
 ### Changed
@@ -14,6 +130,7 @@ All meaningful project changes should be recorded here.
 - Expanded Chapter 6 again after author review from a careful but overly antiseptic treatment to approximately 7,700 reader-facing words before endnotes, bringing the research data and competing judgements into the prose.
 - Added a substantial university, TAFE and Free TAFE decision case with current Australian outcomes, completion figures, the invalid cumulative-ratio trap, arguments from both ends and an extended ChatGPT pathway-comparison workflow.
 - Added a practical fit-for-purpose comparison of ChatGPT, Claude, Gemini, Perplexity, Microsoft Copilot and DeepSeek, using ChatGPT as the main beginner example without claiming a permanent universal ranking.
+- Removed the standalone Chapter Recap and Chapter Preview so Chapter 6 now ends consistently with the other Book 1 chapters: Core Takeaway followed by Chapter Notes.
 - Extended the real-world evidence and examples for meals, travel, writing, parenting, tutoring and AI-search behaviour, and rewrote Myth vs Reality as explicit competing claims readers can judge.
 
 ### Files changed
