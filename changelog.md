@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (56)
+
+### Changed
+
+- Added a deep-research prompt for each of Chapters 9 to 14. Each matches the depth and structure of the Chapter 8 prompt and is written for its own chapter's plan and draft. Each assumes the plan and draft are uploaded with it.
+- Each prompt includes a list of unverified starting leads for the research system to check or discard.
+- The Chapter 11 prompt covers the author's notes on three audiences (executives, students, seniors).
+- The prompts for Chapters 10, 12, 13 and 14 openly override their plans' "no new external research required" note. The plans themselves are unchanged.
+
+### Files changed
+
+- `docs/80-research/chapter-09-research-package/chapter-09-research-prompt.md` (new)
+- `docs/80-research/chapter-10-research-package/chapter-10-research-prompt.md` (new)
+- `docs/80-research/chapter-11-research-package/chapter-11-research-prompt.md` (new)
+- `docs/80-research/chapter-12-research-package/chapter-12-research-prompt.md` (new)
+- `docs/80-research/chapter-13-research-package/chapter-13-research-prompt.md` (new)
+- `docs/80-research/chapter-14-research-package/chapter-14-research-prompt.md` (new)
+- `docs/30-books/31-book-01/plans/chapters-09-14-research-prompts-plan.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `research: add research prompts for chapters 09 to 14`
+
 ## 2026-10-01 (55)
 
 ### Changed
