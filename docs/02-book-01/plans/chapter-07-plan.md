@@ -126,3 +126,45 @@ draft: add chapter 07 plan and draft (AI at work)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "Drafting Reports and Summarising Meetings," "Customer Support, Presentations, and Spreadsheets," and "Confidentiality and Company Policy" into H3 subsections, each with an added concrete worked example (support thread summary, presentation outline, spreadsheet formula fix, supplier-proposal research). Word count grew from ~1,185 to ~1,379. No existing content, placeholders, or takeaways were removed.
+
+## Research-Based Manuscript Revision — 2026-09-30
+
+Authorised by the supplied Chapter 7 drafting request. Preserve the approved scope and twelve-section sequence above; replace the template with finished prose drawing on both complementary research packages. Aim for approximately 6,500–8,500 useful words, with a fully worked original fictional meeting and developed examples in all eight required categories.
+
+### Starting State and Dependencies
+
+- Clean working tree on `book01/chap07`; latest commit `3ec309e` adds package-02. Both packages are incorporated without modifying their research files.
+- Read Chapters 5 and 6 for continuity, previous chapter evidence conventions, the Book 1 structure, existing diagrams, style/callout guidance and the original workday-test research note.
+- Apply ADR-02-0001 and ADR-04-0001, ADR-04-0002 and ADR-04-0003: beginner prose, limited standard callouts, traceable endnotes, dedicated bibliography and drafting acknowledgement.
+- OI-0001 remains open; current accepted style guidance supplies the callout system. No new author decision is needed. Preserve the genuine-author-experience placeholder.
+
+### Files Expected to Change
+
+- `docs/02-book-01/chapters/chapter-07-ai-at-work.md`
+- `docs/02-book-01/research/chapter-07-bibliography.md` (new)
+- `docs/02-book-01/plans/chapter-07-plan.md`
+- `docs/02-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Risks and Acceptance Checks
+
+- Preserve positive and negative productivity evidence; distinguish generation speed from completed work and individual performance from group diversity.
+- Reconcile study versions explicitly in the bibliography; do not combine an older sample with a newer effect estimate. Check current product/policy claims against primary pages and record access limitations.
+- Keep most space for usable examples, including raw meeting notes, a structured result, uncertain ownership/dates and verification. Label all synthetic outputs as illustrations rather than measured model responses.
+- Test the spreadsheet example against known values, missing values and boundary cases. Trace every research-dependent claim to a chapter note and bibliography entry.
+- Keep confidentiality and proportional review practical. Do not invent organisational procedures, author experience, product rankings or legal rules.
+- No new diagram is planned: existing book diagrams already teach the general review loop; the meeting record and formula examples benefit more from compact tables.
+- Inspect the complete diff, lint changed Markdown, check links/footnotes/structure, and record completion evidence before committing only these five files.
+
+### Proposed Commit Message
+
+`draft: write research-backed chapter 07 AI at work`
+
+### Completion Review
+
+- Manuscript: 8,472 whitespace-counted words before Chapter Notes; all twelve planned sections plus evidence notes. All eight example categories are developed, including the complete original booking-pilot meeting demonstration.
+- Continuity: Chapters 5 and 6 reviewed; context, specificity, iteration and capability-versus-dependency are demonstrated in professional settings. Chapter 8 transition retained.
+- Evidence: 18 unique endnotes mapped to the dedicated bibliography; both packages used. Support and work-pattern study versions reconciled; updated job-post paper title and METR follow-up recorded. Product claims checked against current official documentation, with eligibility conditions.
+- Checks: five changed Markdown files lint cleanly; Pandoc parses the chapter without warnings; footnote definitions/references and local bibliography links match. Seven spreadsheet business-rule cases and the arithmetic examples independently checked. The formula was not executed in Excel; no live AI-output accuracy test is claimed.
+- Originality/scope: no 24-word prose sequence from either research package found in the manuscript body; editorial review confirms synthetic examples and no invented author anecdote. One genuine author reflection remains. No diagram or unrelated file change.
+- Delivery: ready for detailed author review, not a claim of final author approval or print-layout verification. Full-book PDF publication was outside this manuscript request.
