@@ -86,7 +86,7 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Possible Diagrams
 
-- Goal and context → AI → output → human judgement, with a refine loop back to the AI — per ADR-02-0001's suggested Chapter 3 diagram opportunity. This also visually sets up Chapter 4's limitations discussion. Done 2026-09-24: [`human-judgement-ai-work-loop.mmd`](../../02-book-01/diagrams/human-judgement-ai-work-loop.mmd).
+- Goal and context → AI → output → human judgement, with a refine loop back to the AI — per ADR-02-0001's suggested Chapter 3 diagram opportunity. This also visually sets up Chapter 4's limitations discussion. Done 2026-09-24: [`human-judgement-ai-work-loop.mmd`](../../30-books/31-book-01/diagrams/human-judgement-ai-work-loop.mmd).
 
 ## Callouts to Include
 
@@ -108,12 +108,12 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Linked ADRs
 
-- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
-- `docs/04-style/decisions/ADR-04-0001-book-01-style-baseline.md`
+- `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/20-style/decisions/ADR-04-0001-book-01-style-baseline.md`
 
 ## Linked OIs
 
-- `docs/02-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
+- `docs/30-books/31-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
 
 ## Risks
 
@@ -132,9 +132,9 @@ Each gets a short, concrete, non-product-specific example (e.g. "turning a rough
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-03-what-ai-can-actually-do.md` (new)
-- `docs/02-book-01/plans/chapter-03-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/30-books/31-book-01/chapters/chapter-03-what-ai-can-actually-do.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-03-plan.md` (this file)
+- `docs/30-books/31-book-01/book-01-structure.md` (update drafting-status table)
 - `changelog.md`
 
 ## Proposed Commit Message
@@ -145,4 +145,4 @@ draft: add chapter 03 plan and draft (what AI can actually do)
 
 ## Depth Expansion (2026-09-21)
 
-Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. "Writing, Summarising, and Brainstorming" and "Images, Code, Translation, and Tutoring" split into H3 subsections per category, each with its own concrete worked example. Added a new "Analysis, Voice, and Automation" section (previously folded into the images/code section) and a "A Quick Example" subsection under the confidence/correctness discussion. Word count grew from ~1,435 to ~1,801. No existing content, placeholders, or takeaways were removed.
+Expanded per `docs/30-books/31-book-01/plans/book-01-chapter-depth-expansion-plan.md`. "Writing, Summarising, and Brainstorming" and "Images, Code, Translation, and Tutoring" split into H3 subsections per category, each with its own concrete worked example. Added a new "Analysis, Voice, and Automation" section (previously folded into the images/code section) and a "A Quick Example" subsection under the confidence/correctness discussion. Word count grew from ~1,435 to ~1,801. No existing content, placeholders, or takeaways were removed.

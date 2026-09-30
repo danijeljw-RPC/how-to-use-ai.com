@@ -11,16 +11,16 @@ Accepted
 already been reconciled into current `./docs` sources:
 
 - `book1_ai_literacy_context_reference.md` -> reconciled into
-  `docs/01-series/series-structure.md` and
-  `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+  `docs/10-series/series-structure.md` and
+  `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`.
 - `book1-part1-chapter1-draft.md` -> migrated into
-  `docs/02-book-01/chapters/chapter-01-youve-already-been-using-ai.md`.
+  `docs/30-books/31-book-01/chapters/chapter-01-youve-already-been-using-ai.md`.
 - `how-to-use-ai-book-chat-handoff.md` -> reviewed; the tenancy-tribunal
-  scenario extracted to `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md`,
+  scenario extracted to `docs/30-books/31-book-01/research/research-note-johnny-tribunal-scenario.md`,
   and a conflicting series-arc claim flagged in
-  `docs/01-series/open-issues/OI-0002.md`.
+  `docs/10-series/open-issues/OI-0002.md`.
 - `copilot_forced_ai_transcript_research_notes.md` -> moved into
-  `docs/02-book-01/research/research-note-copilot-forced-ai.md`.
+  `docs/30-books/31-book-01/research/research-note-copilot-forced-ai.md`.
 
 With nothing left unreconciled, the archive was pure duplication of material
 that now lives, with proper caveats, under `./docs`.

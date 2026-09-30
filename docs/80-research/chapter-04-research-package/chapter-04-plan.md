@@ -101,16 +101,16 @@ Each covered with a short, concrete, everyday illustration rather than an abstra
 ## Research References
 
 - `legacy-data/book1_ai_literacy_context_reference.md` (Chapter 4 outline and core takeaway — already reconciled into ADR-02-0001)
-- `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md` — relevant illustrative material (hallucinated task completion) but **not used directly in this draft**; the scenario itself remains unapproved for manuscript use per that research note, so this chapter uses only generic, non-attributed illustrations of hallucination instead.
+- `docs/30-books/31-book-01/research/research-note-johnny-tribunal-scenario.md` — relevant illustrative material (hallucinated task completion) but **not used directly in this draft**; the scenario itself remains unapproved for manuscript use per that research note, so this chapter uses only generic, non-attributed illustrations of hallucination instead.
 
 ## Linked ADRs
 
-- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
-- `docs/04-style/decisions/ADR-04-0001-book-01-style-baseline.md`
+- `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/20-style/decisions/ADR-04-0001-book-01-style-baseline.md`
 
 ## Linked OIs
 
-- `docs/02-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
+- `docs/30-books/31-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
 
 ## Risks
 
@@ -130,9 +130,9 @@ Each covered with a short, concrete, everyday illustration rather than an abstra
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-04-what-ai-cannot-do.md` (new)
-- `docs/02-book-01/plans/chapter-04-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/30-books/31-book-01/chapters/chapter-04-what-ai-cannot-do.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-04-plan.md` (this file)
+- `docs/30-books/31-book-01/book-01-structure.md` (update drafting-status table)
 - `changelog.md`
 
 ## Proposed Commit Message
@@ -143,4 +143,4 @@ draft: add chapter 04 plan and draft (what AI cannot do)
 
 ## Depth Expansion (2026-09-21)
 
-Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Added a concrete fabricated-citation example under hallucinations; split "No True Understanding, No Common Sense" and "Knowledge Cutoffs and Training-Data Dependency" into their own H3 subsections with an added concrete example each (a subtly-changed riddle; "current price" style questions). Word count grew from ~1,642 to ~1,960. No existing content, placeholders, or takeaways were removed.
+Expanded per `docs/30-books/31-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Added a concrete fabricated-citation example under hallucinations; split "No True Understanding, No Common Sense" and "Knowledge Cutoffs and Training-Data Dependency" into their own H3 subsections with an added concrete example each (a subtly-changed riddle; "current price" style questions). Word count grew from ~1,642 to ~1,960. No existing content, placeholders, or takeaways were removed.

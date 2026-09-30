@@ -38,7 +38,7 @@ class CoverGeneratorTests(unittest.TestCase):
                     "books": [
                         {
                             "number": 1,
-                            "sourceDirectory": "02-book-01",
+                            "sourceDirectory": "30-books/31-book-01",
                             "title": "AI for Normal People",
                             "description": "Understanding Artificial Intelligence Without the Hype",
                             "descriptor": "No technical skills required",
@@ -49,7 +49,7 @@ class CoverGeneratorTests(unittest.TestCase):
                         },
                         {
                             "number": 2,
-                            "sourceDirectory": "03-book-02",
+                            "sourceDirectory": "30-books/32-book-02",
                             "title": "Practical AI Workflows & Productivity",
                             "description": "",
                             "accentColour": "#0284C7",

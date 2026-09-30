@@ -19,7 +19,7 @@ Publish the How To Use AI.com privacy, website terms, and refund documents suppl
 
 ## Dependencies on ADRs
 
-- `docs/03-publishing/decisions/ADR-03-0006-publisher-imprint-and-catalogue-metadata.md` identifies RePass Cloud Pty Ltd as publisher/operator context.
+- `docs/40-publishing/decisions/ADR-03-0006-publisher-imprint-and-catalogue-metadata.md` identifies RePass Cloud Pty Ltd as publisher/operator context.
 - The supplied legal pack remains authoritative for public policy wording and links.
 
 ## Dependencies on OIs

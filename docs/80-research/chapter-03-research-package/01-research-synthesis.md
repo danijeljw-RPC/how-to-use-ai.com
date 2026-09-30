@@ -937,7 +937,7 @@ Alternative:
 
 # 23. Suggested diagram
 
-![Useful AI work is a loop: goal and context → AI → output → human judgement → use the result, or refine and send it back to the AI.](../../02-book-01/diagrams/human-judgement-ai-work-loop.mmd)
+![Useful AI work is a loop: goal and context → AI → output → human judgement → use the result, or refine and send it back to the AI.](../../30-books/31-book-01/diagrams/human-judgement-ai-work-loop.mmd)
 
 This is stronger than a one-way “input → AI → output” diagram because it shows that useful AI work is iterative.
 

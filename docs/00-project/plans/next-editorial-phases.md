@@ -44,7 +44,7 @@ Final title and subtitle: **AI for Normal People: Understanding Artificial Intel
 
 Implementation note: use this exact title and subtitle in future positioning, front matter, and publishing work.
 
-Status: Answered. Phase 3 must close `docs/02-book-01/open-issues/OI-0002.md` and propagate the final title to the authoritative structure and publishing files.
+Status: Answered. Phase 3 must close `docs/30-books/31-book-01/open-issues/OI-0002.md` and propagate the final title to the authoritative structure and publishing files.
 
 #### Q2 — Intended final length
 
@@ -52,7 +52,7 @@ The intended final range is **65,000–80,000 words**. The current manuscript is
 
 Implementation note: expand through genuine reader value—research, examples, stories, exercises, and clearer explanation—not by repeating ideas to satisfy the number.
 
-Status: Answered. Phase 3 must update the old 55,000–80,000-word target in `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`.
+Status: Answered. Phase 3 must update the old 55,000–80,000-word target in `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`.
 
 #### Q3 — Four-part structure and audience balance
 
@@ -60,7 +60,7 @@ The existing four-part, 14-chapter-plus-epilogue structure and approximately 65%
 
 Recommendation: accept the structure as the editorial baseline unless the detailed critique reveals a specific chapter-level reason to revise it.
 
-Status: Answered — accepted as the baseline. Phase 3 must record this acceptance in `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md` while preserving Phase 2's authority to recommend evidence-based refinements.
+Status: Answered — accepted as the baseline. Phase 3 must record this acceptance in `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md` while preserving Phase 2's authority to recommend evidence-based refinements.
 
 #### Q4 — Beginner simplicity versus technical qualification
 
@@ -102,7 +102,7 @@ Use the Johnny scenario. Johnny is the author's husband, his name may remain, an
 
 Recommendation: use it once in Chapter 4 if permission and privacy are clear; its misunderstanding about background work and hallucinated completion strongly supports the book's core thesis.
 
-Status: Answered. Phase 2 should recommend the best placement and whether it works better once or as a light recurring thread. Source: `docs/02-book-01/research/research-note-johnny-tribunal-scenario.md`.
+Status: Answered. Phase 2 should recommend the best placement and whether it works better once or as a light recurring thread. Source: `docs/30-books/31-book-01/research/research-note-johnny-tribunal-scenario.md`.
 
 #### Q9 — Forced-AI / Copilot research material
 
@@ -110,7 +110,7 @@ Include the relevant generic concepts "forced AI," "the workday test," "trust co
 
 Implementation note: retain useful vendor-specific material only after verification, distinguish evidence from commentary, and do not repeat accusations or figures more strongly than the sources support.
 
-Status: Answered. Source verification and placement are Phase 2 tasks. Source: `docs/02-book-01/research/research-note-copilot-forced-ai.md`.
+Status: Answered. Source verification and placement are Phase 2 tasks. Source: `docs/30-books/31-book-01/research/research-note-copilot-forced-ai.md`.
 
 #### Q10 — Individual author reflections
 
@@ -122,7 +122,7 @@ Status: Strategy answered; individual stories will be gathered during Phase 2.
 
 #### Q11 — Callout-naming OI
 
-Confirm that `docs/02-book-01/open-issues/OI-0001.md` should close as superseded. Its choice between "Plain English" and a new "Reference" callout predates accepted ADR-04-0002, which retired "Plain English" and standardised four callouts: Key Idea, Try This, Watch Out, and Recap.
+Confirm that `docs/30-books/31-book-01/open-issues/OI-0001.md` should close as superseded. Its choice between "Plain English" and a new "Reference" callout predates accepted ADR-04-0002, which retired "Plain English" and standardised four callouts: Key Idea, Try This, Watch Out, and Recap.
 
 Recommendation: close as superseded; do not add a Reference callout unless the future manuscript develops a demonstrated need for one.
 
@@ -216,7 +216,7 @@ If Q5 retains personal reflections, the manuscript currently asks for these 15 a
 
 ## Already Resolved — Do Not Ask Again
 
-- The series has five books. The earlier three-book concept was explicitly superseded; Phase 3 should update `docs/01-series/series-structure.md` so it no longer lists the total book count as open.
+- The series has five books. The earlier three-book concept was explicitly superseded; Phase 3 should update `docs/10-series/series-structure.md` so it no longer lists the total book count as open.
 - Cross-referencing flows backward from later books to earlier books. Book 1 does not need a forward-looking series cross-reference table.
 - The structural formatting and four-callout standard in ADR-04-0002 is accepted.
 - The `legacy-data` archive was intentionally removed after reconciliation. Phase 3 should remove stale live-path instructions without reopening the deletion decision.

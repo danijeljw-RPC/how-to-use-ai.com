@@ -95,12 +95,12 @@ Per ADR-02-0001's Chapter 5 direction: simple before-and-after examples, avoidin
 
 ## Linked ADRs
 
-- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
-- `docs/04-style/decisions/ADR-04-0001-book-01-style-baseline.md`
+- `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/20-style/decisions/ADR-04-0001-book-01-style-baseline.md`
 
 ## Linked OIs
 
-- `docs/02-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
+- `docs/30-books/31-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
 
 ## Risks
 
@@ -117,9 +117,9 @@ Per ADR-02-0001's Chapter 5 direction: simple before-and-after examples, avoidin
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-05-talking-to-ai-properly.md` (new)
-- `docs/02-book-01/plans/chapter-05-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/30-books/31-book-01/chapters/chapter-05-talking-to-ai-properly.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-05-plan.md` (this file)
+- `docs/30-books/31-book-01/book-01-structure.md` (update drafting-status table)
 - `changelog.md`
 
 ## Proposed Commit Message
@@ -130,4 +130,4 @@ draft: add chapter 05 plan and draft (talking to AI properly)
 
 ## Depth Expansion (2026-09-21)
 
-Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split the context/specificity/examples paragraphs into H3 subsections, added a full worked before-and-after example (landlord repair email) under "Iteration Improves Results," and promoted the existing side-by-side examples into their own subsection with one more example. Word count grew from ~1,280 to ~1,580. No existing content, placeholders, or takeaways were removed.
+Expanded per `docs/30-books/31-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split the context/specificity/examples paragraphs into H3 subsections, added a full worked before-and-after example (landlord repair email) under "Iteration Improves Results," and promoted the existing side-by-side examples into their own subsection with one more example. Word count grew from ~1,280 to ~1,580. No existing content, placeholders, or takeaways were removed.

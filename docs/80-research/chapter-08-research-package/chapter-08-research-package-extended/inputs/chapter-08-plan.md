@@ -85,12 +85,12 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 
 ## Linked ADRs
 
-- `docs/02-book-01/decisions/ADR-02-0001-book-01-structure.md`
-- `docs/04-style/decisions/ADR-04-0001-book-01-style-baseline.md`
+- `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`
+- `docs/20-style/decisions/ADR-04-0001-book-01-style-baseline.md`
 
 ## Linked OIs
 
-- `docs/02-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
+- `docs/30-books/31-book-01/open-issues/OI-0001.md` (callout naming — baseline set used, no new gaps)
 
 ## Risks
 
@@ -108,9 +108,9 @@ None required by ADR-02-0001 for this chapter; none added, consistent with using
 
 ## Proposed Files to Change
 
-- `docs/02-book-01/chapters/chapter-08-ai-and-creativity.md` (new)
-- `docs/02-book-01/plans/chapter-08-plan.md` (this file)
-- `docs/02-book-01/book-01-structure.md` (update drafting-status table)
+- `docs/30-books/31-book-01/chapters/chapter-08-ai-and-creativity.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-08-plan.md` (this file)
+- `docs/30-books/31-book-01/book-01-structure.md` (update drafting-status table)
 - `changelog.md`
 
 ## Proposed Commit Message
@@ -121,4 +121,4 @@ draft: add chapter 08 plan and draft (AI and creativity)
 
 ## Depth Expansion (2026-09-21)
 
-Expanded per `docs/02-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AI Across Creative Domains" into five H3 subsections (Writing, Art, Music, Video, Design), each with a concrete worked example, mirroring Chapter 1's per-example subsection pattern directly. Word count grew from ~1,480 to ~1,603. No existing content, placeholders, or takeaways were removed.
+Expanded per `docs/30-books/31-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AI Across Creative Domains" into five H3 subsections (Writing, Art, Music, Video, Design), each with a concrete worked example, mirroring Chapter 1's per-example subsection pattern directly. Word count grew from ~1,480 to ~1,603. No existing content, placeholders, or takeaways were removed.

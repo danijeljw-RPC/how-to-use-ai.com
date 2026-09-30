@@ -2,6 +2,41 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (55)
+
+### Changed
+
+- Renumbered the `docs/` folders in tens, as the author asked. `01-series` is now `10-series`, `04-style` is `20-style`, `02-book-01` is `30-books/31-book-01` and `03-publishing` is `40-publishing`. `00-project`, `80-research` and `90-templates` are unchanged. Books 2 to 5 will go in `30-books/32-book-02` through `35-book-05`.
+- Updated every path reference in `docs/`, `CLAUDE.md`, `publishing/books.json`, the publish script and the tests. Relative links that leave the Book 1 folder gained one extra `../`. Earlier entries in this changelog keep their original paths.
+- `publish-draft-books.sh` now names build outputs after the book folder alone: `dist/31-book-01.pdf` and `dist/31-book-01-preview.pdf`, which replace `dist/02-book-01*.pdf`. It also accepts `31-book-01` as a selector.
+- ADR area codes and OI numbers are unchanged. `CLAUDE.md` now maps each code to its new folder.
+
+### Files changed
+
+- Folder moves (`git mv`): `docs/10-series/`, `docs/20-style/`, `docs/30-books/31-book-01/`, `docs/40-publishing/`
+- Path updates in about 60 Markdown files under `docs/`
+- `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md` (new)
+- `docs/00-project/plans/docs-folder-renumbering-plan.md` (new)
+- `docs/README.md`
+- `CLAUDE.md`
+- `publishing/books.json`
+- `publish-draft-books.sh`
+- `tests/test_publish_draft_books.sh`
+- `tests/test_cover_generator.py`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md`.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `chore: renumber docs folders in tens and nest books under 30-books`
+
 ## 2026-10-01 (54)
 
 ### Changed
