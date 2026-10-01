@@ -2,6 +2,111 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (58)
+
+### Changed
+
+- Replaced the ~1,430-word Chapter 10 template with a full research-backed manuscript (about 11,500 words of prose before notes), drawing on every file in the Chapter 10 research package.
+- The chapter is now organised around tasks rather than job titles. It separates exposure, adoption, workflow change, help-or-replace, demand and labour-market impact, and teaches readers to ask "what exactly did they count?" of headline percentages (IMF, ILO, WEF, Frey and Osborne versus OECD).
+- The four outcomes (change, disappear, evolve, emerge) now use real evidence: the Stanford payroll study, Danish administrative data, freelance platforms, Klarna's filing (as company evidence), the 41-country junior/senior study and new work since 1940. A new subsection covers entry-level workers and apprenticeship tasks.
+- The history section covers transition costs as well as new work: Luddites, Engels' pause, robots in US regions, French firm-versus-industry results, displaced-worker losses (Watch Out), and a bounded ATM example.
+- Augmentation vs. Replacement explains how augmentation can still reduce headcount, why productivity is not job security, the jagged frontier, the METR slowdown, micro gains versus flat Australian productivity, and provider usage data that moves between reports.
+- Added a dedicated Australian subsection (ABS adoption, JSA, Productivity Commission, Fair Work consultation), and non-office examples (receptionist, electrician, aged care).
+- The self-assessment now adds ten questions and four output groups to the effort/judgement heuristic. Adaptability is framed as widening options, not guaranteeing protection.
+- Rechecked the Stanford, 41-country, ABS, Productivity Commission, Klarna, ILO, JSA and Anthropic sources on 1 October 2026. Updated the package's Anthropic usage shares, and dropped its unconfirmed Klarna "human support remains available" claim.
+- Added one portrait diagram and a Chapter 10 bibliography with a claim map, numerical audit, package corrections and recheck priorities.
+- Updated the Chapter 10 plan and the Book 1 drafting status. The chapter is above the drafting prompt's 6,000–8,000-word guidance; candidate cuts are listed in the plan.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`
+- `docs/30-books/31-book-01/research/chapter-10-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/ai-capability-to-labour-impact.mmd` (new)
+- `docs/30-books/31-book-01/plans/chapter-10-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. The plan's Plain English and Myth vs Reality callouts follow ADR-04-0002 (prose definitions; Myth vs Reality as an H2 section), as in Chapters 7 to 9.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `draft: write research-backed chapter 10` (623da23)
+
+## 2026-10-01 (57)
+
+### Changed
+
+- Replaced the ~1,485-word Chapter 9 template with a full research-backed manuscript (about 12,000 words of prose before notes), drawing on every file in the Chapter 9 research package.
+- The chapter now uses a four-question evidence test (capability, prevalence, impact, response) throughout. It covers all nine required risks with concrete Australian-first evidence, and adds a synthesis section on individual, organisational and collective safeguards and what "responsible regulation" means.
+- Labelled the $2.18 billion 2025 scam figure as all reported scams, not AI scams. Labelled data-centre electricity as distinct from AI electricity, and forecasts as forecasts.
+- Corrected the research package's Bunnings summary after checking the OAIC statement: the Tribunal set aside the APP 3 collection finding and allowed consent exceptions for a limited purpose, while upholding the APP 1 and APP 5 findings.
+- Rechecked the ACCC scam figures, Scams Prevention Framework dates and AEMO data-centre forecast on 1 October 2026.
+- Added three diagrams, replacing the plan's individual-versus-society placeholder.
+- Added a Chapter 9 bibliography with a claim map, a numerical-claim audit, corrections to the research package, material reserved for the website, and recheck priorities.
+- Updated the Chapter 9 plan and the Book 1 drafting status.
+- The chapter is above the 6,500–8,500-word guidance. Candidate cuts are listed in the plan.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`
+- `docs/30-books/31-book-01/research/chapter-09-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/risk-claim-evidence-questions.mmd` (new)
+- `docs/30-books/31-book-01/diagrams/ai-risk-safeguard-layers.mmd` (new)
+- `docs/30-books/31-book-01/diagrams/ai-industry-stack-layers.mmd` (new)
+- `docs/30-books/31-book-01/plans/chapter-09-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. The plan's Example and Myth vs Reality callouts follow ADR-04-0002 (prose example subsection; Myth vs Reality as an H2 section), as in Chapters 7 and 8.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `draft: write research-backed chapter 09` (4878136)
+
+## 2026-10-01 (56)
+
+### Changed
+
+- Added a deep-research prompt for each of Chapters 9 to 14. Each matches the depth and structure of the Chapter 8 prompt and is written for its own chapter's plan and draft. Each assumes the plan and draft are uploaded with it.
+- Each prompt includes a list of unverified starting leads for the research system to check or discard.
+- The Chapter 11 prompt covers the author's notes on three audiences (executives, students, seniors).
+- The prompts for Chapters 10, 12, 13 and 14 openly override their plans' "no new external research required" note. The plans themselves are unchanged.
+
+### Files changed
+
+- `docs/80-research/chapter-09-research-package/chapter-09-research-prompt.md` (new)
+- `docs/80-research/chapter-10-research-package/chapter-10-research-prompt.md` (new)
+- `docs/80-research/chapter-11-research-package/chapter-11-research-prompt.md` (new)
+- `docs/80-research/chapter-12-research-package/chapter-12-research-prompt.md` (new)
+- `docs/80-research/chapter-13-research-package/chapter-13-research-prompt.md` (new)
+- `docs/80-research/chapter-14-research-package/chapter-14-research-prompt.md` (new)
+- `docs/30-books/31-book-01/plans/chapters-09-14-research-prompts-plan.md` (new)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `research: add research prompts for chapters 09 to 14`
+
 ## 2026-10-01 (55)
 
 ### Changed

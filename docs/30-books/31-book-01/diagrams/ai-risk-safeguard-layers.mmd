@@ -1,0 +1,16 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    Y["WHAT YOU CAN DO<br/>Verify money requests<br/>Check where a clip came from<br/>Think before you upload<br/>Ask for reasons and review"]
+    O["WHAT ORGANISATIONS MUST DO<br/>Payment controls<br/>Bias testing and appeals<br/>Privacy and security governance<br/>Removing scams and abuse"]
+    G["WHAT NEEDS COLLECTIVE RULES<br/>Privacy, discrimination<br/>and consumer law<br/>Competition policy<br/>Copyright and energy planning"]
+    N["Most risks need more<br/>than one layer. Scams<br/>need all three."]
+    Y --> O --> G
+    G ~~~ N
+    classDef you fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef org fill:#fff4d6,stroke:#916700,color:#332500
+    classDef gov fill:#fdecea,stroke:#b3261e,color:#410e0b
+    classDef note fill:#f1f1f1,stroke:#555555,color:#222222
+    class Y you
+    class O org
+    class G gov
+    class N note
