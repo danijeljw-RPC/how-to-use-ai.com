@@ -38,7 +38,7 @@ All meaningful project changes should be recorded here.
 
 ### Commit
 
-- `publishing: add curated back-of-book index with PDF build support` (pending commit)
+- `publishing: add curated back-of-book index with PDF build support` (a231b8e)
 
 ## 2026-10-01 (63)
 
