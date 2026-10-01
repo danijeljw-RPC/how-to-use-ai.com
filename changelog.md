@@ -2,6 +2,40 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (66)
+
+### Changed
+
+Planned a release (ready-to-print) mode for `publish-draft-books.sh` and produced design options for author review. No build code has changed yet; implementation waits for the author's review (CLAUDE.md: more than three files).
+
+- Added the release edition build plan. It covers `--release` (draft stays the default), `--format paperback,pdf,epub` and `--proof`; paperback interior and wrap-cover PDFs at the confirmed 7.5 × 9.25 in trim; the PDF ebook and EPUB; front and back matter per format; one ISBN per format with a default `90000` price code and a generated EAN-13 + EAN-5 barcode; a back cover driven by `books.json` where empty strings are left out; and a release gate that refuses a build while placeholders remain (Book 1 currently has 13 placeholders and 9 `AUTHOR-INPUT` blocks).
+- Added three single-file HTML design proofs drawn to scale: Option A "Engraving" and Option B "Address bar" (cover wrap with bleed and spine guides, front matter, chapter opener, mirror-margin body spread, about the author, format table, working sample barcode), and four front-cover wordmark treatments that read as `how-to-use-ai.com`.
+- Reviewed `oreillymedia/orm_book_samples`. It is boilerplate for O'Reilly's internal Atlas tooling, so none of its code is reusable here. It was used as a front/back matter checklist, and its legal text shows that O'Reilly treats its cover animal and trade dress as trademarks; that risk is recorded in the plan.
+
+### Files changed
+
+- `docs/40-publishing/plans/release-edition-build-plan.md` (new)
+- `docs/40-publishing/design-options/option-a-engraving.html` (new)
+- `docs/40-publishing/design-options/option-b-address-bar.html` (new)
+- `docs/40-publishing/design-options/cover-wordmark-options.html` (new)
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md` (new, proposed)
+- `docs/40-publishing/open-issues/OI-0007.md` (new)
+- `docs/40-publishing/open-issues/OI-0005.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008 (proposed): release edition build.
+
+### Open issues
+
+- Opened OI-0007: author decisions for the release build (printer, interior ink, paper, design option, wordmark, cover art, notes, references, ISBNs, photo, bio, back-cover copy, price, copyright holder, preface, draft trim size).
+- OI-0005 now points to the release plan.
+
+### Commit
+
+pending commit
+
 ## 2026-10-02 (65)
 
 ### Changed
