@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (62)
+
+### Changed
+
+- Replaced the ~1,270-word Chapter 14 template with a full research-backed manuscript (about 10,600 words before notes), drawing on every file in the Chapter 14 research package and following `chapter-14-writing-prompt.md`.
+- Made the chapter follow its own advice: an evidence standard in the introduction, a capability → deployment → adoption lens with a six-step maturity vocabulary, and the same questions for every direction (what exists, where deployed, what is hard, what was predicted, what to watch).
+- Agents: workflow-versus-agent definition; "answering vs acting with delegated authority" and a keycard analogy with its limits; METR time horizons with stated limitations and no extrapolation; prompt injection / agent hijacking (NIST, OWASP, a patched vendor flaw); identity, permissions, audit and least privilege; the calendar example rebuilt around five authority questions.
+- Robotics: robots as several maturity levels; warehouse scale; Pilbara mining autonomy (new primary source); ISO 10218:2025; an announced warehouse robot later withdrawn; humanoid teleoperation and productive-hours questions; Moravec's paradox as intuition.
+- Education: Bloom's 2 sigma as motivation, not promise; assisted performance vs learning; teachers at task level; Australian framework, EdChat, NSWEduChat and NSW HSC assessment change; detectors unsuitable for high-stakes accusations; conditional equity.
+- Healthcare: FDA >1,600 devices; TGA intended-purpose regulation and scribe scope creep; six categories; MASAI, Epic Sepsis Model external validation and a mixed AI-scribe RCT (all checked); 2025 Australian reviews; discovery-to-treatment stages.
+- Transport: SAE Levels 2/4/5 and the driver-assistance rule; robotaxi safety as company data; Cruise suspension; Australian 2027 conditional-deployment pathway and AVSL; Adelaide AI traffic trials as a bounded problem.
+- Personal assistants as a convergence of conversation, memory, tools and action; announcement vs deployment; on-device not automatically private; accessibility both ways; gradual vs sudden visibility. Brief AI-in-science and energy/compute note.
+- Rebuilt "Why This Chapter Avoids Hard Predictions": wrong in both directions, expert surveys as belief, fast adoption vs slow transformation, scenarios vs forecasts, IASR trajectories, signals to watch (list and table), a future-claim audit (Try This) and "Who Decides?" showing human agency through Australian institutional choices.
+- New diagram `capability-deployment-adoption.mmd` (portrait, rendered with mmdc); one four-column table. Companies generic in prose, as in Chapters 11 and 13. Above the 4,500–6,500-word guidance; candidate cuts are listed in the plan.
+- Committed the user-added Chapter 14 research package.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-14-where-ai-goes-next.md`
+- `docs/30-books/31-book-01/diagrams/capability-deployment-adoption.mmd` (new)
+- `docs/30-books/31-book-01/research/chapter-14-bibliography.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-14-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `docs/80-research/chapter-14-research-package/` (new, user-added)
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Callouts follow ADR-04-0002 (Myth vs Reality as an H2 section; reflection questions in the Recap); citations follow ADR-04-0003.
+
+### Open issues added or closed
+
+- None. Recheck items (including the NTC and Adelaide pages that could not be retrieved) are recorded in the Chapter 14 bibliography, as Chapters 10–13 did.
+
+### Commit
+
+- `draft: write research-backed chapter 14` (pending commit)
+
 ## 2026-10-01 (61)
 
 ### Changed
