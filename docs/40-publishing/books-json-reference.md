@@ -78,3 +78,8 @@ python3 scripts/book_metadata.py --config publishing/books.json --book-number 1 
 - **Format:** JPG (or PNG), sRGB colour. The build converts it to greyscale for the black-and-white interior and keeps colour on the cover, PDF and EPUB.
 - **Size:** at least 1200 × 1500 px (portrait, 4:5), head and shoulders, plain background. That is 300 DPI or better at the largest printed size.
 - A real release build fails if the field names a file that doesn't exist. Set it to `""` to print no photo.
+- On the back cover the photo is cropped to a square from the top centre. On the About the Author page it is shown whole.
+
+## Back Cover Fit
+
+The back cover holds the summary, highlights, endorsements and `shortBio` together. If they don't fit, the build sets the copy smaller, down to 75%, and the release report warns when even that isn't enough. About 50 words of `shortBio` fits comfortably at full size alongside two endorsements. Longer bios work but make the whole back cover smaller.

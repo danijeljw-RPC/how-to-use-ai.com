@@ -2,6 +2,63 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (68)
+
+### Changed
+
+Implemented the house design (Option B, "Address bar") and the release build (ADR-03-0008, plan steps 3–9). Draft, preview and release editions now all use the new design at 7.5 × 9.25 in.
+
+- New interior style (`publishing/latex/howto-book.tex`, `memoir`):
+  - IBM Plex Serif, Sans Condensed and Mono, shipped in `publishing/fonts/` (OFL);
+  - navy chapter bands labelled "Chapter 01";
+  - callouts in their own colours (Key Idea, Watch Out, Try This, Recap) that split across pages (vendored `framed.sty`);
+  - plain quotes with a sky rule, tables in sans, figures numbered 1-1;
+  - running feet with the page number on the outer edge;
+  - mirror margins and bleed for print;
+  - notes at the back of the book, grouped by chapter, each chapter's sources paragraph after its notes;
+  - memoir's index in the contents.
+- New pandoc filter (`publishing/pandoc/book.lua`): chapter openers, callouts, "Chapter Notes" handling, height-capped images.
+- New `scripts/build_matter.py`. It writes the half title, series page, title page, the copyright page (all ISBNs, imprint, edition, NLA line, disclaimers, proof/draft/preview line), dedication, epigraph and contents, plus any `frontmatter/*.md` files. At the back it writes the notes, any `backmatter/*.md` files, About the Author (photo, Markdown bio) and About the Series. Empty `books.json` values are left out.
+- New `scripts/release_cover.py`. It draws the Option B front cover (address-bar wordmark, "Book 1 of 5", title, illustration, seal) and the back cover in paperback, ebook and draft variants (category, price, summary, highlights, endorsements, bio and photo, barcode). It also draws a wrap with bleed for each printer, with the spine width calculated from the page count (KDP and IngramSpark calipers) or a manual override. Copy that doesn't fit is set smaller, down to 75%.
+- `publish-draft-books.sh`:
+  - `--release` (or `--edition release`), `--format paperback,pdf,epub` and `--proof`;
+  - a release check, which fails on unresolved placeholders or missing ISBNs unless `--proof` is given;
+  - paperback outputs: interior typeset in colour, then converted to greyscale with Ghostscript; one cover per printer;
+  - a colour PDF ebook with covers, an EPUB 3 (ISBN identifier, embedded fonts, SVG diagrams, linked index) and a release report;
+  - a clean release folder on each run;
+  - draft and preview builds use the new design; previews say "Preview edition" and get the clean back cover;
+  - `BOOK_PUBLISH_CONFIG` overrides the metadata file.
+- `scripts/assemble_draft_book.py` uses the trim size from `series.print` and embedded Plex fonts. `scripts/isbn_barcode.py` accepts a font.
+- Tests: new `tests/test_build_matter.py` and `tests/test_release_cover.py`. The integration test now expects the new page sizes and runs a full `--release --proof` build. Results: 75 unit tests pass (1 skipped: no zbar), and the integration test passes.
+
+### Files changed
+
+- `publish-draft-books.sh`
+- `publishing/latex/howto-book.tex` (new), `publishing/latex/framed.sty` (new, vendored)
+- `publishing/pandoc/book.lua` (new)
+- `publishing/epub/book.css` (new)
+- `publishing/fonts/` (new: 14 IBM Plex TTFs and `OFL.txt`)
+- `scripts/build_matter.py` (new), `scripts/release_cover.py` (new)
+- `scripts/assemble_draft_book.py`, `scripts/isbn_barcode.py`
+- `tests/test_build_matter.py` (new), `tests/test_release_cover.py` (new), `tests/test_publish_draft_books.sh`
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md`
+- `docs/40-publishing/plans/release-edition-build-plan.md`
+- `docs/40-publishing/open-issues/OI-0005.md`
+- `docs/40-publishing/books-json-reference.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008: implementation recorded.
+
+### Open issues
+
+- OI-0005: gaps 1, 2, 4 and 5 fixed, gap 3 partly. It closes after KDP and IngramSpark preflight.
+
+### Commit
+
+pending commit
+
 ## 2026-10-02 (67)
 
 ### Changed

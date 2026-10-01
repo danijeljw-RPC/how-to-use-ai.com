@@ -20,6 +20,11 @@ This plan needs author review before any code changes (CLAUDE.md: more than thre
 
 Recorded in OI-0007 and ADR-03-0008 (now accepted): print with **both KDP and IngramSpark**, a **black-and-white paperback interior** (colour PDF/EPUB), design **Option B** with **wordmark 3**, and **back-of-book notes grouped by chapter**. Steps 1–2 below (barcode and metadata loader) are done, and the `books.json` fields exist; see `docs/40-publishing/books-json-reference.md`.
 
+**Status 2026-10-02: steps 1–9 implemented** (see ADR-03-0008, "Implementation"). Deviations from the plan:
+- The paperback cover is one file per enabled printer: `<isbn>_cover-kdp.pdf` and `<isbn>_cover-ingramspark.pdf`.
+- EPUB notes stay at the end of each chapter (pandoc's EPUB behaviour). Print and PDF collect them at the back.
+- `epubcheck` runs only when installed (`brew install epubcheck`).
+
 ## Review Material Produced With This Plan
 
 Open these in a browser from the repository checkout. Image paths are relative, so the cover art loads.

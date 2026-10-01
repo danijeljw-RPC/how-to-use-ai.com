@@ -79,6 +79,7 @@ def draw_barcode(
     price_code: str = DEFAULT_PRICE_CODE,
     label: str | None = None,
     background: bool = True,
+    font_name: str | None = None,
 ) -> float:
     """Draw the barcode with its bottom-left corner at (x, y), in points.
 
@@ -89,7 +90,7 @@ def draw_barcode(
     main, addon = ean13_modules(digits), ean5_modules(price_code)
     total = QUIET_LEFT + BAR_MODULES + ADDON_GAP + ADDON_MODULES + QUIET_RIGHT
     module = width / total
-    font = _pdf_font_name(False)
+    font = font_name or _pdf_font_name(False)
     digit_size = module * 9      # human-readable digits
     label_size = module * 8      # "ISBN ..." line above the bars
     bar_height = module * 56     # normal bars

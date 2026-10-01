@@ -26,7 +26,6 @@ test -f dist/covers/book-01-front-cover-preview.png
 test -f dist/covers/book-01-back-cover.png
 test -f dist/covers/book-01-back-cover.pdf
 test -f dist/covers/book-01-back-cover-preview.png
-test -f assets/covers/preview-placeholder.png
 
 diagram_pdf="$(find tmp/pdfs/31-book-01-diagrams -maxdepth 1 -type f -name 'recommendation-engine-feedback-loop-*.pdf' -print -quit)"
 test -n "$diagram_pdf"
@@ -36,9 +35,8 @@ if rg -n '!\[[^]]+\]\([^)]*\.mmd' dist/31-book-01.md; then
 fi
 
 front_dimensions="$(identify -format '%wx%h' dist/covers/book-01-front-cover.png)"
-placeholder_dimensions="$(identify -format '%wx%h' assets/covers/preview-placeholder.png)"
-[[ "$front_dimensions" == "2100x3000" ]]
-[[ "$placeholder_dimensions" == "1800x2700" ]]
+# 7.5 x 9.25in at 300 DPI (ADR-03-0008).
+[[ "$front_dimensions" == "2250x2775" ]]
 
 BOOK_PDF="$ROOT_DIR/dist/31-book-01.pdf" MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/31-book-01-manuscript.pdf" DIAGRAM_PDF="$diagram_pdf" "$TEST_PYTHON" - <<'PY'
 import os
@@ -49,8 +47,8 @@ manuscript = PdfReader(os.environ["MANUSCRIPT_PDF"])
 diagram = PdfReader(os.environ["DIAGRAM_PDF"])
 assert len(reader.pages) == len(manuscript.pages) + 3
 for page in reader.pages:
-    assert abs(float(page.mediabox.width) - 504.0) < 0.5
-    assert abs(float(page.mediabox.height) - 720.0) < 0.5
+    assert abs(float(page.mediabox.width) - 540.0) < 0.5
+    assert abs(float(page.mediabox.height) - 666.0) < 0.5
 assert "internal and review distribution only" in (reader.pages[1].extract_text() or "").lower()
 assert "/Font" in reader.pages[-1]["/Resources"]  # vector back cover
 diagram_page = diagram.pages[0]
@@ -64,7 +62,7 @@ PY
 # The full build ends with the back-of-book index (ADR-03-0007).
 rg -q '\\printindex' dist/31-book-01.md
 rg -q '\\index\{hallucination@Hallucination\}' dist/31-book-01.md
-rg -q '0 rejected' tmp/pdfs/31-book-01-latex/manuscript.ilg
+rg -q '0 rejected' tmp/pdfs/31-book-01-latex/book.ilg
 MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/31-book-01-manuscript.pdf" "$TEST_PYTHON" - <<'PY'
 import os
 from pypdf import PdfReader
@@ -99,6 +97,40 @@ assert len(reader.pages) == len(manuscript.pages) + 4
 assert "preview edition" in (reader.pages[1].extract_text() or "").lower()
 assert "end of preview" in (reader.pages[-2].extract_text() or "").lower()
 assert "/Font" in reader.pages[-1]["/Resources"]  # vector back cover
+PY
+
+# Release proof (ADR-03-0008): every format, house design, print geometry.
+BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./publish-draft-books.sh book 1 --release --proof 2>&1 | tee "$BUILD_LOG"
+if rg -n '\[WARNING\]' "$BUILD_LOG"; then
+  echo "Release publication emitted warnings." >&2
+  exit 1
+fi
+RELEASE_DIR="$ROOT_DIR/dist/release/31-book-01" "$TEST_PYTHON" - <<'PY'
+import os
+import zipfile
+from pathlib import Path
+from pypdf import PdfReader
+
+release = Path(os.environ["RELEASE_DIR"])
+interior = next(release.glob("*_interior.pdf"))
+pages = PdfReader(interior).pages
+assert all(abs(float(p.mediabox.width) - 549.0) < 0.5 and abs(float(p.mediabox.height) - 684.0) < 0.5
+           for p in pages), "paperback interior must be 7.5 x 9.25in plus 0.125in bleed"
+text = " ".join((pages[i].extract_text() or "") for i in range(12))
+assert "Proof copy" in text and "Contents" in text
+for cover in release.glob("*_cover-*.pdf"):
+    box = PdfReader(cover).pages[0].mediabox
+    assert abs(float(box.height) - 684.0) < 0.5
+    assert float(box.width) > 2 * 540 + 18, f"{cover.name} has no spine"
+assert len(list(release.glob("*_cover-*.pdf"))) == 2, "one cover per enabled printer"
+ebook = PdfReader(release / "31-book-01-ebook.pdf").pages
+assert abs(float(ebook[0].mediabox.width) - 540.0) < 0.5
+with zipfile.ZipFile(release / "31-book-01.epub") as epub:
+    assert epub.read("mimetype") == b"application/epub+zip"
+    names = epub.namelist()
+    assert any(name.endswith(".ttf") for name in names)
+    assert any(name.endswith(".svg") for name in names)
+assert (release / "31-book-01-release-report.md").is_file()
 PY
 
 echo "Draft publication integration test passed."
