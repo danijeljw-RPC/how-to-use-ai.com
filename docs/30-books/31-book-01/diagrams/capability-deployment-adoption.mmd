@@ -1,0 +1,16 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    C["CAPABILITY<br/>Can it do the task<br/>in a test, lab or demo?"]
+    B1["Then it must clear:<br/>reliability, security,<br/>cost, infrastructure"]
+    D["DEPLOYMENT<br/>Does it run in the<br/>real world safely,<br/>legally and affordably?"]
+    B2["Then it must clear:<br/>integration, training,<br/>liability, regulation,<br/>trust"]
+    A["ADOPTION<br/>Do people use it<br/>routinely enough to<br/>change how things work?"]
+    N["Each stage moves at<br/>its own speed, and real<br/>use feeds back into<br/>capability"]
+    C --> B1 --> D --> B2 --> A
+    A ~~~ N
+    classDef stage fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef gate fill:#fff4d6,stroke:#916700,color:#332500
+    classDef note fill:#eef7ee,stroke:#2e7d32,color:#11331a
+    class C,D,A stage
+    class B1,B2 gate
+    class N note
