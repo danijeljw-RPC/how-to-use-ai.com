@@ -28,7 +28,7 @@ All meaningful project changes should be recorded here.
 
 ### Commit
 
-- pending commit
+- `draft: rewrite epilogue with reference table and tagged author input` (144f6ab)
 
 ## 2026-10-01 (62)
 
