@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (67)
+
+### Changed
+
+Recorded the author's release-build decisions and added the release metadata fields, the loader and the barcode generator (plan steps 1–2). Draft builds are unchanged; the draft integration test passes.
+
+- `publishing/books.json` gains `series.about`, `series.authorProfile` (photo `assets/author/author-photo.jpg`, short and long bio, website), `series.publisher`, `series.defaultPriceCode` (`90000`) and `series.print` (7.5 × 9.25 in trim, bleed, black-and-white interior, per-printer KDP and IngramSpark caliper and spine settings). Each book gains `copyright`, `editions` (paperback, PDF and EPUB ISBNs, display form, price code, optional printed prices) and `backCover`. Book 1's back-cover copy is the sample text from the design options, for the author to edit. Every new value the author must supply is `""`, so it is left out until filled in.
+- Added `scripts/book_metadata.py`. It loads one book's metadata with every empty value removed (an endorsement without a quote is dropped), validates ISBN-13 check digits and price codes, and lists release blockers: missing ISBNs, copyright holder, a missing photo file, and visible placeholder or author-input text with file and line. Run with `--check` to see what blocks a release.
+- Added `scripts/isbn_barcode.py`: a vector EAN-13 + EAN-5 barcode with an embedded font, drawn into any ReportLab canvas or as a standalone PDF.
+- Added `docs/40-publishing/books-json-reference.md` (every field, the empty-string rule, author photo name and specification) and `assets/author/README.md`.
+- The ADR, OI and plan record the author's answers. Item 2 is read as a black-and-white paperback interior with colour PDF/EPUB; this is marked as an assumption in OI-0007.
+
+### Files changed
+
+- `publishing/books.json`
+- `scripts/book_metadata.py` (new)
+- `scripts/isbn_barcode.py` (new)
+- `tests/test_book_metadata.py` (new)
+- `tests/test_isbn_barcode.py` (new)
+- `assets/author/README.md` (new)
+- `docs/40-publishing/books-json-reference.md` (new)
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md`
+- `docs/40-publishing/open-issues/OI-0007.md`
+- `docs/40-publishing/plans/release-edition-build-plan.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008 accepted: KDP and IngramSpark, black-and-white paperback interior, Option B, wordmark 3, back-of-book notes grouped by chapter.
+
+### Open issues
+
+- OI-0007 partly answered (items 1, 2, 4, 5, 7; JSON fields created for 9–14 and 16).
+
+### Commit
+
+pending commit
+
 ## 2026-10-02 (66)
 
 ### Changed

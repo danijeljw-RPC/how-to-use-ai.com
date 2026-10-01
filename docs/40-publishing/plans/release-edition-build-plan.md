@@ -16,6 +16,10 @@ The paperback trim size is **7.5 × 9.25 in (190 × 235 mm)**, confirmed by the 
 
 This plan needs author review before any code changes (CLAUDE.md: more than three files).
 
+## Author Decisions (2026-10-02)
+
+Recorded in OI-0007 and ADR-03-0008 (now accepted): print with **both KDP and IngramSpark**, a **black-and-white paperback interior** (colour PDF/EPUB), design **Option B** with **wordmark 3**, and **back-of-book notes grouped by chapter**. Steps 1–2 below (barcode and metadata loader) are done, and the `books.json` fields exist; see `docs/40-publishing/books-json-reference.md`.
+
 ## Review Material Produced With This Plan
 
 Open these in a browser from the repository checkout. Image paths are relative, so the cover art loads.
@@ -57,7 +61,7 @@ Release files go to `dist/release/<book-folder>/`:
 | File | Use |
 | --- | --- |
 | `<isbn>_interior.pdf` | Paperback interior, 7.5 × 9.25 in, mirror margins, blank versos, embedded fonts, no cover |
-| `<isbn>_cover.pdf` | Paperback wrap cover: back + spine + front, 0.125 in bleed, barcode |
+| `<isbn>_cover-kdp.pdf`, `<isbn>_cover-ingramspark.pdf` | Paperback wrap cover per printer: back + spine + front, 0.125 in bleed, barcode. The spine width differs by printer paper. |
 | `<book-folder>-ebook.pdf` | PDF ebook: front cover as page 1, linked contents and index, no blank pages |
 | `<book-folder>.epub` | EPUB 3, reflowable, ISBN in metadata, cover image, linked index (ADR-03-0007 anchor mode) |
 | `<book-folder>-release-report.md` | Page count, spine width used, ISBNs, fonts, and checks passed |

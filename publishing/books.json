@@ -18,6 +18,41 @@
       "widthPixels": 1800,
       "heightPixels": 2700,
       "placeholder": "assets/covers/preview-placeholder.png"
+    },
+    "about": "The how-to-use-ai.com series starts with someone who has never touched AI and finishes with someone who can design AI systems. Each book assumes only what the books before it taught.",
+    "authorProfile": {
+      "photo": "assets/author/author-photo.jpg",
+      "shortBio": "",
+      "bio": "",
+      "website": ""
+    },
+    "publisher": {
+      "name": "RePass Cloud Pty Ltd",
+      "imprint": "How To Use AI.com",
+      "address": "",
+      "website": "how-to-use-ai.com"
+    },
+    "defaultPriceCode": "90000",
+    "print": {
+      "trimWidthInches": 7.5,
+      "trimHeightInches": 9.25,
+      "bleedInches": 0.125,
+      "interiorInk": "black-and-white",
+      "paper": "white",
+      "printers": {
+        "kdp": {
+          "enabled": true,
+          "paperCaliperInches": 0.002252,
+          "minimumPagesForSpineText": 80,
+          "spineWidthOverrideInches": ""
+        },
+        "ingramspark": {
+          "enabled": true,
+          "paperCaliperInches": 0.0025,
+          "minimumPagesForSpineText": 48,
+          "spineWidthOverrideInches": ""
+        }
+      }
     }
   },
   "books": [
@@ -40,6 +75,56 @@
       "epigraph": {
         "quote": "Any sufficiently advanced technology is indistinguishable from magic.",
         "author": "Arthur C. Clarke"
+      },
+      "copyright": {
+        "holder": "",
+        "year": "2026",
+        "edition": "First edition",
+        "publicationMonth": ""
+      },
+      "editions": {
+        "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "pdf": {
+          "isbn": "",
+          "isbnDisplay": ""
+        },
+        "epub": {
+          "isbn": "",
+          "isbnDisplay": ""
+        }
+      },
+      "backCover": {
+        "category": "Technology / Artificial intelligence",
+        "summary": [
+          "You've already been using AI in your maps, your inbox, your bank and your streaming queue. This book explains what's actually going on, in plain English, without the hype or the jargon.",
+          "AI is software that finds patterns and makes predictions. Once you see it that way, the headlines get less alarming, the tools get more useful, and you can decide for yourself where AI belongs in your life and your work."
+        ],
+        "highlightsLead": "In this book you'll learn how to:",
+        "highlights": [
+          "Spot the AI you already use every day",
+          "Understand what AI can and can't do, and why it sounds so sure of itself",
+          "Ask AI tools for what you actually want",
+          "Use AI at home and at work without handing over your judgement",
+          "Tell real progress from hype"
+        ],
+        "endorsements": [
+          {
+            "quote": "",
+            "attribution": ""
+          },
+          {
+            "quote": "",
+            "attribution": ""
+          }
+        ]
       }
     },
     {
@@ -54,12 +139,49 @@
       ],
       "image": "assets/covers/book-02.png",
       "theme": "use",
-        "dedication": {
+      "dedication": {
         "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
       },
       "epigraph": {
         "quote": "There is surely nothing quite so useless as doing with great efficiency something that should not be done at all.",
         "author": "Peter F. Drucker"
+      },
+      "copyright": {
+        "holder": "",
+        "year": "",
+        "edition": "First edition",
+        "publicationMonth": ""
+      },
+      "editions": {
+        "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "pdf": {
+          "isbn": "",
+          "isbnDisplay": ""
+        },
+        "epub": {
+          "isbn": "",
+          "isbnDisplay": ""
+        }
+      },
+      "backCover": {
+        "category": "",
+        "summary": [],
+        "highlightsLead": "",
+        "highlights": [],
+        "endorsements": [
+          {
+            "quote": "",
+            "attribution": ""
+          }
+        ]
       }
     },
     {
@@ -80,6 +202,43 @@
       "epigraph": {
         "quote": "A system must be managed. It will not manage itself.",
         "author": "W. Edwards Deming"
+      },
+      "copyright": {
+        "holder": "",
+        "year": "",
+        "edition": "First edition",
+        "publicationMonth": ""
+      },
+      "editions": {
+        "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "pdf": {
+          "isbn": "",
+          "isbnDisplay": ""
+        },
+        "epub": {
+          "isbn": "",
+          "isbnDisplay": ""
+        }
+      },
+      "backCover": {
+        "category": "",
+        "summary": [],
+        "highlightsLead": "",
+        "highlights": [],
+        "endorsements": [
+          {
+            "quote": "",
+            "attribution": ""
+          }
+        ]
       }
     },
     {
@@ -100,6 +259,43 @@
       "epigraph": {
         "quote": "The future cannot be predicted, but futures can be invented.",
         "author": "Dennis Gabor"
+      },
+      "copyright": {
+        "holder": "",
+        "year": "",
+        "edition": "First edition",
+        "publicationMonth": ""
+      },
+      "editions": {
+        "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "pdf": {
+          "isbn": "",
+          "isbnDisplay": ""
+        },
+        "epub": {
+          "isbn": "",
+          "isbnDisplay": ""
+        }
+      },
+      "backCover": {
+        "category": "",
+        "summary": [],
+        "highlightsLead": "",
+        "highlights": [],
+        "endorsements": [
+          {
+            "quote": "",
+            "attribution": ""
+          }
+        ]
       }
     },
     {
@@ -120,6 +316,43 @@
       "epigraph": {
         "quote": "Programs must be written for people to read, and only incidentally for machines to execute.",
         "author": "Harold Abelson, Gerald Jay Sussman, and Julie Sussman, Structure and Interpretation of Computer Programs"
+      },
+      "copyright": {
+        "holder": "",
+        "year": "",
+        "edition": "First edition",
+        "publicationMonth": ""
+      },
+      "editions": {
+        "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "pdf": {
+          "isbn": "",
+          "isbnDisplay": ""
+        },
+        "epub": {
+          "isbn": "",
+          "isbnDisplay": ""
+        }
+      },
+      "backCover": {
+        "category": "",
+        "summary": [],
+        "highlightsLead": "",
+        "highlights": [],
+        "endorsements": [
+          {
+            "quote": "",
+            "attribution": ""
+          }
+        ]
       }
     }
   ]
