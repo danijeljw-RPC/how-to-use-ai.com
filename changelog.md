@@ -36,7 +36,7 @@ All meaningful project changes should be recorded here.
 
 ### Commit
 
-- `draft: write research-backed chapter 10` (pending commit)
+- `draft: write research-backed chapter 10` (623da23)
 
 ## 2026-10-01 (57)
 
