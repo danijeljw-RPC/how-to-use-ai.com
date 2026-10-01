@@ -43,7 +43,7 @@ Purpose: transition from theory into practical life usage; show how AI helps ord
 Purpose: give the book credibility and balance; avoid hype and panic; explain real risks without sensationalism.
 
 1. **The Problems Nobody Should Ignore** — research-backed manuscript with three diagrams ready for author review; author reflection pending (`docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`)
-1. **Will AI Replace Jobs?** — draft complete (`docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`)
+1. **Will AI Replace Jobs?** — research-backed manuscript with one diagram ready for author review; author reflection pending (`docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`)
 1. **AI Hype vs Reality** — draft complete (`docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`) — completes Part 3
 
 ### Part 4 — Preparing for the Future
@@ -119,7 +119,7 @@ Use `docs/20-style/callout-guide.md`'s baseline set consistently. See `docs/30-b
 | 7 | AI at Work | Done | Done — research-backed manuscript; author reflection pending |
 | 8 | AI and Creativity | Done | Done — research-backed manuscript; author reflection pending |
 | 9 | The Problems Nobody Should Ignore | Done | Done — research-backed manuscript; author reflection pending |
-| 10 | Will AI Replace Jobs? | Done | Done |
+| 10 | Will AI Replace Jobs? | Done | Done — research-backed manuscript; author reflection pending |
 | 11 | AI Hype vs Reality | Done | Done |
 | 12 | How to Stay Relevant in the AI Era | Done | Done |
 | 13 | Building Your Personal AI Toolkit | Done | Done |
