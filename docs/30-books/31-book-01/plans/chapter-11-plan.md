@@ -123,3 +123,54 @@ draft: add chapter 11 plan and draft (AI hype vs reality)
 ## Depth Expansion (2026-09-21)
 
 Expanded per `docs/30-books/31-book-01/plans/book-01-chapter-depth-expansion-plan.md`. Split "AGI Panic and Doom Claims" into "Doom Claims" and "Utopian Promises," and split "Startup Hype, Fake Demos, and Investor Marketing" into "Why Hype Persists" and "Demo vs. Product vs. Research Claim" (with a self-driving-car worked example added). Word count grew from ~1,227 to ~1,279. No existing content, placeholders, or takeaways were removed.
+
+## Research-Backed Manuscript (2026-10-01)
+
+### Summary
+
+Replaced the ~1,280-word template with a full research-backed manuscript (about 12,600 words of prose before notes), drawing on every file in `docs/80-research/chapter-11-research-package/`. Chapters 4, 7, 9 and 10 were reviewed for continuity (Chapter 10 from its draft commit `623da23` on branch `book01/chap10-draft`, which is not yet merged into this branch), and the Chapter 14 plan and template were checked for reuse of the evaluation method.
+
+### Changes to the Plan
+
+- **Sections.** The ten planned sections are kept in order. Minor structural additions: "What 'Transformative' Actually Means Here", "Five Kinds of Claim" and "Possible Is Not the Same as Dependable" sit inside the introduction so later sections can use them; benchmarks, "AI beats humans", source chains and the worked example sit inside the evaluation-method section; executive and bubble material sits inside the commercial-hype section; audience-specific material (executives, students, older adults) is integrated rather than given separate sections. The Part 3 recap is an H2 titled "Chapter and Part 3 Recap".
+- **Claim types.** Forecast added as a fourth core claim type alongside demo, product and research result, with company announcement and anecdote as additional types. Required for Chapter 14.
+- **Evaluation method.** The three questions are replaced by five: What kind of claim is this? What exactly is claimed, and compared with what? Where did it come from? Who else has checked it? What would change my mind? "Who benefits?" is kept inside question 4 as verification effort, not a verdict.
+- **Self-driving example** replaced with the operating-envelope concept, reflecting public driverless ride-hailing in 14 US cities (September 2026).
+- **Callouts.** Plain English and Myth vs Reality are retired callout types under ADR-04-0002. The Plain English demo/product/research distinction became the "Five Kinds of Claim" table and prose; Myth vs Reality is an H2 section. Callouts used: Key Idea, Watch Out (×2), Try This, Recap.
+- **Diagram.** The plan said none; one was added because the five questions are the chapter's main reusable deliverable and Chapter 14 will reuse them: `docs/30-books/31-book-01/diagrams/ai-claim-five-questions.mmd` (portrait, validated with the repository renderer).
+- **Naming.** Companies, products and individuals remain unnamed in prose, per this plan. Real cases are described generically and identified in endnotes and the bibliography. Regulators and public institutions are named.
+- **Author's notes.** Horses-to-cars replaced by factory electrification (with the reason given in prose); "calculator for words" used with its limit stated; microwave limited to "unfamiliar becomes ordinary", with satnav as the better analogy; "bicycle for the mind" not used; "zero awareness" wording not used (Chapter 4's position applies); "task automation, not job automation" reframed.
+
+### Linked Open Issues Added
+
+- `docs/30-books/31-book-01/open-issues/OI-0005.md` — claims from outside the research package to confirm.
+- `docs/30-books/31-book-01/open-issues/OI-0006.md` — Chapter 14 must adopt the revised method.
+
+### Acceptance Check
+
+- All ADR-02-0001 categories covered (AGI panic, doom, utopia, startup hype, demos, investor marketing): yes.
+- No companies, products or individuals named in prose: yes (endnotes identify sources).
+- Hype-scepticism distinguished from risk-denial: yes ("The Serious Version of the Worry", "Why Serious People Disagree", Watch Out on calibration).
+- Concrete, reusable method: yes (five questions, worked example, forecast applications).
+- Reflection placeholder preserved, baseline callouts only: yes.
+
+### Length
+
+The chapter is above the 6,500–8,500-word guidance, as Chapters 8–10 were. Candidate cuts if the author wants a shorter chapter, in order of least loss: (1) "Is It a Bubble?" reduced to one paragraph; (2) the materials and poverty paragraphs in "When a Tool Gets Promoted to a Solution"; (3) the older-adult and satnav paragraphs condensed; (4) "Using the Method on the Future" reduced to the AGI example (Chapter 14 can carry the rest); (5) "What the Famous Statements Actually Said" shortened to the survey discussion.
+
+### Files Changed
+
+- `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`
+- `docs/30-books/31-book-01/research/chapter-11-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/ai-claim-five-questions.mmd` (new)
+- `docs/30-books/31-book-01/open-issues/OI-0005.md` (new)
+- `docs/30-books/31-book-01/open-issues/OI-0006.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-11-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Commit Message
+
+```text
+draft: write research-backed chapter 11
+```

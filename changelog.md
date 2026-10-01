@@ -2,6 +2,45 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (59)
+
+### Changed
+
+- Replaced the ~1,280-word Chapter 11 template with a full research-backed manuscript (about 12,600 words of prose before notes), drawing on every file in the Chapter 11 research package.
+- Added forecast as its own claim type, a possible-to-dependable ladder, and the operating-envelope idea, which replaces the outdated self-driving example.
+- Replaced the three-question method with five questions: what kind of claim, what exactly and compared with what, where it came from, who else has checked it, and what would change my mind. "Who benefits?" now sets how hard to check, not the answer.
+- Added a worked example of the "95% of AI projects fail" statistic, checked against the report itself on 1 October 2026. The report states its 95/5 split three different ways and calls its figures "directionally accurate based on individual interviews".
+- Covered AGI definitions, the long-term-risk disagreement, expert surveys, utopian claims, edited demos, AI washing (US and Australian regulators), benchmarks, "AI beats humans", anti-hype as hype, underhype, and examples for executives, students and older adults.
+- Kept companies, products and individuals unnamed in prose, per the plan; endnotes and the bibliography identify sources.
+- Rechecked the bar-exam re-analysis, expert survey, student study, international safety report and driverless ride-hailing status on 1 October 2026.
+- Added one diagram (the five questions) and a Chapter 11 bibliography.
+- The chapter is above the 6,500–8,500-word guidance. Candidate cuts are listed in the plan.
+- Numbered (59) to follow Chapter 10's entry (58). Chapter 10 was drafted on `book01/chap10-draft` and merged into `book01/chap11` before this branch.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`
+- `docs/30-books/31-book-01/research/chapter-11-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/ai-claim-five-questions.mmd` (new)
+- `docs/30-books/31-book-01/open-issues/OI-0005.md` (new)
+- `docs/30-books/31-book-01/open-issues/OI-0006.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-11-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Plain English and Myth vs Reality follow ADR-04-0002 (table and prose; Myth vs Reality as an H2 section), as in Chapters 7–9.
+
+### Open issues added or closed
+
+- Added `docs/30-books/31-book-01/open-issues/OI-0005.md` (Chapter 11 claims to confirm).
+- Added `docs/30-books/31-book-01/open-issues/OI-0006.md` (Chapter 14 must adopt the revised method).
+
+### Commit
+
+- `draft: write research-backed chapter 11` (14efa91)
+
 ## 2026-10-01 (58)
 
 ### Changed
