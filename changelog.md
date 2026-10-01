@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (65)
+
+### Changed
+
+Addressed the Codex review comments collected in GitHub issue #15 (PRs #14, #16–#20).
+
+- Restored ADR-02-0001 from `docs/30-books/31-book-01/chapters/decisions/` to its canonical `docs/30-books/31-book-01/decisions/` path. Commit `5164959` had moved it, breaking 33 references. Replaced the "stale path" notes in the Chapter 12–14 plans with a record of the restore.
+- Chapter 11: anecdotes are now an explicit aside (evidence that can appear inside any claim type), not a sixth kind of claim, so the "Five Kinds of Claim" count is consistent in the prose, question 1, the diagram and the recap. The Chapter 11 plan now records this.
+- Chapter 11: the weather-model example no longer says it "holds up under independent evaluation". It is described as a peer-reviewed result whose cited evidence comes from the model's creators.
+- Chapter 11 Chapter Notes: the 1 October verification statement no longer includes the expert-survey comparison and the bar-exam re-analysis. These are now described as checked only against abstracts or summaries, matching OI-0005 items 4 and 5.
+- Chapter 14 Try This: "Who benefits if you believe it now?" now reads as a prompt to check more carefully, in line with Chapter 11's question 4. The rest of the Chapter 14 points in the review had already been fixed on this branch.
+- Regenerated the line index (one new locator).
+
+### Files changed
+
+- `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md` (moved back)
+- `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`
+- `docs/30-books/31-book-01/chapters/chapter-14-where-ai-goes-next.md`
+- `docs/30-books/31-book-01/diagrams/ai-claim-five-questions.mmd`
+- `docs/30-books/31-book-01/plans/chapter-11-plan.md`
+- `docs/30-books/31-book-01/plans/chapter-12-plan.md`
+- `docs/30-books/31-book-01/plans/chapter-13-plan.md`
+- `docs/30-books/31-book-01/plans/chapter-14-plan.md`
+- `docs/30-books/31-book-01/index/book-01-index-lines.md` (regenerated)
+- `changelog.md`
+
+### Decisions
+
+None added or changed.
+
+### Open issues
+
+None added or closed. OI-0005 (Book 1) items 4 and 5 remain open.
+
+### Commit
+
+pending commit
+
 ## 2026-10-01 (64)
 
 ### Changed
