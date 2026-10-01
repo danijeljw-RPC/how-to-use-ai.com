@@ -1,6 +1,6 @@
 {
   "series": {
-    "title": "How To Use AI.com",
+    "title": "How-To-Use-AI.com",
     "descriptor": "THE COMPLETE GUIDE SERIES",
     "tagline": "Understand • Explore • Apply • Grow",
     "author": "Danijel-James Wynyard-McClay",
@@ -34,6 +34,9 @@
       ],
       "image": "assets/covers/book-01.png",
       "theme": "understand",
+      "dedication": {
+        "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
+      },
       "epigraph": {
         "quote": "Any sufficiently advanced technology is indistinguishable from magic.",
         "author": "Arthur C. Clarke"
@@ -51,6 +54,9 @@
       ],
       "image": "assets/covers/book-02.png",
       "theme": "use",
+        "dedication": {
+        "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
+      },
       "epigraph": {
         "quote": "There is surely nothing quite so useless as doing with great efficiency something that should not be done at all.",
         "author": "Peter F. Drucker"
@@ -68,6 +74,9 @@
       ],
       "image": "assets/covers/book-03.png",
       "theme": "operate",
+      "dedication": {
+        "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
+      },
       "epigraph": {
         "quote": "A system must be managed. It will not manage itself.",
         "author": "W. Edwards Deming"
@@ -85,6 +94,9 @@
       ],
       "image": "assets/covers/book-04.png",
       "theme": "build",
+      "dedication": {
+        "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
+      },
       "epigraph": {
         "quote": "The future cannot be predicted, but futures can be invented.",
         "author": "Dennis Gabor"
@@ -102,6 +114,9 @@
       ],
       "image": "assets/covers/book-05.png",
       "theme": "engineer",
+      "dedication": {
+        "text": "For Johnny,\n\nwho has endured more midnight conversations about AI, technology, and whatever else my ADHD brain has decided is fascinating that night than any husband reasonably should.\n\nYou listen while I excitedly explain one more idea when we should both be asleep, knowing full well that “one more thing” is never actually one more thing.\n\nAnd somehow, without fail, you still love me every day.\n\nThis book is for you."
+      },
       "epigraph": {
         "quote": "Programs must be written for people to read, and only incidentally for machines to execute.",
         "author": "Harold Abelson, Gerald Jay Sussman, and Julie Sussman, Structure and Interpretation of Computer Programs"
