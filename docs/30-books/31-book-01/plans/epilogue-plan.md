@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved (proceeding without per-chapter review pause per user direction in this session)
+Rewritten 2026-10-01 (see Full Rewrite below). Originally approved (proceeding without per-chapter review pause per user direction in this session)
 
 ## Date
 
@@ -97,6 +97,35 @@ Per ADR-02-0001, the Epilogue is intentionally short and reflective; heavy callo
 - It delivers all four points from ADR-02-0001's Epilogue message directly
 - It ends with a concrete, actionable next step, not just an abstract sentiment
 - It includes one personal reflection placeholder with appropriately elevated emotional framing
+
+## Full Rewrite (2026-10-01)
+
+Rewritten at the author's request to the depth and quality standard of `chapter-14-writing-prompt.md` (and its Chapter 12 and 13 equivalents), while staying an epilogue rather than a fifteenth chapter. The general rules from those prompts were applied: finished book prose, no new unsupported claims, concrete situations instead of generic reassurance, calibrated rather than antiseptic caution, no invented personal experience, and explicit author placeholders.
+
+Changes from the 2026-09-21 draft:
+
+- Opens with the Douglas Adams "Don't Panic" allusion (footnoted) and frames the title as calm preparation, not "nothing to worry about".
+- New "What You Can Do Now" section: five everyday situations (confident wrong answer, job-replacement headline, voice-clone call, trending app, anxious colleague) showing the reader's new habits in use, each tied to the chapter it came from.
+- Keeps all four ADR-02-0001 messages as sections, adds a fifth ("You Don't Need to Keep Up With Everything") drawn from Chapters 13 and 14.
+- New "book on one page" reference table: situation → question to ask → source chapter, covering Chapters 1–14. Questions restate the chapter wording (Ch 9 four questions, Ch 11 five questions, Ch 13 five short questions, Ch 14 capability/deployment/adoption).
+- New "Calm Is Not the Same as Complacent" section, which qualifies "the people who adapt calmly will do well" with Chapter 10's conditions so the epilogue does not overclaim.
+- New "When the Details Go Out of Date" section on keeping principles when examples date.
+- "One Small Next Step" expanded into a three-part, seven-day Try This plus an optional fourth step (explain one idea to someone else).
+- Short series-continuation section (Books 2–5 described by scope only, no titles or dates).
+- Chapter Notes added (AI-assistance note per ADR-04-0003; scenarios marked as teaching illustrations).
+
+Callouts: one Key Idea and one Try This, within ADR-04-0002's one-to-three guideline. The plan's original "one Key Idea only" was relaxed to add the Try This because the practical next step is the epilogue's main useful payload. No Recap callout: the epilogue is itself the book's recap, and the reference table does that job.
+
+Length: about 3,000 words of prose (about 3,400 including placeholders and notes). This is longer than the earlier 936-word draft but still far shorter than the numbered chapters, in keeping with ADR-02-0001's short, reflective close.
+
+### Author input (tagged sections)
+
+Author-input blocks are wrapped in `<!-- AUTHOR-INPUT id="EPI-n" status="..." -->` … `<!-- /AUTHOR-INPUT -->` so they can be found with `grep AUTHOR-INPUT`:
+
+- **EPI-1 (optional):** why you wrote the book and who you pictured reading it.
+- **EPI-2 (required):** the confirmed companion-website address and what it offers. Chapters 13 and 14 already point readers there.
+- **EPI-3 (optional):** a Book 2 teaser, only once its title and scope are decided. The Book 2/3 boundary is deferred.
+- **EPI-4 (required):** the closing personal message (item 15 of the author reflection prompts in `docs/00-project/plans/next-editorial-phases.md`).
 
 ## Proposed Files to Change
 

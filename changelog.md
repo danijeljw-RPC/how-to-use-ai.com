@@ -2,6 +2,34 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (63)
+
+### Changed
+
+- Rewrote the Epilogue ("Don't Panic") from a ~940-word draft into a full closing piece (~3,000 words of prose), following the quality rules of the `chapter-1X-writing-prompt.md` files while keeping it an epilogue rather than a fifteenth chapter.
+- Added a Douglas Adams "Don't Panic" opening (footnoted); a "What You Can Do Now" section with five everyday situations; a fifth "you don't need" point (keeping up with everything); a one-page reference table mapping situations to each chapter's key question; "Calm Is Not the Same as Complacent", which qualifies the "adapt calmly" message with Chapter 10's conditions; "When the Details Go Out of Date"; a three-step, seven-day Try This; and a short series-continuation note.
+- Added four tagged author-input blocks (`<!-- AUTHOR-INPUT id="EPI-1…4" -->`): EPI-2 (companion website) and EPI-4 (closing message) are required; EPI-1 (origin note) and EPI-3 (Book 2 teaser) are optional.
+- Added Chapter Notes with an AI-assistance note per ADR-04-0003.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/epilogue-dont-panic.md`
+- `docs/30-books/31-book-01/plans/epilogue-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Callouts (one Key Idea and one Try This) follow ADR-04-0002; the plan records why it moved from "one Key Idea only" to two callouts.
+
+### Open issues added or closed
+
+- None. Author input is tracked in the tagged blocks and the epilogue plan.
+
+### Commit
+
+- pending commit
+
 ## 2026-10-01 (62)
 
 ### Changed
