@@ -1,0 +1,17 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    E["1. EXPOSURE<br/>AI can do or help with<br/>part of a task"]
+    A["2. ADOPTION<br/>An employer or worker<br/>actually uses it"]
+    W["3. WORKFLOW<br/>How the work is done<br/>changes"]
+    S["4. HELP OR REPLACE?<br/>More valuable people,<br/>or fewer people needed?"]
+    D["5. DEMAND<br/>Does demand grow,<br/>hold or shrink?"]
+    L["6. JOBS IMPACT<br/>Hiring, hours, pay<br/>and job design change"]
+    N["Each step can stop,<br/>slow down or reverse.<br/>Exposure alone is<br/>not job loss."]
+    E --> A --> W --> S --> D --> L
+    L ~~~ N
+    classDef step fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef outcome fill:#fdecea,stroke:#b3261e,color:#410e0b
+    classDef note fill:#fff4d6,stroke:#916700,color:#332500
+    class E,A,W,S,D step
+    class L outcome
+    class N note
