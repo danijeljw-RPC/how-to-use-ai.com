@@ -1,0 +1,9 @@
+% makeindex style for the back-of-book index (used by publish-draft-books.sh).
+% Adds a bold letter heading before each group of entries.
+headings_flag 1
+heading_prefix "\n  \\textbf{"
+heading_suffix "}\\nopagebreak\n"
+symhead_positive "Numbers and symbols"
+delim_0 ", "
+delim_1 ", "
+delim_2 ", "

@@ -1,0 +1,1600 @@
+# Book 1 index term list
+#
+# This file decides what goes in the back-of-book index. The chapters themselves
+# carry no index markup; scripts/build_book_index.py finds these phrases when
+# the book is built. See README.md in this folder for how to maintain it.
+#
+# Each [[entry]] can use:
+#   term      the heading a reader looks up (required)
+#   sub       a subentry under that heading
+#   match     phrases to find; case-insensitive, whole words. A trailing * on a
+#             word matches any ending ("hallucinat*"); a space also matches a
+#             hyphen ("decision support" finds "decision-support")
+#   case      true to match capitalisation exactly (names, acronyms)
+#   chapters  limit to these chapters, e.g. [3, 4, "epilogue"]
+#   scope     "paragraph" (default: one entry per paragraph, list or table) or
+#             "chapter" (first mention in each chapter only, for broad terms)
+#   see       a pure cross-reference ("LLM" -> see "Language models")
+#   see_also  related headings
+#   sort      override the sort key (defaults to the lower-cased term)
+#
+# The same term may appear in several [[entry]] tables (for example with
+# different chapter limits); they are merged.
+
+# --- A ----------------------------------------------------------------------
+
+[[entry]]
+term = "Accessibility"
+match = ["accessibility", "screen reader*", "image description*", "captions"]
+chapters = [3, 6, 8, 9, 12, 13, 14]
+see_also = ["Seeing AI", "TalkBack"]
+
+[[entry]]
+term = "Acemoglu, Daron"
+match = ["Acemoglu"]
+case = true
+
+[[entry]]
+term = "Adams, Douglas"
+match = ["Douglas Adams"]
+case = true
+
+[[entry]]
+term = "Adaptability"
+match = ["adaptab*", "adapt calmly", "adapting calmly"]
+
+[[entry]]
+term = "Adobe"
+match = ["Adobe"]
+case = true
+see_also = ["Firefly"]
+
+[[entry]]
+term = "Adoption of AI"
+match = ["adoption"]
+see_also = ["Capability, deployment and adoption"]
+
+[[entry]]
+term = "AGI (artificial general intelligence)"
+sort = "agi"
+match = ["AGI", "artificial general intelligence"]
+case = true
+see_also = ["Superintelligence"]
+
+[[entry]]
+term = "Agents (AI)"
+sort = "agents"
+match = ["AI agent*", "agentic", "agents can", "an agent"]
+chapters = [3, 4, 9, 11, 12, 13, 14]
+see_also = ["Prompt injection", "Automation"]
+
+[[entry]]
+term = "Agents (AI)"
+match = ["agent*"]
+chapters = [14]
+
+[[entry]]
+term = "AI Act (European Union)"
+sort = "ai act"
+match = ["AI Act"]
+case = true
+
+[[entry]]
+term = "AI companions"
+match = ["AI companion*", "companion app*", "companions"]
+
+[[entry]]
+term = "AI detectors"
+match = ["AI detector*", "AI detection", "detector score*", "automated detectors"]
+see_also = ["Deepfakes"]
+
+[[entry]]
+term = "AI Index (Stanford)"
+sort = "ai index"
+match = ["AI Index"]
+case = true
+
+[[entry]]
+term = "AI literacy"
+match = ["AI literacy", "AI literate"]
+
+[[entry]]
+term = "AI washing"
+match = ["AI washing"]
+
+[[entry]]
+term = "AI winter"
+match = ["AI winter*", "second AI winter"]
+
+[[entry]]
+term = "Alexa"
+match = ["Alexa"]
+case = true
+see_also = ["Voice assistants"]
+
+[[entry]]
+term = "Algorithms"
+match = ["algorithm", "algorithms"]
+
+[[entry]]
+term = "Alan Turing Institute"
+sort = "turing institute"
+match = ["Turing Institute"]
+case = true
+
+[[entry]]
+term = "Allen, Robert"
+match = ["Robert Allen"]
+case = true
+see_also = ["Engels' pause"]
+
+[[entry]]
+term = "Amazon"
+match = ["Amazon"]
+case = true
+
+[[entry]]
+term = "Anchoring"
+match = ["anchor", "anchors", "anchoring"]
+chapters = [8, 12]
+see_also = ["Design fixation"]
+
+[[entry]]
+term = "Anomaly detection"
+match = ["anomaly detection", "flag anomalies"]
+
+[[entry]]
+term = "Anthropic"
+match = ["Anthropic"]
+case = true
+see_also = ["Claude"]
+
+[[entry]]
+term = "Anthropomorphism"
+match = ["anthropomorphi*"]
+
+[[entry]]
+term = "APRA AMCOS"
+match = ["APRA AMCOS"]
+case = true
+
+[[entry]]
+term = "ASIC"
+match = ["ASIC"]
+case = true
+see_also = ["Moneysmart"]
+
+[[entry]]
+term = "ATMs and bank tellers"
+match = ["ATM", "ATMs", "automatic teller machine*"]
+case = true
+
+[[entry]]
+term = "Augmentation"
+match = ["augment*"]
+see_also = ["Automation", "Displacement (jobs)"]
+
+[[entry]]
+term = "Australian Consumer Law"
+match = ["Australian Consumer Law", "consumer law", "consumer-law"]
+
+[[entry]]
+term = "Authenticity"
+match = ["authentic"]
+
+[[entry]]
+term = "Authorship"
+match = ["authorship", "human author", "who is the author"]
+
+[[entry]]
+term = "Autocomplete"
+match = ["autocomplete"]
+
+[[entry]]
+term = "Automation"
+match = ["automation", "automate", "automated", "automates", "automating"]
+scope = "chapter"
+see_also = ["Augmentation", "Agents (AI)"]
+
+[[entry]]
+term = "Automation"
+sub = "prepare, do not commit"
+match = ["prepare, do not commit", "prepare, not commit"]
+
+[[entry]]
+term = "Autonomy"
+match = ["autonomy", "autonomous", "autonomously"]
+
+# --- B ----------------------------------------------------------------------
+
+[[entry]]
+term = "Base model"
+match = ["base model*"]
+
+[[entry]]
+term = "Benchmarks"
+match = ["benchmark*"]
+
+[[entry]]
+term = "Bias"
+match = ["bias", "biased"]
+see_also = ["Fairness", "Training data"]
+
+[[entry]]
+term = "Bias"
+sub = "in hiring"
+match = ["fictional CVs", "screening tool"]
+
+[[entry]]
+term = "Bias"
+sub = "in image generation"
+match = ["demographic imbalances", "visual stereotypes", "casting director"]
+
+[[entry]]
+term = "Bias"
+sub = "proxy targets"
+match = ["predicted something easier", "the choice of target", "choice of what to predict"]
+
+[[entry]]
+term = "Blank page"
+match = ["blank page", "blank-page breaker", "blank-page benefit"]
+
+[[entry]]
+term = "Boston Consulting Group study"
+match = ["Boston Consulting Group", "consultant study"]
+
+[[entry]]
+term = "Brainstorming"
+match = ["brainstorm*"]
+
+[[entry]]
+term = "Bubbles (investment)"
+sort = "bubbles"
+match = ["bubble"]
+chapters = [11]
+
+[[entry]]
+term = "Bunnings"
+match = ["Bunnings"]
+case = true
+see_also = ["Facial recognition"]
+
+# --- C ----------------------------------------------------------------------
+
+[[entry]]
+term = "Calibration"
+match = ["calibrat*"]
+
+[[entry]]
+term = "Canva"
+match = ["Canva"]
+case = true
+
+[[entry]]
+term = "Capability, deployment and adoption"
+match = ["capability, deployment and adoption", "capability, deployment or adoption", "deployment and adoption", "Deployment beyond pilots"]
+
+[[entry]]
+term = "Chatbots"
+match = ["chatbot*"]
+scope = "chapter"
+see_also = ["ChatGPT", "Claude", "Gemini", "Microsoft Copilot"]
+
+[[entry]]
+term = "ChatGPT"
+match = ["ChatGPT"]
+case = true
+see_also = ["OpenAI"]
+
+[[entry]]
+term = "ChatGPT"
+sub = "public release (2022)"
+match = ["30 November 2022", "Late 2022", "reached the public in 2022"]
+
+[[entry]]
+term = "Cheapfakes"
+match = ["cheapfake*"]
+
+[[entry]]
+term = "Children and teenagers"
+match = ["children", "child", "teenager*", "nine-year-old", "under eighteen", "aged 10 to 17"]
+chapters = [6, 9, 13, 14]
+
+[[entry]]
+term = "Circular deals"
+match = ["circular deal*"]
+
+[[entry]]
+term = "Citations"
+match = ["citation*"]
+see_also = ["Hallucination"]
+
+[[entry]]
+term = "Citations"
+sub = "fabricated"
+match = ["fabricated citation*", "citation-shaped", "non-existent judicial decisions", "fabricated quotations"]
+
+[[entry]]
+term = "Claude"
+match = ["Claude"]
+case = true
+see_also = ["Anthropic"]
+
+[[entry]]
+term = "Clearview AI"
+match = ["Clearview"]
+case = true
+see_also = ["Facial recognition"]
+
+[[entry]]
+term = "Code word (family scam defence)"
+sort = "code word"
+match = ["code word"]
+
+[[entry]]
+term = "Coding and programming"
+match = ["coding", "programming", "programmer*", "software developer*", "open-source developers", "generated code"]
+
+[[entry]]
+term = "Cognitive offloading"
+match = ["offload*"]
+see_also = ["Over-reliance"]
+
+[[entry]]
+term = "Common sense"
+match = ["common sense", "common-sense"]
+
+[[entry]]
+term = "Communication (skill)"
+sort = "communication"
+match = ["communication"]
+chapters = [12, "epilogue"]
+
+[[entry]]
+term = "Competition and market concentration"
+sort = "competition"
+match = ["monopol*", "concentration", "competition regulator*", "concentrated"]
+chapters = [9, 11]
+see_also = ["Open-weight models"]
+
+[[entry]]
+term = "Complements and substitutes"
+match = ["complementary", "complement", "substitute for", "a substitute"]
+chapters = [8, 10, 12]
+
+[[entry]]
+term = "Confabulation"
+match = ["confabulation"]
+see_also = ["Hallucination"]
+
+[[entry]]
+term = "Confidence and correctness"
+match = ["apparent confidence", "confident wording", "confident tone", "confident answer", "sounds confident", "sounding certain", "Tone is not evidence", "confidently"]
+see_also = ["Hallucination", "Calibration"]
+
+[[entry]]
+term = "Confidentiality"
+match = ["confidential*"]
+see_also = ["Privacy"]
+
+[[entry]]
+term = "Consciousness"
+match = ["conscious", "consciousness"]
+
+[[entry]]
+term = "Consent"
+match = ["consent"]
+
+[[entry]]
+term = "Consultation obligations (Australian workplaces)"
+sort = "consultation obligations"
+match = ["consultation terms", "consult employees", "guidance on consultation"]
+
+[[entry]]
+term = "Content Credentials"
+match = ["Content Credentials", "C2PA"]
+case = true
+see_also = ["Provenance", "Watermarking"]
+
+[[entry]]
+term = "Context, in prompts"
+sort = "context"
+match = ["context"]
+chapters = [5]
+see_also = ["Prompts"]
+
+[[entry]]
+term = "Convenience and capability"
+match = ["convenience"]
+chapters = [6, 12, 13]
+
+[[entry]]
+term = "Copilot"
+see = "Microsoft Copilot"
+
+[[entry]]
+term = "Copyright"
+match = ["copyright*"]
+see_also = ["Fair use and fair dealing", "Text and data mining", "Ownership of AI output", "Style imitation"]
+
+[[entry]]
+term = "Copyright"
+sub = "Australia"
+match = ["Copyright Act 1968", "Copyright and Artificial Intelligence Reference Group", "not considering a text-and-data-mining exception", "not considering a broad exception"]
+
+[[entry]]
+term = "Copyright"
+sub = "lawsuits and settlements"
+match = ["settled for", "settlement", "Getty Images", "ROSS Intelligence", "Thomson Reuters"]
+chapters = [8, 9]
+
+[[entry]]
+term = "Creativity"
+match = ["creativity", "creative work", "creative process"]
+scope = "chapter"
+
+[[entry]]
+term = "Creativity"
+sub = "individual gains, group similarity"
+match = ["more similar to one another", "less diverse", "collective sameness"]
+
+[[entry]]
+term = "Creativity"
+sub = "definition"
+match = ["standard two-part definition"]
+
+[[entry]]
+term = "Critical thinking"
+match = ["critical thinking", "critical-thinking"]
+
+[[entry]]
+term = "Customer support"
+match = ["customer support", "customer-support", "support agent*", "support worker", "customer service", "customer-service"]
+
+# --- D ----------------------------------------------------------------------
+
+[[entry]]
+term = "Dartmouth summer project (1956)"
+sort = "dartmouth"
+match = ["Dartmouth"]
+case = true
+
+[[entry]]
+term = "Data centres"
+match = ["data centre*", "data-centre"]
+see_also = ["Energy and electricity use"]
+
+[[entry]]
+term = "De-identification"
+match = ["de-identif*", "re-identif*", "Removing a name"]
+
+[[entry]]
+term = "Deep learning"
+match = ["deep neural network"]
+see_also = ["Neural networks"]
+
+[[entry]]
+term = "Deepfakes"
+match = ["deepfake*"]
+see_also = ["Voice cloning", "Content Credentials", "Liar's dividend", "Cheapfakes"]
+
+[[entry]]
+term = "Deepfakes"
+sub = "sexualised imagery"
+match = ["nudify", "image-based abuse", "intimate images", "synthetic sexual"]
+
+[[entry]]
+term = "Deepfakes"
+sub = "detecting"
+match = ["Counting Fingers", "counting fingers", "better than chance", "Can I verify where this came from"]
+
+[[entry]]
+term = "DeepSeek"
+match = ["DeepSeek"]
+case = true
+
+[[entry]]
+term = "Deezer"
+match = ["Deezer"]
+case = true
+
+[[entry]]
+term = "Demos and demonstrations"
+match = ["demo", "demos", "fake demo*", "product demonstration*", "carefully arranged demonstration", "humanoid demonstration"]
+chapters = [10, 11, 14]
+
+[[entry]]
+term = "Design fixation"
+match = ["fixation", "fixate"]
+see_also = ["Anchoring"]
+
+[[entry]]
+term = "Disclosure of AI use"
+match = ["disclose", "disclosure"]
+chapters = [8]
+
+[[entry]]
+term = "Disinformation"
+match = ["disinformation"]
+see_also = ["Misinformation"]
+
+[[entry]]
+term = "Displacement (jobs)"
+sort = "displacement"
+match = ["displace*"]
+see_also = ["Augmentation", "Exposure to AI"]
+
+[[entry]]
+term = "Displaced workers"
+match = ["displaced workers", "displaced-worker", "lost long-held jobs", "losing a long-held job"]
+
+[[entry]]
+term = "Domain expertise"
+match = ["domain expertise", "Expertise in a domain", "knowledge of your subject", "subject knowledge"]
+
+[[entry]]
+term = "Driverless cars"
+see = "Self-driving vehicles"
+
+# --- E ----------------------------------------------------------------------
+
+[[entry]]
+term = "Education"
+match = ["education"]
+scope = "chapter"
+see_also = ["Tutoring", "University", "TAFE", "Vocational education and training (VET)"]
+
+[[entry]]
+term = "Effort-heavy and judgement-heavy tasks"
+match = ["effort-heavy", "judgement-heavy", "effort versus judgement", "effort and judgement", "Effort and judgement"]
+
+[[entry]]
+term = "Electricians"
+match = ["electrician*"]
+
+[[entry]]
+term = "Emotional intelligence"
+match = ["emotional intelligence"]
+
+[[entry]]
+term = "Emotions"
+match = ["felt emotion", "emotional cues", "emotion recognition", "emotion-recognition", "inner emotional states"]
+
+[[entry]]
+term = "Empathy"
+match = ["empath*"]
+
+[[entry]]
+term = "Energy and electricity use"
+sort = "energy"
+match = ["electricity", "watt-hour*", "TWh", "energy use"]
+see_also = ["Data centres", "Environmental costs"]
+
+[[entry]]
+term = "Engels' pause"
+match = ["Engels' pause"]
+
+[[entry]]
+term = "Entry-level work"
+match = ["entry-level", "junior work*", "junior role*", "first rung", "apprenticeship route", "graduate hiring", "fewer graduates"]
+see_also = ["Displacement (jobs)"]
+
+[[entry]]
+term = "Environmental costs"
+match = ["environmental", "bottle of water", "used to cool"]
+see_also = ["Energy and electricity use"]
+
+[[entry]]
+term = "eSafety Commissioner"
+sort = "esafety"
+match = ["eSafety"]
+case = true
+
+[[entry]]
+term = "European Union"
+match = ["European Union", "EU", "Europe"]
+case = true
+see_also = ["AI Act (European Union)"]
+
+[[entry]]
+term = "Evaluating claims"
+see_also = ["Five questions for AI claims", "Four questions for AI risks"]
+match = ["kind of claim", "claims outrunning"]
+
+[[entry]]
+term = "Examples, in prompts"
+sort = "examples in prompts"
+match = ["examples", "an example", "clean example", "useful example", "show an example"]
+chapters = [5]
+
+[[entry]]
+term = "Expert surveys"
+match = ["expert survey*", "Surveys Measure Belief", "Expert forecasts"]
+
+[[entry]]
+term = "Expert systems"
+match = ["expert system*"]
+
+[[entry]]
+term = "Exposure to AI"
+match = ["exposure", "AI-exposed", "highly exposed", "most exposed", "more exposed"]
+see_also = ["Displacement (jobs)"]
+
+# --- F ----------------------------------------------------------------------
+
+[[entry]]
+term = "Facial recognition"
+match = ["facial recognition", "face recognition", "face-recognition", "face search", "face-search", "face-matching", "facial analysis", "Gender Shades"]
+see_also = ["Clearview AI", "Bunnings", "Surveillance"]
+
+[[entry]]
+term = "Fact-checking"
+match = ["fact-checker*", "fact checking", "lateral reading", "read laterally", "Read laterally"]
+
+[[entry]]
+term = "Fair use and fair dealing"
+match = ["fair use", "fair dealing", "fair-dealing"]
+see_also = ["Copyright"]
+
+[[entry]]
+term = "Fair Work Ombudsman"
+match = ["Fair Work Ombudsman"]
+case = true
+
+[[entry]]
+term = "Fairness"
+match = ["fairness"]
+see_also = ["Bias"]
+
+[[entry]]
+term = "Fake reviews"
+match = ["fake review*", "review fraud", "misleading reviews", "fake product review"]
+
+[[entry]]
+term = "Fear and panic"
+match = ["panic*", "fear-based", "Fear changes"]
+chapters = [1, 11, "epilogue"]
+
+[[entry]]
+term = "Federal Trade Commission (US)"
+sort = "federal trade commission"
+match = ["Federal Trade Commission"]
+case = true
+
+[[entry]]
+term = "Firefly"
+match = ["Firefly"]
+case = true
+see_also = ["Adobe"]
+
+[[entry]]
+term = "Five questions for AI claims"
+match = ["five questions"]
+chapters = [11, 14, "epilogue"]
+see_also = ["Evaluating claims"]
+
+[[entry]]
+term = "Forecasts and predictions about AI"
+sort = "forecasts"
+match = ["forecast*", "Hard Predictions"]
+chapters = [2, 10, 11, 14]
+scope = "chapter"
+see_also = ["Expert surveys", "Signals worth watching"]
+
+[[entry]]
+term = "Four questions for AI risks"
+match = ["four questions"]
+chapters = [9, "epilogue"]
+see_also = ["Evaluating claims"]
+
+[[entry]]
+term = "Four verbs: generate, transform, interpret, act"
+sort = "four verbs"
+match = ["four ordinary verbs", "four verbs", "generate, transform, interpret, and act"]
+
+[[entry]]
+term = "Fraud detection (banking)"
+sort = "fraud detection"
+match = ["fraud detection", "fraud alert*", "fraud system", "fraud detectors"]
+see_also = ["Anomaly detection", "Scams"]
+
+[[entry]]
+term = "Free TAFE"
+match = ["Free TAFE"]
+case = true
+see_also = ["TAFE"]
+
+[[entry]]
+term = "Freelance platforms"
+match = ["freelanc*"]
+
+[[entry]]
+term = "Frey and Osborne estimate"
+match = ["Frey"]
+case = true
+
+# --- G ----------------------------------------------------------------------
+
+[[entry]]
+term = "Gemini"
+match = ["Gemini"]
+case = true
+see_also = ["Google"]
+
+[[entry]]
+term = "Generative AI"
+match = ["generative AI", "generative models", "generative tools"]
+scope = "chapter"
+see_also = ["Language models", "Image generation"]
+
+[[entry]]
+term = "Generative AI"
+sub = "compared with predictive AI"
+match = ["constrained result", "useful distinction, not a perfect border"]
+
+[[entry]]
+term = "Google"
+match = ["Google"]
+case = true
+scope = "chapter"
+see_also = ["Gemini", "Google Maps"]
+
+[[entry]]
+term = "Google Maps"
+match = ["Google Maps"]
+case = true
+see_also = ["Navigation and maps"]
+
+[[entry]]
+term = "Graduate outcomes"
+match = ["QILT", "Graduate Outcomes Survey", "graduate outcomes", "Graduate outcomes"]
+
+# --- H ----------------------------------------------------------------------
+
+[[entry]]
+term = "Hallucination"
+match = ["hallucinat*"]
+see_also = ["Confabulation", "Citations", "Confidence and correctness"]
+
+[[entry]]
+term = "Healthcare"
+match = ["healthcare", "clinical", "clinician*", "medical device*"]
+see_also = ["TGA (Therapeutic Goods Administration)"]
+
+[[entry]]
+term = "Healthcare"
+sub = "AI scribes"
+match = ["AI scribe*", "scribe*"]
+
+[[entry]]
+term = "Hiring and recruitment"
+sort = "hiring"
+match = ["recruit*", "job advertisement*", "job post*", "hiring manager"]
+see_also = ["Bias", "Entry-level work"]
+
+[[entry]]
+term = "Hitchhiker's Guide to the Galaxy, The"
+sort = "hitchhiker's guide"
+match = ["Hitchhiker"]
+case = true
+
+[[entry]]
+term = "Hong Kong deepfake video call"
+sort = "hong kong"
+match = ["Hong Kong"]
+case = true
+
+[[entry]]
+term = "Human in the loop"
+match = ["human in the loop", "human-in-the-loop", "in the loop"]
+see_also = ["Supervision paradox"]
+
+[[entry]]
+term = "Humanoid robots"
+match = ["humanoid*"]
+see_also = ["Robotics"]
+
+[[entry]]
+term = "Hype"
+match = ["hype", "overhyped", "hype fatigue"]
+scope = "chapter"
+see_also = ["AI washing", "Evaluating claims"]
+
+# --- I ----------------------------------------------------------------------
+
+[[entry]]
+term = "IDCARE"
+match = ["IDCARE"]
+case = true
+
+[[entry]]
+term = "Image generation"
+match = ["image generat*", "image-generation", "image model*", "generated image*", "Image AI"]
+see_also = ["Deepfakes", "Firefly", "Style imitation"]
+
+[[entry]]
+term = "Influence operations"
+match = ["influence operation*", "influence activity"]
+
+[[entry]]
+term = "Intent and goals"
+match = ["intent", "intention", "intentions"]
+chapters = [4, 8]
+
+[[entry]]
+term = "International Labour Organization (ILO)"
+sort = "international labour organization"
+match = ["International Labour Organization", "ILO"]
+case = true
+
+[[entry]]
+term = "International Monetary Fund (IMF)"
+sort = "international monetary fund"
+match = ["International Monetary Fund", "IMF"]
+case = true
+
+[[entry]]
+term = "Investment in AI"
+sort = "investment in ai"
+match = ["investment", "investors", "venture capital"]
+chapters = [2, 9, 11]
+see_also = ["Circular deals", "Bubbles (investment)"]
+
+[[entry]]
+term = "Iteration, in prompts"
+sort = "iteration"
+match = ["iterat*"]
+
+# --- J ----------------------------------------------------------------------
+
+[[entry]]
+term = "Jagged frontier"
+match = ["jagged"]
+
+[[entry]]
+term = "Jobs and AI"
+match = ["job loss*", "replace jobs", "mass unemployment", "unemployment"]
+see_also = ["Augmentation", "Displacement (jobs)", "Exposure to AI", "Tasks and jobs"]
+
+[[entry]]
+term = "Jobs and Skills Australia"
+match = ["Jobs and Skills Australia"]
+case = true
+
+[[entry]]
+term = "Judgement"
+match = ["judgement", "judgment"]
+scope = "chapter"
+see_also = ["Effort-heavy and judgement-heavy tasks"]
+
+[[entry]]
+term = "Judgement"
+sub = "defined"
+match = ["working definition"]
+chapters = [12]
+
+# --- K ----------------------------------------------------------------------
+
+[[entry]]
+term = "Khanmigo"
+match = ["Khanmigo"]
+case = true
+see_also = ["Tutoring"]
+
+[[entry]]
+term = "Klarna"
+match = ["Klarna"]
+case = true
+
+[[entry]]
+term = "Knowledge cutoff"
+match = ["knowledge cutoff*", "cutoff*"]
+see_also = ["Retrieval", "Web search"]
+
+# --- L ----------------------------------------------------------------------
+
+[[entry]]
+term = "Language models"
+match = ["language model*", "large language model*"]
+see_also = ["Tokens", "Generative AI"]
+
+[[entry]]
+term = "Language models"
+sub = "how answers are built"
+match = ["token by token", "piece by piece", "plausible next tokens", "plausible continuations"]
+
+[[entry]]
+term = "Large language models"
+see = "Language models"
+
+[[entry]]
+term = "Leadership"
+match = ["leadership"]
+
+[[entry]]
+term = "Liar's dividend"
+match = ["liar's dividend"]
+
+[[entry]]
+term = "Licensing of training data"
+sort = "licensing"
+match = ["licensed models", "licensed content", "licensed collections", "licensing arrangements", "licensed platform", "Licensing is emerging", "licensing systems"]
+see_also = ["Copyright", "Training data"]
+
+[[entry]]
+term = "Lighthill report"
+match = ["Lighthill"]
+case = true
+
+[[entry]]
+term = "Likeness and voice rights"
+match = ["likeness", "publicity right*", "right of publicity", "digital replica*"]
+see_also = ["Voice cloning"]
+
+[[entry]]
+term = "LLM"
+see = "Language models"
+
+[[entry]]
+term = "Luddites"
+match = ["Luddite*"]
+case = true
+
+# --- M ----------------------------------------------------------------------
+
+[[entry]]
+term = "Machine learning"
+match = ["machine learning", "machine-learning"]
+
+[[entry]]
+term = "Mata v. Avianca"
+match = ["Avianca"]
+case = true
+see_also = ["Citations"]
+
+[[entry]]
+term = "Meal planning"
+match = ["meal plan*", "dinner plan*"]
+
+[[entry]]
+term = "Meetings"
+match = ["meeting summar*", "meeting notes", "meeting record*", "meeting recap"]
+see_also = ["Speech recognition and transcription"]
+
+[[entry]]
+term = "Memorisation"
+match = ["memoris*"]
+see_also = ["Training data"]
+
+[[entry]]
+term = "Memory features"
+match = ["memory features", "saved memory", "memories", "Memory and personalisation", "memory and personal context"]
+see_also = ["Privacy"]
+
+[[entry]]
+term = "METR developer study"
+sort = "metr"
+match = ["METR"]
+case = true
+
+[[entry]]
+term = "Microsoft"
+match = ["Microsoft"]
+case = true
+scope = "chapter"
+see_also = ["Microsoft Copilot", "Seeing AI"]
+
+[[entry]]
+term = "Microsoft Copilot"
+match = ["Copilot"]
+case = true
+
+[[entry]]
+term = "Misinformation"
+match = ["misinformation"]
+see_also = ["Disinformation", "Deepfakes", "Fact-checking"]
+
+[[entry]]
+term = "Moneysmart"
+match = ["Moneysmart"]
+case = true
+see_also = ["ASIC"]
+
+[[entry]]
+term = "Moravec's paradox"
+match = ["Moravec"]
+case = true
+
+[[entry]]
+term = "Morality and moral responsibility"
+sort = "morality"
+match = ["moral", "conscience"]
+chapters = [4]
+
+[[entry]]
+term = "Music and audio"
+sort = "music"
+match = ["music", "songwriter", "song", "songs", "chorus"]
+scope = "chapter"
+see_also = ["Deezer", "Suno", "Voice cloning"]
+
+# --- N ----------------------------------------------------------------------
+
+[[entry]]
+term = "National AI Plan"
+match = ["National AI Plan"]
+case = true
+
+[[entry]]
+term = "National Anti-Scam Centre"
+match = ["National Anti-Scam Centre"]
+case = true
+
+[[entry]]
+term = "Navigation and maps"
+sort = "navigation"
+match = ["navigation", "map app*"]
+see_also = ["Google Maps"]
+
+[[entry]]
+term = "NCVER"
+match = ["NCVER"]
+case = true
+
+[[entry]]
+term = "Netflix"
+match = ["Netflix"]
+case = true
+see_also = ["Recommendation systems"]
+
+[[entry]]
+term = "Neural networks"
+match = ["neural network*"]
+
+[[entry]]
+term = "NIST"
+match = ["NIST", "National Institute of Standards and Technology"]
+case = true
+
+# --- O ----------------------------------------------------------------------
+
+[[entry]]
+term = "OAIC (Office of the Australian Information Commissioner)"
+sort = "oaic"
+match = ["OAIC", "Information Commissioner", "Privacy Commissioner", "privacy regulator"]
+case = true
+see_also = ["Privacy"]
+
+[[entry]]
+term = "OECD"
+match = ["OECD"]
+case = true
+
+[[entry]]
+term = "On-device AI"
+match = ["on-device"]
+see_also = ["Privacy"]
+
+[[entry]]
+term = "Open-weight models"
+match = ["open-weight", "Open-source AI"]
+see_also = ["Competition and market concentration"]
+
+[[entry]]
+term = "OpenAI"
+match = ["OpenAI"]
+case = true
+see_also = ["ChatGPT"]
+
+[[entry]]
+term = "Operating envelope"
+match = ["operating envelope"]
+
+[[entry]]
+term = "Over-reliance"
+match = ["over-reliance", "appropriate reliance", "automatic trust", "go along with wrong AI advice", "automation bias"]
+see_also = ["Cognitive offloading", "Human in the loop"]
+
+[[entry]]
+term = "Ownership of AI output"
+match = ["I own it", "ownership", "commercial-use rights", "commercial use allowed"]
+chapters = [8, 13]
+see_also = ["Copyright"]
+
+# --- P ----------------------------------------------------------------------
+
+[[entry]]
+term = "Parameters and weights"
+sort = "parameters"
+match = ["parameters", "weights"]
+chapters = [4, 8]
+
+[[entry]]
+term = "Pattern recognition"
+match = ["pattern recognition", "pattern-matching", "pattern matching", "pattern prediction"]
+see_also = ["Prediction"]
+
+[[entry]]
+term = "Perplexity"
+match = ["Perplexity"]
+case = true
+
+[[entry]]
+term = "Personal assistants"
+match = ["personal assistant*", "context-aware assistant"]
+see_also = ["Voice assistants", "Agents (AI)", "Memory features"]
+
+[[entry]]
+term = "Pew Research Center"
+match = ["Pew"]
+case = true
+
+[[entry]]
+term = "Prediction"
+match = ["predict*"]
+scope = "chapter"
+see_also = ["Pattern recognition", "Forecasts and predictions about AI"]
+
+[[entry]]
+term = "Preprints"
+match = ["preprint*"]
+
+[[entry]]
+term = "Primary sources"
+match = ["primary source*"]
+
+[[entry]]
+term = "Privacy"
+match = ["privacy"]
+see_also = ["Confidentiality", "De-identification", "Memory features", "OAIC (Office of the Australian Information Commissioner)", "Surveillance"]
+
+[[entry]]
+term = "Privacy"
+sub = "training versus storage"
+match = ["not used for training", "don't train on your data", "turn off training"]
+
+[[entry]]
+term = "Privacy"
+sub = "deleting chats"
+match = ["Deleting a Chat", "Deleting a chat", "deletion"]
+
+[[entry]]
+term = "Privacy"
+sub = "other people's information"
+match = ["Affect Other People", "not only your information", "people who did not choose to use the tool"]
+
+[[entry]]
+term = "Privacy Act"
+match = ["Privacy Act"]
+case = true
+
+[[entry]]
+term = "Productivity"
+match = ["productivity", "productive"]
+scope = "chapter"
+
+[[entry]]
+term = "Productivity"
+sub = "perceived versus measured"
+match = ["feeling faster", "perceived one afterwards", "Perceived productivity", "believed the tools had made them faster"]
+
+[[entry]]
+term = "Productivity Commission"
+match = ["Productivity Commission"]
+case = true
+
+[[entry]]
+term = "Prompt engineering"
+match = ["prompt engineer*"]
+
+[[entry]]
+term = "Prompt injection"
+match = ["prompt injection", "hidden instructions", "agent hijacking"]
+see_also = ["Agents (AI)"]
+
+[[entry]]
+term = "Prompts"
+match = ["prompt", "prompts", "prompting"]
+scope = "chapter"
+see_also = ["Context, in prompts", "Examples, in prompts", "Iteration, in prompts", "Specificity, in prompts"]
+
+[[entry]]
+term = "Prompts"
+sub = "the perfect prompt myth"
+match = ["ultimate prompt", "magic words", "magic phrase"]
+
+[[entry]]
+term = "Protein-structure prediction"
+match = ["protein*"]
+
+[[entry]]
+term = "Provenance"
+match = ["provenance"]
+see_also = ["Content Credentials", "Watermarking"]
+
+# --- R ----------------------------------------------------------------------
+
+[[entry]]
+term = "Recommendation systems"
+match = ["recommendation system*", "Streaming Recommendations", "streaming recommendation*", "shopping recommendation*"]
+see_also = ["Netflix", "Social media"]
+
+[[entry]]
+term = "Regulation"
+match = ["regulation", "regulator", "regulators", "regulated", "unregulated"]
+scope = "chapter"
+see_also = ["AI Act (European Union)", "Australian Consumer Law", "Privacy Act"]
+
+[[entry]]
+term = "Research tools"
+match = ["research tool*", "research-oriented"]
+see_also = ["Perplexity", "Web search"]
+
+[[entry]]
+term = "Retrieval"
+match = ["retrieval", "retrieve"]
+see_also = ["Knowledge cutoff", "Web search"]
+
+[[entry]]
+term = "Robodebt"
+match = ["Robodebt"]
+case = true
+
+[[entry]]
+term = "Robotics"
+match = ["robot", "robots", "robotic", "robotics"]
+see_also = ["Humanoid robots", "Self-driving vehicles"]
+
+# --- S ----------------------------------------------------------------------
+
+[[entry]]
+term = "SAG-AFTRA"
+match = ["SAG-AFTRA"]
+case = true
+
+[[entry]]
+term = "Scams"
+match = ["scam", "scams", "scammer*"]
+see_also = ["Deepfakes", "Fraud detection (banking)", "Voice cloning", "Scamwatch"]
+
+[[entry]]
+term = "Scams"
+sub = "grandparent call example"
+match = ["Margaret"]
+case = true
+
+[[entry]]
+term = "Scams"
+sub = "losses in Australia"
+match = ["$2.18 billion", "scam reports"]
+
+[[entry]]
+term = "Scams"
+sub = "fake AI apps and extensions"
+match = ["look-alike", "fleeceware", "malicious extension*", "browser extension"]
+
+[[entry]]
+term = "Scams Prevention Framework"
+match = ["Scams Prevention Framework"]
+case = true
+
+[[entry]]
+term = "Scamwatch"
+match = ["Scamwatch"]
+case = true
+
+[[entry]]
+term = "Science fiction"
+match = ["science fiction"]
+
+[[entry]]
+term = "Seeing AI"
+match = ["Seeing AI"]
+case = true
+
+[[entry]]
+term = "Self-driving vehicles"
+match = ["self-driving", "driverless", "automated vehicle*", "robotaxi*", "driver assistance"]
+see_also = ["Autonomy", "Robotics"]
+
+[[entry]]
+term = "Self-driving vehicles"
+sub = "levels of driving automation"
+match = ["Level 2", "Level 4", "Level 5", "six levels"]
+case = true
+
+[[entry]]
+term = "Signals worth watching"
+match = ["evidence signals", "Signals Worth Watching", "signals to watch"]
+
+[[entry]]
+term = "Siri"
+match = ["Siri"]
+case = true
+see_also = ["Voice assistants"]
+
+[[entry]]
+term = "Six durable skills"
+match = ["six capabilities", "Six Skills"]
+see_also = ["Communication (skill)", "Judgement", "Leadership", "Creativity", "Systems thinking", "Emotional intelligence"]
+
+[[entry]]
+term = "Smartraveller"
+match = ["Smartraveller"]
+case = true
+see_also = ["Travel planning"]
+
+[[entry]]
+term = "Social media"
+match = ["social media", "social-media"]
+see_also = ["TikTok", "YouTube", "Recommendation systems"]
+
+[[entry]]
+term = "Spam filters"
+match = ["spam"]
+
+[[entry]]
+term = "Specificity, in prompts"
+sort = "specificity"
+match = ["specific*"]
+chapters = [5]
+
+[[entry]]
+term = "Speech recognition and transcription"
+sort = "speech recognition"
+match = ["speech recognition", "transcript", "transcripts", "transcription", "transcribe*", "Voice AI"]
+see_also = ["Voice assistants", "Meetings"]
+
+[[entry]]
+term = "Spotify"
+match = ["Spotify"]
+case = true
+
+[[entry]]
+term = "Spreadsheets"
+match = ["spreadsheet*", "Excel", "Google Sheets", "pivot table*"]
+see_also = ["Microsoft Copilot"]
+
+[[entry]]
+term = "Stanford University"
+match = ["Stanford"]
+case = true
+see_also = ["AI Index (Stanford)"]
+
+[[entry]]
+term = "Stealing (is AI stealing?)"
+sort = "stealing"
+match = ["stealing", "stole their work", "stolen art"]
+see_also = ["Copyright", "Training data"]
+
+[[entry]]
+term = "Style imitation"
+match = ["in the style of", "style imitation", "recognisable style", "imitating their style"]
+see_also = ["Copyright", "Likeness and voice rights"]
+
+[[entry]]
+term = "Subscription traps"
+match = ["subscription trap*", "free trial", "uninstalling an app", "Deleting an app"]
+see_also = ["Scams"]
+
+[[entry]]
+term = "Summarising"
+match = ["summaris*"]
+scope = "chapter"
+see_also = ["Meetings"]
+
+[[entry]]
+term = "Suno"
+match = ["Suno"]
+case = true
+
+[[entry]]
+term = "Superintelligence"
+match = ["superintelligen*"]
+see_also = ["AGI (artificial general intelligence)"]
+
+[[entry]]
+term = "Supervision paradox"
+match = ["supervision paradox"]
+see_also = ["Human in the loop"]
+
+[[entry]]
+term = "Surveillance"
+match = ["surveillance", "workplace monitoring", "automated monitoring"]
+see_also = ["Facial recognition", "Privacy"]
+
+[[entry]]
+term = "Sycophancy"
+match = ["sycophan*"]
+
+[[entry]]
+term = "Synthetic data"
+match = ["synthetic data"]
+
+[[entry]]
+term = "Systems thinking"
+match = ["systems thinking", "feedback loop*"]
+
+# --- T ----------------------------------------------------------------------
+
+[[entry]]
+term = "TAFE"
+match = ["TAFE", "TAFEs"]
+case = true
+see_also = ["Free TAFE", "Vocational education and training (VET)"]
+
+[[entry]]
+term = "TalkBack"
+match = ["TalkBack"]
+case = true
+
+[[entry]]
+term = "Tasks and jobs"
+match = ["bundle of tasks", "task by task", "tasks, not jobs"]
+see_also = ["Effort-heavy and judgement-heavy tasks"]
+
+[[entry]]
+term = "Tasks and jobs"
+sub = "self-assessment"
+match = ["Good candidate for AI assistance", "Important learning task"]
+
+[[entry]]
+term = "Text and data mining"
+match = ["text and data mining", "text-and-data-mining"]
+see_also = ["Copyright"]
+
+[[entry]]
+term = "TGA (Therapeutic Goods Administration)"
+sort = "tga"
+match = ["TGA"]
+case = true
+
+[[entry]]
+term = "TikTok"
+match = ["TikTok"]
+case = true
+see_also = ["Social media"]
+
+[[entry]]
+term = "Tokens"
+match = ["token", "tokens"]
+chapters = [2, 3, 6]
+see_also = ["Language models"]
+
+[[entry]]
+term = "Tool choice"
+match = ["start with the job", "Start with the task", "First-Pass Check", "Deeper Check", "loyalty to any specific tool"]
+see_also = ["AI literacy", "Subscription traps", "Wrappers"]
+
+[[entry]]
+term = "Training data"
+match = ["training data", "trained on", "training material", "training set"]
+see_also = ["Bias", "Memorisation", "Licensing of training data"]
+
+[[entry]]
+term = "Transformer"
+match = ["transformer"]
+
+[[entry]]
+term = "Translation"
+match = ["translat*"]
+scope = "chapter"
+
+[[entry]]
+term = "Travel planning"
+match = ["itinerar*", "trip-planning", "Plan a trip"]
+see_also = ["Smartraveller"]
+
+[[entry]]
+term = "Tutoring"
+match = ["tutor", "tutors", "tutoring"]
+see_also = ["Khanmigo", "Education"]
+
+# --- U ----------------------------------------------------------------------
+
+[[entry]]
+term = "Understanding (does AI understand?)"
+sort = "understanding"
+match = ["human understanding", "human-like understanding", "understanding meaning", "meaning grounded", "reality-grounded understanding", "understands everything", "understands nothing"]
+
+[[entry]]
+term = "United Kingdom"
+match = ["United Kingdom", "UK", "Britain", "British"]
+case = true
+
+[[entry]]
+term = "University"
+match = ["university degree*", "universities", "University remains", "University is obsolete", "higher education", "a degree"]
+chapters = [6]
+see_also = ["Graduate outcomes", "TAFE"]
+
+[[entry]]
+term = "US Copyright Office"
+sort = "us copyright office"
+match = ["Copyright Office"]
+case = true
+
+[[entry]]
+term = "Utopian claims"
+match = ["utopia*", "Solve Everything"]
+
+# --- V ----------------------------------------------------------------------
+
+[[entry]]
+term = "Verification"
+match = ["verify", "verified", "verification", "verifying"]
+scope = "chapter"
+see_also = ["Primary sources", "Fact-checking"]
+
+[[entry]]
+term = "Video and filmmaking"
+sort = "video"
+match = ["video", "previsualisation"]
+chapters = [8]
+
+[[entry]]
+term = "Vocational education and training (VET)"
+sort = "vocational education"
+match = ["VET"]
+case = true
+see_also = ["TAFE", "NCVER"]
+
+[[entry]]
+term = "Voice assistants"
+match = ["voice assistant*"]
+see_also = ["Alexa", "Siri", "Personal assistants"]
+
+[[entry]]
+term = "Voice cloning"
+match = ["voice clon*", "cloned voice*", "clone voices", "cloning someone else's voice", "voice can be cloned", "cloned singer"]
+see_also = ["Deepfakes", "Likeness and voice rights", "Scams"]
+
+# --- W ----------------------------------------------------------------------
+
+[[entry]]
+term = "Watermarking"
+match = ["watermark*"]
+see_also = ["Content Credentials", "Provenance"]
+
+[[entry]]
+term = "Weather forecasting"
+match = ["weather"]
+chapters = [11]
+
+[[entry]]
+term = "Web search"
+match = ["web search", "search engine*", "search-enabled", "AI summary", "Google AI summary"]
+see_also = ["Retrieval", "Knowledge cutoff"]
+
+[[entry]]
+term = "Workday test"
+match = ["workday test", "Workday Test"]
+
+[[entry]]
+term = "World Economic Forum"
+match = ["World Economic Forum"]
+case = true
+
+[[entry]]
+term = "Wrappers"
+match = ["wrapper*"]
+see_also = ["Tool choice"]
+
+[[entry]]
+term = "Writing with AI"
+sort = "writing"
+match = ["writing experiment", "professional-writing experiment", "mid-level professional writing", "writing tasks"]
+see_also = ["Blank page"]
+
+[[entry]]
+term = "Writing with AI"
+sub = "keeping your own voice"
+match = ["your own voice", "distinctive voice", "Western styles"]
+
+# --- Y ----------------------------------------------------------------------
+
+[[entry]]
+term = "YouTube"
+match = ["YouTube"]
+case = true
+see_also = ["Social media"]

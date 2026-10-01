@@ -61,6 +61,22 @@ assert float(diagram_page.mediabox.width) < 612.0
 assert float(diagram_page.mediabox.height) < 792.0
 PY
 
+# The full build ends with the back-of-book index (ADR-03-0007).
+rg -q '\\printindex' dist/31-book-01.md
+rg -q '\\index\{hallucination@Hallucination\}' dist/31-book-01.md
+rg -q '0 rejected' tmp/pdfs/31-book-01-latex/manuscript.ilg
+MANUSCRIPT_PDF="$ROOT_DIR/tmp/pdfs/31-book-01-manuscript.pdf" "$TEST_PYTHON" - <<'PY'
+import os
+from pypdf import PdfReader
+
+manuscript = PdfReader(os.environ["MANUSCRIPT_PDF"])
+contents = " ".join((page.extract_text() or "") for page in manuscript.pages[:8])
+assert "Index" in contents, "the index is missing from the table of contents"
+index_text = " ".join((page.extract_text() or "") for page in manuscript.pages[-8:])
+assert "Hallucination" in index_text and "see also" in index_text
+assert "LLM, see Language models" in index_text
+PY
+
 BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./publish-draft-books.sh book 1 chap 01-03 2>&1 | tee "$BUILD_LOG"
 if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
   echo "Preview publication emitted warnings." >&2
@@ -68,7 +84,7 @@ if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
 fi
 test -f dist/31-book-01-preview.pdf
 [[ "$(rg -c '^# Chapter ' dist/31-book-01-preview.md)" == "3" ]]
-if rg -n 'Internal review draft|^# Epilogue' dist/31-book-01-preview.md; then
+if rg -n 'Internal review draft|^# Epilogue|\\index\{|\\printindex' dist/31-book-01-preview.md; then
   echo "Preview manuscript contains review-only or out-of-range content." >&2
   exit 1
 fi

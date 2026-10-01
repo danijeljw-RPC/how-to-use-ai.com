@@ -2,6 +2,44 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (64)
+
+### Changed
+
+- Reviewed all fourteen chapters and the epilogue and built a curated Book 1 index: 299 headings and subentries, 136 cross-references and about 2,150 locators, in `docs/30-books/31-book-01/index/index-terms.toml`. Chapter limits keep ambiguous words apart (for example *agent* means AI agents in Chapters 3–4 and 13–14 but human support agents in Chapters 7 and 10), and broad concepts index their first mention per chapter.
+- Added `scripts/build_book_index.py`. It matches the term list against the manuscript without adding markup to the chapters, and never indexes headings, Chapter Notes, captions, placeholders, `AUTHOR-INPUT` blocks, code or URLs. Subcommands: `annotate` (LaTeX `\index` markers or EPUB anchors), `backmatter` (index block), `report` (line-referenced Markdown index) and `check`.
+- Generated the working line index, `docs/30-books/31-book-01/index/book-01-index-lines.md`: every locator links to `chapter-file#Lline`.
+- `publish-draft-books.sh` now ends full builds with a two-column, page-numbered index, listed in the contents. It takes letter headings from `publishing/book-index.ist` and runs xelatex → makeindex → xelatex, using base `makeidx` only. Preview editions never include the index; `--no-index` skips it. Builds without an index use the original pandoc route unchanged.
+- Verified that pandoc output with markers is identical to output without them, apart from the markers themselves (now a unit test). Markers in tables go before the table, and markers move past bold text and possessives. A test EPUB built with anchor markers had 2,153 index links, all resolving.
+
+### Files changed
+
+- `scripts/build_book_index.py` (new)
+- `tests/test_build_book_index.py` (new)
+- `publishing/book-index.ist` (new)
+- `publish-draft-books.sh`
+- `tests/test_publish_draft_books.sh`
+- `docs/30-books/31-book-01/index/index-terms.toml` (new)
+- `docs/30-books/31-book-01/index/book-01-index-lines.md` (new, generated)
+- `docs/30-books/31-book-01/index/README.md` (new)
+- `docs/40-publishing/decisions/ADR-03-0007-back-of-book-index.md` (new)
+- `docs/40-publishing/open-issues/OI-0006.md` (new)
+- `docs/40-publishing/plans/book-index-plan.md` (new)
+- `docs/00-project/memory/book-01-memory.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- Added ADR-03-0007 (back-of-book index from a curated term list), Proposed.
+
+### Open issues added or closed
+
+- Opened OI-0006 (author review of the index term list; EPUB wiring).
+
+### Commit
+
+- `publishing: add curated back-of-book index with PDF build support` (pending commit)
+
 ## 2026-10-01 (63)
 
 ### Changed

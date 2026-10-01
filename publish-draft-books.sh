@@ -14,11 +14,17 @@
 #   ./publish-draft-books.sh book 1 chap 01-03 --webpub
 #                                            # also copy the preview to the site:
 #                                            # wwwroot/public/downloads/<title-slug>-preview.pdf
+#   ./publish-draft-books.sh book 1 --no-index
+#                                            # full build without the back-of-book index
 #
 # Preview editions are written to dist/<book-folder>-preview.pdf, e.g.
 # dist/31-book-01-preview.pdf for docs/30-books/31-book-01.
 # --webpub (or -webpub) is only accepted for preview editions, so internal-review
 # builds are never copied into the public site.
+#
+# Full builds end with a back-of-book index when the book has a term list at
+# docs/<book-folder>/index/index-terms.toml (see ADR-03-0007). Preview editions
+# never include it, because an index of a few chapters would mislead readers.
 
 set -euo pipefail
 
@@ -29,13 +35,18 @@ COVER_DIR="$OUT_DIR/covers"
 PDF_TMP_DIR="$ROOT_DIR/tmp/pdfs"
 CONFIG="$ROOT_DIR/publishing/books.json"
 WEB_DOWNLOADS_DIR="$ROOT_DIR/wwwroot/public/downloads"
+INDEX_SCRIPT="$ROOT_DIR/scripts/build_book_index.py"
+INDEX_STYLE="$ROOT_DIR/publishing/book-index.ist"
 
-# Pull the --webpub flag out of the arguments so the selectors below stay positional.
+# Pull the flags out of the arguments so the selectors below stay positional.
 web_publish=0
+include_index=1
 remaining_args=()
 for argument in "$@"; do
   if [[ "$argument" == "--webpub" || "$argument" == "-webpub" ]]; then
     web_publish=1
+  elif [[ "$argument" == "--no-index" ]]; then
+    include_index=0
   else
     remaining_args+=("$argument")
   fi
@@ -91,6 +102,28 @@ if [[ ! -f "$CONFIG" ]]; then
 fi
 
 mkdir -p "$OUT_DIR" "$COVER_DIR" "$PDF_TMP_DIR"
+
+# Typeset a standalone .tex file with its back-of-book index. Pandoc's own PDF
+# route cannot run makeindex between LaTeX passes, so the indexed build runs
+# the passes itself: two to settle the contents and page numbers, makeindex,
+# then two more so the index and its contents entry are in place.
+typeset_with_index() {
+  local latex_dir="$1" stem="$2" log="$1/typeset.log" pass
+  : > "$log"
+  for pass in 1 2 index 3 index 4; do
+    if [[ "$pass" == "index" ]]; then
+      if ! (cd "$latex_dir" && makeindex -s "$INDEX_STYLE" "$stem.idx") >>"$log" 2>&1; then
+        echo "Error: makeindex failed; see $log" >&2
+        tail -n 20 "$log" >&2
+        exit 1
+      fi
+    elif ! (cd "$latex_dir" && "$PDF_ENGINE" -interaction=nonstopmode -halt-on-error "$stem.tex") >>"$log" 2>&1; then
+      echo "Error: $PDF_ENGINE failed on pass $pass; see $log" >&2
+      tail -n 40 "$log" >&2
+      exit 1
+    fi
+  done
+}
 
 book_numbers=()
 add_book_number() {
@@ -242,7 +275,15 @@ for book_number in "${book_numbers[@]}"; do
     preview_args=(--preview-chapters "$preview_list" --total-chapters "$total_chapters")
   fi
 
+  index_terms="$DOCS_DIR/$source_directory/index/index-terms.toml"
+  build_index=0
+  if [[ "$include_index" -eq 1 && -z "$preview_chapters" && -f "$index_terms" ]]; then
+    build_index=1
+    require_command makeindex "it ships with TeX Live and BasicTeX"
+  fi
+
   echo "Publishing $book_name$edition_suffix (${#chapter_files[@]} manuscript files)..."
+  [[ "$build_index" -eq 1 ]] && echo "  with back-of-book index from ${index_terms#"$ROOT_DIR/"}"
   combined_md="$OUT_DIR/$book_name$edition_suffix.md"
   manuscript_pdf="$PDF_TMP_DIR/$book_name$edition_suffix-manuscript.pdf"
   diagram_output_dir="$PDF_TMP_DIR/$book_name-diagrams"
@@ -274,11 +315,20 @@ for book_number in "${book_numbers[@]}"; do
         | "$PYTHON_BIN" "$ROOT_DIR/scripts/render_mermaid_diagrams.py" \
           --source-dir "$(dirname "$chapter_file")" \
           --output-dir "$diagram_output_dir" \
+        | if [[ "$build_index" -eq 1 ]]; then
+            "$PYTHON_BIN" "$INDEX_SCRIPT" annotate \
+              --terms "$index_terms" --chapter "$chapter_namespace"
+          else
+            cat
+          fi \
         | sed 's/\\newpage[[:space:]]*$//'
       echo
       printf '%s\n' '\newpage'
       echo
     done
+    if [[ "$build_index" -eq 1 ]]; then
+      "$PYTHON_BIN" "$INDEX_SCRIPT" backmatter --terms "$index_terms"
+    fi
   } > "$combined_md"
 
   "$PYTHON_BIN" "$ROOT_DIR/scripts/cover_generator.py" \
@@ -293,18 +343,35 @@ for book_number in "${book_numbers[@]}"; do
     no_hyphenate_args=(-V header-includes='\usepackage[none]{hyphenat}')
   fi
 
-  pandoc "$combined_md" \
-    -o "$manuscript_pdf" \
-    --pdf-engine="$PDF_ENGINE" \
-    --resource-path="$chapters_dir:$ROOT_DIR" \
-    --toc \
-    --toc-depth=2 \
-    --top-level-division=chapter \
-    -V documentclass=book \
-    -V classoption=oneside \
-    -V geometry:paperwidth=7in,paperheight=10in,top=0.78in,bottom=0.82in,left=0.82in,right=0.72in \
-    -V mainfont="Arial" \
+  pandoc_args=(
+    --resource-path="$chapters_dir:$ROOT_DIR"
+    --toc
+    --toc-depth=2
+    --top-level-division=chapter
+    -V documentclass=book
+    -V classoption=oneside
+    -V geometry:paperwidth=7in,paperheight=10in,top=0.78in,bottom=0.82in,left=0.82in,right=0.72in
+    -V mainfont="Arial"
     "${no_hyphenate_args[@]+"${no_hyphenate_args[@]}"}"
+  )
+
+  if [[ "$build_index" -eq 1 ]]; then
+    latex_dir="$PDF_TMP_DIR/$book_name-latex"
+    rm -rf "$latex_dir"
+    mkdir -p "$latex_dir"
+    pandoc "$combined_md" \
+      --standalone \
+      -o "$latex_dir/manuscript.tex" \
+      "${pandoc_args[@]}" \
+      -V header-includes='\usepackage{makeidx}\makeindex'
+    typeset_with_index "$latex_dir" manuscript
+    cp "$latex_dir/manuscript.pdf" "$manuscript_pdf"
+  else
+    pandoc "$combined_md" \
+      -o "$manuscript_pdf" \
+      --pdf-engine="$PDF_ENGINE" \
+      "${pandoc_args[@]}"
+  fi
 
   padded_number="$(printf '%02d' "$book_number")"
   "$PYTHON_BIN" "$ROOT_DIR/scripts/assemble_draft_book.py" \
