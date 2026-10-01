@@ -2,6 +2,39 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (60)
+
+### Changed
+
+- Replaced the ~1,120-word Chapter 12 template with a full research-backed manuscript (about 9,800 words before notes), drawing on every file in the Chapter 12 research package.
+- Defined what "more important" means (four meanings), stated that durable does not mean uniquely human, and treated effort vs judgement as a moving line. Adaptability is named as the throughline connecting six skill sections; domain knowledge and verification run through all six.
+- Rewrote every skill section with what AI can already do, what remains human, a concrete (mostly non-office) example and practice advice. Judgement is the strongest section: automation bias, human-AI meta-analysis, domain expertise, Australian accountability (Dayal matter, Federal Court practice note) and a worked football-club example.
+- Emotional intelligence now acknowledges the contested construct and AI empathy-rating evidence, distinguishing empathetic performance from relationship, presence and accountability.
+- Added "Protecting the Skills While You Use AI": today's output vs tomorrow's ability, the supervision paradox (Bainbridge), deskilling evidence with limits, adult learning, growth-mindset debate and using AI to practise rather than avoid practising.
+- Added two tables (six skills at a glance; supervision paradox). No diagram.
+- Checked the Dayal regulator statement on 1 October 2026; the Federal Court practice note page returned 403 and is flagged for recheck.
+- The chapter is above the 5,500–7,500-word guidance; candidate cuts are listed in the plan.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`
+- `docs/30-books/31-book-01/research/chapter-12-bibliography.md` (new)
+- `docs/30-books/31-book-01/plans/chapter-12-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. Callouts follow ADR-04-0002 (Example and Reflection carried in prose; Myth vs Reality as an H2 section); citations follow ADR-04-0003.
+
+### Open issues added or closed
+
+- None. Recheck items are recorded in the Chapter 12 bibliography, as Chapter 10 did.
+
+### Commit
+
+- `draft: write research-backed chapter 12` (pending commit)
+
 ## 2026-10-01 (59)
 
 ### Changed
