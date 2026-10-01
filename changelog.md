@@ -34,7 +34,7 @@ Planned a release (ready-to-print) mode for `publish-draft-books.sh` and produce
 
 ### Commit
 
-pending commit
+`2c7c204`
 
 ## 2026-10-02 (65)
 
