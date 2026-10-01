@@ -15,7 +15,7 @@ All meaningful project changes should be recorded here.
 - Rechecked the bar-exam re-analysis, expert survey, student study, international safety report and driverless ride-hailing status on 1 October 2026.
 - Added one diagram (the five questions) and a Chapter 11 bibliography.
 - The chapter is above the 6,500–8,500-word guidance. Candidate cuts are listed in the plan.
-- Chapter 10's draft lives on `book01/chap10-draft` (not merged here). This entry is numbered (59) to follow that branch's (58).
+- Numbered (59) to follow Chapter 10's entry (58). Chapter 10 was drafted on `book01/chap10-draft` and merged into `book01/chap11` before this branch.
 
 ### Files changed
 
@@ -40,6 +40,42 @@ All meaningful project changes should be recorded here.
 ### Commit
 
 - `draft: write research-backed chapter 11` (14efa91)
+
+## 2026-10-01 (58)
+
+### Changed
+
+- Replaced the ~1,430-word Chapter 10 template with a full research-backed manuscript (about 11,500 words of prose before notes), drawing on every file in the Chapter 10 research package.
+- The chapter is now organised around tasks rather than job titles. It separates exposure, adoption, workflow change, help-or-replace, demand and labour-market impact, and teaches readers to ask "what exactly did they count?" of headline percentages (IMF, ILO, WEF, Frey and Osborne versus OECD).
+- The four outcomes (change, disappear, evolve, emerge) now use real evidence: the Stanford payroll study, Danish administrative data, freelance platforms, Klarna's filing (as company evidence), the 41-country junior/senior study and new work since 1940. A new subsection covers entry-level workers and apprenticeship tasks.
+- The history section covers transition costs as well as new work: Luddites, Engels' pause, robots in US regions, French firm-versus-industry results, displaced-worker losses (Watch Out), and a bounded ATM example.
+- Augmentation vs. Replacement explains how augmentation can still reduce headcount, why productivity is not job security, the jagged frontier, the METR slowdown, micro gains versus flat Australian productivity, and provider usage data that moves between reports.
+- Added a dedicated Australian subsection (ABS adoption, JSA, Productivity Commission, Fair Work consultation), and non-office examples (receptionist, electrician, aged care).
+- The self-assessment now adds ten questions and four output groups to the effort/judgement heuristic. Adaptability is framed as widening options, not guaranteeing protection.
+- Rechecked the Stanford, 41-country, ABS, Productivity Commission, Klarna, ILO, JSA and Anthropic sources on 1 October 2026. Updated the package's Anthropic usage shares, and dropped its unconfirmed Klarna "human support remains available" claim.
+- Added one portrait diagram and a Chapter 10 bibliography with a claim map, numerical audit, package corrections and recheck priorities.
+- Updated the Chapter 10 plan and the Book 1 drafting status. The chapter is above the drafting prompt's 6,000–8,000-word guidance; candidate cuts are listed in the plan.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`
+- `docs/30-books/31-book-01/research/chapter-10-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/ai-capability-to-labour-impact.mmd` (new)
+- `docs/30-books/31-book-01/plans/chapter-10-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. The plan's Plain English and Myth vs Reality callouts follow ADR-04-0002 (prose definitions; Myth vs Reality as an H2 section), as in Chapters 7 to 9.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `draft: write research-backed chapter 10` (623da23)
 
 ## 2026-10-01 (57)
 
