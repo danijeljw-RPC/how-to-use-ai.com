@@ -1,0 +1,14 @@
+%%{init: {"flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "18px"}}}%%
+flowchart TB
+    D["DISTRIBUTION<br/>Phones, search, browsers,<br/>office software, defaults"]
+    A["APPS AND ASSISTANTS<br/>Many products,<br/>often built on a<br/>few models"]
+    M["MODELS<br/>Strong competition,<br/>falling prices,<br/>open-weight options"]
+    C["CLOUD AND DATA CENTRES<br/>A few very large<br/>providers"]
+    H["CHIPS AND CHIP-MAKING<br/>Highly concentrated<br/>design and manufacturing"]
+    D --> A --> M --> C --> H
+    classDef open fill:#e3f2fd,stroke:#1565c0,color:#0d2946
+    classDef mixed fill:#fff4d6,stroke:#916700,color:#332500
+    classDef tight fill:#fdecea,stroke:#b3261e,color:#410e0b
+    class A,M open
+    class D mixed
+    class C,H tight

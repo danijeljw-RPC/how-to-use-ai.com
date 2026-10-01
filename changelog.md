@@ -2,6 +2,43 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-01 (57)
+
+### Changed
+
+- Replaced the ~1,485-word Chapter 9 template with a full research-backed manuscript (about 12,000 words of prose before notes), drawing on every file in the Chapter 9 research package.
+- The chapter now uses a four-question evidence test (capability, prevalence, impact, response) throughout. It covers all nine required risks with concrete Australian-first evidence, and adds a synthesis section on individual, organisational and collective safeguards and what "responsible regulation" means.
+- Labelled the $2.18 billion 2025 scam figure as all reported scams, not AI scams. Labelled data-centre electricity as distinct from AI electricity, and forecasts as forecasts.
+- Corrected the research package's Bunnings summary after checking the OAIC statement: the Tribunal set aside the APP 3 collection finding and allowed consent exceptions for a limited purpose, while upholding the APP 1 and APP 5 findings.
+- Rechecked the ACCC scam figures, Scams Prevention Framework dates and AEMO data-centre forecast on 1 October 2026.
+- Added three diagrams, replacing the plan's individual-versus-society placeholder.
+- Added a Chapter 9 bibliography with a claim map, a numerical-claim audit, corrections to the research package, material reserved for the website, and recheck priorities.
+- Updated the Chapter 9 plan and the Book 1 drafting status.
+- The chapter is above the 6,500–8,500-word guidance. Candidate cuts are listed in the plan.
+
+### Files changed
+
+- `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`
+- `docs/30-books/31-book-01/research/chapter-09-bibliography.md` (new)
+- `docs/30-books/31-book-01/diagrams/risk-claim-evidence-questions.mmd` (new)
+- `docs/30-books/31-book-01/diagrams/ai-risk-safeguard-layers.mmd` (new)
+- `docs/30-books/31-book-01/diagrams/ai-industry-stack-layers.mmd` (new)
+- `docs/30-books/31-book-01/plans/chapter-09-plan.md`
+- `docs/30-books/31-book-01/book-01-structure.md`
+- `changelog.md`
+
+### Decisions added or changed
+
+- None. The plan's Example and Myth vs Reality callouts follow ADR-04-0002 (prose example subsection; Myth vs Reality as an H2 section), as in Chapters 7 and 8.
+
+### Open issues added or closed
+
+- None.
+
+### Commit
+
+- `draft: write research-backed chapter 09`
+
 ## 2026-10-01 (56)
 
 ### Changed
