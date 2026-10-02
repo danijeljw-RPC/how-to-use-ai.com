@@ -79,10 +79,12 @@ This is editorial research, not legal or financial advice.
 | Judgement over prompting | TEQSA guidance | Regulator guidance | Student skills |
 | Lateral reading | Wineburg and McGrew 2019; SIFT | Peer-reviewed; teaching framework | Question 4 |
 | "95% fail" worked example | Project NANDA 2025 report | Preliminary industry research | Main worked example; anti-hype as hype |
+| Author reflection: "55% faster" Copilot claim | Kalliamvakou 2022 (GitHub Blog); Peng et al. 2023 | Randomised experiment by the tool's maker | Named in the author's own words; 95 developers, one JavaScript HTTP-server task, time only (`ch11-copilot-study`) |
+| Author reflection: experienced developers slower with AI | Becker et al. 2025 (METR) | Independent randomised trial | Named in the author's own words; 16 developers, 246 real issues, 19% slower, believed faster; early-2025 tools (`ch11-metr`) |
 
 ## Teaching Illustrations (Not Real Cases)
 
-The four opening claims (each based on a recurring real pattern), the viral doom post, the "by 2030 prescriptions" falsifiable example, the vendor customer-service pitch, and the four forecast examples in "Using the Method on the Future" are original teaching illustrations. They are labelled as such in Chapter Notes. No author experience was invented; the author reflection placeholder is preserved.
+The four opening claims (each based on a recurring real pattern), the viral doom post, the "by 2030 prescriptions" falsifiable example, the vendor customer-service pitch, and the four forecast examples in "Using the Method on the Future" are original teaching illustrations. They are labelled as such in Chapter Notes. No author experience was invented. The author reflection (evaluating the "55 percent faster" Copilot claim against the METR study) is the author's own account, supplied on GitHub issue #31 and used word for word.
 
 ## Reserved for the Companion Website
 

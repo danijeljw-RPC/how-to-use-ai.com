@@ -2,6 +2,24 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (78)
+
+### Added
+
+Book 1, Chapters 5, 9, 10 and 11: replaced the author reflection placeholders with the author's own accounts from the GitHub issue comments. Each one is used word for word and wrapped in `::: {.author-reflection}` (ADR-04-0004).
+
+- Chapter 5, issue #33 (formerly line 300): a vague request improved once context, an example and a success condition were added.
+- Chapter 9, issue #32 (formerly line 377): verifying a deepfake investment video by corroborating the claim instead of inspecting the pixels.
+- Chapter 10, issue #30 (formerly line 379): support and operations staff using AI for comprehension rather than diagnosis.
+- Chapter 11, issue #31 (formerly line 391): checking what the "55 percent faster" Copilot figure measured, set against the METR study.
+
+The comment's trailing source list was moved into two new endnotes, `[^ch11-copilot-study]` and `[^ch11-metr]`. Both were checked against their primary sources on 2 October 2026 and qualified per ADR-04-0003. The Chapter Notes now say that the reflection names the tool and both studies, and that the METR participants mostly used Anthropic's Claude models. The claim map and teaching-illustrations note in the Chapter 11 bibliography were updated to match. Chapters 5, 9 and 10 make no external factual claims, so they get no endnotes. Merged together with the Chapter 4 reflection (issue #25, entry 77).
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-05-talking-to-ai-properly.md`, `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`, `docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`, `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`, `docs/30-books/31-book-01/research/chapter-11-bibliography.md`, `docs/20-style/open-issues/OI-0001.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0003 and ADR-04-0004).
+- Open issues: added `docs/20-style/open-issues/OI-0001.md`, which asks whether the profanity in the Chapter 9 and Chapter 11 reflections stays in print. The wording is unchanged until the author decides.
+- Commit: pending commit.
+
 ## 2026-10-02 (77)
 
 ### Added
