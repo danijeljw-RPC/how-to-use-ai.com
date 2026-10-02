@@ -11,7 +11,7 @@ Finished author reflections now render as Author Reflections. When the Chapter 2
 - Files changed: `publishing/pandoc/book.lua`, `publishing/latex/howto-book.tex`, `docs/30-books/31-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`, `docs/20-style/callout-guide.md`, `docs/20-style/decisions/ADR-04-0004-finished-author-reflection-markup.md`, `docs/20-style/plans/finished-author-reflection-markup-plan.md`, `changelog.md`.
 - Decisions: added ADR-04-0004.
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 3341f3b.
 
 ## 2026-10-02 (71)
 
