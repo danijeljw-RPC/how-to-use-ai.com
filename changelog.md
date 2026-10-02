@@ -2,6 +2,29 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-03 (79)
+
+### Added
+
+Book 1, Chapters 1, 3, 7, 8, 12 and 14: replaced the author reflection placeholders with the author's own accounts from the GitHub issue comments. Each one was copied from the comment programmatically, checked to match it word for word, and wrapped in `::: {.author-reflection}` (ADR-04-0004).
+
+- Chapter 1, issue #27 (formerly line 98): Spotify recommendations learning the author's taste from skips, replays and searches. The author left a slot for the real song. It now reads `[Author input needed: …]` inside an `AUTHOR-INPUT` block, so release builds stop until it is filled in (OI-0007).
+- Chapter 3, issue #21 (formerly line 267): rebuilding CurseDelete in Rust with AI as a research partner, where AI got to "80 or 90 per cent" quickly and the judgement stayed with the author. As the author asked, the CurseDelete 2 product page is cited in new endnote `[^10]` and "CurseDelete" is added to the back-of-book index. The comment's list of factual details went into that endnote. The product is sold by RePass Cloud Pty Ltd, which also publishes the book, so the endnote, Chapter Notes and bibliography disclose the commercial link.
+- Chapter 7, issue #22 (formerly line 505): using AI to structure and format a presentation, then checking every fact against the source material.
+- Chapter 8, issue #29 (formerly line 482): using AI around the writing of this book to research, challenge and criticise, but not to write it. Also covers where the author draws the disclosure line.
+- Chapter 12, issue #26 (formerly line 293): a database schema "fix" that would have removed the error without solving the problem.
+- Chapter 14, issue #23 (formerly line 312): agents are the most credible direction, humanoid robots the most overhyped, and quantum computing a watched wildcard, each with the signal that would change the author's mind. New endnote `[^ch14-quantum]` (Preskill 2018; Aaronson 2015) supports the description of quantum computing today, checked 3 October 2026. The mining and warehouse references rely on the chapter's existing endnotes, and the Chapter Notes say so.
+
+The Chapter 3, 7 and 14 bibliographies no longer describe these reflections as placeholders. The line index was regenerated, `build_book_index.py check` passes, all 76 unit tests pass and `./publish-draft-books.sh book 1` builds. The epilogue placeholder has no issue and is unchanged.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-01-youve-already-been-using-ai.md`, `docs/30-books/31-book-01/chapters/chapter-03-what-ai-can-actually-do.md`, `docs/30-books/31-book-01/chapters/chapter-07-ai-at-work.md`, `docs/30-books/31-book-01/chapters/chapter-08-ai-and-creativity.md`, `docs/30-books/31-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`, `docs/30-books/31-book-01/chapters/chapter-14-where-ai-goes-next.md`, `docs/30-books/31-book-01/research/chapter-03-bibliography.md`, `docs/30-books/31-book-01/research/chapter-07-bibliography.md`, `docs/30-books/31-book-01/research/chapter-14-bibliography.md`, `docs/30-books/31-book-01/index/index-terms.toml`, `docs/30-books/31-book-01/index/book-01-index-lines.md`, `docs/30-books/31-book-01/plans/author-reflections-batch-2-plan.md`, `docs/20-style/open-issues/OI-0001.md`, `docs/30-books/31-book-01/open-issues/OI-0007.md`, `docs/30-books/31-book-01/open-issues/OI-0008.md`, `docs/30-books/31-book-01/open-issues/OI-0009.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0003, ADR-04-0004 and ADR-03-0007).
+- Open issues:
+  - Updated style OI-0001 with three more instances of strong language (Chapter 7 once, Chapter 14 twice).
+  - Added Book 1 OI-0007 (the missing Chapter 1 song), OI-0008 (the technical depth of the Chapter 3 reflection for beginners) and OI-0009 (similar database stories in the Chapter 4 and Chapter 12 reflections).
+  - GitHub issues #21, #22, #23, #26, #27 and #29 are closed by this change.
+- Commit: 3a30f95.
+
 ## 2026-10-02 (78)
 
 ### Added

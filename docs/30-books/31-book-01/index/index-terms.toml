@@ -448,6 +448,11 @@ term = "Critical thinking"
 match = ["critical thinking", "critical-thinking"]
 
 [[entry]]
+term = "CurseDelete"
+match = ["CurseDelete"]
+case = true
+
+[[entry]]
 term = "Customer support"
 match = ["customer support", "customer-support", "support agent*", "support worker", "customer service", "customer-service"]
 

@@ -98,6 +98,14 @@ Lee, Hao-Ping, Advait Sarkar, Lev Tankelevitch, Ian Drosos, Sean Rintel, Richard
 - Used for: the finding that AI-assisted critical thinking can shift towards verification, integration, and stewardship, and that confidence in AI was associated with less self-reported critical thinking.
 - Caution: the study reports associations and self-reported behaviour, not a direct measure of long-term cognitive decline.
 
+### Author reflection: CurseDelete 2
+
+RePass Cloud. “CurseDelete 2.” Product page. <https://repasscloud.com/products/cursedelete/>. Accessed 3 October 2026.
+
+- Source type: the author's own commercial product page, published by RePass Cloud Pty Ltd, which is also the publisher of this book.
+- Used for: endnote 10, identifying the software described in the author reflection (GitHub issue #21) and confirming its stated platforms, language and release version. Named at the author's request; the product is also listed in the back-of-book index.
+- Caution: a vendor page about the author's own product, so a commercial interest exists and is disclosed in the Chapter Notes. The operating-system details in the reflection (`openat`, `unlinkat`, `fstatat`, `statx`, `/proc/[pid]/fd`, `lsof`, Restart Manager) describe the author's design as supplied by the author and are not independent evidence of performance or safety. Prices, editions and version details may change; recheck before publication.
+
 ## Supporting Research Pack
 
 The broader supplied research pack contains additional sources that informed topic selection and claim caution but were not cited directly in the final chapter:

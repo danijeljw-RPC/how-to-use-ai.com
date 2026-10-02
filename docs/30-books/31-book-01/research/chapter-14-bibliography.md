@@ -24,7 +24,7 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 - **Predictions.** Wrong in both directions; expert surveys as belief; fast adoption vs slow transformation (Bick et al.); scenarios vs forecasts; IASR multiple trajectories; normal-technology vs faster-transformation views without picking a winner.
 - **Signals and agency.** General signal list, one six-row "where things stand" table (portrait-friendly, four columns), Try This future-claim audit, and "Who Decides?" demonstrating agency through Australian institutional choices plus personal/workplace levels.
 - **Callouts.** Per ADR-04-0002: Key Idea (approved wording, then qualified), Try This, Watch Out (apply Chapter 11 to this chapter), Recap with reflection questions. Plain English content from the plan is carried in prose. Myth vs Reality is an H2 section.
-- **Teaching illustrations.** The three opening headlines and the humanoid-warehouse claim are illustrations, not quotations. No author experience invented; the reflection placeholder is preserved.
+- **Teaching illustrations.** The three opening headlines and the humanoid-warehouse claim are illustrations, not quotations. No author experience invented. The author reflection (agents most credible, humanoid robots most overhyped, quantum computing a watched wildcard) is the author's own view, supplied on GitHub issue #23 and used word for word.
 
 ## Corrections and Refinements to the Research Package
 
@@ -77,12 +77,13 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 | Multiple trajectories | IASR 2026 | International expert synthesis | Recheck edition |
 | Normal technology | Narayanan & Kapoor 2025 | Scholarly essay | Argument, not proof |
 | Australian institutions | National AI Plan; AISI; APS AI Plan | Government policy | Mandatory recheck |
+| Author reflection: quantum computing today | Preskill 2018; Aaronson 2015 | Expert perspective (peer-reviewed journals) | No large-scale fault-tolerant machines yet; quantum-ML data-loading caveats (`ch14-quantum`) |
 
 ## Recheck Before Publication
 
 Mandatory: METR methodology and status; agent-security guidance (NIST, Australian AI Safety Institute) and any agent identity standard; FDA device count; TGA guidance and AI-enabled ARTG list; MASAI interval-cancer results; robotaxi safety data and US city count (shared with Chapter 11); NTC Automated Vehicle Safety Law status and any approved Australian deployments (NTC page not retrieved in this run); Adelaide traffic-trial status and outcomes (page not retrieved); EdChat/NSWEduChat rollout and any independent evaluations; NSW HSC assessment rules; Apple assistant availability and release history; Cruise withdrawal (primary source); National AI Plan, AI Safety Institute and APS AI Plan; latest IASR and AI Index editions.
 
-Recommended: warehouse robot count; Rio Tinto autonomy figures; humanoid paid-deployment evidence (to test the chapter's "demos and pilots" characterisation); SAE J3016 current revision; newer expert timeline surveys; primary detector studies if the detector paragraph is expanded; newer Rabbit/AI-hardware status.
+Recommended: state of fault-tolerant quantum hardware and any demonstrated quantum advantage on machine-learning workloads (author reflection, `ch14-quantum`); warehouse robot count; Rio Tinto autonomy figures; humanoid paid-deployment evidence (to test the chapter's "demos and pilots" characterisation); SAE J3016 current revision; newer expert timeline surveys; primary detector studies if the detector paragraph is expanded; newer Rabbit/AI-hardware status.
 
 ## Companion Website Candidates
 

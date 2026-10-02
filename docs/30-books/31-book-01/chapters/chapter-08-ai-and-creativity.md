@@ -479,7 +479,105 @@ Historical comparisons can help, as long as they are not used to end the convers
 
 The responsible answer is not just “it depends how you use it”, because we now know enough to say *how* it depends. AI can lower barriers, speed up iteration and improve immediate results in some tasks, especially for less experienced people. It can also anchor users, narrow exploration and make a group's work more similar. The stage of the work, the person's expertise, whether they bring their own material, and their willingness to reject a polished suggestion all make a difference. The long-term effects on skill and on culture remain genuinely open.
 
-> [Author reflection placeholder: Add a genuine personal example of using, rejecting or deliberately avoiding AI in a creative process. Explain what the tool contributed, what decisions remained yours, whether it changed your direction, and where you draw the line for disclosure or attribution. Do not turn this into a universal verdict for the reader.]
+::: {.author-reflection}
+
+I have probably used more AI while writing this book than I have on almost any other creative project.
+
+That sounds slightly dangerous when you're writing a book about AI, but hear me out.
+
+There is a line I decided fairly early on that I didn't want to cross: I didn't want AI to write the book for me.
+
+Apart from the obvious problem that this would make the whole exercise slightly ridiculous, I also didn't want to end up with several hundred pages of the same vaguely competent story being dredged up again and again, with a little extra salt here, a bit of pepper there, and eventually shoved between two cardboard covers as if nobody would notice.
+
+You'd notice, or at least like to think you did if you're reading this now.
+
+I would definitely notice.
+
+And, somewhere around Chapter 4, I would probably start resenting my own book.
+
+I do use AI for almost everything around the writing, though.
+
+I use it to research subjects, find sources, challenge claims I've made, challenge claims other people have made, and compare those claims against what I already understand or suspect. I use it to look for opposing arguments, poke holes in my reasoning, question whether I've actually explained something properly to the audience I'm writing for, suggest where an explanation could be clearer, identify gaps in the story being told, criticise sections and occasionally point out that something I've written makes considerably less sense than it did five minutes earlier when I was apparently very impressed with myself.
+
+I will throw an idea at it and ask it to tear the idea apart.
+
+I will ask what I've missed.
+
+I will ask it to argue the other side.
+
+I will ask it to find evidence that contradicts me.
+
+Sometimes it comes back with something that genuinely changes the direction I was heading in. Other times it produces something that sounds deeply intelligent, wonderfully polished and almost suspiciously confident until I look at it properly and realise it is complete rubbish wearing a nice jacket.
+
+That is useful too.
+
+In fact, learning when not to trust the impressive-looking answer has probably been one of the more useful parts of the entire process.
+
+What I don't want is to become the editor of a book that an AI wrote.
+
+For me, there is an important difference between asking AI to help me think and asking it to do the thinking for me.
+
+If it finds an argument I hadn't considered, I still have to investigate it.
+
+If it finds research, I still have to decide whether I trust the source.
+
+If it criticises something I've written, I decide whether the criticism is valid.
+
+If it suggests another direction, I decide whether that direction belongs in the book at all.
+
+And if it confidently tells me something that turns out to be wrong, then congratulations: we have both just been assigned more work.
+
+In that sense, AI has absolutely influenced this book. Pretending otherwise would be ridiculous.
+
+It has changed my mind about things. It has sent me down research paths I probably would not have found on my own. It has made me reconsider arguments I thought were settled and, more than once, forced me to go back and rewrite something because the evidence did not support what I originally thought.
+
+That part matters to me.
+
+I did not want to write a book about AI where I began with a conclusion and then spent fourteen chapters searching for material that agreed with me. That is not research. That is decorating an opinion.
+
+If the evidence pushes me somewhere uncomfortable, then that is where I need to go.
+
+But the decision to go there is still mine.
+
+That is also roughly where I draw my own line on disclosure.
+
+I do not think using AI to find research, challenge an argument, interrogate an idea or criticise my writing suddenly makes AI an author any more than discussing a chapter with another person makes them an author.
+
+If someone tells me, "That section doesn't make sense," and I go away and rewrite it, they did not write the book.
+
+They annoyed me into making it better.
+
+AI often occupies roughly the same position.
+
+But if I were generating substantial parts of the finished book with AI and then publishing those words as the work itself, I think that would be materially different.
+
+At that point, the tool has moved from helping shape the process to producing the thing the reader is actually consuming.
+
+I would want the reader to know that.
+
+Not because I think every use of AI requires a flashing warning label and a man in a high-visibility vest waving two red flags, but because there is a meaningful difference between using a tool around the work and handing over the work itself.
+
+The strange thing is that the more I've used AI during this process, the less interested I've become in simply asking it to produce things for me.
+
+That is probably the opposite of what I expected when I started.
+
+The generation is impressive. Sometimes very impressive.
+
+But the part I keep coming back to is the argument.
+
+The pushback.
+
+The question I did not think to ask.
+
+The source that makes me reconsider what I thought I knew.
+
+The answer that makes me say, "Hang on, that can't be right," and disappear down another research hole at one o'clock in the morning.
+
+Apparently, I needed an AI less as a ghostwriter and more as an occasionally brilliant, occasionally infuriating person sitting across the table saying, "Are you sure about that?"
+
+I've found it far more valuable when it disagrees with me.
+
+:::
 
 ## Myth vs Reality
 

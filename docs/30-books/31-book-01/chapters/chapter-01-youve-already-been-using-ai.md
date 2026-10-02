@@ -95,7 +95,67 @@ For years, most AI systems operated silently inside large platforms and enterpri
 
 Modern generative AI tools changed that, because for the first time, people could interact with AI directly through conversation — asking questions, generating images, writing documents, summarising information, brainstorming ideas — instead of only benefiting from predictions made invisibly on their behalf. That's what made AI visible to a huge number of consumers all at once. But the underlying concept barely changed: it's still pattern recognition, prediction, and probability. What's new is the interface, not the idea underneath it.
 
-> [Author reflection placeholder: Add a short personal example or story here — for example, the first time you noticed AI recommendations becoming "too accurate," an experience with navigation apps changing routes dynamically, an interaction with spam filtering or fraud alerts, or a professional example of AI operating quietly inside enterprise systems long before public hype.]
+::: {.author-reflection}
+
+I don't remember exactly when Spotify's recommendations stopped feeling like recommendations and started feeling slightly intrusive.
+
+But I remember noticing the change.
+
+It wasn't when it suggested another artist from a genre I already listened to. That's hardly witchcraft. If I've spent the afternoon listening to several rock bands and Spotify recommends another rock band, nobody needs to call Skynet.
+
+It was when it started making jumps I would not have made myself.
+
+<!-- AUTHOR-INPUT id="CH01-1" status="required" -->
+One example that stuck with me was **[Author input needed: insert the actual artist/song Spotify introduced you to]**. On paper, it was not an obvious recommendation based on what I thought I listened to. Different artist, different corner of music, not something I would have searched for myself.
+<!-- /AUTHOR-INPUT -->
+
+And yet within about thirty seconds I understood why it had put it in front of me.
+
+There was something familiar in it. Maybe the vocal style, the production, the rhythm, the atmosphere, the way the chorus built — some combination of characteristics that connected it to music I already liked even though I had never consciously made that connection myself.
+
+That was the bit that got my attention.
+
+Spotify had apparently worked out something about my taste that I had never actually told it.
+
+At least, not deliberately.
+
+I had told it every time I let a song finish instead of skipping it. Every time I replayed something. Every artist I searched for. Every track I saved. Every playlist I returned to. Every song I abandoned twelve seconds in because apparently twelve seconds was enough to conduct a complete artistic review.
+
+Individually, none of those actions meant very much.
+
+Collectively, I had spent years feeding it an absurdly detailed description of what I liked without ever filling out a questionnaire.
+
+And it wasn't simply learning, "DJ likes this artist."
+
+That would be easy. And if you know me - that wouldn't work. I might like this song by that artist - but I have no idea what their other songs are or I like this song and no clue who the artist even was or ever bothered to glance at the screen to find out!
+
+It was learning the patterns underneath that choice: people who repeatedly listen to these things, skip those things, replay these particular tracks and wander into these other genres often respond well to something over here.
+
+That is considerably more interesting.
+
+It also explains why changing music services can feel strangely like starting again.
+
+You can move your playlists. You can rebuild your library. The songs themselves are mostly available everywhere.
+
+What doesn't come with you quite so neatly is the history.
+
+Years of skips, repeats, searches, discoveries, temporary obsessions and songs you played forty times before inexplicably deciding never to acknowledge their existence again.
+
+That accumulated behaviour has value because it lets the recommendation system build a model that becomes increasingly specific to you.
+
+Nobody ever sat me down and said, "We are going to train an AI system to predict your musical taste."
+
+I just listened to music.
+
+That is what makes it such a useful example of how AI existed in ordinary life long before most people started talking about AI.
+
+There was no chatbot. No prompt box. No glowing robot eye announcing that machine learning had entered the building.
+
+Just Spotify quietly putting a song in front of me that I would never have looked for myself.
+
+Then, somewhat annoyingly, being absolutely right.
+
+:::
 
 ## The Problem With AI Hype
 

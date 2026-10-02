@@ -502,7 +502,83 @@ The support study found evidence consistent with learning, particularly among le
 
 You do not need to recreate every tool manually. An accountant does not have to abandon spreadsheets to prove competence. The practical standard is whether you can explain the result, recognise when it needs help and justify the decision to use it. If assistance removes tedious formatting, welcome it. If it conceals a gap in understanding that matters to the work, investigate that gap.
 
-> [Author reflection placeholder: Add a genuine professional example of AI helping with a task, including the full preparation and review process, and an error caught through verification or a case where checking erased the apparent saving. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+One of the genuinely useful ways I have used AI at work has been preparing a presentation.
+
+I already had the material. That was not the problem.
+
+The problem was that the material existed in the usual professional state of affairs: facts scattered across documents, notes, technical information, background that mattered to me but probably not to the audience, and far too many things competing for the privilege of appearing on a PowerPoint slide.
+
+Given enough time, I could have worked through all of that manually.
+
+Instead, I gave the relevant material to AI, explained who I was presenting to, what I needed them to understand and what I wanted them to leave the room knowing.
+
+The useful part was not simply, "make me a PowerPoint."
+
+It helped organise the facts into a sensible sequence.
+
+It identified which information was supporting detail rather than the message itself. It suggested where a call-out would make an important point visible instead of burying it somewhere in bullet number seven. It helped reduce several dense explanations into something somebody could actually absorb while sitting in a meeting rather than studying for an exam.
+
+And it was quite good at identifying some of my garbage.
+
+There is always garbage.
+
+The technical detail that is completely fascinating to the person who spent three days investigating it and completely irrelevant to everybody else in the room. The paragraph that exists because I know the history but does absolutely nothing to move the presentation forward. The slide containing seventeen facts when the audience really needs three.
+
+AI was useful as another set of eyes asking, in effect, "What are you actually trying to tell these people?"
+
+That saved me a significant amount of preparation time.
+
+It also formatted the deck into something clean and presentable. The hierarchy was sensible, the slides were consistent and the basic visual structure was already there. I still went through afterwards and tidied it up because apparently I am physically incapable of leaving a PowerPoint presentation alone once I have noticed that one text box is three pixels out of place.
+
+But the heavy lifting was done.
+
+The important part came next.
+
+I checked the facts.
+
+I went back through the source material, checked the numbers, removed statements that were stronger than the evidence supported and rewrote anything that sounded impressive but did not actually say what I meant.
+
+A few things looked perfectly reasonable on the slide until I compared them with the underlying information.
+
+That is where the time saving could easily have disappeared.
+
+If I had needed to reconstruct every claim from scratch because the AI had produced a beautifully formatted collection of bullshit, I would have been better off making the presentation myself.
+
+In this case, though, the balance worked.
+
+The preparation, structuring and formatting were substantially faster, and the verification and tidy-up were manageable.
+
+The other benefit surprised me more.
+
+Because the slides had been reduced to the things that actually mattered, I did not need cue cards.
+
+The presentation itself became my prompt.
+
+Each slide gave me enough structure to know where I was in the argument, what point I needed to make and where I was going next, without putting paragraphs on the screen and reading them aloud like everybody in the room had suddenly forgotten how literacy worked.
+
+That let me spend more time looking at the people I was talking to and less time looking down at notes.
+
+I could explain the material rather than recite it.
+
+And because I knew the underlying information, I could move away from the slide when somebody asked a question, then come back to it without losing the thread.
+
+That is probably the best description of what AI contributed.
+
+It did not give the presentation.
+
+It helped me turn a pile of information into a structure that made it easier for **me** to give the presentation.
+
+The facts still needed checking.
+
+The judgement about what mattered was still mine.
+
+And when I was standing in front of the room, the AI was nowhere to be seen.
+
+Which, for that particular job, was exactly where I wanted it.
+
+:::
 
 ## Myth vs Reality
 
