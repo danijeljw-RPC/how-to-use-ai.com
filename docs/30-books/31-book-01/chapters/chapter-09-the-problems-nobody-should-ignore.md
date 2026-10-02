@@ -374,7 +374,77 @@ Saying that existing law applies is not the same as saying it is enough. Laws ca
 
 The nine risks in this chapter are a selection chosen for beginners, not a complete list. A few others are worth knowing about. AI advice about health, law and money carries higher stakes when it is wrong, which is why the verification habits from Chapters 3 and 4 matter most there. As AI assistants gain the ability to read your email, browse websites and take actions on your behalf, the assistant itself can become a target: hidden instructions planted in a web page or document can try to trick it into doing something you did not ask for. Later books in this series cover that in technical depth; for now, be cautious about what you connect an assistant to and what you let it do without your confirmation. And questions about superintelligence and catastrophic long-term risk get their own careful treatment in Chapter 11.
 
-> [Author reflection placeholder: Add a genuine personal example of encountering one of these risks, such as recognising and verifying a suspected scam, checking the source of a convincing clip, deciding not to paste someone else's information into an AI tool, or weighing a privacy trade-off. Describe what you noticed and what you did. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+I was scrolling through social media when I came across a video of a well-known Australian public figure apparently promoting an investment platform.
+
+At first glance, there was nothing obviously ridiculous about it. The person looked right. The voice sounded close enough. The video had the usual news-style captions and branding around it. It was exactly the sort of thing you could watch for ten seconds while half paying attention and accept as real.
+
+But then they said something that immediately made me stop.
+
+My reaction was basically:
+
+*Hang on, there’s no fucking way this person would say that.*
+
+It was not because I had detected some sophisticated flaw in the AI generation. I had not spotted six fingers, strange blinking, bad lip-syncing or any of the other things people are often told to look for in deepfakes.
+
+The claim itself was the problem.
+
+The person in the video was supposedly endorsing an investment product that promised unusually high returns with very little risk. That did not fit with what I knew about them, the way they normally spoke publicly, or the kind of claims a credible financial commentator or public official would normally make.
+
+That was enough for me not to trust the video.
+
+But suspicion is not verification.
+
+Rather than trying to decide whether the pixels looked artificial, I started checking the claim outside the video.
+
+First, I searched for the supposed announcement independently rather than following the link attached to the post. If a prominent Australian figure had genuinely launched or endorsed something this significant, I expected to find evidence somewhere other than the advertisement promoting it.
+
+I looked for coverage from established news organisations. I checked the person's official website and social-media accounts. I searched for the name of the investment company separately. I looked at the domain being used and whether the organisation behind it appeared to exist independently of the advertisement.
+
+The story started falling apart almost immediately.
+
+There was no corresponding announcement from the person supposedly appearing in the video. Reputable media outlets were not reporting the extraordinary investment opportunity. Searches for the company produced warnings and questionable pages rather than the kind of independent history I would expect from a legitimate financial business.
+
+At that point, whether the video was technically a deepfake almost became secondary.
+
+The underlying claim had failed verification.
+
+That distinction matters.
+
+A lot of advice about AI-generated misinformation focuses on detecting technical imperfections: unnatural blinking, strange mouth movements, inconsistent lighting, distorted hands, robotic speech or other artefacts.
+
+Those clues can help, but they are getting less reliable as the technology improves.
+
+A better question can sometimes be:
+
+**If this were genuinely true, what other evidence should exist?**
+
+A prime minister announcing a major policy should leave a trail of government statements and reputable reporting.
+
+A chief executive announcing a major acquisition should leave company filings, press releases and financial coverage.
+
+A respected doctor endorsing a miracle treatment should leave some trace in their professional work, published research or official channels.
+
+A financial expert promising extraordinary investment returns should immediately raise questions regardless of how convincing their face looks on screen.
+
+In this case, I did not need to prove which AI model had created the video or identify exactly how it had been manipulated.
+
+I needed to decide whether I should believe it.
+
+Those are not the same task.
+
+The experience changed the way I think about synthetic media. I still look for technical warning signs, but I put much more weight on independent corroboration.
+
+If something important is supposedly being said by someone with authority, I do not treat the video itself as the source.
+
+I treat it as a claim that needs a source.
+
+And sometimes the most useful security tool available is still that first uncomfortable thought:
+
+*Hang on, there’s no fucking way this person would say that.*
+
+:::
 
 ## Myth vs Reality
 

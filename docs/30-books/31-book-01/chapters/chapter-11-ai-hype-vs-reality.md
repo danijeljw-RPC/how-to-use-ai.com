@@ -388,7 +388,112 @@ Run the five questions on the protein-structure system and the claim survives: a
 
 > **Watch Out:** Hype fatigue can make you systematically late. After years of exaggerated claims, it is tempting to treat every new one as noise, but some dramatic claims are true, and some capabilities have arrived faster than sceptics expected. Every capability claim needs a date and a version: a criticism that was accurate about AI in 2022 may not be accurate now. The aim is not to doubt more. It is to doubt *accurately*, and to let good evidence move you, even when it moves you somewhere surprising.
 
-> [Author reflection placeholder: Add a genuine personal example from your professional background of a bold AI claim you evaluated, whether a vendor pitch, a demo, a benchmark headline, a viral statistic or a forecast. Describe what you checked, what you found, and whether the claim held up, fell apart or turned out to be better supported than you first thought. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+One of the AI claims that immediately made me suspicious was the statistic that developers using GitHub Copilot could write software **55 percent faster**.
+
+I kept seeing variations of that number repeated in articles, presentations and discussions about AI-assisted programming.
+
+My reaction was not, *That has CLEARLY got to be bullshit.*
+
+It was:
+
+*Hang on. Fifty-five percent faster at what?*
+
+I am a software engineer. I know from experience that writing code is only one part of developing software.
+
+Creating a new function is software development. So is debugging a fifteen-year-old production system, reading somebody else's code, tracing an unexpected database problem through several layers of an application, reviewing a pull request, understanding a customer's business rules, updating dependencies, testing a change, and trying to fix one thing without accidentally breaking six apparently unrelated things.
+
+If Copilot really made all of that 55 percent faster, that would be extraordinary.
+
+So, I went looking for where the number came from.
+
+I found the GitHub research behind it and started checking exactly what had been measured.[^ch11-copilot-study]
+
+There were several things I wanted to know:
+
+- **Who was tested?** Professional software developers.
+- **What were they asked to do?** Build an HTTP server in JavaScript.
+- **Was there a comparison group?** Yes. Participants were randomly assigned to complete the task either with or without GitHub Copilot.
+- **What did the 55 percent refer to?** The time taken to complete that specific programming task.
+- **Was it measuring an entire software-development project?** No.
+- **Was it measuring maintenance, debugging, requirements, deployment, integration or long-term code quality?** No.
+- **Who conducted the research?** GitHub, the company behind Copilot.
+
+That changed how I interpreted the claim.
+
+The number itself was not simply invented. In the experiment GitHub conducted, developers using Copilot completed the assigned task substantially faster.
+
+But that is a much more specific statement than saying:
+
+*"AI makes software developers 55 percent faster."*
+
+The study had demonstrated something useful: Copilot could significantly accelerate a particular coding task under controlled conditions.
+
+It had not demonstrated that a software team could design, build, test, deploy and maintain a production system 55 percent faster.
+
+That distinction matters to me because the second claim is the one I would actually care about professionally.
+
+Later, I came across research from METR that made the question even more interesting.[^ch11-metr]
+
+This time I checked many of the same things.
+
+The participants were experienced open-source developers. Instead of giving everyone the same artificial programming exercise, the researchers studied developers working on real issues in repositories they already knew. The developers could use modern AI coding tools for some tasks and work without them for others.
+
+The result went in the opposite direction.
+
+The developers using AI took longer on average to complete the work, even though they believed the tools had made them faster.
+
+At first glance, it would be tempting to put the two studies against each other:
+
+**GitHub says AI makes programmers faster. METR says AI makes programmers slower. Which one is right?**
+
+But once I looked at what each study had actually measured, that became the wrong question.
+
+They were testing different people, doing different work, under different conditions.
+
+One measured developers building a relatively contained piece of new software.
+
+The other measured experienced developers modifying real projects they already understood, where reading existing code, deciding what needed to change, checking AI output and making sure nothing else broke were all part of the job.
+
+Those are not equivalent tasks.
+
+That is what made the comparison useful to me.
+
+AI might save a substantial amount of time when I need to generate a contained piece of code. The same tool might save very little time—or even create additional work—when I am investigating an existing system, checking assumptions, reviewing generated code, understanding dependencies or dealing with complicated business logic.
+
+That is much closer to how I actually evaluate AI tools now.
+
+I do not just ask whether there is a study supporting a claim. I try to quantify what the study actually demonstrated.
+
+When I see claims such as **"30 percent more productive," "55 percent faster," "10 times faster"** or **"performs at expert level,"** I now work through roughly the same checklist:
+
+1. **What exactly was the task?**
+2. **How many people or examples were tested?**
+3. **Who were the participants?**
+4. **What was the control or comparison?**
+5. **What was actually measured: speed, accuracy, quality, cost, or something else?**
+6. **How large was the measured improvement?**
+7. **Was the result statistically or practically meaningful?**
+8. **Who conducted or funded the research?**
+9. **What important parts of the real-world task were excluded?**
+10. **Does the test resemble what I would actually use the tool for?**
+
+That last question has become one of the most important.
+
+A benchmark can be completely legitimate and still tell me almost nothing about my own use case.
+
+The lesson for me was never that GitHub's 55 percent number was wrong.
+
+It was that **"55 percent faster" is incomplete information until I know exactly what was made 55 percent faster, under what conditions, and compared with what.**
+
+That experience changed how I read AI performance claims.
+
+I still pay attention to the headline.
+
+I just do not stop there anymore.
+
+:::
 
 ## Myth vs Reality
 
@@ -426,7 +531,7 @@ Being able to tell genuine capability from hype changes the question you ask nex
 
 ## Chapter Notes
 
-This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The Chapter 11 research package informed the manuscript, and the most time-sensitive and quotation-sensitive claims, including the enterprise-AI report's wording and method, the high-school mathematics study, the international safety report and the status of driverless ride-hailing, were checked against their sources on 1 October 2026. Some figures, including parts of the expert-survey comparison and the bar-exam re-analysis, have so far been checked only against abstracts or summaries and are flagged for confirmation against the full papers before publication. Following the chapter plan, companies, products and individuals are described generically in the main text; the endnotes identify the underlying sources so the claims can be audited. Anthropic, the company that makes Claude, is one of the frontier AI developers whose statements and research form part of the wider debate described here; no example in this chapter relies on its claims. The four opening claims, the viral doom post, the vendor pitch and the forecast examples in "Using the Method on the Future" are teaching illustrations based on recurring patterns, not quotations or invented author experiences. The dedicated Chapter 11 bibliography records source types, claim mappings, limitations and items that must be rechecked before publication; named cases, current figures and live examples are better suited to the companion website.
+This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The Chapter 11 research package informed the manuscript, and the most time-sensitive and quotation-sensitive claims, including the enterprise-AI report's wording and method, the high-school mathematics study, the international safety report and the status of driverless ride-hailing, were checked against their sources on 1 October 2026. Some figures, including parts of the expert-survey comparison and the bar-exam re-analysis, have so far been checked only against abstracts or summaries and are flagged for confirmation against the full papers before publication. Following the chapter plan, companies, products and individuals are described generically in the main text, except in the author's own reflection, which names the tool and the two studies the author checked (GitHub Copilot, and research by GitHub and METR); the endnotes identify the underlying sources so the claims can be audited. Anthropic, the company that makes Claude, is one of the frontier AI developers whose statements and research form part of the wider debate described here; no example in this chapter relies on its claims. The independent METR study cited in the author's reflection observed developers who mostly used Anthropic's Claude models through a third-party editor. The four opening claims, the viral doom post, the vendor pitch and the forecast examples in "Using the Method on the Future" are teaching illustrations based on recurring patterns, not quotations or invented author experiences. The dedicated Chapter 11 bibliography records source types, claim mappings, limitations and items that must be rechecked before publication; named cases, current figures and live examples are better suited to the companion website.
 
 [^ch11-aiindex]: Stanford Institute for Human-Centered Artificial Intelligence, *AI Index Report 2026*, "Economy" chapter, <https://hai.stanford.edu/ai-index/2026-ai-index-report/economy>. Research synthesis drawing on surveys, some commercial; reports that 88 per cent of surveyed organisations use AI in at least one business function and 70 per cent use generative AI. Adoption measures are not evidence of organisation-wide value. Recheck figures before publication.
 
@@ -507,3 +612,7 @@ This chapter was developed from the author's viewpoint with research and draftin
 [^ch11-lateral]: Sam Wineburg and Sarah McGrew, "Lateral Reading and the Nature of Expertise: Reading Less and Learning More When Evaluating Digital Information," *Teachers College Record* 121, no. 11 (2019), <https://doi.org/10.1177/016146811912101102>. Small comparison of professional fact-checkers, historians and Stanford undergraduates; see also the SIFT method (Stop, Investigate the source, Find better coverage, Trace claims to the original context), <https://umsystem.pressbooks.pub/information/chapter/the-sift-method-evaluating-web-sources/>.
 
 [^ch11-nanda]: Aditya Challapally, Chris Pease, Ramesh Raskar and Pradyumna Chari, *The GenAI Divide: State of AI in Business 2025*, MIT Project NANDA, "Preliminary Findings" (July 2025), public copy at <https://cloudelligent.com/wp-content/uploads/2026/02/v0.1_State_of_AI_in_Business_2025_Report.pdf>. Quotations and method checked against this copy on 1 October 2026: executive summary ("95% of organizations are getting zero return"; "Just 5% of integrated AI pilots are extracting millions in value"); section 3.2 (5 per cent of custom enterprise tools reaching production; ~83 per cent for general-purpose chatbots; success definition; "directionally accurate" limitation); section 8.2 (methodology and sample limitations). Not peer reviewed; canonical hosting has been unstable. Mandatory recheck before publication.
+
+[^ch11-copilot-study]: Eirini Kalliamvakou, "Research: quantifying GitHub Copilot's impact on developer productivity and happiness," GitHub Blog (7 September 2022, updated 21 May 2024), <https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/>; full paper: Sida Peng, Eirini Kalliamvakou, Peter Cihon and Mert Demirer, "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot" (February 2023), <https://arxiv.org/abs/2302.06590>. Checked 2 October 2026: 95 professional developers were randomly split into two groups and asked to write an HTTP server in JavaScript; the group with Copilot finished in an average of 1 hour 11 minutes against 2 hours 41 minutes, reported as 55 per cent faster (95 per cent confidence interval 21 to 89 per cent). A single, well-defined task measured on completion time, not code quality or long-term work; run by researchers from GitHub, Microsoft Research and MIT, and published by the tool's maker.
+
+[^ch11-metr]: Joel Becker, Nate Rush, Beth Barnes and David Rein, "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity," METR (10 July 2025), <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/>. Checked 2 October 2026: a randomised trial of 16 experienced developers working on 246 real issues in large open-source repositories they already knew, mostly using Cursor Pro with Claude 3.5 and 3.7 Sonnet. Tasks took 19 per cent longer when AI was allowed; developers had expected a 24 per cent speed-up and afterwards believed they had been sped up by about 20 per cent. Small sample and a snapshot of early-2025 tools in one setting; the authors state it does not show that AI fails to help most developers or other kinds of work.

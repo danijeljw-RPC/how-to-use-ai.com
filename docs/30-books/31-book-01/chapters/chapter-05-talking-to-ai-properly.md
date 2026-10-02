@@ -297,7 +297,19 @@ This example shows that specificity is not decoration around the task. It decide
 
 The exercise will land more clearly with one real example from the author's own experience:
 
-> [Author reflection placeholder: Add a short personal example of a disappointing AI response that improved after the request gained relevant context or a clearer success condition. Explain what changed without inventing a perfect result.]
+::: {.author-reflection}
+
+I’ve had AI give me an answer that was technically relevant but still completely missed the point. It wasn’t necessarily wrong; it just wasn’t solving the problem I actually had. The AI was filling in the gaps based on assumptions, because I hadn’t given it enough context about the environment, the constraints, or what I considered a successful result.
+
+Once I gave it the relevant background, showed it an example of what I was looking for, and spelled out the actual success condition, the response improved significantly. Basically, I stopped making it guess.
+
+That experience reinforced something fairly obvious from an IT perspective: garbage in, garbage out still applies, even when the “garbage” is a perfectly reasonable-looking prompt. If you give an AI a vague problem and leave half the requirements unstated, you can’t be surprised when it produces a vague or poorly targeted answer.
+
+The other thing I found useful was being explicit about what not to change and what information actually mattered. That reduced the amount of interpretation the AI had to do and made the output much more predictable.
+
+It still wasn’t perfect, and I wouldn’t pretend that better prompting magically fixes everything. But the difference was enough to make the point: sometimes the problem isn’t that the AI can’t do the job. The problem is that I haven’t properly defined the job. In IT terms, the clearer the requirements, inputs, constraints and expected output, the less room there is for the system to make assumptions.
+
+:::
 
 ## The Myth of the Perfect Prompt
 

@@ -376,7 +376,135 @@ That also means the responsibility for getting through this transition does not 
 
 None of this is a reason to wait passively. It is a reason to do the things within your control while being clear-eyed that they are one part of the picture. If you are worried about how AI is being introduced in your workplace, asking questions, understanding your award or agreement, and raising concerns through the proper channels are legitimate things to do. They are not the same as being against technology.
 
-> [Author reflection placeholder: Add a genuine personal example or observation, drawing on your professional background in AI and software, of a role or task you have seen change because of AI. Describe what actually shifted in the day-to-day work, what the people involved gained or lost, and anything that surprised you compared with the headlines. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+One of the more useful changes I have seen from AI has not been developers suddenly writing entire applications with it.
+
+It has been support and operations staff using it to make sense of technical information faster.
+
+That sounds less dramatic, but in practice it can be far more useful.
+
+In operations, a problem rarely arrives as a neat sentence explaining what has gone wrong.
+
+It arrives as an alert. Of course.
+
+Or a log containing fifty lines of noise and three lines that actually matter.
+
+Or an error message from a product somebody has never seen before.
+
+Or a customer saying, "It stopped working this morning."
+
+Or a vendor document containing eight pages of explanation for something that could probably have been expressed in three paragraphs.
+
+Historically, someone had to work through all of that manually.
+
+They might search documentation, compare logs, ask another engineer, search an error code, look through previous incidents, or escalate the problem because they did not yet have enough technical context to understand what they were looking at.
+
+AI changed part of that process almost immediately.
+
+I have seen people take an error message, a collection of log entries, an alert or a section of technical documentation and ask an AI system to explain it in plain English.
+
+Not:
+
+*"Fix this."*
+
+More often:
+
+*"What is this telling me?"*
+
+*"Which parts of this log actually matter?"*
+
+*"What are the likely causes?"*
+
+*"Can you explain this error without assuming I already understand this product?"*
+
+*"Summarise this vendor document and tell me which settings are relevant to this problem."*
+
+That can remove a surprising amount of friction.
+
+Someone who previously had to escalate an issue simply because they did not understand the terminology can sometimes get enough context to investigate it themselves.
+
+An operations person can turn several hundred lines of logs into a short list of things worth checking.
+
+A support person can understand the difference between a network problem, an authentication failure and an application error before they hand the issue to an engineer.
+
+Even incident communication changes.
+
+Instead of somebody trying to convert a collection of technical notes into a readable status update while they are also dealing with the incident, AI can help turn those notes into something another team, a manager or a customer can actually understand.
+
+The important distinction is that the AI usually has not solved the problem.
+
+It has shortened the distance between **seeing the problem** and **understanding enough about the problem to do something useful**.
+
+That is a very different kind of productivity gain.
+
+There is a downside, though, and I have seen that too.
+
+AI is extremely good at producing explanations that sound reasonable.
+
+Sometimes they are right.
+
+Sometimes they are approximately right.
+
+And sometimes they are completely wrong while sounding almost indistinguishable from the other two.
+
+That means the dangerous moment is when somebody stops treating the response as an interpretation and starts treating it as a diagnosis.
+
+A log might contain evidence of a timeout, for example, and the AI may confidently conclude that the network is the problem.
+
+But the timeout could be the symptom rather than the cause.
+
+The application might have stopped responding because of a database lock, exhausted connection pool, failed dependency, resource problem, configuration change or something completely different.
+
+The AI has only seen what you gave it.
+
+It has not necessarily seen the rest of the system.
+
+That has changed the way I think about its value in operational work.
+
+The useful question is usually not:
+
+*"Can AI solve this incident?"*
+
+It is:
+
+*"Can AI help this person understand the incident faster?"*
+
+From what I have seen, the answer to that can absolutely be yes.
+
+The biggest gain is often not automation.
+
+It is comprehension.
+
+People can get through unfamiliar terminology faster, extract useful information from noisy logs, understand documentation they would otherwise have to spend considerable time reading, and communicate technical problems more clearly.
+
+But the person still needs to verify what the system is telling them.
+
+They still need access to the actual environment.
+
+They still need to check the logs, metrics, configuration, dependencies and behaviour of the system itself.
+
+And they still need enough judgement to recognise when the AI's explanation does not fit the evidence.
+
+That is the part I find more interesting than the headlines about AI replacing support desks or operations teams.
+
+In the work I have seen, AI has not removed the need for those people.
+
+It has changed what they can do before they need to escalate something.
+
+A support person can arrive at an engineer with a much better description of the problem.
+
+An operations person can investigate something outside their immediate area of expertise without starting completely from scratch.
+
+And an engineer receiving that escalation may get useful context instead of:
+
+*"Something is broken. Please investigate."*
+
+That might not sound revolutionary.
+
+But when you are dealing with real systems, shortening the path from **"something is wrong"** to **"this is what we know, this is what we have checked, and this is where the problem probably sits"** is a meaningful change to the job.
+
+:::
 
 ## Myth vs Reality
 
