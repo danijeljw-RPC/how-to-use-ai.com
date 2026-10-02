@@ -440,7 +440,151 @@ Leaving is also worth considering even when nothing has gone wrong. Every so oft
 
 > **Try This:** Choose one real task you do at least occasionally, such as summarising a long email thread, writing a difficult message, describing a photo, transcribing a voice memo or explaining a spreadsheet error. Write it down in one sentence, with what goes in and what should come out. Decide which of the six kinds of help it needs. Before looking for anything new, check whether an app or device you already use can do it. Then try it on a low-stakes example you can judge: one with no private details, where you already know what a good result looks like. Inspect the result: what did it get right, what did it get wrong, did it invent anything? Then spend five minutes on the tool itself: who makes it, what permissions and data settings it has, and whether using it more would cost money. Finish by deciding honestly whether it is useful enough to keep using for that task, and if not, remove it cleanly. You will have practised the whole method once, and the second time will be quicker.
 
-> [Author reflection placeholder: Add a genuine personal example, drawing on your professional background, of evaluating and then choosing or rejecting a specific AI tool. What was the task? What did you check: the publisher, the permissions, the data terms, the price, the results? What made you adopt it, or walk away? If useful, mention what you would check differently now. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+### Putting the Evaluation Method to Work
+
+I learned fairly quickly that evaluating an AI tool is different from being impressed by one.
+
+I was looking at GitHub Copilot because I had a very ordinary problem: writing software involves a lot of work that is necessary but not particularly interesting. Boilerplate code, repetitive functions, tests, documentation, figuring out an unfamiliar piece of code—none of it is difficult all the time, but collectively it eats hours.
+
+Copilot appeared to offer an obvious solution. An AI coding assistant sitting inside the development environment, watching what I was doing and suggesting code as I worked.
+
+The demonstration was convincing.
+
+But demonstrations have an annoying habit of showing you the five minutes in which everything works.
+
+So I started asking different questions.
+
+Before I became too enthusiastic, I wanted to know what I was actually giving the tool access to. If I connected it to a real development environment, what information could it process? What happened to my prompts and code? Was that information retained? Could it be used to train models? What controls existed for organisations handling commercial or sensitive source code?
+
+Those questions turned out to matter more than I initially expected.
+
+GitHub's documentation explains that Copilot processes prompts, code snippets and contextual information to generate its responses, and that the data arrangements differ depending on the type of account. For example, GitHub states that Business and Enterprise customer data is not used to train its AI models, while individual users have different data controls.[^ch13-copilot-data]
+
+That changed the way I thought about the product.
+
+I wasn't evaluating an autocomplete feature anymore. I was evaluating a service that would be allowed to see pieces of software I was working on.
+
+That distinction is easy to miss when the product is presented as a clever assistant.
+
+Then I looked at the cost.
+
+Copilot has a free option and paid plans, with individual subscriptions starting at US$10 per month, while heavier usage can involve additional AI-credit considerations.[^ch13-copilot-price]
+
+Ten dollars a month isn't much if the tool saves me several hours. It is also not the point. The real question is whether the time saved survives contact with reality.
+
+So I tested it on work where I already knew enough about the problem to judge the answer.
+
+That was important.
+
+If I ask an AI to solve a problem I don't understand, I have a rather awkward testing methodology: I don't know whether the answer is correct.
+
+Instead, I gave it tasks where I could inspect the result. Sometimes it was genuinely useful. It could produce repetitive code quickly, suggest an approach I hadn't considered, explain unfamiliar sections and get me past the irritating blank page that appears when I know what I want but don't particularly want to type it.
+
+Other times, it produced code that looked perfectly reasonable until I examined it more closely.
+
+That was probably the most useful part of the experiment.
+
+The dangerous AI answer isn't necessarily the obviously ridiculous one. That's easy to reject. The more interesting problem is the answer that looks professional, compiles successfully and is still wrong.
+
+Security research reinforced that concern. An independent study of Copilot-generated code found that newer versions produced fewer vulnerable suggestions than earlier versions, but vulnerabilities were still present.[^ch13-copilot-security] In other words, the system was improving, but improvement was not the same thing as reliability.
+
+At the same time, I didn't want to fall into the opposite trap and dismiss the tool simply because it could make mistakes.
+
+There was evidence that it could produce measurable productivity gains. In a controlled GitHub study involving professional developers, participants using Copilot completed the assigned programming task substantially faster than those who did not use it.[^ch13-copilot-productivity]
+
+That result made sense to me.
+
+I didn't need Copilot to replace a developer. I needed it to remove some of the friction around development.
+
+That became my decision.
+
+I was comfortable using an AI assistant for certain classes of work, provided I remained responsible for checking what it produced. I wasn't comfortable treating generated code as automatically trustworthy simply because it was produced by a sophisticated model.
+
+That sounds like a small distinction, but it changes the entire relationship with the tool.
+
+I stopped asking, "Can Copilot write this for me?"
+
+The better question became, "Is this a task where Copilot can save me time without creating more risk than the time it saves?"
+
+Sometimes the answer was yes.
+
+Sometimes it was no.
+
+And sometimes the answer was, "Yes—but I'll check it myself."
+
+That last category turned out to be surprisingly large.
+
+The experience also changed the order in which I evaluate AI products.
+
+Initially, I was mostly interested in capability. What could the thing do? How impressive were its answers? How much time could it save?
+
+Now I put access and data much closer to the beginning of the process.
+
+Who made it?
+
+What exactly am I allowing it to see?
+
+What happens to the information I give it?
+
+What does it cost?
+
+What happens when it gets something wrong?
+
+And, perhaps most importantly, can I test its usefulness on a task where I am capable of recognising a bad answer?
+
+That last question is particularly important because AI tools are very good at creating the feeling that something has been accomplished.
+
+Sometimes something has been accomplished.
+
+Sometimes I have simply been given a beautifully formatted opportunity to create a new problem.
+
+That, for me, is the difference between evaluating an AI tool and being impressed by one.
+
+The goal isn't to decide whether the technology is "good" or "bad". The goal is to work out where it is useful, what it is allowed to touch, what its mistakes cost, and whether the benefits justify those trade-offs.
+
+Once I looked at Copilot that way, the decision became much easier.
+
+I didn't have to trust the AI.
+
+I had to understand the conditions under which I was prepared to use it.
+
+In the end, I kept Copilot in my workflow, but I didn't give it a blank cheque.
+
+I used it for the things where it was consistently useful: getting a first draft of routine code, generating tests that I could review, explaining unfamiliar sections, suggesting alternative implementations and helping me get unstuck. I became much more cautious when the code involved security-sensitive behaviour, business logic I couldn't easily verify, or information that I didn't want leaving the environment.
+
+That distinction became my real evaluation.
+
+I wasn't asking whether Copilot was a good product. I was asking whether using it for this particular task, with this particular information, at this particular cost, made sense.
+
+There were also occasions when I deliberately didn't use it. If I was dealing with sensitive source code or a problem where I couldn't confidently evaluate the generated answer, the supposed productivity benefit wasn't enough to persuade me. Saving ten minutes isn't much of a bargain if I create an hour of verification work—or, worse, quietly introduce a problem I don't discover until later.
+
+The biggest change wasn't actually my opinion of Copilot. It was the way I evaluated AI tools after that.
+
+I stopped starting with the demo.
+
+I started with the consequences.
+
+What will I give this thing access to? What will it do with that information? What happens if it is wrong? Can I measure whether it genuinely saves me time? And what is the smallest, safest way I can test it before making it part of my workflow?
+
+That last question has probably become my favourite.
+
+I don't need to marry an AI tool because it produced an impressive demo. I can give it a small job, watch what happens, check the result and decide what it has earned.
+
+That is ultimately how Copilot earned a place in my workflow.
+
+Not because I trusted it.
+
+Because I had tested it enough to know where I didn't need to trust it.
+
+And that, I think, is a much more useful way to evaluate AI.
+
+The question isn't whether the machine is impressive.
+
+The question is whether, after you've looked at the access, the data, the cost, the errors and the actual results, you still have a good reason to let it into the room.
+
+:::
 
 ## Myth vs Reality
 
@@ -476,7 +620,7 @@ This chapter gave you a method for choosing among the AI tools that exist now. T
 
 ## Chapter Notes
 
-This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The Chapter 13 research package informed the manuscript. On 1 October 2026, the ACCC's July 2026 penalty announcement and the Treasury announcement of the Unfair Trading Practices reforms, including the 1 July 2027 start date, were checked against their sources; the eSafety survey page could not be retrieved during that check, so its figures are taken from the research package, match those used in Chapter 9 and must be confirmed before publication. In line with the chapter plan, AI products and companies are described generically in the main text; the endnotes identify the underlying sources so claims can be audited. Provider privacy documentation is the providers' own description of their services, not independent verification, and is cited to establish principles rather than current settings. Security-company reports describe documented incidents and campaigns, not how common such threats are. Anthropic, the company that makes Claude, is one of the providers whose documentation illustrates the difference between consumer and commercial data terms. The two people in the opening, the club-committee recording and the $9.99 weekly price are teaching illustrations, not real cases or invented author experiences. Current product names, prices, settings, age requirements and walkthroughs belong on the companion website; the dedicated Chapter 13 bibliography records source types, limitations and recheck needs.
+This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The Chapter 13 research package informed the manuscript. On 1 October 2026, the ACCC's July 2026 penalty announcement and the Treasury announcement of the Unfair Trading Practices reforms, including the 1 July 2027 start date, were checked against their sources; the eSafety survey page could not be retrieved during that check, so its figures are taken from the research package, match those used in Chapter 9 and must be confirmed before publication. In line with the chapter plan, AI products and companies are described generically in the main text, except in the author's own reflection, which names the tool the author evaluated (GitHub Copilot); the endnotes identify the underlying sources so claims can be audited. Provider privacy documentation is the providers' own description of their services, not independent verification, and is cited to establish principles rather than current settings. Security-company reports describe documented incidents and campaigns, not how common such threats are. Anthropic, the company that makes Claude, is one of the providers whose documentation illustrates the difference between consumer and commercial data terms. The two people in the opening, the club-committee recording and the $9.99 weekly price are teaching illustrations, not real cases or invented author experiences. Current product names, prices, settings, age requirements and walkthroughs belong on the companion website; the dedicated Chapter 13 bibliography records source types, limitations and recheck needs.
 
 [^ch13-churn]: Google, "Bard becomes Gemini: Try Ultra 1.0 and a new mobile app today" (8 February 2024), <https://blog.google/intl/en-africa/products/explore-get-answers/bard-becomes-gemini-try-ultra-10-and-a-new-mobile-app-today/>; OpenAI Help Center, "Retiring GPT-4o and other ChatGPT models" (retirements February–March 2026), <https://help.openai.com/en/articles/20001051-retiring-gpt-4o-and-other-chatgpt-models>; Anthropic, "Model deprecations," <https://docs.anthropic.com/en/docs/about-claude/model-deprecations>; Microsoft Support, "Microsoft Copilot privacy controls" (page marked as applying to the app version before an August 2026 update), <https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls>. Provider lifecycle and help pages; recheck current names and rosters before publication.
 
@@ -525,3 +669,11 @@ This chapter was developed from the author's viewpoint with research and draftin
 [^ch13-utp-act]: *Competition and Consumer Amendment (Unfair Trading Practices) Act 2026* (No. 64, 2026), Federal Register of Legislation, <https://www.legislation.gov.au/C2026A00064> (includes Schedule 1 Part 3, subscription contracts); Treasury Ministers, "Unfair trading tricks and traps to be banned" (2 July 2026), <https://ministers.treasury.gov.au/ministers/andrew-leigh-2025/media-releases/unfair-trading-tricks-and-traps-be-banned>. Checked 1 October 2026: the bill passed in July 2026 and the protections start on 1 July 2027. The Register's status label should not be read as meaning the provisions are already operative. Mandatory recheck of commencement and ACCC guidance before publication.
 
 [^ch13-reviews]: ACCC, "Online reviews for products and services," <https://www.accc.gov.au/consumers/advertising-and-promotions/online-reviews-for-product-and-services>. Warning signs are indicators, not proof that a particular review is fake.
+
+[^ch13-copilot-data]: GitHub, "GitHub Copilot Trust Center," <https://resources.github.com/copilot-trust-center/>; Mario Rodriguez, "Updates to GitHub Copilot interaction data usage policy," GitHub Blog (25 March 2026), <https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/>. Checked 2 October 2026: from 24 April 2026, interaction data (inputs, outputs, code snippets and context) from Copilot Free, Pro and Pro+ is used for model training unless the user opts out in their privacy settings; Business, Enterprise and enterprise-owned repository data is excluded. Provider's own description of its service, not independent verification; the default changed after the author's evaluation began and may change again. Recheck before publication.
+
+[^ch13-copilot-price]: GitHub Docs, "Plans for GitHub Copilot," <https://docs.github.com/en/copilot/get-started/plans>. Checked 2 October 2026: Copilot Free at no cost; Pro US$10 per month, Pro+ US$39 and Max US$100; since June 2026 each paid plan includes a monthly allowance of GitHub AI Credits, with usage beyond it billed per token. US prices, before any local tax; recheck before publication.
+
+[^ch13-copilot-security]: Vahid Majdinasab, Michael Joshua Bishop, Shawn Rasheed, Arghavan Moradidakhel, Amjed Tahir and Foutse Khomh, "Assessing the Security of GitHub Copilot Generated Code — A Targeted Replication Study," *2024 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER)*, preprint <https://arxiv.org/abs/2311.11177> (2023). Replicates Hammond Pearce et al., "Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions," *IEEE Symposium on Security and Privacy* (2022), <https://arxiv.org/abs/2108.09293>. The share of vulnerable suggestions fell from 36.54 to 27.25 per cent, measured on Python scenarios built around known weakness types (CWEs) and scanned with CodeQL; a 2023 Copilot version. Not a measure of all Copilot output, other languages or current versions.
+
+[^ch13-copilot-productivity]: Sida Peng, Eirini Kalliamvakou, Peter Cihon and Mert Demirer, "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot" (February 2023), <https://arxiv.org/abs/2302.06590>. A randomised experiment run by researchers from GitHub, Microsoft Research and MIT between May and June 2022, before Copilot became generally available: 95 professional programmers recruited through Upwork wrote an HTTP server in JavaScript, and the group with Copilot finished 55.8 per cent faster. A single, well-defined task measured on completion time, not code quality or long-term work; the study was run by the tool's maker.

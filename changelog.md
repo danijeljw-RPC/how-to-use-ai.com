@@ -2,6 +2,39 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (76)
+
+### Fixed
+
+Book 1, Chapter 13: added endnotes for the four external claims in the author's Copilot reflection, in response to the Codex review on PR #37 (ADR-04-0003). The claims are GitHub's Copilot data terms, Copilot pricing, the Majdinasab et al. security replication study and the Peng et al. productivity experiment. Each was checked against its primary source on 2 October 2026 and qualified in its note: population, task, date, version and who ran the study. The author's wording is unchanged; only footnote markers were added. One finding: since 24 April 2026, individual Copilot plans use interaction data for training unless the user opts out. The reflection's "individual users have different data controls" is still accurate, and the note gives the detail. The Chapter Notes sentence saying no products are named in the main text now excepts the author's reflection. The chapter 13 bibliography records the new evidence and recheck items.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `docs/30-books/31-book-01/research/chapter-13-bibliography.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0003).
+- Open issues: none.
+- Commit: 723a6d2.
+
+## 2026-10-02 (75)
+
+### Fixed
+
+Book 1, Chapter 13: wrapped the author reflection in "Leaving a Tool Cleanly" in `::: {.author-reflection}` so it renders as an Author Reflection rather than plain prose (ADR-04-0004). The text is unchanged.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0004).
+- Open issues: none.
+- Commit: 75cf2b7.
+
+## 2026-10-02 (74)
+
+### Changed
+
+Book 1, Chapter 13: replaced the author reflection placeholder at the end of "Leaving a Tool Cleanly" with the author's account of evaluating GitHub Copilot, taken from the comment on issue #28. The text is used word for word. The only formatting change is that its title, "Putting the Evaluation Method to Work", is now a `###` heading.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
+- Decisions: none.
+- Open issues: none (closes GitHub issue #28).
+- Commit: 394fd00.
+
 ## 2026-10-02 (73)
 
 ### Fixed
