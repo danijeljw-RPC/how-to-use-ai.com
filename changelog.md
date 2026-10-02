@@ -35,6 +35,17 @@ Book 1, Chapter 13: replaced the author reflection placeholder at the end of "Le
 - Open issues: none (closes GitHub issue #28).
 - Commit: 394fd00.
 
+## 2026-10-02 (73)
+
+### Fixed
+
+PDF: the "Author Reflection" label on a finished reflection could be left alone at the foot of a page, with the reflection starting on the next page. Chapter 13 showed this because its reflection opens with a sub-heading. The label now always stays with the text that follows it, and the reflection moves to the next page when there is too little room left.
+
+- Files changed: `publishing/latex/howto-book.tex`, `changelog.md`.
+- Decisions: none (refines ADR-04-0004).
+- Open issues: none.
+- Commit: 4b36ee3.
+
 ## 2026-10-02 (72)
 
 ### Fixed
