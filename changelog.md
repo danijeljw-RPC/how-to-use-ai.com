@@ -23,7 +23,7 @@ The Chapter 3, 7 and 14 bibliographies no longer describe these reflections as p
   - Updated style OI-0001 with three more instances of strong language (Chapter 7 once, Chapter 14 twice).
   - Added Book 1 OI-0007 (the missing Chapter 1 song), OI-0008 (the technical depth of the Chapter 3 reflection for beginners) and OI-0009 (similar database stories in the Chapter 4 and Chapter 12 reflections).
   - GitHub issues #21, #22, #23, #26, #27 and #29 are closed by this change.
-- Commit: pending commit.
+- Commit: 3a30f95.
 
 ## 2026-10-02 (78)
 
