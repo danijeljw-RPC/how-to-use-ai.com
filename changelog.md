@@ -11,7 +11,7 @@ Book 1, Chapter 13: wrapped the author reflection in "Leaving a Tool Cleanly" in
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
 - Decisions: none (applies ADR-04-0004).
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 75cf2b7.
 
 ## 2026-10-02 (74)
 
