@@ -18,7 +18,7 @@ The comment's trailing source list was moved into two new endnotes, `[^ch11-copi
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-05-talking-to-ai-properly.md`, `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`, `docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`, `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`, `docs/30-books/31-book-01/research/chapter-11-bibliography.md`, `docs/20-style/open-issues/OI-0001.md`, `changelog.md`.
 - Decisions: none (applies ADR-04-0003 and ADR-04-0004).
 - Open issues: added `docs/20-style/open-issues/OI-0001.md`, which asks whether the profanity in the Chapter 9 and Chapter 11 reflections stays in print. The wording is unchanged until the author decides.
-- Commit: pending commit.
+- Commit: db1cf3b.
 
 ## 2026-10-02 (77)
 
