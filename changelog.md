@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (71)
+
+### Changed
+
+Book 1, Chapter 2: replaced the author reflection placeholder in "The Anxiety Case" with the author's own reflection, taken word for word from the comment on issue #24. It covers seeing AI as ordinary tooling before 30 November 2022, the ChatGPT moment, and the subsection "Then I Changed My Mind".
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`, `changelog.md`.
+- Decisions: none.
+- Open issues: none (closes GitHub issue #24).
+- Commit: pending commit.
+
 ## 2026-10-02 (70)
 
 ### Fixed
