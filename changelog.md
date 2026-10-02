@@ -11,7 +11,7 @@ Draft and preview PDFs now collect notes at the back of the book, grouped by cha
 - Files changed: `publish-draft-books.sh`, `tests/test_publish_draft_books.sh` (asserts `\printpagenotes` and `\hwNotes{back}` in the draft build), `changelog.md`.
 - Decisions: none added or changed (implements ADR-03-0008 as accepted).
 - Open issues: none.
-- Commit: pending commit.
+- Commit: ee7ef4d.
 
 ## 2026-10-02 (68)
 
