@@ -309,7 +309,147 @@ Agency also operates at smaller scales. Professional bodies decide who is accoun
 
 > **Watch Out:** Apply Chapter 11's method to this chapter. For each direction above, ask whether the evidence was a demo, a pilot, a regulator's register, a randomised trial, company data or a forecast, and check whether the chapter described it that way. Notice where it relied on companies' own figures, such as warehouse robot counts, mining fleet automation and robotaxi safety analysis, and where it found independent evidence. Ask what would change your mind about each direction, and look for those signals yourself, long after this book's examples have gone out of date. The aim was never for you to trust this chapter. It was for you not to need to.
 
-> [Author reflection placeholder: Add a genuine personal reflection, drawing on your professional AI/ML background, about one direction in this chapter that you find most credible and one you find most overhyped. What evidence or experience shapes that view, and what signal would make you change it? Do not invent an experience, project or prediction to fit the chapter.]
+::: {.author-reflection}
+
+Of all the directions in this chapter, the one I find easiest to believe is probably AI agents.
+
+That statement comes with an asterisk large enough to require its own planning approval.
+
+I don't mean the version where you tell an AI, "Run my business while I'm on holiday," disappear for three weeks and return to discover it has increased revenue, reorganised the company and remembered to water the plants.
+
+I mean agents doing bounded work in environments where their actions can be checked.
+
+Software is probably the clearest example because I have watched that change happen in front of me.
+
+It was not very long ago that using AI in software development mostly meant asking it a question, getting a chunk of code back and deciding whether the answer was useful.
+
+Now I can give an AI system access to a repository and tell it what I am trying to accomplish. It can inspect the project, follow dependencies through several files, make changes, compile the code, run tests, discover that something failed, inspect why it failed and try again.
+
+That is substantially different from autocomplete.
+
+And, importantly, it is already useful.
+
+This is why agents are one of the directions in AI where I am reasonably bullish. I am not relying entirely on somebody else's demonstration of what might eventually happen. I can already see a primitive version of it happening in the work I actually do.
+
+But working with these systems has also made me considerably less impressed by the word *autonomous*.
+
+Give an agent a well-defined problem, enough context and something objective that it can use to check its own work, and it can be remarkably capable.
+
+Give it an ambiguous problem involving assumptions it does not know about, dependencies nobody bothered to mention and consequences that cannot be undone with `git reset`, and suddenly everyone should probably stop being quite so fucking excited.
+
+Because that is where the interesting problem begins.
+
+An agent can make a technically valid change that is completely wrong for the wider system. It can misunderstand what you were actually trying to achieve. It can spend an impressive amount of effort pursuing the wrong solution while looking extremely productive doing it.
+
+Humans have been doing this in meetings for decades, so perhaps we should not be too judgemental.
+
+But it means I draw a very large distinction between **an AI that can perform work** and **an AI I am prepared to give authority to perform work without supervision**.
+
+Those are not the same milestone.
+
+The signal that would move me substantially further would be boring, which is usually a good sign.
+
+Show me agents completing long, messy, real-world tasks reliably. Not once. Not fifty per cent of the time. Not in a demonstration where somebody has conveniently removed all the sharp objects.
+
+Show me systems running for months inside ordinary organisations, requiring very little human rescue, surviving unexpected situations, resisting attacks, respecting permissions, producing useful audit trails and recovering properly when something goes wrong.
+
+When that becomes unremarkable, I will update my view.
+
+At the other end of the scale are humanoid robots.
+
+This is where I become much harder to impress.
+
+To be clear, I am not sceptical about robotics.
+
+Industrial robotics is already enormous. Autonomous trucks operate in Australian mines. Warehouses contain fleets of robots moving goods around all day. Factories have been using robotic systems since long before anybody decided every machine needed the word *AI* glued to the front of it.
+
+That is real automation doing real work.
+
+Humanoid robots are a different proposition.
+
+Every few months another video appears of a human-shaped robot walking around, carrying something, sorting objects, folding clothes or performing some other task that makes half the internet immediately conclude we are approximately eighteen months away from never doing housework again.
+
+I have learned to become suspicious whenever a technology demonstration looks particularly good set to dramatic music.
+
+A robot folding a shirt for ninety seconds is interesting.
+
+Now show me the same robot arriving at 8:30 on Monday morning, working until five, finding the shirt somebody has somehow wedged behind the television, navigating the Lego minefield in the hallway, dealing with the dog, recovering when something falls over, recognising that the thing on the kitchen bench is not rubbish, and doing all of this without requiring a highly paid engineer to wander over every forty minutes and ask what the fuck it thinks it is doing.
+
+Then make it do that tomorrow.
+
+And Wednesday.
+
+And six months from now.
+
+Then tell me what it costs.
+
+That is deployment.
+
+The technical demonstration matters. It proves that something which was previously difficult is becoming possible.
+
+But *possible* has buried a lot of very expensive prototypes over the years.
+
+My own professional experience has made me far more interested in the thousandth execution than the first.
+
+The first one gets the launch video.
+
+The thousandth tells you whether you actually have a product.
+
+So my signal for humanoids is straightforward: show me several companies using them in paid, sustained deployments, doing useful work for months at a time with relatively little human intervention. Publish the intervention rate. Publish the maintenance requirements. Publish the safety incidents. Publish the cost per productive hour.
+
+If those numbers start looking boringly good, I will happily change my mind.
+
+And then there is the wildcard sitting somewhere behind all of this: quantum computing.
+
+I have been around technology long enough to be extremely careful with sentences beginning with, "When quantum computers arrive..."
+
+Quantum computers already exist.
+
+What we do not yet have is the kind of large-scale, fault-tolerant quantum computing that people usually imagine when they start attaching enormous predictions to them.
+
+Quantum machine learning exists as a research field today, but there is still a substantial distance between interesting research results and quantum systems materially outperforming the classical hardware and machine-learning systems we already have at useful scale. Problems such as noise, error correction, getting conventional data efficiently into quantum systems and proving an end-to-end advantage are not little engineering details somebody forgot to tick off before lunch. They are part of the problem.[^ch14-quantum]
+
+So I would not confidently tell somebody that "the future of AI is quantum AI".
+
+I would tell them I am watching it very carefully.
+
+Because **if** we reach the point where fault-tolerant quantum computers can provide meaningful computational advantages for problems that matter to machine learning, optimisation, simulation or scientific discovery, then some of the assumptions underneath today's AI could change dramatically.
+
+That could be another one of those moments where years of obscure-looking research suddenly become visible to everybody at once.
+
+Or it might turn out that quantum computing transforms particular scientific and optimisation problems while conventional computing continues doing most of the AI work perfectly well.
+
+Both are plausible enough that I am not putting a date on either.
+
+The thing that would change my view would not be somebody announcing a machine with more qubits.
+
+It would be repeatable evidence of a useful quantum advantage on a meaningful AI or machine-learning workload, running on actual hardware, including the cost of getting the data in, getting the answer out and correcting the errors in between.
+
+Show me that, repeatedly, and then I become interested.
+
+That is probably the biggest thing working in technology has changed about how I look at predictions.
+
+I used to be impressed that something could be done.
+
+Now I want to know whether it can be done reliably, economically and repeatedly after everybody from marketing has gone home.
+
+I believe the boring future before I believe the cinematic one.
+
+Agents doing increasingly useful work inside controlled digital environments? I can already see that happening.
+
+Humanoid robots casually replacing half the workforce because one of them folded a towel on YouTube? Come back when it has survived probation.
+
+Quantum computing fundamentally changing what AI can do?
+
+Maybe.
+
+And *maybe* is an entirely respectable answer when the evidence has not finished arriving yet.
+
+The future does not owe me the courtesy of matching my current opinion.
+
+When the evidence changes, so should I.
+
+:::
 
 ## Myth vs Reality
 
@@ -347,7 +487,7 @@ That is the end of the numbered chapters. You now have what this book set out to
 
 ## Chapter Notes
 
-This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The Chapter 14 research package (`docs/80-research/chapter-14-research-package/`) informed the manuscript. On 1 October 2026 the following were checked against their sources: the US FDA's AI-enabled device count and date; the update recording that the warehouse robot system announced in October 2025 was no longer used in operations; METR's time-horizon page, its update date and stated limitations; the robotaxi operator's June 2026 safety update; the California DMV's 2023 suspension statement; the Australian mining operator's description of its Pilbara autonomy; and the abstracts or full texts of the MASAI, sepsis-model and AI-scribe studies. The National Transport Commission's program page timed out during that check, so the 2027 conditional-deployment agreement was confirmed against search results pointing to the November 2025 transport ministers' communiqué, and must be rechecked. The South Australian traffic-trial page returned an access error and is taken from the research package. In line with Chapters 11 and 13, companies and commercial products are described generically in the main text and identified in the endnotes; public bodies, government-run tools, regulators and named studies are named. Company operational and safety figures are identified as company data. The opening headlines and the humanoid-robot claim in the Try This exercise are teaching illustrations, not quotations; the widely repeated mid-2010s expectation that radiologists would soon be unnecessary is paraphrased rather than quoted, because no original source was verified for a quotation. Anthropic, the company that makes Claude, is the source of the workflow-versus-agent distinction cited below. Fast-moving figures belong on the companion website; the dedicated Chapter 14 bibliography records source types, limitations and items that must be rechecked before publication.
+This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. The author reflection is the author's own view, used word for word from the author's comment on GitHub issue #23. Its references to autonomous mining trucks and warehouse robot fleets are supported by the mining and warehouse endnotes earlier in this chapter, and its description of quantum computing is supported by the quantum-computing endnote; its judgements about which directions are credible or overhyped are the author's own. The Chapter 14 research package (`docs/80-research/chapter-14-research-package/`) informed the manuscript. On 1 October 2026 the following were checked against their sources: the US FDA's AI-enabled device count and date; the update recording that the warehouse robot system announced in October 2025 was no longer used in operations; METR's time-horizon page, its update date and stated limitations; the robotaxi operator's June 2026 safety update; the California DMV's 2023 suspension statement; the Australian mining operator's description of its Pilbara autonomy; and the abstracts or full texts of the MASAI, sepsis-model and AI-scribe studies. The National Transport Commission's program page timed out during that check, so the 2027 conditional-deployment agreement was confirmed against search results pointing to the November 2025 transport ministers' communiqué, and must be rechecked. The South Australian traffic-trial page returned an access error and is taken from the research package. In line with Chapters 11 and 13, companies and commercial products are described generically in the main text and identified in the endnotes; public bodies, government-run tools, regulators and named studies are named. Company operational and safety figures are identified as company data. The opening headlines and the humanoid-robot claim in the Try This exercise are teaching illustrations, not quotations; the widely repeated mid-2010s expectation that radiologists would soon be unnecessary is paraphrased rather than quoted, because no original source was verified for a quotation. Anthropic, the company that makes Claude, is the source of the workflow-versus-agent distinction cited below. Fast-moving figures belong on the companion website; the dedicated Chapter 14 bibliography records source types, limitations and items that must be rechecked before publication.
 
 [^ch14-agent-def]: Anthropic, "Building effective agents" (19 December 2024), <https://www.anthropic.com/engineering/building-effective-agents>. Developer engineering guidance distinguishing workflows ("predefined code paths") from agents that "dynamically direct their own processes and tool usage". A vendor's working definition, used for the conceptual distinction only.
 
@@ -428,3 +568,5 @@ This chapter was developed from the author's viewpoint with research and draftin
 [^ch14-normal]: Arvind Narayanan and Sayash Kapoor, "AI as Normal Technology," Knight First Amendment Institute (15 April 2025), <https://knightcolumbia.org/content/ai-as-normal-technology>. Scholarly position essay. Faster-transformation views are represented generically, including scenario exercises; none is presented as a forecast.
 
 [^ch14-gov]: Australian Government Department of Industry, Science and Resources, *National AI Plan* (2 December 2025), <https://www.industry.gov.au/publications/national-ai-plan>; "Australian AI Safety Institute," <https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence/ai-safety-institute>; Digital Transformation Agency, "Australian Public Service AI Plan 2025," <https://www.digital.gov.au/policy/ai/australian-public-service-ai-plan-2025>. Government policy and institutional descriptions. Mandatory recheck of plan implementation and the Institute's name, structure and remit.
+
+[^ch14-quantum]: John Preskill, "Quantum Computing in the NISQ era and beyond," *Quantum* 2 (2018): 79, <https://doi.org/10.22331/q-2018-08-06-79>; Scott Aaronson, "Read the fine print," *Nature Physics* 11 (2015): 291–293, <https://doi.org/10.1038/nphys3272>, author's preprint "Quantum Machine Learning Algorithms: Read the Fine Print," <https://www.scottaaronson.com/papers/qml.pdf>. Checked 3 October 2026 (Preskill abstract; Aaronson preprint). Preskill describes today's noisy intermediate-scale quantum devices, notes that noise limits the size of circuits that can run reliably, and treats fully fault-tolerant quantum computing as a longer-term goal. Aaronson sets out the caveats behind claimed quantum machine-learning speed-ups, including the cost of loading classical data into a quantum computer and of reading useful answers out. Both are expert perspectives rather than measurements, and the field moves quickly; recheck the state of fault-tolerant hardware before publication.

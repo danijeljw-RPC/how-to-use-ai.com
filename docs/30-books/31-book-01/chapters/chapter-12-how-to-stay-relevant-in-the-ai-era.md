@@ -290,7 +290,67 @@ In every one of these, you do the thinking first and AI pushes back. That order 
 
 > **Try This:** For one week, try a simple routine. Do one meaningful task without AI before you ask it anything. Ask AI to criticise one thing you made, rather than make it for you. Have one real conversation in which you practise listening, explaining or sorting out a disagreement. Look back at one decision from last month and compare what happened with what you expected. And for one change you are planning, ask "what happens next, and who else is affected?" This is not a tested programme; it is a way to keep exercising the capabilities that are easiest to hand over without noticing. At the end of the week, notice which of the five felt hardest. That is probably the one worth practising.
 
-> [Author reflection placeholder: Add a genuine personal example, drawing on your professional background, of a moment when the bottleneck was not technical or AI skill but context, judgement, explanation, a relationship, prioritisation or responsibility. Describe what would have gone wrong if the technically obvious or AI-generated answer had been accepted without that human input, and what it taught you about which skills to protect. Do not invent an experience to fit the chapter.]
+::: {.author-reflection}
+
+A few years ago I had an issue escalated to me involving a database schema that somebody had decided needed to be “corrected”.
+
+The proposed fix was wonderfully decisive.
+
+Purge it.
+
+Delete the schema, clear out the offending structure, rebuild it cleanly and move on with life.
+
+Technically, there was logic behind the suggestion. If you looked only at the immediate error and the information being fed into the troubleshooting process, removing and rebuilding the schema could plausibly eliminate the thing being blamed.
+
+There was just one fairly substantial problem.
+
+The schema was not actually the problem.
+
+The person dealing with it had taken the diagnosis at face value and was working through the recommended steps as though the objective was simply to make the error disappear. No real consideration of why the schema existed, what depended on it, what created the condition in the first place, or what would happen downstream once it had been enthusiastically removed from existence.
+
+By the time it reached me, the conversation had effectively become:
+
+“This is causing the problem.”
+
+“No, it isn't.”
+
+“But the instructions say to purge it.”
+
+“Yes. That would certainly remove it.”
+
+There is a difference.
+
+Deleting the thing associated with an error is an extremely effective way of ensuring that particular thing never generates that error again. It is roughly the technical equivalent of fixing a warning light in your car by removing the dashboard.
+
+Problem solved.
+
+Unfortunately, you may still have an engine fire.
+
+What mattered in that situation was not knowing another SQL command or being better at producing a remediation script. The bottleneck was understanding the system around the database: why the schema existed, which processes relied on it, what assumptions had been built around it and whether the observed problem actually supported the proposed diagnosis.
+
+Once you had that context, the “obvious” fix stopped looking obvious very quickly.
+
+Had the instruction simply been followed, we could have removed perfectly valid data structures, broken dependent processes and potentially created a much larger production problem while congratulating ourselves for successfully resolving the original error.
+
+That experience stuck with me because it is exactly the kind of situation where AI can now make things both better and worse.
+
+An AI tool can produce a very convincing explanation of an error. It can generate the SQL to alter, rebuild or delete almost anything you ask it to. It can give you six remediation options before you've finished your coffee.
+
+What it cannot magically supply is the context you never gave it.
+
+And even if its technical answer is completely valid, somebody still has to recognise whether it is valid **here**.
+
+That is the skill I would protect.
+
+Not memorising every command. Not proving that I can type SQL faster than a model can generate it.
+
+Understanding the system well enough to know when the technically correct answer is solving the wrong problem.
+
+Because production systems rarely fail in the neat little box presented by an error message.
+
+And “the AI told me to purge it” is going to be a fairly unimpressive sentence when somebody asks where the database went.
+
+:::
 
 ## Myth vs Reality
 

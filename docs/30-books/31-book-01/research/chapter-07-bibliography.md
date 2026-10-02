@@ -2,7 +2,7 @@
 
 ## Purpose and Editorial Status
 
-Evidence record for [Chapter 7](../chapters/chapter-07-ai-at-work.md), following [ADR-04-0003](../../../20-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md). The manuscript is ready for detailed author review, with one genuine author-reflection placeholder. Research and drafting were assisted by ChatGPT and Codex; no personal experience or live product demonstration was invented.
+Evidence record for [Chapter 7](../chapters/chapter-07-ai-at-work.md), following [ADR-04-0003](../../../20-style/decisions/ADR-04-0003-evidence-citation-and-ai-assistance.md). The manuscript is ready for detailed author review. The author reflection (preparing a presentation with AI, then checking its facts) is the author's own account, supplied on GitHub issue #22 and used word for word. Research and drafting were assisted by ChatGPT and Codex; no personal experience or live product demonstration was invented.
 
 Source checks below were performed on 30 September 2026. “Checked” identifies the page or abstract actually retrieved, not an assertion that every full paper was accessible. Several browser fetches failed; direct HTTPS retrieval recovered the primary HTML or author PDF where noted. Subscription-only full texts were not bypassed. Product and policy descriptions require rechecking near publication.
 
@@ -209,7 +209,7 @@ Google Docs Editors Help. “Collaborate with Gemini in Google Sheets.” <https
 - The workday timings are synthetic: 6 + 3 + 5 + 6 = 20 minutes against a 30-minute baseline. They are not author experience or research results.
 - Three original Mermaid diagrams now teach distinctions within the worked examples: meeting estimates versus commitments, support preparation versus remedy authority, and full-task time accounting. The HR and induction scenarios are synthetic applications of the same documented techniques; no additional product or empirical claim is introduced.
 - OECD adoption statistics, detailed governance, NIST taxonomy, cybersecurity mechanics, court cases and product catalogues are omitted to protect the practical scope. Their exclusion does not discard either package or weaken the contradictory productivity evidence retained.
-- The author reflection remains explicit. All other examples are labelled illustrations. Prompt constraints are presented as aids to review, not guarantees against invented information.
+- The author reflection is the author's own account and makes no external factual claims, so it carries no endnote. All other examples are labelled illustrations. Prompt constraints are presented as aids to review, not guarantees against invented information.
 
 ### Completion Checks
 

@@ -264,7 +264,155 @@ The best result is not always the workflow with the least human effort. It is th
 
 The author reflection can then ground that workflow in lived experience:
 
-> [Author reflection placeholder: Add a personal example of a task where AI saved meaningful time or effort, including what you still needed to check, correct, or decide yourself.]
+::: {.author-reflection}
+
+One of the better examples of AI genuinely saving me time came from rebuilding a piece of software I had already written.
+
+The application is called **CurseDelete**. Its job is fairly simple to describe: delete very large directory trees quickly, including the sort containing hundreds of thousands or millions of files where the normal operating-system tools can become painfully slow, run into permissions problems or generally decide they have had enough for the afternoon.
+
+The original version was written in C#.
+
+It already worked across Windows, Linux and macOS, and it was reasonably clever about how it did the job. Instead of discovering every file first and then starting the deletion, it used a bounded producer-and-consumer pipeline so enumeration and deletion happened at the same time. That kept memory usage controlled and allowed multiple workers to delete files in parallel.
+
+It worked.
+
+But eventually I wanted to build it properly for what it had become.
+
+I wanted something closer to the operating system rather than sitting several layers above it. I wanted better control over filesystem operations, better performance characteristics, stronger safety guarantees and, importantly, I wanted to stop pretending that Windows, Linux and macOS were basically the same operating system with different path separators.
+
+They are not.
+
+That way lies sadness.
+
+So I started rebuilding it from scratch in Rust as **CurseDelete 2**.[^10]
+
+This is where AI saved me a considerable amount of time.
+
+I already understood the application, the concurrency model and what I wanted the software to do. What I did not have sitting conveniently in my head was every detail of Darwin filesystem APIs, Linux filesystem behaviour, Windows native deletion semantics and the various delightful little differences operating systems have accumulated over several decades specifically to ruin a programmer's afternoon.
+
+AI became an extremely useful research and engineering partner.
+
+Instead of spending hours moving between API documentation, old Unix references, Stack Overflow posts and kernel documentation just to establish which primitives I should investigate, I could ask very specific questions about the problem I was solving.
+
+For example, on macOS and Linux I moved towards native POSIX operations such as `openat`, `unlinkat` and `fstatat`, rather than repeatedly resolving complete path strings through higher-level filesystem APIs.
+
+That was not merely about making it faster.
+
+It also exposed a security issue I wanted the new version to handle better. If you discover a filesystem object using one path and later resolve that entire path again when you delete it, something can potentially change underneath you between those two operations. Filesystem people have given this the wonderfully friendly name **time-of-check to time-of-use**, or TOCTOU, because apparently even race conditions deserve an acronym.
+
+Using directory file descriptors and relative operations can reduce that window considerably.
+
+Linux then introduced its own collection of details.
+
+Creation timestamps are a good example. macOS exposes a birth time in its normal filesystem metadata. Traditional Linux `stat` does not. Linux instead has `statx`, where supported, which can expose a birth timestamp depending on the kernel and filesystem.
+
+That matters if your deletion tool supports something like:
+
+“Delete files more than 30 days old.”
+
+Suddenly the definition of *old* is not quite as universal as the command line makes it look.
+
+AI was extremely useful for getting me rapidly to those questions.
+
+But it could not make the engineering decisions for me.
+
+I still had to decide what CurseDelete should do when a timestamp does not exist. In this case, the safe answer was not to shrug, guess that the file was probably ancient and enthusiastically delete it.
+
+If the required timestamp cannot be established, retain the file.
+
+Boring.
+
+Safe.
+
+Exactly what I want from software whose primary feature is destroying things.
+
+The same thing happened with performance.
+
+Linux exposes lower-level facilities such as `getdents64`, and it would have been very easy to convince myself that dropping down another layer must automatically make CurseDelete faster.
+
+It sounds wonderfully hardcore.
+
+The problem is that `readdir` is already backed by those mechanisms, and I did not have evidence that directory-entry parsing was actually the bottleneck.
+
+So I didn't implement the cleverer-looking answer.
+
+The rule became: **benchmark first**.
+
+If the numbers eventually show that the extra complexity buys something meaningful, then I can change it.
+
+That distinction became important throughout the project.
+
+AI could very quickly tell me what was possible.
+
+My job was deciding what was justified.
+
+It also helped me understand where the operating systems genuinely deserved different implementations rather than forcing everything through one lowest-common-denominator abstraction.
+
+On Linux, for example, CurseDelete 2 can inspect `/proc/[pid]/fd` to discover which processes hold files open. That means it can do the job directly through facilities Linux already exposes.
+
+macOS does not provide the same interface, so the implementation uses `lsof`.
+
+Windows is different again, with facilities such as Restart Manager, Windows security APIs and its own native file-deletion mechanisms.
+
+That became one of the architectural decisions I am happiest with.
+
+The shared part of CurseDelete understands things such as streaming deletion, filtering, retention rules, worker control, reporting and safety policy.
+
+The platform engines understand the operating systems.
+
+That seems obvious when written down.
+
+It took considerably more work to get there.
+
+AI shortened that work enormously because I could use it to explore APIs, compare approaches, challenge designs, generate implementation candidates and build test cases without beginning every unfamiliar operating-system detail from a blank search box.
+
+But I still had to read the code.
+
+I still had to understand why it worked.
+
+I still had to decide whether a proposed abstraction actually belonged in the architecture.
+
+And because this particular application deletes files for a living, “it compiled” was never going to qualify as sufficient testing.
+
+One particularly useful lesson was that AI often got me to **80 or 90 per cent of the answer extraordinarily quickly**.
+
+That final ten per cent was where most of the engineering lived.
+
+Does this behave the same way on the other operating system?
+
+What happens when a symlink appears?
+
+Can this accidentally resolve outside the requested directory?
+
+What happens when a timestamp is unavailable?
+
+Does increasing the worker count actually make deletion faster, or have I merely invented a very efficient way of making the storage device miserable?
+
+And, perhaps most importantly:
+
+What happens when this thing is wrong?
+
+CurseDelete 2 ended up being much more than a Rust translation of the C# version.
+
+The new version has native platform engines, adaptive concurrency, structural protection against deleting filesystem roots, safer symlink handling, retention and filtering, machine-readable output and a clearer separation between the common deletion engine and the operating-system-specific machinery underneath it.
+
+AI helped me get there much faster.
+
+But the interesting part is *why* it saved time.
+
+It did not replace the bit where I understood my own software.
+
+It removed a large amount of the mechanical work between **“I need to understand how Linux does this”** and **“here are the relevant mechanisms, trade-offs and several possible implementations.”**
+
+That left me spending more of my time on the part I actually wanted to be doing: deciding which implementation was correct for the product, testing the dangerous bits and occasionally telling the AI that, while its solution was technically impressive, we did not need to rebuild half the operating system to delete a file.
+
+That, for me, is where AI-assisted software development becomes genuinely useful.
+
+Not when I can generate code faster.
+
+When I can get from a problem I understand to a solution I trust in substantially less time.
+
+:::
 
 ## Core Takeaway
 
@@ -280,7 +428,7 @@ Once AI becomes useful enough to rely on, the next question is where that relian
 
 ## Chapter Notes
 
-This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The sources below informed the factual claims and editorial framing; the chapter synthesises them in its own words.
+This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The sources below informed the factual claims and editorial framing; the chapter synthesises them in its own words. The author reflection is the author's own account of rebuilding CurseDelete, the author's own software, and was used word for word from the author's comment on GitHub issue #21. CurseDelete 2 is sold by RePass Cloud Pty Ltd, which also publishes this book; it is named here at the author's request and is not a recommendation.
 
 [^1]: Shakked Noy and Whitney Zhang, “Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence,” *Science* 381, no. 6654 (2023), 187–192, <https://doi.org/10.1126/science.adh2586>.
 
@@ -299,3 +447,5 @@ This chapter was developed from the author's viewpoint with research and draftin
 [^8]: Chloe Autio et al., *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*, NIST AI 600-1 (2024), <https://doi.org/10.6028/NIST.AI.600-1>; Adam Tauman Kalai et al., “Why Language Models Hallucinate,” OpenAI (2025), <https://openai.com/index/why-language-models-hallucinate/>.
 
 [^9]: Hao-Ping Lee et al., “The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers,” *CHI 2025*, <https://doi.org/10.1145/3706598.3713778>.
+
+[^10]: RePass Cloud, "CurseDelete 2," product page, <https://repasscloud.com/products/cursedelete/>. Checked 3 October 2026: describes CurseDelete 2 (version 2.0.0, released 17 August 2026) as a Rust rewrite with a command-line interface that streams deletion while it enumerates, keeps memory use bounded and protects filesystem and share roots, with separate engines for macOS, Linux and Windows. The page offers a free Community edition for personal use and paid Business and Enterprise editions. This is the author's own product, sold by the publisher of this book. The technical details in the reflection describe the author's design, as supplied by the author: the original C#/.NET version used a bounded producer-and-consumer pipeline; version 2 shares one core engine and adds platform engines that use directory-relative POSIX calls (`openat`, `unlinkat`, `fstatat`) on macOS and Linux, `statx` birth times on Linux where the kernel and filesystem provide them, `/proc/[pid]/fd` on Linux and `lsof` on macOS to find open files, and native Windows deletion, security and Restart Manager interfaces. According to the author, the project documentation records that these measures reduce but do not remove the time-of-check to time-of-use risk, and that lower-level directory reading was not adopted without benchmarks. Product details and prices may change; recheck before publication.
