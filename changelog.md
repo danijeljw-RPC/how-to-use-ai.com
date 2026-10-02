@@ -27,7 +27,7 @@ Details:
 - Files changed: `publishing/books.json`, `publishing/latex/howto-book.tex`, `publishing/latex/wrapfig.sty` (new), `publishing/pandoc/book.lua`, `publishing/epub/book.css`, `scripts/build_matter.py`, `scripts/release_cover.py`, `publish-draft-books.sh`, `tests/test_build_matter.py`, `docs/30-books/31-book-01/frontmatter/how-this-book-works.md` (new), `docs/40-publishing/plans/book-01-pdf-layout-fixes-plan.md` (new), `changelog.md`.
 - Decisions: added ADR-03-0009 (interior layout refinements). Amended ADR-03-0006 (no imprint; author name on the book). Updated ADR-03-0008 (callouts no longer split).
 - Open issues: added `docs/40-publishing/open-issues/OI-0008.md` (author name versus legal name; the website still says Wynyard-McClay).
-- Commit: pending commit.
+- Commit: a96b115.
 
 ## 2026-10-02 (69)
 
