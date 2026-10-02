@@ -11,7 +11,7 @@ Book 1, Chapter 2: replaced the author reflection placeholder in "The Anxiety Ca
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`, `changelog.md`.
 - Decisions: none.
 - Open issues: none (closes GitHub issue #24).
-- Commit: pending commit.
+- Commit: 56bd431.
 
 ## 2026-10-02 (70)
 
