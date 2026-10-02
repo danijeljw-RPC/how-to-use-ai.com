@@ -595,7 +595,7 @@ publish_draft() {
         chapter_markdown "$chapter_file" "$diagram_output_dir" "" ""
       fi
     done
-    matter --part notes --edition "$matter_edition" --notes-inline
+    matter --part notes --edition "$matter_edition"
     [[ "$build_index" -eq 1 ]] && index_backmatter "$index_terms"
     if [[ -z "$preview_chapters" ]]; then
       matter --part about --edition draft
@@ -622,7 +622,7 @@ publish_draft() {
 
   accent="$(jq -r '.accentColour // "#7C3AED"' <<<"$book_json")"
   build_interior "$combined_md" "$manuscript_pdf" "$PDF_TMP_DIR/$book_name$edition_suffix-latex" \
-    draft inline "$build_index" "$accent" "$chapters_dir:$ROOT_DIR"
+    draft back "$build_index" "$accent" "$chapters_dir:$ROOT_DIR"
 
   "$PYTHON_BIN" -m scripts.assemble_draft_book \
     --config "$CONFIG" \

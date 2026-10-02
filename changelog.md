@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (69)
+
+### Fixed
+
+Draft and preview PDFs now collect notes at the back of the book, grouped by chapter, as ADR-03-0008 (item 10) requires for every format. Before this change only `--release` builds did; the default `./publish-draft-books.sh book 1` still typeset per-page footnotes, because the draft path passed `inline` to the interior build and `--notes-inline` to the matter script.
+
+- Files changed: `publish-draft-books.sh`, `tests/test_publish_draft_books.sh` (asserts `\printpagenotes` and `\hwNotes{back}` in the draft build), `changelog.md`.
+- Decisions: none added or changed (implements ADR-03-0008 as accepted).
+- Open issues: none.
+- Commit: pending commit.
+
 ## 2026-10-02 (68)
 
 ### Changed

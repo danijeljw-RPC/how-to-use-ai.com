@@ -59,6 +59,10 @@ assert float(diagram_page.mediabox.width) < 612.0
 assert float(diagram_page.mediabox.height) < 792.0
 PY
 
+# Drafts collect notes at the back of the book, grouped by chapter (ADR-03-0008).
+rg -q '\\printpagenotes' dist/31-book-01.md
+rg -q '\\def\\hwNotes\{back\}' tmp/pdfs/31-book-01-latex/style.tex
+
 # The full build ends with the back-of-book index (ADR-03-0007).
 rg -q '\\printindex' dist/31-book-01.md
 rg -q '\\index\{hallucination@Hallucination\}' dist/31-book-01.md
