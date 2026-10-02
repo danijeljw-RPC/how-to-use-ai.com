@@ -11,7 +11,7 @@ Book 1, Chapter 4: replaced the author reflection placeholder at the end of "Why
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-04-what-ai-cannot-do.md`, `changelog.md`.
 - Decisions: none (applies ADR-04-0004).
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 8d0d301.
 
 ## 2026-10-02 (76)
 
