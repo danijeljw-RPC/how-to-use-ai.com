@@ -277,7 +277,9 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     if publisher.get("name"):
         pdf.setFont("Plex-Sans", 7.5)
         pdf.setFillColor(SLATE)
-        pdf.drawString(left, footer_bottom + 0.04 * INCH, f"An imprint of {publisher['name']}")
+        # The wordmark is the series; it is only an imprint when books.json names one.
+        label = "An imprint of" if publisher.get("imprint") else "Published by"
+        pdf.drawString(left, footer_bottom + 0.04 * INCH, f"{label} {publisher['name']}")
 
     body_top, body_bottom = panel.top(2.05), footer_top + 0.25 * INCH
     for scale in (1.0, 0.95, 0.9, 0.85, 0.8, 0.75):

@@ -187,3 +187,13 @@ These links came from the chat discussion. They were not re-checked when this AD
 ## Review Notes
 
 Record author review notes here.
+
+## Amendment — 2026-10-02
+
+After reviewing the Book 1 draft PDF, the author restated the roles:
+
+- **Series:** How-To-Use-AI.com
+- **Publisher:** RePass Cloud Pty Ltd
+- **Author (name on the book):** Danijel-James Wynyard
+
+The printed matter no longer calls How-To-Use-AI.com an imprint. In `publishing/books.json`, `series.publisher.imprint` is empty, so the title page reads "RePass Cloud Pty Ltd", the copyright page says "Published in Australia by RePass Cloud Pty Ltd.", and the back cover says "Published by RePass Cloud Pty Ltd". `series.author` is now "Danijel-James Wynyard". The copyright holder stays "Danijel-James Wynyard-McClay", as the author set it in commit 8bc4915. The NLA form's imprint field and the remaining name questions are tracked in `docs/40-publishing/open-issues/OI-0008.md`.

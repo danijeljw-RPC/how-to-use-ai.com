@@ -54,7 +54,9 @@ local function chapter_header(header)
   if is_latex then
     local toc
     if number then
-      toc = "\\hwTocNum{" .. number .. "}" .. latex_escape(title)
+      -- The PDF bookmark gets plain text; the printed contents get the styled number.
+      toc = string.format("\\texorpdfstring{\\hwTocNum{%s}}{Chapter %d: }%s",
+        number, tonumber(number), latex_escape(title))
     elseif label ~= "" then
       toc = latex_escape(label .. ": " .. title)
     else
@@ -77,6 +79,31 @@ local function tail(list, start)
   local result = pandoc.List()
   for position = start, #list do result:insert(list[position]) end
   return result
+end
+
+-- "> [Author reflection placeholder: ...]" is shown as an Author Reflection
+-- callout so reviewers can see where the author's own stories will go.
+local REFLECTION_PREFIX = "[Author reflection placeholder:"
+
+local function reflection(quote)
+  local text = pandoc.utils.stringify(quote)
+  if text:sub(1, #REFLECTION_PREFIX) ~= REFLECTION_PREFIX then return nil end
+  if is_latex then
+    local blocks = pandoc.List({ pandoc.RawBlock("latex", "\\begin{hwcallout}{Author Reflection}{reflection}") })
+    blocks:extend(quote.content)
+    blocks:insert(pandoc.RawBlock("latex", "\\end{hwcallout}"))
+    return blocks
+  end
+  local blocks = pandoc.List({ pandoc.Para({ pandoc.Span({ pandoc.Str("Author Reflection") }, { class = "callout-label" }) }) })
+  blocks:extend(quote.content)
+  return pandoc.Div(blocks, { class = "callout callout-reflection" })
+end
+
+-- A paragraph ending in a colon introduces the block after it ("A plausible
+-- but wrong summary would be:"), so the two must not be split across pages.
+local function ends_with_colon(block)
+  if block.t ~= "Para" then return false end
+  return pandoc.utils.stringify(block):match(":%s*$") ~= nil
 end
 
 local function callout(quote)
@@ -126,8 +153,14 @@ local function process(blocks)
           output:insert(pandoc.Div(prose, { class = "chapter-provenance" }))
         end
       end
+    elseif is_latex and ends_with_colon(block) and blocks[index + 1]
+        and blocks[index + 1].t ~= "Header" then
+      output:insert(pandoc.RawBlock("latex", "\\hwKeepStart"))
+      output:insert(block)
+      output:insert(pandoc.RawBlock("latex", "\\hwKeepEnd"))
+      index = index + 1
     elseif block.t == "BlockQuote" then
-      local replacement = callout(block)
+      local replacement = callout(block) or reflection(block)
       if replacement then
         if replacement.t == "Div" then output:insert(replacement) else output:extend(replacement) end
       else

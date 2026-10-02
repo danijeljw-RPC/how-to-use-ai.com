@@ -72,6 +72,12 @@ class FrontMatterTests(unittest.TestCase):
         self.assertNotIn(r"\hwHalfTitle", text)
         self.assertIn("Internal review draft", text)
 
+    def test_draft_and_preview_keep_dedication_and_epigraph(self):
+        for edition in ("draft", "preview"):
+            text = self.front(edition=edition)
+            self.assertIn(r"\begin{hwDedication}", text)
+            self.assertIn(r"\hwEpigraph{Magic \& more}", text)
+
     def test_preview_is_not_marked_internal(self):
         text = self.front(edition="preview")
         self.assertNotIn("Internal review", text)

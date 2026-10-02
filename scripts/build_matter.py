@@ -146,18 +146,19 @@ class Matter:
             lines.append(rf"\hwSeriesPage{{{latex(self.series_heading())}}}{{{items}}}")
         lines.append(rf"\hwTitlePage{{{title}}}{{{subtitle}}}{{{latex(self.author)}}}{{{latex(self.imprint_line())}}}")
         lines += self.latex_copyright()
-        if self.edition == "release":
-            dedication = book.get("dedication", {}).get("text")
-            if dedication:
-                lines.append(r"\begin{hwDedication}")
-                lines += [latex(paragraph) + r"\par" for paragraph in paragraphs(dedication)]
-                lines.append(r"\end{hwDedication}")
-            epigraph = book.get("epigraph", {})
-            if epigraph.get("quote"):
-                attribution = f"— {epigraph['author']}" if epigraph.get("author") else ""
-                lines.append(rf"\hwEpigraph{{{latex(epigraph['quote'])}}}{{{latex(attribution)}}}")
-        # memoir's contents heading doesn't start a new page by itself.
-        lines += [r"\hwRecto", r"\tableofcontents*"]
+        # Every edition carries the dedication and epigraph, so reviewers see them.
+        dedication = book.get("dedication", {}).get("text")
+        if dedication:
+            lines.append(r"\begin{hwDedication}")
+            lines += [latex(paragraph) + r"\par" for paragraph in paragraphs(dedication)]
+            lines.append(r"\end{hwDedication}")
+        epigraph = book.get("epigraph", {})
+        if epigraph.get("quote"):
+            attribution = f"— {epigraph['author']}" if epigraph.get("author") else ""
+            lines.append(rf"\hwEpigraph{{{latex(epigraph['quote'])}}}{{{latex(attribution)}}}")
+        # memoir's contents heading doesn't start a new page by itself. The
+        # contents are set without paragraph spacing so they stay on one page.
+        lines += [r"\hwRecto", r"\begingroup\setlength{\parskip}{0pt}\tableofcontents*\endgroup"]
         output = raw(lines) + "\n"
         for path in _markdown_files(self.book_dir / "frontmatter"):
             output += path.read_text(encoding="utf-8").rstrip() + "\n\n"

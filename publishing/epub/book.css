@@ -31,6 +31,8 @@ h1 .chapter-label { display: block; font-family: "IBM Plex Mono", monospace; fon
 .callout-try { background: #fff; border: 1px solid #0EA5E9; }
 .callout-try .callout-label { background: #0EA5E9; }
 .callout-recap .callout-label { background: #061532; }
+.callout-reflection { background: #fff; border: 1px solid #E9C46A; }
+.callout-reflection .callout-label { background: #E9C46A; color: #061532; }
 
 blockquote { margin: 1em 0; padding-left: 0.9em; border-left: 2px solid #0EA5E9; font-size: 0.95em; }
 figure { margin: 1.4em 0; text-align: center; }

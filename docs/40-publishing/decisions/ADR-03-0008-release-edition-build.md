@@ -37,7 +37,7 @@ The build pipeline produces internal-review PDFs and chapter previews only (ADR-
 
 ## Implementation (2026-10-02)
 
-- **Interior style:** `publishing/latex/howto-book.tex` on `memoir`, with IBM Plex fonts shipped in `publishing/fonts/` (SIL OFL). It covers navy chapter bands, callout boxes that split across pages (using the vendored `publishing/latex/framed.sty`), running feet with the page number on the outer edge, figures numbered 1-1, back-of-book notes grouped by chapter, and memoir's own index.
+- **Interior style:** `publishing/latex/howto-book.tex` on `memoir`, with IBM Plex fonts shipped in `publishing/fonts/` (SIL OFL). It covers navy chapter bands, callout boxes (unbreakable since ADR-03-0009; plain quotes still use the vendored `publishing/latex/framed.sty`), running feet with the page number on the outer edge, figures numbered 1-1, back-of-book notes grouped by chapter, and memoir's own index.
 - **Filter:** `publishing/pandoc/book.lua` handles chapter openers, callouts, "Chapter Notes" handling, and height-capped images.
 - **Matter pages:** `scripts/build_matter.py`, with LaTeX and EPUB targets.
 - **Covers:** `scripts/release_cover.py` draws the front, the back (paperback, ebook and draft variants) and the per-printer wrap. The spine is page count × caliper, or a manual override.

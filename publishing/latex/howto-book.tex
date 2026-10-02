@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{eso-pic}
 \usepackage{caption}
+\usepackage{wrapfig}% vendored in publishing/latex (LPPL)
 \setlength{\unitlength}{1pt}
 
 \makeatletter
@@ -63,8 +64,9 @@
 \setheaderspaces{*}{12pt}{*}
 \checkandfixthelayout[nearest]
 
-\setlength{\parindent}{1.2em}
-\setlength{\parskip}{0pt}
+% Block paragraphs: no first-line indent, half a line between paragraphs.
+\setlength{\parindent}{0pt}
+\nonzeroparskip
 \linespread{1.08}
 \raggedbottom
 \setlength{\emergencystretch}{2em}
@@ -84,6 +86,15 @@
 \setbeforesubsubsecskip{-1\onelineskip plus -0.3\onelineskip}
 \setaftersubsubsecskip{0.3\onelineskip}
 \setparaheadstyle{\hwSansSemi\normalsize\color{hwSlate}}
+% Keep headings with what follows: start a new page when too little room is
+% left for the heading, a subheading and a few lines of text.
+\setsechook{\needspace{9\onelineskip}}
+\setsubsechook{\needspace{6\onelineskip}}
+\setsubsubsechook{\needspace{5\onelineskip}}
+% A lead-in paragraph ending in a colon stays with the block it introduces
+% (book.lua wraps it in these).
+\newcommand\hwKeepStart{\needspace{6\onelineskip}}
+\newcommand\hwKeepEnd{\par\nopagebreak[4]}
 
 % ---------- Chapter openers: a navy field across the top of the page
 \newlength\hw@band \setlength\hw@band{2.75in}
@@ -154,35 +165,46 @@
 \renewcommand*{\contentsname}{Contents}
 \renewcommand*{\cftchapterfont}{\sffamily\bfseries}
 \renewcommand*{\cftchapterpagefont}{\hwMono}
-\setlength{\cftbeforechapterskip}{0.55\onelineskip}
+% Entries are tight so the contents fit on one page; parskip is off inside it.
+\setlength{\cftbeforechapterskip}{0.3\onelineskip}
 \newcommand\hwTocNum[1]{\makebox[2.2em][l]{\hwMonoMedium\color{hwSky}#1}}
 \setcounter{tocdepth}{0}
 
-% ---------- Callouts (Key Idea, Watch Out, Try This, Recap, ...)
-\usepackage{framed}
+% ---------- Callouts (Key Idea, Watch Out, Try This, Recap, Author Reflection)
+% Each callout is set in a box that never splits across pages: if it doesn't
+% fit, it moves whole to the next page.
 \newcommand\hw@chip[3]{\colorbox{#1}{\strut\sffamily\bfseries\fontsize{7.5}{9}\selectfont\color{#2}#3}}
+\newsavebox\hw@calloutbox
+\newlength\hw@calloutpad
 \newenvironment{hwcallout}[2]{%
   \def\hw@kind{#2}%
-  \def\hw@k@watch{watch}\def\hw@k@try{try}\def\hw@k@recap{recap}%
+  \def\hw@k@watch{watch}\def\hw@k@try{try}\def\hw@k@recap{recap}\def\hw@k@reflection{reflection}%
+  \setlength\hw@calloutpad{18pt}%
   \ifx\hw@kind\hw@k@try
-    \def\FrameCommand{\fboxsep=9pt\fboxrule=0.9pt\fcolorbox{hwSky}{white}}%
+    \def\hw@frame##1{{\fboxsep=9pt\fboxrule=0.9pt\fcolorbox{hwSky}{white}{##1}}}%
+    \addtolength\hw@calloutpad{1.8pt}%
     \def\hw@chipcmd{\hw@chip{hwSky}{white}{#1}}%
   \else\ifx\hw@kind\hw@k@watch
-    \def\FrameCommand{\fboxsep=9pt\colorbox{hwMist}}%
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
     \def\hw@chipcmd{\hw@chip{hwGold}{hwNavy}{#1}}%
   \else\ifx\hw@kind\hw@k@recap
-    \def\FrameCommand{\fboxsep=9pt\colorbox{hwMist}}%
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
     \def\hw@chipcmd{\hw@chip{hwNavy}{white}{#1}}%
+  \else\ifx\hw@kind\hw@k@reflection
+    \def\hw@frame##1{{\fboxsep=9pt\fboxrule=0.9pt\fcolorbox{hwGold}{white}{##1}}}%
+    \addtolength\hw@calloutpad{1.8pt}%
+    \def\hw@chipcmd{\hw@chip{hwGold}{hwNavy}{#1}}%
   \else
-    \def\FrameCommand{\fboxsep=9pt\colorbox{hwMist}}%
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
     \def\hw@chipcmd{\hw@chip{hwAccent}{white}{#1}}%
-  \fi\fi\fi
-  \def\FirstFrameCommand{\FrameCommand}\def\MidFrameCommand{\FrameCommand}\def\LastFrameCommand{\FrameCommand}%
+  \fi\fi\fi\fi
   \par\vspace{0.6\onelineskip}%
-  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \begin{lrbox}{\hw@calloutbox}%
+  \begin{minipage}{\dimexpr\linewidth-\hw@calloutpad\relax}%
   \setlength{\parindent}{0pt}\setlength{\parskip}{0.4\onelineskip}%
   \small\noindent\hw@chipcmd\par\vspace{2pt}}%
- {\endMakeFramed\vspace{0.4\onelineskip}}
+ {\par\end{minipage}\end{lrbox}%
+  \noindent\hw@frame{\usebox\hw@calloutbox}\par\vspace{0.4\onelineskip}}
 
 % Plain block quotes: a sky rule on the left.
 \renewenvironment{quote}{%
@@ -201,11 +223,14 @@
       \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
       \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
       \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}\else\usebox{\pandoc@box}\fi}}}
-\AtBeginEnvironment{longtable}{\small\sffamily}
+% Rows get about half a line of extra space so each row reads as one unit.
+\AtBeginEnvironment{longtable}{\small\sffamily\renewcommand*{\arraystretch}{1.5}}
 \setlength{\LTpre}{0.8\onelineskip}\setlength{\LTpost}{0.8\onelineskip}
 \captionsetup{font={small,sf}, labelfont={bf,color=hwNavy}, textfont={color=hwSlate}}
 \def\hw@ebook{ebook}
 % pandoc loads hyperref after this file, so link styling waits for the document.
+% PDF bookmarks list chapters and their sections.
+\AtBeginDocument{\hypersetup{bookmarksdepth=section}}
 \ifx\hwMode\hw@ebook
   \AtBeginDocument{\hypersetup{colorlinks=true, linkcolor=hwNavy, urlcolor=hwSky, citecolor=hwNavy}\urlstyle{same}}
 \else
@@ -323,10 +348,12 @@
       {\sffamily\fontsize{9}{11}\selectfont\color{hwSlate}#2\par}\fi
   \end{minipage}}
 
-% About the author: optional photo floated beside the opening of the bio.
+% About the author: the photo sits on the left and the bio wraps around it.
 \newcommand\hwAuthorPhoto[1]{%
-  \noindent\begin{minipage}[t]{1.45in}\vspace{0pt}%
-    \includegraphics[width=1.45in,height=1.8in,keepaspectratio]{#1}\end{minipage}\par\vspace{12pt}}
+  \begin{wrapfigure}[11]{l}{1.65in}%
+    \vspace{-\intextsep}\vspace{4pt}%
+    \includegraphics[width=1.45in,height=1.8in,keepaspectratio]{#1}%
+  \end{wrapfigure}}
 
 % Proof and draft marking on matter pages.
 \newcommand\hwProofLine[1]{{\hwMono\fontsize{7}{9}\selectfont\color{hwAccent}#1\par}}

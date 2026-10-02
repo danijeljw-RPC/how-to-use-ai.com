@@ -355,7 +355,9 @@ publish_release() {
   echo "Release check for $book_name ($formats)..."
   local problems
   if ! problems="$("$PYTHON_BIN" -m scripts.book_metadata --config "$CONFIG" --book-number "$book_number" \
-      --root-dir "$ROOT_DIR" --check "$formats" "${chapter_files[@]}")"; then
+      --root-dir "$ROOT_DIR" --check "$formats" "${chapter_files[@]}" \
+      $(find "$DOCS_DIR/$source_directory/frontmatter" "$DOCS_DIR/$source_directory/backmatter" \
+        -maxdepth 1 -name '*.md' 2>/dev/null | sort))"; then
     if [[ "$proof" -eq 1 ]]; then
       warnings+="$problems"$'\n'
       echo "$problems" | sed 's/^/  proof warning: /' | sed "s|$ROOT_DIR/||"

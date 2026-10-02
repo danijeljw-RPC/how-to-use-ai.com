@@ -2,6 +2,33 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (70)
+
+### Fixed
+
+Layout fixes from the author's review of the Book 1 draft PDF (ADR-03-0009, plan `docs/40-publishing/plans/book-01-pdf-layout-fixes-plan.md`):
+
+- **Roles:** the author on the book is "Danijel-James Wynyard". How-To-Use-AI.com is the series, not an imprint, so the title page, copyright page and back cover now name RePass Cloud Pty Ltd as the publisher. The copyright holder is unchanged.
+- **Contents:** fits on one page (tighter entries, no paragraph spacing).
+- **Dedication and epigraph:** now in draft and preview builds too, not only release builds.
+- **Paragraphs:** block style, with no first-line indent and half a line between paragraphs.
+- **Tables:** about half a line of extra space between rows.
+- **New "How This Book Works" page:** explains Key Idea, Try This, Watch Out, Recap and Author Reflection boxes.
+- **Author reflection placeholders:** shown as an "Author Reflection" callout.
+- **Callouts:** never split across pages; a box that doesn't fit moves whole to the next page.
+- **Headings:** stay with their subheading and opening text.
+- **Lead-ins:** a paragraph ending in a colon stays with the block it introduces.
+- **PDF bookmarks:** read "Chapter 1: Title", with sections nested underneath, instead of leaked LaTeX (`[2.2em][I]hwSky1You`).
+- **About the Author:** the bio wraps around the photo (vendored `wrapfig.sty`).
+- **Release check:** also scans `frontmatter/` and `backmatter/` for unresolved placeholders.
+
+Details:
+
+- Files changed: `publishing/books.json`, `publishing/latex/howto-book.tex`, `publishing/latex/wrapfig.sty` (new), `publishing/pandoc/book.lua`, `publishing/epub/book.css`, `scripts/build_matter.py`, `scripts/release_cover.py`, `publish-draft-books.sh`, `tests/test_build_matter.py`, `docs/30-books/31-book-01/frontmatter/how-this-book-works.md` (new), `docs/40-publishing/plans/book-01-pdf-layout-fixes-plan.md` (new), `changelog.md`.
+- Decisions: added ADR-03-0009 (interior layout refinements). Amended ADR-03-0006 (no imprint; author name on the book). Updated ADR-03-0008 (callouts no longer split).
+- Open issues: added `docs/40-publishing/open-issues/OI-0008.md` (author name versus legal name; the website still says Wynyard-McClay).
+- Commit: pending commit.
+
 ## 2026-10-02 (69)
 
 ### Fixed
