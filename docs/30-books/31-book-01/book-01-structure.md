@@ -124,4 +124,4 @@ Use `docs/20-style/callout-guide.md`'s baseline set consistently. See `docs/30-b
 | 12 | How to Stay Relevant in the AI Era | Done | Done — research-backed manuscript; author reflection pending |
 | 13 | Building Your Personal AI Toolkit | Done | Done — research-backed manuscript; author reflection pending |
 | 14 | Where AI Goes Next | Done | Done — research-backed manuscript; author reflection pending |
-| — | Epilogue — Don't Panic | Done | Done |
+| — | Epilogue — Don't Panic | Done | Done — full epilogue rewrite; author input pending (EPI-2 companion site, EPI-4 closing message) |

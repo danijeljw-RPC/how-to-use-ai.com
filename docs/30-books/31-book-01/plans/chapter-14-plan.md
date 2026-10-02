@@ -152,7 +152,7 @@ Above the prompt's 4,500–6,500-word guidance, as Chapters 8–13 were above th
 
 - NTC program page and the Adelaide traffic-trial page could not be retrieved on 1 October 2026; both flagged for mandatory recheck in the bibliography.
 - Earlier assistant release-history and Cruise's withdrawal need primary sources before publication.
-- Linked ADR path above (`docs/30-books/31-book-01/decisions/`) is stale; ADR-02-0001 lives at `docs/30-books/31-book-01/chapters/decisions/`, as noted in the Chapter 12 and 13 plans.
+- ADR-02-0001 was accidentally moved to `chapters/decisions/` in commit `5164959`. It was restored to `docs/30-books/31-book-01/decisions/` on 2 October 2026 (GitHub issue #15), so the Linked ADRs path above is correct.
 
 ### Files Changed
 

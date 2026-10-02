@@ -150,7 +150,7 @@ Above the 5,500–7,500-word guidance in the writing prompt, as Chapters 8–11 
 ### Open Items
 
 - Federal Court practice note could not be rechecked (HTTP 403); flagged in the bibliography.
-- ADR-02-0001 now lives at `docs/30-books/31-book-01/chapters/decisions/` (moved in commit `5164959`), so this plan's "Linked ADRs" path is stale. Left unchanged here because the move was not made in this run; worth confirming whether the move was intended.
+- ADR-02-0001 was accidentally moved to `chapters/decisions/` in commit `5164959`. It was restored to `docs/30-books/31-book-01/decisions/` on 2 October 2026 (GitHub issue #15), so the Linked ADRs path above is correct.
 
 ### Files Changed
 

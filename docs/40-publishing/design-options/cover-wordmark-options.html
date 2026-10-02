@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Wordmark Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #061532; --sky: #0EA5E9; --slate: #5E6F89; --paper: #FFFFFF; --mist: #EEF3F9;
+  --bg: #F2F4F8; --text: #23304A; --card: #FFFFFF; --line: #D8DEE8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #141A26; --text: #D3DAE6; --card: #1D2433; --line: #2E3850; }
+}
+:root[data-theme="dark"] { --bg: #141A26; --text: #D3DAE6; --card: #1D2433; --line: #2E3850; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 "Archivo", Arial, sans-serif; }
+main { max-width: 64rem; margin: 0 auto; padding: 40px 16px 64px; }
+h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 .5rem; }
+.lede { max-width: 44rem; }
+.opt { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-top: 24px; }
+.opt h2 { margin: 0; font-size: 1.2rem; }
+.opt p { margin: .3rem 0 0; max-width: 44rem; }
+.samples { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 12px; margin-top: 16px; }
+@media (max-width: 720px) { .samples { grid-template-columns: 1fr; } }
+.s { border-radius: 6px; container-type: inline-size; min-height: 150px; display: grid; place-items: center; padding: 18px; overflow: hidden; }
+.s.light { background: var(--paper); color: var(--navy); box-shadow: inset 0 0 0 1px #E3E7EE; }
+.s.dark { background: var(--navy); color: #fff; }
+.s.small { align-content: center; }
+.s small { display: block; font-size: 11px; color: var(--slate); margin-top: 8px; text-align: center; }
+.s.dark small { color: #9FB0CC; }
+.verdict { margin-top: 12px; font-size: 15px; }
+.verdict b { font-weight: 700; }
+
+/* 1. Plain domain */
+.w1 { font: 700 min(46px, 8.4cqi)/1 "Archivo"; font-stretch: 87%; letter-spacing: -.01em; white-space: nowrap; }
+.w1 .tld { color: var(--slate); font-weight: 500; }
+.dark .w1 .tld { color: #9FB0CC; }
+/* 2. Highlighted ai */
+.w2 { font: 800 min(46px, 8.4cqi)/1 "Archivo"; font-stretch: 80%; letter-spacing: -.015em; white-space: nowrap; }
+.w2 .ai { color: var(--sky); }
+/* 3. Address bar */
+.w3 { display: inline-flex; align-items: center; gap: .45em; background: var(--mist); color: var(--navy); border-radius: 999px; padding: .38em .8em .38em .9em; font: 600 min(32px, 5.6cqi)/1 "IBM Plex Mono", monospace; white-space: nowrap; }
+.dark .w3 { background: #fff; }
+.w3 .ai { color: var(--sky); }
+.w3 .caret { width: 2px; height: 1.05em; background: var(--sky); }
+/* 4. Two-line wrap */
+.w4 { font: 700 min(52px, 9cqi)/.92 "IBM Plex Sans Condensed"; letter-spacing: -.01em; text-align: left; white-space: nowrap; }
+.w4 .l2 { display: block; font-size: 1.55em; }
+.w4 .ai { color: var(--sky); }
+.small .w1, .small .w2, .small .w4 { font-size: 20px; }
+.small .w3 { font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Front cover wordmark</h1>
+  <p class="lede">Today's cover sets the brand on two lines, “How To Use” over “AI.com”, with AI in blue. The site you own is <b>how-to-use-ai.com</b>. These four treatments make the cover read as that address. Each is shown large on a white cover, on navy, and at spine/back-cover size. Domains are case-insensitive, so lowercase is what makes it read as a web address and not a title.</p>
+
+  <section class="opt">
+    <h2>1. Plain domain</h2>
+    <p>Exactly what people type. The <code>.com</code> drops back to slate so the words lead. It's the quietest option and works at any size, including the spine.</p>
+    <div class="samples">
+      <div class="s light"><span class="w1">how-to-use-ai<span class="tld">.com</span></span></div>
+      <div class="s dark"><span class="w1">how-to-use-ai<span class="tld">.com</span></span></div>
+      <div class="s light small"><div><span class="w1">how-to-use-ai<span class="tld">.com</span></span><small>spine / back cover size</small></div></div>
+    </div>
+    <p class="verdict">Best for Option A (Engraving).</p>
+  </section>
+
+  <section class="opt">
+    <h2>2. Highlighted “ai”</h2>
+    <p>Keeps today's blue AI, so the cover stays recognisable, but now inside the real address. It's set heavy and condensed for presence at the top of the cover.</p>
+    <div class="samples">
+      <div class="s light"><span class="w2">how-to-use-<span class="ai">ai</span>.com</span></div>
+      <div class="s dark"><span class="w2">how-to-use-<span class="ai">ai</span>.com</span></div>
+      <div class="s light small"><div><span class="w2">how-to-use-<span class="ai">ai</span>.com</span><small>spine / back cover size</small></div></div>
+    </div>
+    <p class="verdict">Closest to the current covers; the smallest change.</p>
+  </section>
+
+  <section class="opt">
+    <h2>3. Address bar</h2>
+    <p>The domain sits in a browser-style pill with a text cursor, so it reads as “go here” at a glance. It's the most literal treatment and ties the book to the companion site.</p>
+    <div class="samples">
+      <div class="s light"><span class="w3"><span>how-to-use-<span class="ai">ai</span>.com</span><span class="caret" aria-hidden="true"></span></span></div>
+      <div class="s dark"><span class="w3"><span>how-to-use-<span class="ai">ai</span>.com</span><span class="caret" aria-hidden="true"></span></span></div>
+      <div class="s light small"><div><span class="w3"><span>how-to-use-<span class="ai">ai</span>.com</span><span class="caret" aria-hidden="true"></span></span><small>spine / back cover size</small></div></div>
+    </div>
+    <p class="verdict">Used in Option B (Address bar). Mono type gets wide, so on the spine it falls back to option 1 or 2.</p>
+  </section>
+
+  <section class="opt">
+    <h2>4. Two-line wrap</h2>
+    <p>Keeps today's two-line hierarchy, with a big second line, but breaks the address where a browser would wrap it: after a hyphen. It has the most visual weight; it doesn't fit the spine, so it pairs with option 1 or 2 there.</p>
+    <div class="samples">
+      <div class="s light"><span class="w4">how-to-use-<span class="l2"><span class="ai">ai</span>.com</span></span></div>
+      <div class="s dark"><span class="w4">how-to-use-<span class="l2"><span class="ai">ai</span>.com</span></span></div>
+      <div class="s light small"><div><span class="w2">how-to-use-<span class="ai">ai</span>.com</span><small>spine uses option 2</small></div></div>
+    </div>
+    <p class="verdict">Choose this if the brand, not the book title, should lead the cover. ADR-03-0006 says the title must lead for cataloguing, so this needs care.</p>
+  </section>
+
+  <section class="opt">
+    <h2>Things that change with the wordmark</h2>
+    <table>
+      <thead><tr><th>Where</th><th>Today</th><th>Proposed</th></tr></thead>
+      <tbody>
+        <tr><td>Cover art (cover_generator.py)</td><td>“How To Use” / “AI.com”, AI blue</td><td>Chosen option above</td></tr>
+        <tr><td><code>series.title</code> in books.json</td><td>How-To-Use-AI.com</td><td>Unchanged (catalogue name, OI-0004 item 2); the wordmark is artwork only</td></tr>
+        <tr><td>Imprint line in the book</td><td>Not yet printed</td><td>“How To Use AI.com, an imprint of RePass Cloud Pty Ltd” (ADR-03-0006)</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

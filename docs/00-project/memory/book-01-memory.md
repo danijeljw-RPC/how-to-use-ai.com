@@ -36,6 +36,13 @@ Four parts plus an epilogue, 14 chapters. Full detail in `docs/30-books/31-book-
 - **Part 4 — Preparing for the Future:** 12. How to Stay Relevant in the AI Era, 13. Building Your Personal AI Toolkit, 14. Where AI Goes Next
 - **Epilogue — Don't Panic**
 
+## Index
+
+Book 1 has a back-of-book index built from a curated term list (ADR-03-0007).
+Edit `docs/30-books/31-book-01/index/index-terms.toml`, never the chapters. The
+generated line index, `index/book-01-index-lines.md`, must be regenerated after
+chapter revisions. The term list awaits author review (OI-0006).
+
 ## Chapter 1 Known Direction
 
 Chapter 1 title:

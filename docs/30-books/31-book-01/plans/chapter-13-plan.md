@@ -152,7 +152,7 @@ Above the 5,000–7,000-word guidance in the writing prompt, as Chapters 8–12 
 ### Open Items
 
 - eSafety survey page could not be retrieved on 1 October 2026; figures carried from the package and Chapter 9, flagged for recheck.
-- Linked ADR path above (`docs/30-books/31-book-01/decisions/`) is stale; ADR-02-0001 lives at `docs/30-books/31-book-01/chapters/decisions/`, as noted in the Chapter 12 plan.
+- ADR-02-0001 was accidentally moved to `chapters/decisions/` in commit `5164959`. It was restored to `docs/30-books/31-book-01/decisions/` on 2 October 2026 (GitHub issue #15), so the Linked ADRs path above is correct.
 
 ### Files Changed
 
