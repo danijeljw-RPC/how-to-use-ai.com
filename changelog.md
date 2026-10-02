@@ -2,6 +2,173 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (70)
+
+### Fixed
+
+Layout fixes from the author's review of the Book 1 draft PDF (ADR-03-0009, plan `docs/40-publishing/plans/book-01-pdf-layout-fixes-plan.md`):
+
+- **Roles:** the author on the book is "Danijel-James Wynyard". How-To-Use-AI.com is the series, not an imprint, so the title page, copyright page and back cover now name RePass Cloud Pty Ltd as the publisher. The copyright holder is unchanged.
+- **Contents:** fits on one page (tighter entries, no paragraph spacing).
+- **Dedication and epigraph:** now in draft and preview builds too, not only release builds.
+- **Paragraphs:** block style, with no first-line indent and half a line between paragraphs.
+- **Tables:** about half a line of extra space between rows.
+- **New "How This Book Works" page:** explains Key Idea, Try This, Watch Out, Recap and Author Reflection boxes.
+- **Author reflection placeholders:** shown as an "Author Reflection" callout.
+- **Callouts:** never split across pages; a box that doesn't fit moves whole to the next page.
+- **Headings:** stay with their subheading and opening text.
+- **Lead-ins:** a paragraph ending in a colon stays with the block it introduces.
+- **PDF bookmarks:** read "Chapter 1: Title", with sections nested underneath, instead of leaked LaTeX (`[2.2em][I]hwSky1You`).
+- **About the Author:** the bio wraps around the photo (vendored `wrapfig.sty`).
+- **Release check:** also scans `frontmatter/` and `backmatter/` for unresolved placeholders.
+
+Details:
+
+- Files changed: `publishing/books.json`, `publishing/latex/howto-book.tex`, `publishing/latex/wrapfig.sty` (new), `publishing/pandoc/book.lua`, `publishing/epub/book.css`, `scripts/build_matter.py`, `scripts/release_cover.py`, `publish-draft-books.sh`, `tests/test_build_matter.py`, `docs/30-books/31-book-01/frontmatter/how-this-book-works.md` (new), `docs/40-publishing/plans/book-01-pdf-layout-fixes-plan.md` (new), `changelog.md`.
+- Decisions: added ADR-03-0009 (interior layout refinements). Amended ADR-03-0006 (no imprint; author name on the book). Updated ADR-03-0008 (callouts no longer split).
+- Open issues: added `docs/40-publishing/open-issues/OI-0008.md` (author name versus legal name; the website still says Wynyard-McClay).
+- Commit: a96b115.
+
+## 2026-10-02 (69)
+
+### Fixed
+
+Draft and preview PDFs now collect notes at the back of the book, grouped by chapter, as ADR-03-0008 (item 10) requires for every format. Before this change only `--release` builds did; the default `./publish-draft-books.sh book 1` still typeset per-page footnotes, because the draft path passed `inline` to the interior build and `--notes-inline` to the matter script.
+
+- Files changed: `publish-draft-books.sh`, `tests/test_publish_draft_books.sh` (asserts `\printpagenotes` and `\hwNotes{back}` in the draft build), `changelog.md`.
+- Decisions: none added or changed (implements ADR-03-0008 as accepted).
+- Open issues: none.
+- Commit: ee7ef4d.
+
+## 2026-10-02 (68)
+
+### Changed
+
+Implemented the house design (Option B, "Address bar") and the release build (ADR-03-0008, plan steps 3–9). Draft, preview and release editions now all use the new design at 7.5 × 9.25 in.
+
+- New interior style (`publishing/latex/howto-book.tex`, `memoir`):
+  - IBM Plex Serif, Sans Condensed and Mono, shipped in `publishing/fonts/` (OFL);
+  - navy chapter bands labelled "Chapter 01";
+  - callouts in their own colours (Key Idea, Watch Out, Try This, Recap) that split across pages (vendored `framed.sty`);
+  - plain quotes with a sky rule, tables in sans, figures numbered 1-1;
+  - running feet with the page number on the outer edge;
+  - mirror margins and bleed for print;
+  - notes at the back of the book, grouped by chapter, each chapter's sources paragraph after its notes;
+  - memoir's index in the contents.
+- New pandoc filter (`publishing/pandoc/book.lua`): chapter openers, callouts, "Chapter Notes" handling, height-capped images.
+- New `scripts/build_matter.py`. It writes the half title, series page, title page, the copyright page (all ISBNs, imprint, edition, NLA line, disclaimers, proof/draft/preview line), dedication, epigraph and contents, plus any `frontmatter/*.md` files. At the back it writes the notes, any `backmatter/*.md` files, About the Author (photo, Markdown bio) and About the Series. Empty `books.json` values are left out.
+- New `scripts/release_cover.py`. It draws the Option B front cover (address-bar wordmark, "Book 1 of 5", title, illustration, seal) and the back cover in paperback, ebook and draft variants (category, price, summary, highlights, endorsements, bio and photo, barcode). It also draws a wrap with bleed for each printer, with the spine width calculated from the page count (KDP and IngramSpark calipers) or a manual override. Copy that doesn't fit is set smaller, down to 75%.
+- `publish-draft-books.sh`:
+  - `--release` (or `--edition release`), `--format paperback,pdf,epub` and `--proof`;
+  - a release check, which fails on unresolved placeholders or missing ISBNs unless `--proof` is given;
+  - paperback outputs: interior typeset in colour, then converted to greyscale with Ghostscript; one cover per printer;
+  - a colour PDF ebook with covers, an EPUB 3 (ISBN identifier, embedded fonts, SVG diagrams, linked index) and a release report;
+  - a clean release folder on each run;
+  - draft and preview builds use the new design; previews say "Preview edition" and get the clean back cover;
+  - `BOOK_PUBLISH_CONFIG` overrides the metadata file.
+- `scripts/assemble_draft_book.py` uses the trim size from `series.print` and embedded Plex fonts. `scripts/isbn_barcode.py` accepts a font.
+- Tests: new `tests/test_build_matter.py` and `tests/test_release_cover.py`. The integration test now expects the new page sizes and runs a full `--release --proof` build. Results: 75 unit tests pass (1 skipped: no zbar), and the integration test passes.
+
+### Files changed
+
+- `publish-draft-books.sh`
+- `publishing/latex/howto-book.tex` (new), `publishing/latex/framed.sty` (new, vendored)
+- `publishing/pandoc/book.lua` (new)
+- `publishing/epub/book.css` (new)
+- `publishing/fonts/` (new: 14 IBM Plex TTFs and `OFL.txt`)
+- `scripts/build_matter.py` (new), `scripts/release_cover.py` (new)
+- `scripts/assemble_draft_book.py`, `scripts/isbn_barcode.py`
+- `tests/test_build_matter.py` (new), `tests/test_release_cover.py` (new), `tests/test_publish_draft_books.sh`
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md`
+- `docs/40-publishing/plans/release-edition-build-plan.md`
+- `docs/40-publishing/open-issues/OI-0005.md`
+- `docs/40-publishing/books-json-reference.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008: implementation recorded.
+
+### Open issues
+
+- OI-0005: gaps 1, 2, 4 and 5 fixed, gap 3 partly. It closes after KDP and IngramSpark preflight.
+
+### Commit
+
+`ab2a9d3`
+
+## 2026-10-02 (67)
+
+### Changed
+
+Recorded the author's release-build decisions and added the release metadata fields, the loader and the barcode generator (plan steps 1–2). Draft builds are unchanged; the draft integration test passes.
+
+- `publishing/books.json` gains `series.about`, `series.authorProfile` (photo `assets/author/author-photo.jpg`, short and long bio, website), `series.publisher`, `series.defaultPriceCode` (`90000`) and `series.print` (7.5 × 9.25 in trim, bleed, black-and-white interior, per-printer KDP and IngramSpark caliper and spine settings). Each book gains `copyright`, `editions` (paperback, PDF and EPUB ISBNs, display form, price code, optional printed prices) and `backCover`. Book 1's back-cover copy is the sample text from the design options, for the author to edit. Every new value the author must supply is `""`, so it is left out until filled in.
+- Added `scripts/book_metadata.py`. It loads one book's metadata with every empty value removed (an endorsement without a quote is dropped), validates ISBN-13 check digits and price codes, and lists release blockers: missing ISBNs, copyright holder, a missing photo file, and visible placeholder or author-input text with file and line. Run with `--check` to see what blocks a release.
+- Added `scripts/isbn_barcode.py`: a vector EAN-13 + EAN-5 barcode with an embedded font, drawn into any ReportLab canvas or as a standalone PDF.
+- Added `docs/40-publishing/books-json-reference.md` (every field, the empty-string rule, author photo name and specification) and `assets/author/README.md`.
+- The ADR, OI and plan record the author's answers. Item 2 is read as a black-and-white paperback interior with colour PDF/EPUB; this is marked as an assumption in OI-0007.
+
+### Files changed
+
+- `publishing/books.json`
+- `scripts/book_metadata.py` (new)
+- `scripts/isbn_barcode.py` (new)
+- `tests/test_book_metadata.py` (new)
+- `tests/test_isbn_barcode.py` (new)
+- `assets/author/README.md` (new)
+- `docs/40-publishing/books-json-reference.md` (new)
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md`
+- `docs/40-publishing/open-issues/OI-0007.md`
+- `docs/40-publishing/plans/release-edition-build-plan.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008 accepted: KDP and IngramSpark, black-and-white paperback interior, Option B, wordmark 3, back-of-book notes grouped by chapter.
+
+### Open issues
+
+- OI-0007 partly answered (items 1, 2, 4, 5, 7; JSON fields created for 9–14 and 16).
+
+### Commit
+
+`63d8b7d`
+
+## 2026-10-02 (66)
+
+### Changed
+
+Planned a release (ready-to-print) mode for `publish-draft-books.sh` and produced design options for author review. No build code has changed yet; implementation waits for the author's review (CLAUDE.md: more than three files).
+
+- Added the release edition build plan. It covers `--release` (draft stays the default), `--format paperback,pdf,epub` and `--proof`; paperback interior and wrap-cover PDFs at the confirmed 7.5 × 9.25 in trim; the PDF ebook and EPUB; front and back matter per format; one ISBN per format with a default `90000` price code and a generated EAN-13 + EAN-5 barcode; a back cover driven by `books.json` where empty strings are left out; and a release gate that refuses a build while placeholders remain (Book 1 currently has 13 placeholders and 9 `AUTHOR-INPUT` blocks).
+- Added three single-file HTML design proofs drawn to scale: Option A "Engraving" and Option B "Address bar" (cover wrap with bleed and spine guides, front matter, chapter opener, mirror-margin body spread, about the author, format table, working sample barcode), and four front-cover wordmark treatments that read as `how-to-use-ai.com`.
+- Reviewed `oreillymedia/orm_book_samples`. It is boilerplate for O'Reilly's internal Atlas tooling, so none of its code is reusable here. It was used as a front/back matter checklist, and its legal text shows that O'Reilly treats its cover animal and trade dress as trademarks; that risk is recorded in the plan.
+
+### Files changed
+
+- `docs/40-publishing/plans/release-edition-build-plan.md` (new)
+- `docs/40-publishing/design-options/option-a-engraving.html` (new)
+- `docs/40-publishing/design-options/option-b-address-bar.html` (new)
+- `docs/40-publishing/design-options/cover-wordmark-options.html` (new)
+- `docs/40-publishing/decisions/ADR-03-0008-release-edition-build.md` (new, proposed)
+- `docs/40-publishing/open-issues/OI-0007.md` (new)
+- `docs/40-publishing/open-issues/OI-0005.md`
+- `changelog.md`
+
+### Decisions
+
+- ADR-03-0008 (proposed): release edition build.
+
+### Open issues
+
+- Opened OI-0007: author decisions for the release build (printer, interior ink, paper, design option, wordmark, cover art, notes, references, ISBNs, photo, bio, back-cover copy, price, copyright holder, preface, draft trim size).
+- OI-0005 now points to the release plan.
+
+### Commit
+
+`2c7c204`
+
 ## 2026-10-02 (65)
 
 ### Changed

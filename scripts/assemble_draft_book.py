@@ -14,6 +14,8 @@ from reportlab.lib.colors import HexColor
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
+from scripts.release_cover import register_fonts
+
 
 class AssemblyError(ValueError):
     """Raised when the source PDFs cannot be assembled safely."""
@@ -34,9 +36,10 @@ def _chapter_range_label(chapters: list[int]) -> str:
 
 
 def _new_page(metadata: dict[str, Any]) -> tuple[io.BytesIO, canvas.Canvas, float, float]:
+    register_fonts()
     width, height = _expected_page_size(metadata)
     stream = io.BytesIO()
-    document = canvas.Canvas(stream, pagesize=(width, height), pageCompression=1)
+    document = canvas.Canvas(stream, pagesize=(width, height), pageCompression=1, initialFontName="Plex-Sans")
     document.setFillColor(NAVY)
     document.rect(0, height - 18, width, 18, fill=1, stroke=0)
     return stream, document, width, height
@@ -55,7 +58,7 @@ def _notice_page(metadata: dict[str, Any], preview_chapters: list[int] | None = 
     stream, document, width, height = _new_page(metadata)
     accent = HexColor(book.get("accentColour", "#7C3AED"))
 
-    document.setFont("Helvetica-Bold", 12)
+    document.setFont("Plex-SansBold", 12)
     document.setFillColor(SLATE)
     series_title = series["title"]
     document.drawCentredString(width / 2, height - 84, series_title)
@@ -63,15 +66,15 @@ def _notice_page(metadata: dict[str, Any], preview_chapters: list[int] | None = 
     document.setFillColor(accent)
     document.roundRect(width / 2 - 58, height - 154, 116, 30, 10, fill=1, stroke=0)
     document.setFillColorRGB(1, 1, 1)
-    document.setFont("Helvetica-Bold", 14)
+    document.setFont("Plex-SansBold", 14)
     document.drawCentredString(width / 2, height - 145, f"BOOK {book['number']}")
 
     document.setFillColor(NAVY)
-    document.setFont("Helvetica-Bold", 22)
+    document.setFont("Plex-SansBold", 22)
     title = book["title"]
-    title_width = stringWidth(title, "Helvetica-Bold", 22)
+    title_width = stringWidth(title, "Plex-SansBold", 22)
     if title_width > width - 100:
-        document.setFont("Helvetica-Bold", 18)
+        document.setFont("Plex-SansBold", 18)
     document.drawCentredString(width / 2, height - 218, title)
 
     document.setStrokeColor(accent)
@@ -79,10 +82,10 @@ def _notice_page(metadata: dict[str, Any], preview_chapters: list[int] | None = 
     document.line(90, height - 260, width - 90, height - 260)
 
     document.setFillColor(NAVY)
-    document.setFont("Helvetica-Bold", 20)
+    document.setFont("Plex-SansBold", 20)
     if preview_chapters:
         document.drawCentredString(width / 2, height / 2 + 52, "PREVIEW EDITION")
-        document.setFont("Helvetica", 13)
+        document.setFont("Plex-Sans", 13)
         document.setFillColor(SLATE)
         document.drawCentredString(
             width / 2,
@@ -93,7 +96,7 @@ def _notice_page(metadata: dict[str, Any], preview_chapters: list[int] | None = 
         footer = "A free preview of a book in progress."
     else:
         document.drawCentredString(width / 2, height / 2 + 52, "INTERNAL REVIEW EDITION")
-        document.setFont("Helvetica", 13)
+        document.setFont("Plex-Sans", 13)
         document.setFillColor(SLATE)
         document.drawCentredString(
             width / 2, height / 2 + 14, "This book is for internal and review distribution only."
@@ -102,9 +105,9 @@ def _notice_page(metadata: dict[str, Any], preview_chapters: list[int] | None = 
         footer = "Generated from the current manuscript source for editorial review."
 
     document.setFillColor(NAVY)
-    document.setFont("Helvetica-Bold", 12)
+    document.setFont("Plex-SansBold", 12)
     document.drawCentredString(width / 2, 92, series["author"])
-    document.setFont("Helvetica", 9)
+    document.setFont("Plex-Sans", 9)
     document.setFillColor(SLATE)
     document.drawCentredString(width / 2, 70, footer)
     return _finish_page(stream, document)
@@ -121,11 +124,11 @@ def _preview_end_page(
     document.setFillColor(accent)
     document.roundRect(width / 2 - 90, height / 2 + 120, 180, 30, 10, fill=1, stroke=0)
     document.setFillColorRGB(1, 1, 1)
-    document.setFont("Helvetica-Bold", 13)
+    document.setFont("Plex-SansBold", 13)
     document.drawCentredString(width / 2, height / 2 + 130, "END OF PREVIEW")
 
     document.setFillColor(NAVY)
-    document.setFont("Helvetica-Bold", 20)
+    document.setFont("Plex-SansBold", 20)
     document.drawCentredString(width / 2, height / 2 + 64, "Thanks for reading this preview")
 
     document.setStrokeColor(accent)
@@ -139,7 +142,7 @@ def _preview_end_page(
         lines.append(f"The full book continues with {remaining} more {noun}.")
     else:
         lines.append("The full book continues from here.")
-    document.setFont("Helvetica", 13)
+    document.setFont("Plex-Sans", 13)
     document.setFillColor(SLATE)
     for index, line in enumerate(lines):
         document.drawCentredString(width / 2, height / 2 + 8 - index * 22, line)
@@ -147,24 +150,28 @@ def _preview_end_page(
     website = series.get("website")
     if website:
         document.setFillColor(NAVY)
-        document.setFont("Helvetica-Bold", 14)
+        document.setFont("Plex-SansBold", 14)
         document.drawCentredString(width / 2, height / 2 - 80, "Get the full book at")
         document.setFillColor(accent)
-        document.setFont("Helvetica-Bold", 18)
+        document.setFont("Plex-SansBold", 18)
         document.drawCentredString(width / 2, height / 2 - 106, website)
 
     document.setFillColor(NAVY)
-    document.setFont("Helvetica-Bold", 12)
+    document.setFont("Plex-SansBold", 12)
     document.drawCentredString(width / 2, 92, series["author"])
-    document.setFont("Helvetica", 9)
+    document.setFont("Plex-Sans", 9)
     document.setFillColor(SLATE)
     document.drawCentredString(width / 2, 70, series["title"])
     return _finish_page(stream, document)
 
 
 def _expected_page_size(metadata: dict[str, Any]) -> tuple[float, float]:
+    """The trim size: series.print when configured (ADR-03-0008), else the older series.page."""
+    printing = metadata["series"].get("print") or {}
     page = metadata["series"]["page"]
-    return float(page["widthInches"]) * 72, float(page["heightInches"]) * 72
+    width = printing.get("trimWidthInches") or page["widthInches"]
+    height = printing.get("trimHeightInches") or page["heightInches"]
+    return float(width) * 72, float(height) * 72
 
 
 def _validate_page_sizes(reader: PdfReader, source: Path, expected: tuple[float, float]) -> None:

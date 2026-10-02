@@ -1,0 +1,361 @@
+% How To Use AI.com — Option B ("Address bar") interior style for memoir.
+% ADR-03-0008. Included after pandoc's preamble. The build defines these first:
+%   \hwMode        print | ebook | draft
+%   \hwNotes       back | inline     (back = notes at the back, grouped by chapter)
+%   \hwFontDir     absolute path to publishing/fonts/ (trailing slash)
+%   \hwAccentHex   book accent colour, e.g. 7C3AED
+%   \hwBookTitle   running-foot fallback
+% Print mode builds on a stock with 0.125in bleed (top, bottom, outside edge);
+% ebook and draft modes are the trimmed 7.5 x 9.25in page.
+
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{caption}
+\usepackage{wrapfig}% vendored in publishing/latex (LPPL)
+\setlength{\unitlength}{1pt}
+
+\makeatletter
+
+% ---------- Colours (the paperback is converted to greyscale after typesetting)
+\definecolor{hwNavy}{HTML}{061532}
+\definecolor{hwSky}{HTML}{0EA5E9}
+\definecolor{hwSkyLight}{HTML}{BFE6F8}
+\definecolor{hwMist}{HTML}{EEF3F9}
+\definecolor{hwSlate}{HTML}{5E6F89}
+\definecolor{hwGold}{HTML}{E9C46A}
+\definecolor{hwRule}{HTML}{D3DBE7}
+\definecolor{hwAccent}{HTML}{\hwAccentHex}
+
+% ---------- Fonts: IBM Plex (SIL OFL), shipped in publishing/fonts
+\setmainfont{IBMPlexSerif}[
+  Path=\hwFontDir, Extension=.ttf, Scale=0.92,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-SemiBold, BoldItalicFont=*-SemiBoldItalic]
+\setsansfont{IBMPlexSansCondensed}[
+  Path=\hwFontDir, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-Bold, BoldItalicFont=*-Italic]
+\setmonofont{IBMPlexMono}[
+  Path=\hwFontDir, Extension=.ttf, Scale=0.88,
+  UprightFont=*-Regular, BoldFont=*-SemiBold]
+\newfontfamily\hwSansSemi{IBMPlexSansCondensed-SemiBold}[Path=\hwFontDir, Extension=.ttf]
+\newfontfamily\hwSansMedium{IBMPlexSansCondensed-Medium}[Path=\hwFontDir, Extension=.ttf]
+\newfontfamily\hwMono{IBMPlexMono-SemiBold}[Path=\hwFontDir, Extension=.ttf]
+\newfontfamily\hwMonoMedium{IBMPlexMono-Medium}[Path=\hwFontDir, Extension=.ttf]
+
+% ---------- Page geometry
+\def\hw@print{print}
+\ifx\hwMode\hw@print
+  \setstocksize{9.5in}{7.625in}
+  \settrimmedsize{9.25in}{7.5in}{*}
+  \settrims{0.125in}{0.125in}
+  \setlrmarginsandblock{0.875in}{0.625in}{*}
+  \newlength\hw@bleed \setlength\hw@bleed{0.125in}
+\else
+  \setstocksize{9.25in}{7.5in}
+  \settrimmedsize{9.25in}{7.5in}{*}
+  \settrims{0pt}{0pt}
+  \setlrmarginsandblock{0.75in}{0.75in}{*}
+  \newlength\hw@bleed \setlength\hw@bleed{0pt}
+\fi
+\setulmarginsandblock{0.75in}{1in}{*}
+\setheadfoot{12pt}{0.45in}
+\setheaderspaces{*}{12pt}{*}
+\checkandfixthelayout[nearest]
+
+% Block paragraphs: no first-line indent, half a line between paragraphs.
+\setlength{\parindent}{0pt}
+\nonzeroparskip
+\linespread{1.08}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+
+% Blank versos carry no running foot.
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside\ifodd\c@page\else
+  \hbox{}\thispagestyle{empty}\newpage\fi\fi}
+
+% ---------- Headings
+\setsecheadstyle{\sffamily\bfseries\LARGE\color{hwNavy}\raggedright}
+\setbeforesecskip{-1.6\onelineskip plus -0.5\onelineskip}
+\setaftersecskip{0.7\onelineskip}
+\setsubsecheadstyle{\sffamily\bfseries\Large\color{hwNavy}\raggedright}
+\setbeforesubsecskip{-1.2\onelineskip plus -0.3\onelineskip}
+\setaftersubsecskip{0.4\onelineskip}
+\setsubsubsecheadstyle{\hwSansSemi\large\color{hwNavy}\raggedright}
+\setbeforesubsubsecskip{-1\onelineskip plus -0.3\onelineskip}
+\setaftersubsubsecskip{0.3\onelineskip}
+\setparaheadstyle{\hwSansSemi\normalsize\color{hwSlate}}
+% Keep headings with what follows: start a new page when too little room is
+% left for the heading, a subheading and a few lines of text.
+\setsechook{\needspace{9\onelineskip}}
+\setsubsechook{\needspace{6\onelineskip}}
+\setsubsubsechook{\needspace{5\onelineskip}}
+% A lead-in paragraph ending in a colon stays with the block it introduces
+% (book.lua wraps it in these).
+\newcommand\hwKeepStart{\needspace{6\onelineskip}}
+\newcommand\hwKeepEnd{\par\nopagebreak[4]}
+
+% ---------- Chapter openers: a navy field across the top of the page
+\newlength\hw@band \setlength\hw@band{2.75in}
+\def\hwChapNumLabel{}
+\newcommand\hw@drawband[2]{%
+  \AddToShipoutPictureBG*{%
+    \AtPageUpperLeft{%
+      \put(0,-\strip@pt\dimexpr\hw@band+\hw@bleed\relax){%
+        \color{hwNavy}\rule{\stockwidth}{\dimexpr\hw@band+\hw@bleed\relax}}%
+      \put(\strip@pt\dimexpr\spinemargin\relax,-\strip@pt\dimexpr\hw@band+\hw@bleed-0.45in\relax){%
+        \parbox[b]{\textwidth}{\raggedright
+          \if\relax\detokenize{#1}\relax\else
+            {\hwMono\fontsize{9}{11}\selectfont\color{hwSky}#1}\par\vspace{10pt}\fi
+          {\sffamily\bfseries\fontsize{28}{29}\selectfont\color{white}#2}}}}}}
+\makechapterstyle{hwband}{%
+  \renewcommand*{\chapterheadstart}{}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapternamenum}{}
+  \renewcommand*{\printchapternum}{}
+  \renewcommand*{\afterchapternum}{}
+  \renewcommand*{\printchapternonum}{}
+  \renewcommand*{\printchaptertitle}[1]{%
+    % Expand the label now: the band is drawn at shipout, after it is cleared.
+    \expandafter\hw@drawband\expandafter{\hwChapNumLabel}{##1}\global\let\hwChapNumLabel\@empty
+    \vspace*{\dimexpr\hw@band-\uppermargin-\topskip+0.1in\relax}}
+  \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip 0.5in}}
+\chapterstyle{hwband}
+
+% Sections are unnumbered; figures and tables are numbered per chapter (1-1, 1-2).
+\setsecnumdepth{none}
+% memoir re-applies its "chapter.figure" form at each chapter, so \hwChapter
+% re-asserts this one afterwards.
+\newcommand\hw@floatnumbers{%
+  \renewcommand*{\thefigure}{\ifnum\c@chapter>0 \arabic{chapter}-\fi\arabic{figure}}%
+  \renewcommand*{\thetable}{\ifnum\c@chapter>0 \arabic{chapter}-\fi\arabic{table}}}
+
+% \hwChapter[number]{label}{title}{contents entry}
+\newcommand\hwChapter[4][0]{%
+  \gdef\hwChapNumLabel{#2}%
+  \setcounter{chapter}{#1}\setcounter{figure}{0}\setcounter{table}{0}%
+  \hwChapterBody{#3}{#4}{#2}}
+\newcommand\hwChapterBody[3]{%
+  \chapter*{#1}%
+  \hw@floatnumbers
+  \addcontentsline{toc}{chapter}{#2}%
+  \markboth{#1}{#1}%
+  \hw@notesubhead{#3}{#1}}
+% ---------- Running feet: folio on the outer edge, location beside it
+\newcommand\hw@folio{{\hwMono\fontsize{8}{10}\selectfont\color{hwNavy}\thepage}}
+\newcommand\hw@foottext[1]{{\sffamily\fontsize{7.5}{9}\selectfont\color{hwSlate}#1}}
+\makepagestyle{hwbody}
+\makeevenhead{hwbody}{}{}{}
+\makeoddhead{hwbody}{}{}{}
+\makeevenfoot{hwbody}{\hw@folio\quad\hw@foottext{\leftmark}}{}{}
+\makeoddfoot{hwbody}{}{}{\hw@foottext{\rightmark}\quad\hw@folio}
+\makepsmarks{hwbody}{%
+  \createmark{chapter}{both}{nonumber}{}{}%
+  \createmark{section}{right}{nonumber}{}{}}
+\makepagestyle{hwopener}
+\makeoddfoot{hwopener}{}{}{\hw@folio}
+\makeevenfoot{hwopener}{\hw@folio}{}{}
+\aliaspagestyle{chapter}{hwopener}
+\aliaspagestyle{cleared}{empty}% blank versos memoir inserts before a recto
+\nouppercaseheads
+\pagestyle{hwbody}
+
+% ---------- Contents
+\renewcommand*{\contentsname}{Contents}
+\renewcommand*{\cftchapterfont}{\sffamily\bfseries}
+\renewcommand*{\cftchapterpagefont}{\hwMono}
+% Entries are tight so the contents fit on one page; parskip is off inside it.
+\setlength{\cftbeforechapterskip}{0.3\onelineskip}
+\newcommand\hwTocNum[1]{\makebox[2.2em][l]{\hwMonoMedium\color{hwSky}#1}}
+\setcounter{tocdepth}{0}
+
+% ---------- Callouts (Key Idea, Watch Out, Try This, Recap, Author Reflection)
+% Each callout is set in a box that never splits across pages: if it doesn't
+% fit, it moves whole to the next page.
+\newcommand\hw@chip[3]{\colorbox{#1}{\strut\sffamily\bfseries\fontsize{7.5}{9}\selectfont\color{#2}#3}}
+\newsavebox\hw@calloutbox
+\newlength\hw@calloutpad
+\newenvironment{hwcallout}[2]{%
+  \def\hw@kind{#2}%
+  \def\hw@k@watch{watch}\def\hw@k@try{try}\def\hw@k@recap{recap}\def\hw@k@reflection{reflection}%
+  \setlength\hw@calloutpad{18pt}%
+  \ifx\hw@kind\hw@k@try
+    \def\hw@frame##1{{\fboxsep=9pt\fboxrule=0.9pt\fcolorbox{hwSky}{white}{##1}}}%
+    \addtolength\hw@calloutpad{1.8pt}%
+    \def\hw@chipcmd{\hw@chip{hwSky}{white}{#1}}%
+  \else\ifx\hw@kind\hw@k@watch
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
+    \def\hw@chipcmd{\hw@chip{hwGold}{hwNavy}{#1}}%
+  \else\ifx\hw@kind\hw@k@recap
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
+    \def\hw@chipcmd{\hw@chip{hwNavy}{white}{#1}}%
+  \else\ifx\hw@kind\hw@k@reflection
+    \def\hw@frame##1{{\fboxsep=9pt\fboxrule=0.9pt\fcolorbox{hwGold}{white}{##1}}}%
+    \addtolength\hw@calloutpad{1.8pt}%
+    \def\hw@chipcmd{\hw@chip{hwGold}{hwNavy}{#1}}%
+  \else
+    \def\hw@frame##1{{\fboxsep=9pt\colorbox{hwMist}{##1}}}%
+    \def\hw@chipcmd{\hw@chip{hwAccent}{white}{#1}}%
+  \fi\fi\fi\fi
+  \par\vspace{0.6\onelineskip}%
+  \begin{lrbox}{\hw@calloutbox}%
+  \begin{minipage}{\dimexpr\linewidth-\hw@calloutpad\relax}%
+  \setlength{\parindent}{0pt}\setlength{\parskip}{0.4\onelineskip}%
+  \small\noindent\hw@chipcmd\par\vspace{2pt}}%
+ {\par\end{minipage}\end{lrbox}%
+  \noindent\hw@frame{\usebox\hw@calloutbox}\par\vspace{0.4\onelineskip}}
+
+% Plain block quotes: a sky rule on the left.
+\renewenvironment{quote}{%
+  \def\FrameCommand{{\color{hwSky}\vrule width 2pt}\hspace{9pt}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}\small\color{hwNavy}}%
+ {\endMakeFramed}
+
+% ---------- Tables, figures, links
+% Images fit the line width and 80% of the text height, leaving room for the
+% caption on the 7.5 x 9.25in page (pandoc's own version allows 100%).
+\AtBeginDocument{%
+  \@ifundefined{pandocbounded}{}{%
+    \renewcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      \Gscale@div\@tempa{0.8\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+      \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+      \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}\else\usebox{\pandoc@box}\fi}}}
+% Rows get about half a line of extra space so each row reads as one unit.
+\AtBeginEnvironment{longtable}{\small\sffamily\renewcommand*{\arraystretch}{1.5}}
+\setlength{\LTpre}{0.8\onelineskip}\setlength{\LTpost}{0.8\onelineskip}
+\captionsetup{font={small,sf}, labelfont={bf,color=hwNavy}, textfont={color=hwSlate}}
+\def\hw@ebook{ebook}
+% pandoc loads hyperref after this file, so link styling waits for the document.
+% PDF bookmarks list chapters and their sections.
+\AtBeginDocument{\hypersetup{bookmarksdepth=section}}
+\ifx\hwMode\hw@ebook
+  \AtBeginDocument{\hypersetup{colorlinks=true, linkcolor=hwNavy, urlcolor=hwSky, citecolor=hwNavy}\urlstyle{same}}
+\else
+  \AtBeginDocument{\hypersetup{hidelinks}\urlstyle{same}}
+\fi
+
+% ---------- Notes at the back of the book, grouped by chapter
+\def\hw@back{back}
+\ifx\hwNotes\hw@back
+  \makepagenote
+  % hyperref (loaded after this file) redefines \footnote, so redirect at
+  % \begin{document}. A chapter's subhead is written with its first note only.
+  \newcommand\hw@footnote[2][]{\hw@flushhead\pagenote{#2}}
+  \AtBeginDocument{\foottopagenote\let\footnote\hw@footnote}
+  \renewcommand*{\notenumintext}[1]{\textsuperscript{\hwMonoMedium\color{hwSky}#1}}
+  \renewcommand*{\notenuminnotes}[1]{{\hwMonoMedium\color{hwSky}#1}\quad}
+  \renewcommand*{\prenoteinnotes}{\par\noindent\small}
+  \renewcommand*{\postnoteinnotes}{\par\vspace{0.3\onelineskip}}
+  % memoir's own subheads are replaced by \hwNoteHead ("Chapter 01: Title").
+  \renewcommand*{\pagenotesubhead}[3]{}
+  \renewcommand*{\pagenotesubheadstarred}[3]{}
+  \renewcommand*{\notedivision}{\hwChapter{}{Notes}{Notes}}
+  \newcommand\hwNoteHead[1]{\par\vspace{\onelineskip}\noindent
+    {\sffamily\bfseries\large\color{hwNavy}#1}\par\nopagebreak\vspace{0.3\onelineskip}}
+  \gdef\hw@pendinghead{}
+  \newcommand\hw@notesubhead[2]{%
+    \setcounter{pagenote}{0}%
+    \if\relax\detokenize{#1}\relax\gdef\hw@pendinghead{}\else
+      \gdef\hw@pendinghead{#1: #2}\fi}
+  \newcommand\hw@flushhead{%
+    \ifx\hw@pendinghead\@empty\else
+      \addtonotes{\string\hwNoteHead{\expandafter\unexpanded\expandafter{\hw@pendinghead}}}%
+      \gdef\hw@pendinghead{}\fi}
+  % Each chapter's "Chapter Notes" paragraph (sources and drafting) follows its notes.
+  \newcommand\hwNotesIntro[1]{\hw@flushhead\addtonotes{\string\hwNoteIntro{\unexpanded{#1}}}}
+  \newcommand\hwNoteIntro[1]{\par\vspace{0.2\onelineskip}\noindent{\small\itshape\color{hwSlate}#1}\par}
+\else
+  \newcommand\hw@notesubhead[2]{}
+  \newcommand\hwNotesIntro[1]{}
+\fi
+
+% ---------- Index (memoir's own; two columns, ragged)
+\makeindex
+% scripts/build_book_index.py writes cross-references to \@indexfile (the
+% makeidx name); memoir calls the same stream \<jobname>@idxfile.
+\expandafter\let\expandafter\@indexfile\csname\jobname @idxfile\endcsname
+\renewcommand*{\indexname}{Index}
+% memoir adds the index to the contents on the index's own (recto) page; the
+% build drops the index script's earlier \addcontentsline line.
+\indexintoc
+
+% ---------- Front and back matter pages (written by scripts/build_matter.py)
+\newcommand\hwWordmark[1][hwNavy]{{\hwMono\color{#1}how-to-use-{\color{hwSky}ai}.com}}
+% Start the next page on a recto in print, or simply on a new page otherwise.
+\newcommand\hwRecto{\cleardoublepage}
+
+\newcommand\hwHalfTitle[1]{%
+  \hwRecto\thispagestyle{empty}%
+  \vspace*{2.3in}%
+  {\raggedright\sffamily\bfseries\fontsize{26}{28}\selectfont\color{hwNavy}#1\par}}
+
+% \hwSeriesPage{heading}{\hwSeriesItem{01}{Title}{0|1} ...}
+\newcommand\hwSeriesItem[3]{%
+  \noindent{\color{hwRule}\rule{\textwidth}{0.4pt}}\par\vspace{5pt}%
+  \noindent\makebox[3em][l]{\hwMonoMedium\fontsize{8}{10}\selectfont
+    \ifnum#3=1 \color{hwAccent}\else\color{hwSlate}\fi #1}%
+  {\ifnum#3=1 \sffamily\bfseries\else\hwSansMedium\fi\fontsize{11}{13}\selectfont\color{hwNavy}#2}\par\vspace{5pt}}
+\newcommand\hwSeriesPage[2]{%
+  \clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  {\noindent\hwSansSemi\fontsize{11}{13}\selectfont\color{hwNavy}#1\par}\vspace{10pt}%
+  {#2}%
+  \vspace*{\fill}\vspace*{1in}}
+
+% \hwTitlePage{title}{subtitle}{author}{imprint line}
+\newlength\hw@titleband \setlength\hw@titleband{4.6in}
+\newcommand\hwTitlePage[4]{%
+  \hwRecto\thispagestyle{empty}%
+  \AddToShipoutPictureBG*{%
+    \AtPageUpperLeft{%
+      \put(0,-\strip@pt\dimexpr\hw@titleband+\hw@bleed\relax){%
+        \color{hwNavy}\rule{\stockwidth}{\dimexpr\hw@titleband+\hw@bleed\relax}}%
+      \put(\strip@pt\dimexpr\spinemargin\relax,-\strip@pt\dimexpr\hw@titleband+\hw@bleed-0.5in\relax){%
+        \parbox[b]{\textwidth}{\raggedright
+          {\sffamily\bfseries\fontsize{40}{38}\selectfont\color{white}#1\par}%
+          \if\relax\detokenize{#2}\relax\else\vspace{12pt}%
+            {\itshape\fontsize{14}{18}\selectfont\color{hwSkyLight}#2\par}\fi}}}}%
+  \vspace*{\dimexpr\hw@titleband-\uppermargin-\topskip+0.35in\relax}%
+  {\raggedright\sffamily\bfseries\fontsize{14}{17}\selectfont\color{hwNavy}#3\par}%
+  \vfill
+  {\raggedright\fontsize{12}{14}\selectfont\hwWordmark\par\vspace{3pt}
+   \sffamily\fontsize{8}{10}\selectfont\color{hwSlate}#4\par}}
+
+% Copyright page: set small, sitting at the foot of a verso.
+\newenvironment{hwCopyright}{%
+  \clearpage\thispagestyle{empty}%
+  \vspace*{\fill}%
+  \raggedright\sffamily\fontsize{7.5}{10.5}\selectfont\color{hwNavy}%
+  \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}}{\par}
+\newcommand\hwCopyrightTitle[1]{{\bfseries\fontsize{9}{11}\selectfont#1\par}}
+\newcommand\hwIsbn[2]{\makebox[4.5em][l]{\color{hwSlate}#1}{\hwMono\fontsize{7}{9}\selectfont#2}\par\vspace{-4pt}}
+
+\newenvironment{hwDedication}{%
+  \hwRecto\thispagestyle{empty}%
+  \vspace*{1.6in}%
+  \begin{minipage}{0.82\textwidth}\raggedright\itshape\fontsize{10.5}{15}\selectfont\color{hwNavy}%
+  \setlength{\parskip}{7pt}}{\end{minipage}}
+
+\newcommand\hwEpigraph[2]{%
+  \hwRecto\thispagestyle{empty}%
+  \vspace*{2.2in}%
+  \begin{minipage}{0.85\textwidth}\raggedright
+    {\sffamily\bfseries\fontsize{17}{21}\selectfont\color{hwNavy}#1\par}%
+    \if\relax\detokenize{#2}\relax\else\vspace{10pt}%
+      {\sffamily\fontsize{9}{11}\selectfont\color{hwSlate}#2\par}\fi
+  \end{minipage}}
+
+% About the author: the photo sits on the left and the bio wraps around it.
+\newcommand\hwAuthorPhoto[1]{%
+  \begin{wrapfigure}[11]{l}{1.65in}%
+    \vspace{-\intextsep}\vspace{4pt}%
+    \includegraphics[width=1.45in,height=1.8in,keepaspectratio]{#1}%
+  \end{wrapfigure}}
+
+% Proof and draft marking on matter pages.
+\newcommand\hwProofLine[1]{{\hwMono\fontsize{7}{9}\selectfont\color{hwAccent}#1\par}}
+
+\makeatother
