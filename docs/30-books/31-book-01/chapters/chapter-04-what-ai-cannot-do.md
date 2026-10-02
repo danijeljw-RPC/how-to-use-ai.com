@@ -176,7 +176,37 @@ Another trap is agreement. An assistant may mirror a user's belief, accept a fal
 
 If you want a useful check, invite resistance: “What assumptions am I making?”, “What evidence would disprove this?”, or “Check whether my premise is true before answering.” That still does not replace external evidence, but it is better than asking a leading question and treating agreement as validation.
 
-> [Author reflection placeholder: Add a short personal example of catching an AI answer that sounded authoritative but was wrong. Include what made you check it, how you verified it, and whether the error changed how you used the tool afterwards.]
+::: {.author-reflection}
+
+I had a particularly good reminder of this while using AI to help with a SQL problem.
+
+We had given it detailed context about the database, the existing logic around the field we were changing, and how that data was used elsewhere. The change itself sounded trivial: increase the size of a text field from something like 150 characters to 200.
+
+The AI produced the SQL, added comments explaining what it was doing, and presented the change as straightforward.
+
+Technically, the SQL would probably have worked.
+
+That was the problem.
+
+The field did not exist in isolation. Other database functions and processes depended on the structure of that data. Parts of the value were being extracted or interpreted and then used elsewhere, including generating address information for things such as customer billing and mailed correspondence.
+
+Changing the field without accounting for that downstream logic could have left the database perfectly healthy while the application quietly started producing incorrect data across the client base.
+
+What concerned me most was that we had already provided the AI with context that should have made those dependencies relevant. It did not simply lack information. It failed to reason properly across information it had been given.
+
+The comments made the answer even more convincing because they made the change look considered and documented. But comments are not evidence that the underlying reasoning is correct.
+
+We caught it because the proposed change did not feel as isolated as the answer made it appear. We went back through the surrounding database logic and traced where that field was consumed before allowing the change anywhere near production.
+
+It did not stop me using AI for SQL. It changed what I consider verification.
+
+Checking syntax is not enough. Checking that the immediate change looks correct is not enough. For anything touching a real system, you also need to understand what depends on that data and what happens downstream when its assumptions change.
+
+The AI had written a valid database change.
+
+What it had not understood was the system.
+
+:::
 
 ### Myth vs Reality
 

@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (77)
+
+### Added
+
+Book 1, Chapter 4: replaced the author reflection placeholder at the end of "Why AI Can Be Wrong While Sounding Right" (formerly line 179) with the author's account of an AI-generated SQL change that was valid but ignored downstream dependencies, from the comment on issue #25. The text is used word for word and wrapped in `::: {.author-reflection}` (ADR-04-0004). It makes no external factual claims, so no endnotes were added.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-04-what-ai-cannot-do.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0004).
+- Open issues: none.
+- Commit: pending commit.
+
 ## 2026-10-02 (76)
 
 ### Fixed
