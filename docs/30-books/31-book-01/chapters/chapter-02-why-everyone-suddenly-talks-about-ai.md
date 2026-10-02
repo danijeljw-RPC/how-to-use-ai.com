@@ -134,7 +134,147 @@ Here again, the evidence corrects the loudest story. The United States Census Bu
 
 This mix of excitement and anxiety explains a lot of the noise around AI in the news, at work, and online. It is not one unified reaction. It is curiosity, genuine task-level value, competitive signalling, unresolved risk, and fear about jobs happening in the same rooms, often among the same people. Later chapters—particularly Chapter 7, *AI at Work*, and Chapter 10, *Will AI Replace Jobs?*—return to this tension directly.
 
-> [Author reflection placeholder: Add a short personal example or story here — for example, your own first experience with a conversational AI tool feeling different from earlier, quieter enterprise AI systems you'd worked with, or a moment when a colleague or client's excitement/anxiety about AI first became obvious to you.]
+Before 30 November 2022, everything I knew about AI and machine learning was part and parcel of advanced tooling: classification, automation, prediction systems, monitoring, computer vision and recommendation engines.
+
+I had used machine learning myself in systems designed to help manage infrastructure uptime and respond to problems before they became bigger ones.
+
+It was useful technology. Interesting technology. Sometimes very clever technology.
+
+But nobody was standing around the office proclaiming the arrival of a new machine god.
+
+Then ChatGPT happened.
+
+It felt a little like the opening of a *Terminator* movie, where somebody puts a date on the screen and everything after that point is suddenly different.
+
+Almost overnight, people I knew were talking about AI. Twitter was talking about AI. The media was talking about AI. Businesses were talking about AI.
+
+People were excited by it, frightened by it, investing in it, predicting the end of work because of it, or promising that it was about to revolutionise practically everything.
+
+My reaction was mostly confusion.
+
+It was like I'd spent years talking about aliens potentially visiting Earth and then one morning everyone woke up and announced:
+
+"Have you heard about aliens?"
+
+So I took a step back.
+
+The hype would die down, I thought. Something else would become fashionable. Somebody would invent a new flavour of ice cream and we'd all move on.
+
+Except that didn't happen.
+
+AI remained.
+
+First it was a cool technical tool. Then it became an alternative to searching Google for certain questions. Then people were using it for recipes, explanations and writing emails. Then it was helping them solve problems. Then it was their study partner. Then, occasionally, their friend.
+
+And somewhere along the way it became:
+
+"It's going to take our jobs!"
+
+Won't somebody please think of the children?
+
+One conversation finally made me wonder whether I was the one missing something.
+
+A colleague asked me, "What do you think of ChatGPT?"
+
+I shrugged.
+
+"I honestly didn't get why everyone was so gaga over it. It's not like AI was new. We'd been using AI and machine learning for years, and I'd already used ML in systems to help manage uptime and respond to infrastructure problems.
+
+"To me, ChatGPT just felt like Google and Wikipedia had been mashed together and given a chat box.
+
+"Useful? Absolutely.
+
+"Interesting? Definitely.
+
+"But revolutionary?
+
+"I didn't see it.
+
+"So what the hell was everyone else seeing that I wasn't?"
+
+He looked at me as though an alien head had just started growing out of my shoulder.
+
+That was when I started wondering whether everybody else had drunk the Kool-Aid and I'd somehow missed getting my cup.
+
+Then businesses everywhere seemed to discover AI at once. Construction, healthcare, education, professional services — you could barely find an industry that wasn't discussing how AI was going to transform it.
+
+I'm still waiting to see exactly what that transformation ultimately looks like.
+
+Perhaps the strangest part was that I had already built conversational systems before ChatGPT.
+
+One consumer-facing system I worked on was a Facebook chatbot designed to answer common customer questions within a defined area and hand the conversation over to a person when necessary.
+
+Nobody thought it was miraculous.
+
+But give people a blank text box where they can ask *their own* question, about almost anything, and suddenly the experience feels completely different.
+
+That was probably the first clue that I had underestimated what had actually changed.
+
+### Then I Changed My Mind
+
+Not overnight.
+
+There wasn't some dramatic moment where I put on my nails, hair and lips and said "Here I am!". I didn't declare ChatGPT or any other AI system being hyped up as the second coming and race to join the congregation.
+
+What changed my mind was using it.
+
+Not playing with it for five minutes.
+
+Actually using it.
+
+I started giving it real problems. Things I was working on. Code. Research. Ideas. Technical questions. Writing. Problems where I already knew enough about the subject to tell when it was being useful and when it was talking absolute rubbish.
+
+And slowly, my view of it changed.
+
+It wasn't replacing Google. It wasn't Wikipedia with a personality. And it definitely wasn't some all-knowing machine intelligence.
+
+What made it interesting was that I could work *with* it.
+
+I could start with a half-formed idea and push it around until it became something useful. I could ask a follow-up question without rebuilding the entire search from scratch. I could challenge an answer, change direction, give it more context, ask it to compare approaches, find weaknesses, explain something differently or help me think through a problem.
+
+That was different.
+
+The conversation itself turned out to matter far more than I had given it credit for.
+
+Traditional software usually expects you to understand how *it* wants to be used. Which screen do I need? Which menu? Which field? Which command? Which search terms will convince Google to give me what I'm actually looking for?
+
+With conversational AI, I could start much closer to the actual problem.
+
+I could just explain what I was trying to do.
+
+That didn't make the machine intelligent, and it certainly didn't make it trustworthy. I found out very quickly that it could be spectacularly confident while being completely wrong.
+
+But the more I used it, the more I realised that I'd been concentrating on the wrong question.
+
+I had been asking:
+
+"What's technically new about this?"
+
+Everyone else was experiencing:
+
+"Wait — I can just talk to it?"
+
+Those are very different questions.
+
+And eventually I understood why the second one mattered so much.
+
+The underlying ideas had been developing for decades. Machine learning wasn't new. Natural-language processing wasn't new. Chatbots weren't new. Generative systems weren't entirely new either.
+
+What changed was that all of those years of research and engineering had finally been wrapped in something almost anybody could understand immediately:
+
+A box.
+
+A cursor.
+
+And the invitation to ask whatever you wanted.
+
+The world had not suddenly discovered artificial intelligence.
+
+For the first time, millions of ordinary people could sit down, talk directly to something that appeared intelligent, and decide for themselves what it meant.
+
+Apparently, that makes quite a difference.
+
+It certainly changed my mind.
 
 None of that excitement or anxiety requires a machine mind. Language models, spam filters, recommendation systems, and fraud detectors all learn patterns, but they are not one interchangeable technology. They can use different designs, data, objectives, and checks. The family resemblance is useful for a beginner: each converts learned patterns and current input into an output. The differences matter when deciding what each system can be trusted to do.
 
