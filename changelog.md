@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-02 (72)
+
+### Changed
+
+Book 1, Chapter 13: replaced the author reflection placeholder at the end of "Leaving a Tool Cleanly" with the author's account of evaluating GitHub Copilot, taken from the comment on issue #28. The text is used word for word. The only formatting change is that its title, "Putting the Evaluation Method to Work", is now a `###` heading.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
+- Decisions: none.
+- Open issues: none (closes GitHub issue #28).
+- Commit: pending commit.
+
 ## 2026-10-02 (71)
 
 ### Changed
