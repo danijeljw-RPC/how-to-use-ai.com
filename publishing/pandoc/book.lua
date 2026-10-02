@@ -99,6 +99,22 @@ local function reflection(quote)
   return pandoc.Div(blocks, { class = "callout callout-reflection" })
 end
 
+-- A finished reflection is wrapped in "::: {.author-reflection}" ... ":::".
+-- It can run for pages, so in LaTeX it uses the breakable hwreflection
+-- environment rather than the never-split callout box.
+local function finished_reflection(div, process)
+  local content = process(div.content)
+  if is_latex then
+    local blocks = pandoc.List({ pandoc.RawBlock("latex", "\\begin{hwreflection}") })
+    blocks:extend(content)
+    blocks:insert(pandoc.RawBlock("latex", "\\end{hwreflection}"))
+    return blocks
+  end
+  local blocks = pandoc.List({ pandoc.Para({ pandoc.Span({ pandoc.Str("Author Reflection") }, { class = "callout-label" }) }) })
+  blocks:extend(content)
+  return pandoc.Div(blocks, { class = "callout callout-reflection author-reflection" })
+end
+
 -- A paragraph ending in a colon introduces the block after it ("A plausible
 -- but wrong summary would be:"), so the two must not be split across pages.
 local function ends_with_colon(block)
@@ -127,7 +143,9 @@ local function callout(quote)
   return pandoc.Div(blocks, { class = "callout callout-" .. kind })
 end
 
-local function process(blocks)
+local process
+
+function process(blocks)
   local output = pandoc.List()
   local index = 1
   while index <= #blocks do
@@ -158,6 +176,10 @@ local function process(blocks)
       output:insert(pandoc.RawBlock("latex", "\\hwKeepStart"))
       output:insert(block)
       output:insert(pandoc.RawBlock("latex", "\\hwKeepEnd"))
+      index = index + 1
+    elseif block.t == "Div" and block.classes:includes("author-reflection") then
+      local replacement = finished_reflection(block, process)
+      if replacement.t == "Div" then output:insert(replacement) else output:extend(replacement) end
       index = index + 1
     elseif block.t == "BlockQuote" then
       local replacement = callout(block) or reflection(block)
