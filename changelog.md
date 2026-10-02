@@ -11,7 +11,7 @@ PDF: the "Author Reflection" label on a finished reflection could be left alone 
 - Files changed: `publishing/latex/howto-book.tex`, `changelog.md`.
 - Decisions: none (refines ADR-04-0004).
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 4b36ee3.
 
 ## 2026-10-02 (72)
 
