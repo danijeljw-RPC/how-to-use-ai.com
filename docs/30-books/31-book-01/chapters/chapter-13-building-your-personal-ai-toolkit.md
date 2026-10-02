@@ -440,6 +440,8 @@ Leaving is also worth considering even when nothing has gone wrong. Every so oft
 
 > **Try This:** Choose one real task you do at least occasionally, such as summarising a long email thread, writing a difficult message, describing a photo, transcribing a voice memo or explaining a spreadsheet error. Write it down in one sentence, with what goes in and what should come out. Decide which of the six kinds of help it needs. Before looking for anything new, check whether an app or device you already use can do it. Then try it on a low-stakes example you can judge: one with no private details, where you already know what a good result looks like. Inspect the result: what did it get right, what did it get wrong, did it invent anything? Then spend five minutes on the tool itself: who makes it, what permissions and data settings it has, and whether using it more would cost money. Finish by deciding honestly whether it is useful enough to keep using for that task, and if not, remove it cleanly. You will have practised the whole method once, and the second time will be quicker.
 
+::: {.author-reflection}
+
 ### Putting the Evaluation Method to Work
 
 I learned fairly quickly that evaluating an AI tool is different from being impressed by one.
@@ -581,6 +583,8 @@ And that, I think, is a much more useful way to evaluate AI.
 The question isn't whether the machine is impressive.
 
 The question is whether, after you've looked at the access, the data, the cost, the errors and the actual results, you still have a good reason to let it into the room.
+
+:::
 
 ## Myth vs Reality
 
