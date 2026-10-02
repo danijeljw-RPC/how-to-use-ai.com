@@ -11,7 +11,7 @@ Book 1, Chapter 13: added endnotes for the four external claims in the author's 
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `docs/30-books/31-book-01/research/chapter-13-bibliography.md`, `changelog.md`.
 - Decisions: none (applies ADR-04-0003).
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 723a6d2.
 
 ## 2026-10-02 (75)
 
