@@ -67,6 +67,20 @@ Use:
 > [Author reflection placeholder: Add a short personal example or story here.]
 ```
 
+## Finished Author Reflections
+
+When the author's own text replaces a reflection placeholder, wrap it so it still shows as an Author Reflection. Never paste it in as bare prose. See [[ADR-04-0004-finished-author-reflection-markup]].
+
+```markdown
+::: {.author-reflection}
+
+The author's reflection, any length. It can include `###` sub-headings.
+
+:::
+```
+
+Leave a blank line after the opening marker and before the closing one. In the PDF the reflection gets the gold "Author Reflection" label and a gold rule down the left that continues across pages. In the EPUB it gets the reflection box.
+
 ## Diagram Placeholders
 
 Use:

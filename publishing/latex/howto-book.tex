@@ -206,6 +206,16 @@
  {\par\end{minipage}\end{lrbox}%
   \noindent\hw@frame{\usebox\hw@calloutbox}\par\vspace{0.4\onelineskip}}
 
+% Finished author reflections ("::: {.author-reflection}"): the Author
+% Reflection chip and a gold rule down the left. Unlike the callout box these
+% can run for pages, so the frame breaks across pages.
+\newenvironment{hwreflection}{%
+  \par\vspace{0.6\onelineskip}%
+  \def\FrameCommand{{\color{hwGold}\vrule width 2pt}\hspace{9pt}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent\hw@chip{hwGold}{hwNavy}{Author Reflection}\par\vspace{2pt}}%
+ {\par\endMakeFramed\vspace{0.4\onelineskip}}
+
 % Plain block quotes: a sky rule on the left.
 \renewenvironment{quote}{%
   \def\FrameCommand{{\color{hwSky}\vrule width 2pt}\hspace{9pt}}%

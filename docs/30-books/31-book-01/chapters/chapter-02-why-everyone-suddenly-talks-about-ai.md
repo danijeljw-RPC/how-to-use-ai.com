@@ -134,6 +134,8 @@ Here again, the evidence corrects the loudest story. The United States Census Bu
 
 This mix of excitement and anxiety explains a lot of the noise around AI in the news, at work, and online. It is not one unified reaction. It is curiosity, genuine task-level value, competitive signalling, unresolved risk, and fear about jobs happening in the same rooms, often among the same people. Later chapters—particularly Chapter 7, *AI at Work*, and Chapter 10, *Will AI Replace Jobs?*—return to this tension directly.
 
+::: {.author-reflection}
+
 Before 30 November 2022, everything I knew about AI and machine learning was part and parcel of advanced tooling: classification, automation, prediction systems, monitoring, computer vision and recommendation engines.
 
 I had used machine learning myself in systems designed to help manage infrastructure uptime and respond to problems before they became bigger ones.
@@ -275,6 +277,8 @@ For the first time, millions of ordinary people could sit down, talk directly to
 Apparently, that makes quite a difference.
 
 It certainly changed my mind.
+
+:::
 
 None of that excitement or anxiety requires a machine mind. Language models, spam filters, recommendation systems, and fraud detectors all learn patterns, but they are not one interchangeable technology. They can use different designs, data, objectives, and checks. The family resemblance is useful for a beginner: each converts learned patterns and current input into an output. The differences matter when deciding what each system can be trusted to do.
 

@@ -2,7 +2,18 @@
 
 All meaningful project changes should be recorded here.
 
-## 2026-10-02 (72)
+## 2026-10-02 (75)
+
+### Fixed
+
+Book 1, Chapter 13: wrapped the author reflection in "Leaving a Tool Cleanly" in `::: {.author-reflection}` so it renders as an Author Reflection rather than plain prose (ADR-04-0004). The text is unchanged.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
+- Decisions: none (applies ADR-04-0004).
+- Open issues: none.
+- Commit: pending commit.
+
+## 2026-10-02 (74)
 
 ### Changed
 
@@ -12,6 +23,17 @@ Book 1, Chapter 13: replaced the author reflection placeholder at the end of "Le
 - Decisions: none.
 - Open issues: none (closes GitHub issue #28).
 - Commit: 394fd00.
+
+## 2026-10-02 (72)
+
+### Fixed
+
+Finished author reflections now render as Author Reflections. When the Chapter 2 reflection replaced its placeholder (56bd431), it lost its styling and printed as ordinary prose. The book filter boxed only the placeholder form. A finished reflection is now wrapped in `::: {.author-reflection}` … `:::`. In the PDF it gets the gold "Author Reflection" label and a gold left rule that continues across pages. In the EPUB it gets the reflection box. The Chapter 2 reflection is wrapped, and its text is unchanged.
+
+- Files changed: `publishing/pandoc/book.lua`, `publishing/latex/howto-book.tex`, `docs/30-books/31-book-01/chapters/chapter-02-why-everyone-suddenly-talks-about-ai.md`, `docs/20-style/callout-guide.md`, `docs/20-style/decisions/ADR-04-0004-finished-author-reflection-markup.md`, `docs/20-style/plans/finished-author-reflection-markup-plan.md`, `changelog.md`.
+- Decisions: added ADR-04-0004.
+- Open issues: none.
+- Commit: 3341f3b.
 
 ## 2026-10-02 (71)
 
