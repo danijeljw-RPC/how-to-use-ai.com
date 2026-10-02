@@ -11,7 +11,7 @@ Book 1, Chapter 13: replaced the author reflection placeholder at the end of "Le
 - Files changed: `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`, `changelog.md`.
 - Decisions: none.
 - Open issues: none (closes GitHub issue #28).
-- Commit: pending commit.
+- Commit: 394fd00.
 
 ## 2026-10-02 (71)
 
