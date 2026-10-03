@@ -12,8 +12,6 @@ There are five kinds, and each one always means the same thing.
 
 > **Recap:** A short summary at the end of each chapter, often with a question to think about. Use it to check that the chapter landed before you move on.
 
-> [Author reflection placeholder: In the finished book, this box will hold a personal story or observation from my own work with AI and software. These are real experiences, not invented examples, so they appear only where I have something genuine to add.]
-
-Author Reflection boxes like the one above are where I step out of the explanation and tell you what something has looked like in practice, for me. Where a box still reads as a placeholder, that story is on its way and will be added in a later edition of this draft.
+> [Author reflection: These boxes are where I step out of the explanation and share what something has looked like in practice through my own work with AI, software and technology. The experiences are genuine rather than invented to fit the chapter, and appear only where I have something useful to add from first-hand experience.]
 
 You can read the chapters in order, which is how the ideas build, or dip into the chapter that matches what you need today. Either way, the boxes are there to help you find your footing quickly.
