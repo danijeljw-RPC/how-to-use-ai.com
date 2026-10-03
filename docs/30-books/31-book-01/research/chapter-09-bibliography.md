@@ -1,5 +1,9 @@
 # Chapter 9 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`.
@@ -381,6 +385,6 @@ Reserved for the companion website, later chapters or later books, or omitted as
 - OECD AI Principles.
 - Data-worker labour conditions, AI-assisted cybercrime, prompt-injection detail, common-model dependency beyond one sentence, catastrophic risk (Chapter 11), jobs (Chapter 10), AI-product scams (Chapter 13).
 
-## Publication Recheck Summary
+## Checklist Reviewed — 4 October 2026
 
-Run `docs/80-research/chapter-09-research-package/14-publication-recheck-checklist.md` in full at manuscript lock. Highest priority for this manuscript: NASC annual scam figures; Scams Prevention Framework dates; 10 December 2026 automated-decision transparency; Bunnings and Clearview status; EU AI Act timeline; eSafety figures and reporting pathways; Getty and Bartz status; CAIRG position; OpenAI indemnity terms; Google privacy documentation; IEA, Google and AEMO figures; FTC/ACCC concentration material; National AI Plan, AI Safety Institute and Guidance for AI Adoption status; author names for the detection meta-analyses and hiring audits; Robodebt quotation.
+Reviewed `docs/80-research/chapter-09-research-package/14-publication-recheck-checklist.md` on 4 October 2026; see the dated dispositions linked above. Highest priority for this manuscript: NASC annual scam figures; Scams Prevention Framework dates; 10 December 2026 automated-decision transparency; Bunnings and Clearview status; EU AI Act timeline; eSafety figures and reporting pathways; Getty and Bartz status; CAIRG position; OpenAI indemnity terms; Google privacy documentation; IEA, Google and AEMO figures; FTC/ACCC concentration material; National AI Plan, AI Safety Institute and Guidance for AI Adoption status; author names for the detection meta-analyses and hiring audits; Robodebt quotation.

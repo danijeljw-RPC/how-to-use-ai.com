@@ -2,6 +2,24 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (83)
+
+### Changed
+
+Book 1 printed-note cleanup and source review, at the author's request directly on main.
+
+- Removed internal publication/retrieval/confirmation instructions from Chapters 8–14 endnotes and Chapter Notes; corrected the epilogue's completed author-input notice and Chapter 11's superseded abstract-only warning.
+- Recovered the Federal Court GPN-AI and eSafety survey sources; completed missing Chapter 12 citation details, including capability and deskilling evidence. Corrected Chapter 9's hiring-paper title and detection/hiring authors.
+- Added MASAI's published 2026 primary outcomes: non-inferiority on interval cancer, without an established statistically significant reduction; updated Chapter 14 prose and endnote. Added primary Cruise withdrawal evidence, confirmed SAE revision, and bounded assistant announcements and quantum-roadmap evidence.
+- Reviewed Chapter 8/9/10/12/13/14 bibliography checklists and recorded dispositions, supporting URLs and access limits in `research/notes-source-verification-2026-10-04.md`. Reused today's OI-0004/OI-0005 checks explicitly; metadata, abstract and indexed-excerpt checks are distinguished from full-text checks.
+- Preserved the author's Chapter 12 body/reflection, Chapter 4 prose and Chapter 7 prompts; removed two additional internal footnote instructions in Chapters 3/4; regenerated the Book 1 index line map. Existing author decisions in OI-0004/OI-0010 remain outside this factual cleanup.
+
+Validation: all 78 unit tests pass; index check and footnote-reference audit pass; Pandoc parses the changed manuscripts without warnings. Full Book 1 PDF build and printed-note inspection recorded in the plan.
+
+- Plan: `docs/30-books/31-book-01/plans/notes-source-cleanup-2026-10-04-plan.md`.
+- Decisions: none; applies ADR-04-0003.
+- Commit: this entry accompanies the source-cleanup commit.
+
 ## 2026-10-04 (82)
 
 ### Changed

@@ -150,6 +150,6 @@ And don't panic.
 
 ## Chapter Notes
 
-This epilogue was developed from the author's viewpoint with drafting assistance from Claude. It introduces no new research findings; claims about AI capability, risk, work and the future are summarised from Chapters 1–14 and are supported by those chapters' notes and bibliographies. The everyday scenarios in "What You Can Do Now" are teaching illustrations, not reported events. The summary table restates questions introduced in earlier chapters; where wording has been shortened, the chapter versions are authoritative. Sections wrapped in `AUTHOR-INPUT` comment tags need the author's own content before publication; the tags themselves are invisible in rendered output and should be removed once each block is completed.
+This epilogue was developed from the author's viewpoint with drafting assistance from Claude. It introduces no new research findings; claims about AI capability, risk, work and the future are summarised from Chapters 1–14 and are supported by those chapters' notes and bibliographies. The everyday scenarios in "What You Can Do Now" are teaching illustrations, not reported events. The summary table restates questions introduced in earlier chapters; where wording has been shortened, the chapter versions are authoritative.
 
 [^epi-adams]: Douglas Adams, *The Hitchhiker's Guide to the Galaxy* (London: Pan Books, 1979). In the novel, the Guide carries the words "Don't Panic" on its cover in "large friendly letters". Literary allusion only; no claim about AI is drawn from the source.

@@ -1,5 +1,9 @@
 # Chapter 12 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-12-how-to-stay-relevant-in-the-ai-era.md`.
@@ -27,8 +31,8 @@ This is editorial research, not legal, medical or career advice.
 
 - **Dayal matter.** Checked against the regulator statement on 1 October 2026: the Board's decision was dated **19 August 2025** (statement published 2 September 2025); the authorities were tendered to the **Federal Circuit and Family Court**; conditions included no practice as a principal, no trust money, employed solicitor only, and two years' supervised practice with quarterly reporting. The package gave only the statement date.
 - **Customer-support figures.** The package used working-paper figures (5,179 agents, ~14 per cent). The manuscript follows Chapters 7 and 10 in using the published version (5,172 agents, ~15 per cent).
-- **Federal Court practice note.** The page returned HTTP 403 during the 1 October 2026 check. Described from the package; marked for mandatory recheck.
-- **Author names.** Several package entries gave no author list (persuasion, disclosure, apology, BMC Psychology, NBER leadership, systems reviews). Footnotes identify them by title/journal/URL and are flagged "confirm authors"; no names were invented.
+- **Federal Court practice note.** The 1 October retrieval failed. The official note was retrieved and read on 4 October 2026; §§4.3–4.6 support the chapter’s verification duty.
+- **Author names.** Publisher pages and publisher-deposited Crossref records checked on 4 October supplied authors and exact titles for persuasion, disclosure, apology, emotional-competency training, leadership and systems reviews. The endnotes now identify them. Metadata checks do not imply full-text access.
 
 ## Claim Map
 
@@ -36,7 +40,7 @@ This is editorial research, not legal, medical or career advice.
 | --- | --- | --- | --- |
 | AI answers rated more empathetic than doctors' | Ayers et al. 2023 | Peer-reviewed retrospective comparison | Opening hook; EI section; text-only, longer replies, not care |
 | Accountability after unverified AI authorities | VLSB+C Dayal statement 2025 | Regulator statement | Opening hook; judgement; legal-specific duties |
-| Court verification duty | Federal Court GPN-AI 2026 | Official practice note | Judgement; not rechecked (403) |
+| Court verification duty | Federal Court GPN-AI 2026 | Official practice note | Judgement; official note checked 4 October |
 | Cheap prediction raises value of judgement | Agrawal, Gans & Goldfarb 2017 | Economic framework | "More important" meaning 1; not wage evidence |
 | Social + maths skills grew | Deming 2017 | Peer-reviewed historical labour data | Pre-GenAI; US |
 | Employer skill priorities | WEF Future of Jobs 2025 | Employer survey | Labelled expectations |
@@ -53,10 +57,10 @@ This is editorial research, not legal, medical or career advice.
 | Delegation and human-in-loop | Sele & Chugunova 2024 | Experiment | Lab setting |
 | Human-AI combos not automatically better | Vaccaro et al. 2024 | Meta-analysis | Averages hide heterogeneity |
 | Jagged frontier | Dell'Acqua et al. 2026 | Field experiment | Recalled from Chapter 10 |
-| Domain expertise + algorithmic literacy | Tambe 2025 | Peer-reviewed | No magnitudes used |
-| Leadership as observable behaviour | NBER w33662 2025 | Lab experiment / working paper | Mandatory recheck |
+| Domain expertise + algorithmic literacy | Tambe 2026 (online first 2025) | Peer-reviewed | No magnitudes used |
+| Leadership as observable behaviour | NBER w33662 2025 | Lab experiment / working paper | Still a working paper, checked 4 October |
 | Obvious fixes can backfire | Meadows | Conceptual essay | Explanatory only |
-| Systems thinking poorly standardised | IJSE 2023; Systems 2026 | Reviews | Education-specific |
+| Systems thinking poorly standardised | IJSE 2024 (online 2023); Systems 2026 | Reviews | Education-specific |
 | EI measured inconsistently | O'Connor et al. 2019 | Critical review | Construct caveat |
 | EI training moderate effects | BMC Psychology 2024 | Meta-analysis | High heterogeneity |
 | Practice up, unaided learning down | Bastani et al. 2025 | Field experiment | Recalled from Chapter 11 |
@@ -69,11 +73,11 @@ This is editorial research, not legal, medical or career advice.
 | Growth mindset contested | Macnamara & Burgoyne 2023; Burnette et al. 2023 | Meta-analyses | Debate presented both ways |
 | AI role-play practice | Sim, Kim & Ku 2025; Eguchi et al. 2025 | Small education studies | Language learning only |
 
-## Recheck Before Publication
+## Checklist Reviewed — 4 October 2026
 
-Mandatory: Federal Court GPN-AI (wording/status); Sourati et al. 2026; NBER w33662 status and authors; endoscopy deskilling literature; Kosmyna et al. preprint status; WEF (newest edition); OECD AI and skills; JSA updates.
+Reviewed mandatory items: Federal Court GPN-AI (wording/status); Sourati et al. 2026; NBER w33662 status and authors; endoscopy deskilling literature; Kosmyna et al. preprint status; WEF (newest edition); OECD AI and skills; JSA updates.
 
-Recommended: Ayers et al. replications with newer models; persuasion and theory-of-mind follow-ups; Dayal matter (later decisions); Lee et al. CHI 2025 objective follow-ups; author lists flagged "confirm" in the footnotes.
+Reviewed recommended items: Ayers et al. replications with newer models; persuasion and theory-of-mind follow-ups; Dayal matter (later decisions); Lee et al. CHI 2025 objective follow-ups; formerly missing author lists (now supplied in the endnotes).
 
 Package research gaps not filled (see package file 11): Australian observed hiring/wage evidence by skill; care, trades and hospitality field examples; longitudinal novice-expertise evidence; adult AI-assisted learning trials; older-adult AI learning evidence; physical/practical skills as a category.
 

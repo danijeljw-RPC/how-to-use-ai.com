@@ -1,5 +1,9 @@
 # Chapter 13 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-13-building-your-personal-ai-toolkit.md`.
@@ -30,7 +34,7 @@ This is editorial research, not legal, financial or security advice.
 
 - **ACCC JustAnswer matter.** Checked 1 October 2026: release dated 8 July 2026; $10 million penalties; "AU$2" offers between November 2022 and August 2025 enrolled consumers in ongoing monthly subscriptions of $45–$75; refunds ordered. Also included misleading affiliation claims (not used). Described generically in prose as "an online question-and-answer service".
 - **Unfair Trading Practices reforms.** Treasury release checked 1 October 2026: bill passed (release dated 2 July 2026), protections start 1 July 2027 after a 12-month preparation period. The Federal Register page shows a status of "In force" without commencement detail; as the package warned, the manuscript treats the provisions as enacted but not yet operative. The package gives assent as 6 July 2026; not independently confirmed in this run.
-- **eSafety survey.** Page timed out twice on 1 October 2026. Figures (1,950 children aged 10–17; 78% assistant, 8% companion; among users 32% shared personal/sensitive information, 20% potentially harmful interactions; over half personal/social use) are from the package and match Chapter 9. Mandatory recheck.
+- **eSafety survey.** Official research page retrieved and read 4 October 2026: national online self-report sample 1,950 children aged 10–17; fieldwork 2 February–4 March 2026; 78% assistants and 8% companions across the sample. The 54% personal/social, 32% sensitive-sharing and 20% harmful/inappropriate figures use the user subsample. Former timeout is resolved.
 - **Overlap with earlier chapters.** Chapter 9 already used the eSafety 32%/20% figures, OAIC guidance and Gemini human-review retention; Chapter 13 reuses the same sources and figures, cross-referencing rather than re-explaining.
 
 ## Claim Map
@@ -52,7 +56,7 @@ This is editorial research, not legal, financial or security advice.
 | APP coverage, small business, access rights, no general erasure | OAIC pages | Regulator guidance | Not legal advice; reform recheck |
 | Children's Online Privacy Code pending | OAIC | Regulator page | Recheck after 10 Dec 2026 |
 | Prompt injection / restricted mode | OpenAI Lockdown Mode 2026 | Provider security announcement | Brief; Chapter 14 owns depth |
-| Children's AI use, sharing, harmful interactions; companion safeguards | eSafety 2026 survey; eSafety transparency findings 2025 | Australian regulator survey; transparency report | Self-report; not every child; not rechecked (timeout) |
+| Children's AI use, sharing, harmful interactions; companion safeguards | eSafety 2026 survey; eSafety transparency findings 2025 | Australian regulator survey; transparency report | Self-report; user-subgroup denominators; checked 4 October |
 | Fleeceware AI apps in official stores | Sophos 2023 | Security-vendor investigation | Not prevalence; seek newer case |
 | Malicious AI extension; working-but-malicious extensions | Guardio 2023; Meta 2023 | Security-vendor; platform report | Historical; not prevalence |
 | Fake AI video sites as malware lures | Mandiant 2025 | Threat intelligence | Reach ≠ infection |
@@ -66,11 +70,11 @@ This is editorial research, not legal, financial or security advice.
 | Newer Copilot fewer vulnerable suggestions, still present | Majdinasab et al. 2023/SANER 2024, replicating Pearce et al. 2022 | Peer-reviewed replication study | 36.54% → 27.25%, Python, CWE-targeted scenarios, CodeQL; 2023 version only |
 | Controlled study: developers with Copilot faster | Peng et al. 2023 | Randomised experiment by the tool's maker | 95 Upwork programmers, one JavaScript HTTP-server task, 55.8% faster; 2022, pre-release; time, not quality |
 
-## Recheck Before Publication
+## Checklist Reviewed — 4 October 2026
 
-Mandatory: Unfair Trading Practices Act commencement and ACCC guidance (especially if publishing on or after 1 July 2027); Children's Online Privacy Code (after 10 December 2026); eSafety survey figures (page not retrieved in this run); all provider privacy statements in `[^ch13-provider-privacy]`; OAIC AI guidance; Privacy Act reform status (small-business exemption, erasure rights); platform cancellation and refund procedures; GitHub Copilot data-training default and opt-out, and Copilot plan prices and AI-credit billing (`[^ch13-copilot-data]`, `[^ch13-copilot-price]`).
+Reviewed mandatory items: Unfair Trading Practices Act commencement and ACCC guidance (especially if publishing on or after 1 July 2027); Children's Online Privacy Code (after 10 December 2026); eSafety survey figures (retrieved and confirmed 4 October); all provider privacy statements in `[^ch13-provider-privacy]`; OAIC AI guidance; Privacy Act reform status (small-business exemption, erasure rights); platform cancellation and refund procedures; GitHub Copilot data-training default and opt-out, and Copilot plan prices and AI-credit billing (`[^ch13-copilot-data]`, `[^ch13-copilot-price]`).
 
-Recommended: newer primary cases for fake AI apps, malicious extensions and fake AI sites (package 13 Priority 7); Pew usage figures (newest edition); OpenAI legal-hold status; Apple on-device/PCC description; Microsoft privacy-page versioning; Google Guided Vision warning wording.
+Reviewed recommended items: newer primary cases for fake AI apps, malicious extensions and fake AI sites (package 13 Priority 7); Pew usage figures (newest edition); OpenAI legal-hold status; Apple on-device/PCC description; Microsoft privacy-page versioning; Google Guided Vision warning wording.
 
 ## Companion Website Candidates
 

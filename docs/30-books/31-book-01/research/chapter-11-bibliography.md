@@ -128,3 +128,7 @@ Items 1–9 were rechecked on 4 October 2026 (Book 1 OI-0005, resolved):
 Also corrected: the chess prediction is dated 1957, matching the cited National Academies source (Chapter 14's cross-reference was updated too).
 
 Item 10, the wording sweep, has not been done. Do it at manuscript lock.
+
+### Printed-note wording sweep (4 October 2026)
+
+The notes-source cleanup removed the outstanding publication instructions, updated the expert-survey/bar-exam abstract-only statement to the author’s same-day confirmation, and preserved empirical limitations. This completes the printed-note part of checklist item 10; final manuscript-wide copy-edit remains distinct. See [the dated verification record](notes-source-verification-2026-10-04.md).

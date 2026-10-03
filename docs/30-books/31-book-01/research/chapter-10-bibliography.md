@@ -1,5 +1,9 @@
 # Chapter 10 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-10-will-ai-replace-jobs.md`.
@@ -133,6 +137,6 @@ Full citations, URLs and limitation notes are in the manuscript footnotes, which
 - Website material: headline decoder, interactive task sorter, live labour-market and adoption dashboards, forecast comparison tables, updated company automation examples.
 - Workforce redesign, headcount planning and ROI: Book 3. Durable-skills taxonomy and learning plans: Chapter 12.
 
-## Publication Recheck Summary
+## Checklist Reviewed — 4 October 2026
 
-Run `docs/80-research/chapter-10-research-package/13-recheck-before-publication.md` at manuscript lock. Highest priority for this manuscript: Stanford payroll paper; 41-country paper; ABS adoption release; Productivity Commission update; Anthropic Economic Index shares; Klarna filing; JSA follow-ups; ILO index and exposure guidance; WEF edition; IMF/OECD updates; Fair Work consultation guidance; METR follow-up; citation details for Humlum and Vestergaard, Randall, Davis and von Wachter, and Bessen.
+Reviewed `docs/80-research/chapter-10-research-package/13-recheck-before-publication.md` on 4 October 2026; see the dated dispositions linked above. Highest priority for this manuscript: Stanford payroll paper; 41-country paper; ABS adoption release; Productivity Commission update; Anthropic Economic Index shares; Klarna filing; JSA follow-ups; ILO index and exposure guidance; WEF edition; IMF/OECD updates; Fair Work consultation guidance; METR follow-up; citation details for Humlum and Vestergaard, Randall, Davis and von Wachter, and Bessen.

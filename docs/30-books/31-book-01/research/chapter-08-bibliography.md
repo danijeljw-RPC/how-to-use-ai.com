@@ -1,5 +1,9 @@
 # Chapter 8 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-08-ai-and-creativity.md`.
@@ -75,7 +79,7 @@ Amazon KDP. “Content Guidelines — Artificial intelligence (AI) content.” <
 - Supports: KDP's distinction between AI-generated and AI-assisted text, images and translations; disclosure responsibility.
 - Use: demonstrates that platform governance can distinguish degrees of AI involvement.
 - Limits: platform-specific definition, not copyright law; can change.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Generated-Image Bias — ch8-bias (S45, S46, S47)
 
@@ -101,7 +105,7 @@ Adobe Stock Contributor. “Firefly FAQ.” Updated 16 September 2026. <https://
 - Supports: Adobe's stated licensed/public-domain approach, customer-content position and contributor bonus arrangements.
 - Use: evidence that training provenance/business models differ.
 - Limits: interested company account; “licensed” does not mean every contributor prefers the arrangement; partner models may differ.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Suno Ownership, Commercial Use and Copyright — ch8-suno (S42, S43)
 
@@ -114,7 +118,7 @@ Suno. “Do I have the copyrights to songs I made?” Updated 4 September 2026. 
 - Use: music example for the contract-versus-statute distinction.
 - Limits: provider terms and interpretation; not legal authority; national law differs.
 - Check: both pages retrieved 30 September 2026.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Interactive Digital Replicas and Consent — ch8-replicas (S44)
 
@@ -124,7 +128,7 @@ SAG-AFTRA. “Interactive Digital Replicas and Consent — Contract Bulletin.”
 - Supports: separate, specific written consent requirements in covered situations.
 - Use: distinguishes performer/voice consent from copyright in a generated song or video.
 - Limits: US collective-bargaining context, not universal law; represents performers.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Deezer AI Music Uploads and Listening — ch8-deezer (S34)
 
@@ -139,7 +143,7 @@ Deezer. “AI music has surpassed 50% of new music uploads for the first time.�
 - Use: supply abundance does not establish audience demand.
 - Limits: one platform, proprietary detector and policy environment; company interest in its detection approach.
 - Check: current page retrieved 30 September 2026.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### YouTube GenAI Disclosure — ch8-youtube (S31)
 
@@ -150,7 +154,7 @@ YouTube Help. “Disclosing use of GenAI content.” <https://support.google.com
 - Use: materiality and audience expectation differ across AI workflows.
 - Limits: not law; rules, labels and examples can change.
 - Check: current page retrieved 30 September 2026.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Design Fixation — ch8-fixation (S18)
 
@@ -202,7 +206,7 @@ Public Knowledge. “Piracy vs. Fair Use: How AI Training Intersects with Copyri
 - Supports: arguments for room for text/data mining, research, open knowledge and fair use; concerns about mandatory licensing and incumbent advantage.
 - Use: presents a serious counterposition to rightsholder advocacy.
 - Limits: normative advocacy, not court decisions or neutral legal statements.
-- Recheck before publication: **Yes** for current organisational positions.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Emerging Licensing Models — ch8-licensing (S35, S36, S38)
 
@@ -220,7 +224,7 @@ Adobe Stock Contributor. “Firefly FAQ.” Updated 16 September 2026. <https://
 - Supports: licensing/compensation as a possible third path.
 - Use: avoids a false unrestricted-training-versus-prohibition binary.
 - Limits: interested parties, future implementation and sector-specific models; no proof of universal feasibility or fairness.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Australia: Copyright and AI — ch8-australia (S01, S03, S04)
 
@@ -238,7 +242,7 @@ Arts Law Centre of Australia. “Artificial Intelligence (AI) and Copyright.” 
 - Use: Australia-first jurisdiction warning.
 - Limits: policy announcement is not a court ruling on every training act; statutory application remains fact-specific.
 - Check: CAIRG page retrieved 30 September 2026 and still records the October 2025 position.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### United States: Copyrightability and Training — ch8-us (S07, S08)
 
@@ -251,7 +255,7 @@ U.S. Copyright Office. *Copyright and Artificial Intelligence, Part 3: Generativ
 - Use: separates AI assistance, copyrightability and training legality.
 - Limits: US-specific policy/legal analysis; Part 3 is not a court judgment.
 - Check: USCO hub retrieved 30 September 2026; Part 3 remains labelled pre-publication with no substantive final changes expected.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### European Union: TDM and GPAI Duties — ch8-eu (S11, S12, S13)
 
@@ -266,7 +270,7 @@ European Commission. “Template for general-purpose AI model providers to summa
 - Use: shows EU treatment cannot be reduced to “training is allowed.”
 - Limits: member-state implementation, rights reservation, model timing and enforcement matter.
 - Check: Commission page retrieved 30 September 2026 and states obligations apply from 2 August 2025.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### United Kingdom: Current Framework and Reform — ch8-uk (S14)
 
@@ -279,7 +283,7 @@ House of Lords Communications and Digital Committee. “UK creative industries f
 - Use: prevents proposals from being presented as settled law.
 - Limits: report contains analysis and proposals as well as descriptions of current law.
 - Check: current report retrieved 30 September 2026.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Canva AI Product Terms — ch8-canva (S41)
 
@@ -290,7 +294,7 @@ Canva. “AI Product Terms.” Effective 26 June 2026. <https://www.canva.com/po
 - Use: practical demonstration that “I own it” does not imply exclusivity or settle statutory copyright.
 - Limits: contractual, not a copyright-office determination; terms can change.
 - Check: retrieved 30 September 2026.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Content Credentials / C2PA — ch8-c2pa (S30)
 
@@ -300,7 +304,7 @@ Coalition for Content Provenance and Authenticity. “C2PA Technical Specificati
 - Supports: cryptographically bound assertions concerning provenance and edits.
 - Use: provenance is not universal AI detection or proof of factual truth.
 - Limits: depends on participating tools, preserved credentials and implementation; absence proves little.
-- Recheck before publication: **Yes** for current specification/version.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Exposed Freelance Postings — ch8-freelance (S23)
 
@@ -344,7 +348,7 @@ APRA AMCOS. “AI and Music.” <https://www.apraamcos.com.au/about/supporting-t
 - Supports: respondent concerns about consent, compensation, income, style and livelihood; records creator AI use and perceived assistance as well as opposition.
 - Use: represents creator experience without pretending creators hold one view.
 - Limits: self-selected/member-adjacent populations; interested organisations; forecasts are commissioned scenarios, not observed loss.
-- Recheck before publication: **Yes** for current policy/forecast framing; survey results remain historical.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Short Stories: Individual Uplift and Collective Similarity — ch8-stories (S17)
 
@@ -379,7 +383,7 @@ Spotify. “Spotify Strengthens AI Protections for Artists, Songwriters, and Pro
 - Supports: removal of more than 75 million “spammy” tracks in the prior 12 months; anti-impersonation and mass-upload measures.
 - Use: platform governance of cheap supply; the manuscript explicitly says the figure is spam, not AI-generated tracks.
 - Limits: company-reported; category definition is Spotify's.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Deezer/Ipsos Listener Survey — ch8-deezer-survey (basic package)
 
@@ -398,7 +402,7 @@ Adobe. “Generative Extend in Adobe Premiere.” <https://www.adobe.com/au/prod
 - Type: product documentation/marketing.
 - Supports: generating additional frames to lengthen a clip.
 - Use: production-assistant example on the involvement ladder; no quality claim made.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Mainstream Design Generation — ch8-magic-design (S40)
 
@@ -407,7 +411,7 @@ Canva. “Magic Design.” <https://www.canva.com/magic-design/>.
 - Type: product page.
 - Supports: layout options generated from a short description or uploaded image.
 - Use: illustrates capability before the bakery brief shows its limits.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### US Litigation Examples — ch8-us-cases (S09, S10, basic package)
 
@@ -428,7 +432,7 @@ LawSites. “3rd Circuit Issues Opinion in Thomson Reuters v. ROSS Case, But For
 - Additional context not in either package: the manuscript's description of the 2025 trial-court ruling in *Bartz v. Anthropic* (training on lawfully acquired books held fair use; pirated library copies treated separately) was confirmed against the 23 June 2025 Order on Fair Use on 4 October 2026, and the court order is now cited. Final settlement approval (20 July 2026, Martínez-Olguín J.) confirmed via JURIST.
 - Use: shows US outcomes are fact-specific and that neither global slogan is accurate.
 - Limits: not universal precedent; secondary sources; ROSS concerns a non-generative legal-research tool.
-- Recheck before publication: **Urgent**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### Provenance Practices of Tool Providers — ch8-provenance-tools (basic package)
 
@@ -439,7 +443,7 @@ OpenAI. “Advancing content provenance for a safer, more transparent AI ecosyst
 - Type: vendor documentation.
 - Supports: Adobe auto-applies Content Credentials to fully Firefly-generated images; OpenAI uses C2PA metadata and invisible watermarking and notes metadata can be lost.
 - Use: makes provenance concrete while the manuscript stresses it is not detection.
-- Recheck before publication: **Yes**.
+- Review status: completed 4 October 2026; see OI-0004 and the dated verification record.
 
 ### UK Creator-Reported Impacts — ch8-soa (basic package)
 
@@ -483,7 +487,7 @@ Runco, Mark A. and Garrett J. Jaeger. “The Standard Definition of Creativity.�
 A consolidated, tickable review list of these items and the claims needing confirmation is in `docs/30-books/31-book-01/open-issues/OI-0004.md`. Every item below was rechecked on 4 October 2026; the results are recorded there.
 
 
-Recheck immediately before publication:
+The following checklist was completed on 4 October 2026 (OI-0004). Refresh it if publication is delayed:
 
 - Australian CAIRG priorities and TDM policy.
 - US Copyright Office Part 3 final-publication status and material current cases.
@@ -500,7 +504,7 @@ Recheck immediately before publication:
 - Anthropic settlement status and the public reasoning in *Thomson Reuters v. ROSS*; any newer major US decisions.
 - Deezer fraud/demonetisation figures and Spotify spam figures.
 - Adobe and OpenAI provenance practices; Adobe Generative Extend and Canva Magic Design capability.
-- Citation for the Australian publicity-right sentence (currently unsourced general legal context).
+- Australian publicity-right context (now sourced to Arts Law, as recorded in OI-0004).
 
 ## Exclusions and Boundaries
 
@@ -515,4 +519,4 @@ Recheck immediately before publication:
 
 ## AI-Assistance Note
 
-The research packages were prepared and synthesised with material assistance from ChatGPT and Codex. The 2026-09-30 expansion was drafted with assistance from Claude (Claude Code), using both packages; source facts added in that pass came from the packages except where marked above as needing confirmation. The chapter remains written from the author's viewpoint and retains an explicit placeholder for a genuine author reflection.
+The research packages were prepared and synthesised with material assistance from ChatGPT and Codex. The 2026-09-30 expansion was drafted with assistance from Claude (Claude Code), using both packages; source facts added in that pass came from the packages except where marked above as needing confirmation. The chapter remains written from the author's viewpoint and includes the author-supplied reflection.

@@ -1,5 +1,9 @@
 # Chapter 14 Bibliography and Evidence Record
 
+## Source Review — 4 October 2026
+
+The manuscript-lock checklist below has now been reviewed. The dated dispositions, corrected citations, primary-source links and retrieval limits are recorded in [Notes and Source Verification](notes-source-verification-2026-10-04.md). Earlier retrieval failures are historical, not outstanding confirmations. Future legal milestones and later editions remain reasons to refresh a delayed publication; they are not unfinished checks as of this review.
+
 ## Purpose and Scope
 
 This file records the evidence materially used in `docs/30-books/31-book-01/chapters/chapter-14-where-ai-goes-next.md`.
@@ -17,7 +21,7 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 - **Agents.** Workflow-versus-agent distinction (Anthropic); "answering vs acting with delegated authority" and keycard analogy with stated breakdown (package 02, 12 §4); METR time horizons used qualitatively with limitations, no figures printed; prompt injection/agent hijacking via NIST, OWASP and a patched vendor vulnerability; NIST agent identity/authority; least privilege; calendar example reworked into five questions.
 - **Robotics.** Taxonomy used only to show different maturities; warehouse scale (company data) and Pilbara autonomy (company data, sourced separately because the package's battery-electric trial is not autonomy evidence); ISO 10218 2025; Blue Jay withdrawal as announcement ≠ durable deployment; humanoid teleoperation and productive-hours questions; Moravec's paradox as intuition, not law. Defence drone trials not used (adds little beyond the mining lesson).
 - **Education.** Bloom 2 sigma framed as motivation, not promise; assisted performance vs learning; teachers as task-level question; Australian framework, EdChat, NSWEduChat, NSW HSC assessment change; detectors as unsuitable for high-stakes accusations (no percentages); equity conditional. Screen time dropped (observation 8).
-- **Healthcare.** FDA count (checked); TGA intended-purpose regulation and scribe scope creep; six categories; MASAI (abstract checked), Epic Sepsis Model external validation (abstract checked), ambient-scribe RCT (full text checked, mixed result reported as mixed); TGA/Health 2025 reviews; discovery-to-treatment stages; radiologist-replacement expectation paraphrased without attribution or quotation (package 05 warns the quote is unverified).
+- **Healthcare.** FDA count (checked); TGA intended-purpose regulation and scribe scope creep; six categories; MASAI (2025 secondary and 2026 primary abstracts checked), Epic Sepsis Model external validation (abstract checked), ambient-scribe RCT (full text checked, mixed result reported as mixed); TGA/Health 2025 reviews; discovery-to-treatment stages; radiologist-replacement expectation paraphrased without attribution or quotation (package 05 warns the quote is unverified).
 - **Transport.** SAE Levels 2/4/5 only; driver-assistance rule; robotaxi company safety figures identified as company analysis; Cruise suspension (checked); Australian NTC status and 2027 conditional deployment (communiqué via search; NTC page timed out); Adelaide traffic trials as bounded problem (page 403; package data). Other transport automation mentioned in one sentence.
 - **Personal assistants.** Four-capability convergence; memory (Meta); announcement vs deployment (Apple EU delay); Rabbit improvement after launch; on-device not automatically private; accessibility with both directions; assistants vs companions (eSafety); gradual vs sudden ("visibility" lesson).
 - **Other directions.** AI in science and energy/compute as one short H3, pointing back to Chapters 11 and 9. Open-weight models, public-sector detail and alignment left to the website/later books.
@@ -51,21 +55,21 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 | Announcement then withdrawal | Amazon Blue Jay page, update 25 Feb 2026 | Company announcement + update | Checked |
 | 2 sigma | Bloom 1984 | Historical research synthesis | Not a general effect size |
 | Assisted performance vs learning | Bastani et al. 2025 | Field experiment | Figures in Ch 11/12 |
-| Australian school framework | Dept of Education | Government framework | Recheck review |
+| Australian school framework | Dept of Education | Government framework | Framework review checked 4 October |
 | EdChat, NSWEduChat | SA and NSW departments 2025 | State announcements | Deployment, not outcomes |
-| HSC take-home assessment | NSW Government 2026 | Ministerial release | Recheck |
+| HSC take-home assessment | NSW Government 2026 | Ministerial release | Checked 4 October |
 | Detectors unreliable | Giray, Roe & Espiritu 2026 | Argumentative review | No percentages |
-| >1,600 AI devices | FDA, Sep 2026 | Regulator | Checked; mandatory recheck |
-| Australian regulation, scribe scope creep | TGA 2025–26 | Regulator guidance | Recheck |
-| Health AI regulation review | TGA, Dept of Health 2025 | Government reviews | Recheck implementation |
-| AI-supported mammography | MASAI, Lancet Digital Health 2025 | Randomised trial (secondary outcomes) | Checked; interval cancers pending |
+| >1,600 AI devices | FDA, Sep 2026 | Regulator | September count confirmed 4 October |
+| Australian regulation, scribe scope creep | TGA 2025–26 | Regulator guidance | Checked 4 October |
+| Health AI regulation review | TGA, Dept of Health 2025 | Government reviews | Review recommendations; not proof of implementation |
+| AI-supported mammography | MASAI, Lancet Digital Health 2025; Lancet 2026 | Randomised trial; secondary and primary results | Non-inferiority confirmed; interval-cancer superiority not established |
 | Sepsis model external validation | Wong et al. 2021; Habib et al. 2021 | Retrospective validation; editorial | One site; checked |
 | AI scribes | Lukac et al., NEJM AI 2025 | Pragmatic RCT | Mixed; checked |
-| Automation levels | SAE J3016 | Technical taxonomy | Revision date unconfirmed |
+| Automation levels | SAE J3016 | Technical taxonomy | Official SAE record: revised September 2026 |
 | Robotaxi safety | Waymo June 2026 | Company analysis | Commercial interest; checked |
 | Robotaxi suspension | California DMV 2023 | Regulator enforcement | Checked |
 | Australian AV status | NTC; ITMM communiqué Nov 2025; trial guidelines | Government | Mandatory recheck |
-| Adelaide traffic trials | SA Government Aug 2026 | Trial announcement | Page 403; recheck |
+| Adelaide traffic trials | SA Government Aug 2026 | Trial announcement | Official page retrieved 4 October; trial announcement only |
 | Assistant memory | Meta 2025 | Company announcement | Regional |
 | Announcement vs deployment | Apple June 2026 | Company announcements | Earlier history needs primary source |
 | Launch vs later improvement | WIRED 2024; Tom's Guide 2025 | Independent reviews | Not controlled studies |
@@ -74,16 +78,16 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 | Data-centre electricity | IEA 2025 | International energy analysis | Modelled estimate |
 | Expert survey change and spread | Grace et al. 2024 | Expert survey | Beliefs, not outcomes |
 | Fast GenAI adoption | Bick, Blandin & Deming 2026 | Representative US surveys | US; adoption ≠ productivity |
-| Multiple trajectories | IASR 2026 | International expert synthesis | Recheck edition |
+| Multiple trajectories | IASR 2026 | International expert synthesis | 2026 edition checked |
 | Normal technology | Narayanan & Kapoor 2025 | Scholarly essay | Argument, not proof |
 | Australian institutions | National AI Plan; AISI; APS AI Plan | Government policy | Mandatory recheck |
 | Author reflection: quantum computing today | Preskill 2018; Aaronson 2015 | Expert perspective (peer-reviewed journals) | No large-scale fault-tolerant machines yet; quantum-ML data-loading caveats (`ch14-quantum`) |
 
-## Recheck Before Publication
+## Checklist Reviewed — 4 October 2026
 
-Mandatory: METR methodology and status; agent-security guidance (NIST, Australian AI Safety Institute) and any agent identity standard; FDA device count; TGA guidance and AI-enabled ARTG list; MASAI interval-cancer results; robotaxi safety data and US city count (shared with Chapter 11); NTC Automated Vehicle Safety Law status and any approved Australian deployments (NTC page not retrieved in this run); Adelaide traffic-trial status and outcomes (page not retrieved); EdChat/NSWEduChat rollout and any independent evaluations; NSW HSC assessment rules; Apple assistant availability and release history; Cruise withdrawal (primary source); National AI Plan, AI Safety Institute and APS AI Plan; latest IASR and AI Index editions.
+Reviewed mandatory items: METR methodology and status; agent-security guidance (NIST, Australian AI Safety Institute) and any agent identity standard; FDA device count; TGA guidance and AI-enabled ARTG list; MASAI interval-cancer results (published January 2026; endnote and prose updated); robotaxi safety data and US city count (shared with Chapter 11); NTC Automated Vehicle Safety Law status and any approved Australian deployments (NTC page retrieved 4 October); Adelaide traffic-trial status and outcomes (page retrieved 4 October); EdChat/NSWEduChat rollout and any independent evaluations; NSW HSC assessment rules; Apple assistant availability and release history; Cruise withdrawal (primary source); National AI Plan, AI Safety Institute and APS AI Plan; latest IASR and AI Index editions.
 
-Recommended: state of fault-tolerant quantum hardware and any demonstrated quantum advantage on machine-learning workloads (author reflection, `ch14-quantum`); warehouse robot count; Rio Tinto autonomy figures; humanoid paid-deployment evidence (to test the chapter's "demos and pilots" characterisation); SAE J3016 current revision; newer expert timeline surveys; primary detector studies if the detector paragraph is expanded; newer Rabbit/AI-hardware status.
+Reviewed recommended items: state of fault-tolerant quantum hardware and any demonstrated quantum advantage on machine-learning workloads (author reflection, `ch14-quantum`); warehouse robot count; Rio Tinto autonomy figures; humanoid paid-deployment evidence (to test the chapter's "demos and pilots" characterisation); SAE J3016 current revision; newer expert timeline surveys; primary detector studies if the detector paragraph is expanded; newer Rabbit/AI-hardware status.
 
 ## Companion Website Candidates
 
