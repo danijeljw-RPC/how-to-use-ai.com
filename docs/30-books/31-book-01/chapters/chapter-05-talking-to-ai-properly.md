@@ -299,15 +299,41 @@ The exercise will land more clearly with one real example from the author's own 
 
 ::: {.author-reflection}
 
-I’ve had AI give me an answer that was technically relevant but still completely missed the point. It wasn’t necessarily wrong; it just wasn’t solving the problem I actually had. The AI was filling in the gaps based on assumptions, because I hadn’t given it enough context about the environment, the constraints, or what I considered a successful result.
+I’ve had AI give me answers that were perfectly reasonable, technically relevant, and almost completely useless because I had failed to explain the actual problem.
 
-Once I gave it the relevant background, showed it an example of what I was looking for, and spelled out the actual success condition, the response improved significantly. Basically, I stopped making it guess.
+A good example is troubleshooting software in an environment with a lot more going on than the error message suggests. You can paste an exception, a chunk of configuration and a few lines of code into an AI and ask, “Why is this failing?” The AI sees what you gave it and starts doing exactly what it is designed to do: finding patterns and producing the most plausible explanation from the information available.
 
-That experience reinforced something fairly obvious from an IT perspective: garbage in, garbage out still applies, even when the “garbage” is a perfectly reasonable-looking prompt. If you give an AI a vague problem and leave half the requirements unstated, you can’t be surprised when it produces a vague or poorly targeted answer.
+The problem is that production systems rarely consist of the six lines you pasted into the chat.
 
-The other thing I found useful was being explicit about what not to change and what information actually mattered. That reduced the amount of interpretation the AI had to do and made the output much more predictable.
+There might be a reverse proxy in front of the application, authentication happening somewhere else, environment-specific configuration, a database with assumptions buried in it from ten years ago, another service consuming the same data, and some completely unrelated-looking script that turns out to be very fucking related indeed.
 
-It still wasn’t perfect, and I wouldn’t pretend that better prompting magically fixes everything. But the difference was enough to make the point: sometimes the problem isn’t that the AI can’t do the job. The problem is that I haven’t properly defined the job. In IT terms, the clearer the requirements, inputs, constraints and expected output, the less room there is for the system to make assumptions.
+I’ve had situations where the first AI response confidently headed down the wrong path because I had given it the immediate symptom rather than the environment around it. It might suggest changing a configuration value, modifying a function or handling an error differently. Looked at in isolation, the suggestion made sense. But I knew enough about the system to look at it and think, *No. That might fix this error, but what shit does it break afterwards?*
+
+That is an important distinction.
+
+So instead of asking the same question again with slightly different wording, I started adding the information that I had initially assumed was irrelevant. I explained what the application was doing before the failure, what happened afterwards, which components were involved, what absolutely could not change, and what a successful result actually looked like. If there was an existing implementation that behaved correctly, I showed it. If a particular service, platform or downstream process depended on the behaviour, I said so.
+
+Suddenly the answer changed.
+
+Not because the AI had become smarter in the preceding thirty seconds, but because I had stopped asking it to reconstruct half the architecture from an error message and good intentions.
+
+In one case, what initially looked like a problem inside a particular piece of code made considerably more sense once the surrounding behaviour was explained. The interesting part was watching the AI abandon assumptions it had previously presented quite confidently. With the extra context, things it had treated as likely causes became unlikely, and components it had barely considered became much more important.
+
+That is where the old IT expression *garbage in, garbage out* becomes slightly more interesting with generative AI. The input does not have to look like garbage. It can be articulate, technically accurate and completely reasonable. It can still be inadequate.
+
+You can write a beautiful prompt describing the wrong slice of the problem.
+
+That is also why I have become much more explicit about constraints. I will tell the AI not only what I want changed, but what it must **not** change. I will explain which behaviour is intentional, which interfaces other systems depend on, what technologies are actually in use, and what I will consider a valid solution.
+
+That last part matters more than it sounds. “Make this work” is not a success condition. Neither is “fix the error.” A fix that removes the error but quietly breaks three downstream processes is not a fix; it is just a more ambitious bug.
+
+There is a slightly humbling lesson in this for someone with a technical background because sometimes I am the bitch causing the problem. I know the environment so well that I forget which parts of it exist only inside my own head. I look at an error and automatically bring years of context with me. The AI does not have that context unless I provide it.
+
+Better prompting does not magically make an AI correct, and I still verify what it gives me. But I have found that the quality of the answer can change dramatically when I stop treating the prompt as a question and start treating it more like a proper technical brief: here is the problem, here is the environment, here are the constraints, here is what cannot change, and here is what success looks like.
+
+In other words, sometimes the AI has misunderstood the job.
+
+And sometimes I never actually told it what the job was.
 
 :::
 
