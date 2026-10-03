@@ -10,6 +10,10 @@ See [[ADR-04-0002-book-01-structure-and-callout-standard]] for the full decision
 - Write in connected paragraphs, not a sequence of scaffolded blocks (bullet list, callout, table, placeholder, divider, repeat). Bullet lists are for genuinely list-like content, not the default way to present an idea. Bridge each section into the next with a sentence or two rather than restarting cold under a new heading.
 - If a section reads thin, flesh it out: a second example, a plainer restatement, an in-line answer to the question a beginner would ask next.
 
+## Chapter Endings
+
+Apply [[ADR-04-0006-chapter-endings-without-previews]]: numbered chapters close with `## Core Takeaway` and one `> **Recap:**` callout, followed by Chapter Notes where applicable. Do not add separate recap headings, next-chapter previews or closing teasers. Retrospective Part summaries may remain in the takeaway prose. Preserve useful cross-references in the body; the epilogue keeps its own closing form.
+
 ## Audience
 
 Write for readers who may have never used AI before.

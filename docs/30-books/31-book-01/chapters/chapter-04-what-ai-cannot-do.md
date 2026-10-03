@@ -235,8 +235,6 @@ These limits do not cancel Chapter 3. They explain how to use its capabilities w
 
 > **Recap:** Part 1 has built one complete picture. AI is already woven into ordinary life. Generative AI made pattern prediction visible and flexible. It can produce genuinely useful work across a jagged range of tasks. It can also invent, misread, generalise poorly, rely on stale or uneven information, and sound certain without being correct. AI is not magic. It is pattern recognition at scale — powerful enough to use, limited enough to check, and not something to treat as either a person or an oracle.
 
-Part 2 moves from understanding AI to using it well. Chapter 5 begins with the most practical skill of all: giving an AI enough context and direction to produce a useful first result, then improving that result through conversation.
-
 ## Chapter Notes
 
 This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The research package and sources below informed its factual claims and editorial framing. The chapter preserves uncertainty where questions remain scientifically or philosophically contested; no personal experience has been invented.

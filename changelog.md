@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (84)
+
+### Changed
+
+- Removed labelled Chapter/Epilogue Preview sections from Chapters 8–14 and unlabelled closing teasers from Chapters 1–5.
+- Standardised all 14 numbered chapters: Core Takeaway, one Recap callout, then Chapter Notes where present. Removed redundant recap headings; kept retrospective Part summaries and added the Recap label to existing closing prose in Chapters 6/7.
+- Added ADR-04-0006 and updated the style guide and CLAUDE.md to prevent preview sections returning. Preserved author reflections, research citations, body cross-references and factual product-preview terminology.
+- Regenerated the Book 1 index line map. Verification results are in `docs/30-books/31-book-01/plans/uniform-chapter-endings-plan.md`.
+
+Decisions: ADR-04-0006 accepted on the author's instruction. Open issues: none added or changed. Commit: this entry accompanies the uniform-endings commit.
+
 ## 2026-10-04 (83)
 
 ### Changed

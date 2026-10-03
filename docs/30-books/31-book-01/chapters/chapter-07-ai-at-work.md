@@ -596,7 +596,7 @@ Which, for that particular job, was exactly where I wanted it.
 
 AI can multiply what you get from information and expertise you already have. Give it a useful task, appropriate source material and a clear destination. Keep missing facts visible, check what matters and decide whether the finished work is better for having used it.
 
-The most useful professional habit is knowing which part to hand over and which part requires your judgement.
+> **Recap:** The most useful professional habit is knowing which part to hand over and which part requires your judgement.
 
 ## Chapter Notes
 

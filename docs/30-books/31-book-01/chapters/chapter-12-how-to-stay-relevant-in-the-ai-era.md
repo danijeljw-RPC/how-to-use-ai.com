@@ -420,13 +420,7 @@ Human capability becomes more important, not less. After this chapter, that sent
 
 What it does mean is this. As AI takes on more of the work of producing drafts, options and analysis, people need stronger abilities to frame problems, bring in knowledge and context, evaluate what the tool produced, work with other people and stand behind the result. Those abilities matter most where there is uncertainty, trust, responsibility or an exception the tool did not expect. And because AI can either sharpen them or quietly replace the practice that builds them, they have to be exercised on purpose. That is what Chapter 10's adaptability looks like when you actually do it.
 
-## Chapter Recap
-
 > **Recap:** Chapter 10 concluded that adaptability matters; this chapter made it concrete through six capabilities, communication, judgement, leadership, creativity, systems thinking and emotional intelligence, with adaptability as the thread connecting them. Underneath all six sit knowledge of your subject and the habit of checking. "Durable" does not mean AI cannot do any of it: AI already writes, persuades, generates ideas and produces empathetic-sounding replies in bounded tasks. What lasts is how these capabilities are used in real situations: framing the right problem, bringing in context and relationships, choosing, following through and taking responsibility. Effort-heavy and judgement-heavy work sit on a line that moves as tools improve, and being the person who clicks "approve" is not the same as exercising judgement. AI can raise today's output while reducing the practice you need tomorrow, and the supervision paradox means the hardest cases may arrive when you are least practised. The answer is not to avoid AI but to use it to practise rather than to avoid practising. Before moving on, ask yourself: which of these capabilities do other people already rely on you for? Which do you most often hand to AI? Which would you struggle with if the tools disappeared tomorrow? Which does your current work or life give you little chance to practise? And which one, if you got better at it, would most improve your decisions and relationships?
-
-## Chapter Preview
-
-This chapter has been about what to strengthen in yourself. The next is about the tools around you. Chapter 13 looks at how to build a personal AI toolkit without turning it into an overwhelming list of apps: the main categories of AI tools, how to evaluate a new one before trusting it with anything important, how to experiment safely, and how to avoid scams and subscription traps. You will find that the capabilities in this chapter are exactly what make that practical work go well. A tool is only as useful as the judgement of the person choosing and using it.
 
 ## Chapter Notes
 

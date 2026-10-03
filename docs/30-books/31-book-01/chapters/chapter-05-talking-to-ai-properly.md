@@ -367,8 +367,6 @@ Use as much detail as the task needs, not as much as the text box can hold. Tell
 
 > **Recap:** A vague request leaves the AI to make important choices for you. A clearer request supplies relevant context, defines what “good” looks like, uses examples when helpful, and treats the first response as a draft. These habits improve the odds of a useful answer; they do not guarantee truth or erase the limits of the model. The person still decides the goal, inspects the result, and owns what happens next.
 
-Chapter 6 puts these habits to work at home: planning meals, organising travel, handling everyday writing, learning hobbies, and removing friction from ordinary life without handing over your judgement.
-
 ## Chapter Notes
 
 This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The supplied Chapter 5 research package informed its factual claims, examples, and editorial framing. No personal experience has been invented.

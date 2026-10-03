@@ -345,7 +345,7 @@ As a practical rule of thumb, increase scrutiny when a decision has larger conse
 
 Useful AI at home begins with something you need: a dinner idea, a clearer message, an explanation, some practice or a way to access information. Tell it enough about the situation to make the response relevant. Then check the parts on which you will act.
 
-Sometimes you want the task finished. Sometimes you want to understand how to do it yourself. Both are reasonable goals. Choosing the kind of help you want is part of using AI well.
+> **Recap:** Sometimes you want the task finished. Sometimes you want to understand how to do it yourself. Both are reasonable goals. Choosing the kind of help you want is part of using AI well.
 
 ## Chapter Notes
 

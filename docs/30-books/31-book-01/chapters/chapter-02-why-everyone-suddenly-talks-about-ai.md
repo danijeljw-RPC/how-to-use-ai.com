@@ -319,8 +319,6 @@ AI is not new, and there was no single moment when it woke up. What changed was 
 
 > **Recap:** The AI in Chapter 1 often predicts narrow answers quietly in the background. The AI that became publicly visible after 2022 can generate open-ended content in conversation. It did not arrive from nowhere, and access was not the only thing that improved. Years of research, computing infrastructure, investment, and product design met a simple interface at the same time. Treat demonstrated capability as real, forecasts as forecasts, and financial enthusiasm as evidence of a bet—not proof that the bet will win.
 
-Now that we've covered *why* AI feels new and *what* changed, the next chapter gets practical: what can this kind of AI actually do well? We'll walk through the everyday and professional tasks generative AI genuinely helps with — and start looking honestly at why it sometimes sounds confident while being wrong.
-
 ## Chapter Notes
 
 This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The sources below support its research-dependent claims. Company announcements are used for the terms of their own launches and partnerships, not as independent proof of those products' value.

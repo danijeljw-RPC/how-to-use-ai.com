@@ -461,7 +461,7 @@ Each chapter should include:
 - diagram placeholders where useful
 - callouts where useful
 - end-of-chapter recap
-- transition to the next chapter
+- a consistent closing: Core Takeaway, one Recap callout, then Chapter Notes where applicable; no next-chapter preview or teaser (ADR-04-0006)
 
 Use personal reflection placeholders like:
 

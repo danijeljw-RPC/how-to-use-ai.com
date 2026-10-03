@@ -424,8 +424,6 @@ Your role is not merely to press a button. It is to direct, inspect, select, ver
 
 > **Recap:** AI is a broad but uneven assistant. It is particularly useful for generating, transforming, and interpreting information, and it can increasingly act through other tools. Start with tasks that are expensive to produce but easy to check. Remember that fluent language is generated, not guaranteed, and keep human judgement where mistakes matter.
 
-Once AI becomes useful enough to rely on, the next question is where that reliance can fail. Chapter 4 looks directly at what AI cannot do, why its mistakes matter, and how understanding those limits makes the useful parts safer to use.
-
 ## Chapter Notes
 
 This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT and Codex. The sources below informed the factual claims and editorial framing; the chapter synthesises them in its own words. The author reflection is the author's own account of rebuilding CurseDelete, the author's own software, and was used word for word from the author's comment on GitHub issue #21. CurseDelete 2 is sold by RePass Cloud Pty Ltd, which also publishes this book; it is named here at the author's request and is not a recommendation.

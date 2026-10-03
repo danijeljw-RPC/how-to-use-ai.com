@@ -609,8 +609,6 @@ AI changes creative workflows more readily than it settles what creativity means
 
 Human judgement has not disappeared, but it does not sit safely at the end of an automated production line. It operates before, during and after generation, and the system can influence it. The practical responsibility is to know what you are trying to make, what the AI actually contributed, which skills you still want to practise, whose rights and identities are involved, what your audience expects, and whether the result deserves to be published.
 
-## Part 2 Recap
-
 Part 2 began with a conversation. Chapter 5 showed that AI becomes more useful when you give it the context, constraints and purpose that change the answer, and then inspect and refine what comes back. Chapter 6 took that home and asked a question that has followed us since: is the tool removing friction you do not value, or practice you do? Chapter 7 took the same habits to work, where confidentiality, policy, evidence and other people's reliance on your output raise the stakes.
 
 Across those chapters, AI became more valuable each time you could tell the difference between a few pairs of things that look alike: generating something and judging it, assistance and authority, speed and genuine usefulness, a plausible answer and a verified one, what a tool *can* do and what it is appropriate to use it for.
@@ -618,10 +616,6 @@ Across those chapters, AI became more valuable each time you could tell the diff
 Creative work brings all of those lessons together and adds one more. A clear brief still matters. Checking still matters. Effort and judgement still matter, even though in creative work they are woven together. What Chapter 8 adds is that creative usefulness does not settle questions of authorship, consent, originality, livelihood or meaning. Polish is not fitness for purpose. Commercial permission is not copyright. A better individual result is not a more diverse culture. And a tool that helps one person make something they never could have made can, in the same week, take paid work from someone else.
 
 > **Recap:** AI can assist writing, images, music, video and design in genuinely useful ways, from breaking a blank page to transforming finished material. The further it moves towards supplying most of the expressive work, or generating at scale, the more questions of control, rights, disclosure and substitution matter. The evidence shows real gains, real substitution and real risks of anchoring and sameness, and the law differs from country to country. You do not need to inherit either the industry's optimism or its critics' conclusions. Before you settle on your own view, try a few questions on yourself. Which parts of your own creative process are valuable precisely because they take effort? Would your view of training change if creators had been asked, or paid? Does it matter to you whether AI assisted a person or generated most of the work? When would you want to be told how something was made?
-
-## Chapter Preview
-
-Part 3 widens the view from how you use AI to the problems that affect everyone, whether or not they use it. Chapter 9 looks directly at misinformation, deepfakes, scams, bias, privacy, surveillance, environmental cost and the concentration of power in a small number of companies. Several threads from this chapter lead straight there: synthetic voices and faces, hidden defaults in generated images, and floods of cheap content competing for attention. The aim remains the same one this book has followed from the beginning: replace vague hype and vague fear with specific problems, useful distinctions and things ordinary people can actually do.
 
 ## Chapter Notes
 

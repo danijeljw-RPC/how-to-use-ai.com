@@ -519,15 +519,9 @@ AI is transformative, but the marketing around it is often exaggerated. After th
 
 The problem is not enthusiasm, fear or scepticism as such. It is claims outrunning their evidence. The defence is not a general feeling of distrust, but a habit: work out what kind of claim you are looking at, pin down exactly what is being claimed and compared, trace it back to its source, look sideways for independent checks while treating incentives as a reason to verify rather than a verdict, and ask what would change your mind. That habit protects you from the edited demo, the utopian leap, the AI-washed investment pitch and the viral doom post. It equally protects you from the satisfying debunk that turns out to be its own kind of hype, and from the hype fatigue that would leave you dismissing real progress.
 
-## Chapter and Part 3 Recap
-
 This chapter closes Part 3, and it is worth seeing how its three chapters fit together. Chapter 9 established that AI has genuine, documented risks, and that "it's all hype" is not a serious response to scams, synthetic abuse or unfair automated decisions. Chapter 10 showed that the jobs picture is mixed: real effects on some tasks, people and markets, no economy-wide collapse, and no guarantees. This chapter turned the same evidence-first habits onto claims about AI itself.
 
 > **Recap:** Different AI claims need different evidence. A demo shows that something is possible; a product shows it is available within an operating envelope; a research result shows performance under defined conditions; a forecast is an expectation, not a fact; a company announcement tells you what an interested party says. Serious long-term risk research names mechanisms, evidence and uncertainty, and serious people disagree about it; viral doom usually names none of these. Utopian claims often promote a genuine technical result into a solved human problem. Attention, investment and fear reward exaggeration, including exaggerated scepticism. The five questions are: what kind of claim is this; what exactly is claimed, compared with what; where did it come from; who else has checked it; and what would change my mind? Across Part 3, the stance is the same: take real risks seriously, do not treat every forecast as destiny, do not treat every marketing claim as nonsense, and let the evidence, not the tone, set your confidence. Before moving on, think about the last AI claim you repeated to someone. What kind of claim was it, and where did it come from? And which way do you tend to lean, towards believing dramatic claims or dismissing them?
-
-## Chapter Preview
-
-Being able to tell genuine capability from hype changes the question you ask next. It is no longer "Should I panic?" or "Is this all nonsense?" It becomes "Given what is actually happening, what should I do?" Part 4 turns from evaluation to practical preparation. Chapter 12 looks at how to stay relevant as AI changes the work around you, not by chasing every new tool or headline, but by building the knowledge, judgement and habits that make you good at using any of them, including the habit of asking the five questions.
 
 ## Chapter Notes
 

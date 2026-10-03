@@ -480,13 +480,7 @@ The risks are not all of the same kind. Some are documented harms happening to r
 
 Being informed means asking the four questions: can AI do this, is it happening, how much harm does it cause, and who can reduce it. It means updating the clues you trust, so that a familiar voice or a convincing video is no longer treated as proof. It means remembering that your privacy choices affect other people. And it means knowing which risks are yours to manage and which ones require banks, platforms, employers, regulators and governments to act. None of that cancels what Parts 1 and 2 established. AI can be useful and risky at the same time, and holding both of those facts clearly is what an informed position looks like.
 
-## Chapter Recap
-
 > **Recap:** This chapter opened Part 3 by examining nine genuine AI risks with evidence rather than headlines. AI makes false content cheaper to produce, but producing it is not the same as persuading people with it. Deepfakes cause serious harm well beyond politics, especially through fraud and sexual abuse, and verifying the source matters more than spotting glitches. Scam losses are large, but the national figure covers all scams, and the best defence is to verify through a channel the scammer does not control. Bias can come from the target a system predicts, not just its data. Surveillance changes when footage becomes searchable, and privacy includes other people's information. Copyright remains unsettled, environmental impact is small per prompt but significant at scale, and concentration varies by layer of the industry. Before moving on, consider a few questions. Which of these risks can you personally reduce, and which need others to act? Which warning signs do you rely on that AI may have weakened? If a video confirmed something you already believed, would you check it as carefully as one you disagreed with? And what information would you never knowingly paste into an AI tool?
-
-## Chapter Preview
-
-This chapter deliberately left one question aside, even though it is the one people ask most often when they talk about AI's downsides: will AI take my job? It deserves more than a paragraph inside a list of risks. Chapter 10 looks at it directly, separating jobs that change from jobs that disappear, tasks from whole occupations, and augmentation from replacement, with the same aim as this chapter: not reassurance, not alarm, but a clearer view of what is actually happening and what you can do about it.
 
 ## Chapter Notes
 
