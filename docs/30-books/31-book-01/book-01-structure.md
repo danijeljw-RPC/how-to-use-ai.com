@@ -6,15 +6,15 @@ Book 1 introduces AI to non-technical readers who may have never used AI before.
 
 This file mirrors the full structure decided in `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`, which remains the source of truth if the two ever diverge.
 
-## Working Title
+## Title
 
 > AI for Normal People
 
-Working subtitle:
+Subtitle:
 
 > Understanding Artificial Intelligence Without the Hype
 
-Not yet confirmed — see `docs/30-books/31-book-01/open-issues/OI-0002.md`.
+Confirmed by the author on 2026-10-03 — see `docs/30-books/31-book-01/open-issues/OI-0002.md`.
 
 ## Structure Overview
 

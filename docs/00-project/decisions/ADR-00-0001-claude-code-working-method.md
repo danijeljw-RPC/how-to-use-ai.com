@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted (2026-10-03)
 
 ## Date
 
@@ -122,3 +122,5 @@ Negative or trade-offs:
 ## Review Notes
 
 This ADR should be accepted or revised after the first few Claude Code runs.
+
+**2026-10-03:** Accepted after many Claude Code runs. The working method described here is the one in use, and it is written into `CLAUDE.md`, which is the operative version if the two differ.

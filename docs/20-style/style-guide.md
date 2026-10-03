@@ -88,6 +88,10 @@ Avoid humour that:
 - talks down to the reader
 - makes the reader feel foolish
 
+## Strong Language
+
+The author's own reflections, and the author bio, keep their strong language word for word. Don't soften or mask it. The narrative prose written around them doesn't use profanity. See `docs/20-style/decisions/ADR-04-0005-strong-language-in-author-reflections.md`.
+
 ## Examples
 
 Use everyday examples before professional examples.

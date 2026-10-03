@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted (2026-10-03)
 
 ## Date
 
@@ -146,3 +146,5 @@ Negative or trade-offs:
 ## Review Notes
 
 Proposed for author review alongside OI-0006.
+
+**2026-10-03:** Accepted. The mechanism is implemented (`scripts/build_book_index.py`, `docs/30-books/31-book-01/index/index-terms.toml`, PDF build support in commit a231b8e). Editorial review of the term list continues in `OI-0006.md` and does not block this decision.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted (2026-10-03)
 
 ## Date
 
@@ -139,3 +139,5 @@ Negative or trade-offs:
 ## Review Notes
 
 The decision is proposed as a practical starting point. It should be reviewed before the first full production workflow is built.
+
+**2026-10-03:** Accepted. The draft, preview and release builds (ADR-03-0002, ADR-03-0005, ADR-03-0008) all use the Markdown sources as written here.

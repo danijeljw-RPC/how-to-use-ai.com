@@ -2,6 +2,29 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-03 (80)
+
+### Changed
+
+A close-out pass over every open OI and every ADR still marked Proposed. Several had been settled in practice, or by the author, without their files being updated. Each closed file now has a Resolution and the date 2026-10-03. The author answered the remaining decisions during the session. No manuscript chapter text changed.
+
+- Book 1's title is confirmed as *AI for Normal People: Understanding Artificial Intelligence Without the Hype*.
+- The author name is now "Danijel-James Wynyard-McClay" everywhere. `series.author` in `publishing/books.json` changed from the short form, so the title page, covers and PDF metadata match the copyright line and the website.
+- Strong language in the author's own reflections stays as written (new ADR-04-0005, plus a Strong Language section in the style guide).
+
+- Files changed: `publishing/books.json`, `docs/00-project/plans/oi-adr-close-out-plan.md` (new), `docs/00-project/decisions/ADR-00-0001-claude-code-working-method.md`, `docs/20-style/decisions/ADR-04-0001-book-01-style-baseline.md`, `docs/20-style/decisions/ADR-04-0005-strong-language-in-author-reflections.md` (new), `docs/20-style/style-guide.md`, `docs/20-style/open-issues/OI-0001.md`, `docs/10-series/series-structure.md`, `docs/30-books/31-book-01/book-01-structure.md`, `docs/30-books/31-book-01/decisions/ADR-02-0001-book-01-structure.md`, `docs/30-books/31-book-01/open-issues/OI-0001.md`, `OI-0002.md`, `OI-0004.md`, `OI-0006.md`, `OI-0007.md`, `OI-0008.md`, `docs/40-publishing/decisions/ADR-03-0001-manuscript-source-format.md`, `ADR-03-0006-publisher-imprint-and-catalogue-metadata.md`, `ADR-03-0007-back-of-book-index.md`, `docs/40-publishing/open-issues/OI-0001.md`, `OI-0002.md`, `OI-0004.md`, `OI-0007.md`, `OI-0008.md`, `changelog.md`.
+- Decisions:
+  - Accepted ADR-00-0001, ADR-04-0001 (amended by ADR-04-0002), ADR-02-0001, ADR-03-0001 and ADR-03-0007.
+  - Amended ADR-03-0006 (author name and confirmed title).
+  - Added ADR-04-0005.
+- Open issues:
+  - Closed Book 1 OI-0001 (superseded by ADR-04-0002), OI-0002 (title), OI-0006 (Chapter 14 already uses the five questions), OI-0007 (Spotify passage rewritten by the author) and OI-0008 (CurseDelete reflection kept).
+  - Closed style OI-0001 (strong language kept).
+  - Closed publishing OI-0001 (preview URL live since 2026-09-24), OI-0002 (preview wording approved), OI-0007 (all release decisions made; `backmatter/references.md` still to write) and OI-0008 (author name).
+  - Updated but still open: Book 1 OI-0004 (Chapter 8 reflection item ticked) and publishing OI-0004 (answers so far).
+  - Still open: Book 1 OI-0003, OI-0005 and OI-0009; publishing OI-0005 and OI-0006.
+- Commit: pending commit.
+
 ## 2026-10-03 (79)
 
 ### Added

@@ -67,7 +67,7 @@ The metadata must follow what actually appears on each book's title page and cov
 
 | Field | Value |
 | --- | --- |
-| Title | AI for Normal People (working title, see ADR-02-0001; confirm before submission) |
+| Title | AI for Normal People (confirmed 2026-10-03, Book 1 OI-0002) |
 | Subtitle | Understanding Artificial Intelligence Without the Hype (from `publishing/books.json`) |
 | Series title | How To Use AI.com (exact wording open, see OI-0004) |
 | Series number | 1 |
@@ -197,3 +197,8 @@ After reviewing the Book 1 draft PDF, the author restated the roles:
 - **Author (name on the book):** Danijel-James Wynyard
 
 The printed matter no longer calls How-To-Use-AI.com an imprint. In `publishing/books.json`, `series.publisher.imprint` is empty, so the title page reads "RePass Cloud Pty Ltd", the copyright page says "Published in Australia by RePass Cloud Pty Ltd.", and the back cover says "Published by RePass Cloud Pty Ltd". `series.author` is now "Danijel-James Wynyard". The copyright holder stays "Danijel-James Wynyard-McClay", as the author set it in commit 8bc4915. The NLA form's imprint field and the remaining name questions are tracked in `docs/40-publishing/open-issues/OI-0008.md`.
+
+## Amendment — 2026-10-03
+
+- **Author name:** the author decided the full surname is used everywhere (OI-0008, resolved). The name on the book, the copyright holder, the website and the NLA and ISBN records are all **Danijel-James Wynyard-McClay**. `series.author` in `publishing/books.json` is back to "Danijel-James Wynyard-McClay". The 2026-10-02 "name on the book" line above is superseded.
+- **Title:** Book 1's title is confirmed as *AI for Normal People*, subtitle *Understanding Artificial Intelligence Without the Hype* (Book 1 OI-0002, resolved). It is no longer a working title in the table above.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted (2026-10-03). The callout list is amended by ADR-04-0002.
 
 ## Date
 
@@ -126,3 +126,5 @@ Negative or trade-offs:
 ## Review Notes
 
 Review after Chapter 1 and decide whether the tone is too casual, too technical, or suitable.
+
+**2026-10-03:** Accepted. All fourteen chapters and the epilogue are drafted to this baseline. The callout set listed here was later cut down by `ADR-04-0002-book-01-structure-and-callout-standard.md` (Key Idea, Try This, Watch Out, Recap), and that ADR wins where they differ. Strong language in the author's own reflections is covered by `ADR-04-0005-strong-language-in-author-reflections.md`.

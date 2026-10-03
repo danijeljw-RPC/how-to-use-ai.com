@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed
+Accepted (2026-10-03)
 
 ## Date
 
@@ -758,3 +758,5 @@ The Book 1 AI literacy context reference is the primary source for the overall s
 The Chapter 1 draft is supporting evidence for Chapter 1 direction, callout expectations, diagram markers, and tone, and should be reconciled into the working chapter draft rather than re-derived from summary alone.
 
 This ADR was recovered and relocated into its correct location (`docs/30-books/31-book-01/decisions/`) after being found sitting unfiled at the repository root — it had never actually been implemented per its own Implementation Requirements section.
+
+**2026-10-03:** Accepted. Book 1 is fully drafted to this structure: fourteen chapters plus the epilogue. The author confirmed the title and subtitle on 2026-10-03 (see `open-issues/OI-0002.md`), so "working title" in the Decision section now means the final title.

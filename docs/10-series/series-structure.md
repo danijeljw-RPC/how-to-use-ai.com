@@ -60,7 +60,6 @@ Create an OI if deciding:
 
 - the total number of books (currently working assumption: 5)
 - the full series title
-- the exact title of Book 1 (working title "AI for Normal People" is proposed, not confirmed — see ADR-02-0001)
 - whether website and video content should share the same chapter structure
 - whether each book should have exercises, worksheets, or companion downloads
 - exact scope boundaries between Book 2/3 (workflows vs. business/operations) and Book 4/5 (building vs. architecture), since these currently overlap conceptually
