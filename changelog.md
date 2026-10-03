@@ -2,6 +2,19 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-03 (81)
+
+### Added
+
+Book 1 back matter: `docs/30-books/31-book-01/backmatter/references.md`, a "Further Reading" page (OI-0007, item 8: a hand-curated list). It names 17 sources, all already cited in the chapter notes, grouped to follow the book: understanding AI, home and work, jobs and hype, staying safe, creativity and copyright, and where AI goes next, plus the companion website. Most are free, plain-language Australian government pages. Each entry gives the chapters it connects to, and the METR entry carries the same "narrow result" caveat as Chapter 7. `scripts/build_matter.py` already includes `backmatter/*.md` after the notes in LaTeX and EPUB builds; both were checked.
+
+The author confirmed their surname is spelled "Wynyard-McClay", so the typo caveat was removed from publishing OI-0008 and the close-out plan.
+
+- Files changed: `docs/30-books/31-book-01/backmatter/references.md` (new), `docs/40-publishing/open-issues/OI-0007.md`, `docs/40-publishing/open-issues/OI-0008.md`, `docs/00-project/plans/oi-adr-close-out-plan.md`, `changelog.md`.
+- Decisions: none (applies OI-0007's references answer and ADR-03-0008).
+- Open issues: none opened or closed. Notes added to resolved publishing OI-0007 and OI-0008.
+- Commit: pending commit.
+
 ## 2026-10-03 (80)
 
 ### Changed

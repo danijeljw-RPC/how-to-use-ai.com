@@ -47,7 +47,7 @@ The working tree was clean at 380e6a8. The audit relied on these recent author c
 
 ## Risks
 
-- The author-name assumption ("Wynyard", not "Wynard"). It is flagged in the session report.
+- The author-name assumption ("Wynyard", not "Wynard"). The author confirmed "Wynyard-McClay" later the same day.
 - Accepting the 2026-05-18 ADRs records current practice. It does not re-review their content.
 
 ## Acceptance Criteria
