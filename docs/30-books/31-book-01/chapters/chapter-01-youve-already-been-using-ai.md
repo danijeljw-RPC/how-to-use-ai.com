@@ -105,9 +105,7 @@ It wasn't when it suggested another artist from a genre I already listened to. T
 
 It was when it started making jumps I would not have made myself.
 
-<!-- AUTHOR-INPUT id="CH01-1" status="required" -->
-One example that stuck with me was **[Author input needed: insert the actual artist/song Spotify introduced you to]**. On paper, it was not an obvious recommendation based on what I thought I listened to. Different artist, different corner of music, not something I would have searched for myself.
-<!-- /AUTHOR-INPUT -->
+One example that stuck with me was Porter Robinson's "Goodbye To A World". On paper, it was not an obvious recommendation based on what I thought I listened to. Different artist, different corner of music, not something I would have searched for myself.
 
 And yet within about thirty seconds I understood why it had put it in front of me.
 
