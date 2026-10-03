@@ -292,63 +292,109 @@ In every one of these, you do the thinking first and AI pushes back. That order 
 
 ::: {.author-reflection}
 
-A few years ago I had an issue escalated to me involving a database schema that somebody had decided needed to be “corrected”.
+Writing this book has given me one of the clearest examples of what I think staying relevant with AI actually looks like.
 
-The proposed fix was wonderfully decisive.
+I use AI heavily around the work.
 
-Purge it.
+I use it to research subjects, find primary sources, compare studies, challenge claims, look for opposing evidence, identify gaps, test explanations and help me organise material that would otherwise involve an unreasonable number of browser tabs and a rapidly deteriorating relationship with my own attention span.
 
-Delete the schema, clear out the offending structure, rebuild it cleanly and move on with life.
+That can make the work extraordinarily fast.
 
-Technically, there was logic behind the suggestion. If you looked only at the immediate error and the information being fed into the troubleshooting process, removing and rebuilding the schema could plausibly eliminate the thing being blamed.
+It can also produce something that is completely competent and still not be good enough.
 
-There was just one fairly substantial problem.
+I ran into that while developing one of the chapters in this book.
 
-The schema was not actually the problem.
+I had assembled a substantial research package: academic studies, official sources, real-world examples, competing arguments, limitations and material deliberately collected from more than one point of view. The purpose was not simply to accumulate references. I wanted enough evidence available that the chapter could explain the subject properly and let the reader make up their own mind.
 
-The person dealing with it had taken the diagnosis at face value and was working through the recommended steps as though the objective was simply to make the error disappear. No real consideration of why the schema existed, what depended on it, what created the condition in the first place, or what would happen downstream once it had been enthusiastically removed from existence.
+I gave that material, the chapter plan and the surrounding book context to an AI system.
 
-By the time it reached me, the conversation had effectively become:
+What came back was clean.
 
-“This is causing the problem.”
+It was organised.
 
-“No, it isn't.”
+It was readable.
 
-“But the instructions say to purge it.”
+It was also painfully underwhelming.
 
-“Yes. That would certainly remove it.”
+Nothing was spectacularly wrong with it. There was no invented database table, catastrophic hallucination or paragraph announcing that humanity would be unemployed by Thursday.
 
-There is a difference.
+In some ways, that made the problem more interesting.
 
-Deleting the thing associated with an error is an extremely effective way of ensuring that particular thing never generates that error again. It is roughly the technical equivalent of fixing a warning light in your car by removing the dashboard.
+The draft had taken a large amount of useful material and compressed it into something technically respectable but strangely empty. Important disagreements had been softened. Examples that would have made abstract points tangible had disappeared. Complicated evidence had been reduced to safe little conclusions. The prose moved efficiently from heading to heading while somehow managing not to do very much when it arrived.
 
-Problem solved.
+It had completed the apparent task.
 
-Unfortunately, you may still have an engine fire.
+It had not achieved the objective.
 
-What mattered in that situation was not knowing another SQL command or being better at producing a remediation script. The bottleneck was understanding the system around the database: why the schema existed, which processes relied on it, what assumptions had been built around it and whether the observed problem actually supported the proposed diagnosis.
+And those are not the same thing.
 
-Once you had that context, the “obvious” fix stopped looking obvious very quickly.
+The easiest response would have been to assume that the AI had simply done a poor job and rewrite everything myself.
 
-Had the instruction simply been followed, we could have removed perfectly valid data structures, broken dependent processes and potentially created a much larger production problem while congratulating ourselves for successfully resolving the original error.
+But that would have missed what was useful about the experience.
 
-That experience stuck with me because it is exactly the kind of situation where AI can now make things both better and worse.
+The AI had actually exposed something I needed to articulate more clearly.
 
-An AI tool can produce a very convincing explanation of an error. It can generate the SQL to alter, rebuild or delete almost anything you ask it to. It can give you six remediation options before you've finished your coffee.
+What did I mean by a good chapter?
 
-What it cannot magically supply is the context you never gave it.
+Not grammatically correct.
 
-And even if its technical answer is completely valid, somebody still has to recognise whether it is valid **here**.
+Not nicely formatted.
 
-That is the skill I would protect.
+Not even factually defensible, because that was only the starting point.
 
-Not memorising every command. Not proving that I can type SQL faster than a model can generate it.
+I wanted the chapter to show the evidence rather than quietly flatten it. I wanted credible arguments from different directions represented fairly. I wanted concrete examples where an example made an idea easier to understand. I wanted uncertainty left visible where the evidence was uncertain. I wanted company claims distinguished from independent evidence. I wanted enough substance that a reader could understand why reasonable people disagreed instead of being handed my preferred conclusion.
 
-Understanding the system well enough to know when the technically correct answer is solving the wrong problem.
+Most importantly, I did not want AI protecting the reader from complexity by deciding which parts of the argument they apparently did not need to see.
 
-Because production systems rarely fail in the neat little box presented by an error message.
+That is their judgement to make.
 
-And “the AI told me to purge it” is going to be a fairly unimpressive sentence when somebody asks where the database went.
+Once I could state those requirements properly, AI became useful again.
+
+I could tell it exactly where the chapter had failed. I could send it back into the research looking for material that had been lost. I could ask it to challenge a conclusion, find the strongest case against it, expose an assumption, expand an example or tell me whether a claim was actually supported by the source attached to it.
+
+The machine became much better at helping once I became much clearer about what I was trying to produce.
+
+That distinction matters to me because generative AI makes it very easy to confuse producing something with doing the job.
+
+A chapter can contain all the expected headings and still fail to teach.
+
+A presentation can contain all the facts and still fail to communicate.
+
+A report can answer the question it was given while missing the question that actually mattered.
+
+A piece of software can satisfy a specification while creating a terrible product.
+
+AI makes the first part of all of those cheaper.
+
+That does not make the second part disappear.
+
+If anything, it exposes it.
+
+I no longer need to spend as much time proving that I can mechanically produce another page of prose, another list of possibilities or another initial structure. AI can help me do those things extremely quickly.
+
+The capability I need to protect is knowing what deserves to survive into the finished work.
+
+That requires subject knowledge, because otherwise I cannot recognise when nuance has disappeared.
+
+It requires communication, because I have to explain what I actually want.
+
+It requires systems thinking, because changing one section affects the argument around it and sometimes the entire book.
+
+It requires judgement, because two perfectly defensible versions can still serve the reader very differently.
+
+And it requires responsibility, because eventually my name goes on the cover.
+
+I cannot outsource that last part to a prompt.
+
+That is probably the biggest change AI has made to the way I think about my own work.
+
+The valuable skill is becoming less about how quickly I can produce the first thing.
+
+It is increasingly about whether I can recognise the right thing when I see it, recognise the wrong thing when it looks perfectly respectable, explain the difference, and keep working until the result actually does what it was supposed to do.
+
+AI can make the path there substantially shorter.
+
+It still helps if you know where you are going.
 
 :::
 
