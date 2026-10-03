@@ -171,15 +171,7 @@ That distinction matters more than it might seem, because understanding what AI 
 
 Part of the confusion comes from language. It's convenient to say an AI system "thinks," "understands," "learns," or "knows" something — but those are human words borrowed for a process that's really mathematical pattern matching. They're useful shorthand, but taken literally, they set up expectations the technology can't actually meet.
 
-A few of the myths worth retiring early, before they shape how you read the rest of this book:
-
-| Myth | Reality |
-| --- | --- |
-| AI is only robots and science fiction. | AI is already used in everyday software. |
-| AI thinks like a human. | Most AI systems predict patterns from data. |
-| AI is always visible. | Many AI systems work quietly in the background. |
-| AI is magic. | AI is mathematics, data, and software engineering. |
-| AI is always correct. | AI predicts likely outcomes, and it can be wrong. |
+> **Watch Out:** A few myths are worth retiring early, before they shape how you read the rest of this book. AI isn't only robots and science fiction — it's already inside everyday software, and most of the time it works quietly in the background where you never see it. It doesn't think like a human; most AI systems predict patterns from data. It isn't magic; it's mathematics, data, and software engineering. And it isn't always correct. It predicts likely outcomes, and a prediction can be wrong.
 
 > **Try This:** For one day, notice where AI might be operating in the background of things you do — recommended videos, map route suggestions, email filtering, banking alerts, shopping recommendations, autocomplete, search rankings, voice assistant responses. The goal isn't to get technical. It's to notice that AI is already ordinary.
 

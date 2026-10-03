@@ -2,6 +2,38 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (82)
+
+### Changed
+
+Book 1 fact-check and callout pass, done at the author's request. Details are in `docs/30-books/31-book-01/plans/fact-check-pass-2026-10-04-plan.md` and in each OI.
+
+- **Chapter 1 (OI-0003):** the five-row Myth vs Reality table became a Watch Out callout in the same place, keeping all five myth/reality pairs as prose.
+- **Chapter 8 (OI-0004):**
+  - The image-bias footnote had the wrong article title and incomplete author names. It now reads AlDahoul, Rahwan and Zaki, "AI-generated faces influence gender stereotypes and racial homogenization", *Scientific Reports* 15 (2025).
+  - The *Bartz v. Anthropic* ruling is now cited to the court's 23 June 2025 order, and final settlement approval (20 July 2026) is confirmed.
+  - The Australian "right of publicity" sentence is sourced to an Arts Law Centre information sheet.
+  - The ROSS paragraph now describes the unsealed Third Circuit reasoning.
+  - Suno's wording changed from "ownership" to "commercial-use rights" to match its current help centre.
+  - The music-licensing paragraph now notes that Suno v6 launched in September 2026 with licensed catalogues, while Udio's licensed platform is not yet confirmed as launched.
+  - Every other Priority 2 item (Australia, the US Copyright Office, the EU, the UK, SAG-AFTRA, Canva, Adobe, OpenAI, KDP, YouTube, Deezer, Spotify) was rechecked and found unchanged.
+  - The author decided to keep the chapter's length.
+- **Chapter 11 (OI-0005):**
+  - All eight flagged claims were confirmed. The chess prediction is now dated 1957, matching the cited National Academies source, and Chapter 14's cross-reference was updated to match.
+  - Footnotes completed: `ch11-anthro`, `ch11-benchmarks` (Xu et al. authors), `ch11-aml` (authors, DOI, sample breakdown) and Bastani et al. (*PNAS* 122(26)). The Builder.ai and McKinsey footnotes were updated.
+  - Pre-lock rechecks 1–9 were run and recorded in the Chapter 11 bibliography. Item 10, the wording sweep, is left for manuscript lock.
+- **OI-0009:** closed, because the author replaced the Chapter 12 story. The new story overlaps with the Chapter 8 reflection, so new OI-0010 tracks that.
+
+Checks: `build_book_index.py check` passes, all 76 unit tests pass, and pandoc parses Chapters 1, 8, 11 and 14 without warnings. Chapter 12 was not touched, because the author's edit is uncommitted in the main checkout. Regenerate `index/book-01-index-lines.md` after committing it.
+
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-01-youve-already-been-using-ai.md`, `chapter-08-ai-and-creativity.md`, `chapter-11-ai-hype-vs-reality.md`, `chapter-14-where-ai-goes-next.md`, `docs/30-books/31-book-01/research/chapter-08-bibliography.md`, `chapter-11-bibliography.md`, `chapter-14-bibliography.md`, `docs/30-books/31-book-01/open-issues/OI-0003.md`, `OI-0004.md`, `OI-0005.md`, `OI-0009.md`, `OI-0010.md` (new), `docs/30-books/31-book-01/plans/fact-check-pass-2026-10-04-plan.md` (new), `changelog.md` (this entry, plus commit hashes for entries 80 and 81).
+- Decisions: none (applies ADR-04-0002 and ADR-04-0003).
+- Open issues:
+  - Closed Book 1 OI-0003, OI-0005 and OI-0009.
+  - OI-0004 now has only the "fictional scenarios" decision left.
+  - Added Book 1 OI-0010.
+- Commit: pending commit.
+
 ## 2026-10-03 (81)
 
 ### Added
@@ -13,7 +45,7 @@ The author confirmed their surname is spelled "Wynyard-McClay", so the typo cave
 - Files changed: `docs/30-books/31-book-01/backmatter/references.md` (new), `docs/40-publishing/open-issues/OI-0007.md`, `docs/40-publishing/open-issues/OI-0008.md`, `docs/00-project/plans/oi-adr-close-out-plan.md`, `changelog.md`.
 - Decisions: none (applies OI-0007's references answer and ADR-03-0008).
 - Open issues: none opened or closed. Notes added to resolved publishing OI-0007 and OI-0008.
-- Commit: pending commit.
+- Commit: 9ab5768.
 
 ## 2026-10-03 (80)
 
@@ -36,7 +68,7 @@ A close-out pass over every open OI and every ADR still marked Proposed. Several
   - Closed publishing OI-0001 (preview URL live since 2026-09-24), OI-0002 (preview wording approved), OI-0007 (all release decisions made; `backmatter/references.md` still to write) and OI-0008 (author name).
   - Updated but still open: Book 1 OI-0004 (Chapter 8 reflection item ticked) and publishing OI-0004 (answers so far).
   - Still open: Book 1 OI-0003, OI-0005 and OI-0009; publishing OI-0005 and OI-0006.
-- Commit: pending commit.
+- Commit: 2c93778.
 
 ## 2026-10-03 (79)
 

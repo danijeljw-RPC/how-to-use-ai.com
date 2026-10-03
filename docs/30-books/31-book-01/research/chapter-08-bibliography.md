@@ -83,7 +83,7 @@ Amazon KDP. “Content Guidelines — Artificial intelligence (AI) content.” <
 
 “DALL-E 3 demographic bias in generated healthcare-profession imagery.” 2024. <https://pubmed.ncbi.nlm.nih.gov/39438058/> (S46; specific model and healthcare context).
 
-AlDahoul, Rahwan and Zaki (author given names should be confirmed from the article record before publication; earlier drafts listed them inconsistently). “Racial and gender biases in text-to-image generation across professions and attributes.” *Scientific Reports* (2025). <https://www.nature.com/articles/s41598-025-99623-3>.
+AlDahoul, Nouar, Talal Rahwan and Yasir Zaki. “AI-generated faces influence gender stereotypes and racial homogenization.” *Scientific Reports* 15, 14449 (25 April 2025). Names and title confirmed from the Europe PMC record on 4 October 2026; earlier drafts carried an incorrect title. <https://www.nature.com/articles/s41598-025-99623-3>.
 
 - Type: peer-reviewed empirical research.
 - Supports: demographic stereotypes and homogenisation in tested professional-image prompts/models.
@@ -210,6 +210,10 @@ Universal Music Group and Udio. “Strategic Agreements for New Licensed AI Musi
 
 Warner Music Group. “Warner Music Group and Suno Forge Groundbreaking Partnership.” 25 November 2025. <https://www.wmg.com/news/warner-music-group-and-suno-forge-groundbreaking-partnership>.
 
+Billboard. “As Suno Rolls Out Its New AI Models With Industry Licenses, What Does That Mean For the Music Business?” September 2026. <https://www.billboard.com/pro/suno-new-ai-model-industry-licenses-what-music-business-faq/>.
+
+- Implementation check, 4 October 2026: Suno v6 (9 September 2026) replaced earlier models and uses licensed catalogues from WMG, BMG and Believe; the UMG–Udio licensed platform was announced but not confirmed as launched.
+
 Adobe Stock Contributor. “Firefly FAQ.” Updated 16 September 2026. <https://helpx.adobe.com/stock/contributor/submit-your-content/submit-generative-ai-content/firefly-faq.html>.
 
 - Type: joint commercial announcement and company contributor policy.
@@ -227,7 +231,7 @@ Australian Government. *Copyright Act 1968* (Cth), current compilation. <https:/
 Arts Law Centre of Australia. “Artificial Intelligence (AI) and Copyright.” <https://www.artslaw.com.au/information-sheet/artificial-intelligence-ai-and-copyright/> (S04).
 
 - Arts Law supports: purely AI-generated material without sufficient human authorship may not be protected in Australia, while human contributions to AI-assisted work can be; the threshold is unsettled.
-- Unsourced general legal context added in the 2026-09-30 expansion: the Music section says Australia has no single general right of publicity and that identity-misuse complaints tend to proceed through passing off or misleading-conduct law. This is standard Australian legal background but is not drawn from either research package. **Add a citation (for example an Arts Law or ACCC source) or have it legally reviewed before publication.**
+- Publicity-right sentence (Music section), sourced on 4 October 2026: Arts Law Centre of Australia, “Unauthorised use of your image” (information sheet), <https://www.artslaw.com.au/images/uploads/Unauthorised_use_of_your_image.pdf>. It says Australia has no specific law equivalent to the US right of publicity, and that passing off, the Australian Consumer Law and defamation are the routes used. Cited in `ch8-replicas`.
 
 - Type: government policy and legislation.
 - Supports: current priority areas; government statement that it is not considering a TDM exception; Australian specific-exception/fair-dealing context.
@@ -407,6 +411,12 @@ Canva. “Magic Design.” <https://www.canva.com/magic-design/>.
 
 ### US Litigation Examples — ch8-us-cases (S09, S10, basic package)
 
+*Bartz v. Anthropic PBC*, No. 3:24-cv-05417-WHA (N.D. Cal. 23 June 2025). Order on Fair Use (Alsup J.). <https://archive.org/details/anthropic-fair-use>.
+
+JURIST. “Judge approves record $1.5 billion AI copyright settlement involving Anthropic.” July 2026. <https://www.jurist.org/news/2026/07/judge-approves-record-1-5-billion-settlement-involving-anthropic/>.
+
+Ballard Spahr. “Third Circuit Addresses Fair Use in AI Training, But Leaves Generative AI Questions Unresolved.” October 2026. <https://www.ballardspahr.com/insights/alerts-and-articles/2026/10/third-circuit-addresses-fair-use-in-ai-training-but-leaves-generative-ai-questions-unresolved>.
+
 Authors Guild. “Court Grants Final Approval of $1.5 Billion Anthropic Copyright Settlement.” 21 July 2026. <https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/>.
 
 Reuters. “US appeals court upholds Thomson Reuters' landmark win in AI training lawsuit.” 29 September 2026. <https://www.reuters.com/business/media-telecom/us-appeals-court-upholds-thomson-reuters-landmark-win-ai-training-lawsuit-2026-09-29/>.
@@ -414,8 +424,8 @@ Reuters. “US appeals court upholds Thomson Reuters' landmark win in AI trainin
 LawSites. “3rd Circuit Issues Opinion in Thomson Reuters v. ROSS Case, But For Now It Is Sealed.” 29 September 2026. <https://www.lawnext.com/2026/09/3rd-circuit-issues-opinion-in-thomson-reuters-v-ross-case-but-for-now-it-is-sealed.html>.
 
 - Type: advocacy summary of a court development; news reports of an appellate decision.
-- Supports: US$1.5 billion Anthropic settlement with final approval in July 2026; Third Circuit affirmance of Thomson Reuters' win against ROSS, reasoning sealed at cut-off.
-- Additional context not in either package: the manuscript's description of the 2025 trial-court ruling in *Bartz v. Anthropic* (training on lawfully acquired books held fair use; pirated library copies treated separately) comes from general knowledge of the June 2025 order. **Confirm against the court order before publication.**
+- Supports: US$1.5 billion Anthropic settlement with final approval in July 2026; Third Circuit affirmance of Thomson Reuters' win against ROSS (opinion of 29 September 2026, unsealed days later: commercial, minimally transformative, harm to a developing AI-training licensing market; distinguished from generative models).
+- Additional context not in either package: the manuscript's description of the 2025 trial-court ruling in *Bartz v. Anthropic* (training on lawfully acquired books held fair use; pirated library copies treated separately) was confirmed against the 23 June 2025 Order on Fair Use on 4 October 2026, and the court order is now cited. Final settlement approval (20 July 2026, Martínez-Olguín J.) confirmed via JURIST.
 - Use: shows US outcomes are fact-specific and that neither global slogan is accurate.
 - Limits: not universal precedent; secondary sources; ROSS concerns a non-generative legal-research tool.
 - Recheck before publication: **Urgent**.
@@ -470,7 +480,7 @@ Runco, Mark A. and Garrett J. Jaeger. “The Standard Definition of Creativity.�
 
 ## Time-Sensitive Publication Checklist
 
-A consolidated, tickable review list of these items and the claims needing confirmation is in `docs/30-books/31-book-01/open-issues/OI-0004.md`.
+A consolidated, tickable review list of these items and the claims needing confirmation is in `docs/30-books/31-book-01/open-issues/OI-0004.md`. Every item below was rechecked on 4 October 2026; the results are recorded there.
 
 
 Recheck immediately before publication:

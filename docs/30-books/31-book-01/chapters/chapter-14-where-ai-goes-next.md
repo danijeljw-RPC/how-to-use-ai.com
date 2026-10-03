@@ -244,7 +244,7 @@ By now you may have noticed that this chapter has given you a lot of evidence an
 
 ### Wrong in Both Directions
 
-AI's history contains forecasts that were far too early. Chapter 11 described the 1958 prediction that a computer would be world chess champion within ten years, which took about four decades, and the **AI winters**, periods when funding and enthusiasm collapsed after expectations ran ahead of results. Self-driving cars are a more recent example: the underlying capability was real, but broad predictions about how quickly it would become ordinary were not.
+AI's history contains forecasts that were far too early. Chapter 11 described the 1957 prediction that a computer would be world chess champion within ten years, which took about four decades, and the **AI winters**, periods when funding and enthusiasm collapsed after expectations ran ahead of results. Self-driving cars are a more recent example: the underlying capability was real, but broad predictions about how quickly it would become ordinary were not.
 
 The history also contains capabilities that arrived *sooner* than many experts expected. Protein-structure prediction was a fifty-year problem until it suddenly was not. Conversational AI that could write fluently surprised many people, including many researchers. In the largest survey of AI researchers, the group's aggregate estimate of when machines might outperform humans at every task moved thirteen years earlier between 2022 and 2023, because the field had seen faster progress than it expected.[^ch14-grace]
 

@@ -40,7 +40,7 @@ This is editorial research, not legal or financial advice.
 | --- | --- | --- | --- |
 | AI adoption is widespread | Stanford AI Index 2026 (Economy) | Research synthesis of surveys | Grounds "transformative"; adoption ≠ value |
 | AGI definitions vary | OpenAI Charter; Morris et al. ICML 2024 | Company source; peer-reviewed framework | "One leading AI developer's charter"; "a group of researchers" |
-| Forecasts directionally right, temporally wrong | National Academies history (Newell and Simon 1958; Deep Blue 1997) | Historical synthesis | "Two of the field's founding researchers" |
+| Forecasts directionally right, temporally wrong | National Academies history (Newell and Simon 1957; Deep Blue 1997) | Historical synthesis | "Two of the field's founding researchers" |
 | Experts surprised by progress | Grace et al. (2,778 researchers; 2047 vs 2060) | Expert survey | Underhype; calibration cuts both ways |
 | Amara heuristic | Critical Design provenance note | Secondary provenance | Unattributed "rule of thumb"; heuristic only |
 | Serious risk arguments; jagged capability; documented vs uncertain | International AI Safety Report 2026 | International scientific assessment | Calibration anchor; named in prose |
@@ -110,3 +110,21 @@ Mandatory before manuscript lock (see also package file `13-publication-recheck-
 8. TEQSA guidance and Adult Media Literacy survey editions (`ch11-teqsa`, `ch11-aml`).
 9. Confirm full bibliographic details flagged in footnotes: `ch11-anthro`, `ch11-benchmarks`, `ch11-aml`.
 10. Search the chapter for "now", "today", "current", "latest", "more than a dozen", and every percentage, per the package's production workflow.
+
+### Recheck Results (4 October 2026)
+
+Items 1–9 were rechecked on 4 October 2026 (Book 1 OI-0005, resolved):
+
+1. Waymo: still fully autonomous public service in 14 US cities. No change.
+2. Project NANDA: no peer-reviewed version or update found; the cited public copy stands.
+3. International AI Safety Report: no publication after the 3 February 2026 report. No change.
+4. Builder.ai: US investigations reported; no official findings published. Footnote updated.
+5. Australian AI Safety Institute operating (general manager appointed May 2026); National AI Plan unchanged; no ACL reform legislated since the October 2025 Treasury review. No change.
+6. Stanford AI Index 2026 is still the latest. McKinsey published "The State of AI in 2026" (August 2026); the chapter's dated early-2025 claim still stands, and the footnote now notes the later edition.
+7. Expert survey: no later round published. No change.
+8. TEQSA: hub current (latest assessment-reform resource June 2026), consistent with the chapter. Adult Media Literacy: the 2024 survey is the latest; the next is due in 2027. Authors and sample confirmed (4,442 total; 3,852 representative sample).
+9. Done: `ch11-anthro`, `ch11-benchmarks` and `ch11-aml` now carry full details; Bastani et al. volume and issue added.
+
+Also corrected: the chess prediction is dated 1957, matching the cited National Academies source (Chapter 14's cross-reference was updated too).
+
+Item 10, the wording sweep, has not been done. Do it at manuscript lock.
