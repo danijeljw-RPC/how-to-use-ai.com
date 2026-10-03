@@ -4,9 +4,7 @@ In Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, the most useful thing
 
 That is the spirit in which this book ends. Not with a promise that AI will turn out well, or a warning that it will turn out badly, but with the same calm, practical advice. You have done the preparation. You do not need to panic.
 
-<!-- AUTHOR-INPUT id="EPI-1" status="optional" -->
-> [Author input needed (optional): A short first-person paragraph, three to five sentences, on why you wrote this book and who you pictured reading it. For example: a family member, friend, colleague or client whose questions about AI made you realise a book like this was needed. Keep it genuine and specific. If you would rather not add an origin note here, delete this block and the epilogue still reads correctly.]
-<!-- /AUTHOR-INPUT -->
+I wrote this book because I kept seeing the same thing happen around me. Friends, family, colleagues and people I worked with were hearing about AI constantly, but the conversation seemed to jump straight from "this thing can write an email" to "it is going to replace everybody's job and possibly civilisation while it is at it." There was a huge gap between the hype, the fear and what these systems actually are, how they work and what ordinary people can realistically do with them. I wrote this for the people sitting somewhere in that gap: interested, curious, perhaps a little sceptical, and wanting somebody to explain the bloody thing without requiring a computer science degree first.
 
 Fourteen chapters ago, this book opened with a simple claim: you have already been using AI, probably without ever calling it that. Your streaming recommendations, your map app, your spam filter and your bank's fraud alerts were all quietly finding patterns and making predictions long before anyone was talking about chatbots. If nothing else in between has stayed with you, keep that first idea. Almost everything else in the book grew out of it.
 
@@ -63,7 +61,7 @@ This is the one that matters, and it is what the whole book has been building, w
 AI literacy is not a collection of facts about AI. It is a set of habits for dealing with it: knowing roughly what AI is and is not, getting useful results from it, checking what matters, protecting what is sensitive, judging claims about it and keeping the human parts of the work in human hands. Here is the book on one page, as a reference you can come back to long after the specific examples have dated.
 
 | When this happens | Ask yourself | Where it came from |
-|---|---|---|
+| --- | --- | --- |
 | You are not sure whether something uses AI | Is this finding patterns and making predictions? | Chapters 1–2 |
 | You want help with a task | Is it expensive to produce but easy to check? | Chapter 3 |
 | An answer sounds confident | What would it cost if this were wrong, and how will I check it? | Chapter 4 |
@@ -94,9 +92,7 @@ Some of this book will date, and sooner than most books do. Product names will c
 
 When something in these pages no longer matches the world around you, do not throw away the idea along with the example. Ask what the example was there to show. The specific scam may change, but "urgency plus an unverifiable voice means stop and check" will not. The specific tool may vanish, but "start with the job, then check the maker, the data, the result and the exit" will still work. The specific forecast may succeed or fail, but "watch for evidence of deployment and adoption, not confident dates" will still separate signal from noise.
 
-<!-- AUTHOR-INPUT id="EPI-2" status="required" -->
-> [Author input needed (required): Confirm what readers will find on the companion website and how to reach it. Replace this placeholder with one or two sentences giving the confirmed web address and what it offers: for example, current tool walkthroughs, updated figures, recheck notes for time-sensitive claims and practice exercises. Chapters 13 and 14 already promise that the companion website carries current settings, products and figures, so this is the place to tell the reader where to find them. Do not add a web address until it is live.]
-<!-- /AUTHOR-INPUT -->
+The companion website at [https://how-to-use-ai.com](https://how-to-use-ai.com) keeps the parts of this book that can change quickly up to date. You will find current tool walkthroughs, updated screenshots and settings, product changes, refreshed figures, rechecks of time-sensitive claims, practical exercises, worked examples, and additional material that would become outdated too quickly in print.
 
 For everything else, you have the questions. They were designed to outlive the examples.
 
@@ -110,23 +106,43 @@ If you want a fourth, make it this: explain one idea from this book to someone e
 
 ## Where This Leaves You
 
-This book was the foundation. It was written for someone who may never have knowingly used AI, and if that was you, you are now further ahead than many people who use it every day without thinking about it.
+This book was the foundation. It was written for someone who may never have knowingly used AI, and if that was you, you now know enough to approach it with curiosity, judgement and a healthy amount of scepticism.
 
-The rest of the series builds on this foundation for readers who want to go further, moving from practical workflows and productivity, through AI in business and operations, and on to building AI systems and, finally, engineering and architecture. Each book assumes only what came before it. You do not need to read them all, and you do not need to read any of them to make good use of what you now know. They are there if you want them.
+The rest of the series builds from here, moving from practical workflows and productivity, through AI in business and operations, and eventually into building AI systems, engineering and architecture. You do not need to read all of them, and you do not need any of them to make good use of what you have already learned. They are there if you want to keep going.
 
-<!-- AUTHOR-INPUT id="EPI-3" status="optional" -->
-> [Author input needed (optional): If you want to tease Book 2 by its confirmed title or give a one-sentence description of what it will help the reader do, add it here. Book 2's scope is currently described as practical AI workflows and productivity, and the Book 2/Book 3 boundary is deferred until Book 2 planning, so do not commit to a title or publication timing until those are decided. Delete this block if you prefer the general series description above.]
-<!-- /AUTHOR-INPUT -->
+Book 2 takes the next step: moving from understanding AI to using it deliberately in everyday work and life. It focuses on practical workflows, better ways to work with these tools, where they genuinely save time or improve what you are doing, and how to make AI useful without turning every problem into an excuse to throw another chatbot at it.
+
+It will also be hands-on. We will work through plenty of practical examples so you can see not only what to ask, but how to approach the task, what a useful result looks like, where things can go wrong, how to improve the output, and when AI is probably the wrong tool altogether. The goal is not to give you a bag of clever prompts. It is to help you build ways of working with AI that you can adapt to your own job, projects and everyday life.
 
 ## Closing Words
 
-When you started this book, AI may have felt like something happening to you: a buzzword in the news, a feature you had not asked for, a vague threat to your job, or a technology that only experts could judge. It should feel different now. Not simple, not settled and not harmless, but understandable. Something you can use when it helps, question when it matters and set aside when it does not.
+If there is one thing I want you to remember after closing this book, it is that you do not need to become an AI expert to have a place in what comes next.
 
-<!-- AUTHOR-INPUT id="EPI-4" status="required" -->
-> [Author reflection placeholder (required): Add your own closing message to the reader, in your own words: the one thing you most want them to remember as the last thing they read before closing the book. This is the book's final personal moment, so it can be warmer and more direct than the reflections in earlier chapters. Drawing on your professional AI/ML background is welcome but not required. Aim for one to three short paragraphs. Do not invent an experience to fit the moment; if a story belongs here, use a real one.]
-<!-- /AUTHOR-INPUT -->
+You do not need to follow every model release, learn every new term or have an opinion on every headline. This field moves quickly, and nobody keeps up with all of it. What matters is that you now know how to ask better questions, check what matters and recognise when something deserves your trust, your attention or neither.
 
-AI is not magic. It is pattern recognition at scale, built by people, shaped by people and used by people, which means it is something people can understand, question and steer. You are now one of the people who can.
+You know that AI is not magic. You know that a confident answer can still be wrong, that an impressive demonstration is not the same as a useful product, and that both hype and scepticism deserve evidence. Most importantly, you are allowed to make up your own mind.
+
+So try things.
+
+Give AI a task you understand. Let it help you organise something, explain something difficult, challenge an idea or take some tedious work off your plate. Then check the result. Push back when it gets something wrong. Change your mind when the evidence gives you a reason to.
+
+The tools will change. Some will improve, some will disappear, and some will become so ordinary that eventually we will stop thinking of them as AI at all. What matters is your ability to understand what you are looking at and decide whether it deserves a place in your life.
+
+Do not underestimate your own judgement just because a machine can produce an answer faster than you can. You bring the context, the experience, the priorities and the responsibility for what happens next.
+
+AI can help you think. It can help you work. Sometimes it can surprise you.
+
+But the decision is still yours.
+
+If you finish this book thinking, *Right. I understand this now. What can I actually do with it?*
+
+Good.
+
+That is exactly where we go next.
+
+AI is not magic. It is pattern recognition at scale, built by people, shaped by people and used by people. That means it is something people can understand, question and steer.
+
+You are now one of those people.
 
 So keep your curiosity, keep your judgement and keep checking what matters.
 
