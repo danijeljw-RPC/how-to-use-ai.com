@@ -216,7 +216,7 @@ A worker asks a general model for a legal/contractual interpretation, then has t
 For each worked example the later writer can show both sides:
 
 | Task | Useful to supply | Often unnecessary / potentially sensitive |
-|---|---|---|
+| --- | --- | --- |
 | Report | objectives, audience, approved notes, structure | unrelated customer records |
 | Meeting | relevant notes/transcript, speakers if needed | unrelated personal conversation |
 | Support | issue history, approved policy | payment credentials/passwords |

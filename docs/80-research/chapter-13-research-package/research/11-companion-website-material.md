@@ -187,7 +187,7 @@ The specific feature matrix changes too quickly for print. The website can maint
 ### Suggested website table fields
 
 | Product | Chat | Research/search | Image | Voice | Files | Coding | Connected actions | Data-control link | As-of date |
-|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| --- |---:|---:|---:|---:|---:|---:|---:| --- | --- |
 
 Do not use a weighted score or overall ranking. A feature tick does not show quality, limits, price or privacy.
 

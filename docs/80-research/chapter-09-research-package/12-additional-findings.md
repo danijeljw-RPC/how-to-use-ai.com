@@ -322,7 +322,7 @@ Use as a high-level synthesis/check against selective sourcing, not as the only 
 # 14. Final inclusion recommendations
 
 | Additional topic | Chapter 9 | Another Book 1 chapter | Later book | Companion website |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | AI companions / children | Brief sidebar | — | possible | **Yes** |
 | Harmful professional/health advice | Brief cross-ref | Ch. 3–4 | Book 2/3 | **Yes** |
 | Children cross-cutting harms | Integrate in relevant risks | — | — | **Yes** |

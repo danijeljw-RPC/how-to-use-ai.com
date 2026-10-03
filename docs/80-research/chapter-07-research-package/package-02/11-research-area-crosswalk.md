@@ -3,7 +3,7 @@
 This crosswalk maps every numbered research area in the supplementary brief to the primary file(s) containing the result.
 
 | # | Research area | Primary package location |
-|---:|---|---|
+|---:| --- | --- |
 | 1 | AI as a workplace multiplier | `01-workplace-multiplier-and-workday-test.md; 09-strongest-chapter-ready-findings.md` |
 | 2 | The workday test | `01-workplace-multiplier-and-workday-test.md; 07-chapter-ready-example-pool-and-demonstrations.md` |
 | 3 | Drafting reports | `02-practical-workflows-and-role-diverse-examples.md; 07-chapter-ready-example-pool-and-demonstrations.md` |
@@ -36,7 +36,7 @@ This crosswalk maps every numbered research area in the supplementary brief to t
 # Required special sections
 
 | Requested output | Location |
-|---|---|
+| --- | --- |
 | Claims We Should Not Make Without Qualification | `06-claims-myths-and-qualification.md` |
 | Actively collected chapter-ready examples | `07-chapter-ready-example-pool-and-demonstrations.md` |
 | Better Reserved for Later Chapters | `08-better-reserved-for-later-and-editorial-observations.md` |

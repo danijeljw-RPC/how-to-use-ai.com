@@ -331,7 +331,7 @@ https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-
 # 12. Privacy misconceptions
 
 | Claim | Better explanation |
-|---|---|
+| --- | --- |
 | “If it is online publicly, an AI company can do anything with it.” | Public availability does not erase privacy, copyright or other legal obligations. Clearview is a concrete Australian example. |
 | “If the provider doesn't train on my chat, it is private.” | Training use is only one dimension; retention, access, connected data, subprocessors and legal disclosure still matter. |
 | “Deleting a chat means every copy disappears instantly.” | Deletion processes can involve retention periods, backups, safety/legal obligations and separate memory systems. Provider terms must be checked. |

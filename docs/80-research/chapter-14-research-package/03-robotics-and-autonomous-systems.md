@@ -177,7 +177,7 @@ Do not collapse software-agent effects and industrial-robot effects into one lab
 ## Maturity assessment
 
 | Area | Maturity |
-|---|---|
+| --- | --- |
 | Industrial robots | Mature infrastructure |
 | Warehouse mobile robots | Widespread deployment |
 | Autonomous mining in bounded sites | Widespread in selected operations |

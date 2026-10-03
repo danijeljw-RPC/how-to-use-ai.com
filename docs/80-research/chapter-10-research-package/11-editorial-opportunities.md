@@ -5,7 +5,7 @@ These are editorial possibilities, not instructions to rewrite the approved stru
 ## 1. Table — Four words headlines confuse
 
 | Term | Plain English | Does it mean job loss? |
-|---|---|---|
+| --- | --- | --- |
 | Exposure | AI overlaps with tasks | No |
 | Augmentation | AI helps a person do work | Usually not directly |
 | Automation | AI performs a task | Not necessarily |

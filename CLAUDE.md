@@ -226,7 +226,7 @@ Where `NN` is a fixed two-digit area code and `xxxx` is the next available four-
 ADR area codes are stable identifiers. They predate the `docs/` folder renumbering (see `docs/00-project/decisions/ADR-00-0003-docs-folder-numbering.md`) and deliberately do not match the folder numbers, so existing ADR IDs and cross-references stay valid:
 
 | Area | Folder | Code |
-|---|---|---|
+| --- | --- | --- |
 | Project | `00-project` | `00` |
 | Series | `10-series` | `01` |
 | Style | `20-style` | `04` |

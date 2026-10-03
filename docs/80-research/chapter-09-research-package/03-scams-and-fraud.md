@@ -178,7 +178,7 @@ https://www.cyber.gov.au/threats/types-threats/social-engineering
 # 6. What still works — and what no longer deserves much trust
 
 | Defence / cue | Status | Explanation |
-|---|---|---|
+| --- | --- | --- |
 | Verify through a known, separate channel | Strong | Breaks the attacker's control of the conversation. |
 | Call the person on a number already saved / independently obtained | Strong | Particularly useful against voice/video impersonation. |
 | Slow down when urgency is applied | Strong | Urgency is a classic social-engineering device; AI does not change that. |

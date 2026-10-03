@@ -165,7 +165,7 @@ This is a useful explanation for why technology forecasts are often wrong in **v
 ## Maturity assessment
 
 | Capability | Maturity |
-|---|---|
+| --- | --- |
 | Voice commands / reminders | Mature |
 | Conversational assistant | Widespread |
 | Personal memory | Deployment |

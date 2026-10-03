@@ -37,7 +37,7 @@ The package follows the commissioning brief's central discipline:
 ## Recommended file map
 
 | File | Purpose |
-|---|---|
+| --- | --- |
 | `01-core-research.md` | Research mapped to the approved chapter structure and central framing |
 | `02-doom-agi-and-long-term-risk.md` | AGI definitions, long-term-risk debate, expert surveys, historical forecasts |
 | `03-utopian-claims-and-genuine-benefits.md` | Scientific progress versus broad promises |

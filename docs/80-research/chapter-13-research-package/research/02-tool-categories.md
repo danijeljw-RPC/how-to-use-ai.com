@@ -358,7 +358,7 @@ This is probably stronger for beginners than a hub-and-spoke diagram that visual
 # Stability assessment
 
 | Capability/category | Likely durability | Main source of change |
-|---|---|---|
+| --- | --- | --- |
 | Chat/conversation | High | becomes umbrella interface for other modes |
 | Image generation/editing | High | merges with video/design/multimodal tools |
 | Research/search | Medium-high | increasingly embedded into chat/search |

@@ -191,7 +191,7 @@ The durable lesson is better than the quote:
 ## Maturity assessment
 
 | Area | Maturity |
-|---|---|
+| --- | --- |
 | AI-assisted medical imaging | Regulated deployment |
 | Imaging triage/segmentation | Regulated deployment |
 | Ambient documentation | Rapid deployment / growing evidence |

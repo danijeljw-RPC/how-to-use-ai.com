@@ -205,7 +205,7 @@ This is likely the single highest-value pedagogical improvement available withou
 The research strongly supports a simple table or callout:
 
 | Task | AI is useful for | Often better checked/done with |
-|---|---|---|
+| --- | --- | --- |
 | Budgeting | explanations, categories, trade-offs | spreadsheet/calculator |
 | Travel | preferences, first-draft itinerary | maps, official sites, booking systems |
 | Meal planning | ideas, substitutions, shopping lists | dietitian/validated nutrition source for clinical needs |

@@ -300,7 +300,7 @@ Avoid “not peer reviewed, therefore unreliable.” Prefer “preliminary; has 
 ## 17. Reliability dimensions the chapter can teach
 
 | Dimension | Question |
-|---|---|
+| --- | --- |
 | Accuracy | Is the output correct? |
 | Robustness | Does it still work when inputs vary? |
 | Repeatability | Can it do it consistently? |

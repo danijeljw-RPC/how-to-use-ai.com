@@ -34,7 +34,7 @@ Stages can loop; deployment produces data that improves capability, and adoption
 ## 2. Core comparison table
 
 | Direction | What exists now | Main obstacle | Signal to watch |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Agents | Multi-step browser/coding/work agents | reliability + prompt injection | independent long-task success + delegated authority standards |
 | Robotics | industrial/warehouse/mining automation | general physical robustness/cost | autonomous paid operation outside controlled settings |
 | Education | general chatbots + purpose-built school tools | learning design + assessment/privacy | long-term learning outcomes |

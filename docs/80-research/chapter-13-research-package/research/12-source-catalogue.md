@@ -17,7 +17,7 @@
 # A. AI literacy frameworks and usage studies
 
 | Source | Organisation / author | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *What is AI Literacy? Competencies and Design Considerations* | Duri Long & Brian Magerko | 2020 | Academic conference paper (CHI) | Early influential definition/competency framing: understand AI, recognise strengths/weaknesses, critically evaluate systems, interact effectively | Academic conceptual framework; predates current consumer generative-AI landscape | No for historical finding | https://doi.org/10.1145/3313831.3376727 |
 | *AI competency framework for students* | UNESCO; Fengchun Miao, Kelly Shiohira, Natalie Lao | 2024-08-08; page updated 2026-01-16 | International-organisation framework | Human-centred mindset, ethics, techniques/applications, system design; literacy as broader than prompt skill | Student/curriculum focus rather than adult consumer purchasing | Moderate | https://www.unesco.org/en/articles/ai-competency-framework-students |
 | *AI Literacy – Questions & Answers* | European Commission | Current page, accessed 2026-10-01 | Government/regulatory guidance | AI literacy considers knowledge, experience, context, risks, correct use and interpretation; Article 4 implementation | EU workplace/provider/deployer context; not Australian law; rules were amended in 2026 | Yes | https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers |
@@ -32,7 +32,7 @@
 # B. Australian privacy law, guidance and rights
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Guidance on privacy and the use of commercially available AI products* | Office of the Australian Information Commissioner (OAIC) | Published 2024-10-21; updated 2025-01-17 | Regulator guidance | Due diligence; data flows; accuracy; third-party access; caution with personal/sensitive data; AI should not be adopted merely because available | Primarily written for APP entities/organisations, though principles are useful to consumers; not every business is covered by Privacy Act | Yes | https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products |
 | *Australian Privacy Principles quick reference* | OAIC | Current page | Regulator guidance | APP structure: transparency, collection, use/disclosure, security, access/correction, cross-border handling | High-level summary; exemptions and exceptions require fuller law/guidelines | Yes if law reforms | https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-quick-reference |
 | *Australian Privacy Principles guidelines* | OAIC | Page updated 2026-05-13 | Regulator guidance | Detailed APP interpretation | Guidance, not substitute for legal advice; can be amended | Yes | https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines |
@@ -50,7 +50,7 @@
 These sources are valuable for current provider commitments/settings. They should **not** be treated as independent verification.
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Data controls in ChatGPT* | OpenAI | Dynamic; updated late Sep 2026 when accessed | Provider help | Training opt-out; Temporary Chat; export; account deletion; consumer vs managed-workspace distinctions; memory and training are separate | Product/settings change frequently; applies only as documented to specified accounts/plans | Yes | https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt |
 | *Chat and File Retention Policies in ChatGPT* | OpenAI | Dynamic; updated Sep 2026 when accessed | Provider help | Ordinary chat deletion generally scheduled within 30 days subject to exceptions; Temporary Chat retention; Library files separate from chats | Current provider policy, not independent audit; managed workspace rules differ | Yes | https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt |
 | *Sharing conversations and scheduled tasks in ChatGPT* | OpenAI | Dynamic; updated Sep 2026 when accessed | Provider help | Shared-link access, management/deletion, recipient copies, personal vs managed-workspace behaviour | Interface and feature behaviour may change | Yes | https://help.openai.com/en/articles/7925741-sharing-conversations-and-scheduled-tasks-in-chatgpt |
@@ -73,7 +73,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # D. Australian consumer law, subscriptions and reviews
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Competition and Consumer Amendment (Unfair Trading Practices) Act 2026* | Commonwealth of Australia | Assented 2026-07-06; whole Act commences 2027-07-01 | **Legislation — primary** | New unfair-trading, drip-pricing and subscription-contract provisions; commencement date | **Not yet operative on research date** despite register status metadata; read commencement clause | **Yes at/after 2027-07-01** | https://www.legislation.gov.au/C2026A00064 |
 | *Unfair trading tricks and traps to be banned* | Treasury Ministers / Andrew Leigh | 2026-07-02 | Government announcement | Plain-language policy summary; subscription-trap reforms from 2027-07-01 | Political/government communication; legislation controls if wording differs | Yes | https://ministers.treasury.gov.au/ministers/andrew-leigh-2025/media-releases/unfair-trading-tricks-and-traps-be-banned |
 | *Let Me Out – Subscription trap practices in Australia* | Consumer Policy Research Centre (CPRC) | 2024-08-20 | Consumer-organisation research | 75% of Australians with subscriptions reported negative cancellation experience; 32% pressure; 90% likely repurchase if easy cancellation | Broader subscription market, not AI-specific; advocacy/reform orientation; consult methodology before using numbers | Yes for newer research | https://cprc.org.au/report/let-me-out/ |
@@ -92,7 +92,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # E. Scam, malware, fake-app and malicious-extension evidence
 
 | Source | Organisation / authors | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Fake ChatGPT Apps Scam Users Out of Thousands of Dollars, Sophos Reports* / FleeceGPT research | Sophos X-Ops | 2023-05 | Security-vendor research | Multiple AI-themed/fleeceware chatbot apps found in Apple App Store/Google Play; recurring-subscription tactics | Selected security cases, not prevalence; vendor has commercial security interest | No for historical existence; yes for newer examples | https://www.sophos.com/en-us/press/press-releases/2023/05/fake-chatgpt-apps-scam-sophos-reports |
 | *FakeGPT #2: Open Source Turned Malicious in Another Variant of the Facebook Account Stealer* | Guardio Labs | 2023-03-22 | Security-vendor research | AI-themed Chrome extension distributed through extension store and used for account theft | Selected campaign; vendor report; not population prevalence | No for historical case | https://guard.io/labs/fakegpt-2-open-source-turned-malicious-in-another-variant-of-the-facebook-account-stealer |
 | *Meta's Q1 2023 Security Reports: Protecting People and Businesses* | Meta | 2023-05 | Platform threat report | Around 10 malware families posing as ChatGPT/similar tools; malicious extensions in official stores | Platform telemetry, not all-internet prevalence; interested party | No for historical case | https://about.fb.com/news/2023/05/metas-q1-2023-security-reports/ |
@@ -104,7 +104,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # F. Children, teenagers and online safety — Australia
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Talking to machines: Children's experiences with AI assistants and companions* | eSafety Commissioner | Survey fieldwork 2026-02-02 to 2026-03-04; report 2026 | Australian regulator research; n=1,950 ages 10–17 | 78% had used AI assistant, 8% companion; personal/social uses; 32% of users shared personal/potentially sensitive data; 20% reported potentially inappropriate/harmful interactions | Self-report; children 10–17 only; assistant/companion definitions; does not imply every service is equally risky | Yes | https://www.esafety.gov.au/research/talking-to-machines-childrens-experiences-with-ai-assistants-and-companions |
 | *Findings from transparency notices on AI companion apps: October 2025* | eSafety Commissioner | Notices 2025-10-16; findings published subsequently | Regulator transparency report | Concrete child-safety control gaps reported by four companion services; age assurance, moderation, red-teaming, support mechanisms | eSafety explicitly says provider responses were not independently technically verified; four services not entire market | Yes | https://www.esafety.gov.au/industry/basic-online-safety-expectations/ai-services/findings-october-2025 |
 | *AI chatbots and companions – risks to children and young people* | eSafety Commissioner | Current advisory | Regulator guidance | Parent/carer conversation and risk-reduction advice | Guidance rather than causal clinical evidence for every asserted mechanism | Yes | https://www.esafety.gov.au/newsroom/blogs/ai-chatbots-and-companions-risks-to-children-and-young-people |
@@ -115,7 +115,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # G. Accessibility and inclusion
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Get audio descriptions with Guided Vision in Gemini Live* | Google | Current | Provider accessibility help | AI visual description, reading/translation, object/surroundings assistance; explicit warning that it can make mistakes and is not a mobility/navigation aid | Provider feature page; device/region availability changes; provider is assessing own product | Yes | https://support.google.com/accessibility/android/answer/18365638?hl=en |
 | *Accessible writing tools and technology webinar recording* | Vision Australia | 2026-06-23 | Australian disability organisation resource | Practical Australian accessibility/use context for AI-enabled writing/technology | Educational snapshot, not controlled trial | Yes | https://www.visionaustralia.org/community/news/2026-06-23/accessible-writing-tools-and-technology-webinar-recording |
 | *Vision Australia AI newsletter — July 2026* | Vision Australia | 2026-07-27 | Australian disability organisation resource | Current examples/news on AI and accessibility from user-support organisation | Time-sensitive newsletter; not comprehensive evaluation | Yes | https://www.visionaustralia.org/community/news/2026-07-27/vision-australia-ai-newsletter-july-2026 |
@@ -126,7 +126,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # H. Platform permissions, subscriptions, cancellation and refunds
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Control access to information in apps on iPhone* | Apple | Current | Platform help | Review/revoke microphone, camera, photos, contacts and other app permissions | Interface labels can change by OS version | Yes | https://support.apple.com/en-au/guide/iphone/iph168c4bbd5/ios |
 | *About App Privacy Report* | Apple | Current | Platform help | Shows app/network access useful for permission/data-flow awareness | Only covers Apple implementation/eligible OS versions; does not explain all server-side processing | Yes | https://support.apple.com/en-au/102188 |
 | Apple billing/subscriptions/refunds support | Apple | Current | Platform help | Entry point for subscription management and refund procedures | Eligibility/refund outcome is case-specific | Yes | https://support.apple.com/en-au/billing |
@@ -141,7 +141,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # I. International consumer comparison — use sparingly
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *Federal Trade Commission Announces Final Rule Banning Fake Reviews and Testimonials* | US Federal Trade Commission | 2024-08-14 | US regulator | Final rule explicitly reaches fake/false reviews including AI-generated fake reviews; rule effective 2024-10-21 according to later FTC guidance | US law, not Australian law | Moderate | https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials |
 | *The Consumer Reviews and Testimonials Rule: Questions and Answers* | US FTC | Current; rule effective 2024-10-21 | US regulator guidance | Clarifies current US fake-review rule | US jurisdiction; staff guidance not comprehensive/safe harbour | Yes | https://www.ftc.gov/business-guidance/resources/consumer-reviews-testimonials-rule-questions-answers |
 | *Federal Trade Commission Announces Final “Click-to-Cancel” Rule* | US FTC | 2024-10-16 | Historical regulator announcement | Useful history of intended simple-cancellation rule | **Not current controlling rule after court vacatur**; must not be cited as current US requirement | Historical only | https://www.ftc.gov/news-events/news/press-releases/2024/10/federal-trade-commission-announces-final-click-cancel-rule-making-it-easier-consumers-end-recurring |
@@ -153,7 +153,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # J. Named-plan/current pricing pages — website only
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | Microsoft 365 Copilot / personal plans — Australia | Microsoft | Current 2026-10-01 | Provider pricing page | Example of AI bundled into broader productivity subscriptions and higher AI tiers; current Australian pricing | Dynamic prices/promotions/taxes/features; not a value ranking | **Yes every refresh** | https://www.microsoft.com/en-au/microsoft-365-copilot/personal |
 | Microsoft 365 Copilot pricing — Australia | Microsoft | Current 2026-10-01 | Provider pricing page | Current business/organisational AI pricing/package context | Dynamic; may be annual commitment/ex-tax depending offer | **Yes every refresh** | https://www.microsoft.com/en-au/microsoft-365-copilot/pricing |
 | Google AI plans — Australia | Google | Current 2026-10-01 | Provider pricing/plan page | Example of AI bundled with storage/service plans | Dynamic rendering made exact price extraction unreliable in this research run; manually verify before publishing | **Yes every refresh** | https://one.google.com/intl/en_au/about/google-ai-plans/ |
@@ -163,7 +163,7 @@ These sources are valuable for current provider commitments/settings. They shoul
 # K. Additional current/historical reporting used carefully
 
 | Source | Organisation | Date | Type | What it supports | Important limitations | Recheck | Direct URL |
-|---|---|---:|---|---|---|---|---|
+| --- | --- |---:| --- | --- | --- | --- | --- |
 | *OpenAI is pulling shared ChatGPT chats from Google Search* | Search Engine Journal | 2025-07-31 | Secondary technology reporting | Contemporary evidence about the short-lived shared-chat discoverability/indexing incident and provider response | Secondary report; incident concerned shared/discoverable links, **not arbitrary private chats** | No for historical incident; yes for current sharing behaviour | https://www.searchenginejournal.com/openai-is-pulling-shared-chatgpt-chats-from-google-search/552671/ |
 
 ---

@@ -60,7 +60,7 @@ The tests use fake D1, Turnstile, Checkout, and fulfilment adapters. Stripe sign
 Production runs as the Worker `how-to-use-ai` on the custom domains `how-to-use-ai.com` and `www.how-to-use-ai.com`. `workers.dev` and preview URLs are disabled, and the middleware (`src/middleware.ts`) permanently redirects `www` to the apex host.
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | D1 database | `how-to-use-ai-site` (`681b856b-e2b1-4eea-8ec0-1d355ec0c770`), Oceania, migration `0001` applied |
 | Turnstile widget | `How To Use AI PROD`, managed mode, site key `0x4AAAAAAFB56_6HtJDzcLZi` |
 | Worker secrets | `TURNSTILE_SECRET_KEY` only |

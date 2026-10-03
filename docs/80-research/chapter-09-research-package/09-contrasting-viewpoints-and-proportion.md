@@ -50,7 +50,7 @@ The book should defend the need to take risks seriously without pretending the p
 These ratings are **editorial research judgements, not quantitative risk scores**. They are intended to help a later writer choose proportion, not to be printed as a ranking.
 
 | Risk | Documented present harm? | Ordinary-reader exposure | Potential severity | Evidence quality | Key uncertainty |
-|---|---|---:|---:|---|---|
+| --- | --- |---:|---:| --- | --- |
 | Misinformation | Yes | Medium/high online | Low to societal/high depending context | Mixed to strong for existence; weaker for causal outcome claims | How much AI changes belief/action versus distribution bottlenecks |
 | Deepfakes | Yes | Medium | High for targeted abuse/fraud | Strong cases; prevalence measurement uneven | Detection, prevalence by subtype, platform effects |
 | Scams | Yes | High | High financial/emotional | Strong for scams generally; weaker for AI-specific share | Attribution of losses specifically to AI |

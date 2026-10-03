@@ -273,7 +273,7 @@ The Federal Court examples of fabricated authorities provide an unusually concre
 Chapter 7 should explicitly normalise choosing a non-AI solution.
 
 | Need | Often better starting point |
-|---|---|
+| --- | --- |
 | Exact calculation | spreadsheet formula/calculator |
 | Repeat same rule every time | conventional automation/rule engine |
 | Retrieve an exact known record | database/search/system of record |

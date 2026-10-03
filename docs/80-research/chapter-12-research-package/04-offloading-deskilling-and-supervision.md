@@ -209,7 +209,7 @@ Sometimes generator, sometimes critic, sometimes simulator, sometimes checker. A
 **Research synthesis, not finished chapter copy:**
 
 | When AI does more of... | The person gets less practice at... | Yet may still need to... |
-|---|---|---|
+| --- | --- | --- |
 | drafting | structuring an argument | spot a misleading argument |
 | diagnosis/classification | recognising routine patterns | catch rare failures |
 | navigation | building spatial knowledge | recover when routing fails |

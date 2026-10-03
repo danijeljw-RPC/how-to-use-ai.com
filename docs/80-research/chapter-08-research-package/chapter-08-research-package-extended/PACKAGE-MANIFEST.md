@@ -10,7 +10,7 @@
 ## Files
 
 | File | Approx. words | Lines | Bytes |
-|---|---:|---:|---:|
+| --- |---:|---:|---:|
 | `00-readme.md` | 1,589 | 144 | 12,077 |
 | `01-core-research.md` | 2,913 | 343 | 21,099 |
 | `02-creative-domains.md` | 2,840 | 470 | 21,352 |

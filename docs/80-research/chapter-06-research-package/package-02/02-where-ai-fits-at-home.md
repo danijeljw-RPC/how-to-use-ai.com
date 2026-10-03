@@ -76,7 +76,7 @@ This demonstrates substantial consumer adoption, but it is U.S. data and should 
 ## Transferable taxonomy
 
 | AI role | Household example | Human still owns |
-|---|---|---|
+| --- | --- | --- |
 | Generate | dinner options | choosing/checking suitability |
 | Explain | bill terminology | checking obligations |
 | Organise | to-do list | priorities |

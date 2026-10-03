@@ -40,7 +40,7 @@ Individuals have much less leverage over:
 A useful cross-chapter distinction is:
 
 | Risk | Mostly new because of AI? | Mostly an older harm amplified? | What AI changes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Misinformation | No | Yes | Production speed, localisation, variation, synthetic media, automated volume |
 | Deepfakes | Partly | Partly | Cheap realistic impersonation of voice/image/video; scalable synthetic abuse |
 | Scams | No | Yes | Personalisation, translation, voice/video impersonation, content quality, automation |

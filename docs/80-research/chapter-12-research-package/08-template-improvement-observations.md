@@ -238,7 +238,7 @@ https://onlinelibrary.wiley.com/doi/full/10.1002/tesq.70010
 **Research suggests:** a compact comparison table may be more useful than a diagram:
 
 | Capability | AI can already help/do | Human responsibility to protect |
-|---|---|---|
+| --- | --- | --- |
 | Communication | draft/rewrite/translate/persuade | audience, intent, relationship, accountability |
 | Judgement | analyse/recommend/rank | evidence, calibration, context, consequence |
 | Leadership | analyse/plan/coordinate components | legitimacy, commitment, trust, responsibility |

@@ -379,7 +379,7 @@ https://minister.infrastructure.gov.au/rowland/media-release/communications-legi
 # 13. Misconceptions — evidence-led treatment
 
 | Claim | Better treatment |
-|---|---|
+| --- | --- |
 | “AI misinformation has already swung elections.” | There are clear documented uses of AI in influence operations, but demonstrating causal effects on election outcomes is much harder. Research on 2024 UK/EU/French elections found no evidence of meaningful outcome impact. |
 | “AI misinformation fears are completely overblown.” | Production costs, translation, synthetic media and scale have changed materially; influence campaigns and fake-content businesses are documented. Limited measured election impact does not make the broader risk imaginary. |
 | “You can always tell a deepfake by looking closely.” | Human performance is inconsistent; high-quality media can defeat unaided inspection. Verify source/context instead. |

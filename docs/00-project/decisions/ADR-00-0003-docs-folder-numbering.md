@@ -18,7 +18,7 @@ Top-level areas use tens. A sub-area inside an area takes the next unit
 number of its parent. `80-` and `90-` stay as they are.
 
 | Old | New |
-|---|---|
+| --- | --- |
 | `00-project` | `00-project` (unchanged) |
 | `01-series` | `10-series` |
 | `04-style` | `20-style` |

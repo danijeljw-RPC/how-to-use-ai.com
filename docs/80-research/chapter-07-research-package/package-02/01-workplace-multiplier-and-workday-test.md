@@ -161,7 +161,7 @@ This is stronger than asking whether the AI generated something quickly.
 For a practical demonstration, measure or at least notice:
 
 | Stage | Possible saving | Possible cost |
-|---|---|---|
+| --- | --- | --- |
 | Preparing context | Reuses existing notes/data | Cleaning/redacting context can take time |
 | Prompting | Quickly frames the task | Repeated prompt repair can become work |
 | Generation | Seconds rather than minutes | Fast output can encourage premature acceptance |

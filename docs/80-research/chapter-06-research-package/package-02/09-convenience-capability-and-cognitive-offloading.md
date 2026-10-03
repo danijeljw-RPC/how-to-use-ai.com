@@ -98,7 +98,7 @@ It is a reason to distinguish:
 # Task matrix
 
 | Task | Useful offloading | Human capability/judgement worth retaining |
-|---|---|---|
+| --- | --- | --- |
 | Packing list | memory burden | final personal check |
 | Grocery grouping | organisation | dietary choices |
 | Routine email | phrasing | intent/facts |

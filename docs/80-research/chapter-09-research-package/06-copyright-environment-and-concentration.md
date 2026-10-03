@@ -144,7 +144,7 @@ https://openai.com/policies/service-terms/
 ## A8. Copyright misconceptions
 
 | Claim | Better treatment |
-|---|---|
+| --- | --- |
 | “All AI training on copyrighted work is illegal.” | Law differs by jurisdiction, facts and legal theory; litigation and licensing are still developing. |
 | “Courts have decided AI training is always fair use.” | Overbroad. US rulings are case-specific, and “fair use” is a US doctrine. |
 | “If the provider lets me use output commercially, nobody can sue me.” | Contractual permission from the provider cannot erase independent third-party rights. |
@@ -418,7 +418,7 @@ A sentence acknowledging potential benefits is enough. Chapter 9 is about costs,
 ## B13. Environmental misconceptions
 
 | Claim | Better explanation |
-|---|---|
+| --- | --- |
 | “Every AI question uses a bottle of water.” | No universal per-query water value exists. Water depends on workload, location, cooling and accounting boundary. |
 | “An AI query uses ten times a web search.” | Widely repeated comparison is too blunt; search itself increasingly uses AI, and model/query efficiency varies rapidly. Trace any comparison before publication. |
 | “A single text request is environmentally catastrophic.” | Modern short text requests can be individually small; scale and heavier modalities matter. |
@@ -669,7 +669,7 @@ The National AI Plan and current government capability programs are better sourc
 ## C12. Concentration misconceptions
 
 | Claim | Better explanation |
-|---|---|
+| --- | --- |
 | “AI is controlled by one monopoly.” | Different layers have different levels of concentration and competition. |
 | “There is no competition.” | Model/provider competition is rapid in some layers; frontier infrastructure remains expensive/concentrated. |
 | “Open source solves the monopoly problem.” | Open-weight models help at the model layer but still depend on hardware, capital and distribution ecosystems. |

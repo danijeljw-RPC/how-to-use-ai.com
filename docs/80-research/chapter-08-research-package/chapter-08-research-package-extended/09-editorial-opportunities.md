@@ -32,7 +32,7 @@ For each stage, a small second column:
 Example:
 
 | Mode | Human role | AI role | Main question |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Blank-page breaker | defines problem/direction | suggests starts | does suggestion anchor me? |
 | Variation engine | provides source/direction | creates alternatives | which variation fits? |
 | Production assistant | controls creative plan | performs bounded transformation | did it preserve intent? |
@@ -55,7 +55,7 @@ Real workflows can move back and forth; "AI-led" is not a legal category.
 ## Table
 
 | Claim | What it actually asks | Example evidence |
-|---|---|---|
+| --- | --- | --- |
 | Provider says I own it | contract between user/provider | Canva [S41] |
 | I can use it commercially | provider permission | Suno [S42] |
 | Copyright protects it | statutory law + human authorship etc. | USCO/Australia/UK [S07] [S04] [S14] |
@@ -75,7 +75,7 @@ This probably teaches more practical value than several pages of abstract copyri
 Keep it tiny in print; detailed/current table online.
 
 | Jurisdiction | Training shorthand | Output/authorship shorthand | Publication caution |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Australia | no new TDM exception being considered; specific copyright exceptions apply | human authorship central; mixed works fact-specific | CAIRG active [S01] |
 | US | fair use fact-specific; current litigation | sufficient human expression can be protected | ROSS appeal and USCO status moving [S07] [S09] |
 | EU | explicit TDM rules incl. rights reservation + GPAI transparency | member/EU originality law matters | AI Act enforcement evolving [S11]-[S13] |
@@ -414,7 +414,7 @@ Use current provider terms only as examples and keep law jurisdiction-aware. [S0
 # 19. Possible table — AI versus conventional tool
 
 | Task | AI useful when | Conventional/human tool often better when |
-|---|---|---|
+| --- | --- | --- |
 | writing | exploring variants, reorganising | exact factual sourcing, distinctive final voice |
 | image | concept exploration, rough illustration | exact vector/technical drawing, rights-sensitive brand |
 | music | demo/arrangement exploration | exact performance/mix, clear performer identity |

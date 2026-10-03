@@ -111,7 +111,7 @@ This may be more book-friendly than a wide flowchart.
 ## 5. Potential table — task, benefit, main risk, check
 
 | Workplace task | Why AI can help | Main failure mode | Practical check |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Draft report | structure and wording | invented/altered facts | compare to source notes/data |
 | Meeting summary | compression/extraction | inferred decisions/actions | compare with transcript/notes |
 | Customer support | thread summary/first response | wrong policy or entitlement | check approved knowledge base |

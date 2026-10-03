@@ -181,7 +181,7 @@ https://internationalaisafetyreport.org/publication/international-ai-safety-repo
 ## 11. A useful “breakthrough vs solved problem” table
 
 | Stage | Protein/medicine example | Materials example | Education example |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Model result | Predict structure | Predict stable material | Generate explanation/solution |
 | Validation | Experimental structure/biology | Synthesis + measurement | Controlled learning study |
 | Integration | Drug-development workflow | Manufacturing process | Curriculum/teacher workflow |

@@ -167,7 +167,7 @@ No external research performed for the next chapter because its plan was not par
 ## Required-example map
 
 | Plan item | Strong candidate material |
-|---|---|
+| --- | --- |
 | Hallucination | fabricated citation; Mata v. Avianca as optional real case |
 | Lack of true understanding | changed familiar riddle; form-vs-meaning debate |
 | No consciousness | conversational self-report is not a consciousness test |

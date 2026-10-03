@@ -438,7 +438,7 @@ Distinct issue: AI accessibility tools can provide genuine autonomy while unreli
 ## 25. Recommended analogy status table
 
 | Analogy | Verification/status | Works for | Breaks because | Recommendation |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Horses → cars | Historically real displacement of work animals | technology changes systems | reinforces replacement fear; humans ≠ horses | **Replace** |
 | Factory electrification | Strong economic-history basis | complementary workflow/skills | slow industrial analogy, not prediction | **Best executive analogy** |
 | Calculator for words/text | Common/traceable to modern LLM commentary | amplification + need to check | calculators are deterministic | **Use with explicit break** |

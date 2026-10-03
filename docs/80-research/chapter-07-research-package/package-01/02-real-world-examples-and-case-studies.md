@@ -423,7 +423,7 @@ The lesson is simple and practical:
 A table can compare fictional categories rather than promising exact vendor settings:
 
 | Question | Public consumer tool | Approved enterprise tool | Internal system |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Approved for company data? | Check | Often policy-defined | Policy-defined |
 | Model-training treatment | Product/settings dependent | Contract/product dependent | Organisation-controlled |
 | Retention/logging | Product dependent | Often administrator-controlled | Organisation-controlled |

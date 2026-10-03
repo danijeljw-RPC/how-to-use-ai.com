@@ -16,7 +16,7 @@
 ## Australian government and regulators
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Continued action critical to combat fraud as annual scam losses exceed $2 billion — ACCC](https://www.accc.gov.au/media-release/continued-action-critical-to-combat-fraud-as-annual-scam-losses-exceed-2-billion) | 2026-03-30 | Primary; regulator release; official reported data | 2025 combined scam reports and reported losses; supports calibration of scam harm in Australia. | All scams, **not AI-only scams**; reporting systems undercount. **Recheck: Yes — annual data.** |
 | [Targeting Scams Report 2025 — ACCC](https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports/targeting-scams-report-2025) | 2026 | Primary; regulator report | Detailed Australian scam categories, reports, losses and trends. | Reported data, not complete prevalence. **Recheck: Yes.** |
 | [How scammers use technology and AI — Scamwatch](https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams/how-scammers-use-technology-and-ai) | Current page; accessed 2026-10-01 | Primary; regulator guidance | AI-assisted impersonation, convincing messages, synthetic media and consumer protection advice. | Guidance changes as tactics change. **Recheck: Yes.** |
@@ -62,7 +62,7 @@
 ## International government, regulation and standards
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [EU AI Act implementation timeline — European Commission AI Act Service Desk](https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline) | Current; accessed 2026-10-01 | Primary; EU implementation guidance | Phased AI Act obligations, dates and amendments. | Timeline is legally/politically dynamic. **Recheck: Yes — high priority.** |
 | [EU AI Act Article 5 — Prohibited AI practices](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5) | Current consolidated guidance | Primary; EU legal text/guidance | Examples of practices EU law prohibits/restricts, including certain biometric/emotion uses. | Applicability/exceptions matter. **Recheck: Yes.** |
 | [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | AI RMF 1.0: 2023; revision underway 2026 | Primary; US standards framework | Governance and risk-management taxonomy; supports structural vs individual framing. | Framework is being revised. **Recheck: Yes.** |
@@ -80,7 +80,7 @@
 ## Academic research — misinformation, persuasion, deepfakes and detection
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [AI-enabled influence operations: threat analysis of the 2024 UK and European elections — CETaS / Alan Turing Institute](https://cetas.turing.ac.uk/publications/ai-enabled-influence-operations-threat-analysis-2024-uk-and-european-elections) | 2024-09-19 | Independent research report | Identified viral AI-enabled cases and found no evidence they materially affected election results; supports capability-vs-impact distinction. | Search/visibility thresholds mean it is not a census of all content. |
 | [No evidence AI disinformation or deepfakes impacted UK, French or European election results — Alan Turing Institute](https://www.turing.ac.uk/news/no-evidence-ai-disinformation-or-deepfakes-impacted-uk-french-or-european-elections-results) | 2024 | Research-institute summary | Accessible summary of CETaS findings. | Use report above for methodology. |
 | [Human ability to detect deepfakes: a meta-analysis — Computers in Human Behavior Reports](https://doi.org/10.1016/j.chbr.2024.100538) | 2024 | Meta-analysis; independent academic finding | 56 papers / 86,155 participants; demonstrates limits of unaided human detection and value of interventions. | High heterogeneity; media types and generation quality evolve. **Recheck: Medium.** |
@@ -94,7 +94,7 @@
 ## Academic research — bias, fairness and automated decisions
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Dissecting racial bias in an algorithm used to manage the health of populations — Science](https://doi.org/10.1126/science.aax2342) | 2019 | Peer-reviewed empirical study | Strong beginner example of proxy-target bias: predicting cost rather than health need produced racial disparity. | Specific commercial health-management context; not all AI systems. |
 | [Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification — PMLR](https://proceedings.mlr.press/v81/buolamwini18a.html) | 2018 | Peer-reviewed/academic audit | Historic example of subgroup performance disparities in commercial facial analysis. | **Historical capability snapshot**, not evidence of current model accuracy. |
 | [NIST Face Recognition Technology Evaluation — Demographic Effects](https://pages.nist.gov/frvt/html/frvt_demographics.html) | Ongoing | Primary technical evaluation | Current empirical testing of demographic effects in face-recognition algorithms. | Vendor/algorithm-specific; results evolve. **Recheck: Yes.** |
@@ -109,7 +109,7 @@
 ## Privacy, model memorisation and workplace monitoring
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Scalable Extraction of Training Data from (Production) Language Models](https://arxiv.org/abs/2311.17035) | 2023 | Academic preprint / empirical security research | Demonstrates that memorised training data can be extracted from some production language models at scale under research conditions. | Model/exploit-specific; does not mean any arbitrary prompt reveals personal data. |
 | [Extracting Training Data from Large Language Models](https://arxiv.org/abs/2012.07805) | 2020 | Academic security research | Earlier evidence of memorisation/extraction risk in language models. | Older models; useful for mechanism, not current incidence. |
 | [AI systems at work: changing psychosocial work environment — ILO](https://www.ilo.org/publications/ai-systems-work-changing-psychosocial-work-environment) | 2025/2026 current report | Intergovernmental research | Worker monitoring, algorithmic management and psychosocial impacts. | Cross-country/general; definitions of AI/algorithmic management vary. |
@@ -121,7 +121,7 @@
 ## Copyright and legal disputes
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Copyright and Artificial Intelligence Reference Group — Australian Attorney-General's Department](https://www.ag.gov.au/rights-and-protections/copyright/copyright-and-artificial-intelligence-reference-group-cairg) | Current; accessed 2026-10-01 | Primary; government policy process | Australian copyright/AI policy work, including text/data mining and priority issues. | Policy remains live. **Recheck: Yes — high priority.** |
 | [Bartz v. Anthropic copyright settlement site](https://www.anthropiccopyrightsettlement.com/) | Final approval reported 2026-07-20 | Settlement administration / court-linked materials | Settlement concerning specified pirated-book copies; demonstrates fact-specific legal exposure rather than blanket ruling on all training. | Settlement is not a general precedent resolving AI training legality. **Recheck: Yes.** |
 | [Bartz v. Anthropic settlement documents](https://www.anthropiccopyrightsettlement.com/documents) | 2025–2026 | Primary/settlement documents | Underlying notices, orders and terms. | Read specific documents before quoting legal effect. **Recheck: Yes.** |
@@ -133,7 +133,7 @@
 ## Energy, water and environmental impact
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Energy and AI — Energy demand from AI — International Energy Agency](https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai) | 2025/2026 current analysis | Intergovernmental estimate + forecast | Global data-centre electricity use (~415 TWh in 2024) and base-case projection toward ~945 TWh by 2030; AI as a major growth driver. | 415 TWh is **all data centres**, not “AI electricity use”; future values are forecasts. **Recheck: Yes.** |
 | [Measuring the environmental impact of AI inference — Google Cloud](https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference/) | 2025-08-21 | Company operational data/methodology | Provider estimate for median Gemini Apps text prompt energy, carbon and water under its methodology. | Company-specific; not universal; not an independent audit; text prompts ≠ image/video/agent workflows. **Recheck: Yes.** |
 | [Independent estimates of frontier-model query energy](https://arxiv.org/abs/2509.20241) | 2025 | Independent modelled estimate | Shows query energy varies materially with model, workload and assumptions. | Modelled rather than direct measurement; rapidly changing hardware/software. **Recheck: Yes.** |
@@ -144,7 +144,7 @@
 ## Competition and market structure
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [How much does it cost to train frontier AI models? — Epoch AI](https://epoch.ai/publications/how-much-does-it-cost-to-train-frontier-ai-models) | Current research | Independent estimate/analysis | Trend estimates for frontier training costs and capital intensity. | Cost estimates depend on assumptions; future $1b-type figures are projections, not observed facts. **Recheck: Yes.** |
 | [2026 AI Index Report — Stanford HAI](https://hai.stanford.edu/ai-index/2026-ai-index-report) | 2026 | Academic/industry synthesis | Frontier-model provenance, industry share, global competition and cost/performance trends. | Compilation uses varying datasets/definitions; annual. **Recheck: Yes.** |
 
@@ -153,7 +153,7 @@
 ## AI company disclosures and threat reports
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [Disrupting malicious uses of AI — October 2025 — OpenAI](https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/) | 2025-10 | Company threat report | Provider-observed influence operations, scams and malicious workflows; often shows AI augmenting existing playbooks. | Visibility limited to provider systems; selective/company reporting. **Recheck: Yes.** |
 | [Disrupting malicious uses of AI in an influence campaign linked to Russia — OpenAI](https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia/) | 2026 | Company threat report | Concrete current example of AI-assisted influence activity and observed distribution/audience limits. | Company source, not ecosystem-wide prevalence. **Recheck: Yes.** |
 
@@ -162,7 +162,7 @@
 ## Platform/product privacy controls — representative, volatile examples
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [How OpenAI handles data in consumer services — OpenAI Help](https://help.openai.com/en/articles/7039943-how-openai-handles-data-in-consumer-services) | Current; accessed 2026-10-01 | Provider documentation | Representative consumer data use, training controls and service-data handling. | Product settings/retention terms can change quickly. **Recheck: Yes — high priority.** |
 | [Gemini Apps Privacy Hub — Google](https://support.google.com/gemini/answer/13594961?pubDate=20260311) | 2026-03-11/current | Provider documentation | Representative AI-assistant privacy controls, retention/activity settings and data handling. | Provider-specific and volatile. **Recheck: Yes — high priority.** |
 | [Microsoft Copilot privacy controls — Microsoft Support](https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls) | Current; accessed 2026-10-01 | Provider documentation | Representative consumer privacy/control settings. | Provider-specific and volatile. **Recheck: Yes — high priority.** |
@@ -172,7 +172,7 @@
 ## Risk taxonomies and incident resources
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [MIT AI Risk Repository — Risks](https://airisk.mit.edu/risks) | Living resource; accessed 2026-10-01 | Academic research repository | Large cross-framework catalogue/taxonomy of AI risks; useful for testing Chapter 9 grouping. | Policy/technical taxonomy is much more detailed than a beginner chapter needs. **Recheck: Yes.** |
 | [MIT AI Risk Repository — Mitigations](https://airisk.mit.edu/ai-risk-mitigations) | Living resource | Academic research repository | Maps mitigation approaches across governance, technical and operational layers; supports “individual action is not enough” framing. | Broad repository; not every mitigation has equal evidence. **Recheck: Yes.** |
 | [AI Incident Database](https://incidentdatabase.ai/) | Living database | Incident repository | Leads for documented real-world AI incidents and patterns. | **Not a prevalence database**; inclusion/reporting bias. **Recheck: Yes.** |
@@ -184,7 +184,7 @@
 ## Civil society / private monitoring / useful secondary sources
 
 | Source | Date | Type | Topic / what it supports | Limitations / recheck |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | [AI Tracking Center — NewsGuard](https://www.newsguardtech.com/special-reports/ai-tracking-center) | Living tracker | Private monitoring/rating company | Documents AI-generated low-quality news/information sites and content-farm patterns. | Private methodology; dynamic counts do not measure audience reach or persuasion. **Recheck: Yes.** |
 
 ---

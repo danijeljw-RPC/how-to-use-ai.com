@@ -166,7 +166,7 @@ Current screenshots of privacy settings, dated and provider-specific.
 # 8. Table: “Old warning sign / why it is weaker now / better habit”
 
 | Old shortcut | Why weaker | Better habit |
-|---|---|---|
+| --- | --- | --- |
 | Bad spelling means scam | AI can produce fluent local-language messages | Verify sender/request independently |
 | I know that voice | Voice cloning can imitate familiar voices | Call back on known number / code phrase |
 | They're on video so it's real | Synthetic/pre-recorded impersonation exists | Follow normal approval/security process |
@@ -180,7 +180,7 @@ This could be one of the chapter's most useful tables.
 # 9. Table: “Risk / what is new / what is old”
 
 | Risk | Older problem | What AI changes |
-|---|---|---|
+| --- | --- | --- |
 | Misinformation | propaganda, fake reviews, rumours | speed, volume, translation, synthetic media |
 | Deepfakes | photo/video manipulation, impersonation | realism/accessibility of synthetic identity/media |
 | Scams | phishing, impersonation, investment fraud | language quality, personalisation, voice/video imitation |
@@ -263,7 +263,7 @@ Avoids false choice between “one prompt is nothing” and “AI is consuming t
 # 13. Environment evidence table
 
 | Number | Evidence type | What it can support | What it cannot support |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | IEA 415 TWh data-centre electricity, 2024 | estimate of historical global data centres | data centres are material electricity users | AI alone used 415 TWh |
 | IEA 945 TWh, 2030 base case | projection | possible future data-centre growth | guaranteed future consumption |
 | Google 0.24 Wh median Gemini text prompt | company operational measurement/estimate | one modern text service can have low per-prompt energy | universal energy for every AI request |

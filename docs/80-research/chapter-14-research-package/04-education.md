@@ -173,7 +173,7 @@ This is a strong example of capability versus adoption.
 ## Maturity assessment
 
 | Application | Maturity |
-|---|---|
+| --- | --- |
 | General chatbots used by students | Widespread adoption |
 | Purpose-built school chatbots in Australia | Deployment / scaling |
 | Teacher planning/support | Deployment |

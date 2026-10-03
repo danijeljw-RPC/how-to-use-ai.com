@@ -38,7 +38,7 @@ Demo vs ordinary product interaction.
 ### Side-by-side
 
 | Viewer impression | Technical explanation |
-|---|---|
+| --- | --- |
 | continuous live interaction | selected still-image frames |
 | spoken back-and-forth | text prompts used in production |
 | natural response latency | video edited/shortened |
@@ -104,7 +104,7 @@ A breakthrough at step one can be extraordinary without proving step six.
 A compact table may replace multiple paragraphs:
 
 | If you are looking at… | It can show… | Ask… |
-|---|---|---|
+| --- | --- | --- |
 | Demo | possible capability | Was it live/selected/edited? |
 | Product | available scoped capability | How reliable, where, for whom? |
 | Research result | measured result | What metric/sample/comparator? |
@@ -367,7 +367,7 @@ To avoid Chapter 11 becoming a catalogue:
 ## 27. Potential concise chapter table
 
 | Claim | Better question |
-|---|---|
+| --- | --- |
 | “It can do X.” | Once, or reliably? |
 | “Research proves X.” | What exactly did the study measure? |
 | “AI beats humans.” | Which humans, on what task? |

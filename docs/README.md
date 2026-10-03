@@ -18,7 +18,7 @@ It contains:
 ## Directory Responsibilities
 
 | Directory | Purpose |
-|---|---|
+| --- | --- |
 | `00-project` | Project-wide memory, plans, decisions, and open issues |
 | `10-series` | Series-level structure and decisions |
 | `20-style` | Style guide, callouts, language, tone, and reader experience |

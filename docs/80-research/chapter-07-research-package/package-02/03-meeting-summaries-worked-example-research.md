@@ -43,7 +43,7 @@ If an action owner matters, source notes should identify speakers clearly enough
 For professional records, separate:
 
 | Category | Meaning | Example |
-|---|---|---|
+| --- | --- | --- |
 | Discussion | Topic was talked about | “Team discussed moving launch date.” |
 | Proposal | Someone suggested an option | “Maya proposed moving launch to 18 Oct.” |
 | Decision | Group/decision-maker agreed | “Launch moved to 18 Oct.” |

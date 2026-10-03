@@ -145,7 +145,7 @@ Axes:
 Illustrative cells:
 
 | | Correct | Incorrect |
-|---|---|---|
+| --- | --- | --- |
 | **Confident-sounding** | “Canberra is Australia's capital.” | fabricated citation with exact title/DOI |
 | **Uncertain-sounding** | correct claim expressed cautiously | hesitant guess that is still wrong |
 
@@ -415,7 +415,7 @@ Likely too detailed for Chapter 4, but useful background showing why “common s
 # 9. Consolidated Myth vs Reality candidates
 
 | Myth | More defensible reality |
-|---|---|
+| --- | --- |
 | AI only says things it learned as facts. | Generation is not a truth lookup; plausible false statements can be produced. |
 | A detailed answer is probably correct. | Detail and fluency are not measures of truth. |
 | A citation proves the answer. | Verify that the source exists **and** supports the claim. |

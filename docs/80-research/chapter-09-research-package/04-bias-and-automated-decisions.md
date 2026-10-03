@@ -321,7 +321,7 @@ Text/image generators can reproduce stereotyped associations in occupation, gend
 # 12. Misconceptions
 
 | Claim | Better explanation |
-|---|---|
+| --- | --- |
 | “AI is objective because it's a computer.” | It implements objectives, data, labels, proxies and thresholds chosen by people and institutions. |
 | “Bias comes only from biased training data.” | Bias can enter through target choice, measurement, proxies, deployment and feedback loops too. |
 | “Remove race and gender and bias is fixed.” | Correlated variables can act as proxies; historical structure remains in other features. |

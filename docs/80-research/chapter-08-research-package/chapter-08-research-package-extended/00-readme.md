@@ -74,7 +74,7 @@ When claims conflict, prefer the following order unless the question itself is a
 ## File map
 
 | File | Purpose |
-|---|---|
+| --- | --- |
 | `00-readme.md` | Scope, synthesis, cautions and package map |
 | `01-core-research.md` | Research mapped directly to the Chapter 8 structure |
 | `02-creative-domains.md` | Writing, visual art, music/audio, video/film and design |

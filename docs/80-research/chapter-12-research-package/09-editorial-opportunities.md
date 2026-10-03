@@ -29,7 +29,7 @@ Where it breaks down:
 Potentially the most efficient addition to the printed chapter:
 
 | Skill | What AI can already do | What the person still needs to do | How to protect/build it |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Communication | draft, rewrite, translate, simulate tone | decide purpose, audience, relationship, final meaning | formulate purpose first; edit in own voice; get human feedback |
 | Judgement | recommend, analyse, rank, compare | verify evidence, calibrate trust, weigh consequences, own decision | independent criteria; decision journal; primary-source checks |
 | Leadership | plan, analyse, coach, schedule components | create commitment, handle conflict, set legitimate direction, own outcomes | lead real small groups; invite dissent; review decisions |

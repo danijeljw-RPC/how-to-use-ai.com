@@ -143,7 +143,7 @@ The strongest research base is regulator action rather than speculation about mo
 The plan's three-way distinction is useful, but research suggests a beginner can benefit from six types:
 
 | Claim type | What it can legitimately establish | What it does **not** automatically establish |
-|---|---|---|
+| --- | --- | --- |
 | Demo | A capability can occur under shown/selected conditions | Reliability, frequency, cost, normal user experience |
 | Product claim | What a seller says is available/usable | Independent reliability or value |
 | Research result | A measured result under a protocol | General real-world usefulness or job competence |

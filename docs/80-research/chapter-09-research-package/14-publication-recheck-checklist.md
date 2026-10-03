@@ -16,7 +16,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 1. Australian law, regulation and institutions
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | National AI Plan | Whether it remains the current federal policy framework; any new mandatory guardrails, legislation, codes or replacement policy. |
 | High | Australian AI Safety Institute | Current remit, operational status, published testing, guidance and regulator relationships. |
 | High | Guidance for AI Adoption / former Voluntary AI Safety Standard | Current title, status, number/content of practices, and whether any element has become mandatory. |
@@ -35,7 +35,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 2. International law and regulatory comparisons
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | EU AI Act implementation timeline | Any amendments, delayed dates, guidance, codes of practice and enforcement milestones. Use the Commission's current implementation timeline rather than an old article. |
 | High | EU prohibited/high-risk practices | Exact scope and exceptions for biometric identification, emotion recognition, manipulation and synthetic-content obligations. |
 | Medium | United States federal position | Current federal executive/regulatory approach, FTC actions and major enacted federal laws, if any. |
@@ -48,7 +48,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 3. Scam and fraud evidence
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | Australian annual scam losses | Replace 2025 figures with the latest complete annual ACCC/NASC dataset if a newer report is available. Preserve the distinction between **reported** losses and total losses. |
 | High | AI-specific scam losses | Check whether a credible regulator has begun separately measuring AI-enabled scam losses. Do **not** derive an AI total from general scam totals. |
 | Medium | ASIC AI-scam warnings/takedowns | Update current examples and do not treat website takedown counts as victim/loss counts. |
@@ -60,7 +60,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 4. Deepfakes, image-based abuse and detection
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | eSafety complaint/enforcement data | New Australian data on digitally altered intimate imagery involving adults/children; label report counts correctly. |
 | High | Deepfake detection capability | New meta-analyses or benchmarks. Avoid static “look for glitches” advice if generation quality continues to improve. |
 | Medium | C2PA / Content Credentials | Current adoption by major platforms/camera/software vendors and whether ordinary users can inspect provenance reliably. |
@@ -74,7 +74,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 5. Misinformation and influence operations
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | Medium | 2024 election studies | Keep as historical evidence; do not generalise them to later elections without new evidence. |
 | High | AI-company threat reports | New provider reports and whether observed operations have changed in sophistication, reach or autonomy. |
 | Medium | AI-generated content-farm counts | Dynamic NewsGuard/private-monitoring counts and methodology. Never use site counts as audience-impact measures. |
@@ -86,7 +86,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 6. Bias and automated decisions
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | Medium | Current facial-recognition demographic performance | Use current NIST testing rather than treating Gender Shades (2018) as present-day capability evidence. |
 | Medium | Hiring LLM studies | New independent audits and whether major recruitment vendors have changed practices/models. |
 | Medium | AI-writing detectors | Current false-positive evidence, especially for non-native English speakers and students. |
@@ -99,7 +99,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 7. Surveillance and workplace monitoring
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | Australian retail/public-space facial recognition | New OAIC determinations, court/tribunal outcomes or legislation. |
 | Medium | Police/government biometric use | Current deployments, legal basis and safeguards in Australia if specific examples are used. |
 | Medium | Emotion recognition | Updated scientific reviews and EU/legal restrictions. Do not imply facial expressions reliably reveal inner emotional state. |
@@ -110,7 +110,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 8. Consumer privacy and product settings
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | OpenAI consumer data controls | Training opt-out, Temporary Chat/retention, human review, Memory/history controls and plan differences. |
 | High | Google Gemini controls | Activity/history retention, human review, connected apps and deletion behaviour. |
 | High | Microsoft Copilot controls | Training/model-improvement settings, history, connected data and consumer/business distinctions. |
@@ -125,7 +125,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 9. Copyright disputes and provider terms
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | Bartz v Anthropic | Final settlement status, appeals/administration and exact scope; do not describe it as a court ruling that resolves all AI training. |
 | High | Getty Images v Stability AI | Appeal/follow-up status and precise claims decided. |
 | High | Other major publisher/author/news/music/code cases | Any new merits rulings, settlements, dismissals or licences relevant to the brief. |
@@ -139,7 +139,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 10. Environment and data-centre demand
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | IEA data-centre electricity estimate/forecast | Latest observed year and current 2030 forecast; preserve “all data centres” vs AI-specific distinction. |
 | High | AEMO data-centre forecast | Latest ESOO/NEM forecast; clearly mark as a forecast and not AI-only demand. |
 | High | Per-prompt provider disclosures | New energy/water/emissions measurements; workload type, model, hardware, datacentre and methodology. |
@@ -155,7 +155,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 11. Market concentration and competition
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | Frontier-model market structure | Current leading developers, model-performance convergence, pricing and availability. |
 | High | Cloud/AI partnerships | New investments, restructures, exclusivity terms and regulator findings. |
 | High | ACCC/CMA/FTC/European competition work | New reports, enforcement or remedies. |
@@ -170,7 +170,7 @@ This file is deliberately separate from the research notes so the later writing/
 ## 12. Additional risks not in the core nine
 
 | Priority | Recheck item | What to verify |
-|---|---|---|
+| --- | --- | --- |
 | High | AI companions and children | Latest eSafety/FTC/regulator findings, lawsuits, provider age controls and independent studies. |
 | Medium | Harmful health/legal/financial advice | Current empirical studies and regulator warnings; separate benchmark failures from documented real-world harm. |
 | Medium | Prompt injection/data exfiltration | Relevant only if retained as a brief boundary note; technical details belong later in the series. |

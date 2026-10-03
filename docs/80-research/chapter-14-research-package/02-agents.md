@@ -189,7 +189,7 @@ For any agent claim, ask:
 ## Maturity assessment
 
 | Sub-direction | Maturity (Oct 2026) | Why |
-|---|---|---|
+| --- | --- | --- |
 | Coding agents | Limited-to-widespread deployment in technical teams | Real use, bounded digital environment |
 | Browser/computer agents | Limited deployment | Useful but reliability/security remain constraints |
 | Enterprise workflow agents | Limited deployment | Strong fit where permissions/workflows are constrained |

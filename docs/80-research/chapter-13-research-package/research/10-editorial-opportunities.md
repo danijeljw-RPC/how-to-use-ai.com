@@ -51,7 +51,7 @@ Many tasks span categories. A research task may use chat, web search, document a
 ### Suggested dimensions
 
 | Capability | Useful for | Typical beginner task | Main thing to verify | Common risk/limitation |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Chat | drafting, explaining, brainstorming | clarify a concept | factual reliability | fluent errors |
 | Image | generating/editing visuals | rough visual concept | licensing/accuracy | misleading details/bias |
 | Research | finding/synthesising sourced information | compare background sources | source quality | citation does not guarantee support |

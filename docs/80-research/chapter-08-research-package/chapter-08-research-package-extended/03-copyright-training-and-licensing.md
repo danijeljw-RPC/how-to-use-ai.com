@@ -75,7 +75,7 @@ Therefore:
 A simple table:
 
 | Mechanism | When source material is used | Beginner analogy | Main caution |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Training | During model development | adjusting a pattern generator from many examples | source copying/licensing; memorisation |
 | Generation | When the model creates an output from learned parameters | sampling a new continuation from learned patterns | similarity, errors, stereotypes |
 | Retrieval | At response time from an external source | looking something up before answering | source rights, attribution, access, quotation |
@@ -323,7 +323,7 @@ Yes. The proposed removal is not the same thing as enacted removal.
 A strong Chapter 8 table could distinguish:
 
 | Question | Example | Type |
-|---|---|---|
+| --- | --- | --- |
 | Was a protected copy made? | dataset contains an author's book | copyright/legal |
 | Was the copy permitted by licence/exception? | licence, TDM exception, fair use | copyright/legal |
 | Did the creator consent? | creator never opted in | ethical/contractual/policy |

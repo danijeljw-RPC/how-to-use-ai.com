@@ -21,7 +21,7 @@ Source report: <https://www.seobility.net/en/seocheck/check/?url=https%3A%2F%2Fh
 Each finding was checked with `curl` against production and against `wwwroot/src` on 2026-09-24.
 
 | # | Seobility finding | Severity | Verified cause | Action |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | 1 | HTTP → HTTPS redirect not configured correctly | Error (critical) | `http://how-to-use-ai.com/` returns `200` over plain HTTP. `http://www.` redirects to `http://` apex, not HTTPS. `canonical-host.ts` only rewrites the hostname and keeps the scheme. | Fix (P1) |
 | 2 | Charset missing from HTTP header | Warning | Responses send `Content-Type: text/html` with no `; charset=utf-8`. The `<meta charset>` is present. | Fix (P1) |
 | 3 | No favicon linked | Warning | `public/favicon.svg` exists and serves as `image/svg+xml`, but `BaseLayout.astro` never links it. | Fix (P1) |

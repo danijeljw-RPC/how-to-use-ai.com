@@ -114,7 +114,7 @@ https://www.industry.gov.au/publications/voluntary-ai-safety-standard/legal-land
 This can become a simple “AI is not a legal vacuum” table.
 
 | Regulator/body | Why relevant to AI |
-|---|---|
+| --- | --- |
 | ACCC | Australian Consumer Law, competition, scams framework, digital-platform competition/consumer issues |
 | OAIC | Privacy Act, Australian Privacy Principles, biometrics, automated-decision transparency, AI privacy guidance |
 | eSafety Commissioner | image-based abuse, online safety, illegal/restricted content, platform/service safety expectations |
@@ -342,7 +342,7 @@ Reasoning:
 # 13. Protective behaviours by risk category
 
 | Risk | Individual action that can help | What individuals cannot solve alone |
-|---|---|---|
+| --- | --- | --- |
 | Misinformation | verify source/context; lateral reading; pause before sharing | platform incentives, organised influence operations, provenance infrastructure |
 | Deepfakes | verify source; use separate channel for high-stakes requests | non-consensual content ecosystems, platform removal, criminal enforcement |
 | Scams | slow down; callback on known channel; use payment controls | scam ads/accounts, mule networks, telecom spoofing, cross-border enforcement |

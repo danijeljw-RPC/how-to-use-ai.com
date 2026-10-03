@@ -203,7 +203,7 @@ Recommended labels:
 Four quadrants:
 
 | | Correct | Incorrect |
-|---|---|---|
+| --- | --- | --- |
 | **Sounds confident** | persuasive and useful | the misleading/dangerous quadrant |
 | **Sounds uncertain** | correct but cautious | appropriate caution or unresolved error |
 

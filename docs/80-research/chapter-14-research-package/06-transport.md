@@ -166,7 +166,7 @@ The Chapter 11 "pre-mapped route in good weather versus every road in the rain" 
 ## Maturity assessment
 
 | Area | Maturity |
-|---|---|
+| --- | --- |
 | Level-1/2 driver assistance | Widespread |
 | Level-4 robotaxi in selected US cities | Limited commercial deployment |
 | Level-4 general Australian public-road service | Not yet general commercial deployment |

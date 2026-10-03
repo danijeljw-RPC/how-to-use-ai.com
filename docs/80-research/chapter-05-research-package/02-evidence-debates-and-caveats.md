@@ -7,7 +7,7 @@ This file isolates evidence and disagreements that could be flattened or oversta
 ## 1. Claim matrix
 
 | Candidate claim | Evidence | Safe interpretation | Avoid saying |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Clear instructions usually improve usefulness | OpenAI [S01][S02], Anthropic [S06], Google [S07][S08], Microsoft [S09][S10], AWS [S11] | Clarity reduces ambiguity and gives the model stronger guidance | “Clear prompts always produce correct answers” |
 | Relevant context helps | Google [S07][S08], Microsoft [S09], Anthropic [S06] | Supply background that affects the task | “The more context the better” |
 | Irrelevant context can hurt | Shi et al. [S20], Yang et al. [S21] | Extra irrelevant material can distract models, especially on reasoning tasks | “Any unnecessary sentence will ruin the answer” |

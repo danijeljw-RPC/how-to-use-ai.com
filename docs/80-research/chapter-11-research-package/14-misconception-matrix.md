@@ -3,7 +3,7 @@
 This matrix directly addresses the claims listed in the commissioning brief. The purpose is not to create one-line “myth busted” slogans; each entry records what is incomplete, the strongest evidence direction, and the important exception.
 
 | Claim | What is wrong or incomplete | Stronger explanation | Important exception / caution | Useful sources |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | **“AGI is just around the corner.”** | “AGI” has no single agreed operational definition; timelines vary widely. | Ask what milestone counts as AGI, by what date, and on what evidence. Treat as forecast. | Short timelines are held by some credible experts; disagreement does not prove they are wrong. | Morris et al.; Grace et al.; International AI Safety Report |
 | **“AGI is impossible.”** | No scientific theorem establishes impossibility; often reflects scepticism about current approaches. | Separate “current methods may not get there” from “machine general intelligence cannot exist.” | Philosophical/technical constraints remain legitimate subjects of debate. | Morris et al.; AI as Normal Technology (contrast) |
 | **“Everyone in AI agrees AI is an existential risk.”** | Surveys/statements show substantial disagreement in probability, priority, mechanism and timeline. | Some prominent researchers assign serious weight to catastrophic risk; others do not. | Public signatories are not a random sample of all AI researchers. | Grace et al.; CAIS statement; IAI Safety Report |

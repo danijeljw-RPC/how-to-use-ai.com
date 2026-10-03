@@ -3,7 +3,7 @@
 This matrix is intended for the drafting AI. It distinguishes **what the evidence supports**, **what complicates it**, and **what wording is safe**.
 
 | Capability / idea | Evidence supporting usefulness | Counterpoint / boundary | Safe chapter claim |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Writing | Noy & Zhang (Science, 2023): faster completion and higher-rated output on professional writing tasks. Microsoft workplace studies also report time savings. | Specific tasks, tools and populations; not all writing becomes better. | AI is often useful for first drafts, rewriting, tone changes and restructuring. |
 | Summarising | LLMs are widely capable of compressing supplied text and following format instructions. | ACL research continues to document factual inconsistency/hallucination in summaries. | AI can summarise quickly, but important summaries should be checked against the source. |
 | Brainstorming | Nature Human Behaviour and other studies show gains on some individual creativity measures. | Other studies find reduced diversity/convergence across AI-assisted outputs. | AI can improve idea generation, especially if prompted for diverse alternatives; do not stop at the first suggestions. |

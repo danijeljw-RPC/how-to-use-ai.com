@@ -363,7 +363,7 @@ Bad use:
 # 16. Contrasting viewpoints matrix
 
 | Question | Cautious/skeptical view | More permissive view | Practical chapter takeaway |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Do LLMs understand? | Form alone does not establish meaning; fluency can mask grounding gaps. | Internal conceptual relationships may constitute meaningful representation in some senses. | Do not infer human-like grounded understanding from fluency. |
 | Are current AI systems conscious? | No accepted conversational evidence/test establishes subjective experience. | Some theories of consciousness could in principle apply to artificial systems; indicator research is active. | Treat the question as unresolved, and do not use chat style as proof. |
 | Do AI systems have emotions? | Generated empathy does not demonstrate felt emotion. | Systems demonstrably recognise affect and can functionally behave empathetically. | Separate emotional capability from subjective feeling. |

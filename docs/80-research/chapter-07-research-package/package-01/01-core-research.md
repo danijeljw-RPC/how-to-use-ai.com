@@ -505,7 +505,7 @@ The supplied template correctly raises the stakes of errors at work, but “a hu
 Useful verification methods differ by output:
 
 | AI output | Stronger verification behaviour |
-|---|---|
+| --- | --- |
 | Report facts | compare against project/system-of-record data |
 | Meeting actions | compare with notes/transcript and confirm owners/deadlines |
 | Customer-policy answer | check approved policy/knowledge-base source |
