@@ -2,6 +2,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import Mock
 from pathlib import Path
 
 from PIL import Image
@@ -13,6 +14,7 @@ from scripts.isbn_barcode import (
     G_CODES,
     L_CODES,
     R_CODES,
+    draw_barcode,
     ean5_checksum,
     ean5_modules,
     ean13_modules,
@@ -71,6 +73,17 @@ class Ean5Tests(unittest.TestCase):
         for code in ("9000", "9000A", "900000"):
             with self.assertRaises(MetadataError):
                 ean5_modules(code)
+
+
+class DigitPlacementTests(unittest.TestCase):
+    def test_each_digit_is_centred_under_its_own_encoded_modules(self):
+        pdf = Mock()
+        draw_barcode(pdf, 0, 0, 168, ISBN, font_name="Helvetica")
+        calls = pdf.drawCentredString.call_args_list
+        expected = [(11 + 3 + 7 * i + 3.5, digit) for i, digit in enumerate(ISBN[1:7])]
+        expected += [(11 + 50 + 7 * i + 3.5, digit) for i, digit in enumerate(ISBN[7:])]
+        expected += [(11 + 95 + 9 + 5 + 9 * i + 3.5, digit) for i, digit in enumerate("90000")]
+        self.assertEqual([(call.args[0], call.args[2]) for call in calls[:-1]], expected)
 
 
 class RenderedBarcodeTests(unittest.TestCase):

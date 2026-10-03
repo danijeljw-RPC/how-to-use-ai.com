@@ -6,7 +6,7 @@ author photo are the only raster images):
 
 * ``front``  the front cover at trim size (also used as the PDF ebook's first
   page, and rasterised as the EPUB cover image);
-* ``back``   the back cover at trim size: ``--variant ebook`` (no barcode or
+* ``back``   the back cover at trim size: ``--variant pdf`` (PDF edition barcode), ``--variant ebook`` (no barcode or
   price), ``--variant draft`` (internal-review notice instead of the barcode);
 * ``wrap``   the paperback cover for one printer: back + spine + front with
   bleed, sized from the interior page count and that printer's paper.
@@ -215,7 +215,7 @@ def _price_line(book: dict[str, Any]) -> str:
 
 def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: dict[str, Any],
               root_dir: Path, variant: str, warnings: list[str]) -> None:
-    """``variant``: paperback (barcode, price), ebook (neither), draft (review notice)."""
+    """``variant``: paperback (barcode, price), pdf (PDF barcode), ebook (neither), draft (review notice)."""
     panel.fill(pdf, white, 0, panel.height / INCH)
     panel.fill(pdf, NAVY, 0, 1.75)
     left = panel.x + 0.75 * INCH
@@ -239,8 +239,9 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     # Footer first, so the body knows how much room it has.
     footer_bottom = panel.y + 0.55 * INCH
     footer_top = footer_bottom + 0.42 * INCH
-    if variant == "paperback":
-        isbn = book.get("editions", {}).get("paperback", {}).get("isbn")
+    if variant in ("paperback", "pdf"):
+        edition = book.get("editions", {}).get(variant, {})
+        isbn = edition.get("isbn")
         if isbn:
             barcode_width = 2.0 * INCH
             pad = 0.08 * INCH
@@ -253,14 +254,13 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
             pdf.setStrokeColor(HexColor("#D3DBE7"))
             pdf.setLineWidth(0.5)
             pdf.rect(right - barcode_width, footer_bottom, barcode_width, box_height, stroke=1, fill=1)
-            paperback = book["editions"]["paperback"]
             draw_barcode(pdf, right - barcode_width + pad, footer_bottom + pad, barcode_width - 2 * pad,
-                         isbn, paperback.get("priceCode", DEFAULT_PRICE_CODE),
-                         label=f"ISBN {paperback.get('isbnDisplay', isbn)}", background=False,
+                         isbn, edition.get("priceCode", DEFAULT_PRICE_CODE) or DEFAULT_PRICE_CODE,
+                         label=f"ISBN {edition.get('isbnDisplay', isbn)}", background=False,
                          font_name="Plex-Mono")
             footer_top = max(footer_top, footer_bottom + box_height)
         else:
-            warnings.append("paperback ISBN is empty: back cover printed without a barcode")
+            warnings.append(f"{variant} ISBN is empty: back cover printed without a barcode")
     elif variant == "draft":
         box_height = 0.62 * INCH
         pdf.setFillColor(MIST)
@@ -483,7 +483,7 @@ def main() -> int:
     parser.add_argument("--book-number", type=int, required=True)
     parser.add_argument("--root-dir", type=Path, default=Path.cwd())
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--variant", choices=("paperback", "ebook", "draft"), default="ebook")
+    parser.add_argument("--variant", choices=("paperback", "pdf", "ebook", "draft"), default="ebook")
     parser.add_argument("--printer", help="wrap only: kdp or ingramspark")
     parser.add_argument("--pages", type=int, help="wrap only: interior page count")
     arguments = parser.parse_args()

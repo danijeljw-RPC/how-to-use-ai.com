@@ -83,6 +83,23 @@ class CoverTests(unittest.TestCase):
         self.assertIn("Internal review edition", draft)
         self.assertNotIn("Nobody", paperback)  # endorsement without a quote is left out
 
+    def test_pdf_back_has_its_own_isbn_barcode_without_paperback_price(self):
+        config = _config(self.root)
+        data = json.loads(config.read_text())
+        data["books"][0]["editions"]["pdf"] = {
+            "isbn": "9781764994811", "isbnDisplay": "978-1-7649948-1-1"
+        }
+        config.write_text(json.dumps(data))
+        output = self.root / "pdf-back.pdf"
+        self.assertEqual(render_back(config, 1, ROOT, output, "pdf"), [])
+        page = PdfReader(output).pages[0]
+        text = page.extract_text()
+        self.assertIn("ISBN 978-1-7649948-1-1", text)
+        self.assertNotIn("9780306406157", text)
+        self.assertNotIn("AUD", text)
+        # The barcode must contain vector bars, not only an ISBN label.
+        self.assertGreater(page.get_contents().get_data().count(b" re f*"), 40)
+
     def test_missing_isbn_warns_instead_of_failing(self):
         warnings = render_back(_config(self.root, isbn=""), 1, ROOT, self.root / "back.pdf", "paperback")
         self.assertTrue(any("ISBN is empty" in warning for warning in warnings))

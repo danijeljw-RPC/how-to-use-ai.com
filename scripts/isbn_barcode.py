@@ -120,9 +120,15 @@ def draw_barcode(
     pdf.setFont(font, digit_size)
     digits_baseline = y + module
     pdf.drawRightString(main_left - module * 2, digits_baseline, digits[0])
-    pdf.drawCentredString(main_left + 24 * module, digits_baseline, " ".join(digits[1:7]))
-    pdf.drawCentredString(main_left + 71 * module, digits_baseline, " ".join(digits[7:]))
-    pdf.drawCentredString(addon_left + ADDON_MODULES * module / 2, addon_top + digit_size * 0.25, " ".join(price_code))
+    # Each EAN digit occupies seven modules. Spaced strings depend on font
+    # metrics and can overflow into the leading digit and centre guard.
+    for index, digit in enumerate(digits[1:7]):
+        pdf.drawCentredString(main_left + (3 + 7 * index + 3.5) * module, digits_baseline, digit)
+    for index, digit in enumerate(digits[7:]):
+        pdf.drawCentredString(main_left + (50 + 7 * index + 3.5) * module, digits_baseline, digit)
+    for index, digit in enumerate(price_code):
+        pdf.drawCentredString(addon_left + (5 + 9 * index + 3.5) * module,
+                             addon_top + digit_size * 0.25, digit)
     pdf.setFont(font, label_size)
     pdf.drawCentredString(main_left + BAR_MODULES * module / 2, bars_top + label_size * 0.5, label or f"ISBN {digits}")
     return height

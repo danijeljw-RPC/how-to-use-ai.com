@@ -67,7 +67,7 @@ Release files go to `dist/release/<book-folder>/`:
 | --- | --- |
 | `<isbn>_interior.pdf` | Paperback interior, 7.5 × 9.25 in, mirror margins, blank versos, embedded fonts, no cover |
 | `<isbn>_cover-kdp.pdf`, `<isbn>_cover-ingramspark.pdf` | Paperback wrap cover per printer: back + spine + front, 0.125 in bleed, barcode. The spine width differs by printer paper. |
-| `<book-folder>-ebook.pdf` | PDF ebook: front cover as page 1, linked contents and index, no blank pages |
+| `<isbn>_ebook.pdf` | PDF ebook: front cover as page 1, linked contents and index, no blank pages |
 | `<book-folder>.epub` | EPUB 3, reflowable, ISBN in metadata, cover image, linked index (ADR-03-0007 anchor mode) |
 | `<book-folder>-release-report.md` | Page count, spine width used, ISBNs, fonts, and checks passed |
 

@@ -127,7 +127,12 @@ for cover in release.glob("*_cover-*.pdf"):
     assert abs(float(box.height) - 684.0) < 0.5
     assert float(box.width) > 2 * 540 + 18, f"{cover.name} has no spine"
 assert len(list(release.glob("*_cover-*.pdf"))) == 2, "one cover per enabled printer"
-ebook = PdfReader(release / "31-book-01-ebook.pdf").pages
+ebook_path = release / "9781764994811_ebook.pdf"
+assert not (release / "31-book-01-ebook.pdf").exists()
+assert "9781764994811_ebook.pdf" in (release / "31-book-01-release-report.md").read_text()
+ebook = PdfReader(ebook_path).pages
+assert "ISBN 978-1-7649948-1-1" in ebook[-1].extract_text()
+assert ebook[-1].get_contents().get_data().count(b" re f*") > 40
 assert abs(float(ebook[0].mediabox.width) - 540.0) < 0.5
 with zipfile.ZipFile(release / "31-book-01.epub") as epub:
     assert epub.read("mimetype") == b"application/epub+zip"

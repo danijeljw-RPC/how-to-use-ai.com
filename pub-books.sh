@@ -36,7 +36,7 @@
 # go to dist/release/<book-folder>/:
 #   <isbn>_interior.pdf             paperback interior (black and white, bleed)
 #   <isbn>_cover-<printer>.pdf      wrap cover per enabled printer (KDP, IngramSpark)
-#   <book-folder>-ebook.pdf         colour PDF ebook with covers
+#   <isbn>_ebook.pdf                colour PDF ebook with covers
 #   <book-folder>.epub              EPUB 3
 #   <book-folder>-release-report.md page count, spine widths, ISBNs, warnings
 #
@@ -375,10 +375,10 @@ publish_release() {
   epub_isbn="$(jq -r '.editions.epub.isbn // empty' <<<"$book_json" | tr -d ' -')"
   accent="$(jq -r '.accentColour // "#7C3AED"' <<<"$book_json")"
 
-  # Covers shared by the ebook and EPUB.
+  # Shared front cover and PDF edition back cover.
   "$PYTHON_BIN" -m scripts.release_cover front --config "$CONFIG" --book-number "$book_number" \
     --root-dir "$ROOT_DIR" --output "$work/front-cover.pdf" >/dev/null
-  "$PYTHON_BIN" -m scripts.release_cover back --variant ebook --config "$CONFIG" --book-number "$book_number" \
+  "$PYTHON_BIN" -m scripts.release_cover back --variant pdf --config "$CONFIG" --book-number "$book_number" \
     --root-dir "$ROOT_DIR" --output "$work/back-cover-ebook.pdf" >/dev/null
 
   local report="$release_dir/$book_name-release-report.md"
@@ -441,7 +441,8 @@ publish_release() {
     echo "  PDF ebook (colour, linked)..."
     build_interior "$latex_md" "$work/ebook-interior.pdf" "$work/ebook" ebook back "$build_index" "$accent" \
       "$chapters_dir:$ROOT_DIR"
-    local ebook="$release_dir/$book_name-ebook.pdf"
+    local ebook_stem="${pdf_isbn:-$book_name}"
+    local ebook="$release_dir/${ebook_stem}_ebook.pdf"
     "$PYTHON_BIN" - "$work/front-cover.pdf" "$work/ebook-interior.pdf" "$work/back-cover-ebook.pdf" "$ebook" \
         "$book_title" "$author" "$pdf_isbn" <<'PY'
 import sys
@@ -459,7 +460,7 @@ with open(output, "wb") as stream:
     writer.write(stream)
 PY
     echo "  -> $ebook"
-    echo "- PDF ebook: \`$book_name-ebook.pdf\`, $(pdfinfo "$ebook" | awk '/^Pages:/{print $2}') pages" >> "$report"
+    echo "- PDF ebook: \`${ebook_stem}_ebook.pdf\`, $(pdfinfo "$ebook" | awk '/^Pages:/{print $2}') pages" >> "$report"
   fi
 
   if [[ ",$formats," == *",epub,"* ]]; then
