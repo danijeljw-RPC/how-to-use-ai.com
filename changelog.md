@@ -2,6 +2,16 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (98)
+
+### Changed
+
+- Merged branch `worktree-close-oi-0004` (written 2026-10-04, not previously on `main`):
+  - Closed Book 1 OI-0004 (Chapter 8 claims). The last item, the fictional-scenarios decision, was resolved by the author's own Chapter 8 revision (commit 4c22b56). That revision kept all seven teaching scenarios, rewrote them as fuller everyday illustrations, and removed the "fictional teaching example" labels from the opening and from Chapter Notes. No style rule or ADR requires such labels.
+  - Closed Book 1 OI-0010 (overlap between the Chapter 8 and Chapter 12 reflections). The author's Chapter 8 revision (commit 702a5d2) reframes the line on AI's role, from "AI didn't write the book" to "AI doesn't decide what the book says", which fits Chapter 12's account and the drafting-assistance disclosure. The similar research lists in both chapters are kept by the author's choice.
+- The branch's own changelog entries were numbered 85 and 86, which `main` already uses, so they are recorded here instead.
+- Files changed: `docs/30-books/31-book-01/open-issues/OI-0004.md`, `docs/30-books/31-book-01/open-issues/OI-0010.md`, `changelog.md`. Decisions: none. Open issues: Book 1 OI-0004 and OI-0010 closed. Commit: see git log.
+
 ## 2026-10-05 (97)
 
 ### Fixed
