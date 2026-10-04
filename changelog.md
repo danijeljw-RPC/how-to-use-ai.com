@@ -2,6 +2,14 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (96)
+
+### Research
+
+- Examined all 46 URLs in the Book 1 manual checklist in the browser. Recorded 31 browser confirmations, 10 separate-reader confirmations, one verified PDF download, one invalid ACCC path with a checked official replacement, and three still-blocked original URLs. Preserved the original URLs and distinguished indexed evidence from live access.
+- Recorded the ACCC manuscript correction, blocked-link follow-ups and the earlier inventory count discrepancy in OI-0011. Manuscript and publication outputs were not edited.
+- Files changed: `docs/30-books/31-book-01/research/url-manual-check-2026-10-05.md`, `docs/30-books/31-book-01/open-issues/OI-0011.md`, `changelog.md`. Decisions: none. Open issues: OI-0011 added. Commit: see git log.
+
 ## 2026-10-05 (92)
 
 ### Fixed
