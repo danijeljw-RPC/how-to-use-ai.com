@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (86)
+
+### Changed
+
+- The site cover `<img>` now declares 630×777, matching the 7.5×9.25 in release front cover (2250×2775) rather than the old 2100×3000 artwork. This stops the layout shifting while the image loads.
+
+- Files changed: `wwwroot/src/components/BookCover.astro`, `changelog.md`.
+- Decisions: none.
+- Open issues: none.
+- Commit: pending commit.
+
 ## 2026-10-04 (85)
 
 ### Changed
