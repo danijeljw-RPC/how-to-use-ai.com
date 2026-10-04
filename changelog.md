@@ -2,6 +2,15 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (86)
+
+### Changed
+
+- Closed Book 1 OI-0010 (overlap between the Chapter 8 and Chapter 12 reflections). The author's Chapter 8 revision (commit 702a5d2) reframes the line on AI's role. It moves from "AI didn't write the book" to "AI doesn't decide what the book says", which fits Chapter 12's account and the drafting-assistance disclosure. The similar research lists in both chapters are kept by the author's choice.
+- Files: `docs/30-books/31-book-01/open-issues/OI-0010.md`, `changelog.md`.
+
+Decisions: none. Open issues: Book 1 OI-0010 closed. Commit: pending commit.
+
 ## 2026-10-04 (85)
 
 ### Changed
