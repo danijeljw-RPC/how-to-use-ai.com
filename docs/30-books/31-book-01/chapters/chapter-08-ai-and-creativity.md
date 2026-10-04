@@ -497,7 +497,7 @@ I have probably used more AI while writing this book than I have on almost any o
 
 That sounds slightly dangerous when you're writing a book about AI, but hear me out.
 
-There is a line I decided fairly early on that I didn't want to cross: I didn't want AI to write the book for me.
+There is a line I decided fairly early on that I didn't want to cross: I didn't want to hand AI the responsibility for deciding what this book should say.
 
 Apart from the obvious problem that this would make the whole exercise slightly ridiculous, I also didn't want to end up with several hundred pages of the same vaguely competent story being dredged up again and again, with a little extra salt here, a bit of pepper there, and eventually shoved between two cardboard covers as if nobody would notice.
 
@@ -507,7 +507,7 @@ I would definitely notice.
 
 And, somewhere around Chapter 4, I would probably start resenting my own book.
 
-I do use AI for almost everything around the writing, though.
+The useful part of that relationship is being challenged, especially when I am rather pleased with my own argument.
 
 I use it to research subjects, find sources, challenge claims I've made, challenge claims other people have made, and compare those claims against what I already understand or suspect. I use it to look for opposing arguments, poke holes in my reasoning, question whether I've actually explained something properly to the audience I'm writing for, suggest where an explanation could be clearer, identify gaps in the story being told, criticise sections and occasionally point out that something I've written makes considerably less sense than it did five minutes earlier when I was apparently very impressed with myself.
 
@@ -525,7 +525,7 @@ That is useful too.
 
 In fact, learning when not to trust the impressive-looking answer has probably been one of the more useful parts of the entire process.
 
-What I don't want is to become the editor of a book that an AI wrote.
+What I don't want is to accept an AI's version of the book simply because it reads well, then limit my contribution to tidying the sentences.
 
 For me, there is an important difference between asking AI to help me think and asking it to do the thinking for me.
 
@@ -551,11 +551,11 @@ If the evidence pushes me somewhere uncomfortable, then that is where I need to 
 
 But the decision to go there is still mine.
 
-That is also roughly where I draw my own line on disclosure.
+That is where the distinction matters to me.
 
-I do not think using AI to find research, challenge an argument, interrogate an idea or criticise my writing suddenly makes AI an author any more than discussing a chapter with another person makes them an author.
+A polished answer does not get to decide what belongs in the book. I need to be able to explain why an argument belongs, what supports it and where it falls short. If I cannot do that, making the sentences sound better will not solve the problem.
 
-If someone tells me, "That section doesn't make sense," and I go away and rewrite it, they did not write the book.
+If someone tells me, "That section doesn't make sense," and I go away and rewrite it, they did not take over the work.
 
 They annoyed me into making it better.
 
