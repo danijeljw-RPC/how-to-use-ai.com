@@ -2,6 +2,16 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (97)
+
+### Fixed
+
+- Applied the corrections recorded in the manual URL check. Chapter 9 note `ch9-scam-figures` now cites the checked official ACCC *Targeting Scams Report 2025* URL instead of the missing-page path; the same URL is corrected in `chapter-09-bibliography.md` and the Chapter 9 research package.
+- The author confirmed the three remaining blocked URLs (Reuters, Chapter 8; ScienceDirect, Chapters 12 and 14) in an ordinary browser; their original URLs stay. All 46 checklist URLs are now confirmed or corrected.
+- Corrected the inherited URL-inventory table: it left out 11 successful HTTP 203/202 responses and two URLs confirmed on retry, so it summed to 470; it now sums to 483.
+- Release rebuilt: both interiors remain 406 pages, spines and covers unchanged; margins, notes and epubcheck rechecked.
+- Files changed: `docs/30-books/31-book-01/chapters/chapter-09-the-problems-nobody-should-ignore.md`, `docs/30-books/31-book-01/research/chapter-09-bibliography.md`, `docs/80-research/chapter-09-research-package/03-scams-and-fraud.md`, `docs/80-research/chapter-09-research-package/13-source-catalogue.md`, `docs/30-books/31-book-01/research/url-manual-check-2026-10-05.md`, `docs/30-books/31-book-01/open-issues/OI-0011.md`, `changelog.md`. Decisions: none. Open issues: OI-0011 resolved. Commit: see git log.
+
 ## 2026-10-05 (96)
 
 ### Research

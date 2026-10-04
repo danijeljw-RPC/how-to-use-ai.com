@@ -11,8 +11,8 @@ Every URL cited in the Book 1 chapters and back matter (483 unique), checked bef
 
 | Result | URLs |
 | --- | --- |
-| Loaded directly (HTTP 2xx) | 356 |
-| Blocked scripts, but confirmed by a second fetcher | 7 (Adobe ×2, Sophos, Copyright Act 1968, Privacy Act amendment, Pew ×2) |
+| Loaded directly (HTTP 2xx) | 367 (356 × 200, 10 × 203, 1 × 202) |
+| Blocked or timed out, but confirmed by a retry or second fetcher | 9 (APH bills digest, legislation.gov.au C2024A00078, Adobe ×2, Sophos, Copyright Act 1968, Privacy Act amendment, Pew ×2) |
 | Blocked scripts, DOI confirmed registered | 24 |
 | Blocked scripts, Wayback copy confirms the page existed | 34 + McKinsey (snapshot 21 May 2026) |
 | Dead, replaced with checked Wayback copies (ADR-03-0011) | 2 (Humane Ai Pin FAQ, Builder.ai "Natasha") |
@@ -29,12 +29,12 @@ All **46 URLs explicitly listed below** were opened individually in the Codex in
 | Expected page/PDF confirmed by separate web reader; browser check blocked or PDF view inconclusive | 10 |
 | Exact PDF downloaded successfully (HTTP 200); title and report number confirmed | 1 |
 | Invalid original URL; working official replacement checked | 1 |
-| Original URL still not directly verified | 3 |
+| Blocked in the automated browser; confirmed by the author in an ordinary browser | 3 |
 | **Total examined** | **46** |
 
-**42 original URLs confirmed; 1 invalid; 3 still unverified.** The invalid URL is the ACCC Targeting Scams Report 2025 path. Reuters and two ScienceDirect URLs remain blocked; indexed records or a syndicated article corroborate their sources but do not prove the original URLs load.
+**45 original URLs confirmed; 1 invalid and corrected.** The invalid URL was the ACCC Targeting Scams Report 2025 path; the checked official replacement is now cited in Chapter 9 and the Chapter 9 research files. The Reuters and two ScienceDirect URLs, blocked for the automated browser, were confirmed by the author in an ordinary browser.
 
-This pass does not recheck the other URLs in the claimed 483-URL inventory. The inherited categories above sum to 470, not 483; that earlier inventory total is not reconciled by this 46-link check. See [OI-0011](../open-issues/OI-0011.md) for the remaining publication actions.
+This pass does not recheck the other URLs in the 483-URL inventory. The inherited table first summed to 470 because the original tally left out 11 successful 203/202 responses and two URLs confirmed on retry; corrected above, its categories sum to 483 (367 + 9 + 24 + 35 + 2 + 46). [OI-0011](../open-issues/OI-0011.md) is resolved.
 
 ## Relevance
 
@@ -85,8 +85,9 @@ A page that loads may still have changed since it was cited. This check confirms
   - **5 October result:** Browser opened a PDF frame without readable text. Separate web reader retrieved a one-page PDF on interactive digital replicas and consent. Source confirmed; retain. This is not a successful visual PDF inspection.
 - [x] <https://pubsonline.informs.org/doi/10.1287/isre.2024.0937>
   - **5 October result:** Browser stopped at security verification. Separate web reader retrieved “The Double-Edged Roles of Generative AI in the Creative Process: Experiments on Design Work”. Source confirmed; retain.
-- [ ] <https://www.reuters.com/business/media-telecom/us-appeals-court-upholds-thomson-reuters-landmark-win-ai-training-lawsuit-2026-09-29/>
+- [x] <https://www.reuters.com/business/media-telecom/us-appeals-court-upholds-thomson-reuters-landmark-win-ai-training-lawsuit-2026-09-29/>
   - **5 October result:** UNVERIFIED original: Reuters device verification prevented article access; separate direct reader also failed. A matching Reuters dispatch by Blake Brittain dated 29 September 2026 was confirmed in browser at [WHBL](https://whbl.com/2026/09/29/us-appeals-court-upholds-thomson-reuters-landmark-win-in-ai-training-lawsuit/). This corroborates the article, not the exact Reuters path. Keep flagged; the checked syndicated copy is an available alternative if the original cannot be confirmed.
+  - **Author check, 5 October 2026:** the author opened the original URL in an ordinary browser and confirmed the expected page. Original retained.
 - [x] <https://committees.parliament.uk/committee/170/communications-and-digital-committee/news/212361/uk-creative-industries-face-a-clear-and-present-danger-from-generative-ai>
   - **5 October result:** Browser confirmed the committee news article dated 6 March 2026, on AI, copyright and creative industries. Retain.
 - [x] <https://openai.com/index/advancing-content-provenance/>
@@ -101,7 +102,7 @@ A page that loads may still have changed since it was cited. This check confirms
 - [x] <https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/>
   - **5 October result:** Browser confirmed the October 2025 malicious-use report page, dated 7 October 2025, with the full-report link. Retain.
 - [ ] <https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports/targeting-scams-report-2025>
-  - **5 October result:** INVALID original: browser title was “Page not found | ACCC”. Use the [checked official replacement](https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports-on-scams-activity/targeting-scams-report-of-the-national-anti-scam-centre-on-scams-data-and-activity-2025). Browser and separate reader confirmed the report title, publication date 30 March 2026, and PDF download link. Correction is recorded here; Chapter 9 note `ch9-scam-figures` still requires this URL change before the next publication build.
+  - **5 October result:** INVALID original: browser title was “Page not found | ACCC”. Use the [checked official replacement](https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports-on-scams-activity/targeting-scams-report-of-the-national-anti-scam-centre-on-scams-data-and-activity-2025). Browser and separate reader confirmed the report title, publication date 30 March 2026, and PDF download link. Applied 5 October 2026 to Chapter 9 note `ch9-scam-figures`, `chapter-09-bibliography.md` and the Chapter 9 research package; release rebuilt.
 - [x] <https://humanrights.gov.au/complaints>
   - **5 October result:** Browser confirmed the Australian Human Rights Commission complaints guidance. Retain.
 - [x] <https://www.oecd.org/en/publications/algorithmic-management-in-the-workplace_287c13c4-en.html>
@@ -133,8 +134,9 @@ A page that loads may still have changed since it was cited. This check confirms
   - **5 October result:** Browser stopped at security verification. Separate web reader retrieved the Ayers et al. physician/chatbot comparison with DOI 10.1001/jamainternmed.2023.1838. Source confirmed; retain.
 - [x] <https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/>
   - **5 October result:** Browser confirmed the Future of Jobs Report 2025 digest, published 7 January 2025. Retain.
-- [ ] <https://www.sciencedirect.com/science/article/pii/S0363811124000997>
+- [x] <https://www.sciencedirect.com/science/article/pii/S0363811124000997>
   - **5 October result:** UNVERIFIED direct access: browser displayed a CAPTCHA; separate reader returned 403. Search index for this exact publisher URL identifies the expected corporate-apology paper, Public Relations Review 51(1), March 2025, 102520; DOI `10.1016/j.pubrev.2024.102520`. This corroborates the citation but does not prove live page access. Retain flagged pending an ordinary-browser check; do not replace with an unchecked archive.
+  - **Author check, 5 October 2026:** the author opened the original URL in an ordinary browser and confirmed the expected page. Original retained.
 - [x] <https://pubsonline.informs.org/doi/10.1287/mnsc.2022.03968>
   - **5 October result:** Browser stopped at security verification. Separate web reader retrieved “Reskilling the Workforce for AI: Domain Expertise and Algorithmic Literacy”. Source confirmed; retain.
 - [x] <https://www.mdpi.com/2079-8954/14/9/1115>
@@ -167,8 +169,9 @@ A page that loads may still have changed since it was cited. This check confirms
   - **5 October result:** Browser confirmed “Computer-Using Agent”, dated 23 January 2025. Retain.
 - [x] <https://www.iso.org/standard/73933.html>
   - **5 October result:** Browser confirmed ISO 10218-1:2025, Edition 3, industrial robot safety requirements. Catalogue/sample access confirmed; paid standard text not inspected. Matches the note; retain.
-- [ ] <https://www.sciencedirect.com/science/article/pii/S1175870826000130>
+- [x] <https://www.sciencedirect.com/science/article/pii/S1175870826000130>
   - **5 October result:** UNVERIFIED direct access: browser displayed a CAPTCHA; separate reader returned 403. Search index for this exact publisher URL identifies Giray, Roe and Espiritu, “AI writing detectors are ineffective, unreliable and harmful”, DOI `10.1108/ETPC-07-2025-0155`. A [Durham repository record](https://durham-repository.worktribe.com/output/5421628/ai-writing-detectors-are-ineffective-unreliable-and-harmful) also appears in the index, but its browser view was security-blocked. Neither indexed record proves live access. Retain flagged for an ordinary-browser check.
+  - **Author check, 5 October 2026:** the author opened the original URL in an ordinary browser and confirmed the expected page. Original retained.
 - [x] <https://www.weare.sa.gov.au/news/ai-could-make-your-daily-commute-faster>
   - **5 October result:** Browser confirmed the South Australian Government commute/AI trial article, dated 31 August 2026. Retain.
 - [x] <https://investor.gm.com/news-releases/news-release-details/gm-refocus-autonomous-driving-development-personal-vehicles/>

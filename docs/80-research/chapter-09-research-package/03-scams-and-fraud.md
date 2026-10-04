@@ -40,7 +40,7 @@ Official reported data. It captures reports received by participating organisati
 - ACCC / National Anti-Scam Centre, *Continued action critical to combat fraud as annual scam losses exceed $2 billion*, 30 March 2026.  
   https://www.accc.gov.au/media-release/continued-action-critical-to-combat-fraud-as-annual-scam-losses-exceed-2-billion
 - National Anti-Scam Centre, *Targeting Scams Report 2025* (March 2026).  
-  https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports/targeting-scams-report-2025
+  https://www.accc.gov.au/about-us/publications/serial-publications/targeting-scams-reports-on-scams-activity/targeting-scams-report-of-the-national-anti-scam-centre-on-scams-data-and-activity-2025
 
 **Recheck before publication:** annual scam totals update.
 
