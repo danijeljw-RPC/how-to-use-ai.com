@@ -6,8 +6,8 @@
     "author": "Danijel-James Wynyard-McClay",
     "website": "how-to-use-ai.com",
     "page": {
-      "widthInches": 7,
-      "heightInches": 10
+      "widthInches": 7.5,
+      "heightInches": 9.25
     },
     "coverArtwork": {
       "widthPixels": 2100,
@@ -37,20 +37,27 @@
       "trimWidthInches": 7.5,
       "trimHeightInches": 9.25,
       "bleedInches": 0.125,
-      "interiorInk": "black-and-white",
+      "interiorInks": [
+        "black-and-white",
+        "colour"
+      ],
       "paper": "white",
       "printers": {
         "kdp": {
           "enabled": true,
           "paperCaliperInches": 0.002252,
           "minimumPagesForSpineText": 80,
-          "spineWidthOverrideInches": ""
+          "spineWidthOverrideInches": "",
+          "colourPaper": "standard colour",
+          "colourPaperCaliperInches": 0.002252
         },
         "ingramspark": {
           "enabled": true,
           "paperCaliperInches": 0.0025,
           "minimumPagesForSpineText": 48,
-          "spineWidthOverrideInches": ""
+          "spineWidthOverrideInches": "",
+          "colourPaper": "standard colour 50 lb",
+          "colourPaperCaliperInches": 0.0025
         }
       }
     }
@@ -86,6 +93,15 @@
         "paperback": {
           "isbn": "9781764994804",
           "isbnDisplay": "978-1-7649948-0-4",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "paperbackColour": {
+          "isbn": "",
+          "isbnDisplay": "",
           "priceCode": "",
           "price": {
             "AUD": "",
@@ -162,6 +178,15 @@
             "USD": ""
           }
         },
+        "paperbackColour": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
         "pdf": {
           "isbn": "",
           "isbnDisplay": ""
@@ -211,6 +236,15 @@
       },
       "editions": {
         "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "paperbackColour": {
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -276,6 +310,15 @@
             "USD": ""
           }
         },
+        "paperbackColour": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
         "pdf": {
           "isbn": "",
           "isbnDisplay": ""
@@ -325,6 +368,15 @@
       },
       "editions": {
         "paperback": {
+          "isbn": "",
+          "isbnDisplay": "",
+          "priceCode": "",
+          "price": {
+            "AUD": "",
+            "USD": ""
+          }
+        },
+        "paperbackColour": {
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",

@@ -50,7 +50,7 @@ headings and phrases that no longer match anything.
 
 ## Building the PDF With the Index
 
-`./publish-draft-books.sh book 1` includes the index automatically. Add
+`./pub-books.sh book 1` includes the index automatically. Add
 `--no-index` to leave it out. Preview editions (`chap 01-03`) never include it.
 
 ## EPUB

@@ -2,6 +2,26 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (88)
+
+### Changed
+
+Colour and black-and-white paperbacks, barcode-free covers and one page size, at the author's request (ADR-03-0010).
+
+- **Two paperback interiors** from one typesetting run: `<isbn>_interior-bw.pdf` (DeviceGray) and `<isbn>_interior-colour.pdf` (RGB), with identical pages. `series.print.interiorInks` picks the inks; `--ink bw|colour` limits a build.
+- **Colour edition slot:** `books[].editions.paperbackColour` (ISBN to be supplied by the author). The copyright page lists both paperback ISBNs once the colour ISBN exists.
+- **Colour paper:** KDP standard colour (0.002252 in/page), IngramSpark standard colour 50 lb (0.0025 in/page, to verify).
+- **Covers with and without the barcode:** each ink and printer gets `<isbn>_cover-<ink>-<printer>.pdf` and `…-no-barcode.pdf`. The no-barcode cover leaves a plain white 2 × 1.2 in area for KDP's own barcode. A full release writes 8 covers.
+- **Page size enforced:** `pub-books.sh` checks every page of every PDF (7.5 × 9.25 in; 7.625 × 9.5 in for interiors with bleed; 9.5 in high covers) and stops on a mismatch. `series.page` is now 7.5 × 9.25. The site preview download was rebuilt: it was 7 × 10 in and is now 7.5 × 9.25 in (60 pages).
+- **Old script name** `publish-draft-books.sh` replaced with `pub-books.sh` in the script's usage text, the integration test, `publishing/book-index.ist` and the index README.
+- Dated notes about the superseded 7 × 10 size in ADR-03-0002, ADR-03-0005, OI-0005 and the release edition plan; `books-json-reference.md` updated.
+
+Validation: 84 unit tests pass; `tests/test_publish_draft_books.sh` passes (full draft, preview, and a release proof with 2 × 414-page interiors, 8 covers, the colour/greyscale check and the per-cover ISBN checks). Covers were rendered and inspected with and without the barcode.
+
+- Files: `pub-books.sh`, `publishing/books.json`, `publishing/latex/howto-book.tex`, `publishing/book-index.ist`, `scripts/book_metadata.py`, `scripts/build_matter.py`, `scripts/release_cover.py`, `tests/test_book_metadata.py`, `tests/test_build_matter.py`, `tests/test_release_cover.py`, `tests/test_publish_draft_books.sh`, `wwwroot/public/downloads/ai-for-normal-people-preview.pdf`, publishing docs listed above.
+- Decisions: ADR-03-0010 accepted. Open issues: OI-0009 updated with answers; still open for the colour ISBN and the IngramSpark caliper check.
+- Commit: pending commit.
+
 ## 2026-10-04 (87)
 
 ### Added

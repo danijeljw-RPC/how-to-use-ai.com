@@ -77,3 +77,5 @@ Negative or trade-offs:
 ## Review Notes
 
 Record author review notes here.
+
+- 2026-10-04: the page validation is now 7.5 × 9.25 in, not 7 × 10 in (ADR-03-0010). The site preview download was rebuilt at that size.

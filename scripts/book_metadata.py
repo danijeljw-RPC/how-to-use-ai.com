@@ -18,6 +18,19 @@ from typing import Any
 
 FORMATS = ("paperback", "pdf", "epub")
 DEFAULT_PRICE_CODE = "90000"
+# The paperback is printed in two inks; each is its own product with its own
+# ISBN, barcode and cover (ADR-03-0010).
+INKS = ("black-and-white", "colour")
+PAPERBACK_EDITIONS = {"black-and-white": "paperback", "colour": "paperbackColour"}
+
+
+def interior_inks(series: dict[str, Any], requested: list[str] | None = None) -> list[str]:
+    """The paperback inks to build: ``requested``, else series.print.interiorInks, else black-and-white."""
+    inks = requested or series.get("print", {}).get("interiorInks") or ["black-and-white"]
+    unknown = [ink for ink in inks if ink not in INKS]
+    if unknown:
+        raise MetadataError(f"series.print.interiorInks: unknown ink {unknown[0]!r}; use {', '.join(INKS)}")
+    return list(inks)
 
 # Visible manuscript text that must be resolved before release: the bracketed
 # placeholders from the chapter drafting rules in CLAUDE.md, and the text inside
@@ -85,11 +98,12 @@ def _resolve_editions(series: dict[str, Any], book: dict[str, Any], errors: list
                 del edition["isbn"]
         if "isbn" in edition:
             edition.setdefault("isbnDisplay", edition["isbn"])
-    paperback = editions.setdefault("paperback", {})
-    price_code = paperback.get("priceCode") or default_price_code
-    if not re.fullmatch(r"\d{5}", price_code):
-        errors.append(f"editions.paperback.priceCode: {price_code!r} must be five digits (90000 = no price)")
-    paperback["priceCode"] = price_code
+    for name in PAPERBACK_EDITIONS.values():
+        paperback = editions.setdefault(name, {})
+        price_code = paperback.get("priceCode") or default_price_code
+        if not re.fullmatch(r"\d{5}", price_code):
+            errors.append(f"editions.{name}.priceCode: {price_code!r} must be five digits (90000 = no price)")
+        paperback["priceCode"] = price_code
     return editions
 
 
@@ -135,15 +149,21 @@ def release_problems(
     formats: list[str],
     root_dir: str | Path,
     manuscript_files: list[Path] | None = None,
+    inks: list[str] | None = None,
 ) -> list[str]:
-    """Everything that blocks a non-proof release of ``formats``."""
+    """Everything that blocks a non-proof release of ``formats`` (paperback in ``inks``)."""
     series, book = metadata["series"], metadata["book"]
     problems = list(metadata["errors"])
     for name in formats:
         if name not in FORMATS:
             problems.append(f"unknown format {name!r}; use {', '.join(FORMATS)}")
-        elif "isbn" not in book["editions"].get(name, {}):
-            problems.append(f"editions.{name}.isbn is empty")
+            continue
+        editions = [name]
+        if name == "paperback":
+            editions = [PAPERBACK_EDITIONS[ink] for ink in interior_inks(series, inks)]
+        for edition in editions:
+            if "isbn" not in book["editions"].get(edition, {}):
+                problems.append(f"editions.{edition}.isbn is empty")
     copyright_details = book.get("copyright", {})
     for field in ("holder", "year"):
         if field not in copyright_details:
@@ -166,6 +186,8 @@ def main() -> int:
     parser.add_argument("--book-number", type=int, required=True)
     parser.add_argument("--root-dir", type=Path, default=Path.cwd())
     parser.add_argument("--check", metavar="FORMATS", help="comma-separated formats to check for release")
+    parser.add_argument("--inks", metavar="INKS",
+                        help="comma-separated paperback inks to check (default: series.print.interiorInks)")
     parser.add_argument("manuscript", nargs="*", type=Path, help="chapter files to scan for placeholders")
     arguments = parser.parse_args()
     try:
@@ -175,7 +197,12 @@ def main() -> int:
     if not arguments.check:
         print(json.dumps(metadata, indent=2, ensure_ascii=False))
         return 0
-    problems = release_problems(metadata, arguments.check.split(","), arguments.root_dir, arguments.manuscript)
+    inks = arguments.inks.split(",") if arguments.inks else None
+    try:
+        problems = release_problems(metadata, arguments.check.split(","), arguments.root_dir, arguments.manuscript,
+                                    inks)
+    except MetadataError as error:
+        parser.error(str(error))
     for problem in problems:
         print(problem)
     return 1 if problems else 0

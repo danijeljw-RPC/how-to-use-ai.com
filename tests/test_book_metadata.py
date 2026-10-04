@@ -123,6 +123,25 @@ class ReleaseProblemsTests(unittest.TestCase):
         )
         self.assertEqual(release_problems(release_metadata(config, 1), ["paperback"], ROOT), [])
 
+    def test_colour_ink_needs_the_colour_paperback_isbn(self):
+        config = _config(
+            copyright={"holder": "X", "year": "2026"},
+            editions={"paperback": {"isbn": "9780306406157"}, "paperbackColour": {"isbn": ""}},
+        )
+        config["series"]["print"] = {"interiorInks": ["black-and-white", "colour"]}
+        metadata = release_metadata(config, 1)
+        self.assertEqual(metadata["book"]["editions"]["paperbackColour"]["priceCode"], "90000")
+        self.assertEqual(release_problems(metadata, ["paperback"], ROOT),
+                         ["editions.paperbackColour.isbn is empty"])
+        # --inks narrows the check to the inks being built.
+        self.assertEqual(release_problems(metadata, ["paperback"], ROOT, inks=["black-and-white"]), [])
+        self.assertEqual(release_problems(metadata, ["paperback"], ROOT, inks=["colour"]),
+                         ["editions.paperbackColour.isbn is empty"])
+
+    def test_unknown_ink_is_rejected(self):
+        with self.assertRaisesRegex(MetadataError, "unknown ink"):
+            release_problems(release_metadata(_config(), 1), ["paperback"], ROOT, inks=["sepia"])
+
     def test_missing_photo_file_is_a_problem(self):
         config = _config(copyright={"holder": "X", "year": "2026"}, editions={"pdf": {"isbn": "9780306406157"}})
         config["series"]["authorProfile"]["photo"] = "assets/author/missing.jpg"

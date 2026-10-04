@@ -62,6 +62,15 @@ class FrontMatterTests(unittest.TestCase):
         self.assertIn(r"\hwIsbn{Paperback}{ISBN 978-0-306-40615-7}", text)
         self.assertIn("First edition, 2026", text)
 
+    def test_colour_paperback_isbn_names_both_paperbacks(self):
+        text = self.front(editions={
+            "paperback": {"isbn": "9780306406157", "isbnDisplay": "978-0-306-40615-7"},
+            "paperbackColour": {"isbn": "9781764994804", "isbnDisplay": "978-1-7649948-0-4"},
+        })
+        black_and_white = text.index(r"\hwIsbn{Paperback (black and white)}{ISBN 978-0-306-40615-7}")
+        colour = text.index(r"\hwIsbn{Paperback (colour)}{ISBN 978-1-7649948-0-4}")
+        self.assertLess(black_and_white, colour)
+
     def test_empty_dedication_and_epigraph_drop_their_pages(self):
         text = self.front(dedication={"text": ""}, epigraph={"quote": "", "author": ""})
         self.assertNotIn("hwDedication", text)

@@ -100,6 +100,38 @@ class CoverTests(unittest.TestCase):
         # The barcode must contain vector bars, not only an ISBN label.
         self.assertGreater(page.get_contents().get_data().count(b" re f*"), 40)
 
+    def _colour_config(self) -> Path:
+        path = _config(self.root)
+        config = json.loads(path.read_text())
+        config["series"]["print"]["printers"]["kdp"]["colourPaperCaliperInches"] = 0.002347
+        config["books"][0]["editions"]["paperbackColour"] = {
+            "isbn": "9781764994804", "isbnDisplay": "978-1-7649948-0-4", "price": {"AUD": "59.99"}}
+        path.write_text(json.dumps(config), encoding="utf-8")
+        return path
+
+    def test_colour_wrap_uses_colour_caliper_isbn_and_price(self):
+        spine, _ = render_wrap(self._colour_config(), 1, ROOT, self.root / "wrap.pdf", "kdp", 300, ink="colour")
+        self.assertAlmostEqual(spine, 300 * 0.002347, places=4)
+        text = PdfReader(self.root / "wrap.pdf").pages[0].extract_text()
+        self.assertIn("ISBN 978-1-7649948-0-4", text)
+        self.assertIn("AUD $59.99", text)
+        self.assertNotIn("9780306406157", text)
+
+    def test_colour_wrap_without_colour_caliper_fails(self):
+        with self.assertRaisesRegex(Exception, "colourPaperCaliperInches"):
+            render_wrap(_config(self.root), 1, ROOT, self.root / "wrap.pdf", "kdp", 300, ink="colour")
+
+    def test_no_barcode_wrap_leaves_the_area_blank(self):
+        render_wrap(_config(self.root), 1, ROOT, self.root / "with.pdf", "kdp", 300)
+        render_wrap(_config(self.root), 1, ROOT, self.root / "without.pdf", "kdp", 300, barcode=False)
+        with_page = PdfReader(self.root / "with.pdf").pages[0]
+        without_page = PdfReader(self.root / "without.pdf").pages[0]
+        self.assertIn("ISBN 9780306406157", with_page.extract_text())
+        self.assertNotIn("ISBN", without_page.extract_text())
+        self.assertEqual(with_page.mediabox, without_page.mediabox)
+        bars = with_page.get_contents().get_data().count(b" re f*")
+        self.assertGreater(bars - without_page.get_contents().get_data().count(b" re f*"), 40)
+
     def test_missing_isbn_warns_instead_of_failing(self):
         warnings = render_back(_config(self.root, isbn=""), 1, ROOT, self.root / "back.pdf", "paperback")
         self.assertTrue(any("ISBN is empty" in warning for warning in warnings))

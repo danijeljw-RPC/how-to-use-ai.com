@@ -37,7 +37,7 @@ RIGHTS = (
     "prior written permission of the publisher, except as permitted under the Copyright Act 1968 (Cth)."
 )
 CATALOGUE = "A catalogue record for this book is available from the National Library of Australia."
-FORMAT_NAMES = {"paperback": "Paperback", "epub": "EPUB", "pdf": "PDF"}
+FORMAT_NAMES = {"paperback": "Paperback", "paperbackColour": "Paperback (colour)", "epub": "EPUB", "pdf": "PDF"}
 
 _LATEX_SPECIAL = re.compile(r"([\\{}$&#%_~^])")
 _LATEX_REPLACEMENTS = {
@@ -112,8 +112,12 @@ class Matter:
 
     def isbns(self) -> list[tuple[str, str]]:
         editions = self.book.get("editions", {})
-        return [(FORMAT_NAMES[name], editions[name].get("isbnDisplay", editions[name]["isbn"]))
-                for name in ("paperback", "epub", "pdf") if "isbn" in editions.get(name, {})]
+        names = dict(FORMAT_NAMES)
+        # Once a colour paperback exists, say which paperback the plain ISBN belongs to.
+        if "isbn" in editions.get("paperbackColour", {}):
+            names["paperback"] = "Paperback (black and white)"
+        return [(names[name], editions[name].get("isbnDisplay", editions[name]["isbn"]))
+                for name in ("paperback", "paperbackColour", "epub", "pdf") if "isbn" in editions.get(name, {})]
 
     def proof_text(self) -> str:
         if self.edition == "draft":

@@ -1,4 +1,4 @@
-% makeindex style for the back-of-book index (used by publish-draft-books.sh).
+% makeindex style for the back-of-book index (used by pub-books.sh).
 % Adds a bold letter heading before each group of entries.
 headings_flag 1
 heading_prefix "\n  \\textbf{"

@@ -42,13 +42,15 @@ python3 scripts/book_metadata.py --config publishing/books.json --book-number 1 
 | `defaultPriceCode` | Five-digit barcode add-on used when a book sets none. `90000` means "no price encoded". |
 | `print.trimWidthInches`, `print.trimHeightInches` | Paperback trim: 7.5 × 9.25 in. |
 | `print.bleedInches` | Cover bleed: 0.125 in. |
-| `print.interiorInk` | `black-and-white` for the paperback. PDF and EPUB stay in colour. |
-| `print.paper` | `white` or `cream`. |
-| `print.printers.kdp` / `print.printers.ingramspark` | Per-printer settings. Set `enabled: false` to skip that printer's cover. |
-| `…paperCaliperInches` | Paper thickness per page, used for the spine: spine = page count × caliper. These are starting values to check against each printer's own calculator. |
+| `print.interiorInks` | Paperback interiors to build: `["black-and-white", "colour"]` builds both (ADR-03-0010). Remove one to skip that interior and its covers; `--ink bw` or `--ink colour` does the same for a single build. PDF and EPUB are always colour. |
+| `print.paper` | `white` or `cream` (black-and-white interior). |
+| `print.printers.kdp` / `print.printers.ingramspark` | Per-printer settings. Set `enabled: false` to skip that printer's covers. |
+| `…paperCaliperInches` | Black-and-white paper thickness per page, used for the spine: spine = page count × caliper. These are starting values to check against each printer's own calculator. |
+| `…colourPaper` | The colour stock chosen for that printer (a note; it doesn't change the build). KDP: standard colour. IngramSpark: standard colour 50 lb. |
+| `…colourPaperCaliperInches` | Colour paper thickness per page, used for the colour edition's spine. |
 | `…minimumPagesForSpineText` | Below this page count the spine is left blank. |
-| `…spineWidthOverrideInches` | Leave `""` to calculate. Fill in when the printer's cover template states an exact spine width. |
-| `page`, `coverArtwork`, `illustration` | Existing draft-cover settings (7 × 10 in draft pages). |
+| `…spineWidthOverrideInches`, `…colourSpineWidthOverrideInches` | Leave `""` to calculate. Fill in when the printer's cover template states an exact spine width for that ink. |
+| `page`, `coverArtwork`, `illustration` | Older draft-cover settings. `page` matches the 7.5 × 9.25 in trim, so nothing falls back to another size. |
 
 ## `books[]` (one per volume)
 
@@ -61,7 +63,8 @@ python3 scripts/book_metadata.py --config publishing/books.json --book-number 1 
 | `copyright.year` | Copyright year. |
 | `copyright.edition` | For example `First edition`. |
 | `copyright.publicationMonth` | For example `November`. Printed as "First edition, November 2026". |
-| `editions.paperback.isbn` | Paperback ISBN-13. Digits with or without hyphens; the check digit is verified. The same ISBN is used for KDP and IngramSpark. |
+| `editions.paperback.isbn` | Black-and-white paperback ISBN-13. Digits with or without hyphens; the check digit is verified. The same ISBN is used for KDP and IngramSpark. |
+| `editions.paperbackColour.isbn`, `.isbnDisplay`, `.priceCode`, `.price` | The colour paperback, a separate product with its own ISBN (ADR-03-0010). The fields work like `editions.paperback`. Its ISBN goes on the colour covers' barcode and, alongside the black-and-white ISBN, on the copyright page of both interiors. Required for a real release when `colour` is in `print.interiorInks`. |
 | `editions.paperback.isbnDisplay` | The hyphenated form exactly as Thorpe-Bowker issued it, for example `978-0-6451234-0-8`. Printed on the copyright page and above the barcode. If empty, plain digits are printed. |
 | `editions.paperback.priceCode` | Barcode add-on for this book. Empty → `series.defaultPriceCode` (`90000`). |
 | `editions.paperback.price.AUD`, `.USD` | Optional printed prices on the back cover, for example `"34.99"`. |

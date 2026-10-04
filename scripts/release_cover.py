@@ -8,8 +8,10 @@ author photo are the only raster images):
   page, and rasterised as the EPUB cover image);
 * ``back``   the back cover at trim size: ``--variant pdf`` (PDF edition barcode), ``--variant ebook`` (no barcode or
   price), ``--variant draft`` (internal-review notice instead of the barcode);
-* ``wrap``   the paperback cover for one printer: back + spine + front with
-  bleed, sized from the interior page count and that printer's paper.
+* ``wrap``   the paperback cover for one printer and ink: back + spine + front
+  with bleed, sized from the interior page count and that printer's paper
+  (white or colour stock). ``--no-barcode`` leaves the barcode area blank for
+  printers that add their own (ADR-03-0010).
 
 Empty values in books.json are left out (see scripts/book_metadata.py). Text
 that doesn't fit the back cover is set smaller, down to a floor; anything
@@ -37,7 +39,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph
 
-from scripts.book_metadata import DEFAULT_PRICE_CODE, load_release_metadata
+from scripts.book_metadata import DEFAULT_PRICE_CODE, INKS, PAPERBACK_EDITIONS, load_release_metadata
 from scripts.isbn_barcode import draw_barcode
 
 INCH = 72.0
@@ -48,6 +50,8 @@ MIST = HexColor("#EEF3F9")
 SLATE = HexColor("#5E6F89")
 GOLD = HexColor("#E9C46A")
 GOLD_DARK = HexColor("#B8892E")
+# Width and height kept clear for a printer-placed barcode (KDP's barcode area is 2 x 1.2 in).
+PRINTER_BARCODE_AREA = (2.0 * INCH, 1.2 * INCH)
 
 FONT_DIR = Path(__file__).resolve().parents[1] / "publishing" / "fonts"
 FONTS = {
@@ -208,14 +212,20 @@ def draw_front(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: d
 
 
 # ---------------------------------------------------------------- back
-def _price_line(book: dict[str, Any]) -> str:
-    prices = book.get("editions", {}).get("paperback", {}).get("price", {})
+def _price_line(book: dict[str, Any], edition: str = "paperback") -> str:
+    prices = book.get("editions", {}).get(edition, {}).get("price", {})
     return "   ".join(f"{currency} ${amount}" for currency, amount in prices.items())
 
 
 def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: dict[str, Any],
-              root_dir: Path, variant: str, warnings: list[str]) -> None:
-    """``variant``: paperback (barcode, price), pdf (PDF barcode), ebook (neither), draft (review notice)."""
+              root_dir: Path, variant: str, warnings: list[str], ink: str = "black-and-white",
+              barcode: bool = True) -> None:
+    """``variant``: paperback (barcode, price), pdf (PDF barcode), ebook (neither), draft (review notice).
+
+    A paperback uses the ISBN and price of its ``ink``'s edition. ``barcode=False`` leaves the
+    barcode area blank white so the printer (KDP) can place its own barcode there.
+    """
+    edition_name = PAPERBACK_EDITIONS[ink] if variant == "paperback" else variant
     panel.fill(pdf, white, 0, panel.height / INCH)
     panel.fill(pdf, NAVY, 0, 1.75)
     left = panel.x + 0.75 * INCH
@@ -228,7 +238,7 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     pdf.setFillColor(SKY_LIGHT)
     if back.get("category"):
         pdf.drawString(left, meta_baseline, back["category"])
-    price = _price_line(book) if variant == "paperback" else ""
+    price = _price_line(book, edition_name) if variant == "paperback" else ""
     if price:
         pdf.setFillColor(white)
         pdf.setFont("Plex-MonoSemi", 8)
@@ -239,8 +249,11 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     # Footer first, so the body knows how much room it has.
     footer_bottom = panel.y + 0.55 * INCH
     footer_top = footer_bottom + 0.42 * INCH
-    if variant in ("paperback", "pdf"):
-        edition = book.get("editions", {}).get(variant, {})
+    if variant in ("paperback", "pdf") and not barcode:
+        # Nothing is drawn: the area stays plain white and the body copy keeps clear of it.
+        footer_top = max(footer_top, footer_bottom + PRINTER_BARCODE_AREA[1])
+    elif variant in ("paperback", "pdf"):
+        edition = book.get("editions", {}).get(edition_name, {})
         isbn = edition.get("isbn")
         if isbn:
             barcode_width = 2.0 * INCH
@@ -260,7 +273,7 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
                          font_name="Plex-Mono")
             footer_top = max(footer_top, footer_bottom + box_height)
         else:
-            warnings.append(f"{variant} ISBN is empty: back cover printed without a barcode")
+            warnings.append(f"{edition_name} ISBN is empty: back cover printed without a barcode")
     elif variant == "draft":
         box_height = 0.62 * INCH
         pdf.setFillColor(MIST)
@@ -441,31 +454,37 @@ def render_back(config: Path, book_number: int, root_dir: Path, output: Path, va
     return warnings
 
 
-def spine_width(series: dict[str, Any], printer: str, page_count: int) -> float:
+def spine_width(series: dict[str, Any], printer: str, page_count: int, ink: str = "black-and-white") -> float:
+    """Page count x the printer's paper caliper; colour interiors print on colour stock."""
     settings = series.get("print", {}).get("printers", {}).get(printer)
     if not settings:
         raise CoverError(f"series.print.printers.{printer} is not configured")
-    override = settings.get("spineWidthOverrideInches")
+    prefix = "colour" if ink == "colour" else ""
+    override_key = f"{prefix}SpineWidthOverrideInches" if prefix else "spineWidthOverrideInches"
+    caliper_key = f"{prefix}PaperCaliperInches" if prefix else "paperCaliperInches"
+    override = settings.get(override_key)
     if override:
         return float(override) * INCH
-    return page_count * float(settings["paperCaliperInches"]) * INCH
+    if caliper_key not in settings:
+        raise CoverError(f"series.print.printers.{printer}.{caliper_key} is not configured")
+    return page_count * float(settings[caliper_key]) * INCH
 
 
 def render_wrap(config: Path, book_number: int, root_dir: Path, output: Path, printer: str,
-                page_count: int) -> tuple[float, list[str]]:
+                page_count: int, ink: str = "black-and-white", barcode: bool = True) -> tuple[float, list[str]]:
     """Return the spine width in inches and any warnings."""
     register_fonts()
     series, book, total = _context(config, book_number)
     width, height = trim_size(series)
     bleed = float(series.get("print", {}).get("bleedInches", 0.125)) * INCH
-    spine = spine_width(series, printer, page_count)
+    spine = spine_width(series, printer, page_count, ink)
     settings = series["print"]["printers"][printer]
     with_text = page_count >= int(settings.get("minimumPagesForSpineText", 0))
     warnings: list[str] = []
     pdf = _new_canvas(output, 2 * width + spine + 2 * bleed, height + 2 * bleed,
-                      f"{book['title']} — paperback cover ({printer})")
+                      f"{book['title']} — {ink} paperback cover ({printer})")
     draw_back(pdf, Panel(bleed, bleed, width, height, bleed_left=bleed, bleed_top=bleed, bleed_bottom=bleed),
-              series, book, root_dir, "paperback", warnings)
+              series, book, root_dir, "paperback", warnings, ink, barcode)
     draw_front(pdf, Panel(bleed + width + spine, bleed, width, height, bleed_right=bleed, bleed_top=bleed,
                           bleed_bottom=bleed), series, book, root_dir, total)
     draw_spine(pdf, bleed + width, bleed, spine, height, bleed, series, book, with_text)
@@ -486,6 +505,10 @@ def main() -> int:
     parser.add_argument("--variant", choices=("paperback", "pdf", "ebook", "draft"), default="ebook")
     parser.add_argument("--printer", help="wrap only: kdp or ingramspark")
     parser.add_argument("--pages", type=int, help="wrap only: interior page count")
+    parser.add_argument("--ink", choices=INKS, default="black-and-white",
+                        help="wrap only: interior ink; sets the edition's ISBN and the paper caliper")
+    parser.add_argument("--no-barcode", action="store_true",
+                        help="wrap only: leave the barcode area blank for the printer to fill")
     arguments = parser.parse_args()
     root = arguments.root_dir.resolve()
     try:
@@ -498,7 +521,8 @@ def main() -> int:
             if not arguments.printer or not arguments.pages:
                 parser.error("wrap needs --printer and --pages")
             spine, warnings = render_wrap(arguments.config, arguments.book_number, root, arguments.output,
-                                          arguments.printer, arguments.pages)
+                                          arguments.printer, arguments.pages, arguments.ink,
+                                          not arguments.no_barcode)
             print(f"spine={spine:.4f}in")
     except CoverError as error:
         parser.error(str(error))

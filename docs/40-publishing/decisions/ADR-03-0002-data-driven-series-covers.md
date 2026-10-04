@@ -89,3 +89,7 @@ name is `Danijel-James Wynyard-McClay`.
   cover output dimensions, PDF page size, and assembled page order.
 - The shell script is syntax-checked and exercised against Book 1.
 - Final PDFs are inspected with `pdfinfo`, extracted text, and rendered PNGs.
+
+## Later Change (2026-10-04)
+
+The 7 × 10 in page size above is superseded. Every edition now uses the 7.5 × 9.25 in trim, and the build checks every page (ADR-03-0008, ADR-03-0010).

@@ -105,4 +105,12 @@ publishing: add colour and black-and-white paperback interiors, enforce 7.5x9.25
 
 ## Status
 
-Waiting for author review and the OI-0009 answers (2026-10-04).
+**Implemented 2026-10-04** after the author's answers (OI-0009) and ADR-03-0010. Changes from the plan above:
+
+- **One typesetting run, not two.** The copyright page already lists every edition's ISBN, so it now lists "Paperback (black and white)" and "Paperback (colour)" together, and both interiors come from the same pages. This removes the per-ink edition line and the doubled build time.
+- **Covers with and without the barcode** (author request, 2026-10-04): every ink and printer also gets a `-no-barcode` cover, with the barcode area left plain white for KDP to fill. A full release now writes 8 covers.
+- **Cover names include the ink:** `<isbn>_cover-<ink>-<printer>[-no-barcode].pdf`.
+- **Colour paper:** KDP standard colour (0.002252 in/page, from KDP's published formula); IngramSpark standard colour 50 lb (0.0025 in/page, to be verified, OI-0009).
+- **Old script name** fixed only in the files that are still used (the script itself, the integration test, `book-index.ist`, the index README). Older plans and ADRs keep the name they had at the time.
+
+Verification is recorded in the changelog entry for this change.

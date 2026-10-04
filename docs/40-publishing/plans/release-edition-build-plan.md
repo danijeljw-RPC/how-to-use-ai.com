@@ -12,7 +12,7 @@
 - a front-cover wordmark that reads as the real website, `how-to-use-ai.com`;
 - a house design style, with HTML options for the author to choose from first.
 
-The paperback trim size is **7.5 × 9.25 in (190 × 235 mm)**, confirmed by the author on 2026-10-02. Draft and preview PDFs stay at 7 × 10 in until the author says otherwise (OI-0007, question 12).
+The paperback trim size is **7.5 × 9.25 in (190 × 235 mm)**, confirmed by the author on 2026-10-02. Draft and preview PDFs stay at 7 × 10 in until the author says otherwise (OI-0007, question 12). *Update 2026-10-03/04: draft and preview PDFs moved to 7.5 × 9.25 in (OI-0007 item 17), and every build now checks its page size (ADR-03-0010).*
 
 This plan needs author review before any code changes (CLAUDE.md: more than three files).
 

@@ -10,10 +10,10 @@ else
 fi
 
 cd "$ROOT_DIR"
-bash -n publish-draft-books.sh
+bash -n pub-books.sh
 BUILD_LOG="$ROOT_DIR/tmp/pdfs/test-publish-draft-books.log"
 mkdir -p "$(dirname "$BUILD_LOG")"
-BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./publish-draft-books.sh book 1 2>&1 | tee "$BUILD_LOG"
+BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./pub-books.sh book 1 2>&1 | tee "$BUILD_LOG"
 if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
   echo "Publication emitted warnings." >&2
   exit 1
@@ -79,7 +79,7 @@ assert "Hallucination" in index_text and "see also" in index_text
 assert "LLM, see Language models" in index_text
 PY
 
-BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./publish-draft-books.sh book 1 chap 01-03 2>&1 | tee "$BUILD_LOG"
+BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./pub-books.sh book 1 chap 01-03 2>&1 | tee "$BUILD_LOG"
 if rg -n '\[WARNING\]|Annotation sizes differ' "$BUILD_LOG"; then
   echo "Preview publication emitted warnings." >&2
   exit 1
@@ -98,13 +98,15 @@ from pypdf import PdfReader
 reader = PdfReader(os.environ["BOOK_PDF"])
 manuscript = PdfReader(os.environ["MANUSCRIPT_PDF"])
 assert len(reader.pages) == len(manuscript.pages) + 4
+assert all(abs(float(p.mediabox.width) - 540.0) < 0.5 and abs(float(p.mediabox.height) - 666.0) < 0.5
+           for p in reader.pages), "preview pages must be 7.5 x 9.25in"
 assert "preview edition" in (reader.pages[1].extract_text() or "").lower()
 assert "end of preview" in (reader.pages[-2].extract_text() or "").lower()
 assert "/Font" in reader.pages[-1]["/Resources"]  # vector back cover
 PY
 
 # Release proof (ADR-03-0008): every format, house design, print geometry.
-BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./publish-draft-books.sh book 1 --release --proof 2>&1 | tee "$BUILD_LOG"
+BOOK_PUBLISH_PYTHON="$TEST_PYTHON" ./pub-books.sh book 1 --release --proof 2>&1 | tee "$BUILD_LOG"
 if rg -n '\[WARNING\]' "$BUILD_LOG"; then
   echo "Release publication emitted warnings." >&2
   exit 1
@@ -116,17 +118,53 @@ from pathlib import Path
 from pypdf import PdfReader
 
 release = Path(os.environ["RELEASE_DIR"])
-interior = next(release.glob("*_interior.pdf"))
-pages = PdfReader(interior).pages
-assert all(abs(float(p.mediabox.width) - 549.0) < 0.5 and abs(float(p.mediabox.height) - 684.0) < 0.5
-           for p in pages), "paperback interior must be 7.5 x 9.25in plus 0.125in bleed"
+# ADR-03-0010: a black-and-white and a colour interior from one typesetting run.
+bw_interior = next(release.glob("*_interior-bw.pdf"))
+colour_interior = next(release.glob("*_interior-colour.pdf"))
+assert not list(release.glob("*_interior.pdf")), "the unsuffixed interior name is gone"
+pages = PdfReader(bw_interior).pages
+colour_pages = PdfReader(colour_interior).pages
+assert len(pages) == len(colour_pages), "both inks must have identical pages"
+for interior in (pages, colour_pages):
+    assert all(abs(float(p.mediabox.width) - 549.0) < 0.5 and abs(float(p.mediabox.height) - 684.0) < 0.5
+               for p in interior), "paperback interior must be 7.5 x 9.25in plus 0.125in bleed"
 text = " ".join((pages[i].extract_text() or "") for i in range(12))
 assert "Proof copy" in text and "Contents" in text
-for cover in release.glob("*_cover-*.pdf"):
-    box = PdfReader(cover).pages[0].mediabox
-    assert abs(float(box.height) - 684.0) < 0.5
-    assert float(box.width) > 2 * 540 + 18, f"{cover.name} has no spine"
-assert len(list(release.glob("*_cover-*.pdf"))) == 2, "one cover per enabled printer"
+
+
+def has_colour(pdf: Path) -> bool:
+    """Rasterise at low resolution and look for any clearly non-grey pixel."""
+    import subprocess
+    import tempfile
+    from PIL import Image
+    with tempfile.TemporaryDirectory() as directory:
+        subprocess.run(["pdftoppm", "-r", "8", "-png", str(pdf), f"{directory}/p"], check=True)
+        for image in Path(directory).glob("*.png"):
+            saturation = Image.open(image).convert("RGB").convert("HSV").getchannel("S")
+            if saturation.getextrema()[1] > 60:
+                return True
+    return False
+
+
+assert has_colour(colour_interior), "colour interior has no colour"
+assert not has_colour(bw_interior), "black-and-white interior contains colour"
+
+covers = sorted(release.glob("*_cover-*.pdf"))
+# Two inks x two printers x (with barcode, without barcode).
+assert len(covers) == 8, [cover.name for cover in covers]
+for cover in covers:
+    page = PdfReader(cover).pages[0]
+    assert abs(float(page.mediabox.height) - 684.0) < 0.5
+    assert float(page.mediabox.width) > 2 * 540 + 18, f"{cover.name} has no spine"
+    back_text = page.extract_text() or ""
+    if cover.name.endswith("-no-barcode.pdf"):
+        assert "ISBN" not in back_text, f"{cover.name} should leave the barcode area blank"
+    elif "-bw-" in cover.name:
+        assert "ISBN 978-1-7649948-0-4" in back_text, f"{cover.name} lacks the black-and-white ISBN"
+for ink in ("bw", "colour"):
+    for printer in ("kdp", "ingramspark"):
+        assert any(c.name.endswith(f"_cover-{ink}-{printer}.pdf") for c in covers)
+        assert any(c.name.endswith(f"_cover-{ink}-{printer}-no-barcode.pdf") for c in covers)
 ebook_path = release / "9781764994811_ebook.pdf"
 assert not (release / "31-book-01-ebook.pdf").exists()
 assert "9781764994811_ebook.pdf" in (release / "31-book-01-release-report.md").read_text()
