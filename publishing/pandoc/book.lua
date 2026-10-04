@@ -7,6 +7,8 @@
 -- * With metadata hw-notes=back, each "## Chapter Notes" heading is removed:
 --   its footnote definitions are already collected by pandoc, and its prose
 --   moves to the back-of-book notes (LaTeX) or stays as a short note (EPUB).
+-- * A footnote cited more than once in a chapter is printed once; later
+--   citations reuse its number.
 
 local CALLOUTS = {
   ["Key Idea"] = "key", ["Watch Out"] = "watch", ["Try This"] = "try",
@@ -209,10 +211,43 @@ function Image(image)
     tonumber(percent) / 100, image.src))
 end
 
+-- pandoc repeats a footnote's whole text every time its label is cited. Within
+-- a chapter, a repeated citation instead points back to the note's first
+-- number: \hwNoteAgain in LaTeX, a link to that note in EPUB. Numbering
+-- restarts with each chapter in both, so the count here matches theirs.
+local function reuse_repeated_notes(blocks)
+  local chapter, count, seen = 0, 0, {}
+  local function note(element)
+    local key = pandoc.write(pandoc.Pandoc(element.content), "native")
+    local first = seen[key]
+    if first then
+      if is_latex then
+        return pandoc.RawInline("latex", "\\hwNoteAgain{" .. first.id .. "}")
+      end
+      return pandoc.RawInline("html", string.format(
+        '<a href="#fn%d" class="footnote-ref" epub:type="noteref" role="doc-noteref"><sup>%d</sup></a>',
+        first.number, first.number))
+    end
+    count = count + 1
+    seen[key] = { id = string.format("c%dn%d", chapter, count), number = count }
+    if is_latex then
+      return { element, pandoc.RawInline("latex", "\\hwNoteRemember{" .. seen[key].id .. "}") }
+    end
+  end
+  for position, block in ipairs(blocks) do
+    if block.t == "Header" and block.level == 1 then
+      chapter, count, seen = chapter + 1, 0, {}
+    else
+      blocks[position] = block:walk({ Note = note })
+    end
+  end
+  return blocks
+end
+
 function Pandoc(doc)
   if doc.meta["hw-notes"] then
     notes_mode = pandoc.utils.stringify(doc.meta["hw-notes"])
   end
-  doc.blocks = process(doc.blocks)
+  doc.blocks = process(reuse_repeated_notes(doc.blocks))
   return doc
 end

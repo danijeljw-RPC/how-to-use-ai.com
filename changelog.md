@@ -9,6 +9,14 @@ All meaningful project changes should be recorded here.
 - KDP rejected the colour interior for insufficient gutter on PDF page 388 (printed page 376): Chapter 12 note 37's URL `https://www.australiancurriculum.edu.au/...` could only break at `/`, so `australiancurriculum.` ran past the text block into the gutter. Print and ebook builds now let URLs break after any letter or digit, so long host names wrap inside the margins. Both paperback interiors still run to 414 pages, so spine widths are unchanged; a scan of every page found no text inside KDP's 0.625in gutter or 0.25in outside/top/bottom margins.
 - Files changed: `publishing/latex/howto-book.tex`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
 
+## 2026-10-05 (94)
+
+### Fixed
+
+- A note cited more than once in a chapter is now printed once; later citations reuse its number (print, PDF ebook and EPUB). Book 1 had 57 such notes and 63 repeat citations. Paperback interiors drop from 414 to 406 pages; spines are now 0.9143 in (KDP) and 1.0150 in (IngramSpark), and the covers are rebuilt to match.
+- Chapter 11's Humane Ai Pin FAQ and Builder.ai "Natasha" links pointed at sites that no longer exist; they now cite checked Wayback Machine copies (24 and 27 April 2025).
+- Files changed: `publishing/pandoc/book.lua`, `publishing/latex/howto-book.tex`, `tests/test_book_lua_repeated_notes.py`, `docs/30-books/31-book-01/chapters/chapter-11-ai-hype-vs-reality.md`, `docs/40-publishing/decisions/ADR-03-0011-repeated-notes-and-archived-sources.md`, `docs/40-publishing/plans/book-01-pre-upload-fixes-plan.md`, `changelog.md`. Decisions: ADR-03-0011 added. Open issues: none. Commit: see git log.
+
 ## 2026-10-05 (93)
 
 ### Fixed

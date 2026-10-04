@@ -289,9 +289,15 @@
   % Each chapter's "Chapter Notes" paragraph (sources and drafting) follows its notes.
   \newcommand\hwNotesIntro[1]{\hw@flushhead\addtonotes{\string\hwNoteIntro{\unexpanded{#1}}}}
   \newcommand\hwNoteIntro[1]{\par\vspace{0.2\onelineskip}\noindent{\small\itshape\color{hwSlate}#1}\par}
+  % A note cited again in the same chapter reuses its first number
+  % (book.lua writes \hwNoteRemember after the first citation).
+  \newcommand\hwNoteRemember[1]{\expandafter\xdef\csname hw@note@#1\endcsname{\the\value{pagenote}}}
+  \newcommand\hwNoteAgain[1]{\notenumintext{\csname hw@note@#1\endcsname}}
 \else
   \newcommand\hw@notesubhead[2]{}
   \newcommand\hwNotesIntro[1]{}
+  \newcommand\hwNoteRemember[1]{\expandafter\xdef\csname hw@note@#1\endcsname{\the\value{footnote}}}
+  \newcommand\hwNoteAgain[1]{\footnotemark[\csname hw@note@#1\endcsname]}
 \fi
 
 % ---------- Index (memoir's own; two columns, ragged)
