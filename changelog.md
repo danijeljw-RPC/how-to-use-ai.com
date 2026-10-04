@@ -2,6 +2,13 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (90)
+
+### Fixed
+
+- `./pub-books.sh book N --release` now writes the flat covers to `dist/covers/` (`book-NN-front-cover.{pdf,png}`, `-preview.png`, and the same for the back cover), as draft builds already did. Before this, a clean release build left `dist/covers/` empty, so the site cover could not be refreshed from it. Copying the PNG into `wwwroot/` stays manual.
+- Files changed: `pub-books.sh`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
+
 ## 2026-10-04 (89)
 
 ### Fixed

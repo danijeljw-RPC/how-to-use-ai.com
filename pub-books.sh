@@ -54,6 +54,10 @@
 #   <book-folder>.epub              EPUB 3
 #   <book-folder>-release-report.md page counts, spine widths, ISBNs, warnings
 #
+# Every build, draft or release, also writes the flat covers to dist/covers/:
+#   book-NN-front-cover.{pdf,png}, book-NN-front-cover-preview.png (and the same
+#   for the back cover). Copy the front PNG into wwwroot by hand for the site.
+#
 # Values come from publishing/books.json; an empty string leaves that element
 # out (docs/40-publishing/books-json-reference.md). Full builds end with the
 # back-of-book index when docs/<book-folder>/index/index-terms.toml exists
@@ -439,6 +443,21 @@ publish_release() {
     --root-dir "$ROOT_DIR" --output "$work/front-cover.pdf" >/dev/null
   "$PYTHON_BIN" -m scripts.release_cover back --variant pdf --config "$CONFIG" --book-number "$book_number" \
     --root-dir "$ROOT_DIR" --output "$work/back-cover-ebook.pdf" >/dev/null
+  # Cover assets for the site, as draft builds make them: PDF, full-size PNG at
+  # 300 DPI and a small preview PNG. Copying them into wwwroot stays manual.
+  local padded_number cover_name cover_stem
+  padded_number="$(printf '%02d' "$book_number")"
+  for cover_name in front back; do
+    cover_stem="$COVER_DIR/book-$padded_number-$cover_name-cover"
+    if [[ "$cover_name" == "front" ]]; then
+      cp "$work/front-cover.pdf" "$cover_stem.pdf"
+    else
+      cp "$work/back-cover-ebook.pdf" "$cover_stem.pdf"
+    fi
+    pdftoppm -png -r 300 -singlefile "$cover_stem.pdf" "$cover_stem"
+    pdftoppm -png -scale-to-x 630 -scale-to-y -1 -singlefile "$cover_stem.pdf" "$cover_stem-preview"
+    echo "  -> $cover_stem.png"
+  done
 
   local report="$release_dir/$book_name-release-report.md"
   {
@@ -774,7 +793,7 @@ if [[ "$published_any" -eq 0 ]]; then
 fi
 
 if [[ "$edition" == "release" ]]; then
-  echo "Done. Release files are in $OUT_DIR/release/."
+  echo "Done. Release files are in $OUT_DIR/release/ and cover assets are in $COVER_DIR/."
 else
   echo "Done. Review PDFs are in $OUT_DIR/ and cover assets are in $COVER_DIR/."
 fi
