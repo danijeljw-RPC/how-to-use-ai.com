@@ -93,19 +93,19 @@
         "paperback": {
           "isbn": "9781764994804",
           "isbnDisplay": "978-1-7649948-0-4",
-          "priceCode": "",
+          "priceCode": "51388",
           "price": {
-            "AUD": "",
-            "USD": ""
+            "AUD": "19.99",
+            "USD": "13.88"
           }
         },
         "paperbackColour": {
-          "isbn": "",
-          "isbnDisplay": "",
-          "priceCode": "",
+          "isbn": "9781764994835",
+          "isbnDisplay": "978-1-7649948-3-5",
+          "priceCode": "51735",
           "price": {
-            "AUD": "",
-            "USD": ""
+            "AUD": "24.99",
+            "USD": "17.35"
           }
         },
         "pdf": {
