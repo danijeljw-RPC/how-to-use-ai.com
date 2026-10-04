@@ -2,6 +2,15 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (87)
+
+### Added
+
+- Plan for colour and black-and-white paperback interiors, plus enforcing the 7.5 × 9.25 in trim on every build: `docs/40-publishing/plans/colour-and-bw-interiors-plan.md`. Measured current outputs: draft, ebook, release interior and covers are the correct size; the site preview download (built 2026-09-24) is still 7 × 10 in, and several docs, `books.json` `series.page` and the integration test (old script name) are stale.
+- OI-0009: colour paperback ISBN and paper choices for KDP and IngramSpark.
+
+Decisions: none yet (ADR-03-0010 proposed in the plan). Open issues: OI-0009 opened. Commit: pending commit.
+
 ## 2026-10-04 (86)
 
 ### Changed
