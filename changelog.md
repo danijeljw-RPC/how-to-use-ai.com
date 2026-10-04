@@ -2,6 +2,14 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (89)
+
+### Fixed
+
+- Resolved the changelog conflicts left by rebasing `main` over the colour/black-and-white merge (entries 87 and 88 now sit above 85 and 86).
+- `tests/test_book_metadata.py` no longer expects the default `90000` price code in the real `books.json`; it checks that both paperback editions have a valid five-digit code, so the author's `51388`/`51735` pass.
+- Files changed: `changelog.md`, `tests/test_book_metadata.py`. Decisions: none. Open issues: none. Commit: see git log.
+
 ## 2026-10-04 (88)
 
 ### Changed

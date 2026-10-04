@@ -172,7 +172,8 @@ class RepositoryConfigTests(unittest.TestCase):
         for book in json.loads(config_path.read_text(encoding="utf-8"))["books"]:
             metadata = load_release_metadata(config_path, book["number"])
             self.assertEqual(metadata["errors"], [])
-            self.assertEqual(metadata["book"]["editions"]["paperback"]["priceCode"], "90000")
+            for edition in ("paperback", "paperbackColour"):
+                self.assertRegex(metadata["book"]["editions"][edition]["priceCode"], r"^\d{5}$")
 
 
 if __name__ == "__main__":
