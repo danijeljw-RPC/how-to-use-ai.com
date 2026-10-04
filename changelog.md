@@ -11,7 +11,7 @@ All meaningful project changes should be recorded here.
 - Files changed: `wwwroot/src/components/BookCover.astro`, `changelog.md`.
 - Decisions: none.
 - Open issues: none.
-- Commit: pending commit.
+- Commit: 6296009.
 
 ## 2026-10-04 (85)
 
