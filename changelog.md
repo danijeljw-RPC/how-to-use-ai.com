@@ -2,6 +2,15 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (91)
+
+### Changed
+
+- Website restyled to match the book: navy `#061532`, sky `#0EA5E9`, mist, slate and gold from `publishing/latex/howto-book.tex`; IBM Plex Sans Condensed headings, IBM Plex Serif body and IBM Plex Mono kickers, self-hosted as Latin-subset WOFF2 in `wwwroot/public/fonts/` (OFL included), so no third-party font host is added. The header and hero form one navy band like the cover's top, the wordmark is the cover's address-bar pill, buttons and callout labels use the cover's gold, and the footer is navy.
+- Removed the "RePass Cloud policies" footer links (privacy, terms, refund, contact on repasscloud.com). The site's own Privacy, Terms and Refunds links and the operator line remain; the legal pages themselves are unchanged.
+- Favicon and `theme-color` moved to the navy palette.
+- Files changed: `wwwroot/src/styles/global.css`, `wwwroot/src/components/Header.astro`, `wwwroot/src/components/Footer.astro`, `wwwroot/src/layouts/BaseLayout.astro`, `wwwroot/public/favicon.svg`, `wwwroot/public/fonts/*`, `wwwroot/tests/legal-pages.test.ts`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
+
 ## 2026-10-04 (90)
 
 ### Fixed

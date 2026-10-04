@@ -53,15 +53,15 @@ describe('published legal pages', () => {
     expect(html).toContain('https://repasscloud.com/legal/refund-policy/');
   });
 
-  it('exposes local and parent-company legal routes in the footer', async () => {
-    const response = await fetch(`${origin}/privacy/`);
+  it("links only the site's own legal routes in the footer", async () => {
+    const response = await fetch(`${origin}/`);
     const html = await response.text();
 
     expect(html).toContain('href="/privacy/"');
     expect(html).toContain('href="/terms/"');
     expect(html).toContain('href="/refund/"');
-    expect(html).toContain('href="https://repasscloud.com/legal/privacy-policy/"');
-    expect(html).toContain('href="https://repasscloud.com/legal/terms-of-service/"');
-    expect(html).toContain('href="https://repasscloud.com/legal/refund-policy/"');
+    expect(html).not.toContain('RePass Cloud policies');
+    expect(html).not.toContain('href="https://repasscloud.com/legal/');
+    expect(html).not.toContain('href="https://repasscloud.com/contact/"');
   });
 });
