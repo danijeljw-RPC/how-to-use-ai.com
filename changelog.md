@@ -2,6 +2,16 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (99)
+
+### Fixed
+
+- Front matter "How This Book Works": the Author Reflection example was a plain block quote in square brackets, so it printed with the blue quote rule instead of the gold reflection styling used throughout the book. It now uses the `::: {.author-reflection}` markup, with no brackets.
+- Added a short explanation, with a sample prompt, that text with a blue line and no label is a quote: something the reader could type into an AI tool, an example reply, or a passage to look at closely.
+- Recorded the plain-quote rule in the callout guide.
+- Checked: front matter rendered through `book.lua` gives `hwreflection` for the reflection and a plain `quote` for the sample prompt; 86 unit tests and the draft-publication integration test pass.
+- Files changed: `docs/30-books/31-book-01/frontmatter/how-this-book-works.md`, `docs/20-style/callout-guide.md`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
+
 ## 2026-10-05 (98)
 
 ### Changed

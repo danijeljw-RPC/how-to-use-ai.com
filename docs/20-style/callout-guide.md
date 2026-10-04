@@ -81,6 +81,12 @@ The author's reflection, any length. It can include `###` sub-headings.
 
 Leave a blank line after the opening marker and before the closing one. In the PDF the reflection gets the gold "Author Reflection" label and a gold rule down the left that continues across pages. In the EPUB it gets the reflection box.
 
+## Plain Quotes
+
+A block quote with no bold callout label (`> text`) is a plain quote, not a callout. In the PDF and EPUB it gets a thin blue (sky) rule down the left and no label. Use it for text the reader might type into an AI tool, an example of what a tool might say back, or a short passage the chapter examines closely.
+
+Never use a plain quote for an author reflection; reflections always use the gold `::: {.author-reflection}` markup above. The front matter page "How This Book Works" explains both to the reader, so keep it in step with this guide.
+
 ## Diagram Placeholders
 
 Use:
