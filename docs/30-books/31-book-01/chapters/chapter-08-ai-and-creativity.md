@@ -2,19 +2,21 @@
 
 ## Creativity Raises Different Questions
 
-Picture three people opening the same AI app on the same Tuesday evening.
+A grandmother is trying to make a picture of the family dog for her granddaughter's bedtime story. A freelance illustrator is reading an email about a smaller commission. A songwriter is sitting with a guitar, trying to work out why her chorus still sounds like another verse.
 
-The first has never been able to draw. Her granddaughter has asked for a bedtime story about the family's old dog, Biscuit, who once chased a pelican along the beach and lost. Twenty minutes later there is a picture of Biscuit mid-leap, ears flying, the pelican looking unimpressed. It is not a masterpiece. It is also something she could not have made last year, and the story now has a face.
+All three open an AI tool. They have very different reasons for doing it.
 
-The second is a freelance illustrator. She has just read an email from a regular client: “We'll handle the concept boards with AI this time and come back to you for finals.” The concept boards were a third of her income from that client. Nobody has insulted her work. The work has simply become smaller.
+The grandmother has a story about Biscuit, the family's old dog, who chased a pelican along the beach and came off second best. Her granddaughter wants to see the pelican. Drawing one herself is going to be a problem; drawing one with an offended dog beside it is well beyond her abilities. She describes the scene, changes a few details, and ends up with a picture they can look at together. Biscuit's ears are wrong, but her granddaughter is delighted. For a bedtime story, that is a perfectly reasonable measure of success.
 
-The third is a songwriter with a chorus she has been humming for a month. She types in her chords and asks what might happen if the chorus opened up instead of repeating the verse. One suggestion is dull, one is clever but wrong for the song, and one makes her sit up. By midnight she has rewritten the chorus herself, and it is better than anything the AI proposed.
+The illustrator's email is from a regular client. They still want her for the finished artwork, but they will be doing the concept boards with AI this time. Those boards are paid work. They also help her understand what the client wants before she commits to the final image. Now she has a smaller fee and someone else's starting point. The client sees a saving. She sees income disappearing from a relationship she has spent years building.
 
-Same technology. Same evening. Three completely different experiences of what AI means for creative work. (All three are fictional teaching examples, not people I have interviewed, but none of them is far-fetched.)
+The songwriter has the opposite problem. Nobody is taking work away from her; she just cannot get this particular song to move. She asks for a few chord alternatives, plays them, and rejects most of what comes back. One gives her something to work with. She changes it again until it fits the melody she already has. The useful part is the suggestion that gets her playing differently, rather than a finished song she can download.
+
+That is quite a lot to hide inside the phrase “using AI for creativity”. One person can now make something she could not make before. Another has lost part of a job. A third has found a way past a problem in her own work.
 
 That is why this chapter is different from the two before it. Ask whether AI can shorten an email or organise a shopping list and the questions are fairly contained: did it help, is it accurate, was the time saving worth it? Ask whether AI should help write a novel, illustrate a children's book, clone a singer's voice or generate a film performance and different questions arrive. Who is the author? Where did the training material come from? Was anyone asked? Is the result original? Who lost paid work? Does the audience deserve to know how it was made?
 
-Those questions do not disappear because the output is useful. They also do not prove that the output is useless.
+A useful result does not answer all of those questions. An objection to how the tool was built does not tell you whether the grandmother enjoyed making her picture, either. We need room to talk about both.
 
 Part 2 has been building towards this. Chapter 5 showed how to communicate with AI: give it context, constraints and purpose, then inspect and refine. Chapter 6 applied that at home and introduced a distinction between removing effort you do not value and surrendering judgement you do. Chapter 7 raised the stakes at work, where confidentiality, policy and verification matter because other people rely on the result. Creative work uses all of that foundation, then adds craft, identity, authorship, consent, livelihood and cultural value.
 
@@ -24,7 +26,7 @@ You will often hear that AI is “just another tool”. That is true, and it is 
 
 That idea is more useful than either of the slogans you will meet online. AI does not press a button labelled *creativity*. Nor is it limited to fetching coffee for the real artist while the important work happens elsewhere. By 2026 it can produce polished-looking prose, images, songs, voices and video. So “you can always tell” is no longer a helpful test, and “it only makes rough drafts” is no longer true. The harder tests are control, distinctiveness, consistency, truthfulness, rights, fit to the brief, and whether the work gives anyone a reason to care.
 
-This chapter does three things. First, it walks through writing, image-making, music, video and design with worked examples you can adapt. Second, it looks honestly at what “effort versus judgement” means when the craft itself is where much of the judgement lives. Third, it takes the three arguments you have almost certainly heard, *AI is stealing*, *AI is replacing artists* and *AI is killing creativity*, and unpacks what each one actually contains. The aim is not to hand you a verdict. It is to give you enough evidence and enough distinctions that your own verdict is worth something.
+This chapter does three things. First, it walks through writing, image-making, music, video and design with worked examples you can adapt. Second, it looks honestly at what “effort versus judgement” means when the craft itself is where much of the judgement lives. Third, it takes the three arguments you have almost certainly heard, *AI is stealing*, *AI is replacing artists* and *AI is killing creativity*, and unpacks what each one actually contains. I am not going to ask you to pick a team before we have looked at the problem. The aim is to give you enough evidence to decide what you think, including the bits that might make your first answer uncomfortable.
 
 ## AI Across Creative Domains
 
@@ -46,17 +48,17 @@ These are not legal categories, and real projects move up and down the ladder. A
 
 The weakest description of AI in writing is “it can draft”. A capable language model can brainstorm premises, propose scene directions, test structures, interrogate a character's motivation, suggest titles, compress a synopsis, spot repeated ideas, rewrite for a different audience and imitate the surface features of many genres. That is a lot of practical power. The question is how to use it without ending up as the proofreader of somebody else's story.
 
-Imagine a writer with a premise. During a regional blackout, a volunteer at a community radio station, running on a backup generator, takes a call from someone who seems to know what will happen next. The writer knows the story is really about trust and responsibility: what do you broadcast when you cannot verify it, and people are listening in the dark? But they are stuck at the end of the first scene.
+A writer has the opening of a short story and very little after it. A regional town has lost power. The community radio station is still broadcasting on a backup generator, and the volunteer on the evening shift takes a call from someone who seems to know what will happen next. The writer knows what interests them: people are listening for information, and the person with the microphone cannot verify what they have just been told. The first scene works. The next one keeps turning into an explanation that gives too much away.
 
-The low-control route is to ask for the whole story, accept the first polished result and start line-editing. That may produce readable prose. The cost is that the model has quietly decided the plot, tone, pacing, imagery and much of what the story means. The writer becomes the reviewer of a statistical first instinct.
+The low-control route is to ask for the whole story, accept the first polished result and start line-editing. That may produce readable prose. The cost is that the model has quietly decided the plot, tone, pacing, imagery and much of what the story means. By the time they start fixing sentences, most of the important decisions have already been made for them.
 
 A more intentional route begins before the AI is opened. The writer jots down three directions of their own, including one strange idea they are not sure about: *what if the caller is the volunteer's own voice, recorded years ago?* Then they ask for options rather than prose:
 
-> Here is my premise, my theme and what must stay true: the volunteer is alone, the generator has four hours of fuel, and the station is the only source of news for the town. I'm stuck at the end of scene one. Give me five structurally different directions for scene two, not finished prose. Make them genuinely different: at least one should change who the caller is, one should raise the stakes for the town rather than the volunteer, and one should be quiet rather than dramatic. For each, say what question it forces the volunteer to answer.
+> Here is my premise, my theme and what must stay true: the volunteer is alone, the generator has four hours of fuel, and the station is the only local service still broadcasting updates. I'm stuck at the end of scene one. Give me five structurally different directions for scene two, not finished prose. Make them genuinely different: at least one should change who the caller is, one should raise the stakes for the town rather than the volunteer, and one should be quiet rather than dramatic. For each, say what question it forces the volunteer to answer.
 
-An illustrative response might offer: the caller is a scammer testing whether the station will broadcast anything; the caller is a child reading from a notebook; a second caller contradicts the first; the generator starts failing so the volunteer must choose which message to use their remaining airtime on; or nothing happens for an hour and the tension is whether to broadcast the warning anyway.
+The request gives the writer several directions to weigh up: the caller is a scammer testing whether the station will broadcast anything; the caller is a child reading from a notebook; a second caller contradicts the first; the generator starts failing so the volunteer must choose which message to use their remaining airtime on; or nothing happens for an hour and the tension is whether to broadcast the warning anyway.
 
-Suppose the writer rejects three immediately because they are the kind of twist a reader has seen before. The fourth, the failing generator, is not quite right either, but it contains a better problem than anything on their own list: *airtime is running out, so every broadcast is a choice about what matters most.* That is the moment of value. The AI did not write the story. It changed the shape of the problem the writer is now solving.
+The writer crosses out the scammer and the notebook. Both explain the mystery too neatly. The failing generator is more useful, although having it break down immediately feels a bit convenient. They keep the pressure of the fuel running low and leave the caller unexplained. Now the volunteer has to decide what deserves the remaining airtime. That gives the next scene somewhere to go without turning it into a lecture about the plot.
 
 The writer drafts scene two themselves. Later, they bring AI back in a different role:
 
@@ -70,13 +72,17 @@ Here is what that smoothing looks like at the scale of one line. A writer's draf
 
 > *The generator coughed like it had opinions.*
 
-Ask for it to be “more polished” and a likely response is something like:
+A longer, more conventional revision would read:
 
 > *The generator sputtered ominously, its uneven rhythm filling the small studio with tension.*
 
 The second version is more conventional and arguably more correct. It is also blander, longer and less like anyone in particular. Do that to every sentence and a distinctive voice can drift towards the middle of everything the model has learned. That is a more durable risk than the old claim that AI writing is obviously bad. Modern systems write fluent sentences. They can also invent historical details in realistic fiction, lose track of continuity across a long manuscript, reach for familiar plot shapes and produce editorial advice that sounds authoritative but would apply to any story ever written.
 
-The same principles apply well beyond fiction. Suppose you have to give a toast at your sister's wedding. AI is genuinely useful for structure: how long should it be, how do you move from the funny story to the sincere bit, how do you end without mumbling? It can suggest an order for your material and tell you when a section runs long. What it cannot do is supply the stories. Ask it to “write a heartfelt wedding speech for my sister” and you will get something warm, fluent and interchangeable with ten thousand other speeches, possibly including an anecdote that never happened. Give it your three real memories and ask for help arranging them, and you keep the only thing that makes the speech worth hearing.
+The same problem turns up in a wedding toast. The bride's brother has plenty to say about his sister. Unfortunately, he has put all of it in the speech. There is a childhood camping trip, an argument over a borrowed car, the first time he met her partner, and a long detour explaining why the car argument was technically her fault. Read aloud, it runs to eight minutes. He has been asked for three.
+
+AI can help him choose an order, spot the explanation nobody needs and find a way from the funny bit to the sincere bit without making the change feel like a gear slipping. He gives it his notes and asks which parts to cut. He keeps the camping trip, loses the case for the defence over the car, and rewrites the ending in words he would actually say. Then he reads it aloud again.
+
+The memories are what make the speech worth hearing. Ask for “a heartfelt wedding speech for my sister” without supplying them and you may get fluent praise for someone the tool knows nothing about, complete with an anecdote that never happened. It can help arrange what you remember. It cannot remember your sister for you.
 
 Publishing adds another layer. Amazon's Kindle Direct Publishing, for example, currently distinguishes AI-*generated* material from AI-*assisted* work, and requires publishers to disclose generated text, images or translations, while not requiring disclosure of assisted work under that policy.[^ch8-kdp] That is one platform's rule, not a copyright ruling or a universal definition. It is still evidence that even platforms cannot sensibly treat every use of AI as the same kind of creative contribution. If you intend to publish, read the current rules of the place you are publishing before you start, not after.
 
@@ -90,23 +96,23 @@ For people who have never been able to draw, this can be genuinely enabling. You
 
 For people who do draw, the largest change is the cost of options. A concept artist can explore twenty directions before committing to the one that will take a week to paint. That changes the economics of the early stage of a project, which is also where much of the thinking happens.
 
-Consider a worked example. A small community group is organising a neighbourhood food festival and needs a poster. Its brief is real: the event should feel welcoming rather than corporate; the poster must work as an A3 print, a social-media tile and a black-and-white handout; and it must carry exact dates, sponsor logos and a booking link. Nobody on the committee is a designer.
+A neighbourhood food festival committee has a poster to finish before the local printer closes on Friday. One volunteer has the stall list, another has the sponsor logos, and the event details are scattered through a group chat. They need an A3 poster for shop windows, a square version for social media and a handout that still makes sense in black and white. Entry is free, so the link needs to take people to the programme and access information. Nobody on the committee is a designer.
 
 AI is useful here for exploration. A good request asks for genuinely different directions rather than one “best” answer:
 
 > We're making a poster for a free neighbourhood food festival. The mood should be warm and local, not corporate or futuristic. Generate three visually distinct directions: one based on photography of people sharing food at a long table, one based on bold hand-drawn illustration, and one built mostly from big, playful shapes and colour. No text in the images; we'll add it later.
 
-Looking at the three results side by side, the committee may discover something it could not have articulated in advance: everyone prefers the warm photographic feel, and nobody likes the illustration. That is useful even if none of the generated pictures survives into the final poster. It is often easier to react to a picture than to describe a preference.
+The photographic direction gets the committee talking. The long table feels closer to the event they want to put on. The bold illustration looks cheerful but gives it the feel of a children's activity day, and the big shapes could advertise almost anything. They now have a direction to work towards, even though the first photograph is too glossy and the people around the table look as if they have arrived for a furniture catalogue shoot. Reacting to those pictures is easier than agreeing on what “warm and local” means in a group chat.
 
 Now look closely at what the model decided that nobody asked it to decide. The committee asked for “people sharing food at a long table”. Who are those people? How old are they, what do they look like, what are they wearing, what food is on the table, what kind of street is behind them? The model had to fill all of that in, and its defaults come from patterns in its training data. Peer-reviewed audits of generated images of professions, including an Australian study of generated images of paramedics, have found demographic imbalances and stereotyped patterns in the models and prompts tested.[^ch8-bias] That does not mean every image is biased in the same way. It means the model has quietly done some casting and art direction for you.
 
-A useful habit is to ask one plain question of every generated image you plan to use: *what did the model decide that I never specified?* If the festival is in a neighbourhood where half the residents are over sixty and a third were born overseas, a table of identical-looking thirty-year-olds tells a different story from the one the committee wants to tell.
+A useful habit is to ask one plain question of every generated image you plan to use: *what did the model decide that I never specified?* If the festival is in a neighbourhood where half the residents are over sixty and a third were born overseas, a table of identical-looking thirty-year-olds would be a poor choice for the poster. Attractive is not the same as representative.
 
 Rights and originality matter before public use. A generated image can resemble an existing photograph or illustration more closely than you would like, especially if you asked for something very specific or famous. A prompt that names a living illustrator's style raises different issues from copying one of their pictures, but “style is not a copyrighted work” is not a moral permission slip. We will unpack those differences later in the chapter. For now, the practical point is that the committee should treat generated images as direction-finding material unless it is confident about the tool's terms, the output's originality and the people depicted.
 
 Training provenance also varies more than public arguments suggest. Adobe says its own Firefly models are trained on licensed content, such as Adobe Stock, and public-domain material, rather than customer content or indiscriminate web scraping, and it describes bonus payments to eligible Stock contributors.[^ch8-firefly] That is a company's account of its own system, not independent proof that every contributor is happy with it; Adobe's own contributor material says Stock contributors cannot individually opt out of that training under the relevant agreement. It is still an important counterexample to the idea that every image model has the same training-data story.
 
-The final production of the poster is a different job, and we will come back to it in the design section. Exact typography, sponsor logos, the booking link and print requirements are better handled with ordinary design tools than by asking an image generator to paint text.
+The final production of the poster is a different job, and we will come back to it in the design section. Exact typography, sponsor logos, the programme link and print requirements are better handled with ordinary design tools than by asking an image generator to paint text.
 
 ### Music and Audio: From a Second Opinion to a Complete Synthetic Song
 
@@ -116,7 +122,9 @@ Return to the songwriter from the start of the chapter. She has written a verse 
 
 > My song is in G major. The verse uses G–Em–C–D and the chorus currently repeats it. I want the chorus to feel like it lifts and opens up without changing key. Suggest three chord approaches for the chorus, explain in plain language why each would feel different, and don't write any lyrics or melody.
 
-Useful suggestions might include starting the chorus on C instead of G, so the section begins somewhere new and feels like it has opened up; borrowing an F chord, which does not strictly belong in G major but gives many pop and rock choruses a bright, anthemic lift; or holding back the home chord, G, until the last line so the chorus feels unresolved until it lands. Those are ordinary songwriting techniques, well within what a model has learned from music theory and countless songs. The songwriter tries all three on her guitar. The second one is the one that makes her sit up. The melody, lyrics and final decision remain hers.
+She has three approaches to try: start the chorus on C rather than G; try a borrowed F chord, outside the usual chords of G major; or delay the return to G so the chorus takes longer to feel settled. None is a guarantee of a better chorus. That depends on the melody, the rhythm and where the chords change.
+
+She plays through each approach on her guitar. Starting on C barely changes the feeling. The F catches her attention, but sitting on it for a whole line pulls the song away from what she wants. She shortens it, moves the next chord earlier and sings the chorus again. That works better. These are ordinary songwriting decisions, and she is making them by listening. The AI has given her something to test; it has not supplied a verdict on her song.
 
 Compare that with someone who types “upbeat summer pop song about road trips” into a music generator and accepts the result. Both people used AI to make music. One used it as a variation engine inside her own song. The other used AI-led generation in which the model decided the composition, the performance and the recording. Neither description tells you whether the result is enjoyable. It does tell you why the word *ownership* needs unpacking.
 
@@ -146,11 +154,13 @@ Video AI can help with storyboards, previsualisation, concept shots, cleanup, ro
 
 These are not five points on the same scale of “more AI”. They are different kinds of act.
 
-Consider a small bike repair shop planning a 30-second video for social media. Before anyone picks up a camera, the owner uses AI to generate a rough storyboard and a short moving previsualisation comparing two ideas: a fast montage of repairs, or a single continuous shot following a customer's bike from broken to fixed. The previsualisation reveals that the continuous shot needs a larger workshop than they have. That saving happened before a single hour of filming. AI made planning cheaper. It did not decide what the video should say about the business.
+A bike repair shop owner wants a thirty-second video showing what happens during a basic service. He has a phone, a tripod and a workshop where there is barely room to walk behind someone at the repair stand. He uses AI to sketch two filming plans: a series of close-ups, or one moving shot that follows the mechanic around the bike.
 
-At the editing stage, the owner finds the final shot is two seconds too short for the voice-over. Tools such as Adobe Premiere's Generative Extend can create additional frames to lengthen a clip.[^ch8-premiere] Here the editor has already chosen the footage, the moment and the purpose. AI supplies a bounded transformation, closer to a very clever version of an ordinary editing tool than to a new creative author.
+The moving shot looks good on screen. Trying the camera route in the actual shop is another matter. The counter blocks one angle, the repair stand blocks another, and nobody wants to spend the afternoon moving tools so a phone can pass through. He chooses the close-ups: a worn brake pad, the adjustment, the wheel spinning freely afterwards. The storyboard helps him work out what to film. Walking through the workshop tells him which plan will work.
 
-Now suppose the owner is tempted to generate a short clip of a happy customer saying, “Best repair I've ever had.” The generated person does not exist and never said it. That is no longer a production shortcut. A fabricated testimonial can mislead customers, whatever tool made it. The technical step is small; the ethical and legal step is large.
+During editing, the final shot of the shopfront ends before the voice-over does. He needs another two seconds. He can shorten the voice-over, hold a still frame or film the shopfront again. Tools such as Adobe Premiere's Generative Extend offer another option: generating extra frames to lengthen the clip.[^ch8-premiere] That extension needs checking against the original, particularly the sign and anything moving through the shot. A small production fix is useful when it saves work and preserves the details that matter.
+
+A customer testimonial is a different decision. The owner would like someone on camera saying how pleased they are with the repair, but asking a customer, arranging permission and recording it all take time. Generating a smiling customer would be quicker. It would also give viewers a customer who never visited the shop and a recommendation nobody made. Whatever it saves in filming, it is a false account of the business. The shortcut has changed what the video asks people to believe.
 
 For a home example, think of restoring a family video. AI tools can reduce background noise in a wedding speech recorded on a phone, stabilise shaky footage, or colour-correct a faded clip from the 1990s. Those are production-assistant jobs that preserve what happened. Generating a new clip of a late grandparent saying words they never said is a different kind of act, even if it is made with love. Some families may find it moving. Others may find it deeply uncomfortable. The difference is not the software; it is what the audience believes they are seeing.
 
@@ -162,18 +172,20 @@ Disclosure rules increasingly reflect this difference. YouTube's current policy 
 
 Design platforms can now generate layout directions, presentation concepts, campaign variants, mockups, colour options, copy in context and resized versions for different formats. Canva's Magic Design, for example, generates a set of layout options from a short description or an uploaded image.[^ch8-magic-design] This is useful because much early design work is comparative. It is often faster to react to six visible directions than to describe an abstract preference.
 
-Imagine a local bakery refreshing its look. It needs a new menu board, a printed price list and a set of templates for weekly social-media posts. The owner types “modern bakery menu” and receives several attractive options in seconds. Any of them might look good. None of them knows the things that make this particular design problem hard:
+A bakery owner is replacing a faded menu board and wants the printed price list and weekly social posts to match. She tries “modern bakery menu” and gets several tidy layouts. On her laptop, the small type and pale colours look quite tasteful. Above the counter, with customers deciding what to order from the back of the queue, they will be a nuisance. The brief needs more than the word “modern”:
 
 - The menu board is read from three metres away by people in a queue, so prices and item names must be legible at a distance.
 - Some customers have low vision, so text and background colours need strong contrast.
 - The bakery already has a logo and two brand colours, which must be used correctly rather than approximately.
-- Allergen information is legally and practically important, so it cannot be squeezed into decorative small print.
+- Customers need to know where to find allergen information, so that wording must be easy to read rather than squeezed into decorative small print.
 - The price list is printed by a local shop that needs a particular file format with bleed, so the design must be exact rather than approximately right.
 - The weekly posts will be updated by a staff member who is not a designer, so the templates need to be simple and hard to break.
 
-A stronger workflow starts with those constraints. The owner, or a designer working with them, might ask AI for broad directions based on the brief, pick the one that feels right, and then build or refine the final versions in a tool that provides exact layout, editable type, the real logo files and predictable print output. Then they test the result at its final size: print the price list, stand three metres from the menu board, check the contrast. A beautiful preview on a laptop proves very little about a menu board in a busy shop.
+She goes back to the brief. The prices need to be larger, the contrast stronger, and the layout simple enough for a staff member to change the Friday specials without moving everything else. With those constraints, the suggestions become more useful. She takes the preferred direction into a layout tool, adds the actual logo and checks the files with the printer.
 
-This is also where the festival poster from the art section gets finished. The generated photograph might become the background, but the dates, sponsor logos and booking link are set in a layout tool, the QR code is generated by a tool that makes QR codes, and the whole thing is checked at A3 and in black and white. AI explored; conventional tools produced; people decided.
+Then comes the fairly unglamorous part: printing a sample, reading it from the back of the queue and asking someone else to update a price. If they have to explain where the price has gone, the template is not finished. A beautiful preview on a laptop proves very little about a menu board in a busy shop.
+
+The festival committee has the same production work to do. Once it has chosen and checked the background image, someone still has to set the correct date, place the actual sponsor logos and add the programme link. The QR code comes from a tool designed to make QR codes, and a volunteer checks that it opens the right page. They print the poster at A3 and photocopy the handout in black and white. The pale detail that looked lovely on screen disappears in the photocopy, so they simplify it. Those checks are part of making the poster, however quickly the first image appeared.
 
 Research gives another reason not to equate more generated options with more creative exploration. In a study of visual ideation involving 60 participants, those given support from an AI image generator showed more *design fixation*, meaning they got stuck on the features of early examples, and produced fewer, less varied and less original ideas in the task studied than participants without that support.[^ch8-fixation] Seeing polished suggestions can anchor a designer before they have explored their own directions. We will come back to this when we ask whether AI kills creativity, because it is one of the most important findings in the chapter.
 
@@ -295,7 +307,7 @@ This is the distinction most public arguments skip. A use can be:
 - **technically non-infringing at the output stage** while still raising concerns about consent and credit at the training stage; or
 - **ethically objectionable to many people without being infringement**, because ethical norms can reach further than current law.
 
-So “it's legal, therefore it's fine” is a non-sequitur. So is “it's wrong, therefore it must be illegal”. And whether something is legal depends heavily on where you are.
+“It's legal, therefore it's fine” skips the ethical question. “It's wrong, therefore it must be illegal” assumes the law already agrees with you. And whether something is legal depends heavily on where you are.
 
 ### Why the Answer Changes at the Border
 
@@ -358,7 +370,7 @@ Provenance is useful, but it is not a lie detector. A Content Credential can sho
 
 ### Ask About Tasks, Not Titles
 
-“Is AI replacing artists?” is too coarse a question to answer well. Replace the word *artist* with tasks and markets and it becomes answerable.
+“Is AI replacing artists?” is too broad to give us a useful answer. Replace the word *artist* with tasks and markets and it becomes answerable.
 
 Think about what an illustrator actually does in a year. They interpret briefs, sketch concepts, explore compositions, render finished work, handle revisions, prepare files for print, invoice, negotiate rights, maintain a portfolio, build relationships with art directors, teach workshops and sell prints at markets. A writer researches, interviews, plans, drafts, revises, negotiates, promotes and answers reader emails. A musician composes, performs, arranges, records, tours and builds an audience. Each creative occupation is a bundle of tasks, and AI affects them unevenly.
 
@@ -401,7 +413,7 @@ Lived experience, reputation, live performance, cultural knowledge, accountabili
 
 ### New Work, Expanded Markets and the Apprenticeship Problem
 
-Not every generated output replaces a commission. The grandmother drawing Biscuit for a bedtime story was never going to hire an illustrator. A small community group that could not afford a designer can now make a passable poster. An independent game team can prototype environments before seeking funding, and that project may later employ people. Some AI outputs substitute for paid work; others substitute for nothing, because the alternative was that nothing would be made. Both effects are real, and the existence of one does not cancel the other.
+Not every generated output replaces a commission. The grandmother can make a picture of Biscuit without taking work from an illustrator if hiring someone was never an option in the first place. A small community group that could not afford a designer can now make a passable poster. An independent game team can prototype environments before seeking funding, and that project may later employ people. Some AI outputs substitute for paid work; others substitute for nothing, because the alternative was that nothing would be made. Both effects are real, and the existence of one does not cancel the other.
 
 Entry-level work deserves particular attention. Junior copywriting, stock-style illustration, rough storyboards, simple social graphics, resizing, background music and basic editing are paid work, and they are also practice. They are how many people have learned their craft while being paid for it. They are also exactly the kinds of task that are easiest to specify and easiest to substitute. If fewer people are hired to do them, the traditional apprenticeship route into creative careers could narrow, and fewer people may eventually develop into the senior practitioners that industries rely on.
 
@@ -421,13 +433,13 @@ Before answering, it is worth deciding what *creativity* means, because much of 
 
 Researchers who study creativity often use a standard two-part definition: a creative product is both original and effective, meaning new and also useful or appropriate for its purpose.[^ch8-definition] That is sensible: random nonsense is original but not useful, and a competent, conventional answer is useful but not original. Artists and audiences often care about more than that: intention, personal voice, surprise, craft, emotional communication, lived experience, cultural meaning and the relationship between a maker and a community.
 
-This means “Can AI be creative?” is really several questions wearing one coat. Can a model generate something new? Can people rate its output as original, useful or beautiful? Can AI help a person produce a better-rated result? And does the model itself have intention, experience or a point of view? Experiments can say a great deal about the first three. The fourth is philosophy, and this chapter does not need to settle it. A generated image can score highly with human judges without settling whether anything meant anything by it.
+Before answering “Can AI be creative?”, we need to work out which question we are asking. Can a model generate something new? Can people rate its output as original, useful or beautiful? Can AI help a person produce a better-rated result? And does the model itself have intention, experience or a point of view? Experiments can say a great deal about the first three. The fourth is philosophy, and this chapter does not need to settle it. A generated image can score highly with human judges without settling whether anything meant anything by it.
 
 Keeping those questions apart also prevents a common slide. A model scoring well on a creativity test is not evidence that it has human creative intention. A person producing a highly rated story with AI help is not evidence that their long-term creative ability improved. And a group producing more similar ideas is not evidence that each individual became less creative. Each of those claims needs its own evidence.
 
 ### Better Stories, More Similar Stories
 
-The single most useful research result for this chapter sounds contradictory until you separate what was measured.
+One study gets right to the problem: individual stories can improve while the collection becomes less varied. That sounds contradictory until you look at what was measured.
 
 In a study published in 2024, 293 participants each wrote a very short story. Before writing, their baseline creativity was measured with a simple task that asks people to name words as unrelated to one another as possible. Some participants wrote without AI help. Some could see one story idea generated by AI. Others could see up to five AI-generated ideas. Other people then rated the stories on qualities including novelty, usefulness, how well written they were and how enjoyable they were, and the researchers measured how similar the stories were to one another.[^ch8-stories]
 
@@ -449,7 +461,7 @@ Add the finding that experienced designers were slower with AI in one implementa
 
 ### What We Do Not Know Yet
 
-Be disciplined about the limits. These studies used bounded tasks, particular systems and short time frames. They support careful claims about immediate effects: AI can improve some ratings, especially for less experienced people; it can anchor and fixate; it can make a group's output more similar; and effects differ by stage and expertise.
+We should be careful about how much we ask these studies to prove. They used specific tasks, particular systems and short time frames. They support careful claims about immediate effects: AI can improve some ratings, especially for less experienced people; it can anchor and fixate; it can make a group's output more similar; and effects differ by stage and expertise.
 
 They do not establish that years of AI use destroy creative ability. Long-term evidence on skill development and dependency is still thin. The reverse claim, that routine AI use trains people to become more creative over time, is also unproven. Immediate performance and durable learning are different outcomes, just as Chapter 6 showed with a student whose AI-assisted homework improved while their understanding did not. If you worry about losing a skill, treat that as a reasonable concern to manage, not a proven fact to fear.
 
@@ -477,7 +489,7 @@ Historical comparisons can help, as long as they are not used to end the convers
 
 ### So, Does It?
 
-The responsible answer is not just “it depends how you use it”, because we now know enough to say *how* it depends. AI can lower barriers, speed up iteration and improve immediate results in some tasks, especially for less experienced people. It can also anchor users, narrow exploration and make a group's work more similar. The stage of the work, the person's expertise, whether they bring their own material, and their willingness to reject a polished suggestion all make a difference. The long-term effects on skill and on culture remain genuinely open.
+“It depends how you use it” is a fair start, but it does not get us very far on its own. We know enough now to explain some of what makes the difference. AI can lower barriers, speed up iteration and improve immediate results in some tasks, especially for less experienced people. It can also anchor users, narrow exploration and make a group's work more similar. The stage of the work, the person's expertise, whether they bring their own material, and their willingness to reject a polished suggestion all make a difference. The long-term effects on skill and on culture remain genuinely open.
 
 ::: {.author-reflection}
 
@@ -605,7 +617,7 @@ I've found it far more valuable when it disagrees with me.
 
 ## Core Takeaway
 
-AI changes creative workflows more readily than it settles what creativity means. It can lower the cost of producing, transforming and testing material. It can make creative participation possible for people who were shut out, and help experienced creators explore or finish work. It can also shape the options people consider, fill in details nobody chose, create uncertainty about rights, and substitute for paid tasks.
+AI can change how you make something without settling what you value about making it. It can lower the cost of producing, transforming and testing material. It can make creative participation possible for people who were shut out, and help experienced creators explore or finish work. It can also shape the options people consider, fill in details nobody chose, create uncertainty about rights, and substitute for paid tasks.
 
 Human judgement has not disappeared, but it does not sit safely at the end of an automated production line. It operates before, during and after generation, and the system can influence it. The practical responsibility is to know what you are trying to make, what the AI actually contributed, which skills you still want to practise, whose rights and identities are involved, what your audience expects, and whether the result deserves to be published.
 
@@ -619,7 +631,7 @@ Creative work brings all of those lessons together and adds one more. A clear br
 
 ## Chapter Notes
 
-This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. Both complementary Chapter 8 research packages informed the manuscript. The three people in the opening, the radio-station story, the wedding toast, the festival poster, the songwriter's chords, the bike shop, the bakery and all sample prompts and outputs are original teaching illustrations, not measured product responses or invented author experiences. The dedicated Chapter 8 bibliography records source type, claim mapping, limitations and dates of source checks.
+This chapter was developed from the author's viewpoint with research and drafting assistance from ChatGPT, Codex and Claude. Both complementary Chapter 8 research packages informed the manuscript. The dedicated Chapter 8 bibliography records source type, claim mapping, limitations and dates of source checks.
 
 [^ch8-kdp]: Amazon KDP, “Content Guidelines — Artificial intelligence (AI) content,” <https://kdp.amazon.com/en_US/help/topic/G200672390>. Current platform policy checked 30 September 2026; platform definitions are not copyright law and can change.
 
