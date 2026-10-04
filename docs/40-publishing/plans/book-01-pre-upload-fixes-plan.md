@@ -22,7 +22,7 @@ Fix the problems found by the 2026-10-05 pre-publication check of the Book 1 rel
 
 - A note number in the text could point at the wrong note. Mitigated by checking that every repeat follows its first citation, that each chapter prints exactly its distinct notes numbered 1..n, and spot-checking printed numbers.
 - Page count changes alter spine width. The build regenerates covers from the new count.
-- 46 cited URLs could not be verified automatically (sites block scripts); they need a manual browser check.
+- 46 cited URLs could not be verified automatically (sites block scripts); they need a manual browser check, listed in `docs/30-books/31-book-01/research/url-manual-check-2026-10-05.md`.
 
 ## Acceptance criteria
 

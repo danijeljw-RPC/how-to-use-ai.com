@@ -9,6 +9,13 @@ All meaningful project changes should be recorded here.
 - KDP rejected the colour interior for insufficient gutter on PDF page 388 (printed page 376): Chapter 12 note 37's URL `https://www.australiancurriculum.edu.au/...` could only break at `/`, so `australiancurriculum.` ran past the text block into the gutter. Print and ebook builds now let URLs break after any letter or digit, so long host names wrap inside the margins. Both paperback interiors still run to 414 pages, so spine widths are unchanged; a scan of every page found no text inside KDP's 0.625in gutter or 0.25in outside/top/bottom margins.
 - Files changed: `publishing/latex/howto-book.tex`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
 
+## 2026-10-05 (95)
+
+### Added
+
+- `docs/30-books/31-book-01/research/url-manual-check-2026-10-05.md`: results of checking all 483 cited URLs, and a by-chapter checklist of the 46 whose sites block automated checks. It replaces an untracked list that had been written to the git-ignored `dist/` folder.
+- Files changed: `docs/30-books/31-book-01/research/url-manual-check-2026-10-05.md`, `docs/40-publishing/plans/book-01-pre-upload-fixes-plan.md`, `changelog.md`. Decisions: none. Open issues: none. Commit: see git log.
+
 ## 2026-10-05 (94)
 
 ### Fixed
