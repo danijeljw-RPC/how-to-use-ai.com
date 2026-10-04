@@ -49,7 +49,7 @@ This is editorial research, not legal, financial or security advice.
 | Business identity checks | ACCC "Checking a business is genuine" | Regulator guidance | ACCC does not certify businesses |
 | Permission review | Apple, Android, Chrome help | Platform documentation | Walkthroughs to website |
 | Accessibility output can be wrong | Google Guided Vision | Provider feature page with own warning | Generic in prose |
-| Training ≠ storage; temporary retention; files separate from chats; human-review retention; consumer vs commercial | OpenAI, Google, Anthropic help pages | Provider-stated policy | Not independent audits; mandatory recheck |
+| Training ≠ storage; temporary retention; files separate from chats; human-review retention; consumer vs commercial | OpenAI, Google, Anthropic help pages | Provider-stated policy | Not independent audits; reviewed 4 October; refresh if publication is delayed |
 | Shared links discoverable incident | OpenAI help; Search Engine Journal 2025 | Provider help; secondary reporting | Shared links only, not private chats |
 | Legal hold overrides deletion | OpenAI NYT statement 2025 | Litigant's statement | Corroborate if expanded |
 | On-device vs cloud | Apple PCC docs | First-party architecture claims | Not general finding |
@@ -65,8 +65,8 @@ This is editorial research, not legal, financial or security advice.
 | ACL applies; overseas sellers; chargebacks | ACCC pages; Treasury ACL review 2025 | Regulator guidance; government review | Not legal advice |
 | Subscription-trap reforms from 1 July 2027 | UTP Act 2026; Treasury release | Legislation; government announcement | Enacted, not commenced; checked |
 | Fake reviews unlawful; warning signs | ACCC online reviews | Regulator guidance | Indicators, not proof |
-| Copilot processes prompts, code and context; Business/Enterprise data not used for training; individual controls differ | GitHub Copilot Trust Center; GitHub Blog 25 Mar 2026 | Provider-stated policy | Individual plans train by default from 24 Apr 2026 unless opted out; checked 2 Oct 2026; mandatory recheck |
-| Copilot free option; Pro from US$10/month; AI credits | GitHub Docs "Plans for GitHub Copilot" | Provider pricing page | US prices; AI Credits billing since June 2026; checked 2 Oct 2026; mandatory recheck |
+| Copilot processes prompts, code and context; Business/Enterprise data not used for training; individual controls differ | GitHub Copilot Trust Center; GitHub Blog 25 Mar 2026 | Provider-stated policy | Individual plans train by default from 24 Apr 2026 unless opted out; checked 2 Oct 2026; reviewed 4 October; refresh if publication is delayed |
+| Copilot free option; Pro from US$10/month; AI credits | GitHub Docs "Plans for GitHub Copilot" | Provider pricing page | US prices; AI Credits billing since June 2026; checked 2 Oct 2026; reviewed 4 October; refresh if publication is delayed |
 | Newer Copilot fewer vulnerable suggestions, still present | Majdinasab et al. 2023/SANER 2024, replicating Pearce et al. 2022 | Peer-reviewed replication study | 36.54% → 27.25%, Python, CWE-targeted scenarios, CodeQL; 2023 version only |
 | Controlled study: developers with Copilot faster | Peng et al. 2023 | Randomised experiment by the tool's maker | 95 Upwork programmers, one JavaScript HTTP-server task, 55.8% faster; 2022, pre-release; time, not quality |
 

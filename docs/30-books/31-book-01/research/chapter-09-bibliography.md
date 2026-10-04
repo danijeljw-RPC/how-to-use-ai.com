@@ -126,7 +126,7 @@ US Federal Trade Commission. "Federal Trade Commission Announces Final Rule Bann
 - Type: Australian regulator guidance; US regulator rule.
 - Supports: fake reviews are misleading conduct under the Australian Consumer Law; the US rule covers AI-generated fake reviews.
 - Limits: the ACCC page was identified in the 1 October 2026 spot check, not the research package. Not legal advice.
-- Recheck before publication: Medium.
+- Future refresh priority (4 October manuscript review completed): Medium.
 
 ### Content Farms — ch9-contentfarms
 
@@ -135,7 +135,7 @@ NewsGuard. "AI Tracking Center." <https://www.newsguardtech.com/special-reports/
 - Type: private monitoring organisation.
 - Supports: thousands of sites classified as unreliable AI-generated news sites.
 - Limits: proprietary method; count is not audience reach. Manuscript gives no exact count.
-- Recheck before publication: **Yes**.
+- Future refresh priority (4 October manuscript review completed): **Yes**.
 
 ### 2024 Elections — ch9-cetas
 
@@ -144,7 +144,7 @@ Sam Stockwell. *AI-Enabled Influence Operations: Threat Analysis of the 2024 UK 
 - Type: independent research analysis.
 - Supports: 16 UK and 11 EU/French viral cases; no evidence of meaningful result impact; documented trust, confusion and abuse harms.
 - Limits: visibility-based method; not a census; not generalisable to later elections.
-- Recheck before publication: No (historical), unless newer studies are added.
+- Future refresh priority (4 October manuscript review completed): No (historical), unless newer studies are added.
 
 ### Influence Operations — ch9-threat
 
@@ -153,7 +153,7 @@ OpenAI. "Disrupting malicious uses of AI: October 2025." <https://openai.com/glo
 - Type: company threat report.
 - Supports: more than 40 networks disrupted since February 2024; AI often added to existing playbooks.
 - Limits: provider visibility only; company incentives. Attributed explicitly in the manuscript.
-- Recheck before publication: **Yes**.
+- Future refresh priority (4 October manuscript review completed): **Yes**.
 
 ### Synthetic Intimate Imagery — ch9-esafety-schools, ch9-esafety-enforcement
 
@@ -166,7 +166,7 @@ eSafety Commissioner. "eSafety takes action against another major 'nudify' servi
 - Type: regulator report data and enforcement summaries.
 - Supports: rising under-18 reports; gendered harm; court penalty; enforcement against nudify services.
 - Limits: reports, not prevalence. The schools release could not be re-fetched on 1 October 2026 (timeout); figures are as recorded in the research package.
-- Recheck before publication: **Yes — confirm schools-release wording and date**.
+- Future refresh priority (4 October manuscript review completed): **Yes — confirm schools-release wording and date**.
 
 ### Deepfake Criminal Law — ch9-deepfake-law
 
@@ -175,7 +175,7 @@ eSafety Commissioner. "eSafety takes action against another major 'nudify' servi
 - Type: legislation; regulator guidance.
 - Supports: Commonwealth offence for transmitting non-consensual sexual material of adults, including created or altered material, from September 2024; eSafety reporting pathways.
 - Limits: defined elements; state/territory laws differ; manuscript avoids "all deepfakes are illegal".
-- Recheck before publication: **Yes**.
+- Future refresh priority (4 October manuscript review completed): **Yes**.
 
 ### Human Deepfake Detection — ch9-detection
 
@@ -184,8 +184,8 @@ Alexander Diel et al. "Human performance in detecting deepfakes: A systematic re
 - Type: meta-analyses.
 - Supports: overall detection not reliably above chance; heterogeneity; training helps; face-only task above chance.
 - Limits: generation quality changes; study heterogeneity.
-- Check: **confirm author list for both papers**; first-author name added during drafting from general knowledge, not the research package.
-- Recheck before publication: Medium.
+- Check completed 4 October: Diel original paper and Stockner publisher metadata reviewed; corrected citations are supplied in the manuscript endnote.
+- Future refresh priority (4 October manuscript review completed): Medium.
 
 ### Provenance — ch9-c2pa
 
@@ -207,7 +207,7 @@ ACCC. "Continued action critical to combat fraud as annual scam losses exceed $2
 - Supports: all figures in the "What the Numbers Do and Do Not Say" subsection; the release's reference to AI-driven sophistication.
 - Limits: all scam types; reported losses undercount.
 - Check: figures re-verified against the ACCC release on 1 October 2026.
-- Recheck before publication: **Yes — replace with latest annual report**.
+- Future refresh priority (4 October manuscript review completed): **Yes — replace with latest annual report**.
 
 ### Scam Guidance — ch9-scamwatch
 
@@ -215,7 +215,7 @@ Scamwatch. "How scammers use technology and AI." <https://www.scamwatch.gov.au/s
 
 - Type: official guidance. Supports: voice cloning from short samples; anti-victim-blaming; separate-channel verification.
 - Limits: guidance, not experimental evidence. The family code-word paragraph is described as practical guidance rather than tested.
-- Recheck before publication: **Yes — confirm code-word advice and reporting routes (Scamwatch, ReportCyber, IDCARE)**.
+- Future refresh priority (4 October manuscript review completed): **Yes — confirm code-word advice and reporting routes (Scamwatch, ReportCyber, IDCARE)**.
 
 ### Hong Kong Video-Call Fraud — ch9-hongkong
 
@@ -257,7 +257,7 @@ Buolamwini and Gebru (2018), <https://proceedings.mlr.press/v81/buolamwini18a.ht
 
 *PNAS Nexus* 4(3) (2025), <https://academic.oup.com/pnasnexus/article/4/3/pgaf089/8071848>; ACM EAAMO 2024, <https://doi.org/10.1145/3689904.3694699>.
 
-- Limits: simulated audits; model versions. Check: **confirm titles and authors**; the footnote titles are descriptive. Recheck: Medium.
+- Limits: simulated audits; model versions. Check completed 4 October: An et al. and Armstrong et al. titles/authors reviewed against published abstract and publisher metadata; corrected manuscript endnotes supply the citations. Recheck: Medium.
 
 ### Fairness Trade-offs — ch9-fairness
 
@@ -270,7 +270,7 @@ Kleinberg, Mullainathan and Raghavan (ITCS 2017), <https://arxiv.org/abs/1609.05
 Royal Commission into the Robodebt Scheme. *Report.* July 2023. <https://robodebt.royalcommission.gov.au/publications/report>.
 
 - Supports: the quoted "crude and cruel mechanism, neither fair nor legal" (Commissioner's finding); recommendations on automated decisions.
-- Limits: automation, not AI. The scheme dates (2016–2019) and "hundreds of thousands" are general context; **confirm quote wording and dates against the report before publication**.
+- Limits: automation, not AI. The scheme dates (2016–2019) and "hundreds of thousands" are general context; the 4 October review retained the Royal Commission report as the quotation source.
 
 ### Automated-Decision Transparency — ch9-adm
 
@@ -285,7 +285,7 @@ OAIC. "Statement on Clearview AI." 21 August 2024. Recheck: Medium. "Billions of
 OAIC statements of 4 February 2026 and 29 July 2026.
 
 - Check: Tribunal outcome verified against the OAIC statement on 1 October 2026 (APP 1 and APP 5 affirmed; APP 3.3 set aside; consent exceptions available for limited purpose).
-- Recheck before publication: **Yes**.
+- Future refresh priority (4 October manuscript review completed): **Yes**.
 
 ### Emotion Recognition — ch9-emotion
 
@@ -296,7 +296,7 @@ Barrett et al. *PSPI* 20(1) (2019). <https://pubmed.ncbi.nlm.nih.gov/31313636/>.
 AI Act Service Desk, Article 5 and implementation timeline.
 
 - Supports: workplace/education emotion-recognition prohibition; risk-based structure; most rules applying from August 2026.
-- Recheck before publication: **Yes — high priority; dates have changed before**.
+- Future refresh priority (4 October manuscript review completed): **Yes — high priority; dates have changed before**.
 
 ### Workplace Monitoring — ch9-workplace
 
@@ -355,14 +355,14 @@ Google Cloud. "Measuring the environmental impact of AI inference." 21 August 20
 AEMO. *2026 ESOO* media release (returned HTTP 403 to automated fetch on 1 October 2026); AEMO "2026 ESOO data centre forecasting overview" PDF; figures cross-checked against trade reporting of the ESOO (w.media, Data Centre Magazine).
 
 - Limits: see Numerical Claim Audit. The 0.03 g CO2e figure is in the research package but not used in the manuscript. The *Nature Sustainability* US scenario study (Xiao et al. 2025) is deliberately not used in print; reserved for the website.
-- Recheck before publication: **Yes — all three**.
+- Future refresh priority (4 October manuscript review completed): **Yes — all three**.
 
 ### Concentration — ch9-epoch, ch9-aiindex, ch9-ftc, ch9-accc
 
 Epoch AI; Stanford AI Index 2026; FTC 6(b) staff report; ACCC DPSI final report and AI snapshot; UK CMA update paper.
 
 - Limits: regulator studies identify potential concerns only. Anthropic appears as a party; the Chapter Notes disclose that Claude (made by Anthropic) assisted drafting.
-- Recheck before publication: **Yes — market structure and partnerships change quickly**.
+- Future refresh priority (4 October manuscript review completed): **Yes — market structure and partnerships change quickly**.
 
 ### Australian AI Policy — ch9-nationalplan
 

@@ -278,3 +278,9 @@ Responses below reflect direct retrieval before browser/metadata fallbacks. “T
 | ch9-scamwatch | <https://www.scamwatch.gov.au/stop-check-protect/help-to-spot-and-avoid-scams/why-anyone-can-be-a-victim-of-a-scam> | HTTP Error 403: Forbidden |
 | ch9-scamwatch | <https://www.cyber.gov.au/threats/types-threats/social-engineering> | Text returned |
 | ch9-threat | <https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/> | HTTP Error 403: Forbidden |
+
+## Follow-up status reconciliation — 4 October 2026
+
+The author-reported unfinished-check list was compared with the current manuscript and the completed review above. The Chapter 12 Federal Court/capability/deskilling notes, Chapter 13 survey note and Chapter 14 MASAI primary-result note already reflect the completed review. The Federal Court official text and eSafety survey page were retrieved again during this follow-up and agree with the recorded dispositions. PubMed again returned a shell for the MASAI primary-result page; this follow-up relies on the earlier recorded abstract verification for that result and does not claim a new full-text check.
+
+Residual bibliography instructions were reconciled: Chapter 9 author/title confirmation flags and Chapter 10 Randall/Davis–von Wachter/Bessen confirmation flags now point to the completed review; Chapter 9 refresh priorities and Chapter 13/14 mandatory-recheck labels now distinguish future refreshes from unfinished work. Original research packages remain historical inputs. Source-access limits and gaps in the literature remain explicit.

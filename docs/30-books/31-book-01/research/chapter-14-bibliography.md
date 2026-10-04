@@ -68,7 +68,7 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 | Automation levels | SAE J3016 | Technical taxonomy | Official SAE record: revised September 2026 |
 | Robotaxi safety | Waymo June 2026 | Company analysis | Commercial interest; checked |
 | Robotaxi suspension | California DMV 2023 | Regulator enforcement | Checked |
-| Australian AV status | NTC; ITMM communiqué Nov 2025; trial guidelines | Government | Mandatory recheck |
+| Australian AV status | NTC; ITMM communiqué Nov 2025; trial guidelines | Government | Reviewed 4 October; refresh if publication is delayed |
 | Adelaide traffic trials | SA Government Aug 2026 | Trial announcement | Official page retrieved 4 October; trial announcement only |
 | Assistant memory | Meta 2025 | Company announcement | Regional |
 | Announcement vs deployment | Apple June 2026 | Company announcements | Earlier history needs primary source |
@@ -80,7 +80,7 @@ Research package date and spot check: **1 October 2026 (Australia/Adelaide)**.
 | Fast GenAI adoption | Bick, Blandin & Deming 2026 | Representative US surveys | US; adoption ≠ productivity |
 | Multiple trajectories | IASR 2026 | International expert synthesis | 2026 edition checked |
 | Normal technology | Narayanan & Kapoor 2025 | Scholarly essay | Argument, not proof |
-| Australian institutions | National AI Plan; AISI; APS AI Plan | Government policy | Mandatory recheck |
+| Australian institutions | National AI Plan; AISI; APS AI Plan | Government policy | Reviewed 4 October; refresh if publication is delayed |
 | Author reflection: quantum computing today | Preskill 2018; Aaronson 2015 | Expert perspective (peer-reviewed journals) | No large-scale fault-tolerant machines yet; quantum-ML data-loading caveats (`ch14-quantum`) |
 
 ## Checklist Reviewed — 4 October 2026

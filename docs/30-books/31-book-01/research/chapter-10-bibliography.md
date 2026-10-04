@@ -40,7 +40,7 @@ This is editorial research, not legal, financial or career advice.
 - **Anthropic Economic Index.** The package cites the February 2025 split (57 per cent augmentation, 43 per cent automation on Claude.ai) and an unspecified API skew. Checked 1 October 2026: the September 2025 report found automation (49.1 per cent) slightly ahead of augmentation (47 per cent) on Claude.ai, and 77 per cent of first-party API conversations showing automation patterns; the January 2026 report (November 2025 data) found augmentation at 52 per cent and automation at 45 per cent on Claude.ai. The January 2026 API share could not be confirmed consistently (a page summary gave about 64 per cent, a search snippet about 75 per cent), so the manuscript quotes only the September 2025 API figure.
 - **Klarna.** The package says "human support remains available". The 2025 Form 20-F text searched on 1 October 2026 confirms the 80 per cent chat share, the "work equivalent of over 850 full-time agents" estimate (based on the reduction in agent-handled chat and telephone conversations) and about US$59 million in 2025 cost savings, and compares AI-handled chats with human agents on internal satisfaction surveys. It did not explicitly state that human support remains available, so the manuscript does not claim it.
 - **Customer-support study.** See Evidence Decisions: published-version figures used for consistency with Chapter 7.
-- **Randall citation.** The package's DOI (`10.1093/acprof:oso/9780199259908.003.0000`) points to an Oxford Academic chapter, not to Randall's 1991 Cambridge book *Before the Luddites*. The footnote cites the DOI as given and flags the book and chapter details for confirmation.
+- **Randall citation.** The package's DOI (`10.1093/acprof:oso/9780199259908.003.0000`) points to an Oxford Academic chapter, not to Randall's 1991 Cambridge book *Before the Luddites*. Confirmed in the 4 October review: chapter 10, “Before the Luddites: Machinery, Regulation, and the State,” in *Riotous Assemblies: Popular Protest in Hanoverian England* (Oxford University Press, 2006). The manuscript footnote now supplies these details.
 - **Fair Work consultation.** Wording narrowed to "modern awards and enterprise agreements generally contain consultation terms, and enterprise agreements must include them", consistent with the FWO guide as summarised in the package.
 
 ## Claim Map
@@ -81,7 +81,7 @@ This is editorial research, not legal, financial or career advice.
 
 ## Numerical Claim Audit
 
-| Number in manuscript | Source | Scope and type | Recheck |
+| Number in manuscript | Source | Scope and type | Future refresh priority (reviewed 4 October) |
 | --- | --- | --- | --- |
 | No economy-wide displacement; 22–25-year-olds ~19% below benchmark; via reduced hiring; concentrated where usage automates | Stanford, rev. 12 Aug 2026, data to Jun 2026 | US payroll, observational | **High** (verified 1 Oct 2026) |
 | ~40% global, ~60% advanced economies exposed | IMF 2024 | Exposure | Medium |
@@ -121,9 +121,9 @@ Full citations, URLs and limitation notes are in the manuscript footnotes, which
 - **ch10-abs-adoption** — Replace with the next Characteristics of Australian Business release if available.
 - **ch10-jsa** — Check for follow-up AI-transition work.
 - **ch10-pc** — Recheck before any present-tense statement about aggregate productivity.
-- **ch10-luddites** — Confirm book/chapter details for the DOI.
-- **ch10-displaced** — Davis and von Wachter (2011) added in drafting for the "later research" sentence; it was not in the research package. Confirm before publication.
-- **ch10-atm** — Added in drafting; the package recommended caution but supplied no source. Confirm before publication.
+- **ch10-luddites** — Book/chapter details confirmed 4 October; see the corrected Randall citation above.
+- **ch10-displaced** — Davis and von Wachter (2011) added in drafting for the "later research" sentence; it was not in the research package. Reviewed 4 October; see the source disposition in the verification record.
+- **ch10-atm** — Added in drafting; the package recommended caution but supplied no source. Reviewed 4 October; see the source disposition in the verification record.
 - **ch10-fwo-consult** — General guidance; not legal advice.
 
 ## Research Package Material Not Used in Print
