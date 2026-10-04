@@ -15,7 +15,7 @@ All meaningful project changes should be recorded here.
 - Files changed: 75 existing files plus the new plan `docs/40-publishing/plans/series-name-and-nla-values-plan.md` (see commit).
 - Decisions: ADR-03-0006 amended (2026-10-04).
 - Open issues: closed publishing OI-0004.
-- Commit: pending commit.
+- Commit: 629edaa.
 
 ## 2026-10-04 (84)
 
