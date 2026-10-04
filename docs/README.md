@@ -1,6 +1,6 @@
 # Docs Directory
 
-This directory is the committed working memory for the How-to-use-ai.com book series.
+This directory is the committed working memory for the How-To-Use-AI.com book series.
 
 It contains:
 

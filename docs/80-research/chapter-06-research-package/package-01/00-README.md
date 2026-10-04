@@ -1,6 +1,6 @@
 # Chapter 6 Research Package — AI at Home
 
-**Book:** *How To Use AI.com*  
+**Book:** *How-To-Use-AI.com*  
 **Chapter:** Chapter 6 — AI at Home  
 **Research date:** 2026-09-29  
 **Purpose:** Research support for a later chapter-writing system. This package does **not** write Chapter 6.

@@ -1,7 +1,7 @@
 # Chapter 9 Research Package — The Problems Nobody Should Ignore
 
 **Research date:** 1 October 2026  
-**Book:** *How To Use AI.com* — Book 1  
+**Book:** *How-To-Use-AI.com* — Book 1  
 **Chapter:** 9 — The Problems Nobody Should Ignore  
 **Status:** Research package only. This package does **not** write Chapter 9.
 

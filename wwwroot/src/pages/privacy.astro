@@ -3,13 +3,13 @@ import { getEntry, render } from 'astro:content';
 import LegalLayout from '../layouts/LegalLayout.astro';
 
 const policy = await getEntry('legal', 'privacy-policy');
-if (!policy) throw new Error('Missing How To Use AI.com privacy policy');
+if (!policy) throw new Error('Missing How-To-Use-AI.com privacy policy');
 const { Content } = await render(policy);
 ---
 
 <LegalLayout
   title="Privacy Policy"
-  description="How To Use AI.com privacy practices, data handling, service providers, retention, and privacy rights."
+  description="How-To-Use-AI.com privacy practices, data handling, service providers, retention, and privacy rights."
   canonicalPath="/privacy/"
 >
   <Content />

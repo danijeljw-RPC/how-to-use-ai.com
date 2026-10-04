@@ -3,13 +3,13 @@ import { getEntry, render } from 'astro:content';
 import LegalLayout from '../layouts/LegalLayout.astro';
 
 const policy = await getEntry('legal', 'terms-of-service');
-if (!policy) throw new Error('Missing How To Use AI.com website terms');
+if (!policy) throw new Error('Missing How-To-Use-AI.com website terms');
 const { Content } = await render(policy);
 ---
 
 <LegalLayout
   title="Website Terms"
-  description="Terms for using How To Use AI.com, its content, previews, forms, and direct sales."
+  description="Terms for using How-To-Use-AI.com, its content, previews, forms, and direct sales."
   canonicalPath="/terms/"
 >
   <Content />

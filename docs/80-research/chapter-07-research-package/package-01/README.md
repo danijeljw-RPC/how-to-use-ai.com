@@ -1,6 +1,6 @@
 # Chapter 7 — AI at Work Research Package
 
-This archive is research input for the later writing of Chapter 7 of *How To Use AI.com*.
+This archive is research input for the later writing of Chapter 7 of *How-To-Use-AI.com*.
 
 It deliberately does **not** contain a rewritten Chapter 7.
 

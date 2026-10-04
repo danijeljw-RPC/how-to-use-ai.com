@@ -32,7 +32,7 @@ class AssembleDraftBookTests(unittest.TestCase):
         write_text_pdf(self.back, ["BACK COVER"])
         self.metadata = {
             "series": {
-                "title": "How To Use AI.com",
+                "title": "How-To-Use-AI.com",
                 "author": "Danijel-James Wynyard-McClay",
                 "page": {"widthInches": 7, "heightInches": 10},
             },

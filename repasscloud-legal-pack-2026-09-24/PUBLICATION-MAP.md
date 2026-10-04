@@ -10,7 +10,7 @@
 
 All RePass Cloud websites, apps and tools should link to these master documents unless a product-specific legal page applies.
 
-## How To Use AI.com
+## How-To-Use-AI.com
 
 | Route | File | Role |
 | --- | --- | --- |

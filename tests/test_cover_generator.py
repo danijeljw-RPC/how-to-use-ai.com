@@ -19,7 +19,7 @@ class CoverGeneratorTests(unittest.TestCase):
             json.dumps(
                 {
                     "series": {
-                        "title": "How To Use AI.com",
+                        "title": "How-To-Use-AI.com",
                         "descriptor": "THE COMPLETE GUIDE SERIES",
                         "tagline": "Understand • Explore • Apply • Grow",
                         "author": "Danijel-James Wynyard-McClay",

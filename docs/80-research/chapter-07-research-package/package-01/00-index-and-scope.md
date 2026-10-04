@@ -1,6 +1,6 @@
 # Chapter 7 Research Package — AI at Work
 
-**Book:** *How To Use AI.com*  
+**Book:** *How-To-Use-AI.com*  
 **Chapter:** Chapter 7 — AI at Work  
 **Research date:** 30 September 2026  
 **Purpose:** Research material for a later chapter-writing system. This package is not a chapter draft.

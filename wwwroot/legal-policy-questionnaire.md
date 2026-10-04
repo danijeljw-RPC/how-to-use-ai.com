@@ -92,7 +92,7 @@ must not be covered by these documents.
 ### 2.1 Website operator
 
 The repository currently identifies `RePass Cloud Pty Ltd` as the publisher
-and `How To Use AI.com` as its publishing imprint and the book-series name.
+and `How-To-Use-AI.com` as its publishing imprint and the book-series name.
 
 Is `RePass Cloud Pty Ltd` also the legal entity that owns and operates the
 website and enters contracts with website customers?
@@ -110,7 +110,7 @@ Provide the operator's details exactly as they may be published.
 - State or territory of registration: New South Wales
 - Registered office, if it will be published: 3 Pioneer Street, Findon SA 5023
 - Public postal/business address: 3 Pioneer Street, Findon SA 5023
-- Trading names or imprints: How To Use AI.com
+- Trading names or imprints: How-To-Use-AI.com
 
 ### 2.3 Copyright owner
 
@@ -120,7 +120,7 @@ Who owns the copyright in each of the following?
 - Website articles and other editorial content: RePass Cloud
 - Book manuscripts and previews: RePass Cloud Pty Ltd
 - Book-cover artwork and other images: RePass Cloud Pty Ltd
-- `How To Use AI.com` name, branding, and logos: RePass Cloud Pty Ltd
+- `How-To-Use-AI.com` name, branding, and logos: RePass Cloud Pty Ltd
 
 Identify any material licensed from someone else and the applicable
 attribution or licence conditions.
@@ -665,8 +665,8 @@ marketing message is sent:
 - Will existing D1 signups be imported into it? Yes
 - Will D1 remain the authoritative consent record? Yes
 - Will double opt-in be used? Yes
-- What sender name will recipients see? How To Use AI.com
-- What sender email/address details will messages contain? Messages will be sent from an email address using the how-to-use-ai.com domain. The final sender address will be established before marketing email is sent. Each marketing message will identify How To Use AI.com as the sender and contain the sender/contact information and unsubscribe facility required by applicable law.
+- What sender name will recipients see? How-To-Use-AI.com
+- What sender email/address details will messages contain? Messages will be sent from an email address using the how-to-use-ai.com domain. The final sender address will be established before marketing email is sent. Each marketing message will identify How-To-Use-AI.com as the sender and contain the sender/contact information and unsubscribe facility required by applicable law.
 
 ### 6.4 Withdrawal and unsubscribe
 
@@ -700,7 +700,7 @@ The suppression record will be retained for as long as reasonably necessary to h
 
 How can a person withdraw consent before the mailing platform is implemented?
 
-**Answer:** Before the mailing platform is implemented, a person may withdraw consent by contacting the business using the contact details published on the How To Use AI.com website. The withdrawal will be recorded against the person's signup record in D1 so that the address is excluded from any future import or marketing communication.
+**Answer:** Before the mailing platform is implemented, a person may withdraw consent by contacting the business using the contact details published on the How-To-Use-AI.com website. The withdrawal will be recorded against the person's signup record in D1 so that the address is excluded from any future import or marketing communication.
 
 ### 6.5 International legal bases
 
@@ -1018,7 +1018,7 @@ Where a proposed new use would materially change the basis on which information 
 What short names should the terms use for:
 
 - RePass Cloud Pty Ltd or the corrected operator: **"RePass Cloud", "we", "us", "our", or "the operator"**
-- How To Use AI.com: **"How To Use AI.com" or "the Site"**
+- How-To-Use-AI.com: **"How-To-Use-AI.com" or "the Site"**
 - A site visitor or customer: **"you" or "the user"**
 - The website, articles, downloads, previews, books, and related material collectively: **"Content"**
 
@@ -1112,13 +1112,13 @@ Access to a preview does not by itself promise that a book will be published on 
 
 What copyright and trademark notice should appear?
 
-**Answer:** `© 2026 RePass Cloud Pty Ltd. How To Use AI.com. All rights reserved.`
+**Answer:** `© 2026 RePass Cloud Pty Ltd. How-To-Use-AI.com. All rights reserved.`
 
-The names, branding, logos, artwork, book covers, and other identifiers used by RePass Cloud Pty Ltd or How To Use AI.com may also be protected by trademark, passing-off, copyright, or other applicable laws. The Site must not claim that a mark is registered unless registration has actually occurred.
+The names, branding, logos, artwork, book covers, and other identifiers used by RePass Cloud Pty Ltd or How-To-Use-AI.com may also be protected by trademark, passing-off, copyright, or other applicable laws. The Site must not claim that a mark is registered unless registration has actually occurred.
 
 Where should a person report alleged copyright infringement, and what information should the report contain?
 
-**Answer:** Reports should be submitted through the published How To Use AI.com contact channel or designated legal/copyright contact address.
+**Answer:** Reports should be submitted through the published How-To-Use-AI.com contact channel or designated legal/copyright contact address.
 
 The report should identify:
 - the complainant and appropriate contact details;
@@ -1177,7 +1177,7 @@ Additional prohibited conduct includes:
 - using the Site to distribute spam or malicious communications;
 - circumventing payment, download, geographic, security, licensing, or usage controls;
 - submitting content the user does not have the right to provide;
-- falsely representing an affiliation with RePass Cloud Pty Ltd or How To Use AI.com; and
+- falsely representing an affiliation with RePass Cloud Pty Ltd or How-To-Use-AI.com; and
 - using the Site in a way that materially interferes with its lawful operation or the rights of others.
 
 A restriction on reverse engineering applies only to the extent that such a restriction is lawful and does not override rights that cannot legally be excluded.
@@ -1200,7 +1200,7 @@ What responsibility does the operator accept for selecting and describing extern
 
 **Answer:** The operator is responsible for the wording it uses to describe an external link and will take reasonable care not to knowingly present a link in a misleading way.
 
-Once a user leaves How To Use AI.com, the external site is controlled by its own operator. Its availability, content, security, accessibility, prices, products, tracking technologies, terms, privacy practices, and transactions are governed by that provider. A link does not by itself constitute sponsorship, endorsement, partnership, or a guarantee of the external site.
+Once a user leaves How-To-Use-AI.com, the external site is controlled by its own operator. Its availability, content, security, accessibility, prices, products, tracking technologies, terms, privacy practices, and transactions are governed by that provider. A link does not by itself constitute sponsorship, endorsement, partnership, or a guarantee of the external site.
 
 Where the operator knows that a link is an affiliate, referral, or sponsored link, that relationship will be disclosed where required or appropriate.
 
@@ -1255,7 +1255,7 @@ This does not create an unrestricted right for the seller to cancel completed tr
 
 ### 15.4 Order confirmation and support
 
-- Confirmation method and sender: **Automated email from How To Use AI.com/RePass Cloud Pty Ltd, with any order page or Stripe receipt used as supplementary confirmation. The exact sending address is TO BE CONFIGURED BEFORE CHECKOUT GOES LIVE.**
+- Confirmation method and sender: **Automated email from How-To-Use-AI.com/RePass Cloud Pty Ltd, with any order page or Stripe receipt used as supplementary confirmation. The exact sending address is TO BE CONFIGURED BEFORE CHECKOUT GOES LIVE.**
 - Information shown in confirmation: **Order number or transaction reference; purchaser email; products/formats purchased; quantities where applicable; amount paid; currency; applicable taxes where required; delivery/download information; shipping information for physical orders where applicable; seller identity; support/contact information; and any material product-specific terms.**
 - Expected confirmation timeframe: **Normally immediately or within a few minutes after successful checkout.**
 - Missing-confirmation support process: **The customer may contact the published support/contact channel, provide the purchasing email address and reasonable transaction details, and request confirmation or delivery assistance.**
@@ -1351,7 +1351,7 @@ The operator may choose to offer a discretionary change-of-mind promotion or ret
 
 ### 16.4 Refund operations
 
-- How does a customer request a remedy? **Through the published How To Use AI.com support/contact channel, identifying the order and describing the problem and requested remedy.**
+- How does a customer request a remedy? **Through the published How-To-Use-AI.com support/contact channel, identifying the order and describing the problem and requested remedy.**
 - What evidence is reasonably required? **Only evidence reasonably necessary to identify the transaction and assess the issue, such as order number, purchasing email address, receipt/payment reference, screenshots for digital problems, or photographs of physical damage. Full payment-card details will not be requested.**
 - Who assesses the request? **RePass Cloud Pty Ltd or an authorised support person, with relevant information obtained from Stripe, the fulfilment provider, retailer, or carrier where necessary.**
 - Response timeframe: **Acknowledge within 5 business days and aim to provide an outcome or meaningful progress update within 10 business days. Urgent missing-delivery or clearly defective-file issues should be handled sooner where practicable.**
@@ -1463,7 +1463,7 @@ The clause must expressly preserve any mandatory consumer, privacy, or other rig
 
 ### 19.3 Informal dispute process
 
-- First contact channel: **The published How To Use AI.com support/contact channel.**
+- First contact channel: **The published How-To-Use-AI.com support/contact channel.**
 - Information a complaint should contain: **The complainant's name and contact details; relevant order/account/reference number if applicable; a clear description of the issue; relevant dates; the outcome sought; and any reasonably useful supporting material.**
 - Acknowledgement timeframe: **Within 5 business days.**
 - Target resolution timeframe: **Aim to resolve or provide a substantive response within 30 calendar days. Straightforward order, download, or refund issues should be handled sooner where practicable.**
@@ -1547,9 +1547,9 @@ The following factual wording should be preserved unless the underlying fact cha
 
 `RePass Cloud Pty Ltd`
 
-`How To Use AI.com`
+`How-To-Use-AI.com`
 
-`© 2026 RePass Cloud Pty Ltd. How To Use AI.com. All rights reserved.`
+`© 2026 RePass Cloud Pty Ltd. How-To-Use-AI.com. All rights reserved.`
 
 No lawyer-approved liability, warranty, indemnity, governing-law, or consumer-notice wording has been supplied and no wording should be described as lawyer-approved.
 

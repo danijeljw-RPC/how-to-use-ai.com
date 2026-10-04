@@ -23,7 +23,7 @@ def _config(directory: Path, **book_overrides) -> Path:
         "series": {
             "author": "Danijel-James Wynyard-McClay",
             "about": "Five books.",
-            "publisher": {"name": "RePass Cloud Pty Ltd", "imprint": "How To Use AI.com", "address": "",
+            "publisher": {"name": "RePass Cloud Pty Ltd", "imprint": "How-To-Use-AI.com", "address": "",
                           "website": "how-to-use-ai.com"},
             "authorProfile": {"photo": "", "bio": "DJ builds **things**.\n\nSecond paragraph.", "shortBio": ""},
         },

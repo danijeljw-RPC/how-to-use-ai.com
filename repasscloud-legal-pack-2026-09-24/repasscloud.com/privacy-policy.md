@@ -16,7 +16,7 @@ Corporate details:
 - Email: hello@repasscloud.com
 - Contact: https://repasscloud.com/contact/
 
-Services that may link to this policy include RePass Cloud's corporate website, How To Use AI.com, Aethon Jobs, Cinturon360, software utilities, publications and other tools we develop or operate.
+Services that may link to this policy include RePass Cloud's corporate website, How-To-Use-AI.com, Aethon Jobs, Cinturon360, software utilities, publications and other tools we develop or operate.
 
 Some products have a separate privacy notice because they handle information in a way that is materially different from a normal public website. A product-specific privacy notice supplements this policy and prevails for that product to the extent of a genuine inconsistency.
 

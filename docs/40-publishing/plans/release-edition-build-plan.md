@@ -113,7 +113,7 @@ These fields are added; existing fields stay as they are. Empty strings mean "le
     "defaultPriceCode": "90000",
     "publisher": {
       "name": "RePass Cloud Pty Ltd",
-      "imprint": "How To Use AI.com",
+      "imprint": "How-To-Use-AI.com",
       "address": "",
       "website": "how-to-use-ai.com"
     },

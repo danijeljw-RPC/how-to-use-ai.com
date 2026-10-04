@@ -1,4 +1,4 @@
-# How To Use AI.com launch site
+# How-To-Use-AI.com launch site
 
 This directory is a standalone Astro application for the Book 1 launch site. It uses server output, the Cloudflare adapter, a Cloudflare Worker with static assets, one D1 binding (`SITE_DB`), Turnstile-protected forms, and dormant Stripe Checkout/webhook contracts.
 

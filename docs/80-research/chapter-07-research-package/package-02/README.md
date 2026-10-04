@@ -1,6 +1,6 @@
 # Chapter 7 — AI at Work: Supplementary Research Package
 
-**Project:** *How To Use AI.com*  
+**Project:** *How-To-Use-AI.com*  
 **Chapter:** 7 — AI at Work  
 **Research date:** 30 September 2026  
 **Purpose:** Supplement the main Chapter 7 research package; do not replace it.  

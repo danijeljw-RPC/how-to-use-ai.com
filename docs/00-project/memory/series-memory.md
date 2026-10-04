@@ -2,7 +2,9 @@
 
 ## Series Name
 
-How-to-use-ai.com book series.
+How-To-Use-AI.com book series.
+
+The series name is spelled exactly **How-To-Use-AI.com**: hyphenated, with capitals as shown, and no "Book Series" suffix. Use it in every book, cover, website page, legal document and doc. The author settled this on 2026-10-04 (publishing OI-0004, ADR-03-0006). Do not raise it again. Lowercase `how-to-use-ai.com` is used only for the web address.
 
 ## Current Assumptions
 

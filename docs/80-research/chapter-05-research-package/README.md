@@ -1,6 +1,6 @@
 # Chapter 05 Research Package — Talking to AI Properly
 
-**Project:** *How To Use AI.com*  
+**Project:** *How-To-Use-AI.com*  
 **Purpose:** research input for a later chapter-writing AI  
 **Prepared:** 2026-09-24  
 **Scope authority:** `chapter-05-plan.md`

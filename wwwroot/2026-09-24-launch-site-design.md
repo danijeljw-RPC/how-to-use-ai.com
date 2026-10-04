@@ -1,4 +1,4 @@
-# How-to-use-ai.com launch site design
+# How-To-Use-AI.com launch site design
 
 ## Status and decision
 

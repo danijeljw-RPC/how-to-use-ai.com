@@ -1,7 +1,7 @@
 # Chapter 12 Research Package — How to Stay Relevant in the AI Era
 
 **Research date:** 2026-10-01  
-**Book:** *How To Use AI.com* — Book 1  
+**Book:** *How-To-Use-AI.com* — Book 1  
 **Chapter:** 12 — *How to Stay Relevant in the AI Era*
 
 ## Purpose

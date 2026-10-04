@@ -36,7 +36,7 @@ Files:
 - `repasscloud.com/terms-of-service.md`
 - `repasscloud.com/refund-policy.md`
 
-### How To Use AI.com
+### How-To-Use-AI.com
 
 Publish the site-specific documents at:
 
@@ -72,7 +72,7 @@ If a tool starts collecting materially different information, creating accounts,
 
 ## Important implementation status
 
-The public policy copy is written so that unresolved future systems are not falsely described as live. Items such as a future mailing provider, direct print fulfilment and Google analytics on How To Use AI.com are described conditionally or require an update before activation.
+The public policy copy is written so that unresolved future systems are not falsely described as live. Items such as a future mailing provider, direct print fulfilment and Google analytics on How-To-Use-AI.com are described conditionally or require an update before activation.
 
 Read these before deployment:
 

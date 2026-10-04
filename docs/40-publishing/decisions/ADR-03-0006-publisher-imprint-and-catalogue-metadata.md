@@ -21,7 +21,7 @@ The questions were:
 - What is the difference between a publisher name and a publisher imprint?
 - Should the publisher be the author as an individual, or the author's company?
 - If it's the company, should the publisher name be "RePass Cloud Pty Ltd" or "RePass Cloud"?
-- How should "How To Use AI.com" be used: as the title, the series title, the imprint, or a mix of these?
+- How should "How-To-Use-AI.com" be used: as the title, the series title, the imprint, or a mix of these?
 
 The discussion took place on 2026-09-24 in a chat outside this repository. It was saved as `docs/40-publishing/how-to-use-ai-publisher-metadata-discussion.md`, and this ADR replaces that file. The discussion's advice first assumed self-publishing as an individual. The author then chose to publish through their company, and the final recommendation below reflects that choice.
 
@@ -39,10 +39,10 @@ Publisher (legal entity)
     └── RePass Cloud Pty Ltd
 
 Publishing imprint (brand)
-    └── How To Use AI.com
+    └── How-To-Use-AI.com
 
 Series
-    └── How To Use AI.com
+    └── How-To-Use-AI.com
 
 Book
     ├── Book-specific title and subtitle
@@ -52,16 +52,16 @@ Book
 ```
 
 - **Publisher name:** `RePass Cloud Pty Ltd`. Always use the full legal company name, never just "RePass Cloud". The NLA defines a publisher as the person or organisation making the work available to the public, so a company can be the publisher.
-- **Publisher imprint:** `How To Use AI.com`. An imprint is the publishing brand shown on the book. It doesn't need its own company.
+- **Publisher imprint:** `How-To-Use-AI.com`. An imprint is the publishing brand shown on the book. It doesn't need its own company.
 - **Publisher category:** Company/organisation, or the closest corporate or business option the form offers. Don't use "Individual / Self".
 - **ISBN registration:** Register and buy ISBNs under `RePass Cloud Pty Ltd` as well, so the publisher name matches across the ISBN and NLA records.
 - **Author:** The author is listed as the creator, with the role **Author**, separately from the publisher.
 
 ### Title hierarchy
 
-"How To Use AI.com" is the imprint and the series title. It is **not** the title of each book. Each volume has its own title and subtitle plus a series number, so the series catalogues as five distinct books rather than five books with the same title (for example, `How To Use AI.com ; 2` for Book 2).
+"How-To-Use-AI.com" is the imprint and the series title. It is **not** the title of each book. Each volume has its own title and subtitle plus a series number, so the series catalogues as five distinct books rather than five books with the same title (for example, `How-To-Use-AI.com ; 2` for Book 2).
 
-The metadata must follow what actually appears on each book's title page and cover, because cataloguers work from the publication itself. If a cover design ever puts "HOW TO USE AI.COM" forward as the main title, this ADR must be revisited.
+The metadata must follow what actually appears on each book's title page and cover, because cataloguers work from the publication itself. If a cover design ever puts "HOW-TO-USE-AI.COM" forward as the main title, this ADR must be revisited.
 
 ### Book 1 catalogue values
 
@@ -69,14 +69,14 @@ The metadata must follow what actually appears on each book's title page and cov
 | --- | --- |
 | Title | AI for Normal People (confirmed 2026-10-03, Book 1 OI-0002) |
 | Subtitle | Understanding Artificial Intelligence Without the Hype (from `publishing/books.json`) |
-| Series title | How To Use AI.com (exact wording open, see OI-0004) |
+| Series title | How-To-Use-AI.com (confirmed 2026-10-04, OI-0004) |
 | Series number | 1 |
-| ISBN | The ISBN assigned to this specific format (pending) |
+| ISBN | 978-1-7649948-1-1 (PDF). Paperback 978-1-7649948-0-4, EPUB 978-1-7649948-2-8 |
 | Edition | First edition |
 | Format | eBook — PDF |
-| Estimated retail price | Intended Australian retail price (pending) |
+| Estimated retail price | AUD 19.99 (NLA form only; not printed on the cover, per OI-0007) |
 | Expected year | 2026 |
-| Expected month | Intended publication month (pending) |
+| Expected month | October |
 | Audience | General |
 | Genre | Non-fiction (not "Non-fiction + textbook") |
 | Subject 1 | Technology, Engineering, Agriculture |
@@ -91,8 +91,8 @@ Reasons:
 
 | Field | Value |
 | --- | --- |
-| Name | The author name used on the publication |
-| Life dates | Birth year, if supplied, in the form `YYYY–` for a living person (open, see OI-0004) |
+| Name | Danijel-James Wynyard-McClay |
+| Life dates | 1982– (living person; catalogued as `Wynyard-McClay, Danijel-James, 1982–`) |
 | Role | Author |
 
 Life dates are used in bibliographic records to tell apart authors with the same or similar names, for example `Surname, Given names, 1980–`.
@@ -104,7 +104,7 @@ The NLA recommends putting the publisher, publication date, copyright notice, an
 ```text
 © 2026 [Author name]
 
-First published in Australia in 2026 by How To Use AI.com,
+First published in Australia in 2026 by How-To-Use-AI.com,
 an imprint of RePass Cloud Pty Ltd.
 
 ISBN 978-X-XXXXXX-XX-X
@@ -116,7 +116,7 @@ The copyright holder (the author or the company) is not decided in the discussio
 
 ## Options Considered
 
-### Option 1 — Company publisher, "How To Use AI.com" imprint and series, per-book titles (chosen)
+### Option 1 — Company publisher, "How-To-Use-AI.com" imprint and series, per-book titles (chosen)
 
 Pros:
 
@@ -128,7 +128,7 @@ Cons:
 
 - The same wording is used for the imprint and the series. This is allowed, but the catalogue record repeats the name.
 
-### Option 2 — Author as an individual publisher, "How To Use AI.com" imprint
+### Option 2 — Author as an individual publisher, "How-To-Use-AI.com" imprint
 
 Pros:
 
@@ -138,7 +138,7 @@ Cons:
 
 - Doesn't match the author's intent to publish through RePass Cloud Pty Ltd.
 
-### Option 3 — "How To Use AI.com" as the title of every book
+### Option 3 — "How-To-Use-AI.com" as the title of every book
 
 Pros:
 
@@ -202,3 +202,13 @@ The printed matter no longer calls How-To-Use-AI.com an imprint. In `publishing/
 
 - **Author name:** the author decided the full surname is used everywhere (OI-0008, resolved). The name on the book, the copyright holder, the website and the NLA and ISBN records are all **Danijel-James Wynyard-McClay**. `series.author` in `publishing/books.json` is back to "Danijel-James Wynyard-McClay". The 2026-10-02 "name on the book" line above is superseded.
 - **Title:** Book 1's title is confirmed as *AI for Normal People*, subtitle *Understanding Artificial Intelligence Without the Hype* (Book 1 OI-0002, resolved). It is no longer a working title in the table above.
+
+## Amendment — 2026-10-04
+
+The author settled the remaining NLA values (OI-0004, resolved):
+
+- **Series title:** exactly **How-To-Use-AI.com**, hyphenated, everywhere: books, covers, website, legal copy and docs. "How To Use AI.com" and "How To Use AI.com Book Series" are retired. Book 2 catalogues as `How-To-Use-AI.com ; 2`.
+- **Estimated retail price:** AUD 19.99, entered on the NLA form only. No price is printed on the cover (OI-0007).
+- **Creator life dates:** 1982– (`Wynyard-McClay, Danijel-James, 1982–`).
+- **Publisher category:** already decided above: Company/organisation, never "Individual / Self". No further author input is needed.
+- **Imprint field on the NLA form:** leave it blank, matching the printed book (2026-10-02 amendment).

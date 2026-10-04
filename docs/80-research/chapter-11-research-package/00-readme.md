@@ -1,6 +1,6 @@
 # Chapter 11 Research Package — AI Hype vs Reality
 
-**Book:** *How To Use AI.com* — Book 1  
+**Book:** *How-To-Use-AI.com* — Book 1  
 **Chapter:** 11 — AI Hype vs Reality  
 **Research date:** 2026-10-01  
 **Purpose:** research package for a later chapter-writing system; this package is **not** a draft of Chapter 11.

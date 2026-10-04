@@ -26,7 +26,7 @@ Each finding was checked with `curl` against production and against `wwwroot/src
 | 2 | Charset missing from HTTP header | Warning | Responses send `Content-Type: text/html` with no `; charset=utf-8`. The `<meta charset>` is present. | Fix (P1) |
 | 3 | No favicon linked | Warning | `public/favicon.svg` exists and serves as `image/svg+xml`, but `BaseLayout.astro` never links it. | Fix (P1) |
 | 4 | No Apple touch icon | Warning | Nothing in `public/` or `<head>`. | Fix (P2) |
-| 5 | Title too short (175 of 580 px) | Warning | The homepage passes `title={site.name}`, so the layout outputs only "How To Use AI.com". | Fix (P2), wording needs the author (OI-0003) |
+| 5 | Title too short (175 of 580 px) | Warning | The homepage passes `title={site.name}`, so the layout outputs only "How-To-Use-AI.com". | Fix (P2), wording needs the author (OI-0003) |
 | 6 | H1 words not found in page text | Warning | H1: "AI, explained for people who have other things to do." The body copy never uses "explained", "people", "things" or "other". | Fix (P2), copy change |
 | 7 | Only 216 words (under 250) | Error | The homepage is short: a hero, one principle and the series list. | Fix (P2), copy change, linked to #6 |
 | 8 | Too many `<strong>` tags (7) | Warning | 5 are series-list titles (`index.astro`), 1 is the Callout title and 1 is the footer brand name. None of them is real emphasis. | Fix (P3) |
@@ -52,7 +52,7 @@ Areas that scored full marks (canonical, meta description, headings, HTTPS asset
 
 4. **Apple touch icon (finding 4):** export a 180×180 `public/apple-touch-icon.png` from `favicon.svg` (solid background, no transparency) and link it with `<link rel="apple-touch-icon" href="/apple-touch-icon.png" />`.
 5. **Homepage title (finding 5):** give the homepage its own longer title instead of the bare site name. The shared `site.name` stays as it is. Proposed wording (needs approval, OI-0003):
-   - "How To Use AI.com — Plain-English AI Books for Beginners" (~450 px)
+   - "How-To-Use-AI.com — Plain-English AI Books for Beginners" (~450 px)
    - Adding `og:image` pointing at the Book 1 cover is optional but cheap, and it improves how shared links look.
 6. **H1 alignment and word count (findings 6–7):** add about 60–100 words of real homepage copy that naturally repeats the H1's terms. For example, a short "Who this is for" paragraph: "Book 1 is written for people who have never used AI… explained in plain English… for people with other things to do." Draw on existing Book 1 framing (everyday examples such as Netflix, Google Maps and spam filters). Do not use keyword stuffing. The final copy needs author approval.
 

@@ -2,7 +2,7 @@
 
 ## Project
 
-How-to-use-ai.com book series.
+How-To-Use-AI.com book series.
 
 ## Purpose
 

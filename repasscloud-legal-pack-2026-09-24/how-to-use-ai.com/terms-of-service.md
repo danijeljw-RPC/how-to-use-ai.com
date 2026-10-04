@@ -5,15 +5,15 @@
 
 ## 1. About these Terms
 
-These Website Terms apply to **How To Use AI.com**, including `https://how-to-use-ai.com`.
+These Website Terms apply to **How-To-Use-AI.com**, including `https://how-to-use-ai.com`.
 
-How To Use AI.com is operated by **RePass Cloud Pty Ltd** ("RePass Cloud", "we", "us" or "our").
+How-To-Use-AI.com is operated by **RePass Cloud Pty Ltd** ("RePass Cloud", "we", "us" or "our").
 
 These Terms supplement the RePass Cloud Terms of Service:
 
 https://repasscloud.com/legal/terms-of-service/
 
-If these Terms state a more specific rule for How To Use AI.com, the site-specific rule applies to the extent of that inconsistency.
+If these Terms state a more specific rule for How-To-Use-AI.com, the site-specific rule applies to the extent of that inconsistency.
 
 By accessing or using the site after having a reasonable opportunity to view these Terms, you agree to the Terms applicable to that use.
 
@@ -60,7 +60,7 @@ You must not, without prior written permission except where law gives you a righ
 - reproduce a substantial part of the site as a substitute for the original;
 - use proprietary Content commercially;
 - sell or sublicense the Content;
-- falsely attribute altered material to RePass Cloud or How To Use AI.com;
+- falsely attribute altered material to RePass Cloud or How-To-Use-AI.com;
 - use the Content to train an AI or machine-learning model;
 - conduct automated scraping, bulk extraction, dataset creation or text/data mining;
 - make excessive automated requests; or
@@ -97,7 +97,7 @@ Access to a preview does not by itself promise a particular publication date, fi
 
 Copyright in the site, book manuscripts, previews, cover artwork, images and branding is owned by RePass Cloud Pty Ltd except where another owner is identified.
 
-**© 2026 RePass Cloud Pty Ltd. How To Use AI.com. All rights reserved.**
+**© 2026 RePass Cloud Pty Ltd. How-To-Use-AI.com. All rights reserved.**
 
 The names, logos, artwork, book covers and other identifiers may also be protected by trademark, passing-off or other law.
 
@@ -195,7 +195,7 @@ Disputes and chargebacks may be reviewed using relevant order, delivery, downloa
 
 ## 13. Order confirmation
 
-A direct order confirmation is intended to be sent by How To Use AI.com or RePass Cloud and may be supplemented by a Stripe receipt or confirmation page.
+A direct order confirmation is intended to be sent by How-To-Use-AI.com or RePass Cloud and may be supplemented by a Stripe receipt or confirmation page.
 
 The confirmation may include:
 
@@ -283,11 +283,11 @@ We may correct a genuine promotion error or abuse, including unauthorised public
 
 ## 18. Refunds and consumer guarantees
 
-The How To Use AI.com Refund Policy and RePass Cloud Refund Policy apply to direct purchases.
+The How-To-Use-AI.com Refund Policy and RePass Cloud Refund Policy apply to direct purchases.
 
 Nothing in these Terms removes a right or remedy that cannot lawfully be excluded, including Australian Consumer Law consumer guarantees where applicable.
 
-No general voluntary change-of-mind refund is promised for How To Use AI.com purchases at launch.
+No general voluntary change-of-mind refund is promised for How-To-Use-AI.com purchases at launch.
 
 A missing, corrupt, inaccessible or incorrect ebook will first be re-supplied where that is an appropriate remedy.
 

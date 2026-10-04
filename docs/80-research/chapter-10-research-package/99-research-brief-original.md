@@ -6,7 +6,7 @@ Treat the current Chapter 10 chapter template/draft as a guide to the kinds of e
 
 If research reveals better explanations, stronger evidence, more useful examples, important missing issues, better demonstrations, or significant qualifications to claims currently present in the template, capture those findings for the later chapter-writing system.
 
-I am writing a book called **How To Use AI.com**, which will later also become a companion website that I publish.
+I am writing a book called **How-To-Use-AI.com**, which will later also become a companion website that I publish.
 
 Chapter 10 is titled:
 

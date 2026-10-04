@@ -1,6 +1,6 @@
 # Chapter 13 Research Package
 
-Research handoff for **How To Use AI.com — Book 1, Chapter 13: Building Your Personal AI Toolkit**.
+Research handoff for **How-To-Use-AI.com — Book 1, Chapter 13: Building Your Personal AI Toolkit**.
 
 ## Start here
 

@@ -2,7 +2,7 @@
 
 **Research date:** 2026-10-01  
 **Primary jurisdiction:** Australia  
-**Book:** *How To Use AI.com*, Book 1  
+**Book:** *How-To-Use-AI.com*, Book 1  
 **Chapter:** 13 — Building Your Personal AI Toolkit
 
 ## Purpose

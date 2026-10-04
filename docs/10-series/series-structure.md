@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file tracks the high-level structure of the How-to-use-ai.com book series.
+This file tracks the high-level structure of the How-To-Use-AI.com book series.
 
 ## Current Status
 

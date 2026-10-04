@@ -3,7 +3,7 @@
 **Effective:** 24 September 2026  
 **Last updated:** 24 September 2026
 
-This policy applies to purchases made directly from How To Use AI.com where **RePass Cloud Pty Ltd** is the seller.
+This policy applies to purchases made directly from How-To-Use-AI.com where **RePass Cloud Pty Ltd** is the seller.
 
 It supplements the RePass Cloud Refund Policy:
 

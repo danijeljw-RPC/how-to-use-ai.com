@@ -1,6 +1,6 @@
 # Chapter 8 Research Package — AI and Creativity
 
-**Book:** *How To Use AI.com*  
+**Book:** *How-To-Use-AI.com*  
 **Chapter:** 8 — AI and Creativity  
 **Research date:** 30 September 2026  
 **Purpose:** Research support only. This package is **not** a chapter draft.

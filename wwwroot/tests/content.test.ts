@@ -28,7 +28,7 @@ const routeFiles = [
 
 describe('launch content contracts', () => {
   it('uses verified series and Book 1 metadata', () => {
-    expect(series.title).toBe('How To Use AI.com');
+    expect(series.title).toBe('How-To-Use-AI.com');
     expect(series.progression).toHaveLength(5);
     expect(bookOne).toMatchObject({
       title: 'AI for Normal People',

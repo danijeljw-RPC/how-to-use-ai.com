@@ -1,6 +1,6 @@
 # Package Manifest
 
-- Book: How To Use AI.com
+- Book: How-To-Use-AI.com
 - Chapter: 04 — What AI Cannot Do
 - Research date: 2026-09-24
 - Authoritative plan included: yes

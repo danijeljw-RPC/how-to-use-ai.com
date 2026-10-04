@@ -8,7 +8,7 @@ The current draft ends with a section headed **"Notes from DJ"**. These are the 
 
 If research reveals better explanations, stronger evidence, more useful examples, important missing issues, better demonstrations, or significant qualifications to claims currently present in the template or the author's notes, capture those findings for the later chapter-writing system.
 
-I am writing a book called **How To Use AI.com**, which will later also become a companion website that I publish.
+I am writing a book called **How-To-Use-AI.com**, which will later also become a companion website that I publish.
 
 Chapter 11 is titled:
 

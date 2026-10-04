@@ -1,7 +1,7 @@
 # Chapter 10 Research Package — Will AI Replace Jobs?
 
 **Research date:** 2026-10-01  
-**Book:** *How To Use AI.com* — Book 1  
+**Book:** *How-To-Use-AI.com* — Book 1  
 **Chapter:** 10 — *Will AI Replace Jobs?*
 
 ## Purpose

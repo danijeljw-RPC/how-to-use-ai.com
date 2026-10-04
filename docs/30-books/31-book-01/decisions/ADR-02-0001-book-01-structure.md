@@ -18,7 +18,7 @@ Author Decision Review
 
 ## Context
 
-Book 1 is the first book in the How-to-use-ai.com series.
+Book 1 is the first book in the How-To-Use-AI.com series.
 
 The project is intended to become a broader learning ecosystem, including:
 

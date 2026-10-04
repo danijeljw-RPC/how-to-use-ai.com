@@ -1,7 +1,7 @@
 # Chapter 14 Research Package — Where AI Goes Next
 
 **Research date:** 1 October 2026  
-**Book:** *How To Use AI.com* — Book 1  
+**Book:** *How-To-Use-AI.com* — Book 1  
 **Chapter:** 14 — *Where AI Goes Next*  
 **Purpose:** Research package for a later writing system. This package does **not** write Chapter 14.
 

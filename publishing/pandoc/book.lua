@@ -1,4 +1,4 @@
--- How To Use AI.com book filter (ADR-03-0008, Option B design).
+-- How-To-Use-AI.com book filter (ADR-03-0008, Option B design).
 --
 -- * "# Chapter 1 — Title" and "# Epilogue — Title" become styled chapter
 --   openers (\hwChapter in LaTeX; a labelled heading in EPUB).

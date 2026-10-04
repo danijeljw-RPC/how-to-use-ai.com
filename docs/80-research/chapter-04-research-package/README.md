@@ -1,6 +1,6 @@
 # Chapter 04 Research Package — What AI Cannot Do
 
-**Book:** *How To Use AI.com*  
+**Book:** *How-To-Use-AI.com*  
 **Research date:** 2026-09-24  
 **Purpose:** Research dossier for a later chapter-writing AI. This package is **not a draft of Chapter 4**.
 

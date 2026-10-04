@@ -767,7 +767,7 @@ For a practical user:
 
 > Whatever philosophical label we apply, the output can be useful enough to save real time and solve real tasks, while still being unreliable enough that human judgement matters.
 
-That is a better fit for *How To Use AI.com* than an AGI debate.
+That is a better fit for *How-To-Use-AI.com* than an AGI debate.
 
 ---
 

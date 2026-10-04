@@ -1,7 +1,7 @@
 # Chapter 6 — AI at Home
 ## Supplementary Research Pack 02
 
-**Book:** *How To Use AI.com*  
+**Book:** *How-To-Use-AI.com*  
 **Chapter:** Chapter 6 — AI at Home  
 **Research date:** 29 September 2026  
 **Status:** Supplementary research. This package is **in addition to Research Pack 01**, not a replacement.

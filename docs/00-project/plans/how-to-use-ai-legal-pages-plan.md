@@ -1,8 +1,8 @@
-# How To Use AI.com Legal Pages Plan
+# How-To-Use-AI.com Legal Pages Plan
 
 ## Purpose
 
-Publish the How To Use AI.com privacy, website terms, and refund documents supplied in `repasscloud-legal-pack-2026-09-24`, and expose the related site-specific and RePass Cloud master-policy links in the site footer.
+Publish the How-To-Use-AI.com privacy, website terms, and refund documents supplied in `repasscloud-legal-pack-2026-09-24`, and expose the related site-specific and RePass Cloud master-policy links in the site footer.
 
 ## Files expected to change
 

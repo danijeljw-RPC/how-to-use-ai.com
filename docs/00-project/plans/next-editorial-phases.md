@@ -164,7 +164,7 @@ Status: Partially answered. Still to decide during Phase 3: whether to add only 
 
 #### Q16 — Full series title
 
-Final public series name: **How To Use AI.com Book Series**.
+Final public series name: **How-To-Use-AI.com** (wording confirmed 2026-10-04; see publishing OI-0004).
 
 Implementation note: use this exact series name and capitalisation in future public-facing and authoritative project material.
 

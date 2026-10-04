@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the shared How To Use AI.com series cover from JSON metadata.
+"""Render the shared How-To-Use-AI.com series cover from JSON metadata.
 
 Covers are drawn as vector PDF content (shapes and embedded fonts) so they stay
 sharp in print. The illustration is the only raster element and is embedded at
@@ -412,7 +412,7 @@ def _render_front(page: _Page, series: dict[str, Any], book: dict[str, Any], ill
     page.rect((0, 0, width, page.height), WHITE)
 
     _draw_spaced_text(page, series.get("descriptor", ""), width / 2, 78, _font(44), SLATE, 16)
-    _draw_centered_lines(page, ["How To Use"], 190, _font(260, bold=True), NAVY, 0)
+    _draw_centered_lines(page, ["How-To-Use-"], 190, _font(260, bold=True), NAVY, 0)
 
     ai_font = _font(330, bold=True)
     ai_text, com_text = "AI", ".com"

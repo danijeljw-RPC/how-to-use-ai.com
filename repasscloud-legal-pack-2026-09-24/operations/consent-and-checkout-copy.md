@@ -2,11 +2,11 @@
 
 Ready-to-use interface wording.
 
-## How To Use AI.com newsletter checkbox
+## How-To-Use-AI.com newsletter checkbox
 
 Use an unchecked box:
 
-> I agree to have my email address stored and to receive How To Use AI.com book-launch, coupon, new-book and publication/new-edition marketing emails. I can unsubscribe at any time.
+> I agree to have my email address stored and to receive How-To-Use-AI.com book-launch, coupon, new-book and publication/new-edition marketing emails. I can unsubscribe at any time.
 
 Link the Privacy Policy next to the checkbox:
 
@@ -14,11 +14,11 @@ Link the Privacy Policy next to the checkbox:
 
 For double opt-in, send a confirmation message before treating the address as marketable.
 
-## How To Use AI.com checkout Terms checkbox
+## How-To-Use-AI.com checkout Terms checkbox
 
 Use an unchecked box that is separate from marketing consent:
 
-> I have read and agree to the How To Use AI.com Website Terms and the RePass Cloud Refund Policy.
+> I have read and agree to the How-To-Use-AI.com Website Terms and the RePass Cloud Refund Policy.
 
 Links:
 

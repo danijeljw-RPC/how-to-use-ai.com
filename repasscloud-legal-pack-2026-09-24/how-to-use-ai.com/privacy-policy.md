@@ -5,15 +5,15 @@
 
 ## 1. About this policy
 
-This policy applies to **How To Use AI.com**, including `https://how-to-use-ai.com` and the website features described below.
+This policy applies to **How-To-Use-AI.com**, including `https://how-to-use-ai.com` and the website features described below.
 
-How To Use AI.com is a publishing imprint, book-series name and website operated by **RePass Cloud Pty Ltd**.
+How-To-Use-AI.com is a publishing imprint, book-series name and website operated by **RePass Cloud Pty Ltd**.
 
 This site-specific policy supplements the RePass Cloud Privacy Policy:
 
 https://repasscloud.com/legal/privacy-policy/
 
-If this policy states a more specific rule for How To Use AI.com, that specific rule applies to this site.
+If this policy states a more specific rule for How-To-Use-AI.com, that specific rule applies to this site.
 
 Operator details:
 
@@ -29,7 +29,7 @@ Contact: https://repasscloud.com/contact/
 
 ## 2. What the site does
 
-How To Use AI.com provides educational and informational material about artificial intelligence and related technology, book information and previews, contact and newsletter functionality, and links to places where publications may be purchased.
+How-To-Use-AI.com provides educational and informational material about artificial intelligence and related technology, book information and previews, contact and newsletter functionality, and links to places where publications may be purchased.
 
 Direct sales of digital and printed books may also be enabled.
 
@@ -86,7 +86,7 @@ Contact messages are handled as private business correspondence but are not trea
 
 The site may provide a free book preview.
 
-The preview PDF is hosted as part of the How To Use AI.com site deployment on Cloudflare rather than by a separate public file-hosting provider.
+The preview PDF is hosted as part of the How-To-Use-AI.com site deployment on Cloudflare rather than by a separate public file-hosting provider.
 
 Opening or downloading the preview therefore involves ordinary website request processing by the site and Cloudflare.
 
@@ -100,7 +100,7 @@ If a visitor follows an external retailer link, the external retailer controls i
 
 ## 8. Referral and affiliate tracking
 
-How To Use AI.com may later operate its own referral or affiliate program so that a referring party can receive commission for a qualifying direct sale on this site.
+How-To-Use-AI.com may later operate its own referral or affiliate program so that a referring party can receive commission for a qualifying direct sale on this site.
 
 If that feature is introduced, the site may process a referral code or identifier and associate it with a visit or order to calculate commission.
 
@@ -116,7 +116,7 @@ Stripe is the intended payment processor.
 
 A Stripe-hosted Checkout Session may process payment, billing, transaction, fraud, device and related information.
 
-For a completed paid checkout, How To Use AI.com may record in D1:
+For a completed paid checkout, How-To-Use-AI.com may record in D1:
 
 - an internal order identifier;
 - Stripe Checkout Session identifier;
@@ -136,7 +136,7 @@ https://stripe.com/au/privacy
 
 ## 10. Fulfilment processing
 
-RePass Cloud operates a separate licence/order-processing application that can retrieve new How To Use AI.com sales from the Cloudflare D1 database through an API and process digital or physical orders.
+RePass Cloud operates a separate licence/order-processing application that can retrieve new How-To-Use-AI.com sales from the Cloudflare D1 database through an API and process digital or physical orders.
 
 The intended process retrieves new sales periodically, currently designed around hourly processing, and updates order state through the API.
 
@@ -146,7 +146,7 @@ If a print-on-demand, printer, courier or fulfilment provider is selected, the p
 
 ## 11. Analytics and browser storage
 
-At the effective date of this policy, the How To Use AI.com repository does not intentionally implement:
+At the effective date of this policy, the How-To-Use-AI.com repository does not intentionally implement:
 
 - first-party analytics;
 - advertising pixels;
@@ -209,7 +209,7 @@ The RePass Cloud Privacy Policy explains these broader corporate categories.
 
 ## 14. Why we use information
 
-Information collected through How To Use AI.com may be used to:
+Information collected through How-To-Use-AI.com may be used to:
 
 - deliver website content;
 - operate and secure the site;
@@ -238,7 +238,7 @@ The intended mailing list is for:
 - book-launch announcements;
 - discount or coupon messages;
 - new-book announcements;
-- general company marketing relevant to How To Use AI.com; and
+- general company marketing relevant to How-To-Use-AI.com; and
 - updates about existing books and new editions.
 
 The mailing list is not intended to be used for unrelated third-party marketing.
@@ -293,7 +293,7 @@ We use the safeguards described in the RePass Cloud Privacy Policy.
 
 ## 18. Retention
 
-How To Use AI.com uses the following intended retention rules:
+How-To-Use-AI.com uses the following intended retention rules:
 
 | Record | Retention |
 | --- | --- |
@@ -350,7 +350,7 @@ https://www.oaic.gov.au/
 
 ## 22. International users
 
-How To Use AI.com may be accessed internationally and may deliberately market or sell in Australia, New Zealand, the United Kingdom, the United States, Canada and parts of Europe.
+How-To-Use-AI.com may be accessed internationally and may deliberately market or sell in Australia, New Zealand, the United Kingdom, the United States, Canada and parts of Europe.
 
 Where an overseas privacy law applies, mandatory rights under that law continue to apply.
 

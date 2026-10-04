@@ -4,7 +4,7 @@
 
 ## Package purpose
 
-This package is research support for **Book 1 — How To Use AI.com, Chapter 8: AI and Creativity**.
+This package is research support for **Book 1 — How-To-Use-AI.com, Chapter 8: AI and Creativity**.
 
 It is deliberately **not a chapter draft**. It provides a later chapter-writing system with substantially more evidence, nuance, examples and editorial options than should ultimately appear in the printed chapter.
 

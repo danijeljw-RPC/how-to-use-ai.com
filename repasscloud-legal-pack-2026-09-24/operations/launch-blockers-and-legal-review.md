@@ -4,7 +4,7 @@ These are not placeholders for the public policies. The public documents have be
 
 ## 1. GST and tax treatment
 
-Before How To Use AI.com direct checkout is enabled, confirm:
+Before How-To-Use-AI.com direct checkout is enabled, confirm:
 
 - whether RePass Cloud Pty Ltd is currently registered or required to be registered for GST;
 - whether displayed Australian prices must include GST;
@@ -119,7 +119,7 @@ Before materially expanding paid sales or international targeting, have an Austr
 
 - the master parent Terms;
 - the master Refund Policy;
-- the How To Use AI.com direct-sale terms;
+- the How-To-Use-AI.com direct-sale terms;
 - GST and consumer pricing;
 - international privacy and ecommerce scope;
 - any proposed liability allocation; and

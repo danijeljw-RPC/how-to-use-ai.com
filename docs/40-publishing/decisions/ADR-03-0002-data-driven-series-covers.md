@@ -19,7 +19,7 @@ independently designed covers. Draft PDFs also need publication-like front and
 back matter while remaining unmistakably internal review editions.
 
 The visual reference supplied by the author establishes the hierarchy: a small
-series descriptor, dominant `How To Use AI.com` branding, series tagline,
+series descriptor, dominant `How-To-Use-AI.com` branding, series tagline,
 accent-coloured book badge, volume title and description, a fixed illustration
 region, and a restrained author footer.
 

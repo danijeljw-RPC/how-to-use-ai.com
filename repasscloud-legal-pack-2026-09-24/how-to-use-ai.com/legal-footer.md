@@ -1,4 +1,4 @@
-# Legal Footer Copy — How To Use AI.com
+# Legal Footer Copy — How-To-Use-AI.com
 
 Use the following footer links:
 
@@ -11,8 +11,8 @@ Use the following footer links:
 
 Suggested legal line:
 
-> © 2026 RePass Cloud Pty Ltd. How To Use AI.com. All rights reserved.
+> © 2026 RePass Cloud Pty Ltd. How-To-Use-AI.com. All rights reserved.
 
 Suggested operator line:
 
-> How To Use AI.com is operated and published by RePass Cloud Pty Ltd, ABN 74642243801.
+> How-To-Use-AI.com is operated and published by RePass Cloud Pty Ltd, ABN 74642243801.

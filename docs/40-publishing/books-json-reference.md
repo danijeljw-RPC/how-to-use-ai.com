@@ -36,7 +36,7 @@ python3 scripts/book_metadata.py --config publishing/books.json --book-number 1 
 | `authorProfile.bio` | About 120–180 words, for the About the Author page. |
 | `authorProfile.website` | Optional personal link printed under the long bio. |
 | `publisher.name` | Legal publisher: `RePass Cloud Pty Ltd` (ADR-03-0006). |
-| `publisher.imprint` | Imprint on the title and copyright pages: `How To Use AI.com`. |
+| `publisher.imprint` | Imprint on the title and copyright pages. Empty: How-To-Use-AI.com is the series, not an imprint (ADR-03-0006, 2026-10-02 amendment). |
 | `publisher.address` | Optional address for the copyright page. |
 | `publisher.website` | Website printed on the title page and covers. |
 | `defaultPriceCode` | Five-digit barcode add-on used when a book sets none. `90000` means "no price encoded". |

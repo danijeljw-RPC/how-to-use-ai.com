@@ -2,6 +2,21 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (85)
+
+### Changed
+
+- The series name is now **How-To-Use-AI.com** everywhere: docs, CLAUDE.md, research package headers, publishing styles, the front-cover wordmark ("How-To-Use-" / "AI.com"), website name, header, footer and page descriptions, test fixtures, and the legal pack. "How To Use AI.com", "How-to-use-ai.com" and "How To Use AI.com Book Series" are retired.
+- Closed the NLA metadata questions: estimated retail price AUD 19.99 (NLA form only), creator life dates 1982–, and publisher category Company/organisation (already set in ADR-03-0006). OI-0004 now lists the complete set of NLA form values for Book 1.
+- Corrected `books-json-reference.md`: `publisher.imprint` is empty, because the series is not an imprint.
+- Left unchanged on purpose: legacy data, earlier changelog entries, the live Cloudflare widget name `How To Use AI PROD`, and quoted third-party source text. Full list in `docs/40-publishing/plans/series-name-and-nla-values-plan.md`.
+- Verified: 78 Python tests and 64 website tests pass, and the Book 1 front cover renders with the new wordmark inside the margins.
+
+- Files changed: 75 existing files plus the new plan `docs/40-publishing/plans/series-name-and-nla-values-plan.md` (see commit).
+- Decisions: ADR-03-0006 amended (2026-10-04).
+- Open issues: closed publishing OI-0004.
+- Commit: pending commit.
+
 ## 2026-10-04 (84)
 
 ### Changed

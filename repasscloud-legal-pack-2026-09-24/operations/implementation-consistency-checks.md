@@ -13,7 +13,7 @@ These are operational checks, not public policy copy.
 - Keep the parent Privacy Policy technology-neutral enough to accommodate different analytics stacks across products.
 - Ensure footer links on every RePass Cloud-operated public website point to the correct master legal URLs.
 
-## How To Use AI.com
+## How-To-Use-AI.com
 
 ### Current site
 
@@ -46,7 +46,7 @@ These are operational checks, not public policy copy.
 - Determine which cookies, storage and network identifiers are used.
 - Implement consent or opt-out controls required by the jurisdictions actually targeted.
 - Prevent non-essential tags firing before consent where prior consent is required.
-- Update the How To Use AI.com Privacy Policy before or when the feature is enabled.
+- Update the How-To-Use-AI.com Privacy Policy before or when the feature is enabled.
 - Test withdrawal/opt-out behaviour.
 
 ### Before direct Stripe checkout

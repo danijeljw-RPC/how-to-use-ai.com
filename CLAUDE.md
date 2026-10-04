@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is for planning, drafting, revising, and publishing the **How-to-use-ai.com book series**.
+This repository is for planning, drafting, revising, and publishing the **How-To-Use-AI.com book series**.
 
 Claude Code is expected to work as a co-author, editor, research organiser, continuity manager, and publishing assistant. The project must remain beginner-friendly while preserving technical accuracy.
 

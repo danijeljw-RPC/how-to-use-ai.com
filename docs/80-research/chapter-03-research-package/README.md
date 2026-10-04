@@ -1,8 +1,8 @@
-# How To Use AI.com — Chapter 3 Research Pack
+# How-To-Use-AI.com — Chapter 3 Research Pack
 
 ## Purpose
 
-This pack supports Chapter 3, **“What AI Can Actually Do”**, for the planned book and website **How To Use AI.com**.
+This pack supports Chapter 3, **“What AI Can Actually Do”**, for the planned book and website **How-To-Use-AI.com**.
 
 It is designed to be ingested by another AI system as source material for drafting the chapter. The research deliberately goes deeper than the final chapter should. The writer can select the strongest examples and evidence while keeping the reader-facing chapter light, practical and beginner-friendly.
 

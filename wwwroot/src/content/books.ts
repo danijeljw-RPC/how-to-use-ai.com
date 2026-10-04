@@ -1,5 +1,5 @@
 export const series = {
-  title: 'How To Use AI.com',
+  title: 'How-To-Use-AI.com',
   descriptor: 'The Complete Guide Series',
   tagline: 'Understand. Explore. Apply. Grow.',
   progression: [
