@@ -2,6 +2,15 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-04 (85)
+
+### Changed
+
+- Closed Book 1 OI-0004 (Chapter 8 claims). The last item, the fictional-scenarios decision, was resolved by the author's own Chapter 8 revision (commit 4c22b56). That revision kept all seven teaching scenarios, rewrote them as fuller everyday illustrations, and removed the "fictional teaching example" labels from the opening and from Chapter Notes. No style rule or ADR requires such labels.
+- Files: `docs/30-books/31-book-01/open-issues/OI-0004.md`, `changelog.md`.
+
+Decisions: none. Open issues: Book 1 OI-0004 closed. Commit: pending commit.
+
 ## 2026-10-04 (84)
 
 ### Changed
