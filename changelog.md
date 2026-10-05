@@ -2,12 +2,25 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (101)
+
+### Publishing
+
+- Release editions are now fully data-driven (ADR-03-0012). Each product is one entry under `books[].editions` in `publishing/books.json`. It is flagged by `type` (print, pdf, epub) and, for print, `binding` (paperback/softcover, hardcover) and `ink` (black-and-white, colour). It also carries its own `label`, `editionLine`, `enabled`, ISBN, price, optional trim, bleed, printers and `fileStem`. `series.print.interiorInks` is removed.
+- The copyright page's ISBN list reads its labels from `books.json` and lists every enabled edition with an ISBN, in file order. It is set as a table whose label column fits the longest label, so "Paperback (black and white)" no longer runs into its ISBN.
+- Each edition's copyright page prints its own `editionLine` (falling back to the shared `copyright` line). The PDF ebook now has its own front matter. Print editions share one typesetting run when their copyright page, trim and bleed match; otherwise each is typeset separately, with a page-count warning.
+- Printer profiles now give paper per ink (`papers`) and cover measurements per binding (`bindings`: cover bleed, hinge, spine allowance). Wrap covers, spines and size checks are calculated from them and the edition's trim. The release check names any missing measurement; hardcover values are left for the printers' templates (OI-0010).
+- `scripts/book_metadata.py --plan` lists what a release builds, and `pub-books.sh` follows it. `--format` accepts edition ids, types or bindings. The LaTeX page geometry takes the edition's trim and bleed.
+- The EPUB is now `<isbn>_ebook.epub` (was `31-book-01.epub`). The author confirmed the EPUB was being built and closed the question.
+- Checked: 106 unit tests pass. A full Book 1 release builds the same 406-page interiors, spines (KDP 0.9143 in, IngramSpark 1.0150 in), 8 covers and 398-page PDF as before, and the EPUB passes epubcheck. A paperback build with different per-ink edition lines and a hardcover release check were also run.
+- Files changed: `scripts/book_metadata.py`, `scripts/build_matter.py`, `scripts/release_cover.py`, `pub-books.sh`, `publishing/latex/howto-book.tex`, `publishing/books.json`, `tests/test_book_metadata.py`, `tests/test_build_matter.py`, `tests/test_release_cover.py`, `docs/40-publishing/books-json-reference.md`, `docs/40-publishing/plans/copyright-page-edition-labels-plan.md`, `docs/40-publishing/decisions/ADR-03-0012-data-driven-editions.md`, `docs/40-publishing/decisions/ADR-03-0010-colour-and-bw-paperback-interiors.md`, `docs/40-publishing/open-issues/OI-0010.md`, `changelog.md`. Decisions: ADR-03-0012 added; ADR-03-0010 amended. Open issues: publishing OI-0010 opened. Commit: see git log.
+
 ## 2026-10-05 (100)
 
 ### Planning
 
 - Planned editable copyright-page format labels, ISBN spacing set by the longest label, an ISBN-based EPUB file name, and a separate edition line for each format (`editions.<format>.label` and `.editionLine` in `books.json`). Found that release builds already write the EPUB (`dist/release/31-book-01/31-book-01.epub`); it is named differently from the ISBN-named files, which makes it easy to miss. Waiting for author review, including whether the two paperback inks may have different edition lines (this would amend ADR-03-0010).
-- Files changed: `docs/40-publishing/plans/copyright-page-edition-labels-plan.md`, `changelog.md`. Decisions: none yet (ADR-03-0012 proposed). Open issues: none. Commit: pending commit.
+- Files changed: `docs/40-publishing/plans/copyright-page-edition-labels-plan.md`, `changelog.md`. Decisions: none yet (ADR-03-0012 proposed). Open issues: none. Commit: 250e25b.
 
 ## 2026-10-05 (99)
 

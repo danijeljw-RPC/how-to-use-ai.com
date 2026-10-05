@@ -37,7 +37,6 @@ RIGHTS = (
     "prior written permission of the publisher, except as permitted under the Copyright Act 1968 (Cth)."
 )
 CATALOGUE = "A catalogue record for this book is available from the National Library of Australia."
-FORMAT_NAMES = {"paperback": "Paperback", "paperbackColour": "Paperback (colour)", "epub": "EPUB", "pdf": "PDF"}
 
 _LATEX_SPECIAL = re.compile(r"([\\{}$&#%_~^])")
 _LATEX_REPLACEMENTS = {
@@ -66,13 +65,14 @@ def _markdown_files(directory: Path) -> list[Path]:
 
 class Matter:
     def __init__(self, metadata: dict[str, Any], root_dir: Path, target: str, edition: str,
-                 output_format: str, proof: bool) -> None:
+                 edition_id: str, proof: bool) -> None:
         self.series = metadata["series"]
         self.book = metadata["book"]
         self.root_dir = root_dir
         self.target = target
         self.edition = edition
-        self.format = output_format
+        # The books.json edition this copy is for; empty for drafts and previews.
+        self.edition_id = edition_id
         self.proof = proof
         self.book_dir = root_dir / "docs" / self.book.get("sourceDirectory", "")
         self.publisher = self.series.get("publisher", {})
@@ -90,6 +90,10 @@ class Matter:
         return imprint or name or ""
 
     def edition_line(self) -> str:
+        """This edition's own ``editionLine``, else the shared one built from ``copyright``."""
+        own = self.book.get("editions", {}).get(self.edition_id, {}).get("editionLine")
+        if own:
+            return own
         details = self.book.get("copyright", {})
         when = " ".join(part for part in (details.get("publicationMonth"), details.get("year")) if part)
         return ", ".join(part for part in (details.get("edition"), when) if part)
@@ -111,13 +115,10 @@ class Matter:
         return text
 
     def isbns(self) -> list[tuple[str, str]]:
-        editions = self.book.get("editions", {})
-        names = dict(FORMAT_NAMES)
-        # Once a colour paperback exists, say which paperback the plain ISBN belongs to.
-        if "isbn" in editions.get("paperbackColour", {}):
-            names["paperback"] = "Paperback (black and white)"
-        return [(names[name], editions[name].get("isbnDisplay", editions[name]["isbn"]))
-                for name in ("paperback", "paperbackColour", "epub", "pdf") if "isbn" in editions.get(name, {})]
+        """(label, ISBN) for every enabled edition with an ISBN, in books.json order."""
+        return [(edition["label"], edition.get("isbnDisplay", edition["isbn"]))
+                for edition in self.book.get("editions", {}).values()
+                if "isbn" in edition and edition.get("enabled", True)]
 
     def proof_text(self) -> str:
         if self.edition == "draft":
@@ -180,8 +181,10 @@ class Matter:
             lines.append(rf"\hwWordmark\par")
         isbns = self.isbns()
         if isbns:
-            lines += [rf"\hwIsbn{{{name}}}{{ISBN {latex(value)}}}" for name, value in isbns]
-            lines.append(r"\vspace{6pt}")
+            # The label column is as wide as the longest label (hwIsbns in howto-book.tex).
+            lines.append(r"\begin{hwIsbns}")
+            lines += [rf"\hwIsbn{{{latex(name)}}}{{ISBN {latex(value)}}}" for name, value in isbns]
+            lines += [r"\end{hwIsbns}", r"\vspace{6pt}"]
         if self.edition_line():
             lines.append(latex(self.edition_line()) + r"\par")
         if self.edition == "release":
@@ -261,12 +264,14 @@ class Matter:
 
 
 def build(config: Path, book_number: int, root_dir: Path, part: str, target: str = "latex",
-          edition: str = "release", output_format: str = "paperback", proof: bool = False,
+          edition: str = "release", edition_id: str = "", proof: bool = False,
           notes_at_back: bool = True) -> str:
     import json
 
     metadata = load_release_metadata(config, book_number)
-    matter = Matter(metadata, root_dir, target, edition, output_format, proof)
+    if edition_id and edition_id not in metadata["book"].get("editions", {}):
+        raise ValueError(f"editions.{edition_id} is not defined for book {book_number}")
+    matter = Matter(metadata, root_dir, target, edition, edition_id, proof)
     matter.series_list = [
         {"number": entry["number"], "title": entry["title"]}
         for entry in json.loads(config.read_text(encoding="utf-8"))["books"] if entry.get("title")
@@ -288,13 +293,18 @@ def main() -> int:
     parser.add_argument("--part", choices=("front", "notes", "about"), required=True)
     parser.add_argument("--target", choices=("latex", "epub"), default="latex")
     parser.add_argument("--edition", choices=("release", "draft", "preview"), default="release")
-    parser.add_argument("--format", dest="output_format", choices=("paperback", "pdf", "epub"), default="paperback")
+    parser.add_argument("--edition-id", default="",
+                        help="books.json edition (for example paperback or epub) whose editionLine to print")
     parser.add_argument("--proof", action="store_true")
     parser.add_argument("--notes-inline", action="store_true", help="keep notes with their chapters")
     arguments = parser.parse_args()
-    print(build(arguments.config, arguments.book_number, arguments.root_dir.resolve(), arguments.part,
-                arguments.target, arguments.edition, arguments.output_format, arguments.proof,
-                not arguments.notes_inline), end="")
+    try:
+        output = build(arguments.config, arguments.book_number, arguments.root_dir.resolve(), arguments.part,
+                       arguments.target, arguments.edition, arguments.edition_id, arguments.proof,
+                       not arguments.notes_inline)
+    except ValueError as error:
+        parser.error(str(error))
+    print(output, end="")
     return 0
 
 

@@ -15,8 +15,8 @@ def _config(directory: Path, **book_overrides) -> Path:
         "dedication": {"text": "For Johnny,\n\nthis book is for you."},
         "epigraph": {"quote": "Magic & more", "author": "A. Writer"},
         "copyright": {"holder": "", "year": "2026", "edition": "First edition", "publicationMonth": ""},
-        "editions": {"paperback": {"isbn": "9780306406157", "isbnDisplay": "978-0-306-40615-7"},
-                     "pdf": {"isbn": ""}, "epub": {"isbn": ""}},
+        "editions": {"paperback": {"type": "print", "isbn": "9780306406157", "isbnDisplay": "978-0-306-40615-7"},
+                     "pdf": {"type": "pdf", "isbn": ""}, "epub": {"type": "epub", "isbn": ""}},
     }
     book.update(book_overrides)
     config = {
@@ -45,8 +45,9 @@ class FrontMatterTests(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
 
-    def front(self, edition="release", **overrides):
-        return build(_config(self.root, **overrides), 1, self.root, "front", edition=edition)
+    def front(self, edition="release", edition_id="", target="latex", **overrides):
+        return build(_config(self.root, **overrides), 1, self.root, "front", target=target, edition=edition,
+                     edition_id=edition_id)
 
     def test_release_order(self):
         text = self.front()
@@ -64,12 +65,42 @@ class FrontMatterTests(unittest.TestCase):
 
     def test_colour_paperback_isbn_names_both_paperbacks(self):
         text = self.front(editions={
-            "paperback": {"isbn": "9780306406157", "isbnDisplay": "978-0-306-40615-7"},
-            "paperbackColour": {"isbn": "9781764994804", "isbnDisplay": "978-1-7649948-0-4"},
+            "paperback": {"type": "print", "isbn": "9780306406157", "isbnDisplay": "978-0-306-40615-7"},
+            "paperbackColour": {"type": "print", "ink": "colour", "isbn": "9781764994804",
+                                "isbnDisplay": "978-1-7649948-0-4"},
         })
         black_and_white = text.index(r"\hwIsbn{Paperback (black and white)}{ISBN 978-0-306-40615-7}")
         colour = text.index(r"\hwIsbn{Paperback (colour)}{ISBN 978-1-7649948-0-4}")
         self.assertLess(black_and_white, colour)
+
+    def test_isbn_rows_are_one_table_with_labels_from_json(self):
+        text = self.front(editions={
+            "paperback": {"type": "print", "label": "Softcover & more", "isbn": "9780306406157"},
+            "hardcover": {"type": "print", "binding": "hardcover", "label": "Hardcover (library binding)",
+                          "isbn": "9781764994804"},
+            "epub": {"type": "epub", "isbn": "9781764994828", "enabled": False},
+        })
+        table = text[text.index(r"\begin{hwIsbns}"):text.index(r"\end{hwIsbns}")]
+        self.assertIn(r"\hwIsbn{Softcover \& more}{ISBN 9780306406157}", table)
+        self.assertIn(r"\hwIsbn{Hardcover (library binding)}{ISBN 9781764994804}", table)
+        self.assertNotIn("EPUB", text)  # disabled editions are not listed
+
+    def test_each_edition_prints_its_own_edition_line(self):
+        editions = {"paperback": {"type": "print", "isbn": "9780306406157",
+                                  "editionLine": "First paperback edition, October 2026"},
+                    "epub": {"type": "epub", "editionLine": "First ebook edition"},
+                    "pdf": {"type": "pdf", "editionLine": ""}}
+        self.assertIn("First paperback edition, October 2026", self.front(edition_id="paperback", editions=editions))
+        self.assertIn("First ebook edition", self.front(edition_id="epub", target="epub", editions=editions))
+        # An empty editionLine, or no edition (drafts), falls back to the copyright fields.
+        for edition_id in ("pdf", ""):
+            text = self.front(edition_id=edition_id, editions=editions)
+            self.assertIn("First edition, 2026", text)
+            self.assertNotIn("paperback edition", text)
+
+    def test_unknown_edition_id_is_an_error(self):
+        with self.assertRaisesRegex(ValueError, "editions.hardback"):
+            self.front(edition_id="hardback")
 
     def test_empty_dedication_and_epigraph_drop_their_pages(self):
         text = self.front(dedication={"text": ""}, epigraph={"quote": "", "author": ""})

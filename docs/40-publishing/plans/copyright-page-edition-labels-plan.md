@@ -2,7 +2,22 @@
 
 ## Status
 
-Proposed (2026-10-05). Waiting for author review.
+Implemented (2026-10-05) as ADR-03-0012.
+
+## Author Review (2026-10-05)
+
+- Labels: approved, with a wider brief. **All** of a book's release config must come from `books.json`, so the engine can serve many more books. Each edition must be flagged with what it is (colour, black and white, PDF, EPUB, hardcover, softcover). Covers must fit from given measurements, or the build must say which ones are needed.
+- ISBN spacing: approved.
+- EPUB: the file was being built; marked resolved. It is now named by its ISBN like the other release files.
+- Edition line per format: approved (option A, different lines per paperback ink allowed).
+- Build, test and merge into `main` without further review.
+
+## Scope Added After Review
+
+- Typed editions (`type`, `binding`, `ink`, `enabled`, `label`, `editionLine`, optional trim, bleed, printers and `fileStem`) replace the fixed `paperback`/`paperbackColour`/`pdf`/`epub` slots and `series.print.interiorInks`.
+- Printer profiles describe paper per ink (`papers`) and cover measurements per binding (`bindings`: cover bleed, hinge, spine allowance). Hardcover measurements are left empty until checked against each printer's template (OI-0010).
+- `scripts/book_metadata.py --plan` drives `pub-books.sh`. The LaTeX style takes trim and bleed from the edition.
+- Extra files changed: `scripts/book_metadata.py`, `scripts/release_cover.py`, `tests/test_book_metadata.py`, `tests/test_release_cover.py`, `docs/40-publishing/open-issues/OI-0010.md`.
 
 ## Purpose
 

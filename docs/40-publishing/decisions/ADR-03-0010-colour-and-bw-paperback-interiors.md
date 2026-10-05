@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Accepted. Amended by ADR-03-0012 (2026-10-05). Editions, inks, labels and printer paper now come from typed entries in `books.json`, and `series.print.interiorInks` is removed. The two inks still share one typesetting run, unless their `editionLine`s differ. A missing ISBN gives a proof file stem of `<book-folder>-<edition id>`, and the EPUB is named `<isbn>_ebook.epub`.
 
 ## Date
 

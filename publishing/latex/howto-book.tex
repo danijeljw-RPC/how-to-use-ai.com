@@ -5,8 +5,10 @@
 %   \hwFontDir     absolute path to publishing/fonts/ (trailing slash)
 %   \hwAccentHex   book accent colour, e.g. 7C3AED
 %   \hwBookTitle   running-foot fallback
-% Print mode builds on a stock with 0.125in bleed (top, bottom, outside edge);
-% ebook and draft modes are the trimmed 7.5 x 9.25in page.
+%   \hwTrimWidth, \hwTrimHeight, \hwBleed
+%                  the edition's trim and interior bleed (default 7.5in x 9.25in, 0.125in)
+% Print mode builds on a stock with the bleed added to the top, bottom and
+% outside edge; ebook and draft modes are the trimmed page.
 
 \usepackage{etoolbox}
 \usepackage{graphicx}
@@ -44,20 +46,24 @@
 \newfontfamily\hwMono{IBMPlexMono-SemiBold}[Path=\hwFontDir, Extension=.ttf]
 \newfontfamily\hwMonoMedium{IBMPlexMono-Medium}[Path=\hwFontDir, Extension=.ttf]
 
-% ---------- Page geometry
+% ---------- Page geometry (trim and bleed come from the edition in books.json)
+\providecommand\hwTrimWidth{7.5in}
+\providecommand\hwTrimHeight{9.25in}
+\providecommand\hwBleed{0.125in}
 \def\hw@print{print}
+\newlength\hw@bleed
 \ifx\hwMode\hw@print
-  \setstocksize{9.5in}{7.625in}
-  \settrimmedsize{9.25in}{7.5in}{*}
-  \settrims{0.125in}{0.125in}
+  \setlength\hw@bleed{\hwBleed}
+  \setstocksize{\dimexpr\hwTrimHeight+2\hw@bleed\relax}{\dimexpr\hwTrimWidth+\hw@bleed\relax}
+  \settrimmedsize{\hwTrimHeight}{\hwTrimWidth}{*}
+  \settrims{\hw@bleed}{\hw@bleed}
   \setlrmarginsandblock{0.875in}{0.625in}{*}
-  \newlength\hw@bleed \setlength\hw@bleed{0.125in}
 \else
-  \setstocksize{9.25in}{7.5in}
-  \settrimmedsize{9.25in}{7.5in}{*}
+  \setlength\hw@bleed{0pt}
+  \setstocksize{\hwTrimHeight}{\hwTrimWidth}
+  \settrimmedsize{\hwTrimHeight}{\hwTrimWidth}{*}
   \settrims{0pt}{0pt}
   \setlrmarginsandblock{0.75in}{0.75in}{*}
-  \newlength\hw@bleed \setlength\hw@bleed{0pt}
 \fi
 \setulmarginsandblock{0.75in}{1in}{*}
 \setheadfoot{12pt}{0.45in}
@@ -359,7 +365,12 @@
   \raggedright\sffamily\fontsize{7.5}{10.5}\selectfont\color{hwNavy}%
   \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}}{\par}
 \newcommand\hwCopyrightTitle[1]{{\bfseries\fontsize{9}{11}\selectfont#1\par}}
-\newcommand\hwIsbn[2]{\makebox[11.5em][l]{\color{hwSlate}#1}{\hwMono\fontsize{7}{9}\selectfont#2}\par\vspace{-4pt}}
+% ISBN list: one \hwIsbn{label}{ISBN ...} row per edition. The label column is
+% as wide as the longest label, so any label length keeps a clear gap.
+\newenvironment{hwIsbns}{%
+  \par\renewcommand\arraystretch{1.15}%
+  \begin{tabular}{@{}l@{\hspace{1.5em}}l@{}}}{\end{tabular}\par}
+\newcommand\hwIsbn[2]{{\color{hwSlate}#1} & {\hwMono\fontsize{7}{9}\selectfont#2}\\}
 
 \newenvironment{hwDedication}{%
   \hwRecto\thispagestyle{empty}%

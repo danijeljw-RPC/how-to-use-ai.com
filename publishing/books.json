@@ -37,27 +37,62 @@
       "trimWidthInches": 7.5,
       "trimHeightInches": 9.25,
       "bleedInches": 0.125,
-      "interiorInks": [
-        "black-and-white",
-        "colour"
-      ],
-      "paper": "white",
       "printers": {
         "kdp": {
           "enabled": true,
-          "paperCaliperInches": 0.002252,
           "minimumPagesForSpineText": 80,
-          "spineWidthOverrideInches": "",
-          "colourPaper": "standard colour",
-          "colourPaperCaliperInches": 0.002252
+          "papers": {
+            "black-and-white": {
+              "stock": "white",
+              "caliperInches": 0.002252,
+              "spineWidthOverrideInches": ""
+            },
+            "colour": {
+              "stock": "standard colour",
+              "caliperInches": 0.002252,
+              "spineWidthOverrideInches": ""
+            }
+          },
+          "bindings": {
+            "paperback": {
+              "coverBleedInches": 0.125,
+              "hingeInches": 0,
+              "spineAllowanceInches": 0
+            },
+            "hardcover": {
+              "coverBleedInches": "",
+              "hingeInches": "",
+              "spineAllowanceInches": ""
+            }
+          }
         },
         "ingramspark": {
           "enabled": true,
-          "paperCaliperInches": 0.0025,
           "minimumPagesForSpineText": 48,
-          "spineWidthOverrideInches": "",
-          "colourPaper": "standard colour 50 lb",
-          "colourPaperCaliperInches": 0.0025
+          "papers": {
+            "black-and-white": {
+              "stock": "white",
+              "caliperInches": 0.0025,
+              "spineWidthOverrideInches": ""
+            },
+            "colour": {
+              "stock": "standard colour 50 lb",
+              "caliperInches": 0.0025,
+              "spineWidthOverrideInches": ""
+            }
+          },
+          "bindings": {
+            "paperback": {
+              "coverBleedInches": 0.125,
+              "hingeInches": 0,
+              "spineAllowanceInches": 0
+            },
+            "hardcover": {
+              "coverBleedInches": "",
+              "hingeInches": "",
+              "spineAllowanceInches": ""
+            }
+          }
         }
       }
     }
@@ -91,6 +126,12 @@
       },
       "editions": {
         "paperback": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "black-and-white",
+          "enabled": true,
+          "label": "Paperback (black and white)",
+          "editionLine": "First edition, October 2026",
           "isbn": "9781764994804",
           "isbnDisplay": "978-1-7649948-0-4",
           "priceCode": "51388",
@@ -100,6 +141,12 @@
           }
         },
         "paperbackColour": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "colour",
+          "enabled": true,
+          "label": "Paperback (colour)",
+          "editionLine": "First edition, October 2026",
           "isbn": "9781764994835",
           "isbnDisplay": "978-1-7649948-3-5",
           "priceCode": "51735",
@@ -108,13 +155,21 @@
             "USD": "17.35"
           }
         },
-        "pdf": {
-          "isbn": "9781764994811",
-          "isbnDisplay": "978-1-7649948-1-1"
-        },
         "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "EPUB",
+          "editionLine": "First edition, October 2026",
           "isbn": "9781764994828",
           "isbnDisplay": "978-1-7649948-2-8"
+        },
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "PDF",
+          "editionLine": "First edition, October 2026",
+          "isbn": "9781764994811",
+          "isbnDisplay": "978-1-7649948-1-1"
         }
       },
       "backCover": {
@@ -170,6 +225,12 @@
       },
       "editions": {
         "paperback": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "black-and-white",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -179,6 +240,12 @@
           }
         },
         "paperbackColour": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "colour",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -187,11 +254,19 @@
             "USD": ""
           }
         },
-        "pdf": {
+        "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         },
-        "epub": {
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         }
@@ -236,6 +311,12 @@
       },
       "editions": {
         "paperback": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "black-and-white",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -245,6 +326,12 @@
           }
         },
         "paperbackColour": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "colour",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -253,11 +340,19 @@
             "USD": ""
           }
         },
-        "pdf": {
+        "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         },
-        "epub": {
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         }
@@ -302,6 +397,12 @@
       },
       "editions": {
         "paperback": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "black-and-white",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -311,6 +412,12 @@
           }
         },
         "paperbackColour": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "colour",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -319,11 +426,19 @@
             "USD": ""
           }
         },
-        "pdf": {
+        "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         },
-        "epub": {
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         }
@@ -368,6 +483,12 @@
       },
       "editions": {
         "paperback": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "black-and-white",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -377,6 +498,12 @@
           }
         },
         "paperbackColour": {
+          "type": "print",
+          "binding": "paperback",
+          "ink": "colour",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": "",
           "priceCode": "",
@@ -385,11 +512,19 @@
             "USD": ""
           }
         },
-        "pdf": {
+        "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         },
-        "epub": {
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "",
+          "editionLine": "",
           "isbn": "",
           "isbnDisplay": ""
         }

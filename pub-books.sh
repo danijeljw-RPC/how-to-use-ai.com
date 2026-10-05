@@ -23,35 +23,47 @@
 #
 # Release editions (ADR-03-0008):
 #   ./pub-books.sh book 1 --release
-#                                            # paperback (interior + one wrap cover
-#                                            # per printer), PDF ebook and EPUB
+#                                            # every enabled edition of the book in
+#                                            # books.json: print editions (interior +
+#                                            # wrap covers per printer), PDF, EPUB
 #   ./pub-books.sh book 1 --release --format paperback,epub
+#                                            # only some editions: edition ids from
+#                                            # books.json, types (print, pdf, epub)
+#                                            # or bindings (paperback, softcover,
+#                                            # hardcover)
 #   ./pub-books.sh book 1 --release --proof
 #                                            # same layouts marked as a proof; missing
-#                                            # ISBNs and unresolved placeholders are
-#                                            # warnings instead of errors
-#   ./pub-books.sh book 1 --release --ink bw # one paperback ink only (bw, colour, or
-#                                            # bw,colour); the default is
-#                                            # series.print.interiorInks in books.json
+#                                            # ISBNs, printer measurements and
+#                                            # unresolved placeholders are warnings
+#                                            # instead of errors
+#   ./pub-books.sh book 1 --release --ink bw # print editions in one ink only (bw,
+#                                            # colour, or bw,colour)
 #   --edition release is an alias for --release; --edition draft is the default.
 #
-# Every PDF is checked for size: 7.5 x 9.25in pages, or 7.625 x 9.5in for
-# paperback interiors (trim plus 0.125in bleed). A wrong size stops the build.
+# Release editions (ADR-03-0012): each entry under a book's "editions" in
+# books.json is one product with its own ISBN, flagged by "type" (print, pdf,
+# epub) and, for print, "binding" and "ink". Its trim, label, copyright-page
+# edition line and file stem come from the same entry, and its covers from the
+# printer profiles in series.print.printers. See
+# docs/40-publishing/books-json-reference.md.
+#
+# Every PDF is checked for size: the edition's trim, plus its bleed for print
+# interiors and the printer's cover bleed for wrap covers. A wrong size stops
+# the build.
 #
 # Draft and preview PDFs go to dist/<book-folder>[-preview].pdf. Release files
-# go to dist/release/<book-folder>/ (ADR-03-0010). Each paperback ink is its
-# own product with its own ISBN (editions.paperback for black and white,
-# editions.paperbackColour for colour):
-#   <isbn>_interior-bw.pdf, <isbn>_interior-colour.pdf
-#                                   paperback interiors (bleed); identical pages
-#   <isbn>_cover-<ink>-<printer>.pdf
-#                                   wrap cover per ink and enabled printer
-#                                   (KDP, IngramSpark), barcode included
-#   <isbn>_cover-<ink>-<printer>-no-barcode.pdf
+# go to dist/release/<book-folder>/. <stem> is the edition's fileStem, else
+# its ISBN, else <book-folder>-<edition id>:
+#   <stem>_interior-<bw|colour>.pdf print interior (bleed); editions with the
+#                                   same copyright page and trim share pages
+#   <stem>_cover-<ink>-<printer>.pdf
+#                                   wrap cover per enabled printer (KDP,
+#                                   IngramSpark), barcode included
+#   <stem>_cover-<ink>-<printer>-no-barcode.pdf
 #                                   the same cover with the barcode area left
 #                                   blank, for the printer to add its own
-#   <isbn>_ebook.pdf                colour PDF ebook with covers
-#   <book-folder>.epub              EPUB 3
+#   <stem>_ebook.pdf                colour PDF ebook with covers
+#   <stem>_ebook.epub               EPUB 3
 #   <book-folder>-release-report.md page counts, spine widths, ISBNs, warnings
 #
 # Every build, draft or release, also writes the flat covers to dist/covers/:
@@ -85,7 +97,7 @@ export TEXINPUTS="$ROOT_DIR/publishing/latex//:${TEXINPUTS:-}"
 web_publish=0
 include_index=1
 edition="draft"
-formats="paperback,pdf,epub"
+formats=""
 inks=""
 proof=0
 remaining_args=()
@@ -132,25 +144,11 @@ if [[ "$edition" != "draft" && "$edition" != "release" ]]; then
   echo "Error: --edition must be draft or release, not '$edition'." >&2
   exit 1
 fi
-for format in ${formats//,/ }; do
-  if [[ "$format" != "paperback" && "$format" != "pdf" && "$format" != "epub" ]]; then
-    echo "Error: unknown format '$format' (use paperback, pdf, epub)." >&2
-    exit 1
-  fi
-done
-if [[ "$edition" == "draft" && ( "$proof" -eq 1 || "$formats" != "paperback,pdf,epub" || -n "$inks" ) ]]; then
+# --format and --ink values are checked against books.json by scripts/book_metadata.py.
+if [[ "$edition" == "draft" && ( "$proof" -eq 1 || -n "$formats" || -n "$inks" ) ]]; then
   echo "Error: --format, --ink and --proof only apply to release builds; add --release." >&2
   exit 1
 fi
-# --ink takes the short names bw and colour; books.json uses black-and-white and colour.
-ink_list=""
-for ink in ${inks//,/ }; do
-  case "$ink" in
-    bw|black-and-white) ink_list+="${ink_list:+,}black-and-white" ;;
-    colour|color) ink_list+="${ink_list:+,}colour" ;;
-    *) echo "Error: unknown ink '$ink' (use bw, colour)." >&2; exit 1 ;;
-  esac
-done
 
 require_command() {
   local command_name="$1"
@@ -203,14 +201,11 @@ fi
 
 mkdir -p "$OUT_DIR" "$COVER_DIR" "$PDF_TMP_DIR"
 
-# Page sizes every PDF is checked against (series.print in books.json). The
-# LaTeX style sets the same geometry; print interiors add bleed to the top,
-# bottom and outside edge only.
+# Draft and preview page size (series.print in books.json). Release editions
+# use their own trim from the edition plan; print interiors add the bleed to
+# the top, bottom and outside edge only.
 TRIM_WIDTH="$(jq -r '.series.print.trimWidthInches // 7.5' "$CONFIG")"
 TRIM_HEIGHT="$(jq -r '.series.print.trimHeightInches // 9.25' "$CONFIG")"
-BLEED="$(jq -r '.series.print.bleedInches // 0.125' "$CONFIG")"
-PRINT_WIDTH="$(awk -v w="$TRIM_WIDTH" -v b="$BLEED" 'BEGIN { print w + b }')"
-PRINT_HEIGHT="$(awk -v h="$TRIM_HEIGHT" -v b="$BLEED" 'BEGIN { print h + 2 * b }')"
 
 # Typeset a standalone .tex file. Runs enough LaTeX passes for the contents,
 # notes and page references to settle; with an index, makeindex runs between
@@ -253,8 +248,10 @@ PY
 
 # Markdown -> PDF in the house style.
 # build_interior <markdown> <output.pdf> <work-dir> <mode: print|ebook|draft> <notes: back|inline> <with-index> <accent> <resource-path>
+#                <trim-width-in> <trim-height-in> <bleed-in>
 build_interior() {
   local markdown="$1" output="$2" work_dir="$3" mode="$4" notes="$5" with_index="$6" accent="$7" resources="$8"
+  local trim_width="$9" trim_height="${10}" bleed="${11}"
   local class_options="oneside,openany,10pt"
   [[ "$mode" == "print" ]] && class_options="twoside,openright,10pt"
   rm -rf "$work_dir"
@@ -264,6 +261,9 @@ build_interior() {
 \\def\\hwNotes{$notes}
 \\def\\hwFontDir{$FONT_DIR/}
 \\def\\hwAccentHex{${accent#\#}}
+\\def\\hwTrimWidth{${trim_width}in}
+\\def\\hwTrimHeight{${trim_height}in}
+\\def\\hwBleed{${bleed}in}
 \\input{$LATEX_STYLE}
 EOF
   pandoc "$markdown" \
@@ -397,27 +397,28 @@ if [[ "$edition" == "release" && -n "$preview_chapters" ]]; then
 fi
 
 # ---------------------------------------------------------------- release
+# Every file comes from the book's editions in books.json (ADR-03-0012):
+# scripts/book_metadata.py --plan lists the selected editions with their type,
+# binding, ink, trim, bleed, file stem and printers, and this builds each one.
 publish_release() {
   local release_dir="$OUT_DIR/release/$book_name"
   local work="$PDF_TMP_DIR/$book_name-release"
   local diagram_dir="$PDF_TMP_DIR/$book_name-diagrams"
   local index_terms="$DOCS_DIR/$source_directory/index/index-terms.toml"
-  local build_index=0 format warnings="" proof_args=()
+  local build_index=0 warnings="" proof_args=() select_args=(--book-name "$book_name")
   [[ "$include_index" -eq 1 && -f "$index_terms" ]] && build_index=1
   [[ "$build_index" -eq 1 ]] && require_command makeindex "it ships with TeX Live and BasicTeX"
   [[ "$proof" -eq 1 ]] && proof_args=(--proof)
+  [[ -n "$inks" ]] && select_args+=(--inks "$inks")
   # Start clean so files from an earlier build (say, before an ISBN was added)
   # can't be mistaken for this one's.
   rm -rf "$release_dir"
   mkdir -p "$release_dir" "$work"
 
-  local paperback_inks="$ink_list"
-  [[ -z "$paperback_inks" ]] && paperback_inks="$(jq -r '(.series.print.interiorInks // ["black-and-white"]) | join(",")' "$CONFIG")"
-
-  echo "Release check for $book_name ($formats)..."
+  echo "Release check for $book_name (${formats:-every enabled edition}${inks:+, inks $inks})..."
   local problems
   if ! problems="$("$PYTHON_BIN" -m scripts.book_metadata --config "$CONFIG" --book-number "$book_number" \
-      --root-dir "$ROOT_DIR" --check "$formats" --inks "$paperback_inks" "${chapter_files[@]}" \
+      --root-dir "$ROOT_DIR" --check "$formats" "${select_args[@]}" "${chapter_files[@]}" \
       $(find "$DOCS_DIR/$source_directory/frontmatter" "$DOCS_DIR/$source_directory/backmatter" \
         -maxdepth 1 -name '*.md' 2>/dev/null | sort))"; then
     if [[ "$proof" -eq 1 ]]; then
@@ -431,28 +432,30 @@ publish_release() {
     fi
   fi
 
-  local paperback_isbn colour_isbn pdf_isbn epub_isbn accent
-  paperback_isbn="$(jq -r '.editions.paperback.isbn // empty' <<<"$book_json" | tr -d ' -')"
-  colour_isbn="$(jq -r '.editions.paperbackColour.isbn // empty' <<<"$book_json" | tr -d ' -')"
-  pdf_isbn="$(jq -r '.editions.pdf.isbn // empty' <<<"$book_json" | tr -d ' -')"
-  epub_isbn="$(jq -r '.editions.epub.isbn // empty' <<<"$book_json" | tr -d ' -')"
+  local plan accent
+  plan="$("$PYTHON_BIN" -m scripts.book_metadata --config "$CONFIG" --book-number "$book_number" \
+    --plan "$formats" "${select_args[@]}")" || exit 1
+  if [[ "$(jq '.editions | length' <<<"$plan")" -eq 0 ]]; then
+    echo "Error: no enabled edition of $book_name matches '${formats:-all}'." >&2
+    exit 1
+  fi
   accent="$(jq -r '.accentColour // "#7C3AED"' <<<"$book_json")"
 
-  # Shared front cover and PDF edition back cover.
-  "$PYTHON_BIN" -m scripts.release_cover front --config "$CONFIG" --book-number "$book_number" \
-    --root-dir "$ROOT_DIR" --output "$work/front-cover.pdf" >/dev/null
-  "$PYTHON_BIN" -m scripts.release_cover back --variant pdf --config "$CONFIG" --book-number "$book_number" \
-    --root-dir "$ROOT_DIR" --output "$work/back-cover-ebook.pdf" >/dev/null
   # Cover assets for the site, as draft builds make them: PDF, full-size PNG at
-  # 300 DPI and a small preview PNG. Copying them into wwwroot stays manual.
-  local padded_number cover_name cover_stem
+  # 300 DPI and a small preview PNG. The back carries the PDF edition's barcode
+  # when the book has one. Copying them into wwwroot stays manual.
+  local padded_number cover_name cover_stem site_back_variant=ebook
+  jq -e '.editions // {} | to_entries | any(.value.type == "pdf" and .value.enabled != false)' \
+    <<<"$book_json" >/dev/null && site_back_variant=pdf
   padded_number="$(printf '%02d' "$book_number")"
   for cover_name in front back; do
     cover_stem="$COVER_DIR/book-$padded_number-$cover_name-cover"
     if [[ "$cover_name" == "front" ]]; then
-      cp "$work/front-cover.pdf" "$cover_stem.pdf"
+      "$PYTHON_BIN" -m scripts.release_cover front --config "$CONFIG" --book-number "$book_number" \
+        --root-dir "$ROOT_DIR" --output "$cover_stem.pdf" >/dev/null
     else
-      cp "$work/back-cover-ebook.pdf" "$cover_stem.pdf"
+      "$PYTHON_BIN" -m scripts.release_cover back --variant "$site_back_variant" --config "$CONFIG" \
+        --book-number "$book_number" --root-dir "$ROOT_DIR" --output "$cover_stem.pdf" >/dev/null
     fi
     pdftoppm -png -r 300 -singlefile "$cover_stem.pdf" "$cover_stem"
     pdftoppm -png -scale-to-x 630 -scale-to-y -1 -singlefile "$cover_stem.pdf" "$cover_stem-preview"
@@ -465,14 +468,14 @@ publish_release() {
     echo
     echo "- Built: $(date '+%Y-%m-%d %H:%M')"
     echo "- Edition: $([[ "$proof" -eq 1 ]] && echo "proof (not for sale)" || echo "release")"
-    echo "- Formats: $formats"
-    echo "- ISBNs: paperback (black and white) ${paperback_isbn:-none}, paperback (colour) ${colour_isbn:-none}, PDF ${pdf_isbn:-none}, EPUB ${epub_isbn:-none}"
+    echo "- Editions: $(jq -r '[.editions[] | "\(.label) (`\(.id)`, ISBN \(if .isbn == "" then "none" else .isbn end))"] | join("; ")' <<<"$plan")"
   } > "$report"
 
-  if [[ ",$formats," == *",paperback,"* || ",$formats," == *",pdf,"* ]]; then
-    local latex_md="$work/book-latex.md"
+  # Chapters, notes, index and about pages, shared by every LaTeX edition; each
+  # edition adds its own front matter (its copyright page has its own edition line).
+  local latex_body="$work/book-latex-body.md"
+  if jq -e '.editions | any(.type == "print" or .type == "pdf")' <<<"$plan" >/dev/null; then
     {
-      matter --part front --edition release "${proof_args[@]+"${proof_args[@]}"}"
       for chapter_file in "${chapter_files[@]}"; do
         if [[ "$build_index" -eq 1 ]]; then
           chapter_markdown "$chapter_file" "$diagram_dir" latex "$index_terms"
@@ -483,67 +486,128 @@ publish_release() {
       matter --part notes --edition release
       [[ "$build_index" -eq 1 ]] && index_backmatter "$index_terms"
       matter --part about --edition release
-    } > "$latex_md"
+    } > "$latex_body"
   fi
 
-  if [[ ",$formats," == *",paperback,"* ]]; then
-    # One typesetting run serves every ink, so the interiors have identical
-    # pages; each ink is then its own product with its own ISBN (ADR-03-0010).
-    echo "  paperback interior (mirror margins, bleed; inks: $paperback_inks)..."
-    build_interior "$latex_md" "$work/interior-colour.pdf" "$work/print" print back "$build_index" "$accent" \
-      "$chapters_dir:$ROOT_DIR"
-    require_command gs "brew install ghostscript"
-    local ink ink_short stem interior colour_args pages printer barcode_mode
-    for ink in ${paperback_inks//,/ }; do
-      if [[ "$ink" == "colour" ]]; then
-        ink_short=colour
-        stem="${colour_isbn:-$book_name-paperback-colour}"
-        colour_args=(-sColorConversionStrategy=LeaveColorUnchanged)
-      else
-        ink_short=bw
-        stem="${paperback_isbn:-$book_name-paperback-bw}"
-        colour_args=(-sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray)
+  # Print editions with the same copyright page, trim and bleed share one
+  # typesetting run, so their pages are identical (ADR-03-0010).
+  local interior_keys=() interior_files=() page_keys=() page_counts=()
+  local entry id kind label stem ink_short trim_w trim_h bleed
+  while IFS= read -r entry <&3; do
+    id="$(jq -r '.id' <<<"$entry")"
+    kind="$(jq -r '.type' <<<"$entry")"
+    label="$(jq -r '.label' <<<"$entry")"
+    stem="$(jq -r '.stem' <<<"$entry")"
+    ink_short="$(jq -r '.inkShort' <<<"$entry")"
+    trim_w="$(jq -r '.trimWidthInches' <<<"$entry")"
+    trim_h="$(jq -r '.trimHeightInches' <<<"$entry")"
+    case "$kind" in
+      print) release_print_edition ;;
+      pdf) release_pdf_edition ;;
+      epub) release_epub_edition ;;
+    esac
+  done 3< <(jq -c '.editions[]' <<<"$plan")
+
+  if [[ -n "$warnings" ]]; then
+    {
+      echo
+      echo "## Warnings"
+      echo
+      printf '%s' "$warnings" | sed '/^$/d' | sed "s|$ROOT_DIR/||" | sed 's/^/- /'
+    } >> "$report"
+  fi
+  echo "  -> $report"
+}
+
+# One print edition: interior (bleed) in its ink, then a wrap cover per printer,
+# with and without the barcode. Uses publish_release's locals.
+release_print_edition() {
+  local binding front_md key index cached="" interior_colour interior pages printer barcode_mode colour_args
+  binding="$(jq -r '.binding' <<<"$entry")"
+  bleed="$(jq -r '.bleedInches' <<<"$entry")"
+  echo "  $label: interior ($binding, $ink_short, ${trim_w} x ${trim_h} in, ${bleed} in bleed)..."
+  front_md="$work/front-$id.md"
+  matter --part front --edition release --edition-id "$id" "${proof_args[@]+"${proof_args[@]}"}" > "$front_md"
+  key="$( { cat "$front_md"; echo "$trim_w $trim_h $bleed"; } | shasum | cut -c1-40)"
+  for ((index = 0; index < ${#interior_keys[@]}; index++)); do
+    [[ "${interior_keys[$index]}" == "$key" ]] && cached="${interior_files[$index]}"
+  done
+  if [[ -n "$cached" ]]; then
+    interior_colour="$cached"
+    echo "    same pages as an earlier edition; reusing its typesetting"
+  else
+    interior_colour="$work/interior-$id.pdf"
+    cat "$front_md" "$latex_body" > "$work/book-latex-$id.md"
+    build_interior "$work/book-latex-$id.md" "$interior_colour" "$work/print-$id" print back "$build_index" \
+      "$accent" "$chapters_dir:$ROOT_DIR" "$trim_w" "$trim_h" "$bleed"
+    interior_keys+=("$key")
+    interior_files+=("$interior_colour")
+  fi
+  require_command gs "brew install ghostscript"
+  if [[ "$ink_short" == "colour" ]]; then
+    colour_args=(-sColorConversionStrategy=LeaveColorUnchanged)
+  else
+    colour_args=(-sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray)
+  fi
+  interior="$release_dir/${stem}_interior-$ink_short.pdf"
+  gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 "${colour_args[@]}" \
+    -dEmbedAllFonts=true -dSubsetFonts=true -dAutoRotatePages=/None \
+    -sOutputFile="$interior" "$interior_colour" </dev/null
+  check_page_size "$interior" "$(awk -v w="$trim_w" -v b="$bleed" 'BEGIN { print w + b }')" \
+    "$(awk -v h="$trim_h" -v b="$bleed" 'BEGIN { print h + 2 * b }')"
+  pages="$(pdfinfo "$interior" | awk '/^Pages:/{print $2}')"
+  echo "  -> $interior ($pages pages)"
+  echo "- $label interior: \`$(basename "$interior")\`, $pages pages, $trim_w × $trim_h in plus $bleed in bleed" >> "$report"
+  # Editions with the same binding and trim should have the same page count.
+  local page_key="$binding $trim_w $trim_h"
+  for ((index = 0; index < ${#page_keys[@]}; index++)); do
+    if [[ "${page_keys[$index]}" == "$page_key" && "${page_counts[$index]}" != "$pages" ]]; then
+      warnings+="$label has $pages pages but an earlier $binding edition has ${page_counts[$index]}; check its copyright page"$'\n'
+      echo "  warning: $label has $pages pages, an earlier $binding edition has ${page_counts[$index]}"
+    fi
+  done
+  page_keys+=("$page_key")
+  page_counts+=("$pages")
+
+  for printer in $(jq -r '.printers[]' <<<"$entry"); do
+    for barcode_mode in barcode no-barcode; do
+      local cover_output size_line log cover_height barcode_args=() suffix=""
+      if [[ "$barcode_mode" == "no-barcode" ]]; then
+        barcode_args=(--no-barcode)
+        suffix="-no-barcode"
       fi
-      interior="$release_dir/${stem}_interior-$ink_short.pdf"
-      gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 "${colour_args[@]}" \
-        -dEmbedAllFonts=true -dSubsetFonts=true -dAutoRotatePages=/None \
-        -sOutputFile="$interior" "$work/interior-colour.pdf"
-      check_page_size "$interior" "$PRINT_WIDTH" "$PRINT_HEIGHT"
-      pages="$(pdfinfo "$interior" | awk '/^Pages:/{print $2}')"
-      echo "  -> $interior ($pages pages)"
-      echo "- Paperback interior ($ink): \`$(basename "$interior")\`, $pages pages, $TRIM_WIDTH × $TRIM_HEIGHT in plus $BLEED in bleed" >> "$report"
-      for printer in $(jq -r '.series.print.printers // {} | to_entries[] | select(.value.enabled != false) | .key' "$CONFIG"); do
-        for barcode_mode in barcode no-barcode; do
-          local cover_output spine_line log barcode_args=() suffix=""
-          if [[ "$barcode_mode" == "no-barcode" ]]; then
-            barcode_args=(--no-barcode)
-            suffix="-no-barcode"
-          fi
-          cover_output="$release_dir/${stem}_cover-$ink_short-$printer$suffix.pdf"
-          log="$work/cover-$ink_short-$printer$suffix.log"
-          spine_line="$("$PYTHON_BIN" -m scripts.release_cover wrap --config "$CONFIG" --book-number "$book_number" \
-            --root-dir "$ROOT_DIR" --output "$cover_output" --printer "$printer" --pages "$pages" \
-            --ink "$ink" "${barcode_args[@]+"${barcode_args[@]}"}" 2>"$log" | head -1)"
-          if [[ -s "$log" ]]; then
-            warnings+="$(sed "s/^/$ink $printer cover: /" "$log")"$'\n'
-            sed 's/^/  /' "$log"
-          fi
-          check_page_size "$cover_output" - "$PRINT_HEIGHT"
-          echo "  -> $cover_output (${spine_line#spine=} spine)"
-          echo "- Cover ($ink, $printer${suffix:+, no barcode}): \`$(basename "$cover_output")\`, spine ${spine_line#spine=} for $pages pages" >> "$report"
-        done
-      done
+      cover_output="$release_dir/${stem}_cover-$ink_short-$printer$suffix.pdf"
+      log="$work/cover-$id-$printer$suffix.log"
+      size_line="$("$PYTHON_BIN" -m scripts.release_cover wrap --config "$CONFIG" --book-number "$book_number" \
+        --root-dir "$ROOT_DIR" --output "$cover_output" --printer "$printer" --pages "$pages" \
+        --edition "$id" "${barcode_args[@]+"${barcode_args[@]}"}" 2>"$log" | head -1)"
+      if [[ -s "$log" ]]; then
+        warnings+="$(sed "s/^/$label $printer cover: /" "$log")"$'\n'
+        sed 's/^/  /' "$log"
+      fi
+      cover_height="$(jq -r --arg printer "$printer" '.coverHeightInches[$printer]' <<<"$entry")"
+      check_page_size "$cover_output" - "$cover_height"
+      echo "  -> $cover_output (${size_line#spine=} spine)"
+      echo "- $label cover ($printer${suffix:+, no barcode}): \`$(basename "$cover_output")\`, spine ${size_line#spine=} for $pages pages" >> "$report"
     done
-  fi
+  done
+}
 
-  if [[ ",$formats," == *",pdf,"* ]]; then
-    echo "  PDF ebook (colour, linked)..."
-    build_interior "$latex_md" "$work/ebook-interior.pdf" "$work/ebook" ebook back "$build_index" "$accent" \
-      "$chapters_dir:$ROOT_DIR"
-    local ebook_stem="${pdf_isbn:-$book_name}"
-    local ebook="$release_dir/${ebook_stem}_ebook.pdf"
-    "$PYTHON_BIN" - "$work/front-cover.pdf" "$work/ebook-interior.pdf" "$work/back-cover-ebook.pdf" "$ebook" \
-        "$book_title" "$author" "$pdf_isbn" <<'PY'
+# One PDF ebook: colour interior with links, its own front and back covers.
+release_pdf_edition() {
+  echo "  $label (PDF ebook, colour, linked)..."
+  matter --part front --edition release --edition-id "$id" "${proof_args[@]+"${proof_args[@]}"}" \
+    | cat - "$latex_body" > "$work/book-latex-$id.md"
+  build_interior "$work/book-latex-$id.md" "$work/ebook-$id.pdf" "$work/ebook-$id" ebook back "$build_index" \
+    "$accent" "$chapters_dir:$ROOT_DIR" "$trim_w" "$trim_h" 0
+  "$PYTHON_BIN" -m scripts.release_cover front --edition "$id" --config "$CONFIG" --book-number "$book_number" \
+    --root-dir "$ROOT_DIR" --output "$work/front-cover-$id.pdf" >/dev/null
+  "$PYTHON_BIN" -m scripts.release_cover back --variant pdf --edition "$id" --config "$CONFIG" \
+    --book-number "$book_number" --root-dir "$ROOT_DIR" --output "$work/back-cover-$id.pdf" >/dev/null
+  local ebook="$release_dir/${stem}_ebook.pdf" isbn
+  isbn="$(jq -r '.isbn' <<<"$entry")"
+  "$PYTHON_BIN" - "$work/front-cover-$id.pdf" "$work/ebook-$id.pdf" "$work/back-cover-$id.pdf" "$ebook" \
+      "$book_title" "$author" "$isbn" <<'PY'
 import sys
 from pypdf import PdfReader, PdfWriter
 front, interior, back, output, title, author, isbn = sys.argv[1:8]
@@ -558,78 +622,71 @@ writer.add_metadata(metadata)
 with open(output, "wb") as stream:
     writer.write(stream)
 PY
-    check_page_size "$ebook" "$TRIM_WIDTH" "$TRIM_HEIGHT"
-    echo "  -> $ebook"
-    echo "- PDF ebook: \`${ebook_stem}_ebook.pdf\`, $(pdfinfo "$ebook" | awk '/^Pages:/{print $2}') pages" >> "$report"
-  fi
+  check_page_size "$ebook" "$trim_w" "$trim_h"
+  echo "  -> $ebook"
+  echo "- $label: \`$(basename "$ebook")\`, $(pdfinfo "$ebook" | awk '/^Pages:/{print $2}') pages" >> "$report"
+}
 
-  if [[ ",$formats," == *",epub,"* ]]; then
-    echo "  EPUB..."
-    local epub_md="$work/book-epub.md" svg_dir="$work/epub-diagrams"
-    mkdir -p "$svg_dir"
-    {
-      matter --part front --target epub --edition release "${proof_args[@]+"${proof_args[@]}"}"
-      for chapter_file in "${chapter_files[@]}"; do
-        if [[ "$build_index" -eq 1 ]]; then
-          chapter_markdown "$chapter_file" "$diagram_dir" anchors "$index_terms"
-        else
-          chapter_markdown "$chapter_file" "$diagram_dir" "" ""
-        fi
-      done
-      matter --part notes --target epub --edition release
+# One EPUB 3, validated with epubcheck when it is installed.
+release_epub_edition() {
+  echo "  $label (EPUB 3)..."
+  local epub_md="$work/book-epub-$id.md" svg_dir="$work/epub-diagrams"
+  mkdir -p "$svg_dir"
+  {
+    matter --part front --target epub --edition release --edition-id "$id" "${proof_args[@]+"${proof_args[@]}"}"
+    for chapter_file in "${chapter_files[@]}"; do
       if [[ "$build_index" -eq 1 ]]; then
-        "$PYTHON_BIN" "$INDEX_SCRIPT" backmatter --terms "$index_terms" --format anchors --chapters-dir "$chapters_dir"
-      fi
-      matter --part about --target epub --edition release
-    } > "$epub_md"
-    # EPUB readers need SVG or PNG, so each rendered diagram PDF gets an SVG twin.
-    local diagram_pdf
-    for diagram_pdf in "$diagram_dir"/*.pdf; do
-      [[ -f "$diagram_pdf" ]] || continue
-      pdftocairo -svg "$diagram_pdf" "$svg_dir/$(basename "${diagram_pdf%.pdf}").svg"
-    done
-    sed -i.bak "s|$diagram_dir/\([^)]*\)\.pdf|$svg_dir/\1.svg|g" "$epub_md" && rm -f "$epub_md.bak"
-    pdftoppm -png -r 200 -singlefile "$work/front-cover.pdf" "$work/epub-cover"
-    local epub="$release_dir/$book_name.epub" font_args=() font
-    for font in "$FONT_DIR"/*.ttf; do font_args+=(--epub-embed-font="$font"); done
-    local subtitle publisher identifier_args=()
-    subtitle="$(jq -r '.description // ""' <<<"$book_json")"
-    publisher="$(jq -r '.series.publisher.name // ""' "$CONFIG")"
-    [[ -n "$epub_isbn" ]] && identifier_args=(-M identifier="urn:isbn:$epub_isbn")
-    pandoc "$epub_md" -o "$epub" \
-      --to epub3 \
-      --resource-path="$chapters_dir:$ROOT_DIR" \
-      --top-level-division=chapter \
-      --split-level=1 \
-      --toc --toc-depth=1 \
-      --lua-filter="$LUA_FILTER" -M hw-notes=back \
-      --css="$EPUB_CSS" "${font_args[@]}" \
-      --epub-cover-image="$work/epub-cover.png" \
-      -M title="$book_title" -M subtitle="$subtitle" -M author="$author" \
-      -M publisher="$publisher" -M lang=en-AU -M date="$(date +%Y-%m-%d)" \
-      "${identifier_args[@]+"${identifier_args[@]}"}"
-    echo "  -> $epub"
-    if command -v epubcheck >/dev/null 2>&1; then
-      if epubcheck -q "$epub" >"$work/epubcheck.log" 2>&1; then
-        echo "- EPUB: \`$book_name.epub\`, passed epubcheck" >> "$report"
+        chapter_markdown "$chapter_file" "$diagram_dir" anchors "$index_terms"
       else
-        echo "  epubcheck reported problems; see $work/epubcheck.log"
-        echo "- EPUB: \`$book_name.epub\`, epubcheck reported problems (see tmp/pdfs/$book_name-release/epubcheck.log)" >> "$report"
+        chapter_markdown "$chapter_file" "$diagram_dir" "" ""
       fi
-    else
-      echo "- EPUB: \`$book_name.epub\` (not validated: brew install epubcheck)" >> "$report"
+    done
+    matter --part notes --target epub --edition release
+    if [[ "$build_index" -eq 1 ]]; then
+      "$PYTHON_BIN" "$INDEX_SCRIPT" backmatter --terms "$index_terms" --format anchors --chapters-dir "$chapters_dir"
     fi
+    matter --part about --target epub --edition release
+  } > "$epub_md"
+  # EPUB readers need SVG or PNG, so each rendered diagram PDF gets an SVG twin.
+  local diagram_pdf
+  for diagram_pdf in "$diagram_dir"/*.pdf; do
+    [[ -f "$diagram_pdf" ]] || continue
+    pdftocairo -svg "$diagram_pdf" "$svg_dir/$(basename "${diagram_pdf%.pdf}").svg"
+  done
+  sed -i.bak "s|$diagram_dir/\([^)]*\)\.pdf|$svg_dir/\1.svg|g" "$epub_md" && rm -f "$epub_md.bak"
+  "$PYTHON_BIN" -m scripts.release_cover front --edition "$id" --config "$CONFIG" --book-number "$book_number" \
+    --root-dir "$ROOT_DIR" --output "$work/front-cover-$id.pdf" >/dev/null
+  pdftoppm -png -r 200 -singlefile "$work/front-cover-$id.pdf" "$work/epub-cover-$id"
+  local epub="$release_dir/${stem}_ebook.epub" font_args=() font isbn
+  for font in "$FONT_DIR"/*.ttf; do font_args+=(--epub-embed-font="$font"); done
+  local subtitle publisher identifier_args=()
+  subtitle="$(jq -r '.description // ""' <<<"$book_json")"
+  publisher="$(jq -r '.series.publisher.name // ""' "$CONFIG")"
+  isbn="$(jq -r '.isbn' <<<"$entry")"
+  [[ -n "$isbn" ]] && identifier_args=(-M identifier="urn:isbn:$isbn")
+  pandoc "$epub_md" -o "$epub" \
+    --to epub3 \
+    --resource-path="$chapters_dir:$ROOT_DIR" \
+    --top-level-division=chapter \
+    --split-level=1 \
+    --toc --toc-depth=1 \
+    --lua-filter="$LUA_FILTER" -M hw-notes=back \
+    --css="$EPUB_CSS" "${font_args[@]}" \
+    --epub-cover-image="$work/epub-cover-$id.png" \
+    -M title="$book_title" -M subtitle="$subtitle" -M author="$author" \
+    -M publisher="$publisher" -M lang=en-AU -M date="$(date +%Y-%m-%d)" \
+    "${identifier_args[@]+"${identifier_args[@]}"}"
+  echo "  -> $epub"
+  if command -v epubcheck >/dev/null 2>&1; then
+    if epubcheck -q "$epub" >"$work/epubcheck-$id.log" 2>&1; then
+      echo "- $label: \`$(basename "$epub")\`, passed epubcheck" >> "$report"
+    else
+      echo "  epubcheck reported problems; see $work/epubcheck-$id.log"
+      echo "- $label: \`$(basename "$epub")\`, epubcheck reported problems (see tmp/pdfs/$book_name-release/epubcheck-$id.log)" >> "$report"
+    fi
+  else
+    echo "- $label: \`$(basename "$epub")\` (not validated: brew install epubcheck)" >> "$report"
   fi
-
-  if [[ -n "$warnings" ]]; then
-    {
-      echo
-      echo "## Warnings"
-      echo
-      printf '%s' "$warnings" | sed '/^$/d' | sed "s|$ROOT_DIR/||" | sed 's/^/- /'
-    } >> "$report"
-  fi
-  echo "  -> $report"
 }
 
 # ---------------------------------------------------------------- draft / preview
@@ -725,7 +782,7 @@ publish_draft() {
 
   accent="$(jq -r '.accentColour // "#7C3AED"' <<<"$book_json")"
   build_interior "$combined_md" "$manuscript_pdf" "$PDF_TMP_DIR/$book_name$edition_suffix-latex" \
-    draft back "$build_index" "$accent" "$chapters_dir:$ROOT_DIR"
+    draft back "$build_index" "$accent" "$chapters_dir:$ROOT_DIR" "$TRIM_WIDTH" "$TRIM_HEIGHT" 0
 
   "$PYTHON_BIN" -m scripts.assemble_draft_book \
     --config "$CONFIG" \

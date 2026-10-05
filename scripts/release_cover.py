@@ -8,10 +8,12 @@ author photo are the only raster images):
   page, and rasterised as the EPUB cover image);
 * ``back``   the back cover at trim size: ``--variant pdf`` (PDF edition barcode), ``--variant ebook`` (no barcode or
   price), ``--variant draft`` (internal-review notice instead of the barcode);
-* ``wrap``   the paperback cover for one printer and ink: back + spine + front
-  with bleed, sized from the interior page count and that printer's paper
-  (white or colour stock). ``--no-barcode`` leaves the barcode area blank for
-  printers that add their own (ADR-03-0010).
+* ``wrap``   the cover of one print edition (``--edition``) for one printer:
+  back + hinge + spine + hinge + front with the binding's bleed. The
+  edition's trim, ink and binding pick the paper caliper and cover
+  measurements from that printer's profile in books.json (ADR-03-0012).
+  ``--no-barcode`` leaves the barcode area blank for printers that add their
+  own (ADR-03-0010).
 
 Empty values in books.json are left out (see scripts/book_metadata.py). Text
 that doesn't fit the back cover is set smaller, down to a floor; anything
@@ -39,7 +41,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph
 
-from scripts.book_metadata import DEFAULT_PRICE_CODE, INKS, PAPERBACK_EDITIONS, load_release_metadata
+from scripts.book_metadata import DEFAULT_PRICE_CODE, load_release_metadata
 from scripts.isbn_barcode import draw_barcode
 
 INCH = 72.0
@@ -212,20 +214,30 @@ def draw_front(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: d
 
 
 # ---------------------------------------------------------------- back
-def _price_line(book: dict[str, Any], edition: str = "paperback") -> str:
+def _price_line(book: dict[str, Any], edition: str) -> str:
     prices = book.get("editions", {}).get(edition, {}).get("price", {})
     return "   ".join(f"{currency} ${amount}" for currency, amount in prices.items())
 
 
-def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: dict[str, Any],
-              root_dir: Path, variant: str, warnings: list[str], ink: str = "black-and-white",
-              barcode: bool = True) -> None:
-    """``variant``: paperback (barcode, price), pdf (PDF barcode), ebook (neither), draft (review notice).
+def default_edition(book: dict[str, Any], kind: str) -> str:
+    """The first enabled edition of a type (print, pdf), for callers that don't name one."""
+    for name, edition in book.get("editions", {}).items():
+        if edition.get("type") == kind and edition.get("enabled", True):
+            return name
+    return ""
 
-    A paperback uses the ISBN and price of its ``ink``'s edition. ``barcode=False`` leaves the
-    barcode area blank white so the printer (KDP) can place its own barcode there.
+
+def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: dict[str, Any],
+              root_dir: Path, variant: str, warnings: list[str], edition_name: str = "",
+              barcode: bool = True) -> None:
+    """``variant``: print (barcode, price), pdf (PDF barcode), ebook (neither), draft (review notice).
+
+    print and pdf use the ISBN (and, for print, the price) of ``edition_name``, by default the
+    book's first edition of that type. ``barcode=False`` leaves the barcode area blank white so
+    the printer (KDP) can place its own barcode there.
     """
-    edition_name = PAPERBACK_EDITIONS[ink] if variant == "paperback" else variant
+    if variant in ("print", "pdf"):
+        edition_name = edition_name or default_edition(book, variant)
     panel.fill(pdf, white, 0, panel.height / INCH)
     panel.fill(pdf, NAVY, 0, 1.75)
     left = panel.x + 0.75 * INCH
@@ -238,7 +250,7 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     pdf.setFillColor(SKY_LIGHT)
     if back.get("category"):
         pdf.drawString(left, meta_baseline, back["category"])
-    price = _price_line(book, edition_name) if variant == "paperback" else ""
+    price = _price_line(book, edition_name) if variant == "print" else ""
     if price:
         pdf.setFillColor(white)
         pdf.setFont("Plex-MonoSemi", 8)
@@ -249,10 +261,10 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
     # Footer first, so the body knows how much room it has.
     footer_bottom = panel.y + 0.55 * INCH
     footer_top = footer_bottom + 0.42 * INCH
-    if variant in ("paperback", "pdf") and not barcode:
+    if variant in ("print", "pdf") and not barcode:
         # Nothing is drawn: the area stays plain white and the body copy keeps clear of it.
         footer_top = max(footer_top, footer_bottom + PRINTER_BARCODE_AREA[1])
-    elif variant in ("paperback", "pdf"):
+    elif variant in ("print", "pdf"):
         edition = book.get("editions", {}).get(edition_name, {})
         isbn = edition.get("isbn")
         if isbn:
@@ -273,7 +285,8 @@ def draw_back(pdf: canvas.Canvas, panel: Panel, series: dict[str, Any], book: di
                          font_name="Plex-Mono")
             footer_top = max(footer_top, footer_bottom + box_height)
         else:
-            warnings.append(f"{edition_name} ISBN is empty: back cover printed without a barcode")
+            name = edition_name or f"the {variant} edition"
+            warnings.append(f"{name} ISBN is empty: back cover printed without a barcode")
     elif variant == "draft":
         box_height = 0.62 * INCH
         pdf.setFillColor(MIST)
@@ -416,12 +429,24 @@ def _context(config: Path, book_number: int) -> tuple[dict[str, Any], dict[str, 
     return metadata["series"], metadata["book"], total
 
 
-def trim_size(series: dict[str, Any]) -> tuple[float, float]:
+def trim_size(series: dict[str, Any], edition: dict[str, Any] | None = None) -> tuple[float, float]:
+    """An edition's own trim (books.json editions.<id>.trim*Inches), else series.print, else series.page."""
     printing = series.get("print", {})
     page = series.get("page", {})
-    width = float(printing.get("trimWidthInches") or page.get("widthInches", 7.5))
-    height = float(printing.get("trimHeightInches") or page.get("heightInches", 9.25))
+    edition = edition or {}
+    width = float(edition.get("trimWidthInches") or printing.get("trimWidthInches") or page.get("widthInches", 7.5))
+    height = float(edition.get("trimHeightInches") or printing.get("trimHeightInches")
+                   or page.get("heightInches", 9.25))
     return width * INCH, height * INCH
+
+
+def _edition(book: dict[str, Any], name: str) -> dict[str, Any]:
+    if not name:
+        return {}
+    edition = book.get("editions", {}).get(name)
+    if edition is None:
+        raise CoverError(f"editions.{name} is not defined for this book")
+    return edition
 
 
 def _new_canvas(path: Path, width: float, height: float, title: str) -> canvas.Canvas:
@@ -431,10 +456,10 @@ def _new_canvas(path: Path, width: float, height: float, title: str) -> canvas.C
     return pdf
 
 
-def render_front(config: Path, book_number: int, root_dir: Path, output: Path) -> Path:
+def render_front(config: Path, book_number: int, root_dir: Path, output: Path, edition_name: str = "") -> Path:
     register_fonts()
     series, book, total = _context(config, book_number)
-    width, height = trim_size(series)
+    width, height = trim_size(series, _edition(book, edition_name))
     pdf = _new_canvas(output, width, height, f"{book['title']} — front cover")
     draw_front(pdf, Panel(0, 0, width, height), series, book, root_dir, total)
     pdf.showPage()
@@ -442,52 +467,84 @@ def render_front(config: Path, book_number: int, root_dir: Path, output: Path) -
     return output
 
 
-def render_back(config: Path, book_number: int, root_dir: Path, output: Path, variant: str) -> list[str]:
+def render_back(config: Path, book_number: int, root_dir: Path, output: Path, variant: str,
+                edition_name: str = "") -> list[str]:
     register_fonts()
     series, book, _ = _context(config, book_number)
-    width, height = trim_size(series)
+    if variant in ("print", "pdf"):
+        edition_name = edition_name or default_edition(book, variant)
+    width, height = trim_size(series, _edition(book, edition_name))
     warnings: list[str] = []
     pdf = _new_canvas(output, width, height, f"{book['title']} — back cover")
-    draw_back(pdf, Panel(0, 0, width, height), series, book, root_dir, variant, warnings)
+    draw_back(pdf, Panel(0, 0, width, height), series, book, root_dir, variant, warnings, edition_name)
     pdf.showPage()
     pdf.save()
     return warnings
 
 
-def spine_width(series: dict[str, Any], printer: str, page_count: int, ink: str = "black-and-white") -> float:
-    """Page count x the printer's paper caliper; colour interiors print on colour stock."""
-    settings = series.get("print", {}).get("printers", {}).get(printer)
-    if not settings:
+def printer_profile(series: dict[str, Any], printer: str) -> dict[str, Any]:
+    profile = series.get("print", {}).get("printers", {}).get(printer)
+    if not profile:
         raise CoverError(f"series.print.printers.{printer} is not configured")
-    prefix = "colour" if ink == "colour" else ""
-    override_key = f"{prefix}SpineWidthOverrideInches" if prefix else "spineWidthOverrideInches"
-    caliper_key = f"{prefix}PaperCaliperInches" if prefix else "paperCaliperInches"
-    override = settings.get(override_key)
-    if override:
-        return float(override) * INCH
-    if caliper_key not in settings:
-        raise CoverError(f"series.print.printers.{printer}.{caliper_key} is not configured")
-    return page_count * float(settings[caliper_key]) * INCH
+    return profile
+
+
+def _measure(settings: dict[str, Any], field: str, where: str) -> float:
+    if field not in settings:
+        raise CoverError(f"{where}.{field} is not set; copy it from the printer's cover template")
+    return float(settings[field]) * INCH
+
+
+def spine_width(series: dict[str, Any], printer: str, page_count: int, edition: dict[str, Any]) -> float:
+    """The paper's spine override, else page count x its caliper plus the binding's board allowance."""
+    profile = printer_profile(series, printer)
+    where = f"series.print.printers.{printer}"
+    ink, binding_name = edition.get("ink", "black-and-white"), edition.get("binding", "paperback")
+    paper = profile.get("papers", {}).get(ink, {})
+    if paper.get("spineWidthOverrideInches"):
+        return float(paper["spineWidthOverrideInches"]) * INCH
+    caliper = _measure(paper, "caliperInches", f"{where}.papers.{ink}")
+    binding = profile.get("bindings", {}).get(binding_name, {})
+    return page_count * caliper + _measure(binding, "spineAllowanceInches", f"{where}.bindings.{binding_name}")
+
+
+def wrap_geometry(series: dict[str, Any], printer: str, page_count: int,
+                  edition: dict[str, Any]) -> dict[str, float]:
+    """Wrap-cover sizes in points: the edition's trim, the binding's cover bleed (a hardcover's
+    turn-in) and hinge from the printer profile, and the spine."""
+    width, height = trim_size(series, edition)
+    binding_name = edition.get("binding", "paperback")
+    binding = printer_profile(series, printer).get("bindings", {}).get(binding_name, {})
+    where = f"series.print.printers.{printer}.bindings.{binding_name}"
+    bleed = _measure(binding, "coverBleedInches", where)
+    hinge = _measure(binding, "hingeInches", where)
+    spine = spine_width(series, printer, page_count, edition)
+    return {"width": width, "height": height, "bleed": bleed, "hinge": hinge, "spine": spine,
+            "total_width": 2 * (bleed + width + hinge) + spine, "total_height": height + 2 * bleed}
 
 
 def render_wrap(config: Path, book_number: int, root_dir: Path, output: Path, printer: str,
-                page_count: int, ink: str = "black-and-white", barcode: bool = True) -> tuple[float, list[str]]:
-    """Return the spine width in inches and any warnings."""
+                page_count: int, edition_name: str = "", barcode: bool = True) -> tuple[float, list[str]]:
+    """Back, hinge, spine, hinge, front, with the binding's bleed. Return the spine width (in) and warnings."""
     register_fonts()
     series, book, total = _context(config, book_number)
-    width, height = trim_size(series)
-    bleed = float(series.get("print", {}).get("bleedInches", 0.125)) * INCH
-    spine = spine_width(series, printer, page_count, ink)
-    settings = series["print"]["printers"][printer]
-    with_text = page_count >= int(settings.get("minimumPagesForSpineText", 0))
+    edition_name = edition_name or default_edition(book, "print")
+    edition = _edition(book, edition_name)
+    if edition.get("type") != "print":
+        raise CoverError(f"editions.{edition_name} is not a print edition, so it has no wrap cover")
+    geometry = wrap_geometry(series, printer, page_count, edition)
+    width, height, bleed = geometry["width"], geometry["height"], geometry["bleed"]
+    hinge, spine = geometry["hinge"], geometry["spine"]
+    with_text = page_count >= int(printer_profile(series, printer).get("minimumPagesForSpineText", 0))
     warnings: list[str] = []
-    pdf = _new_canvas(output, 2 * width + spine + 2 * bleed, height + 2 * bleed,
-                      f"{book['title']} — {ink} paperback cover ({printer})")
-    draw_back(pdf, Panel(bleed, bleed, width, height, bleed_left=bleed, bleed_top=bleed, bleed_bottom=bleed),
-              series, book, root_dir, "paperback", warnings, ink, barcode)
-    draw_front(pdf, Panel(bleed + width + spine, bleed, width, height, bleed_right=bleed, bleed_top=bleed,
-                          bleed_bottom=bleed), series, book, root_dir, total)
-    draw_spine(pdf, bleed + width, bleed, spine, height, bleed, series, book, with_text)
+    pdf = _new_canvas(output, geometry["total_width"], geometry["total_height"],
+                      f"{book['title']} — {edition.get('label', edition_name)} cover ({printer})")
+    draw_back(pdf, Panel(bleed, bleed, width, height, bleed_left=bleed, bleed_right=hinge, bleed_top=bleed,
+                         bleed_bottom=bleed), series, book, root_dir, "print", warnings, edition_name, barcode)
+    spine_x = bleed + width + hinge
+    draw_front(pdf, Panel(spine_x + spine + hinge, bleed, width, height, bleed_left=hinge, bleed_right=bleed,
+                          bleed_top=bleed, bleed_bottom=bleed), series, book, root_dir, total)
+    draw_spine(pdf, spine_x, bleed, spine, height, bleed, series, book, with_text)
     pdf.showPage()
     pdf.save()
     if not with_text:
@@ -502,26 +559,28 @@ def main() -> int:
     parser.add_argument("--book-number", type=int, required=True)
     parser.add_argument("--root-dir", type=Path, default=Path.cwd())
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--variant", choices=("paperback", "pdf", "ebook", "draft"), default="ebook")
-    parser.add_argument("--printer", help="wrap only: kdp or ingramspark")
+    parser.add_argument("--variant", choices=("print", "pdf", "ebook", "draft"), default="ebook")
+    parser.add_argument("--edition", default="",
+                        help="edition id from books.json, for its ISBN, price, ink, binding and trim "
+                             "(default: the book's first print or pdf edition)")
+    parser.add_argument("--printer", help="wrap only: a printer in series.print.printers")
     parser.add_argument("--pages", type=int, help="wrap only: interior page count")
-    parser.add_argument("--ink", choices=INKS, default="black-and-white",
-                        help="wrap only: interior ink; sets the edition's ISBN and the paper caliper")
     parser.add_argument("--no-barcode", action="store_true",
                         help="wrap only: leave the barcode area blank for the printer to fill")
     arguments = parser.parse_args()
     root = arguments.root_dir.resolve()
     try:
         if arguments.kind == "front":
-            render_front(arguments.config, arguments.book_number, root, arguments.output)
+            render_front(arguments.config, arguments.book_number, root, arguments.output, arguments.edition)
             warnings: list[str] = []
         elif arguments.kind == "back":
-            warnings = render_back(arguments.config, arguments.book_number, root, arguments.output, arguments.variant)
+            warnings = render_back(arguments.config, arguments.book_number, root, arguments.output, arguments.variant,
+                                   arguments.edition)
         else:
             if not arguments.printer or not arguments.pages:
                 parser.error("wrap needs --printer and --pages")
             spine, warnings = render_wrap(arguments.config, arguments.book_number, root, arguments.output,
-                                          arguments.printer, arguments.pages, arguments.ink,
+                                          arguments.printer, arguments.pages, arguments.edition,
                                           not arguments.no_barcode)
             print(f"spine={spine:.4f}in")
     except CoverError as error:
@@ -534,3 +593,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
