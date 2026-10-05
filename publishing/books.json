@@ -130,14 +130,14 @@
           "binding": "paperback",
           "ink": "black-and-white",
           "enabled": true,
-          "label": "Paperback (black and white)",
+          "label": "Paperback",
           "editionLine": "First edition, October 2026",
           "isbn": "9781764994804",
           "isbnDisplay": "978-1-7649948-0-4",
-          "priceCode": "51388",
+          "priceCode": "31999",
           "price": {
             "AUD": "19.99",
-            "USD": "13.88"
+            "USD": ""
           }
         },
         "paperbackColour": {
@@ -146,12 +146,12 @@
           "ink": "colour",
           "enabled": true,
           "label": "Paperback (colour)",
-          "editionLine": "First edition, October 2026",
+          "editionLine": "First colour edition, October 2026",
           "isbn": "9781764994835",
           "isbnDisplay": "978-1-7649948-3-5",
           "priceCode": "51735",
           "price": {
-            "AUD": "24.99",
+            "AUD": "",
             "USD": "17.35"
           }
         },
@@ -159,7 +159,7 @@
           "type": "epub",
           "enabled": true,
           "label": "EPUB",
-          "editionLine": "First edition, October 2026",
+          "editionLine": "First EPUB edition, October 2026",
           "isbn": "9781764994828",
           "isbnDisplay": "978-1-7649948-2-8"
         },
@@ -167,7 +167,7 @@
           "type": "pdf",
           "enabled": true,
           "label": "PDF",
-          "editionLine": "First edition, October 2026",
+          "editionLine": "First PDF edition, October 2026",
           "isbn": "9781764994811",
           "isbnDisplay": "978-1-7649948-1-1"
         }
