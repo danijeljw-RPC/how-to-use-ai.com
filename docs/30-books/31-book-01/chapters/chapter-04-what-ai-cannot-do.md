@@ -184,9 +184,7 @@ We had given it detailed context about the database, the existing logic around t
 
 The AI produced the SQL, added comments explaining what it was doing, and presented the change as straightforward.
 
-Technically, the SQL would probably have worked.
-
-That was the problem.
+Technically, the SQL would probably have worked. That was the problem.
 
 The field did not exist in isolation. Other database functions and processes depended on the structure of that data. Parts of the value were being extracted or interpreted and then used elsewhere, including generating address information for things such as customer billing and mailed correspondence.
 
