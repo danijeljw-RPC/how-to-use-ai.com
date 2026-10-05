@@ -2,6 +2,13 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-05 (100)
+
+### Planning
+
+- Planned editable copyright-page format labels, ISBN spacing set by the longest label, an ISBN-based EPUB file name, and a separate edition line for each format (`editions.<format>.label` and `.editionLine` in `books.json`). Found that release builds already write the EPUB (`dist/release/31-book-01/31-book-01.epub`); it is named differently from the ISBN-named files, which makes it easy to miss. Waiting for author review, including whether the two paperback inks may have different edition lines (this would amend ADR-03-0010).
+- Files changed: `docs/40-publishing/plans/copyright-page-edition-labels-plan.md`, `changelog.md`. Decisions: none yet (ADR-03-0012 proposed). Open issues: none. Commit: pending commit.
+
 ## 2026-10-05 (99)
 
 ### Fixed
