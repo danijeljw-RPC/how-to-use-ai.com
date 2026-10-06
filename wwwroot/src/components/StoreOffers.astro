@@ -5,12 +5,12 @@ import type { StoreEnv } from '../lib/store/types';
 interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency }
 const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
 ---
-<section aria-labelledby="direct-store-title">
+<section class="direct-store" aria-labelledby="direct-store-title">
   <h2 id="direct-store-title">Buy a digital edition</h2>
   <p>Choose a PDF, an EPUB for your ebook reader, or both. Your purchase includes updated editions of this book in the formats you buy.</p>
-  <form method="get" class="stack-form">
+  <form method="get" class="currency-form">
     <label for="store-currency">Price currency</label>
-    <div class="button-row">
+    <div class="currency-controls">
       <select id="store-currency" name="currency">
         {currencies.map(code=><option value={code} selected={code===currency}>{code.toUpperCase()}</option>)}
       </select>
@@ -31,12 +31,12 @@ const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
             <label class="check-row"><input type="checkbox" name="terms" value="yes" required /><span>I agree to the <a href="/terms/">purchase terms</a> and <a href="/refund/">refund policy</a>.</span></label>
             <button type="submit">Buy {format==='bundle'?'both formats':format.toUpperCase()}</button>
           </form> : <a class="button secondary" href={`/downloads/?currency=${currency}`}>Verify email to buy</a>
-          : <p>Coming soon · downloads are being prepared.</p>}
+          : <p class="offer-status">Coming soon · downloads are being prepared.</p>}
       </section>;
     })}
   </div>
-  <p>Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
-  <p><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>
+  <p class="store-note">Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
+  <p class="store-links"><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>
 </section>
 {env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
   <section aria-labelledby="signed-copy-title">

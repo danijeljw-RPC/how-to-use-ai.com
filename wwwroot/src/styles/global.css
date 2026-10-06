@@ -198,3 +198,51 @@ select { max-width: 100%; padding: 0.65rem; font: inherit; }
 
 .amazon-badge { display: block; width: 320px; height: auto; max-width: 100%; margin-block: 1.5rem; }
 .region-flag { display: inline-block; margin-right: 0.35rem; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+
+/* Purchase page: live retailer first, forthcoming editions below. */
+.purchase-page { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.purchase-heading { margin-bottom: 2.75rem; }
+.purchase-heading h1 { max-width: none; font-size: clamp(2.6rem, 5.5vw, 4.5rem); }
+.purchase-heading .section-intro { margin: 0; }
+.kindle-purchase { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.purchase-cover img { width: 100%; height: auto; box-shadow: 0 12px 24px rgb(6 21 50 / 14%); }
+.purchase-cover > a { display: block; margin-top: 1.25rem; text-align: center; font-family: var(--sans); }
+.kindle-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.purchase-page h2 { font-size: clamp(1.8rem, 3vw, 2.35rem); line-height: 1.15; }
+.kindle-heading h2 { max-width: 21ch; }
+.availability { margin-bottom: 0.6rem; color: var(--success); font: 600 1rem var(--sans); }
+.availability.muted { color: var(--slate); }
+.kindle-heading .amazon-badge { width: 180px; flex-shrink: 0; margin: 0; }
+.country-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; margin-block: 1.5rem 1rem; }
+.country-grid a { display: flex; align-items: center; gap: 0.65rem; min-height: 3.25rem; height: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--line); border-radius: 0.3rem; color: var(--navy); background: white; text-decoration: none; font: 600 1.05rem/1.25 var(--sans); }
+.country-grid a:hover { background: var(--mist); border-color: var(--sky-dark); }
+.country-grid .region-flag { margin: 0; font-size: 1.3rem; }
+.retailer-note, .store-note { color: var(--slate); font-size: 0.95rem; }
+.purchase-section { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.currency-form { display: flex; align-items: center; justify-content: flex-end; gap: 0.75rem; margin-block: 1.5rem; font-family: var(--sans); }
+.currency-controls { display: flex; align-items: center; gap: 0.5rem; }
+.currency-controls select { min-height: 3rem; border: 1px solid var(--line); border-radius: 0.3rem; background: white; }
+.currency-controls button { min-height: 3rem; font-size: 1rem; }
+.direct-store .store-offer { border-color: var(--line); border-radius: 0.3rem; padding: 1.5rem; background: var(--mist); }
+.direct-store .store-offer h3 { font-size: 1.55rem; }
+.direct-store .store-price { margin-block: 1rem; font-family: var(--sans); font-size: 1.9rem; }
+.offer-status { margin-bottom: 0; color: var(--slate); font-size: 0.95rem; }
+.store-links { margin-bottom: 0; font-family: var(--sans); }
+.forthcoming-editions { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.forthcoming-editions p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .kindle-purchase { grid-template-columns: 170px minmax(0, 1fr); gap: 2rem; }
+  .country-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kindle-heading { display: block; }
+  .kindle-heading .amazon-badge { margin-bottom: 1rem; }
+}
+@media (max-width: 600px) {
+  .purchase-heading { margin-bottom: 2rem; }
+  .kindle-purchase { grid-template-columns: minmax(0, 1fr); }
+  .purchase-cover { width: 150px; margin-inline: auto; }
+  .kindle-heading { display: flex; align-items: flex-start; }
+  .kindle-heading .amazon-badge { width: 125px; }
+  .country-grid a { padding: 0.6rem; font-size: 1rem; }
+  .currency-form { justify-content: flex-start; flex-wrap: wrap; }
+  .forthcoming-editions { grid-template-columns: 1fr; gap: 2rem; }
+}

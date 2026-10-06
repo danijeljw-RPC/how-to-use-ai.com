@@ -13,38 +13,56 @@ const retailers = getRetailers(env);
 const currencyValue=Astro.url.searchParams.get('currency')??'aud';
 const currency=isCurrency(currencyValue)?currencyValue:'aud';
 ---
-<BaseLayout title="Purchase options" description="Current configured purchase options for AI for Normal People." canonicalPath="/purchase/" {commerceEnabled}>
-  <section class="page-section">
-    <div class="narrow">
-      <p class="kicker">Purchase options</p>
+<BaseLayout title="Purchase options" description="Pre-order AI for Normal People on Kindle and explore forthcoming editions." canonicalPath="/purchase/" {commerceEnabled}>
+  <div class="purchase-page shell">
+    <header class="purchase-heading">
+      <p class="kicker">Get the book</p>
       <h1>{bookOne.title}</h1>
-      <p class="section-intro">The Kindle Edition is available to pre-order on Amazon. Choose your regional store below.</p>
-      <section aria-labelledby="kindle-title">
-        <h2 id="kindle-title">Pre-order the Kindle Edition</h2>
-        <p>Amazon handles your pre-order and delivers the Kindle Edition to your Kindle library. For the price and release date, see your regional listing.</p>
-        <img class="amazon-badge" src="/images/available-at-amazon.png" alt="Available at Amazon" width="1200" height="575" />
-        <ul class="retailer-list">
-          {kindlePreorderLinks.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer"><span class="region-flag" aria-hidden="true">{retailer.flag}</span> Amazon · {retailer.label}</a></li>)}
+      <p class="section-intro">{bookOne.subtitle}</p>
+    </header>
+    <section class="kindle-purchase" aria-labelledby="kindle-title">
+      <div class="purchase-cover">
+        <img src={bookOne.cover} alt={`${bookOne.title} book cover`} width="600" height="900" />
+        <a href="/books/ai-for-normal-people/">Explore the book</a>
+      </div>
+      <div class="kindle-options">
+        <div class="kindle-heading">
+          <div>
+            <p class="availability">Pre-order now</p>
+            <h2 id="kindle-title">Pre-order the Kindle Edition</h2>
+          </div>
+          <img class="amazon-badge" src="/images/available-at-amazon.png" alt="Available at Amazon" width="1200" height="575" />
+        </div>
+        <p>Choose your Amazon store for the price and release date. Amazon delivers your pre-order to your Kindle library.</p>
+        <ul class="retailer-list country-grid" aria-label="Amazon stores by country">
+          {kindlePreorderLinks.map((retailer) => <li><a href={retailer.url} target="_blank" rel="external noopener noreferrer" aria-label={`Amazon · ${retailer.label}`}><span class="region-flag" aria-hidden="true">{retailer.flag}</span><span>{retailer.label}</span></a></li>)}
         </ul>
+        <p class="retailer-note">Links open your regional Amazon store in a new tab.</p>
+      </div>
+    </section>
+    <div class="purchase-section">
+      <StoreOffers {env} {currency} />
+    </div>
+    <div class="forthcoming-editions purchase-section">
+      <section aria-labelledby="print-title">
+        <p class="availability muted">Coming soon</p>
+        <h2 id="print-title">Paperback editions</h2>
+        <ul><li>Black and white paperback</li><li>Colour paperback</li></ul>
+        <p>Available through Amazon print on demand. Paperback links will be added when ready.</p>
       </section>
       <section aria-labelledby="other-editions-title">
+        <p class="availability muted">Coming soon</p>
         <h2 id="other-editions-title">Other ebook stores</h2>
         <p>Google Play Books and Apple Books links will be added here when available.</p>
       </section>
-      <StoreOffers {env} {currency} />
-      <section aria-labelledby="print-title">
-        <h2 id="print-title">Paperback editions</h2>
-        <ul><li>Black and white paperback</li><li>Colour paperback</li></ul>
-        <p>These editions will be available through Amazon print on demand. Dedicated paperback links will be added when available.</p>
-      </section>
-      {retailers.length > 0 && (
-        <section aria-labelledby="retailer-title">
-          <h2 id="retailer-title">More purchase options</h2>
-          <ul class="retailer-list">
-            {retailers.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer">View at {retailer.label}</a></li>)}
-          </ul>
-        </section>
-      )}
     </div>
-  </section>
+    {retailers.length > 0 && (
+      <section class="purchase-section" aria-labelledby="retailer-title">
+        <h2 id="retailer-title">More purchase options</h2>
+        <ul class="retailer-list">
+          {retailers.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer">View at {retailer.label}</a></li>)}
+        </ul>
+      </section>
+    )}
+  </div>
 </BaseLayout>
