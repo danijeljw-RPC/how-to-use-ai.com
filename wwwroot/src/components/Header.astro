@@ -1,15 +1,14 @@
 ---
 interface Props { commerceEnabled?: boolean }
-const { commerceEnabled = false } = Astro.props;
 const path = Astro.url.pathname;
 const links: Array<[string, string]> = [
   ['/', 'Home'],
   ['/books/', 'Books'],
   ['/preview/', 'Preview'],
+  ['/purchase/', 'Purchase'],
   ['/blog/', 'Blog'],
   ['/contact/', 'Contact'],
 ];
-if (commerceEnabled) links.splice(3, 0, ['/purchase/', 'Purchase']);
 ---
 
 <header class="site-header">

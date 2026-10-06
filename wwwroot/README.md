@@ -123,3 +123,11 @@ The browser cannot supply an amount, currency, Price ID, or return URL. The serv
 - No public permanent ebook entitlement URL.
 - No Cloudflare or Stripe resources are created by repository scripts; the resources above were created once by hand.
 - Privacy, website terms, and refund pages render the site-specific documents in `../repasscloud-legal-pack-2026-09-24/how-to-use-ai.com/` and link to the RePass Cloud master policies.
+
+## Kindle pre-order and future direct sales
+
+`src/content/retailers.ts` holds the 13 regional Amazon Kindle pre-order URLs supplied by the author. `/purchase/` and its navigation/home/book-page links remain available while direct commerce is disabled. Kindle pre-orders are placed with Amazon.
+
+For a new Google Play Books or Apple Books listing, add its final HTTPS URL to `vars` in `wrangler.jsonc` as `RETAILER_GOOGLE_PLAY_BOOKS_URL` or `RETAILER_APPLE_BOOKS_URL`, then deploy. No link is rendered for a missing or invalid value. The optional legacy Amazon/other retailer overrides still work.
+
+See [book-sales-questions.md](book-sales-questions.md) for the four-format Stripe plan and decisions needed before launch. The existing `ebook`/`print` test integration does not yet deliver PDF/EPUB or ship either paperback. Keep direct commerce disabled until the new catalogue and delivery paths pass end-to-end verification; the earlier activation checklist must be expanded to cover asynchronous payment events and durable fulfilment.

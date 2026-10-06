@@ -10,3 +10,6 @@ STRIPE_PRICE_PRINT=""
 RETAILER_AMAZON_URL=""
 RETAILER_APPLE_BOOKS_URL=""
 RETAILER_OTHER_URL=""
+
+# Optional retailer destinations; leave empty until each listing is available.
+RETAILER_GOOGLE_PLAY_BOOKS_URL=""

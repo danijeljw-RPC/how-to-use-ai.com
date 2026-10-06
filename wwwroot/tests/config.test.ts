@@ -37,6 +37,15 @@ describe('commerce configuration', () => {
     })).toEqual([{ label: 'Amazon', url: 'https://example.com/book' }]);
   });
 
+  it('supports Google and Apple links only when valid HTTPS destinations exist', () => {
+    expect(getRetailers({})).toEqual([]);
+    expect(getRetailers({ RETAILER_GOOGLE_PLAY_BOOKS_URL: 'javascript:alert(1)' })).toEqual([]);
+    expect(getRetailers({
+      RETAILER_GOOGLE_PLAY_BOOKS_URL: 'https://play.google.com/store/books/details?id=example',
+      RETAILER_APPLE_BOOKS_URL: 'https://books.apple.com/book/id123',
+    }).map((retailer) => retailer.label)).toEqual(['Google Play Books', 'Apple Books']);
+  });
+
   it('requires an absolute HTTPS canonical site URL', () => {
     expect(getSiteUrl({ SITE_URL: 'https://how-to-use-ai.com' }).href).toBe('https://how-to-use-ai.com/');
     expect(() => getSiteUrl({ SITE_URL: 'http://example.com' })).toThrow('SITE_URL');

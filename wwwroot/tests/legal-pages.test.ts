@@ -65,3 +65,36 @@ describe('published legal pages', () => {
     expect(html).not.toContain('href="https://repasscloud.com/contact/"');
   });
 });
+
+
+describe('retailer purchase pages while direct commerce is disabled', () => {
+  it('renders all 13 regional Kindle links without direct checkout or placeholder destinations', async () => {
+    const response = await fetch(`${origin}/purchase/`);
+    const html = await response.text();
+    expect(response.status).toBe(200);
+    const links = [...html.matchAll(/href="(https:\/\/www\.amazon\.[^"]+\/dp\/B0HLYQSMQT)"/g)].map((match) => match[1]);
+    expect(links).toHaveLength(13);
+    expect(new Set(links).size).toBe(13);
+    expect(links).toContain('https://www.amazon.com.au/dp/B0HLYQSMQT');
+    expect(html).toContain('Pre-order the Kindle Edition');
+    expect(html).toContain('PDF download');
+    expect(html).toContain('EPUB download');
+    expect(html).toContain('Black and white paperback');
+    expect(html).toContain('Colour paperback');
+    expect(html).not.toContain('action="/api/checkout/"');
+    expect(html).not.toContain('href="https://play.google.com');
+    expect(html).not.toContain('href="https://books.apple.com');
+    expect(html).toContain('rel="external noopener noreferrer"');
+  });
+
+  it('makes retailer purchases discoverable from home and Book 1 without enabling checkout', async () => {
+    for (const path of ['/', '/books/ai-for-normal-people/']) {
+      const response = await fetch(`${origin}${path}`);
+      const html = await response.text();
+      expect(response.status).toBe(200);
+      expect(html).toContain('href="/purchase/"');
+      expect(html).toContain('Pre-order Kindle Edition');
+      expect(html).not.toContain('action="/api/checkout/"');
+    }
+  });
+});

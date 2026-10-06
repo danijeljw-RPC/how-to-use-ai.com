@@ -9,6 +9,7 @@ export interface SiteEnvironment {
   STRIPE_PRICE_EBOOK?: string;
   STRIPE_PRICE_PRINT?: string;
   RETAILER_AMAZON_URL?: string;
+  RETAILER_GOOGLE_PLAY_BOOKS_URL?: string;
   RETAILER_APPLE_BOOKS_URL?: string;
   RETAILER_OTHER_URL?: string;
 }
@@ -79,6 +80,7 @@ export function getPreviewUrl(env: SiteEnvironment): URL | undefined {
 export function getRetailers(env: SiteEnvironment): RetailerLink[] {
   const candidates = [
     ['Amazon', env.RETAILER_AMAZON_URL],
+    ['Google Play Books', env.RETAILER_GOOGLE_PLAY_BOOKS_URL],
     ['Apple Books', env.RETAILER_APPLE_BOOKS_URL],
     ['Other retailer', env.RETAILER_OTHER_URL],
   ] as const;
