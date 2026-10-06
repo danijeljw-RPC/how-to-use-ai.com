@@ -124,6 +124,39 @@ local function ends_with_colon(block)
   return pandoc.utils.stringify(block):match(":%s*$") ~= nil
 end
 
+local function is_lead_in(blocks, index)
+  return blocks[index] and ends_with_colon(blocks[index])
+    and blocks[index + 1] and blocks[index + 1].t ~= "Header"
+end
+
+-- Each heading's own needspace (howto-book.tex) only covers itself and a few
+-- lines, so a subheading or lead-in right after it can still jump to the next
+-- page and strand it. A heading followed by either reserves room for the whole
+-- group. Line counts allow for a heading that wraps onto a second line.
+local HEADING_LINES = { [2] = 6, [3] = 5 }   -- the heading and the space around it
+local HEADING_HOOK = { [2] = 9, [3] = 6 }    -- \setsechook, \setsubsechook, ...
+local LEAD_IN_LINES = 6                      -- \hwKeepStart
+
+local function heading_group_lines(blocks, index)
+  local last = index
+  while blocks[last + 1] and blocks[last + 1].t == "Header" and blocks[last + 1].level >= 2 do
+    last = last + 1
+  end
+  local lead_in = is_lead_in(blocks, last + 1)
+  if last == index and not lead_in then return nil end
+  local lines = 0
+  for position = index, last do
+    local level = blocks[position].level
+    if position < last or lead_in then
+      lines = lines + (HEADING_LINES[level] or 4)
+    else
+      lines = lines + (HEADING_HOOK[level] or 5)
+    end
+  end
+  if lead_in then lines = lines + LEAD_IN_LINES end
+  return lines
+end
+
 local function callout(quote)
   local first = quote.content[1]
   if not first or first.t ~= "Para" or not first.content[1] or first.content[1].t ~= "Strong" then
@@ -173,8 +206,14 @@ function process(blocks)
           output:insert(pandoc.Div(prose, { class = "chapter-provenance" }))
         end
       end
-    elseif is_latex and ends_with_colon(block) and blocks[index + 1]
-        and blocks[index + 1].t ~= "Header" then
+    elseif is_latex and block.t == "Header" and block.level >= 2 then
+      local lines = heading_group_lines(blocks, index)
+      if lines then
+        output:insert(pandoc.RawBlock("latex", string.format("\\hwKeepHeadings{%d}", lines)))
+      end
+      output:insert(block)
+      index = index + 1
+    elseif is_latex and is_lead_in(blocks, index) then
       output:insert(pandoc.RawBlock("latex", "\\hwKeepStart"))
       output:insert(block)
       output:insert(pandoc.RawBlock("latex", "\\hwKeepEnd"))

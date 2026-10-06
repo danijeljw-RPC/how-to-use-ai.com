@@ -20,7 +20,7 @@ The author reviewed the Book 1 draft PDF built with `./publish-draft-books.sh bo
 
 1. **Block paragraphs.** Body paragraphs have no first-line indent and are separated by half a line (memoir's `\nonzeroparskip`). The contents page is set without paragraph spacing so it stays on one page.
 2. **Callouts never split.** Callout boxes are set as one unbreakable box. If a box doesn't fit at the foot of a page, it moves whole to the next page. This replaces ADR-03-0008's "callout boxes that split across pages". `framed.sty` is still used for plain quotes.
-3. **Headings stay with their text.** Before a section, subsection or sub-subsection heading, the layout reserves room for the heading, a following subheading and a few lines of text (memoir's section hooks with `\needspace`). If there isn't enough room, the heading starts the next page.
+3. **Headings stay with their text.** Before a section, subsection or sub-subsection heading, the layout reserves room for the heading, a following subheading and a few lines of text (memoir's section hooks with `\needspace`). If there isn't enough room, the heading starts the next page. When a heading is followed straight away by a subheading or a colon lead-in, the room is reserved for the whole group before the first heading (`\hwKeepHeadings`, counted by `book.lua`). Each rule on its own only checked its own space, so the heading could fit while the block after it jumped to the next page (amended 2026-10-06; see `docs/40-publishing/plans/heading-keep-together-plan.md`).
 4. **Lead-ins stay with what they introduce.** A paragraph ending in a colon is kept on the same page as the block that follows it: a quote, list, table or callout (`publishing/pandoc/book.lua`).
 5. **Table rows** get about half a line of extra space (`\arraystretch` 1.5).
 6. **Dedication and epigraph in every edition.** Draft and preview builds include them, not only release builds, so reviewers see the book as it will be printed.
@@ -50,6 +50,7 @@ The author reviewed the Book 1 draft PDF built with `./publish-draft-books.sh bo
 ## Related
 
 - ADR-03-0008 (release edition build, Option B design), refined by this ADR.
+- `docs/40-publishing/plans/heading-keep-together-plan.md` (decision 3 amendment).
 - `docs/20-style/callout-guide.md`
 
 ## Review Notes

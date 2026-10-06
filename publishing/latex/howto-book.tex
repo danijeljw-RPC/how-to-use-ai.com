@@ -101,6 +101,9 @@
 % (book.lua wraps it in these).
 \newcommand\hwKeepStart{\needspace{6\onelineskip}}
 \newcommand\hwKeepEnd{\par\nopagebreak[4]}
+% A heading followed straight away by a subheading or a lead-in reserves room
+% for the whole group (book.lua counts the lines).
+\newcommand\hwKeepHeadings[1]{\needspace{#1\onelineskip}}
 
 % ---------- Chapter openers: a navy field across the top of the page
 \newlength\hw@band \setlength\hw@band{2.75in}

@@ -2,6 +2,14 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-06 (102)
+
+### Publishing
+
+- Headings no longer end up alone at the foot of a page. When a heading is followed straight away by a subheading or a colon lead-in (such as "…five different jobs:"), the PDF now reserves room for the whole group before the first heading. Before, the heading's own room check and the lead-in's check worked separately: the heading could fit while the block after it moved to the next page. The author found this in chapter 8 ("Video and Filmmaking: The Size of the Intervention Matters", where the Deezer figure also landed between the heading and its text; "Is AI Replacing Artists?") and chapter 11 ("Possible Is Not the Same as Dependable"). The manuscript has 35 headings in this position, and all of them are covered. No manuscript files changed. The EPUB is unaffected.
+- Checked: 111 unit tests pass. A scratch release build of the black-and-white paperback interior has 408 pages (was 406). No page ends with a heading. All three headings sit with their text, and the Deezer figure now comes before the video heading. Page numbers from chapter 5 onwards shift by up to four pages; the index and spine width are recalculated by the build.
+- Files changed: `publishing/pandoc/book.lua`, `publishing/latex/howto-book.tex`, `tests/test_book_lua_keep_headings.py`, `docs/40-publishing/plans/heading-keep-together-plan.md`, `docs/40-publishing/decisions/ADR-03-0009-interior-layout-refinements.md`, `changelog.md`. Decisions: ADR-03-0009 decision 3 amended. Open issues: none. Commit: see git log.
+
 ## 2026-10-05 (101)
 
 ### Publishing
