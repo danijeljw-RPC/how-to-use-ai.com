@@ -104,6 +104,9 @@
 % A heading followed straight away by a subheading or a lead-in reserves room
 % for the whole group (book.lua counts the lines).
 \newcommand\hwKeepHeadings[1]{\needspace{#1\onelineskip}}
+% The manuscript's "<!-- keep-with-next -->" marker: a new page unless #1
+% lines are left (book.lua).
+\newcommand\hwKeepWithNext[1]{\par\needspace{#1\onelineskip}}
 
 % ---------- Chapter openers: a navy field across the top of the page
 \newlength\hw@band \setlength\hw@band{2.75in}

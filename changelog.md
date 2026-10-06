@@ -2,6 +2,15 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-06 (103)
+
+### Publishing
+
+- Added the **keep-with-next marker** (ADR-03-0013). `<!-- keep-with-next -->` on a line of its own tells every PDF to start a new page there unless at least 12 lines are left; `<!-- keep-with-next: 20 -->` sets the number of lines. It is a soft rule: if there is room, nothing happens, so later edits cannot turn it into a half-empty page. The EPUB drops it, and Markdown viewers and the website hide it. A hard page-break marker was rejected because forced breaks go stale. No chapter needs the marker now, so no manuscript files changed.
+- Added `README.md`, a plain-English writing and building guide: folders, chapter markup, callouts, author reflections, diagrams and images, sources and notes, chapter endings, page-break control, front and back matter, `books.json`, the index, build commands, release checks, checking a proof, and troubleshooting. `CLAUDE.md` now lists `README.md` as a file-name exception and asks for it to be kept up to date.
+- Checked: all unit tests pass, including four new marker tests. A chapter 8 preview built from a scratch copy with a test marker carried it through the full pipeline to `\hwKeepWithNext{40}` in the LaTeX.
+- Files changed: `publishing/pandoc/book.lua`, `publishing/latex/howto-book.tex`, `tests/test_book_lua_keep_headings.py`, `README.md`, `CLAUDE.md`, `docs/40-publishing/decisions/ADR-03-0013-keep-with-next-marker.md`, `docs/40-publishing/plans/keep-with-next-marker-and-guide-plan.md`, `changelog.md`. Decisions: ADR-03-0013 added. Open issues: none. Commit: see git log.
+
 ## 2026-10-06 (102)
 
 ### Publishing

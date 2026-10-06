@@ -178,6 +178,18 @@ local function callout(quote)
   return pandoc.Div(blocks, { class = "callout callout-" .. kind })
 end
 
+-- "<!-- keep-with-next -->" on its own line is a manual layout hint: in the
+-- PDF, start a new page here unless at least 12 lines are left (or the number
+-- given, as in "<!-- keep-with-next: 20 -->"). EPUB and the website ignore it.
+local KEEP_WITH_NEXT_LINES = 12
+
+local function keep_with_next_lines(block)
+  if block.t ~= "RawBlock" or block.format ~= "html" then return nil end
+  local count = block.text:match("^%s*<!%-%-%s*keep%-with%-next%s*:?%s*(%d*)%s*%-%->%s*$")
+  if not count then return nil end
+  return tonumber(count) or KEEP_WITH_NEXT_LINES
+end
+
 local process
 
 function process(blocks)
@@ -206,6 +218,11 @@ function process(blocks)
           output:insert(pandoc.Div(prose, { class = "chapter-provenance" }))
         end
       end
+    elseif keep_with_next_lines(block) then
+      if is_latex then
+        output:insert(pandoc.RawBlock("latex", string.format("\\hwKeepWithNext{%d}", keep_with_next_lines(block))))
+      end
+      index = index + 1
     elseif is_latex and block.t == "Header" and block.level >= 2 then
       local lines = heading_group_lines(blocks, index)
       if lines then

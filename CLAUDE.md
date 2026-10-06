@@ -337,6 +337,7 @@ If unable to commit, record the reason in the session output.
 ```text
 .
 ├── CLAUDE.md
+├── README.md
 ├── prompt.md
 ├── changelog.md
 ├── legacy-data/
@@ -535,6 +536,10 @@ The initial publishing format decision is documented in:
 ./docs/40-publishing/decisions/ADR-03-0001-manuscript-source-format.md
 ```
 
+## Writing and Building Guide
+
+`README.md` is the plain-English guide for people: chapter markup, callouts, reflections, diagrams, notes, page-break control (including the `<!-- keep-with-next -->` marker, ADR-03-0013), front and back matter, the index, and the build commands. When a change alters any of these, update `README.md` in the same commit.
+
 ## Manuscript Source Expectations
 
 Use Markdown as the authoring source unless an ADR changes this.
@@ -589,6 +594,7 @@ Exceptions:
 
 ```text
 CLAUDE.md
+README.md
 OI-xxxx.md
 ADR-NN-xxxx.md
 ```
