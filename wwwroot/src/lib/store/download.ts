@@ -42,7 +42,7 @@ export async function downloadFile(options: {
     .first();
   if (!entitlement)
     return new Response(
-      'Download access is unavailable. Sign in at /downloads/ or contact hello@repasscloud.com.',
+      'Download access is unavailable. Sign in at /downloads/ or use /contact/ for purchase support.',
       { status: 403, headers },
     );
   const assetKey =

@@ -57,6 +57,7 @@ export async function deliverOutbox(options: {
     try {
       let intro =
         'Use the link below to sign in and view your purchases or buy a book.';
+      const supportUrl = new URL('/contact/?subject=purchase-support', env.SITE_URL!).href;
       let physical = false;
       if (job.kind === 'order') {
         const order = await db
@@ -76,14 +77,14 @@ export async function deliverOutbox(options: {
         }
         physical = order.format === 'signed';
         intro = physical
-          ? 'Thank you for ordering a signed paperback. Your order is recorded for dispatch. Contact hello@repasscloud.com for delivery enquiries.'
+          ? `Thank you for ordering a signed paperback. Your order is recorded for dispatch. For delivery enquiries use ${supportUrl}.`
           : `Thank you for purchasing ${catalogue[order.format].label}. Sign in below to download the latest available files. Your purchase includes future editions of this book in the formats you bought.`;
       }
       const token = await requestAccess(db, job.email, mode, now);
       if (!token) throw new Error('Login cooldown');
       const url = new URL('/store/verify/', env.SITE_URL!);
       url.searchParams.set('token', token);
-      const text = `${intro}\n\n${url.href}\n\nThis sign-in link expires in 15 minutes and can be used once. You can request another at ${new URL('/downloads/', env.SITE_URL!).href}. Download links last ten minutes.\n\nSupport: hello@repasscloud.com`;
+      const text = `${intro}\n\n${url.href}\n\nThis sign-in link expires in 15 minutes and can be used once. You can request another at ${new URL('/downloads/', env.SITE_URL!).href}. Download links last ten minutes.\n\nPurchase support: ${supportUrl}`;
       await env.STORE_EMAIL!.send({
         from: { email: env.STORE_EMAIL_FROM!, name: 'How-To-Use-AI.com' },
         to: job.email,
@@ -95,7 +96,7 @@ export async function deliverOutbox(options: {
               : 'Your book downloads'
             : 'Your book store sign-in link',
         text,
-        html: `<p>${escape(intro)}</p><p><a href="${escape(url.href)}">Sign in to your book library</a></p><p>This sign-in link expires in 15 minutes and works once. Request a fresh link at <a href="${escape(new URL('/downloads/', env.SITE_URL!).href)}">your library</a>.</p><p>Support: <a href="mailto:hello@repasscloud.com">hello@repasscloud.com</a></p>`,
+        html: `<p>${escape(intro)}</p><p><a href="${escape(url.href)}">Sign in to your book library</a></p><p>This sign-in link expires in 15 minutes and works once. Request a fresh link at <a href="${escape(new URL('/downloads/', env.SITE_URL!).href)}">your library</a>.</p><p>Purchase support: <a href="${escape(supportUrl)}">Contact us</a></p>`,
       });
       await db
         .prepare(

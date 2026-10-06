@@ -195,3 +195,6 @@ textarea { min-height: 12rem; resize: vertical; }
 .store-price { font-size: 1.4rem; font-weight: 700; }
 select { max-width: 100%; padding: 0.65rem; font: inherit; }
 @media (min-width: 700px) { .store-offers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.amazon-badge { display: block; width: 320px; height: auto; max-width: 100%; margin-block: 1.5rem; }
+.region-flag { display: inline-block; margin-right: 0.35rem; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }

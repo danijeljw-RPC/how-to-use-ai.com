@@ -1,5 +1,13 @@
 # Website changelog
 
+## 6 October 2026 — purchase support and Amazon regions
+
+- Routed purchase support to the existing contact form with a prefilled subject and order-identification guidance. Transactional reply-to remains hello@repasscloud.com; contact submissions still need manual review.
+- Added KDP's unaltered official Available at Amazon badge and decorative flags alongside all 13 written country labels.
+- Kept direct sales disabled. No merchant, payment, database or delivery configuration changed.
+- Verified 94 passing tests, zero Astro diagnostics and a clean build. Live browser confirmed the official badge, country flags and prefilled purchase-support form. Published Worker version `51207c69-4ba6-42a0-85e6-14c69e5fd1ca`.
+- Commit: `publishing: use contact form for purchase support and clarify Amazon regions`.
+
 ## 6 October 2026 — digital store
 
 - Implemented verified-email PDF/EPUB/bundle checkout at the author's eight currency prices, D1 purchase records, overlap reservations, ten-minute signed downloads and future-edition access through private R2.

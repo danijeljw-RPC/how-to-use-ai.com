@@ -36,7 +36,7 @@ const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
     })}
   </div>
   <p>Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
-  <p><a href="/downloads/">Open your book library</a> · <a href="mailto:hello@repasscloud.com">Purchase support</a></p>
+  <p><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>
 </section>
 {env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
   <section aria-labelledby="signed-copy-title">

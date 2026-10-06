@@ -132,4 +132,10 @@ Restrict access to platform request logs because link URLs can contain short-liv
 
 ## Current published state
 
-The prepared pages are published at https://how-to-use-ai.com/purchase/ and https://how-to-use-ai.com/downloads/. Deployment version: `c17bb9a6-7542-48f5-a9ec-08bece0bb8b5`. The production migration is applied and the five-minute schedule is registered. Sales and email sign-in remain disabled until the activation inputs above exist. Live browser verification confirmed the retailer list, AUD and JPY offers, and the disabled library; an automated HTTP client received 403.
+The prepared pages are published at https://how-to-use-ai.com/purchase/ and https://how-to-use-ai.com/downloads/. Latest deployment version: `51207c69-4ba6-42a0-85e6-14c69e5fd1ca`. The production migration is applied and the five-minute schedule is registered. Sales and email sign-in remain disabled until the activation inputs above exist. Live browser verification confirmed the retailer list, AUD and JPY offers, and the disabled library; an automated HTTP client received 403.
+
+## Purchase support and retailer branding
+
+Customer-facing purchase support links use `/contact/?subject=purchase-support`. This prefills “Purchase support” and asks for the purchase email/order reference. The form stores submissions in `contact_messages` for manual review; it does not alert the operator automatically. Review that table regularly and respond using the provided customer address. hello@repasscloud.com remains the transactional reply-to and operational fallback. This change does not replace the email verification/download delivery system.
+
+The retailer list uses KDP's supplied Available at Amazon badge, unchanged, once above labelled regional buttons. Flag emoji are decorative and full country names remain visible. Official source: https://kdp.amazon.com/en_US/help/topic/G9WES4WJAC3GUVSV; original asset: https://images-na.ssl-images-amazon.com/images/G/01/rainier/available_at_amazon_1200x600_Nvz5h2M.png. The supplied artwork is stored without cropping or recolouring.

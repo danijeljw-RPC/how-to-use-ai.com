@@ -119,3 +119,21 @@ describe('store pages before activation', () => {
     expect(html).toContain('Direct purchases are not available yet.');
   });
 });
+
+describe('purchase support and regional retailers', () => {
+  it('prefills purchase support and asks for the purchase email/reference', async () => {
+    const html = await (await fetch(`${origin}/contact/?subject=purchase-support`)).text();
+    expect(html).toContain('value="Purchase support"');
+    expect(html).toContain('order reference');
+    expect(html).toContain('manual review');
+  });
+  it('uses contact support, the official badge and labelled decorative region flags', async () => {
+    const html = await (await fetch(`${origin}/purchase/`)).text();
+    expect(html).toContain('href="/contact/?subject=purchase-support"');
+    expect(html).toContain('/images/available-at-amazon.png');
+    expect((html.match(/class="region-flag" aria-hidden="true"/g) ?? []).length).toBe(13);
+    expect(html).toContain('United States');
+    expect(html).toContain('Australia');
+    expect(html).not.toContain('mailto:hello@repasscloud.com');
+  });
+});

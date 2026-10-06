@@ -22,8 +22,9 @@ const currency=isCurrency(currencyValue)?currencyValue:'aud';
       <section aria-labelledby="kindle-title">
         <h2 id="kindle-title">Pre-order the Kindle Edition</h2>
         <p>Amazon handles your pre-order and delivers the Kindle Edition to your Kindle library. For the price and release date, see your regional listing.</p>
+        <img class="amazon-badge" src="/images/available-at-amazon.png" alt="Available at Amazon" width="1200" height="575" />
         <ul class="retailer-list">
-          {kindlePreorderLinks.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer">Amazon · {retailer.label}</a></li>)}
+          {kindlePreorderLinks.map((retailer) => <li><a class="button secondary" href={retailer.url} target="_blank" rel="external noopener noreferrer"><span class="region-flag" aria-hidden="true">{retailer.flag}</span> Amazon · {retailer.label}</a></li>)}
         </ul>
       </section>
       <section aria-labelledby="other-editions-title">

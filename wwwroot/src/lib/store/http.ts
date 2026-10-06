@@ -83,7 +83,7 @@ export async function storeResponse(operation: () => Promise<Response>) {
     console.error(JSON.stringify({ event: 'store_request_failed' }));
     return message(
       503,
-      'The store is temporarily unavailable. Please try again or contact hello@repasscloud.com.',
+      'The store is temporarily unavailable. Please try again or use /contact/ for purchase support.',
     );
   }
 }

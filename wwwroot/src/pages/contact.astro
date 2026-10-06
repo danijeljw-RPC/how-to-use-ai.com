@@ -1,17 +1,19 @@
 ---
 import { siteEnv } from '../lib/runtime-env';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../lib/config';
+import { storeReady } from '../lib/store/types';
 const env = siteEnv();
-const commerceEnabled = getCommerceConfig(env).enabled;
+const commerceEnabled = storeReady(env);
 const siteKey = env.TURNSTILE_SITE_KEY ?? '';
+const purchaseSupport = Astro.url.searchParams.get('subject') === 'purchase-support';
 ---
 <BaseLayout title="Contact" description="Send a message about the AI for Normal People book series." canonicalPath="/contact/" {commerceEnabled}>
   <section class="page-section">
     <div class="narrow">
       <p class="kicker">Contact</p>
       <h1>Send a message.</h1>
-      <p class="section-intro">The site records your message for later review. It does not send an automatic reply or promise a response time.</p>
+      <p class="section-intro">Use this form for book enquiries and purchase support. Messages are saved for manual review; there is no automatic reply.</p>
+      {purchaseSupport && <p>Use the email address you purchased with and include your order reference, if available, so we can find your purchase.</p>}
       <form class="stack-form" action="/api/contact/" method="post" data-progressive-form>
         <div class="field">
           <label for="contact-name">Name <span class="muted">(optional)</span></label>
@@ -23,7 +25,7 @@ const siteKey = env.TURNSTILE_SITE_KEY ?? '';
         </div>
         <div class="field">
           <label for="contact-subject">Subject <span class="muted">(optional)</span></label>
-          <input id="contact-subject" name="subject" type="text" maxlength="150" />
+          <input id="contact-subject" name="subject" type="text" maxlength="150" value={purchaseSupport ? 'Purchase support' : ''} />
         </div>
         <div class="field">
           <label for="contact-message">Message</label>
