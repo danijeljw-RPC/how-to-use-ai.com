@@ -98,3 +98,24 @@ describe('retailer purchase pages while direct commerce is disabled', () => {
     }
   });
 });
+
+
+describe('store pages before activation', () => {
+  it('shows approved prices for selectable currencies and the bundle', async () => {
+    const html = await (await fetch(`${origin}/purchase/?currency=jpy`)).text();
+    expect(html).toContain('PDF + EPUB bundle');
+    expect(html).toContain('1,199');
+    expect(html).toContain('1,599');
+    expect(html).not.toContain('action="/api/checkout/"');
+  });
+  it('serves a private library page without exposing a purchase or download token', async () => {
+    const response = await fetch(`${origin}/downloads/`);
+    const html = await response.text();
+    expect(response.status).toBe(200);
+    expect(response.headers.get('cache-control')).toContain('no-store');
+    expect(response.headers.get('referrer-policy')).toBe('no-referrer');
+    expect(html).toContain('Your book library');
+    expect(html).not.toContain('/api/download/?token=');
+    expect(html).toContain('Direct purchases are not available yet.');
+  });
+});

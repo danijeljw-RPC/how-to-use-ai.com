@@ -67,7 +67,8 @@ describe('launch content contracts', () => {
     const purchase = readFileSync(resolve(root, 'src/pages/purchase.astro'), 'utf8');
     expect(purchase).toContain('getRetailers');
     expect(purchase).toContain('rel="external noopener noreferrer"');
-    expect(purchase).toContain('getCommerceConfig');
+    expect(purchase).toContain('StoreOffers');
+    expect(purchase).toContain('storeReady');
   });
   it('points forms and links at trailing-slash API routes so trailingSlash: always never redirects a POST', () => {
     const markup = routeFiles

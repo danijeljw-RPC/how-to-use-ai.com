@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StoreOffers from '../components/StoreOffers.astro';
+import { siteEnv } from '../lib/runtime-env';
+import { getBuyer,cookieSession,ownedAssets } from '../lib/store/auth';
+import { authReady,storeMode } from '../lib/store/types';
+import { signDownload } from '../lib/store/tokens';
+import { catalogue,isCurrency } from '../lib/store/catalogue';
+import { privateHeaders } from '../lib/store/http';
+const env=siteEnv(),mode=storeMode(env),now=Math.floor(Date.now()/1000);
+for(const [key,value] of Object.entries(privateHeaders))Astro.response.headers.set(key,value);
+let unavailable=false;
+const session=cookieSession(Astro.request);
+let buyer=null;
+let owned:('pdf'|'epub')[]=[];
+try {
+  buyer=env.SITE_DB?await getBuyer(env.SITE_DB,session,mode,now):null;
+  if(buyer&&env.SITE_DB)owned=await ownedAssets(env.SITE_DB,buyer.email,mode);
+}catch{unavailable=true;}
+const links=buyer&&env.STORE_SIGNING_SECRET?await Promise.all(owned.map(async asset=>({asset,token:await signDownload({sessionHash:buyer!.token_hash,asset,mode},env.STORE_SIGNING_SECRET!,now)}))):[];
+const requestedCurrency=Astro.url.searchParams.get('currency')??'aud';
+const currency=isCurrency(requestedCurrency)?requestedCurrency:'aud';
+---
+<BaseLayout title="Your book library" description="Sign in by email to buy and download your editions of AI for Normal People." canonicalPath="/downloads/" robots="noindex, nofollow">
+  <section class="page-section"><div class="narrow">
+    <h1>Your book library</h1>
+    {buyer?<>
+      <p>Signed in as {buyer.email}.</p>
+      {links.length>0?<>
+        <p>Your latest available files are below. Each download link is valid for ten minutes. Reload this page for fresh links.</p>
+        <div class="button-row">{links.map(({asset,token})=><a class="button" href={`/api/download/?token=${encodeURIComponent(token)}`}>{catalogue[asset].label}</a>)}</div>
+      </>:<p>You have no digital downloads yet. Recently paid orders may take a few minutes to appear.</p>}
+      <form action="/api/store/logout/" method="post"><button class="secondary" type="submit">Sign out</button></form>
+      <StoreOffers {env} buyer={true} {owned} {currency} />
+    </>:<>
+      <p>Enter your email to get a sign-in link. Use the address you bought with to access your library and future editions.</p>
+      {Astro.url.searchParams.get('sent')==='1'&&<p role="status">Your sign-in email has been queued. Check your inbox and spam folder. If it has not arrived after a few minutes, try again or contact support.</p>}
+      {authReady(env)&&!unavailable?<form action="/api/store/access/" method="post" class="stack-form">
+        <label for="store-email">Email address</label><input id="store-email" type="email" name="email" autocomplete="email" maxlength="254" required />
+        <div class="cf-turnstile" data-sitekey={env.TURNSTILE_SITE_KEY} data-action="store-access" data-response-field-name="turnstileToken"></div>
+        <button type="submit">Email me a sign-in link</button>
+      </form>:<p>Email sign-in is being prepared. Direct purchases are not available yet.</p>}
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    </>}
+    <p>Need help? <a href="mailto:hello@repasscloud.com">hello@repasscloud.com</a></p>
+  </div></section>
+</BaseLayout>

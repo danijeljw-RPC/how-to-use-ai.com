@@ -189,3 +189,9 @@ textarea { min-height: 12rem; resize: vertical; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+.store-offers { display: grid; gap: 1rem; margin-block: 1.5rem; }
+.store-offer { border: 1px solid var(--sky); border-radius: 0.6rem; padding: 1rem; }
+.store-price { font-size: 1.4rem; font-weight: 700; }
+select { max-width: 100%; padding: 0.65rem; font: inherit; }
+@media (min-width: 700px) { .store-offers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

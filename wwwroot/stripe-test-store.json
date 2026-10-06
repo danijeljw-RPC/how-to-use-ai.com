@@ -1,0 +1,131 @@
+{
+  "mode": "test",
+  "account": "acct_1SJ3Xb4BF2uOrrJb",
+  "products": {
+    "pdf": "prod_VOC3ptyaUPGT00",
+    "epub": "prod_VOC3gVz9WhnbCQ",
+    "bundle": "prod_VOC3Law5Bj9Jvn"
+  },
+  "checkedCurrencies": [
+    {
+      "currency": "usd",
+      "format": "pdf",
+      "amount": 799
+    },
+    {
+      "currency": "usd",
+      "format": "epub",
+      "amount": 799
+    },
+    {
+      "currency": "usd",
+      "format": "bundle",
+      "amount": 1099
+    },
+    {
+      "currency": "gbp",
+      "format": "pdf",
+      "amount": 599
+    },
+    {
+      "currency": "gbp",
+      "format": "epub",
+      "amount": 599
+    },
+    {
+      "currency": "gbp",
+      "format": "bundle",
+      "amount": 799
+    },
+    {
+      "currency": "eur",
+      "format": "pdf",
+      "amount": 699
+    },
+    {
+      "currency": "eur",
+      "format": "epub",
+      "amount": 699
+    },
+    {
+      "currency": "eur",
+      "format": "bundle",
+      "amount": 899
+    },
+    {
+      "currency": "jpy",
+      "format": "pdf",
+      "amount": 1199
+    },
+    {
+      "currency": "jpy",
+      "format": "epub",
+      "amount": 1199
+    },
+    {
+      "currency": "jpy",
+      "format": "bundle",
+      "amount": 1599
+    },
+    {
+      "currency": "brl",
+      "format": "pdf",
+      "amount": 4099
+    },
+    {
+      "currency": "brl",
+      "format": "epub",
+      "amount": 4099
+    },
+    {
+      "currency": "brl",
+      "format": "bundle",
+      "amount": 5599
+    },
+    {
+      "currency": "cad",
+      "format": "pdf",
+      "amount": 1099
+    },
+    {
+      "currency": "cad",
+      "format": "epub",
+      "amount": 1099
+    },
+    {
+      "currency": "cad",
+      "format": "bundle",
+      "amount": 1499
+    },
+    {
+      "currency": "mxn",
+      "format": "pdf",
+      "amount": 13900
+    },
+    {
+      "currency": "mxn",
+      "format": "epub",
+      "amount": 13900
+    },
+    {
+      "currency": "mxn",
+      "format": "bundle",
+      "amount": 19900
+    },
+    {
+      "currency": "aud",
+      "format": "pdf",
+      "amount": 1149
+    },
+    {
+      "currency": "aud",
+      "format": "epub",
+      "amount": 1149
+    },
+    {
+      "currency": "aud",
+      "format": "bundle",
+      "amount": 1549
+    }
+  ]
+}

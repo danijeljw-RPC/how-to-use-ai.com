@@ -4,8 +4,8 @@ import BookCover from '../../components/BookCover.astro';
 import { bookOne } from '../../content/books';
 import { site } from '../../content/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../../lib/config';
-const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+import { storeReady } from '../../lib/store/types';
+const commerceEnabled = storeReady(siteEnv());
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Book',

@@ -1,7 +1,7 @@
 export interface TurnstileVerificationOptions {
   secret: string;
   token: string;
-  expectedAction: 'newsletter-signup' | 'contact-message';
+  expectedAction: 'newsletter-signup' | 'contact-message' | 'store-access';
   remoteIp?: string;
   fetcher?: typeof fetch;
 }

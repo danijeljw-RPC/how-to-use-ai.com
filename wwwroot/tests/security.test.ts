@@ -21,7 +21,8 @@ describe('advisory surface hardening', () => {
     expect(Number(pkg.dependencies['@astrojs/cloudflare'].split('.')[0])).toBeGreaterThanOrEqual(14);
     const wrangler = readFileSync(resolve(root, 'wrangler.jsonc'), 'utf8');
     expect(wrangler).not.toContain('pages_build_output_dir');
-    expect(wrangler).toContain('"main": "@astrojs/cloudflare/entrypoints/server"');
+    expect(wrangler).toContain('"main": "src/worker.ts"');
+    expect(readFileSync(resolve(root, 'src/worker.ts'), 'utf8')).toContain("from '@astrojs/cloudflare/handler'");
   });
 
   it('escapes less-than characters before inserting JSON-LD into a script element', () => {

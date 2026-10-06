@@ -5,10 +5,10 @@ import Callout from '../components/Callout.astro';
 import { bookOne, series } from '../content/books';
 import { site } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../lib/config';
+import { storeReady } from '../lib/store/types';
 
 const env = siteEnv();
-const commerceEnabled = getCommerceConfig(env).enabled;
+const commerceEnabled = storeReady(env);
 const homeTitle = `${site.name} — Plain-English AI Books for Beginners`;
 const structuredData = {
   '@context': 'https://schema.org',

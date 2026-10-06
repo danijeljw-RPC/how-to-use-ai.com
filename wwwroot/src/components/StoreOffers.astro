@@ -1,0 +1,58 @@
+---
+import { catalogue,currencies,amountFor,priceLabel,type StoreCurrency,type Asset } from '../lib/store/catalogue';
+import { editionConfigured,signedSettings } from '../lib/store/checkout';
+import type { StoreEnv } from '../lib/store/types';
+interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency }
+const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
+---
+<section aria-labelledby="direct-store-title">
+  <h2 id="direct-store-title">Buy a digital edition</h2>
+  <p>Choose a PDF, an EPUB for your ebook reader, or both. Your purchase includes updated editions of this book in the formats you buy.</p>
+  <form method="get" class="stack-form">
+    <label for="store-currency">Price currency</label>
+    <div class="button-row">
+      <select id="store-currency" name="currency">
+        {currencies.map(code=><option value={code} selected={code===currency}>{code.toUpperCase()}</option>)}
+      </select>
+      <button type="submit">Show prices</button>
+    </div>
+  </form>
+  <div class="store-offers">
+    {(['pdf','epub','bundle'] as const).map(format=>{
+      const available=editionConfigured(env,format);
+      const overlap=catalogue[format].assets.some(asset=>owned.includes(asset));
+      return <section class="store-offer">
+        <h3>{catalogue[format].label}</h3>
+        <p class="store-price">{priceLabel(amountFor(format,currency),currency)}</p>
+        {overlap ? <p>You already own part or all of this edition. Use your library to download it.</p> : available ? buyer ?
+          <form action="/api/checkout/" method="post" class="stack-form">
+            <input type="hidden" name="format" value={format} />
+            <input type="hidden" name="currency" value={currency} />
+            <label class="check-row"><input type="checkbox" name="terms" value="yes" required /><span>I agree to the <a href="/terms/">purchase terms</a> and <a href="/refund/">refund policy</a>.</span></label>
+            <button type="submit">Buy {format==='bundle'?'both formats':format.toUpperCase()}</button>
+          </form> : <a class="button secondary" href={`/downloads/?currency=${currency}`}>Verify email to buy</a>
+          : <p>Coming soon · downloads are being prepared.</p>}
+      </section>;
+    })}
+  </div>
+  <p>Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
+  <p><a href="/downloads/">Open your book library</a> · <a href="mailto:hello@repasscloud.com">Purchase support</a></p>
+</section>
+{env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
+  <section aria-labelledby="signed-copy-title">
+    <h2 id="signed-copy-title">Signed paperback</h2>
+    <p>Signed copies are ordered here and dispatched separately from Amazon. Delivery is available to Australia and New Zealand.</p>
+    {(['AU','NZ'] as const).map(country=>{
+      const settings=signedSettings(env,currency,country);
+      return settings&&<div class="store-offer">
+        <h3>{country==='AU'?'Australia':'New Zealand'}</h3>
+        <p>{priceLabel(settings.amount,currency)} + {priceLabel(settings.shipping,currency)} delivery</p>
+        {buyer?<form action="/api/checkout/" method="post" class="stack-form">
+          <input type="hidden" name="format" value="signed" /><input type="hidden" name="currency" value={currency} /><input type="hidden" name="country" value={country} />
+          <label class="check-row"><input type="checkbox" name="terms" value="yes" required /><span>I agree to the <a href="/terms/">purchase terms</a> and <a href="/refund/">refund policy</a>.</span></label>
+          <button type="submit">Order signed copy</button>
+        </form>:<a class="button secondary" href={`/downloads/?currency=${currency}`}>Verify email to order</a>}
+      </div>;
+    })}
+  </section>
+)}

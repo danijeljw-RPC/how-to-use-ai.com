@@ -2,6 +2,8 @@
 
 Prepared 6 October 2026. All work in this change is inside `wwwroot`.
 
+Implementation note: the author answers below are accepted and preserved. The original proposal after the answers is historical; [store-setup.md](store-setup.md) documents the implemented PDF/EPUB/bundle store, Amazon paperback boundary and disabled signed-copy option.
+
 ## What is ready
 
 The purchase page lists all 13 author-supplied Amazon Kindle pre-order links, independent of Stripe being enabled. The homepage, Book 1 page and navigation point there. No release date or price is invented. Amazon blocked automated listing verification; links use the supplied ASIN B0HLYQSMQT exactly.
@@ -13,17 +15,39 @@ Direct sales remain disabled. No live Stripe resources, secrets, remote migratio
 ## Questions to answer first
 
 1. **Digital distribution rights:** Is this ebook enrolled, or intended to be enrolled, in KDP Select? Confirm the applicable exclusivity terms before selling PDF/EPUB here or distributing the ebook through Google/Apple. Ordinary Kindle publication and Select enrolment are distinct; do not assume which applies.
+   A: We are not enrolling in any exclusivity terms (eg: KDP Select, etc). All books can be sold anywhere to anyone.
 2. **Release and availability:** What is the release date for each format? Should direct sales begin on release, or should the store accept pre-orders? Recommendation: launch direct digital sales only once approved files can be delivered immediately; keep physical sales off until fulfilment is ready.
+   A: The PDF and EPUB version are available for download from my site as soon as the document links to the R2 are available. Physical copies come from Amazon as we use Print on Demand via that.
 3. **Prices and currencies:** What are the PDF, EPUB, black and white paperback and colour paperback prices? Start with AUD, or offer other currencies? Is PDF+EPUB a bundle or two separate purchases? Are displayed prices inclusive of applicable tax?
+    A: We offer PDF and EPUB for following prices (provided they are currencies I can use on Stripe!):
+       - USD: 7.99
+       - GBP: 5.99
+       - EUR: 6.99
+       - JPY: 1199
+       - BRL: 40.99
+       - CAD: 10.99
+       - MXN: 139.00
+       - AUD: 11.49
+    If we offer the bundle, that is both the EPUB and PDF, the prices are as follows:
+       - USD: 10.99
+       - GBP: 7.99
+       - EUR: 8.99
+       - JPY: 1599
+       - BRL: 55.99
+       - CAD: 14.99
+       - MXN: 199.00
+       - AUD: 15.49
 4. **Merchant:** Which live Stripe account/legal entity should receive payments? The README records a Peach Freestyle test setup; confirm ownership and branding before using its live account. The AUD 19.99 test Price is not an approved retail price.
+    A: We will be using the Peach Freestyle account for all testing/development, before swapping to my live Stripe account. That's why it's there.
 5. **Digital assets:** Which exact release files should buyers receive? Should buyers receive later updates? Choose watermarking/DRM policy, download expiry, download count and support for replacement links. Keep full books out of `public/` and the public preview directory.
-6. **Paperback supply:** Are copies held and shipped by you, or printed and shipped on demand? Who owns stock, printing costs, dispatch, returns and damaged-copy replacement? What are the edition ISBNs, trim size, page counts, weight and packaging? Do not assume Amazon fulfils website orders.
-7. **Shipping:** Which countries are supported at launch, what rates apply, and what dispatch/delivery estimates can be promised? Is tracking available? Who pays import duties? Restrict checkout to destinations with a confirmed fulfilment route.
-8. **Tax and policies:** Confirm merchant location, applicable registrations, digital/physical product tax classification, receipts, refunds, cancellation rights and international obligations with the appropriate adviser. Which current policy text must change to cover downloads and shipping?
-9. **Email and support:** Which sender address and delivery service should send download/order messages? Who receives failed-delivery and fulfilment alerts? How should customers request replacement downloads or report missing parcels?
-10. **Retailer details:** Supply the final Google Play Books and Apple Books listing URLs. Should any region be highlighted, or should the current neutral country list stay?
+    A: The site should be able to use their purchase to create a unique link to download either the PDF or EPUB file download link. I would like to use the built-in sql to be able to run the query to save a link to the account for the user or something, and use that "sign" the link, or sign the link and set an expiry token into the signature so my website only responds to those requests if the signature in the URL is valid (eg - expires 10 mins from when it's generated). Else it generates a new one for the user. They should be able to always get updated versions of the file when they request it, eg - we publish a Second, Third, Fourth, etc edition of the book. Want to store their purchase (pretty much only need email address and transaction data - unless you think something else is needed?) stored in the sqlitedb from the stripe webhook our site needs to receive/process. All new orders should be able to identify what was purchased and send them a download link to their email address. Also they should need to put their email address in so they don't purcahse the same thing twice - i don't want to offer refunds for stupidy - i want to offer refunds for genuine reasons. So if they purchased the book once, they shouldn't be purchasing as second time.
+6. **Paperback supply:** Are copies held and shipped by you, or printed and shipped on demand? Who owns stock, printing costs, dispatch, returns and damaged-copy replacement? What are the edition ISBNs, trim size, page counts, weight and packaging? Do not assume Amazon fulfils website orders. The shipped copies should come from Amazon print on demand. Info is on the URLs that i provided you.
+7. **Shipping:** Which countries are supported at launch, what rates apply, and what dispatch/delivery estimates can be promised? Is tracking available? Who pays import duties? Restrict checkout to destinations with a confirmed fulfilment route. Wherever amazon print on demand ships to.
+8. **Tax and policies:** Confirm merchant location, applicable registrations, digital/physical product tax classification, receipts, refunds, cancellation rights and international obligations with the appropriate adviser. Which current policy text must change to cover downloads and shipping? Australia. We are only dealing with digital copies. i might add a signed physical copy later for australian/new zealand people to purchase and set per-country delivery capture - put that in now for those kind of things, tell me how to configure/setup the product on the web so i can grab their shipping details etc for thoser products.
+9.  **Email and support:** Which sender address and delivery service should send download/order messages? Who receives failed-delivery and fulfilment alerts? How should customers request replacement downloads or report missing parcels? I answered most of this already, except support emails always go to: hello@repasscloud.com
+10. **Retailer details:** Supply the final Google Play Books and Apple Books listing URLs. Should any region be highlighted, or should the current neutral country list stay? Waiting on google and apple to finish their setup.
 
-## Recommended approach
+## Original recommended approach (superseded)
 
 Extend the existing Stripe-hosted Checkout rather than adding a second payment integration. Start with one format per order, quantity one; add carts, bundles or multiple copies only if needed. Use separate server-side product/Price mappings and availability for each edition:
 
@@ -38,7 +62,7 @@ These are planned identifiers, not currently supported values. Do not silently r
 
 Use a server-only restricted Stripe key with sufficient permissions, signed webhook secrets, distinct test/live configuration and Stripe's dynamic payment methods. Confirm the pinned SDK/API compatibility during implementation rather than copying an unverified version from a plan.
 
-## Current implementation gaps
+## Initial implementation gaps (addressed by the new store)
 
 Inspected source: `src/lib/config.ts`, `commerce.ts`, `fulfilment.ts`, `http-handlers.ts`, `stripe.ts`, `src/pages/api/checkout.ts` and `src/pages/api/stripe/webhook.ts`.
 

@@ -1,6 +1,6 @@
 # How-To-Use-AI.com launch site
 
-This directory is a standalone Astro application for the Book 1 launch site. It uses server output, the Cloudflare adapter, a Cloudflare Worker with static assets, one D1 binding (`SITE_DB`), Turnstile-protected forms, and dormant Stripe Checkout/webhook contracts.
+This directory is a standalone Astro application for the Book 1 launch site. It uses server output, the Cloudflare adapter, a Cloudflare Worker with static assets, one D1 binding (`SITE_DB`), Turnstile-protected forms, and a gated Stripe digital book store.
 
 Direct commerce is unavailable unless `COMMERCE_ENABLED` is exactly `true` and all required Stripe settings are present. The repository contains no secret. It does contain public identifiers: the production D1 database ID, the Turnstile site key, and the Stripe test-mode Price ID.
 
@@ -8,7 +8,7 @@ Direct commerce is unavailable unless `COMMERCE_ENABLED` is exactly `true` and a
 
 The approved design named Cloudflare Pages and explicitly allowed a later move to a Worker. That move was made before launch: the last Astro/adapter line that supports Pages (Astro 5, `@astrojs/cloudflare` 12) carries published critical and high security advisories, and the patched line (Astro 7, adapter 14) supports Workers only. `npm audit` is clean on the current pins.
 
-Runtime values are read with `siteEnv()` (`src/lib/runtime-env.ts`), which wraps `env` from `cloudflare:workers`. Sessions are disabled so the adapter does not auto-provision a KV namespace, and images use the pass-through service so no Images binding is created.
+Runtime values are read with `siteEnv()` (`src/lib/runtime-env.ts`), which wraps `env` from `cloudflare:workers`. Astro framework sessions are disabled so the adapter does not auto-provision a KV namespace; the book library uses its own D1-backed sessions, and images use the pass-through service so no Images binding is created.
 
 Pages stay server-rendered on purpose: they read the commerce gate, Turnstile site key, and retailer links at request time, and prerendering would freeze those values at build time.
 
@@ -64,8 +64,8 @@ Production runs as the Worker `how-to-use-ai` on the custom domains `how-to-use-
 | D1 database | `how-to-use-ai-site` (`681b856b-e2b1-4eea-8ec0-1d355ec0c770`), Oceania, migration `0001` applied |
 | Turnstile widget | `How To Use AI PROD`, managed mode, site key `0x4AAAAAAFB56_6HtJDzcLZi` |
 | Worker secrets | `TURNSTILE_SECRET_KEY` only |
-| Variables | `SITE_URL`, `COMMERCE_ENABLED=false`, `TURNSTILE_SITE_KEY`, `STRIPE_PRICE_EBOOK` |
-| Not set | `PREVIEW_DOWNLOAD_URL`, retailer URLs, all Stripe secrets |
+| Variables | Canonical/preview URLs, `COMMERCE_ENABLED=false`, `STORE_MODE=test`, test Product IDs, private object keys, `STORE_EMAIL_READY=false`, `STORE_SIGNED_ENABLED=false`, Turnstile site key |
+| Not set | Paid release objects, Email Sending binding/readiness, download signing secret, all Stripe secrets, pending Google/Apple links |
 
 To deploy a change:
 
@@ -77,7 +77,7 @@ npx wrangler deploy
 
 Apply new migrations to production with `npx wrangler d1 migrations apply SITE_DB --remote` before deploying code that needs them. `wrangler deploy` replaces dashboard-edited variables with the values in `wrangler.jsonc`, so change variables in the file.
 
-To publish the preview, upload the preview PDF somewhere with a stable HTTPS URL, add `PREVIEW_DOWNLOAD_URL` to `vars`, and redeploy. Until then `/api/preview/` returns a controlled "unavailable" page.
+The preview is published at `/downloads/ai-for-normal-people-preview.pdf`; `PREVIEW_DOWNLOAD_URL` points there. Paid ebooks use the separate private R2 binding and are never stored in the public preview directory.
 
 ## Preview behaviour
 
@@ -89,14 +89,16 @@ Both endpoints require same-origin browser form submissions, bounded input, HTML
 
 ## Stripe test mode
 
-Stripe is set up in test mode in the **Peach Freestyle** account (`acct_1SJ3Xb4BF2uOrrJb`):
+The initial legacy Stripe setup was created in test mode in the **Peach Freestyle** account (`acct_1SJ3Xb4BF2uOrrJb`):
 
 - Product `prod_VJjxyKYLjkU457`, "AI for Normal People (ebook)", tax code `txcd_10302000`, metadata `project=how-to-use-ai.com`.
 - Price `price_1UJ6TX4BF2uOrrJb7uyZM1iR`, AUD 19.99 one-time, tax-inclusive. It is a placeholder test price, not a commercial decision.
 
 Commerce stays off in production. No production webhook endpoint is registered on purpose: the webhook returns 503 while commerce is off, and Stripe sends every test event in the account to every endpoint, so a registered endpoint would fail repeatedly and be auto-disabled.
 
-To test checkout end to end locally:
+The following steps describe the original legacy contract and are retained for context. Use `store-setup.md` for the implemented store; do not use these steps to activate the new endpoints.
+
+Original checkout test procedure:
 
 1. Write `.dev.vars` with `COMMERCE_ENABLED="true"`, the test `STRIPE_SECRET_KEY`, `STRIPE_PRICE_EBOOK`, and `STRIPE_WEBHOOK_SECRET` from `stripe listen --print-secret`.
 2. `npm run build`, `npx wrangler d1 migrations apply SITE_DB --local`, then `npx astro preview --port 4399`.
@@ -105,23 +107,17 @@ To test checkout end to end locally:
 5. Inspect local `commerce_orders` and `stripe_events`. Resend the same event with `stripe events resend <evt_id>` to confirm a `duplicate` outcome.
 6. Delete `.dev.vars` and `dist/`.
 
-## Stripe activation (later)
+## Digital store activation
 
-Do not enable commerce until the book, commercial terms, policies, and fulfilment process are ready.
+The earlier `ebook`/`print` helpers and test Price are legacy contracts, retained with historical data. Public checkout/webhook routes now use the PDF/EPUB/bundle store. See [store-setup.md](store-setup.md) for configuration, private R2 files, transactional email, the matching test/live merchant, six webhook events, scheduled recovery and optional AU/NZ signed-copy shipping.
 
-1. Create the live Product and Price in the chosen live account, and set `STRIPE_PRICE_EBOOK` (plus `STRIPE_PRICE_PRINT` only if direct print is supported).
-2. Register `https://how-to-use-ai.com/api/stripe/webhook/` (trailing slash) for `checkout.session.completed`.
-3. `npx wrangler secret put STRIPE_SECRET_KEY` and `npx wrangler secret put STRIPE_WEBHOOK_SECRET`.
-4. Implement and verify a real secure fulfilment adapter. The current contract deliberately records `manual_pending`; it does not deliver a file.
-5. Complete legal, tax, refund, and any physical-shipping review. Only then set `COMMERCE_ENABLED="true"` and redeploy.
-
-The browser cannot supply an amount, currency, Price ID, or return URL. The server maps only `ebook` or `print` to configured Price IDs. The success page is informational; a verified, idempotently recorded webhook is the order trigger.
+Keep direct commerce disabled until the private assets, email, credentials and full customer flow are verified. Webhooks and access remain available for existing customers when new checkout is disabled. Amounts come from the approved server catalogue; buyer email comes from a verified library session. The browser cannot set amounts, Product IDs or return URLs.
 
 ## Deliberate non-features
 
-- No login, customer account, admin dashboard, analytics, comments, mailing provider, automatic email, coupon generation, or unsubscribe workflow.
-- No public permanent ebook entitlement URL.
-- No Cloudflare or Stripe resources are created by repository scripts; the resources above were created once by hand.
+- No passwords, admin dashboard, analytics, comments, marketing email, coupon generation or newsletter unsubscribe workflow. The book store has passwordless email sign-in and transactional order email when configured.
+- No public permanent paid-file URL.
+- The guarded `scripts/prepare-stripe-test-store.mjs` creates only the authorised Peach Freestyle test Products and optionally checks/expires test Checkout sessions. It cannot provision a live merchant catalogue.
 - Privacy, website terms, and refund pages render the site-specific documents in `../repasscloud-legal-pack-2026-09-24/how-to-use-ai.com/` and link to the RePass Cloud master policies.
 
 ## Kindle pre-order and future direct sales
@@ -130,4 +126,4 @@ The browser cannot supply an amount, currency, Price ID, or return URL. The serv
 
 For a new Google Play Books or Apple Books listing, add its final HTTPS URL to `vars` in `wrangler.jsonc` as `RETAILER_GOOGLE_PLAY_BOOKS_URL` or `RETAILER_APPLE_BOOKS_URL`, then deploy. No link is rendered for a missing or invalid value. The optional legacy Amazon/other retailer overrides still work.
 
-See [book-sales-questions.md](book-sales-questions.md) for the four-format Stripe plan and decisions needed before launch. The existing `ebook`/`print` test integration does not yet deliver PDF/EPUB or ship either paperback. Keep direct commerce disabled until the new catalogue and delivery paths pass end-to-end verification; the earlier activation checklist must be expanded to cover asynchronous payment events and durable fulfilment.
+See [book-sales-questions.md](book-sales-questions.md) for the four-format Stripe plan and decisions needed before launch. The author answers are implemented in the new digital store; [store-setup.md](store-setup.md) is the current configuration and operations guide. Standard paperbacks remain Amazon orders; signed copies are a separate optional website product.

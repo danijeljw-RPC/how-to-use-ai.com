@@ -5,7 +5,7 @@ import Header from '../components/Header.astro';
 import '../styles/global.css';
 import { site } from '../content/site';
 import { bookOne } from '../content/books';
-import { getCommerceConfig } from '../lib/config';
+import { storeReady } from '../lib/store/types';
 
 interface Props {
   title: string;
@@ -25,7 +25,7 @@ const {
   robots = 'index, follow',
 } = Astro.props;
 const runtimeEnv = siteEnv();
-const resolvedCommerceEnabled = commerceEnabled ?? getCommerceConfig(runtimeEnv).enabled;
+const resolvedCommerceEnabled = commerceEnabled ?? storeReady(runtimeEnv);
 const turnstileSiteKey = runtimeEnv.TURNSTILE_SITE_KEY ?? '';
 const canonical = new URL(canonicalPath, Astro.site);
 const fullTitle = title.startsWith(site.name) ? title : `${title} | ${site.name}`;

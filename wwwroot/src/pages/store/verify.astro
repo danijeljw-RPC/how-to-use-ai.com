@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { privateHeaders } from '../../lib/store/http';
+for(const [key,value] of Object.entries(privateHeaders))Astro.response.headers.set(key,value);
+const value=Astro.url.searchParams.get('token')??'';
+const token=/^[a-f0-9]{64}$/.test(value)?value:'';
+---
+<BaseLayout title="Confirm your email sign-in" description="Confirm your sign-in to the book store." canonicalPath="/store/verify/" robots="noindex, nofollow">
+  <section class="page-section"><div class="narrow"><h1>Open your book library</h1>
+    {token?<form action="/api/store/verify/" method="post" class="stack-form">
+      <input type="hidden" name="token" value={token} />
+      <p>Select Continue to confirm your email and open your library. This sign-in link can be used once.</p>
+      <button type="submit">Continue</button>
+    </form>:<p>This sign-in link is invalid. <a href="/downloads/">Request another link</a>.</p>}
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+# Store API contract
+
+All endpoints use trailing slashes. Private responses are no-store and noindex; application logs never intentionally include tokens or buyer data. Restrict access to platform request logs, which may contain request URLs.
+
+- `POST /api/store/access/`: same-origin bounded form with `email` and `turnstileToken`, action `store-access`. Returns a generic email-sent acknowledgement for new and existing buyers; recipient cooldown and IP rate limits prevent abuse. Unready email/config returns 503. No purchase lookup disclosed.
+- `GET /store/verify/?token=...`: confirmation only. Does not consume the login token; mail scanners cannot establish a session.
+- `POST /api/store/verify/`: same-origin form with one-use token. Redirects to `/downloads/` and sets a Secure HttpOnly SameSite=Lax seven-day session cookie. Invalid/used/expired tokens rejected.
+- `POST /api/store/logout/`: same-origin, revokes current session and clears cookie.
+- `GET /downloads/`: email-verification form or authenticated library with current entitlement links and available purchase choices. Does not treat Stripe return session IDs as credentials.
+- `POST /api/checkout/`: verified session required; allow-listed format `pdf`, `epub`, `bundle`, `signed`, currency, and country for signed copies. Server chooses product, price, shipping and identity. Overlap ownership or an existing checkout reservation returns 409. Config/asset gaps return 503. Valid purchase redirects 303 to Stripe. Session expires after about 31 minutes; pending delayed-payment reservations remain locked until terminal Stripe state.
+- `POST /api/stripe/webhook/`: bounded raw body, signature required. Event mode must match merchant mode. Completed/asynchronous paid sessions are retrieved with line items and validated against persisted attempt. Unpaid completion leaves reservation pending. Async failure/expired sessions release reservation; refunds/disputes revoke affected access. Persist order, entitlements, email job and event transactionally; duplicate events acknowledge without duplicate fulfilment. Temporary failures return 503 for retry.
+- `GET /api/download/?token=...`: verifies HMAC, version, ten-minute expiry, hashed session and mode, plus current paid entitlement. Streams only the configured private R2 object for PDF or EPUB. Tampered token 403, expired token 410, missing file 503. No automatic renewal from untrusted expired claims; renew through `/downloads/` after authentication.
+- Worker scheduled handler: retries ready outbox jobs using expiring database leases, cleans expired auth/rate rows and reconciles stale checkout attempts against Stripe. Does not depend on website traffic. Failed jobs remain inspectable; do not discard them.

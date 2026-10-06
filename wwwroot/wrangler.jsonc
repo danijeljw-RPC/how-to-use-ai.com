@@ -1,28 +1,41 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "how-to-use-ai",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "main": "src/worker.ts",
   "compatibility_date": "2026-09-21",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS"
   },
   "workers_dev": false,
+  "triggers": { "crons": ["*/5 * * * *"] },
   "preview_urls": false,
   "routes": [
     { "pattern": "how-to-use-ai.com", "custom_domain": true },
     { "pattern": "www.how-to-use-ai.com", "custom_domain": true }
   ],
   "observability": {
-    "enabled": true
+    "enabled": true,
+    "traces": { "enabled": true }
   },
   "vars": {
     "SITE_URL": "https://how-to-use-ai.com",
     "PREVIEW_DOWNLOAD_URL": "https://how-to-use-ai.com/downloads/ai-for-normal-people-preview.pdf",
     "COMMERCE_ENABLED": "false",
+    "STORE_MODE": "test",
+    "STORE_PRODUCT_BUNDLE": "prod_VOC3Law5Bj9Jvn",
+    "STORE_PRODUCT_EPUB": "prod_VOC3gVz9WhnbCQ",
+    "STORE_PRODUCT_PDF": "prod_VOC3ptyaUPGT00",
+    "STORE_EMAIL_READY": "false",
+    "STORE_EMAIL_FROM": "hello@how-to-use-ai.com",
+    "BOOK_PDF_KEY": "book-01/current/ai-for-normal-people.pdf",
+    "BOOK_EPUB_KEY": "book-01/current/ai-for-normal-people.epub",
+    "STORE_SIGNED_ENABLED": "false",
     "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi",
     "STRIPE_PRICE_EBOOK": "price_1UJ6TX4BF2uOrrJb7uyZM1iR"
   },
+  "r2_buckets": [{ "binding": "BOOK_FILES", "bucket_name": "how-to-use-ai-books" }],
+  // Add STORE_EMAIL binding after Email Sending sender verification; see store-setup.md.
   // Production only. Local development uses Wrangler's local D1 simulation; there is no remote dev database.
   "d1_databases": [
     {
