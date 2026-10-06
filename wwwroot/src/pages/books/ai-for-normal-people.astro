@@ -2,6 +2,7 @@
 import { siteEnv } from '../../lib/runtime-env';
 import BookCover from '../../components/BookCover.astro';
 import { bookOne } from '../../content/books';
+import { bookParts, bookQuestions } from '../../content/book-guide';
 import { site } from '../../content/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { storeReady } from '../../lib/store/types';
@@ -12,6 +13,10 @@ const structuredData = {
   name: bookOne.title,
   alternateName: bookOne.subtitle,
   description: bookOne.summary,
+  url: 'https://how-to-use-ai.com/books/ai-for-normal-people/',
+  image: 'https://how-to-use-ai.com' + bookOne.cover,
+  inLanguage: 'en',
+  datePublished: '2026-10-29',
   author: { '@type': 'Person', name: site.author },
 };
 ---
@@ -24,23 +29,107 @@ const structuredData = {
         <h1>{bookOne.title}</h1>
         <p class="section-intro">{bookOne.subtitle}</p>
         <p>{bookOne.summary}</p>
+        <p>AI can draft an email, summarise a meeting or offer an idea in seconds. Knowing what to ask—and what to check—is where your judgement comes in. This book helps you find that footing.</p>
+        <p class="book-publication">Publication date: <time datetime="2026-10-29">29 October 2026</time><br />Four parts · 14 chapters · Epilogue: Don’t Panic</p>
         <div class="button-row">
-          <a class="button" href="/api/preview/">Read today’s preview</a>
-          <a class="button secondary" href="/preview/">How the preview works</a>
+          <a class="button" href="/api/preview/">Read the free preview</a>
+          <a class="button secondary" href="/preview/">About the preview</a>
           <a class="button secondary" href="/purchase/">Pre-order Kindle Edition</a>
         </div>
       </div>
     </div>
   </section>
+  <nav class="book-jump shell" aria-label="Explore this book">
+    <a href="#readers">Who it’s for</a><a href="#contents">Inside the book</a><a href="#sample">Read a sample</a><a href="#try">Try it yourself</a><a href="#questions">Questions</a>
+  </nav>
+  <section class="page-section" id="readers">
+    <div class="shell split">
+      <div><h2>You don’t need an AI hobby to understand AI.</h2></div>
+      <div>
+        <p class="section-intro">For the curious, the sceptical and anyone who feels the conversation has moved ahead without them.</p>
+        <p>Perhaps you’ve never opened a chat assistant. Perhaps you use one at work but wonder how much of its answer to trust. Or perhaps you’re tired of being told that AI will either solve everything or take everything away.</p>
+        <p>The book starts with things you already recognise and works towards decisions you can make for yourself. No coding, no maths lessons and no expectation that you’ll follow every new product announcement.</p>
+        <h3>What you’ll take away</h3>
+        <ul><li>A clearer understanding of what AI can and cannot do.</li><li>A practical way to ask for help, inspect the result and improve it.</li><li>Questions to ask before sharing information or relying on an answer.</li><li>A way to assess tools and claims without chasing every trend.</li></ul>
+      </div>
+    </div>
+  </section>
+  <section class="page-section book-contents" id="contents">
+    <div class="shell">
+      <h2>A guide from first questions to everyday decisions.</h2>
+      <p class="section-intro">Explore the four parts. Open a chapter to see what it covers.</p>
+      <div class="book-parts">
+        {bookParts.map((part, partIndex) => <section class="book-part" aria-labelledby={`part-${partIndex}`}>
+          <p class="kicker">Part {partIndex + 1}</p><h3 id={`part-${partIndex}`}>{part.title}</h3>
+          <p>{part.introduction}</p>
+          {part.chapters.map(([title, description], chapterIndex) => <details>
+            <summary><span class="chapter-number">{bookParts.slice(0, partIndex).reduce((total, item) => total + item.chapters.length, 0) + chapterIndex + 1}.</span> {title}</summary>
+            <p>{description}</p>
+          </details>)}
+        </section>)}
+      </div>
+      <div class="book-epilogue"><h3>Epilogue: Don’t Panic</h3><p>You don’t need to become an AI engineer, understand the maths or keep up with everything. The closing chapter brings the book back to AI literacy, calm judgement and one small next step.</p></div>
+    </div>
+  </section>
+  <section class="page-section" id="sample">
+    <div class="shell split">
+      <div><p class="kicker">From Chapter 1</p><h2>You’ve Already Been Using AI</h2><p>Read a little of the book before deciding whether it’s for you.</p><a href="/api/preview/" class="button">Open the free PDF preview</a><p class="muted sample-note">No email address required.</p></div>
+      <div class="book-excerpt">
+        <p>Artificial intelligence sounds intimidating because most of us picture robots, supercomputers, or something out of a science fiction film. The term itself feels technical, expensive, and far removed from ordinary life. But here's the thing: you've probably used AI today already, possibly several times before you finished breakfast.</p>
+        <p>If you've watched a recommendation on Netflix, followed directions in Google Maps, ignored a piece of spam email, scrolled through TikTok, spoken to Siri or Alexa, received a fraud alert from your bank, or bought something an online store suggested for you — you've used AI. Not an experimental version, and not some "future" AI still in the lab. Real AI systems, already running at massive scale, quietly doing their job in the background of things you use every day.</p>
+        <blockquote><strong>Key Idea:</strong> AI is not magic. It is pattern recognition at scale.</blockquote>
+      </div>
+    </div>
+  </section>
+  <section class="page-section" id="try">
+    <div class="shell split">
+      <div><h2>Start with a small, useful task.</h2><p>The book pairs explanations with everyday examples and exercises. Here’s a companion exercise you can try with a chat assistant.</p></div>
+      <div>
+        <h3>Give it something you can check</h3>
+        <p>Write a short, fictional email about arranging a meeting. Include two possible dates and one unresolved question. Then ask:</p>
+        <blockquote class="example-prompt">Summarise this email in three bullet points. List the proposed dates separately. Tell me what has not yet been decided. Use only information in the email.</blockquote>
+        <p>Compare the answer with your email. Did it preserve both dates? Did it turn a suggestion into a commitment? Did it add anything you didn’t write?</p>
+        <p><strong>The useful habit:</strong> request, inspect, refine. If the answer misses something, point to the missing detail and ask for a revision. Keep using your own judgement.</p>
+        <p class="muted">Use invented details for this exercise. Check your workplace rules and a tool’s privacy terms before using real messages or confidential information.</p>
+      </div>
+    </div>
+  </section>
   <section class="page-section">
     <div class="shell split">
-      <div>
-        <p class="kicker">Inside Book 1</p>
-        <h2>The questions normal people actually have.</h2>
+      <div><h2>Built to help the ideas stick.</h2><p>By {site.author}</p></div>
+      <div><p>Plain-English explanations, research-backed discussions and everyday examples give you more than a collection of tips. Author reflections connect the ideas with first-hand work in AI, software and technology.</p>
+        <dl class="reading-labels"><dt>Key Idea</dt><dd>The point worth remembering.</dd><dt>Try This</dt><dd>A small practical exercise to turn reading into experience.</dd><dt>Watch Out</dt><dd>A risk, limitation or misunderstanding worth slowing down for.</dd><dt>Recap</dt><dd>A chapter summary to help you check what landed.</dd></dl>
+        <p>Read from the beginning or return when a particular question comes up. The aim is to help you make informed decisions as the tools change.</p>
       </div>
-      <ol class="topic-list">
-        {bookOne.topics.map((topic) => <li>{topic}</li>)}
-      </ol>
+    </div>
+  </section>
+  <section class="page-section" id="questions">
+    <div class="narrow"><h2>Before you start.</h2>
+      {bookQuestions.map(([question, answer]) => <details class="book-faq"><summary>{question}</summary><p>{answer}</p></details>)}
+    </div>
+  </section>
+  <section class="page-section book-next">
+    <div class="narrow"><h2>Get a feel for the book. Then choose your next step.</h2><p>Start with the free preview, explore the editions or keep reading the site’s companion articles.</p>
+      <div class="button-row"><a class="button" href="/api/preview/">Read the free preview</a><a class="button secondary" href="/purchase/">See purchase options</a><a class="button secondary" href="/blog/">Browse companion articles</a></div>
     </div>
   </section>
 </BaseLayout>
+<style>
+  .book-publication { color: var(--ink-soft); font-family: var(--sans); }
+  .book-jump { display: flex; gap: 1rem 2rem; flex-wrap: wrap; padding-block: 1.5rem; border-top: 1px solid var(--line); }
+  .book-contents { background: var(--mist); }
+  .book-parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 3rem; }
+  .book-part h3 { font-size: 2rem; }
+  details { border-top: 1px solid var(--line); padding-block: 1rem; }
+  summary { cursor: pointer; font-family: var(--sans); font-weight: 600; font-size: 1.2rem; }
+  details p { margin: 1rem 0 0; }
+  .chapter-number { color: var(--sky-dark); }
+  .book-epilogue { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--navy); }
+  .book-excerpt { border-left: 3px solid var(--sky); padding-left: 2rem; }
+  blockquote { margin: 1.5rem 0; padding: 1.25rem; background: var(--mist); }
+  .sample-note { margin-top: 1rem; }
+  .reading-labels { display: grid; grid-template-columns: 7rem 1fr; gap: .75rem 1rem; }
+  dt { font-family: var(--sans); font-weight: 700; } dd { margin: 0; }
+  .book-next { background: var(--mist); }
+  @media (max-width: 700px) { .book-parts { grid-template-columns: 1fr; gap: 2rem; } .book-excerpt { padding-left: 1rem; } .reading-labels { grid-template-columns: 1fr; gap: .25rem; } dd { margin-bottom: .75rem; } }
+</style>

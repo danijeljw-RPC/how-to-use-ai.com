@@ -27,8 +27,8 @@ const structuredData = {
         <h1>AI, explained for people who have other things to do.</h1>
         <p class="lede">{bookOne.title} is a genuinely non-technical place to start: what AI is, what it can do, where it fails, and how to use it without swallowing the hype.</p>
         <div class="button-row">
-          <a class="button" href="/api/preview/">Read today’s preview</a>
-          <a class="button secondary" href="/books/ai-for-normal-people/">Explore Book 1</a>
+          <a class="button" href="/api/preview/">Read the free preview</a>
+          <a class="button secondary" href="/books/ai-for-normal-people/">Explore the book</a>
           <a class="button secondary" href="/purchase/">Pre-order Kindle Edition</a>
         </div>
       </div>
@@ -65,16 +65,19 @@ const structuredData = {
   </section>
 
   <section class="page-section">
+    <div class="shell split"><div><h2>What would you like to understand?</h2></div><div><p>The book moves from how AI works to using it at home, at work and in creative projects. It also tackles invented answers, privacy, jobs and the claims behind the headlines.</p><ul><li><a href="/books/ai-for-normal-people/#contents">Explore the chapters and their takeaways</a></li><li><a href="/books/ai-for-normal-people/#sample">Read an excerpt from Chapter 1</a></li><li><a href="/books/ai-for-normal-people/#try">Try a small exercise in checking an AI answer</a></li></ul></div></div>
+  </section>
+  <section class="page-section">
     <div class="shell">
       <p class="kicker">A five-book progression</p>
       <h2>Start with understanding. Go technical only if you want to.</h2>
-      <p class="section-intro">The later volumes are a working direction. Book 1 is the active volume.</p>
+      <p class="section-intro">The later volumes are a working direction. The first book is complete; its publication date is 29 October 2026.</p>
       <div class="series-list">
         {series.progression.map((book) => (
           <div class="series-item">
             <span class="number">{book.number}</span>
             <span class="series-title">{book.title}</span>
-            <span class:list={['status', { active: book.active }]}>{book.active ? 'Active volume' : book.theme}</span>
+            <span class:list={['status', { active: book.active }]}>{book.active ? 'Explore Book 1' : book.theme}</span>
           </div>
         ))}
       </div>

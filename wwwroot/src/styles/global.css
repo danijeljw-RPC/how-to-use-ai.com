@@ -98,7 +98,7 @@ p { max-width: var(--measure); margin: 0 0 1rem; }
 .hero .button.secondary:hover { border-color: white; background: rgb(255 255 255 / 0.1); color: white; }
 button:disabled { cursor: wait; opacity: 0.65; }
 
-.cover-figure { position: relative; width: min(23rem, 78vw); margin: 0 auto; }
+.cover-figure { align-self: start; position: relative; width: min(23rem, 78vw); max-width: 100%; margin: 0 auto; }
 .cover-figure img { position: relative; z-index: 1; border-radius: 0.2rem 0.5rem 0.5rem 0.2rem; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.14), 0 28px 60px rgb(0 0 0 / 0.5); }
 .cover-shadow { position: absolute; right: -1.6rem; bottom: -1.6rem; width: 72%; height: 70%; border: 2px solid var(--gold); }
 
