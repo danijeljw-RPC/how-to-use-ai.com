@@ -64,6 +64,8 @@
 #                                   blank, for the printer to add its own
 #   <stem>_ebook.pdf                colour PDF ebook with covers
 #   <stem>_ebook.epub               EPUB 3
+#   <stem>_ebook_epub2.epub         EPUB 2, same edition and ISBN (for
+#                                   distributors such as Draft2Digital)
 #   <book-folder>-release-report.md page counts, spine widths, ISBNs, warnings
 #
 # Every build, draft or release, also writes the flat covers to dist/covers/:
@@ -627,7 +629,8 @@ PY
   echo "- $label: \`$(basename "$ebook")\`, $(pdfinfo "$ebook" | awk '/^Pages:/{print $2}') pages" >> "$report"
 }
 
-# One EPUB 3, validated with epubcheck when it is installed.
+# One EPUB 3 and one EPUB 2 from the same Markdown, each validated with
+# epubcheck when it is installed.
 release_epub_edition() {
   echo "  $label (EPUB 3)..."
   local epub_md="$work/book-epub-$id.md" svg_dir="$work/epub-diagrams"
@@ -647,46 +650,62 @@ release_epub_edition() {
     fi
     matter --part about --target epub --edition release
   } > "$epub_md"
-  # EPUB readers need SVG or PNG, so each rendered diagram PDF gets an SVG twin.
-  local diagram_pdf
+  # EPUB readers need SVG or PNG, so each rendered diagram PDF gets an SVG twin
+  # for the EPUB 3 and a PNG twin for the EPUB 2 (older EPUB 2 readers show SVG
+  # unreliably).
+  local diagram_pdf png_dir="$work/epub2-diagrams" epub2_md="$work/book-epub2-$id.md"
+  mkdir -p "$png_dir"
   for diagram_pdf in "$diagram_dir"/*.pdf; do
     [[ -f "$diagram_pdf" ]] || continue
     pdftocairo -svg "$diagram_pdf" "$svg_dir/$(basename "${diagram_pdf%.pdf}").svg"
+    pdftocairo -png -r 200 -singlefile "$diagram_pdf" "$png_dir/$(basename "${diagram_pdf%.pdf}")"
   done
+  sed "s|$diagram_dir/\([^)]*\)\.pdf|$png_dir/\1.png|g" "$epub_md" > "$epub2_md"
   sed -i.bak "s|$diagram_dir/\([^)]*\)\.pdf|$svg_dir/\1.svg|g" "$epub_md" && rm -f "$epub_md.bak"
   "$PYTHON_BIN" -m scripts.release_cover front --edition "$id" --config "$CONFIG" --book-number "$book_number" \
     --root-dir "$ROOT_DIR" --output "$work/front-cover-$id.pdf" >/dev/null
   pdftoppm -png -r 200 -singlefile "$work/front-cover-$id.pdf" "$work/epub-cover-$id"
-  local epub="$release_dir/${stem}_ebook.epub" font_args=() font isbn
+  local font_args=() font isbn
   for font in "$FONT_DIR"/*.ttf; do font_args+=(--epub-embed-font="$font"); done
   local subtitle publisher identifier_args=()
   subtitle="$(jq -r '.description // ""' <<<"$book_json")"
   publisher="$(jq -r '.series.publisher.name // ""' "$CONFIG")"
   isbn="$(jq -r '.isbn' <<<"$entry")"
   [[ -n "$isbn" ]] && identifier_args=(-M identifier="urn:isbn:$isbn")
-  pandoc "$epub_md" -o "$epub" \
-    --to epub3 \
-    --resource-path="$chapters_dir:$ROOT_DIR" \
-    --top-level-division=chapter \
-    --split-level=1 \
-    --toc --toc-depth=1 \
-    --lua-filter="$LUA_FILTER" -M hw-notes=back \
-    --css="$EPUB_CSS" "${font_args[@]}" \
-    --epub-cover-image="$work/epub-cover-$id.png" \
-    -M title="$book_title" -M subtitle="$subtitle" -M author="$author" \
-    -M publisher="$publisher" -M lang=en-AU -M date="$(date +%Y-%m-%d)" \
-    "${identifier_args[@]+"${identifier_args[@]}"}"
-  echo "  -> $epub"
-  if command -v epubcheck >/dev/null 2>&1; then
-    if epubcheck -q "$epub" >"$work/epubcheck-$id.log" 2>&1; then
-      echo "- $label: \`$(basename "$epub")\`, passed epubcheck" >> "$report"
+  # Same edition and ISBN, two packages: EPUB 3 for most stores, EPUB 2 for
+  # distributors that want it (Draft2Digital's automated pages, ADR-03-0014).
+  local version source epub log
+  for version in 3 2; do
+    if [[ "$version" == "3" ]]; then
+      source="$epub_md" epub="$release_dir/${stem}_ebook.epub" log="$work/epubcheck-$id.log"
     else
-      echo "  epubcheck reported problems; see $work/epubcheck-$id.log"
-      echo "- $label: \`$(basename "$epub")\`, epubcheck reported problems (see tmp/pdfs/$book_name-release/epubcheck-$id.log)" >> "$report"
+      echo "  $label (EPUB 2)..."
+      source="$epub2_md" epub="$release_dir/${stem}_ebook_epub2.epub" log="$work/epubcheck-$id-epub2.log"
     fi
-  else
-    echo "- $label: \`$(basename "$epub")\` (not validated: brew install epubcheck)" >> "$report"
-  fi
+    pandoc "$source" -o "$epub" \
+      --to "epub$version" \
+      --resource-path="$chapters_dir:$ROOT_DIR" \
+      --top-level-division=chapter \
+      --split-level=1 \
+      --toc --toc-depth=1 \
+      --lua-filter="$LUA_FILTER" -M hw-notes=back \
+      --css="$EPUB_CSS" "${font_args[@]}" \
+      --epub-cover-image="$work/epub-cover-$id.png" \
+      -M title="$book_title" -M subtitle="$subtitle" -M author="$author" \
+      -M publisher="$publisher" -M lang=en-AU -M date="$(date +%Y-%m-%d)" \
+      "${identifier_args[@]+"${identifier_args[@]}"}"
+    echo "  -> $epub"
+    if command -v epubcheck >/dev/null 2>&1; then
+      if epubcheck -q "$epub" >"$log" 2>&1; then
+        echo "- $label (EPUB $version): \`$(basename "$epub")\`, passed epubcheck" >> "$report"
+      else
+        echo "  epubcheck reported problems; see $log"
+        echo "- $label (EPUB $version): \`$(basename "$epub")\`, epubcheck reported problems (see tmp/pdfs/$book_name-release/$(basename "$log"))" >> "$report"
+      fi
+    else
+      echo "- $label (EPUB $version): \`$(basename "$epub")\` (not validated: brew install epubcheck)" >> "$report"
+    fi
+  done
 }
 
 # ---------------------------------------------------------------- draft / preview

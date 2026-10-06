@@ -18,6 +18,8 @@ local CALLOUTS = {
 
 local notes_mode = "inline"
 local is_latex = FORMAT:match("latex") ~= nil
+-- EPUB 2 is XHTML 1.1: no epub:type or ARIA role attributes in raw HTML.
+local is_epub2 = FORMAT == "epub2"
 
 local function latex_escape(text)
   local replacements = {
@@ -280,9 +282,10 @@ local function reuse_repeated_notes(blocks)
       if is_latex then
         return pandoc.RawInline("latex", "\\hwNoteAgain{" .. first.id .. "}")
       end
+      local attributes = is_epub2 and "" or ' epub:type="noteref" role="doc-noteref"'
       return pandoc.RawInline("html", string.format(
-        '<a href="#fn%d" class="footnote-ref" epub:type="noteref" role="doc-noteref"><sup>%d</sup></a>',
-        first.number, first.number))
+        '<a href="#fn%d" class="footnote-ref"%s><sup>%d</sup></a>',
+        first.number, attributes, first.number))
     end
     count = count + 1
     seen[key] = { id = string.format("c%dn%d", chapter, count), number = count }

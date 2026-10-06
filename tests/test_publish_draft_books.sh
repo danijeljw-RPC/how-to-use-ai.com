@@ -172,11 +172,22 @@ ebook = PdfReader(ebook_path).pages
 assert "ISBN 978-1-7649948-1-1" in ebook[-1].extract_text()
 assert ebook[-1].get_contents().get_data().count(b" re f*") > 40
 assert abs(float(ebook[0].mediabox.width) - 540.0) < 0.5
-with zipfile.ZipFile(release / "31-book-01.epub") as epub:
+with zipfile.ZipFile(release / "9781764994828_ebook.epub") as epub:
     assert epub.read("mimetype") == b"application/epub+zip"
     names = epub.namelist()
     assert any(name.endswith(".ttf") for name in names)
     assert any(name.endswith(".svg") for name in names)
+    opf = next(epub.read(name) for name in names if name.endswith(".opf"))
+    assert b'version="3.0"' in opf
+with zipfile.ZipFile(release / "9781764994828_ebook_epub2.epub") as epub:
+    assert epub.read("mimetype") == b"application/epub+zip"
+    names = epub.namelist()
+    assert any(name.endswith(".ttf") for name in names)
+    assert any(name.endswith(".png") for name in names)
+    assert not any(name.endswith(".svg") for name in names), "EPUB 2 diagrams should be PNG"
+    opf = next(epub.read(name) for name in names if name.endswith(".opf"))
+    assert b'version="2.0"' in opf
+    assert b"urn:isbn:9781764994828" in opf
 assert (release / "31-book-01-release-report.md").is_file()
 PY
 

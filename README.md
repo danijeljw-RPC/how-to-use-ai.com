@@ -364,7 +364,8 @@ Release files are named by ISBN:
 
 - `…_interior-bw.pdf` and `…_interior-colour.pdf`: the print interiors, with bleed. Both come from one typesetting run, so their page breaks are identical.
 - `…_cover-<ink>-kdp.pdf` and `…_cover-<ink>-ingramspark.pdf`: the wrap covers. The spine width is calculated from the page count. Each also comes in a `-no-barcode` version.
-- `…_ebook.pdf` and `…_ebook.epub`: the ebooks.
+- `…_ebook.pdf` and `…_ebook.epub`: the ebooks. The `.epub` is EPUB 3, which most stores want.
+- `…_ebook_epub2.epub`: the same EPUB edition, with the same ISBN, packaged as EPUB 2 for distributors that ask for it (such as Draft2Digital). Its diagrams are PNG pictures rather than SVG, so the file is larger.
 - `31-book-01-release-report.md`: page counts, spine widths, ISBNs, and any warnings. **Read it after every release build.**
 
 ### The release check

@@ -79,7 +79,7 @@ Each key is an edition id of your choosing (`paperback`, `paperbackColour`, `har
 
 | Field | Meaning |
 | --- | --- |
-| `type` | Required. `print` (interior + wrap covers), `pdf` (PDF ebook) or `epub` (EPUB 3). |
+| `type` | Required. `print` (interior + wrap covers), `pdf` (PDF ebook) or `epub` (EPUB 3, plus an EPUB 2 copy with the same ISBN). |
 | `binding` | Print only: `paperback` (`softcover` means the same) or `hardcover`. |
 | `ink` | Print only: `black-and-white` (or `bw`) or `colour`. Picks the paper caliper and converts the interior to greyscale for black and white. PDF and EPUB are always colour. |
 | `enabled` | `false` leaves the edition out of builds and the copyright page. |
@@ -119,7 +119,7 @@ Then fill in `series.print.printers.<printer>.bindings.hardcover` from each prin
 
 - print: `<stem>_interior-<bw|colour>.pdf`, `<stem>_cover-<bw|colour>-<printer>.pdf` and `…-no-barcode.pdf`
 - PDF: `<stem>_ebook.pdf`
-- EPUB: `<stem>_ebook.epub`
+- EPUB: `<stem>_ebook.epub` (EPUB 3) and `<stem>_ebook_epub2.epub` (the same edition as EPUB 2, ADR-03-0014)
 
 Print editions whose copyright page, trim and bleed are the same share one typesetting run, so their pages are identical. Different `editionLine`s make different copyright pages, so each is typeset separately. The build warns if editions with the same binding and trim end up with different page counts.
 | `backCover.category` | Shelving line at the top of the back cover, for example `Technology / Artificial intelligence`. |

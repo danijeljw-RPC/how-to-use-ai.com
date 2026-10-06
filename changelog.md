@@ -2,6 +2,17 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-06 (104)
+
+### Publishing
+
+- Release builds now write an **EPUB 2** next to the EPUB 3 (ADR-03-0014): `dist/release/31-book-01/9781764994828_ebook_epub2.epub` beside `9781764994828_ebook.epub`. Draft2Digital asked for an EPUB 2 to use its automated title, copyright and About the Author pages. Both files come from the same Markdown and share the EPUB edition's ISBN and metadata. The EPUB 2 uses PNG diagrams (older EPUB 2 readers show SVG unreliably). The EPUB 3 is unchanged.
+- The repeated-footnote link in `book.lua` now leaves out `epub:type` and `role` for EPUB 2. These EPUB 3-only attributes made epubcheck stop parsing every chapter that has a repeated footnote.
+- Fixed the integration test's stale EPUB file name (`31-book-01.epub`, renamed by ADR-03-0012).
+- Opened publishing OI-0011: the EPUB 2 already has the book's own title, copyright and About the Author pages, so ticking D2D's matching boxes would duplicate them.
+- Checked: 116 unit tests pass, and the full release integration test passes. A release EPUB build writes both files; both pass epubcheck, the EPUB 2 package is version 2.0 with the ISBN and 24 PNG images (no SVG).
+- Files changed: `pub-books.sh`, `publishing/pandoc/book.lua`, `tests/test_book_lua_repeated_notes.py`, `tests/test_publish_draft_books.sh`, `README.md`, `docs/40-publishing/books-json-reference.md`, `docs/40-publishing/decisions/ADR-03-0014-epub2-companion-file.md`, `docs/40-publishing/open-issues/OI-0011.md`, `docs/40-publishing/plans/epub2-companion-file-plan.md`, `changelog.md`. Decisions: ADR-03-0014 added. Open issues: publishing OI-0011 opened. Commit: see git log.
+
 ## 2026-10-06 (103)
 
 ### Publishing

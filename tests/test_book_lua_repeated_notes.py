@@ -1,5 +1,7 @@
 import subprocess
+import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 FILTER = Path(__file__).resolve().parent.parent / "publishing" / "pandoc" / "book.lua"
@@ -40,6 +42,23 @@ class RepeatedNotesTests(unittest.TestCase):
 
         self.assertEqual(html.count("Source A."), 2)
         self.assertIn('<a href="#fn1" class="footnote-ref" epub:type="noteref" role="doc-noteref"><sup>1</sup></a>', html)
+
+    def test_epub2_link_leaves_out_epub3_only_attributes(self):
+        # EPUB 2 is XHTML 1.1, where epub:type is an unbound prefix and
+        # epubcheck stops parsing the file.
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "book.epub"
+            subprocess.run(
+                ["pandoc", "-f", "markdown", "-t", "epub2", "--lua-filter", str(FILTER),
+                 "-M", "title=Test", "-o", str(output)],
+                input=SOURCE, capture_output=True, text=True, check=True,
+            )
+            with zipfile.ZipFile(output) as epub:
+                xhtml = "".join(epub.read(name).decode() for name in epub.namelist()
+                                if name.endswith(".xhtml"))
+
+        self.assertIn('<a href="#fn1" class="footnote-ref"><sup>1</sup></a>', xhtml)
+        self.assertNotIn("epub:type", xhtml)
 
 
 if __name__ == "__main__":
