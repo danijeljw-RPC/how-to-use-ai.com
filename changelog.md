@@ -2,6 +2,14 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-07
+
+### Website
+
+- Added a dedicated `/author/` profile with the existing author photograph, concise biography, technical background, forthcoming book, edition ISBNs and media contact route. No unverified interviews or reviews were added.
+- Added an Author link to primary navigation and connected ProfilePage, Person, Book and edition records through stable structured-data identifiers. ISBNs are read from the publishing source of truth.
+- Files changed: `wwwroot/src/pages/author.astro`, `wwwroot/src/components/Header.astro`, `changelog.md`. Validation: clean-main test suite passes (94 tests), Astro check reports zero errors, warnings or hints, build succeeds, and the rendered author page and structured-data relationships were inspected. Decisions and open issues: none. Commit: see git log.
+
 ## 2026-10-06 (104)
 
 ### Publishing
