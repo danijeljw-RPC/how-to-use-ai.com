@@ -1,7 +1,7 @@
 import { PDFDocument, rgb, type PDFPage } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { invoiceFont } from './invoice-font';
-import { brandAttachments } from '../email/branding';
+import { invoiceLogo } from './invoice-logo';
 import { catalogue, priceLabel, type StoreCurrency, type StoreFormat } from './catalogue';
 import type { StoreDB, StoreEnv } from './types';
 export const invoiceSeller = {
@@ -37,46 +37,52 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
     const fallbackSupported=new Set(font.getCharacterSet());
     if([...buyerText].some(c=>!fallbackSupported.has(c.codePointAt(0)!)))throw new Error('Unsupported invoice character');
   }
-  const logo=await doc.embedPng(fromBase64(brandAttachments[0].content));
-  const navy=rgb(.025,.075,.17), grey=rgb(.35,.4,.48);
-  let page:PDFPage=doc.addPage([595.28,841.89]), y=785;
-  function text(value:string,size=12,color=navy) {
-    const words=value.replace(/[\r\n\t]+/g,' ').split(' ');let line='';
-    for(const word of words){
-      // Break long emails/references without overflowing the page.
-      for(const part of word.match(/.{1,55}/gu)??['']) {
-        const next=line?line+' '+part:part;
-        if(font.widthOfTextAtSize(next,size)>490&&line){draw(line,size,color);line=part;}else line=next;
-      }
-    }
-    if(line)draw(line,size,color);
-  }
-  function draw(value:string,size:number,color:ReturnType<typeof rgb>){
-    if(y<85){page=doc.addPage([595.28,841.89]);y=785;}
-    page.drawText(value,{x:50,y,size,font,color});y-=size*1.5;
-  }
-  page.drawImage(logo,{x:50,y:765,width:240,height:48});y=715;
-  text(snapshot.mode==='test'?'TEST INVOICE — no money charged':snapshot.seller.gst==='registered'?'Tax Invoice':'Invoice',25);
-  text(`${invoiceNumber(number,snapshot.mode)} · PAID`,14);
-  text(`Issued: ${new Date(snapshot.date*1000).toISOString().slice(0,10)}`,11,grey);y-=18;
-  text(snapshot.seller.company,16);text(`ABN ${snapshot.seller.abn}`);text(snapshot.seller.product);text(snapshot.seller.email);y-=20;
-  text('Billed to',16);
-  for(const field of [snapshot.buyer.business_name,snapshot.buyer.name,snapshot.buyer.email])if(field)text(field);
-  const address=snapshot.buyer.address;
-  if(address){for(const line of [address.line1,address.line2,[address.city,address.state,address.postal_code].filter(Boolean).join(' '),address.country])if(line)text(line);}
-  for(const tax of snapshot.buyer.tax_ids??[])if(tax.value)text(`${tax.type.toUpperCase()}: ${tax.value}`);
-  y-=20;
-  text(`AI for Normal People — ${catalogue[snapshot.format].label}`,16);
+  const logo=await doc.embedPng(fromBase64(invoiceLogo));
+  const navy=rgb(.025,.075,.17), grey=rgb(.36,.41,.48), line=rgb(.86,.89,.92), pale=rgb(.95,.97,.99);
+  let page:PDFPage=doc.addPage([595.28,841.89]);
   const money=(value:number)=>priceLabel(value,snapshot.currency);
-  text(`Quantity: 1 · Book price: ${money(snapshot.subtotal)}`);
-  if(snapshot.discount)text(`Promotion discount: −${money(snapshot.discount)}`);
-  if(snapshot.shipping)text(`Delivery: ${money(snapshot.shipping)}`);
-  y-=12;text(`Total paid: ${money(snapshot.total)}`,20);text('Balance due: 0',12);
-  if(snapshot.seller.gst==='not-registered')text('Seller is not registered for GST. No GST charged.',11,grey);
-  // Registered status requires confirmed per-sale treatment; never assume 1/11 for international sales.
-  if(snapshot.mode==='test'&&snapshot.seller.gst==='unconfirmed')text('Test document only. GST treatment has not been configured.',11,grey);
-  y-=15;text(`Payment reference: ${snapshot.session}`,10,grey);
-  text('Purchase support: how-to-use-ai.com/contact/',11,grey);
+  const write=(value:string,x:number,y:number,size=11,color=navy)=>page.drawText(value,{x,y,size,font,color});
+  const right=(value:string,y:number,size=11,color=navy)=>write(value,545-font.widthOfTextAtSize(value,size),y,size,color);
+  const rule=(y:number)=>page.drawLine({start:{x:50,y},end:{x:545,y},thickness:.7,color:line});
+  function block(values:string[],x:number,y:number,width:number){
+    for(const value of values){
+      let row='';
+      for(const word of value.replace(/[\r\n\t]+/g,' ').match(/.{1,40}(?:\s|$)|\S{1,40}/gu)??[]){
+        const next=row+word;
+        if(font.widthOfTextAtSize(next,11)>width&&row){if(y<150){page=doc.addPage([595.28,841.89]);y=780;}write(row.trim(),x,y);y-=16;row=word;}else row=next;
+      }
+      if(row){if(y<150){page=doc.addPage([595.28,841.89]);y=780;}write(row.trim(),x,y);y-=16;}
+    }
+    return y;
+  }
+  page.drawRectangle({x:0,y:716,width:595.28,height:125.89,color:navy});
+  page.drawImage(logo,{x:50,y:743,width:230,height:46});
+  right('Invoice',766,30,rgb(1,1,1));right('Paid',740,12,rgb(.65,.84,.96));
+  rule(712);
+  write(invoiceNumber(number,'live'),50,690,13);
+  right(new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'Australia/Adelaide'}).format(new Date(snapshot.date*1000)),690);
+  write('From',50,647,11,grey);write('Bill to',315,647,11,grey);
+  const sellerEnd=block([snapshot.seller.company,`ABN ${snapshot.seller.abn}`,snapshot.seller.product,snapshot.seller.email],50,625,225);
+  const address=snapshot.buyer.address;
+  const buyerEnd=block([snapshot.buyer.business_name,snapshot.buyer.name,snapshot.buyer.email,address?.line1,address?.line2,address?[address.city,address.state,address.postal_code].filter(Boolean).join(' '):null,address?.country,...(snapshot.buyer.tax_ids??[]).filter(t=>t.value).map(t=>`${t.type==='au_abn'?'ABN':t.type.toUpperCase()}: ${t.value}`)].filter((v):v is string=>!!v),315,625,230);
+  let y=Math.min(sellerEnd,buyerEnd)-35;
+  if(y<380){page=doc.addPage([595.28,841.89]);write('Invoice · continued',50,785,20);y=730;}
+  page.drawRectangle({x:50,y:y-12,width:495,height:32,color:pale});
+  write('Description',62,y,11,grey);write('Qty',382,y,11,grey);right('Amount',y);
+  y-=45;write('AI for Normal People',62,y,14);write('1',388,y);right(money(snapshot.subtotal),y);
+  write(catalogue[snapshot.format].label,62,y-20,11,grey);
+  y-=48;rule(y);y-=28;
+  write('Subtotal',345,y);right(money(snapshot.subtotal),y);y-=24;
+  if(snapshot.discount){write('Discount',345,y);right(`−${money(snapshot.discount)}`,y);y-=24;}
+  if(snapshot.shipping){write('Delivery',345,y);right(money(snapshot.shipping),y);y-=24;}
+  page.drawRectangle({x:315,y:y-36,width:230,height:49,color:navy});
+  write('Total paid',329,y-17,13,rgb(1,1,1));
+  const total=money(snapshot.total);write(total,531-font.widthOfTextAtSize(total,17),y-17,17,rgb(1,1,1));
+  y-=64;write('Balance due',345,y);right(money(0),y);
+  if(snapshot.seller.gst==='not-registered')write('No GST charged. Seller is not registered for GST.',50,y-45,10,grey);
+  rule(104);write('Thank you for your purchase.',50,82,12);
+  write('Purchase support · hello@repasscloud.com',50,61,10,grey);
+  right('how-to-use-ai.com',61,10);
   doc.setTitle(`${invoiceNumber(number,snapshot.mode)} — ${snapshot.seller.company}`);
   doc.setAuthor(snapshot.seller.company);
   return doc.save();

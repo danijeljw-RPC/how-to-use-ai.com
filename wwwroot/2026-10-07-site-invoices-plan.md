@@ -34,3 +34,12 @@ receipts alone would cover the requested company invoice.
 
 Dependency audit reports existing Astro/Cloudflare/Wrangler transitive advisories; no new
 invoice-library advisory was listed. No unrelated framework upgrade was introduced.
+
+## Design revision — 8 October 2026
+
+White canonical pill on solid navy header; clean two-column issuer/buyer details,
+line-item table, aligned subtotal/discount/delivery and navy total panel. PDF itself
+has no test banners, test invoice prefix, payment sandbox reference or configuration
+commentary, as requested. Internal mode isolation and attachment filename prefixes
+remain. Existing issued PDFs remain immutable; redesign applies to newly generated
+invoices and the updated local preview. Live GST gate remains unchanged.

@@ -48,7 +48,7 @@ Historic orders are not silently backfilled. Stripe invoice_creation remains dis
 and explicit Stripe receipt_email is removed. Existing Stripe Dashboard automatic
 receipt settings may still send receipts until the operator switches them off.
 
-Test invoices use TEST identifiers and say no money was charged. Live checkout is
+Test mode remains isolated internally and in attachment filenames; the PDF uses the actual invoice presentation without test banners or configuration commentary. Live checkout is
 currently gated on confirmed invoice tax treatment, because existing legal records
 leave Australian price/GST treatment unconfirmed. GST-registered invoicing requires
 per-sale treatment, including overseas sales, before that gate can be removed. Never

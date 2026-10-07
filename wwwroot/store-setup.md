@@ -156,7 +156,7 @@ The PDF includes RePass Cloud Pty Ltd, ABN 74642243801, the How-To-Use-AI.com bu
 logo, buyer/business/billing/tax-ID details supplied in Checkout, invoice number,
 issue date, product, discount, shipping and total in the charged currency. A private
 copy is available in the buyer's library. Original documents are preserved unchanged.
-The number has a TEST prefix for sandbox purchases. No Stripe invoice add-on is enabled.
+Sandbox mode remains isolated internally and in filenames. Visible PDFs use the real invoice design without test banners. No Stripe invoice add-on is enabled.
 To avoid duplicate Stripe payment receipts, review Stripe Dashboard customer-email settings.
 
 Migration 0004 adds private invoice storage in D1. Existing purchases are not automatically
