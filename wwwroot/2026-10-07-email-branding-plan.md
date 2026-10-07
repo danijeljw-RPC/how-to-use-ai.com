@@ -5,3 +5,5 @@ Use deterministic email PNG derivatives of the site bubble wordmark and favicon 
 Files: template layout/test, generated SVG/PNG derivatives, reusable generation script, setup/changelog notes. No API contract, pricing or readiness changes. User authorised autonomous design and previous inbox tests. Risks: image-blocking/dark-mode behaviour; retain plain text and fallback alt. Acceptance: focused/full checks pass, inspect PNGs, deploy, send one controlled sign-in test through actual outbox. No ADR/OI dependencies.
 
 Validation: 111 tests pass; final Astro check reports zero errors/warnings/hints; build succeeds. PNG derivatives were visually inspected. Inline CID assets avoid the observed HTTP image-fetch failures. Published version 5f6077e9-2bcc-44b9-aa89-6e4c3c1bd55d. One controlled sign-in email was queued to hello@repasscloud.com via the regular outbox; delivery state will be recorded below.
+
+Inbox test: the regular scheduled outbox submitted the updated sign-in template with both inline images. D1 records state=sent (provider accepted), provider_status=queued, message ID 6ac5e960b99bb6b557b71375, no error. Inbox display remains for the author to confirm.

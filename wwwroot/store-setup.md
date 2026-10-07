@@ -131,7 +131,7 @@ Restrict access to platform request logs because link URLs can contain short-liv
 
 ## Current published state
 
-MailerSend implementation deployed 7 October 2026, version `e4bba15a-c34f-48d5-80fe-68c488538c37`. Email sign-in is enabled at /downloads/; native Cloudflare email is removed. COMMERCE_ENABLED remains false, Stripe mode is test and signed sales are disabled. Three labelled visual-test emails to hello@repasscloud.com received MailerSend 202 acceptance; inbox receipt and browser sign-in remain for the operator to confirm. No test payment or customer purchase was created by these preview sends. Migration 0003 is applied locally and remotely; scheduled maintenance remains active.
+MailerSend implementation deployed 7 October 2026, version `5f6077e9-2bcc-44b9-aa89-6e4c3c1bd55d`. Email sign-in is enabled at /downloads/; native Cloudflare email is removed. COMMERCE_ENABLED remains false, Stripe mode is test and signed sales are disabled. Three labelled visual-test emails to hello@repasscloud.com received MailerSend 202 acceptance; inbox receipt and browser sign-in remain for the operator to confirm. No test payment or customer purchase was created by these preview sends. Migration 0003 is applied locally and remotely; scheduled maintenance remains active.
 
 ## Purchase support and retailer branding
 
