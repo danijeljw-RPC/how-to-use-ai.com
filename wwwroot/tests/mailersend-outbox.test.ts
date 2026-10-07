@@ -5,7 +5,7 @@ import { sqliteStore } from "./helpers/sqlite-store";
 import { deliverOutbox, enqueueAccess } from "../src/lib/store/email";
 function setup() {
   const sql = new DatabaseSync(":memory:");
-  for (const name of ["0002_digital_store.sql", "0003_mailersend_outbox.sql", "0004_store_invoices.sql"])
+  for (const name of ["0002_digital_store.sql", "0003_mailersend_outbox.sql", "0004_store_invoices.sql", "0005_invoice_stripe_references.sql"])
     sql.exec(
       readFileSync(new URL(`../migrations/${name}`, import.meta.url), "utf8"),
     );

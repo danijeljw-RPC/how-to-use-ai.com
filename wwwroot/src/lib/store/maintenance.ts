@@ -1,3 +1,4 @@
+import {syncInvoiceReferences} from './invoice-stripe';
 import { createStripeClient } from '../stripe';
 import { acceptStoreEvent } from './webhook';
 import { deliverOutbox } from './email';
@@ -115,6 +116,9 @@ export async function maintainStore(env: StoreEnv) {
     }
   }
   await deliverOutbox({ db, env });
+  try { await syncInvoiceReferences(env); } catch {
+    console.error(JSON.stringify({event:'invoice_reference_sync_unavailable'}));
+  }
   await db.batch([
     db.prepare('DELETE FROM store_auth WHERE expires_at<?').bind(now - 86400),
     db

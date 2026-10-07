@@ -54,3 +54,12 @@ leave Australian price/GST treatment unconfirmed. GST-registered invoicing requi
 per-sale treatment, including overseas sales, before that gate can be removed. Never
 label a registered live invoice Tax Invoice without its correct tax breakdown.
 Refund/credit-note automation is not part of this change.
+
+## Invoice-to-Stripe reference synchronization
+
+The displayed HTUAI invoice number is written to Stripe PaymentIntent description and
+invoice_number metadata, with the internal mode-specific invoice key and Checkout session
+ID alongside it. Checkout Session metadata carries the same invoice reference. A durable
+per-invoice sync marker/retry timestamp ensures transient errors do not block fulfilment
+or purchase emails. Existing invoice records are synchronized without recreating PDFs.
+Restricted Stripe keys require Payment Intents Write as well as Checkout Sessions Write.

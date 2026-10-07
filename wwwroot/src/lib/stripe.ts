@@ -4,8 +4,8 @@ export interface StripeVerificationOptions {
   tolerance?: number;
 }
 
-export function createStripeClient(secretKey: string): Stripe {
-  return new Stripe(secretKey, { httpClient: Stripe.createFetchHttpClient() });
+export function createStripeClient(secretKey: string, options: {timeout?:number;maxNetworkRetries?:number} = {}): Stripe {
+  return new Stripe(secretKey, { httpClient: Stripe.createFetchHttpClient(), ...options });
 }
 
 export async function verifyStripeEvent(

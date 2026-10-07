@@ -1,3 +1,4 @@
+import {syncInvoiceReferences} from './invoice-stripe';
 import { isSameOrigin, isAcceptedFormContentType } from '../validation';
 import { verifyTurnstile } from '../turnstile';
 import { createStripeClient, verifyStripeEvent } from '../stripe';
@@ -238,6 +239,10 @@ export async function handleStoreWebhook(request: Request, env: StoreEnv) {
           expand: ['line_items.data.price.product'],
         }),
     });
+    const object=event.data.object as {id?:string};
+    if(object.id?.startsWith('cs_')){
+      try{await syncInvoiceReferences(env,{session:object.id});}catch{console.error(JSON.stringify({event:'invoice_reference_sync_unavailable'}));}
+    }
     return Response.json(
       { ok: true, outcome: result },
       { headers: privateHeaders },

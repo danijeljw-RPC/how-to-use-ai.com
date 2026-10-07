@@ -171,3 +171,26 @@ The current test invoices deliberately do not state an invented GST amount.
 Invoice font derivatives use the site's IBM Plex font (OFL) with licensed Noto Sans JP
 fallback for Japanese buyer details. Re-run scripts/generate-email-branding.py to refresh
 the canonical embedded invoice font as well as email branding.
+
+### Linking invoices to Stripe payments
+
+Each invoice's displayed HTUAI number is synchronized into the Checkout Session metadata
+and PaymentIntent description/metadata. This preserves the original site invoice and
+PDF; Stripe invoice generation is still disabled. Background retries also cover existing
+invoice records and do not block the purchase email.
+
+The restricted Worker key needs **Payment Intents: Write** (previously Read), plus the
+existing Checkout Sessions: Write permission. Update the existing restricted key's
+permissions in Stripe; its value does not change, so no new secret upload/deployment is
+needed. Confirm the test/live environment matches the key. Permission failures are
+recorded on the invoice as sync_error=permission_denied and retry after five minutes.
+
+For a visible number such as HTUAI-0000001, inspect the payment description and its
+invoice_number metadata. Stripe metadata search uses e.g.
+`metadata['invoice_number']:'HTUAI-0000001'` where supported; the description also carries
+the human-readable number. Invoice-to-payment associations are held by session_id and
+payment_id in D1. A fully discounted order has a Checkout session but no payment transaction.
+
+8 October verification: Worker key successfully updated Checkout metadata but was denied
+PaymentIntent updates. Existing invoice HTUAI-0000001 was linked using the authorized Stripe
+CLI; the recurring Worker retry still requires the restricted-key permission change above.

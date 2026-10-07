@@ -47,7 +47,7 @@ beforeEach(() => {
   }));
   sql = new DatabaseSync(':memory:');
   sql.exec('PRAGMA foreign_keys=ON');
-  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql']) {
+  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql','0005_invoice_stripe_references.sql']) {
     // First migration uses the repository's exact filename below.
     if (name.startsWith('0001')) continue;
     sql.exec(
