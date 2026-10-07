@@ -129,7 +129,7 @@ export function checkoutParams(
     ...(physical
       ? {
           shipping_address_collection: {
-            allowed_countries: [attempt.country as 'AU' | 'NZ'],
+            allowed_countries: [attempt.country as 'AU' | 'NZ' | 'US'],
           },
           shipping_options: [
             {

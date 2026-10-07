@@ -43,7 +43,7 @@ const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
 {env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
   <section aria-labelledby="signed-copy-title">
     <h2 id="signed-copy-title">Signed paperback</h2>
-    <p>Signed copies are ordered here and dispatched separately from Amazon. Delivery is available to Australia and New Zealand.</p>
+    <p>Signed copies are ordered here and dispatched separately from Amazon. Delivery is available to Australia 🇦🇺 and New Zealand 🇳🇿 currently.</p>
     {(['AU','NZ'] as const).map(country=>{
       const settings=signedSettings(env,currency,country);
       return settings&&<div class="store-offer">
