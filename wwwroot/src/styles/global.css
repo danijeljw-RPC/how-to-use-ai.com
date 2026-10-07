@@ -28,7 +28,7 @@
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --measure: 70ch;
   --shell: min(1120px, calc(100% - 2rem));
-  font-family: var(--serif);
+  font-family: var(--sans);
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
@@ -40,7 +40,7 @@ body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink);
 img { display: block; max-width: 100%; height: auto; }
 a { color: var(--sky-dark); text-underline-offset: 0.2em; }
 a:hover { color: var(--navy); }
-button, input, textarea { font: inherit; }
+button, input, textarea, select { font: inherit; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 h1, h2, h3 {
@@ -57,7 +57,7 @@ p { max-width: var(--measure); margin: 0 0 1rem; }
 
 .shell { width: var(--shell); margin-inline: auto; }
 .narrow { width: min(760px, calc(100% - 2rem)); margin-inline: auto; }
-.prose { font-family: var(--serif); font-size: 1.1rem; }
+.prose { font-family: var(--sans); font-size: 1.1rem; }
 .prose > * { max-width: var(--measure); }
 .prose h2, .prose h3 { margin-top: 2.6rem; }
 .prose li { margin-bottom: 0.5rem; }
@@ -86,7 +86,7 @@ p { max-width: var(--measure); margin: 0 0 1rem; }
 .hero { overflow: hidden; padding-block: clamp(3rem, 8vw, 7rem) clamp(4rem, 9vw, 8rem); background: var(--navy); color: white; }
 .hero .kicker { color: var(--sky); }
 .hero-grid { display: grid; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
-.hero-copy .lede { max-width: 56ch; color: var(--sky-light); font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.35rem); font-style: italic; }
+.hero-copy .lede { max-width: 56ch; color: var(--sky-light); font-family: var(--sans); font-size: clamp(1.15rem, 2vw, 1.35rem); }
 .button-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
 .button, button { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; border: 2px solid var(--navy); border-radius: 0.35rem; padding: 0.65rem 1.1rem; background: var(--navy); color: white; font-family: var(--sans); font-size: 1.05rem; font-weight: 700; line-height: 1.2; text-decoration: none; cursor: pointer; }
 .button:hover, button:hover { border-color: var(--sky-dark); background: var(--sky-dark); color: white; }
@@ -246,3 +246,9 @@ select { max-width: 100%; padding: 0.65rem; font: inherit; }
   .currency-form { justify-content: flex-start; flex-wrap: wrap; }
   .forthcoming-editions { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+/* Interface typography: library-style sans throughout; mono only for literal code. */
+code, pre, kbd, samp { font-family: var(--mono); }
+.checkout-page { padding-block: 3rem; }
+.checkout-page h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+.checkout-followup { margin-top: 1.5rem; }

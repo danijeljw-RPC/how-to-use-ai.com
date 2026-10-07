@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Checkout cancelled" description="Return to the site after leaving checkout without completing it." canonicalPath="/checkout/cancel/" robots="noindex, nofollow">
-  <section class="page-section">
+  <section class="page-section checkout-page">
     <div class="narrow">
       <p class="kicker">Checkout return</p>
       <h1>No purchase is claimed here.</h1>
@@ -11,7 +11,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <a class="button secondary" href="/purchase/">Purchase options</a>
         <a class="button secondary" href="/api/preview/">Read the preview</a>
       </div>
-      <p>Your unfinished checkout expires after about 31 minutes. A payment still processing may take longer. Contact <a href="/contact/?subject=purchase-support">purchase support</a> if you need help.</p>
+      <div class="checkout-followup">
+        <p>Your unfinished checkout expires after about 31 minutes. A payment still processing may take longer.</p>
+        <p>Contact <a href="/contact/?subject=purchase-support">purchase support</a> if you need help.</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
