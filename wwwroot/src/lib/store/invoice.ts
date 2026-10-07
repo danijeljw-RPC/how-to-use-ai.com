@@ -61,8 +61,11 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
   rule(712);
   write(invoiceNumber(number,'live'),50,690,13);
   right(new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'Australia/Adelaide'}).format(new Date(snapshot.date*1000)),690);
-  write('Bill to',50,647,11,grey);write('From',315,647,11,grey);
-  const sellerEnd=block([snapshot.seller.company,`ABN ${snapshot.seller.abn}`,snapshot.seller.product,snapshot.seller.email],315,625,230);
+  const sellerLines=[snapshot.seller.company,`ABN ${snapshot.seller.abn}`,snapshot.seller.product,snapshot.seller.email];
+  const sellerWidth=Math.max(...sellerLines.map(value=>font.widthOfTextAtSize(value,11)));
+  const sellerX=545-sellerWidth;
+  write('Bill to',50,647,11,grey);write('From',sellerX,647,11,grey);
+  const sellerEnd=block(sellerLines,sellerX,625,sellerWidth+1);
   const address=snapshot.buyer.address;
   const buyerEnd=block([snapshot.buyer.business_name,snapshot.buyer.name,snapshot.buyer.email,address?.line1,address?.line2,address?[address.city,address.state,address.postal_code].filter(Boolean).join(' '):null,address?.country,...(snapshot.buyer.tax_ids??[]).filter(t=>t.value).map(t=>`${t.type==='au_abn'?'ABN':t.type.toUpperCase()}: ${t.value}`)].filter((v):v is string=>!!v),50,625,225);
   let y=Math.min(sellerEnd,buyerEnd)-35;
