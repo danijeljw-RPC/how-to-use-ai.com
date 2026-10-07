@@ -12,3 +12,13 @@ prompt*.md
 prompt.txt
 prompt*.txt
 *-prompt.md
+
+# wwwroot
+node_modules/
+dist/
+.astro/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.dev.vars.example
