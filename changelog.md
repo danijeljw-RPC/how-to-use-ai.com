@@ -2,6 +2,13 @@
 
 All meaningful project changes should be recorded here.
 
+## 2026-10-07 (author ORCID)
+
+### Website
+
+- Added the author-supplied ORCID iD, `0009-0003-5304-1340`, as a visible profile link and a `Person.sameAs` identity relationship.
+- Files changed: `wwwroot/src/pages/author.astro`, `changelog.md`. Decisions and open issues: none. Commit: see git log.
+
 ## 2026-10-07
 
 ### Website
