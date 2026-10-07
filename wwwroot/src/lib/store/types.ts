@@ -13,7 +13,7 @@ export interface StoreDB {
 export interface StoreEnv extends SiteEnvironment {
   STORE_MODE?: string;
   STORE_SIGNING_SECRET?: string;
-  STORE_EMAIL_FROM?: string;
+  MAILERSEND_API_KEY?: string;
   STORE_EMAIL_READY?: string;
   STORE_PRODUCT_PDF?: string;
   STORE_PRODUCT_EPUB?: string;
@@ -23,7 +23,6 @@ export interface StoreEnv extends SiteEnvironment {
   BOOK_EPUB_KEY?: string;
   STORE_SIGNED_ENABLED?: string;
   BOOK_FILES?: Pick<R2Bucket, 'head' | 'get'>;
-  STORE_EMAIL?: Pick<SendEmail, 'send'>;
   SITE_DB?: StoreDB;
 }
 export function storeMode(env: StoreEnv): Mode {
@@ -34,9 +33,8 @@ export function authReady(env: StoreEnv): boolean {
     env.SITE_URL?.startsWith('https://') &&
     env.STORE_SIGNING_SECRET &&
     env.STORE_SIGNING_SECRET.length >= 32 &&
-    env.STORE_EMAIL &&
-    env.STORE_EMAIL_READY === 'true' &&
-    env.STORE_EMAIL_FROM
+    env.MAILERSEND_API_KEY?.trim() &&
+    env.STORE_EMAIL_READY === 'true'
   );
 }
 export function paymentModeReady(env: StoreEnv): boolean {

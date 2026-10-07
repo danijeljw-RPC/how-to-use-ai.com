@@ -17,7 +17,6 @@ RETAILER_GOOGLE_PLAY_BOOKS_URL=""
 # Digital store; keep disabled until private assets, email and Stripe test checks pass.
 STORE_MODE="test"
 STORE_EMAIL_READY="false"
-STORE_EMAIL_FROM="hello@how-to-use-ai.com"
 STORE_SIGNING_SECRET=""
 # Generate a private random value of at least 32 characters; never reuse a published example.
 STORE_PRODUCT_PDF="prod_VOC3ptyaUPGT00"
@@ -27,3 +26,6 @@ BOOK_PDF_KEY="book-01/current/ai-for-normal-people.pdf"
 BOOK_EPUB_KEY="book-01/current/ai-for-normal-people.epub"
 STORE_SIGNED_ENABLED="false"
 STORE_PRODUCT_SIGNED=""
+
+# MailerSend API key; use Worker secrets for deployed configuration.
+MAILERSEND_API_KEY=""

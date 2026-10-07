@@ -13,3 +13,7 @@ All endpoints use trailing slashes. Private responses are no-store and noindex; 
 - Worker scheduled handler: retries ready outbox jobs using expiring database leases, cleans expired auth/rate rows and reconciles stale checkout attempts against Stripe. Does not depend on website traffic. Failed jobs remain inspectable; do not discard them.
 
 Signed-copy Checkout amounts and per-country shipping rates are server-controlled by `signedBookPricing` in `src/lib/store/catalogue.ts`. Wrangler retains the Product and enable flag; serialized price/shipping variables are no longer used. Supported delivery countries remain AU/NZ, and a country/currency needs an explicit rate.
+
+## MailerSend contract
+
+The approved MailerSend adapter POSTs generated HTML and text to https://api.mailersend.com/v1/email with a server-only Bearer token, a fixed hello@repasscloud.com From/Reply-To, one verified customer recipient and tracking disabled. Redirects are rejected; requests have a fifteen-second timeout and responses are bounded. 202 with x-message-id records accepted/queued or paused, not delivered. Definitive rejection is failed; explicit 429 retries within eight attempts; uncertainty becomes ambiguous without automatic resubmission. A stale submitting lease is also ambiguous. D1 stores provider IDs and sanitized categories, never raw provider errors or login URLs. Project templates are the sole source of email content.

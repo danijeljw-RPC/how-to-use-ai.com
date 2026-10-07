@@ -25,7 +25,7 @@ const env = {
   STRIPE_SECRET_KEY: 'sk_test_fixture',
   STRIPE_WEBHOOK_SECRET: 'whsec_fixture',
   STORE_SIGNING_SECRET: 'a-test-only-signing-secret-longer-than-32-characters',
-  STORE_EMAIL_FROM: 'hello@repasscloud.com',
+  MAILERSEND_API_KEY: 'test-mailersend-key',
   STORE_EMAIL_READY: 'true',
   STORE_PRODUCT_PDF: 'prod_pdf',
   STORE_PRODUCT_EPUB: 'prod_epub',
@@ -36,12 +36,10 @@ const env = {
     head: vi.fn().mockResolvedValue({ size: 8 }),
     get: vi.fn().mockResolvedValue({ body: 'newest', size: 6 }),
   },
-  STORE_EMAIL: { send: vi.fn().mockResolvedValue({ messageId: 'mail_1' }) },
 };
 beforeEach(() => {
   env.BOOK_FILES.head.mockResolvedValue({ size: 8 });
   env.BOOK_FILES.get.mockResolvedValue({ body: 'newest', size: 6 });
-  env.STORE_EMAIL.send.mockResolvedValue({ messageId: 'mail_1' });
   create.mockImplementation(async () => ({
     id: 'cs_1',
     url: 'https://checkout.stripe.com/c/pay/test',
@@ -49,7 +47,7 @@ beforeEach(() => {
   }));
   sql = new DatabaseSync(':memory:');
   sql.exec('PRAGMA foreign_keys=ON');
-  for (const name of ['0001_initial.sql', '0002_digital_store.sql']) {
+  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql']) {
     // First migration uses the repository's exact filename below.
     if (name.startsWith('0001')) continue;
     sql.exec(
@@ -469,7 +467,8 @@ describe('digital store security and fulfilment', () => {
     const enabled = { ...env, STORE_SIGNED_ENABLED: 'true', STORE_PRODUCT_SIGNED: 'prod_signed' };
     expect(signedSettings(env, 'aud', 'AU')).toBeNull();
     expect(signedSettings(enabled, 'usd', 'US')).toBeNull();
-    expect(signedSettings(enabled, 'nzd', 'NZ')).toBeNull();
+    expect(signedSettings(enabled, 'nzd', 'NZ')).toMatchObject({amount:4800,shipping:1500});
+    expect(signedSettings(enabled, 'jpy', 'NZ')).toBeNull();
     expect(signedSettings(enabled, 'usd', 'AU')).toBeNull();
     expect(signedSettings(enabled, 'unknown', 'AU')).toBeNull();
   });
@@ -572,15 +571,15 @@ describe('digital store security and fulfilment', () => {
     });
     const send = vi
       .fn()
-      .mockRejectedValueOnce(new Error('offline'))
-      .mockResolvedValue({ messageId: 'mail' });
-    await deliverOutbox({ db, env: { ...env, STORE_EMAIL: { send } }, now });
+      .mockResolvedValueOnce(new Response(null,{status:429}))
+      .mockImplementation(async()=>new Response(null,{status:202,headers:{'x-message-id':'mail'}}));
+    await deliverOutbox({ db, env, request: send, now });
     expect(sql.prepare('SELECT state FROM store_outbox').get()?.state).toBe(
       'pending',
     );
     await deliverOutbox({
       db,
-      env: { ...env, STORE_EMAIL: { send } },
+      env, request: send,
       now: () => now() + 301,
     });
     expect(sql.prepare('SELECT state FROM store_outbox').get()?.state).toBe(

@@ -28,3 +28,11 @@
 - Added `book-sales-questions.md` and `2026-10-06-book-sales-plan.md` for pricing, rights, fulfilment and Stripe implementation decisions. No publishing ADRs or OIs outside `wwwroot` changed.
 - Validation: 67 passing tests, including rendered routes; Astro check with zero diagnostics; clean production build. Test runtime used an alternate inspector port because the default was occupied.
 - Commit: `publishing: add Kindle pre-order links and direct-sales plan`.
+
+## 7 October 2026 — MailerSend transactional email
+
+- Replaced native Cloudflare email sending with MailerSend and fixed hello@repasscloud.com From/Reply-To.
+- Added project-owned HTML/plain-text templates and safe local previews.
+- Added provider acceptance IDs, explicit uncertain-send handling and stale-lease protection to the durable outbox.
+- Applied additive outbox migration; preserved payment and entitlement data.
+- Updated operational and privacy information.

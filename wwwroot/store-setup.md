@@ -1,5 +1,7 @@
 # Book store setup and operation
 
+> **Email provider change, 7 October 2026:** The approved [MailerSend replacement plan](2026-10-07-mailersend-email-plan.md) is implemented. Cloudflare remains the website hosting/storage provider.
+
 Updated 7 October 2026. The author's answers in `book-sales-questions.md` are accepted. The implemented design replaces the old ebook/print proposal.
 
 ## Implemented behaviour
@@ -44,21 +46,17 @@ npx wrangler r2 object put how-to-use-ai-books/book-01/current/ai-for-normal-peo
 
 `BOOK_PDF_KEY` and `BOOK_EPUB_KEY` in `wrangler.jsonc` point to these private keys. Keep the full books out of `public/` and public buckets. No public R2 document URL is required: the Worker streams the object only after access checks. Keep dated archival editions under separate keys if needed; only the current key is served to buyers. Local testing uses separate local R2 storage by omitting `--remote`; never upload a test fixture to the production current keys.
 
-## Enable transactional email
+## Enable transactional email with MailerSend
 
-The implementation uses native Cloudflare Email Sending, not newsletter sending. Sender: `hello@how-to-use-ai.com`; reply-to and support: `hello@repasscloud.com`.
+MailerSend is the only outgoing email provider. All messages use `hello@repasscloud.com` as From and Reply-To, with project-owned HTML/plain-text templates in `src/lib/email/templates/`. No native Cloudflare email binding or MailerSend-hosted template ID is needed. Keep receiving mailbox MX records intact when authenticating repasscloud.com in MailerSend.
 
-The current credential cannot list Email Sending domains: Cloudflare returned `Unauthorized [2036]`. Sender onboarding is unverified. With an authorised account, onboard/verify `how-to-use-ai.com` under Email Sending and complete its required authentication records. Check domain status before turning on the email-ready flag. This is separate from Email Routing and its verified-forwarding-destination feature.
+Upload the API token using `npx wrangler secret put MAILERSEND_API_KEY`. Grant Email Full access; dashboard template access is unnecessary. Confirm the sender domain is verified, the account can send to real recipients, token expiry is suitable and quota is sufficient. No secret goes into tracked files or public variables.
 
-After verification, add this top-level binding in `wrangler.jsonc`:
+Keep `STORE_EMAIL_READY=false` until configured for controlled tests. Enable it to exercise sign-in delivery while `COMMERCE_ENABLED=false`, build/deploy and check a real inbox. Revert readiness if delivery fails. The existing Stripe and signing secrets are retained.
 
-```json
-"send_email": [{ "name": "STORE_EMAIL", "allowed_sender_addresses": ["hello@how-to-use-ai.com"] }]
-```
+The three templates cover sign-in, digital purchases and signed-paperback confirmations. Contact/newsletter remain record-only. Full ebooks are never attached. Tracking is disabled and direct website links are used.
 
-Then regenerate types with `npm run cf-typegen`. Set `STORE_EMAIL_READY` to `true` only after a real mailbox delivery test you control succeeds. The binding is deliberately not configured in the production config while readiness cannot be verified. Development email simulations do not prove actual delivery.
-
-Messages are transactional only: login links, purchase delivery and signed-order confirmation. The newsletter continues to record signups without sending marketing messages. No full ebook is attached to email.
+Local previews: `npx esbuild scripts/render-email-previews.ts --bundle --platform=node --format=esm --outfile=.wrangler/render-email-previews.mjs`, then `node .wrangler/render-email-previews.mjs`. Safe preview HTML/text files are written under `.wrangler/email-previews/` using nonfunctional example URLs.
 
 ## Connect Stripe in test mode
 
@@ -112,14 +110,14 @@ Useful D1 queries (select the intended test/live mode):
 
 ```sql
 SELECT session_id,email,format,status,created_at FROM store_orders WHERE mode='live' ORDER BY created_at DESC;
-SELECT id,kind,state,attempts,next_at FROM store_outbox WHERE mode='live' AND state IN ('pending','failed');
+SELECT id,kind,state,attempts,next_at FROM store_outbox WHERE mode='live' AND state IN ('pending','submitting','failed','ambiguous');
 SELECT id,email,state,session_id,next_check FROM store_attempts WHERE mode='live' AND state IN ('creating','open','pending');
 ```
 
-Email jobs claim a two-minute lease and retry up to eight times with backoff. Provider acceptance is recorded as `sent`; this is not proof the recipient read the message. A send accepted immediately before a worker/database failure may be retried, so a duplicate email remains possible; paid entitlements and orders are still idempotent. Failed jobs stay stored. After fixing the delivery issue, reset only a selected failed job to pending:
+Email jobs claim a two-minute lease and retry up to eight times with backoff. Provider acceptance is recorded as `sent` plus a provider message ID and queued/paused status; it is not inbox-delivery evidence. Unknown acceptance, timeout or an interrupted submission becomes `ambiguous` and is not automatically resent. Explicit rate-limit rejections retry with backoff; definitive rejections remain failed. Paid entitlements and orders remain idempotent. Failed jobs stay stored. After fixing a definitive rejection, reset only a selected failed job to pending. Never blanket-requeue ambiguous/submitting jobs; inspect MailerSend activity and retain uncertain outcomes for manual review. An absent activity result is not proof of non-acceptance:
 
 ```sql
-UPDATE store_outbox SET state='pending',attempts=0,next_at=unixepoch(),lease_id=NULL,lease_until=NULL WHERE id='the-selected-job-id' AND state='failed';
+UPDATE store_outbox SET state='pending',attempts=0,next_at=unixepoch(),lease_id=NULL,lease_until=NULL,last_error_code=NULL WHERE id='the-selected-job-id' AND state='failed';
 ```
 
 Restrict access to platform request logs because link URLs can contain short-lived bearer tokens. Application error logs omit addresses, tokens and provider request details. Watch structured Worker logs for `store_email_retry`, `store_reconciliation_failed` and `store_request_failed`. Connect an operational log alert to hello@repasscloud.com if desired; do not depend on the failing email sender to alert about its own outage. Buyer support uses `/contact/?subject=purchase-support`; hello@repasscloud.com is the transactional reply-to and operational fallback. Expired sign-in/download links do not require a refund or repurchase; direct customers to `/downloads/`.
@@ -128,12 +126,12 @@ Restrict access to platform request logs because link URLs can contain short-liv
 
 - [Stripe currencies](https://docs.stripe.com/currencies): minor units, including JPY, and the distinction between presentment and settlement.
 - [Stripe fulfilment](https://docs.stripe.com/checkout/fulfillment.md?payment-ui=stripe-hosted): verified paid-state fulfilment and delayed-success events.
-- [Cloudflare Email Sending binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/): native structured transactional email.
+- [MailerSend email API](https://developers.mailersend.com/api/v1/email): structured transactional sending, acceptance IDs and suppression outcomes.
 - [R2 Workers API](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/): private binding reads and streaming bodies.
 
 ## Current published state
 
-The prepared pages are published at https://how-to-use-ai.com/purchase/ and https://how-to-use-ai.com/downloads/. Latest deployment from this chat: `e8154424-0678-4a4f-b4c1-6336983e93c4`. This configuration audit has not deployed further changes. The production migration is applied and the five-minute schedule is registered. Sales and email sign-in remain disabled until the activation inputs above exist. Live browser verification confirmed the retailer list, AUD and JPY offers, and the disabled library; an automated HTTP client received 403.
+MailerSend implementation deployed 7 October 2026, version `e4bba15a-c34f-48d5-80fe-68c488538c37`. Email sign-in is enabled at /downloads/; native Cloudflare email is removed. COMMERCE_ENABLED remains false, Stripe mode is test and signed sales are disabled. Three labelled visual-test emails to hello@repasscloud.com received MailerSend 202 acceptance; inbox receipt and browser sign-in remain for the operator to confirm. No test payment or customer purchase was created by these preview sends. Migration 0003 is applied locally and remotely; scheduled maintenance remains active.
 
 ## Purchase support and retailer branding
 
@@ -143,4 +141,4 @@ The retailer list uses KDP's supplied Available at Amazon badge, unchanged, once
 
 ## Latest configuration audit
 
-See `store-configuration-audit.md` for the verified resource status, remaining secrets/email/webhook tasks, physical shipping-map limits and test-purchase checklist. The obsolete `STRIPE_PRICE_EBOOK` variable has been removed from active configuration. Signed-copy values are now maintained in `signedBookPricing` in the catalogue; only AU/AUD currently has a usable shipping pair.
+See `store-configuration-audit.md` for the verified resource status, remaining secrets/email/webhook tasks, physical shipping-map limits and test-purchase checklist. The obsolete `STRIPE_PRICE_EBOOK` variable has been removed from active configuration. Signed-copy values are now maintained in `signedBookPricing` in the catalogue; AU/AUD and the author-added NZ/NZD shipping pair are configured.

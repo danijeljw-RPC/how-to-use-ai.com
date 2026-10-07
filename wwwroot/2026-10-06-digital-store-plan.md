@@ -1,5 +1,7 @@
 # Digital store implementation plan
 
+> **Email provider change, 7 October 2026:** MailerSend replaces the Cloudflare Email Sending proposal. See [the replacement plan](2026-10-07-mailersend-email-plan.md), approved and implemented. Cloudflare email setup instructions below are superseded by MailerSend.
+
 ## Author decisions and scope
 
 The author updated `book-sales-questions.md` and explicitly authorised autonomous implementation. Preserve those answers. Digital editions have no exclusivity restriction. Sell PDF, EPUB and their bundle at the eight supplied currency prices. Standard print orders are Amazon purchases, not website shipping orders. Add a separately disabled signed-copy product with AU/NZ address collection and configurable prices/shipping. Use Peach Freestyle only in test mode; live activation waits for the separate live merchant account. Support: hello@repasscloud.com. Downloads always resolve the current private R2 assets.
