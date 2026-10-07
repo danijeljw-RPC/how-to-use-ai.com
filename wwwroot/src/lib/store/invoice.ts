@@ -61,10 +61,10 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
   rule(712);
   write(invoiceNumber(number,'live'),50,690,13);
   right(new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'Australia/Adelaide'}).format(new Date(snapshot.date*1000)),690);
-  write('From',50,647,11,grey);write('Bill to',315,647,11,grey);
-  const sellerEnd=block([snapshot.seller.company,`ABN ${snapshot.seller.abn}`,snapshot.seller.product,snapshot.seller.email],50,625,225);
+  write('Bill to',50,647,11,grey);write('From',315,647,11,grey);
+  const sellerEnd=block([snapshot.seller.company,`ABN ${snapshot.seller.abn}`,snapshot.seller.product,snapshot.seller.email],315,625,230);
   const address=snapshot.buyer.address;
-  const buyerEnd=block([snapshot.buyer.business_name,snapshot.buyer.name,snapshot.buyer.email,address?.line1,address?.line2,address?[address.city,address.state,address.postal_code].filter(Boolean).join(' '):null,address?.country,...(snapshot.buyer.tax_ids??[]).filter(t=>t.value).map(t=>`${t.type==='au_abn'?'ABN':t.type.toUpperCase()}: ${t.value}`)].filter((v):v is string=>!!v),315,625,230);
+  const buyerEnd=block([snapshot.buyer.business_name,snapshot.buyer.name,snapshot.buyer.email,address?.line1,address?.line2,address?[address.city,address.state,address.postal_code].filter(Boolean).join(' '):null,address?.country,...(snapshot.buyer.tax_ids??[]).filter(t=>t.value).map(t=>`${t.type==='au_abn'?'ABN':t.type.toUpperCase()}: ${t.value}`)].filter((v):v is string=>!!v),50,625,225);
   let y=Math.min(sellerEnd,buyerEnd)-35;
   if(y<380){page=doc.addPage([595.28,841.89]);write('Invoice · continued',50,785,20);y=730;}
   page.drawRectangle({x:50,y:y-12,width:495,height:32,color:pale});
