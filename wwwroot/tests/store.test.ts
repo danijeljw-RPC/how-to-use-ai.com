@@ -9,7 +9,7 @@ import {
   tokenHash,
 } from '../src/lib/store/tokens';
 import { requestAccess, consumeLogin, getBuyer } from '../src/lib/store/auth';
-import { startCheckout, signedSettings, type Attempt } from '../src/lib/store/checkout';
+import { startCheckout, signedSettings, checkoutParams, type Attempt } from '../src/lib/store/checkout';
 import { acceptStoreEvent } from '../src/lib/store/webhook';
 import { deliverOutbox } from '../src/lib/store/email';
 import { downloadFile } from '../src/lib/store/download';
@@ -243,6 +243,38 @@ describe('digital store security and fulfilment', () => {
     resume();
     await expect(second).rejects.toThrow('already');
     expect(create).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([250, 'free'] as const)('fulfils promotion discounts (%s) at the actual paid amount', async (discount) => {
+    const b = await buyer();
+    await startCheckout({db, env, session:b.session, format:'pdf', currency:'aud', create, now});
+    const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
+    const params=checkoutParams(attempt,'https://how-to-use-ai.com');
+    expect(params.allow_promotion_codes).toBe(true);
+    expect(params.name_collection?.business).toEqual({enabled:true,optional:true});
+    expect(params.tax_id_collection).toEqual({enabled:true,required:'never'});
+    expect(params.payment_intent_data?.receipt_email).toBe(attempt.email);
+    const e=paid(attempt);
+    const reduction=discount==='free'?attempt.amount:discount;
+    const session={...e.session,amount_total:attempt.amount-reduction,total_details:{amount_discount:reduction,amount_tax:0,amount_shipping:0},...(discount==='free'?{payment_status:'no_payment_required',status:'complete',payment_intent:null}: {})};
+    await acceptStoreEvent({db,env,event:e,retrieve:async()=>session,now});
+    expect(sql.prepare('SELECT amount FROM store_orders').get()?.amount).toBe(attempt.amount-reduction);
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(1);
+  });
+  it('does not grant access for an unfinished zero-total checkout', async () => {
+    const b=await buyer();
+    await startCheckout({db,env,session:b.session,format:'pdf',currency:'aud',create,now});
+    const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
+    const e=paid(attempt);
+    await acceptStoreEvent({db,env,event:e,retrieve:async()=>({...e.session,status:'open',payment_status:'no_payment_required',payment_intent:null,amount_total:0,total_details:{amount_discount:attempt.amount,amount_tax:0,amount_shipping:0}}),now});
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
+  });
+  it('rejects inconsistent discounted totals', async () => {
+    const b=await buyer();
+    await startCheckout({db,env,session:b.session,format:'pdf',currency:'aud',create,now});
+    const e=paid(sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt);
+    await expect(acceptStoreEvent({db,env,event:e,retrieve:async()=>({...e.session,amount_total:1,total_details:{amount_discount:1,amount_tax:0,amount_shipping:0}}),now})).rejects.toThrow('Discounted total');
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
   });
 
   it('records a paid bundle once across duplicate and different Stripe events', async () => {

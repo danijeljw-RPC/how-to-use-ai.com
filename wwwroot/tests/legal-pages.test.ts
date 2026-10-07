@@ -125,7 +125,7 @@ describe('purchase support and regional retailers', () => {
     const response = await fetch(`${origin}/downloads/?sent=1`);
     const html = await response.text();
     expect(response.status).toBe(200);
-    expect(html).toContain('<h1>Check your inbox</h1>');
+    expect(html).toMatch(/<h1[^>]*>Check your inbox<\/h1>/);
     expect(html).toContain('hello@repasscloud.com');
     expect(html).toContain('15 minutes');
     expect(html).toContain('Try again or use another email');

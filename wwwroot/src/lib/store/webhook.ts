@@ -10,10 +10,13 @@ export interface StoreEvent {
 export interface PaidSession {
   id: string;
   payment_status: string;
+  status?: string | null;
   payment_intent?: string | { id: string } | null;
   customer_details?: { email?: string | null } | null;
   currency?: string | null;
   amount_subtotal?: number | null;
+  amount_total?: number | null;
+  total_details?: { amount_discount: number; amount_tax: number; amount_shipping: number | null } | null;
   metadata?: Record<string, string> | null;
   line_items?: {
     data: Array<{
@@ -142,7 +145,8 @@ export async function acceptStoreEvent(options: {
     ]);
     return 'failed';
   }
-  if (session.payment_status !== 'paid') {
+  const freeOrder = session.payment_status === 'no_payment_required' && session.status === 'complete' && session.amount_total === 0;
+  if (session.payment_status !== 'paid' && !freeOrder) {
     // Record the event, but later async-success has its own ID and can fulfil.
     await db.batch([
       db
@@ -167,9 +171,15 @@ export async function acceptStoreEvent(options: {
     line.price?.unit_amount !== attempt.amount ||
     line.price.currency !== attempt.currency ||
     product !== attempt.product_id ||
-    !paymentId(session)
+    (!paymentId(session) && !freeOrder)
   )
     throw new Error('Paid session does not match the server order');
+  const discount = session.total_details?.amount_discount ?? 0;
+  const paidBookAmount = attempt.amount - discount;
+  if (!Number.isSafeInteger(discount) || discount < 0 || discount > attempt.amount ||
+      (session.amount_total !== undefined && session.amount_total !== paidBookAmount + attempt.shipping_amount) ||
+      (session.total_details && (session.total_details.amount_tax !== 0 || (session.total_details.amount_shipping ?? 0) !== attempt.shipping_amount)))
+    throw new Error('Discounted total does not match the server order');
   const shipping = session.collected_information?.shipping_details;
   if (
     attempt.format === 'signed' &&
@@ -192,7 +202,7 @@ export async function acceptStoreEvent(options: {
         attempt.email,
         attempt.format,
         payment,
-        attempt.amount,
+        paidBookAmount,
         attempt.currency,
         mode,
         payment,

@@ -23,16 +23,17 @@ const currency=isCurrency(requestedCurrency)?requestedCurrency:'aud';
 const emailRequested=!buyer&&Astro.url.searchParams.get('sent')==='1';
 ---
 <BaseLayout title={emailRequested?'Check your inbox':'Your book library'} description="Sign in by email to buy and download your editions of AI for Normal People." canonicalPath="/downloads/" robots="noindex, nofollow">
-  <section class="page-section"><div class="narrow">
+  <section class="page-section library-page"><div class="narrow">
     <h1>{emailRequested?'Check your inbox':'Your book library'}</h1>
     {buyer?<>
-      <p>Signed in as {buyer.email}.</p>
+      <div class="library-account"><p>Signed in as <strong>{buyer.email}</strong></p><form action="/api/store/logout/" method="post"><button class="secondary" type="submit">Sign out</button></form></div>
+      <section class="library-downloads" aria-labelledby="library-downloads-title"><h2 id="library-downloads-title">Your downloads</h2>
       {links.length>0?<>
         <p>Your latest available files are below. Each download link is valid for ten minutes. Reload this page for fresh links.</p>
         <div class="button-row">{links.map(({asset,token})=><a class="button" href={`/api/download/?token=${encodeURIComponent(token)}`}>{catalogue[asset].label}</a>)}</div>
       </>:<p>You have no digital downloads yet. Recently paid orders may take a few minutes to appear.</p>}
-      <form action="/api/store/logout/" method="post"><button class="secondary" type="submit">Sign out</button></form>
-      <StoreOffers {env} buyer={true} {owned} {currency} />
+      </section>
+      <StoreOffers {env} buyer={true} {owned} {currency} showLinks={false} />
     </>:emailRequested?<>
       <div role="status">
         <p>Check your email for a sign-in link from hello@repasscloud.com.</p>
@@ -49,6 +50,20 @@ const emailRequested=!buyer&&Astro.url.searchParams.get('sent')==='1';
       </form>:<p>Email sign-in is being prepared. Direct purchases are not available yet.</p>}
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </>}
-    <p>Need help? <a href="/contact/?subject=purchase-support">purchase support</a></p>
+    <p class="store-links library-support"><a href="/contact/?subject=purchase-support">Purchase support</a></p>
   </div></section>
 </BaseLayout>
+
+<style>
+  .library-page { padding-block: 3rem; font-family: var(--sans); }
+  .library-page h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+  .library-account { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .library-account p { margin: 0; overflow-wrap: anywhere; }
+  .library-account button { min-height: 2.5rem; padding: .5rem .9rem; font-size: .95rem; }
+  .library-downloads { padding: 1.5rem; border: 1px solid var(--line); border-radius: .5rem; margin-bottom: 2.5rem; }
+  .library-downloads h2 { font-size: 1.7rem; margin-bottom: .75rem; }
+  .library-downloads .button-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+  .library-support { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .library-page :global(.store-offer p) { font-family: var(--sans); font-size: 1rem; line-height: 1.5; }
+  .library-page :global(.direct-store h2) { font-size: 2rem; }
+</style>

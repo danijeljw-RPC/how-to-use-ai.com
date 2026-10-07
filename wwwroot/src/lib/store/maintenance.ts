@@ -73,7 +73,7 @@ export async function maintainStore(env: StoreEnv) {
               !!intent.last_payment_error);
         }
         if (
-          session.payment_status === 'paid' ||
+          (session.payment_status === 'paid' || (session.payment_status === 'no_payment_required' && session.status === 'complete')) ||
           session.status === 'expired' ||
           failedPayment
         )
@@ -83,7 +83,7 @@ export async function maintainStore(env: StoreEnv) {
             event: {
               id: `reconcile-${session.id}-${session.payment_status}-${session.status}-${failedPayment}`,
               type:
-                session.payment_status === 'paid'
+                (session.payment_status === 'paid' || (session.payment_status === 'no_payment_required' && session.status === 'complete'))
                   ? 'checkout.session.completed'
                   : failedPayment
                     ? 'checkout.session.async_payment_failed'

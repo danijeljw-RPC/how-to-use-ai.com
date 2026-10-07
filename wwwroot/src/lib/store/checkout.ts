@@ -87,6 +87,10 @@ export function checkoutParams(
     mode: 'payment',
     currency: attempt.currency,
     customer_email: attempt.email,
+    allow_promotion_codes: true,
+    name_collection: { business: { enabled: true, optional: true } },
+    tax_id_collection: { enabled: true, required: 'never' },
+    billing_address_collection: 'auto',
     line_items: [
       {
         price_data: {
@@ -105,6 +109,7 @@ export function checkoutParams(
       mode: attempt.mode,
     },
     payment_intent_data: {
+      receipt_email: attempt.email,
       metadata: {
         project: 'how-to-use-ai.com',
         attempt: attempt.id,

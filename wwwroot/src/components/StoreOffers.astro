@@ -2,8 +2,8 @@
 import { catalogue,currencies,amountFor,priceLabel,type StoreCurrency,type Asset } from '../lib/store/catalogue';
 import { editionConfigured,signedSettings } from '../lib/store/checkout';
 import type { StoreEnv } from '../lib/store/types';
-interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency }
-const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
+interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency; showLinks?:boolean }
+const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
 ---
 <section class="direct-store" aria-labelledby="direct-store-title">
   <h2 id="direct-store-title">Buy a digital edition</h2>
@@ -24,7 +24,7 @@ const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
       return <section class="store-offer">
         <h3>{catalogue[format].label}</h3>
         <p class="store-price">{priceLabel(amountFor(format,currency),currency)}</p>
-        {overlap ? <p>You already own part or all of this edition. Use your library to download it.</p> : available ? buyer ?
+        {overlap ? <p>{catalogue[format].assets.every(asset=>owned.includes(asset))?'Already in your library.':'You own one format. Buy the other separately to avoid paying twice.'}</p> : available ? buyer ?
           <form action="/api/checkout/" method="post" class="stack-form">
             <input type="hidden" name="format" value={format} />
             <input type="hidden" name="currency" value={currency} />
@@ -36,7 +36,7 @@ const {env,buyer=false,owned=[],currency='aud'}=Astro.props;
     })}
   </div>
   <p class="store-note">Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
-  <p class="store-links"><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>
+  {showLinks&&<p class="store-links"><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>}
 </section>
 {env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
   <section aria-labelledby="signed-copy-title">

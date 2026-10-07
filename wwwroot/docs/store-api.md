@@ -19,3 +19,15 @@ Signed-copy Checkout amounts and per-country shipping rates are server-controlle
 The approved MailerSend adapter POSTs generated HTML and text to https://api.mailersend.com/v1/email with a server-only Bearer token, a fixed hello@repasscloud.com From/Reply-To, one verified customer recipient and tracking disabled. Redirects are rejected; requests have a fifteen-second timeout and responses are bounded. 202 with x-message-id records accepted/queued or paused, not delivered. Definitive rejection is failed; explicit 429 retries within eight attempts; uncertainty becomes ambiguous without automatic resubmission. A stale submitting lease is also ambiguous. D1 stores provider IDs and sanitized categories, never raw provider errors or login URLs. Project templates are the sole source of email content.
 
 Branding uses two fixed inline PNG attachments (`email-wordmark` and `email-favicon`) with matching CID references in every HTML template. These are the only attachments; full books remain private library downloads. Sender, tracking, acceptance and retry contracts are unchanged.
+
+### Checkout discounts, business details and receipts
+
+Checkout allows Stripe promotion codes and optional business-name/tax-ID collection.
+Create coupons and customer-facing promotion codes in the matching Stripe test/live environment.
+PaymentIntents request Stripe receipts at the verified purchase email. MailerSend continues to
+send the separate book-access confirmation. Stripe test receipts must be sent manually from
+Dashboard; live customer-email settings should enable successful-payment receipts.
+No paid post-purchase invoice-generation add-on is enabled.
+Fulfilment validates the undiscounted catalogue line and Stripe's discounted total, stores the
+net book amount, and accepts fully discounted digital orders with no PaymentIntent. Scheduled
+reconciliation also recognises no-payment-required completion. Shipping remains charged separately.
