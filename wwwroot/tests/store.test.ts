@@ -47,7 +47,7 @@ beforeEach(() => {
   }));
   sql = new DatabaseSync(':memory:');
   sql.exec('PRAGMA foreign_keys=ON');
-  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql']) {
+  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql']) {
     // First migration uses the repository's exact filename below.
     if (name.startsWith('0001')) continue;
     sql.exec(
@@ -253,7 +253,8 @@ describe('digital store security and fulfilment', () => {
     expect(params.allow_promotion_codes).toBe(true);
     expect(params.name_collection?.business).toEqual({enabled:true,optional:true});
     expect(params.tax_id_collection).toEqual({enabled:true,required:'never'});
-    expect(params.payment_intent_data?.receipt_email).toBe(attempt.email);
+    expect(params.invoice_creation?.enabled).not.toBe(true);
+    expect(params.payment_intent_data?.receipt_email).toBeUndefined();
     const e=paid(attempt);
     const reduction=discount==='free'?attempt.amount:discount;
     const session={...e.session,amount_total:attempt.amount-reduction,total_details:{amount_discount:reduction,amount_tax:0,amount_shipping:0},...(discount==='free'?{payment_status:'no_payment_required',status:'complete',payment_intent:null}: {})};
@@ -318,10 +319,16 @@ describe('digital store security and fulfilment', () => {
       now,
     });
     expect(sql.prepare('SELECT * FROM store_orders').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT * FROM store_invoices').all()).toHaveLength(1);
     expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(
       2,
     );
     expect(sql.prepare('SELECT * FROM store_outbox').all()).toHaveLength(1);
+    // A historic order is not silently backfilled on a later event.
+    sql.prepare('DELETE FROM store_invoices').run();
+    await acceptStoreEvent({db,env,event:{...event,id:'evt_historic_late'},retrieve:async()=>event.session,now});
+    expect(sql.prepare('SELECT * FROM store_invoices').all()).toHaveLength(0);
+
     await expect(
       startCheckout({
         db,

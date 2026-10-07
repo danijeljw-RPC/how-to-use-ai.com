@@ -7,11 +7,12 @@ export interface EmailContent {
   subject: string;
   html: string;
   text: string;
-  attachments?: typeof brandAttachments;
+  attachments?: {content:string;filename:string;disposition:string;id?:string}[];
 }
 export interface TemplateInput {
   siteUrl: string;
   loginUrl: string;
+  invoiceNumber?:string;
 }
 export function escape(value: string) {
   return value
@@ -40,6 +41,7 @@ export function layout(
   intro: string,
   details: string[] = [],
 ): EmailContent {
+  if(input.invoiceNumber)details=[...details,`Your paid invoice ${input.invoiceNumber} is attached as a PDF and available from your book library.`];
   const login = safeUrl(input.loginUrl, input.siteUrl),
     library = safeUrl(
       new URL("/downloads/", input.siteUrl).href,

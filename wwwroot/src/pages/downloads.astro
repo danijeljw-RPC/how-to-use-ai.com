@@ -6,6 +6,7 @@ import { getBuyer,cookieSession,ownedAssets } from '../lib/store/auth';
 import { authReady,storeMode } from '../lib/store/types';
 import { signDownload } from '../lib/store/tokens';
 import { catalogue,isCurrency } from '../lib/store/catalogue';
+import { invoiceNumber } from '../lib/store/invoice';
 import { privateHeaders } from '../lib/store/http';
 const env=siteEnv(),mode=storeMode(env),now=Math.floor(Date.now()/1000);
 for(const [key,value] of Object.entries(privateHeaders))Astro.response.headers.set(key,value);
@@ -13,9 +14,11 @@ let unavailable=false;
 const session=cookieSession(Astro.request);
 let buyer=null;
 let owned:('pdf'|'epub')[]=[];
+let invoices:{number:number;session_id:string}[]=[];
 try {
   buyer=env.SITE_DB?await getBuyer(env.SITE_DB,session,mode,now):null;
   if(buyer&&env.SITE_DB)owned=await ownedAssets(env.SITE_DB,buyer.email,mode);
+  if(buyer&&env.SITE_DB)invoices=(await env.SITE_DB.prepare('SELECT number,session_id FROM store_invoices WHERE email=? AND mode=? ORDER BY number DESC LIMIT 100').bind(buyer.email,mode).all<{number:number;session_id:string}>()).results;
 }catch{unavailable=true;}
 const links=buyer&&env.STORE_SIGNING_SECRET?await Promise.all(owned.map(async asset=>({asset,token:await signDownload({sessionHash:buyer!.token_hash,asset,mode},env.STORE_SIGNING_SECRET!,now)}))):[];
 const requestedCurrency=Astro.url.searchParams.get('currency')??'aud';
@@ -33,6 +36,7 @@ const emailRequested=!buyer&&Astro.url.searchParams.get('sent')==='1';
         <div class="button-row">{links.map(({asset,token})=><a class="button" href={`/api/download/?token=${encodeURIComponent(token)}`}>{catalogue[asset].label}</a>)}</div>
       </>:<p>You have no digital downloads yet. Recently paid orders may take a few minutes to appear.</p>}
       </section>
+      {invoices.length>0&&<section class="library-downloads" aria-labelledby="invoice-title"><h2 id="invoice-title">Your invoices</h2><ul>{invoices.map(invoice=><li><a href={`/api/store/invoice/?order=${encodeURIComponent(invoice.session_id)}`}>{invoiceNumber(invoice.number,mode)} · PDF</a></li>)}</ul></section>}
       <StoreOffers {env} buyer={true} {owned} {currency} showLinks={false} />
     </>:emailRequested?<>
       <div role="status">

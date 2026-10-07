@@ -11,6 +11,7 @@ export interface StoreDB {
   batch(statements: StoreStatement[]): Promise<unknown[]>;
 }
 export interface StoreEnv extends SiteEnvironment {
+  ASSETS?: Pick<Fetcher,'fetch'>;
   STORE_MODE?: string;
   STORE_SIGNING_SECRET?: string;
   MAILERSEND_API_KEY?: string;

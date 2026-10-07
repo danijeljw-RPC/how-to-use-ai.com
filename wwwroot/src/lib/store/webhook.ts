@@ -1,6 +1,7 @@
 import { catalogue, type StoreFormat } from './catalogue';
 import { storeMode, type StoreDB, type StoreEnv } from './types';
 import type { Attempt } from './checkout';
+import { invoiceSeller, type InvoiceSnapshot } from './invoice';
 export interface StoreEvent {
   id: string;
   type: string;
@@ -12,7 +13,7 @@ export interface PaidSession {
   payment_status: string;
   status?: string | null;
   payment_intent?: string | { id: string } | null;
-  customer_details?: { email?: string | null } | null;
+  customer_details?: (Omit<Partial<InvoiceSnapshot['buyer']>,'email'> & {email?:string|null}) | null;
   currency?: string | null;
   amount_subtotal?: number | null;
   amount_total?: number | null;
@@ -190,6 +191,14 @@ export async function acceptStoreEvent(options: {
     throw new Error('Shipping does not match the server order');
   const sessionId = session.id,
     payment = paymentId(session)!;
+  const existingOrder=await db.prepare('SELECT session_id FROM store_orders WHERE session_id=? AND mode=?').bind(sessionId,mode).first();
+  const snapshot: InvoiceSnapshot = {
+    seller: invoiceSeller, session: session.id, mode, date: now,
+    buyer: {...session.customer_details,email:attempt.email},
+    format: attempt.format as StoreFormat, currency: attempt.currency,
+    subtotal:attempt.amount,discount,shipping:attempt.shipping_amount,
+    total:paidBookAmount+attempt.shipping_amount,
+  };
   const statements = [
     db
       .prepare(
@@ -209,6 +218,9 @@ export async function acceptStoreEvent(options: {
         attempt.format === 'signed' ? JSON.stringify(shipping) : null,
         now,
       ),
+    ...(!existingOrder?[db.prepare(`INSERT OR IGNORE INTO store_invoices (session_id,mode,email,snapshot_json)
+      SELECT ?,?,?,? WHERE EXISTS(SELECT 1 FROM store_orders WHERE session_id=? AND mode=? AND status='paid')`)
+      .bind(sessionId,mode,attempt.email,JSON.stringify(snapshot),sessionId,mode)]:[]),
     ...catalogue[attempt.format as StoreFormat].assets.map((asset) =>
       db
         .prepare(

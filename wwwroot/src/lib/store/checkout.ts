@@ -1,3 +1,4 @@
+import { invoiceSeller } from './invoice';
 import type Stripe from 'stripe';
 import {
   amountFor,
@@ -109,7 +110,6 @@ export function checkoutParams(
       mode: attempt.mode,
     },
     payment_intent_data: {
-      receipt_email: attempt.email,
       metadata: {
         project: 'how-to-use-ai.com',
         attempt: attempt.id,
@@ -164,6 +164,8 @@ export async function startCheckout(options: {
   const { db, env } = options,
     now = (options.now ?? (() => Math.floor(Date.now() / 1000)))(),
     mode = storeMode(env);
+  if(mode==='live'&&invoiceSeller.gst!=='not-registered')
+    throw new StoreError('Live checkout awaits confirmed invoice tax treatment.',503);
   const buyer = await getBuyer(db, options.session, mode, now);
   if (!buyer)
     throw new StoreError('Please verify your email before purchasing.', 401);

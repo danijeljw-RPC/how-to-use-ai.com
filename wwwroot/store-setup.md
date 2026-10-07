@@ -148,3 +148,26 @@ See `store-configuration-audit.md` for the verified resource status, remaining s
 The shared layout embeds the site bubble wordmark and favicon as inline PNG attachments, avoiding remote image fetching. Generated assets and their source SVGs are under public/images/email-*. The generation script reads the existing IBM Plex Mono font, outlines the glyphs and renders PNGs through the project's sharp dependency. To regenerate, provide Python fonttools/brotli (an isolated .wrangler/branding-tools install is sufficient) and run `PYTHONPATH=.wrangler/branding-tools python3 scripts/generate-email-branding.py`; it also regenerates src/lib/email/branding.ts. Preview rendering converts CID references to data URLs for local HTML files.
 
 Every HTML/plain-text footer identifies: How-To-Use-AI.com is operated and published by RePass Cloud Pty Ltd, ABN 74642243801. These images are message content; they do not control an inbox's sender avatar.
+
+### Site-generated paid invoices
+
+New completed purchases receive a PDF attachment via MailerSend, from hello@repasscloud.com.
+The PDF includes RePass Cloud Pty Ltd, ABN 74642243801, the How-To-Use-AI.com bubble
+logo, buyer/business/billing/tax-ID details supplied in Checkout, invoice number,
+issue date, product, discount, shipping and total in the charged currency. A private
+copy is available in the buyer's library. Original documents are preserved unchanged.
+The number has a TEST prefix for sandbox purchases. No Stripe invoice add-on is enabled.
+To avoid duplicate Stripe payment receipts, review Stripe Dashboard customer-email settings.
+
+Migration 0004 adds private invoice storage in D1. Existing purchases are not automatically
+backfilled. Refunds require a separate manual credit note for now; do not alter the paid invoice.
+
+**Before live sales:** confirm the Australian price/GST treatment and the treatment of
+international sales. ABN Lookup lists the seller as GST-registered, but our legal
+questionnaire leaves price treatment unconfirmed. Live checkout is gated until a correct
+per-sale tax calculation and tax-invoice rendering configuration is implemented.
+The current test invoices deliberately do not state an invented GST amount.
+
+Invoice font derivatives use the site's IBM Plex font (OFL) with licensed Noto Sans JP
+fallback for Japanese buyer details. Re-run scripts/generate-email-branding.py to refresh
+the canonical embedded invoice font as well as email branding.

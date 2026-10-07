@@ -1,3 +1,4 @@
+import { invoicePDF } from "./invoice";
 import { requestAccess } from "./auth";
 import {
   catalogue,
@@ -106,11 +107,12 @@ export async function deliverOutbox(options: {
             .bind(job.order_id!, mode)
             .first<Shipping>();
       }
+      const invoice=order?await invoicePDF(db,job.order_id!,mode,env):null;
       const token = await requestAccess(db, job.email, mode, now);
       if (!token) throw new Error("Login cooldown");
       const url = new URL("/store/verify/", env.SITE_URL!);
       url.searchParams.set("token", token);
-      const input = { siteUrl: env.SITE_URL!, loginUrl: url.href };
+      const input = { siteUrl: env.SITE_URL!, loginUrl: url.href, invoiceNumber:invoice?.number };
       const message = !order
         ? signInEmail(input)
         : order.format === "signed"
@@ -125,7 +127,7 @@ export async function deliverOutbox(options: {
                 : "See your payment confirmation",
               ...(attempt && isCurrency(order.currency)
                 ? {
-                    book: priceLabel(attempt.amount, order.currency),
+                    book: priceLabel(order.amount, order.currency),
                     shipping: priceLabel(
                       attempt.shipping_amount,
                       order.currency,
@@ -139,6 +141,9 @@ export async function deliverOutbox(options: {
               reference: job.order_id!,
               format: catalogue[order.format].label,
             });
+      if(invoice){
+          message.attachments=[...(message.attachments??[]),{content:invoice.content,filename:`${invoice.number}.pdf`,disposition:'attachment'}];
+      }
       const submission = await db
         .prepare(
           "UPDATE store_outbox SET state='submitting',submission_started_at=?,attempts=attempts+1 WHERE id=? AND lease_id=? AND state='pending'",

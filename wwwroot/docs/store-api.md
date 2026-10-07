@@ -31,3 +31,26 @@ No paid post-purchase invoice-generation add-on is enabled.
 Fulfilment validates the undiscounted catalogue line and Stripe's discounted total, stores the
 net book amount, and accepts fully discounted digital orders with no PaymentIntent. Scheduled
 reconciliation also recognises no-payment-required completion. Shipping remains charged separately.
+
+## Site invoice contract (supersedes Stripe receipt request)
+
+`GET /api/store/invoice/?order=<checkout-session-id>` requires the current HttpOnly
+library session. Missing session: 401; another owner/mode or missing invoice: 404.
+Successful responses are private/no-store PDF attachments. Original invoices remain
+available to their authenticated owner after refunds; they are accounting records,
+not book entitlements. No public PDF URL or book attachment is created.
+
+New paid fulfilment writes the purchase snapshot with the order in a D1 batch.
+Duplicate webhook/reconciliation events preserve invoice number, buyer details and
+amounts. PDF generation is persisted before email submission; first persisted copy
+wins. MailerSend order emails include that PDF alongside existing inline brand images.
+Historic orders are not silently backfilled. Stripe invoice_creation remains disabled
+and explicit Stripe receipt_email is removed. Existing Stripe Dashboard automatic
+receipt settings may still send receipts until the operator switches them off.
+
+Test invoices use TEST identifiers and say no money was charged. Live checkout is
+currently gated on confirmed invoice tax treatment, because existing legal records
+leave Australian price/GST treatment unconfirmed. GST-registered invoicing requires
+per-sale treatment, including overseas sales, before that gate can be removed. Never
+label a registered live invoice Tax Invoice without its correct tax breakdown.
+Refund/credit-note automation is not part of this change.
