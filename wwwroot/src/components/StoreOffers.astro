@@ -5,6 +5,7 @@ import type { StoreEnv } from '../lib/store/types';
 interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency; showLinks?:boolean }
 const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
 ---
+<div data-store-pricing data-currency={currency}>
 <section class="direct-store" aria-labelledby="direct-store-title">
   <h2 id="direct-store-title">Buy a digital edition</h2>
   <p>Choose a PDF, an EPUB for your ebook reader, or both. Your purchase includes updated editions of this book in the formats you buy.</p>
@@ -14,9 +15,10 @@ const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
       <select id="store-currency" name="currency">
         {currencies.map(code=><option value={code} selected={code===currency}>{code.toUpperCase()}</option>)}
       </select>
-      <button type="submit">Show prices</button>
+      <button type="submit" data-price-refresh>Show prices</button>
     </div>
   </form>
+  <p data-price-status role="status" aria-live="polite" hidden></p>
   <div class="store-offers">
     {(['pdf','epub','bundle'] as const).map(format=>{
       const available=editionConfigured(env,format);
@@ -56,3 +58,68 @@ const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
     })}
   </section>
 )}
+
+</div>
+<script>
+  const requests = new WeakMap<HTMLElement, AbortController>();
+  function enhance(){
+    document.querySelectorAll<HTMLButtonElement>('[data-price-refresh]').forEach(button=>button.hidden=true);
+  }
+  enhance();
+  async function updatePrices(form:HTMLFormElement){
+    const root=form.closest<HTMLElement>('[data-store-pricing]');
+    const select=form.querySelector('select[name="currency"]') as unknown as HTMLSelectElement|null;
+    if(!root||!select)return;
+    requests.get(root)?.abort();
+    const controller=new AbortController();requests.set(root,controller);
+    const url=new URL(window.location.href);url.searchParams.set('currency',select.value);
+    const focusSelect=document.activeElement===form.querySelector('select[name="currency"]');
+    const buttons=root.querySelectorAll<HTMLButtonElement>('form[action="/api/checkout/"] button');
+    buttons.forEach(button=>button.disabled=true);
+    root.setAttribute('aria-busy','true');
+    const status=root.querySelector<HTMLElement>('[data-price-status]');
+    if(status){status.hidden=false;status.textContent='Updating prices…';}
+    try{
+      const response=await fetch(url,{credentials:'same-origin',cache:'no-store',signal:controller.signal});
+      if(!response.ok)throw new Error('Price update failed');
+      const html=await response.text();
+      if(controller.signal.aborted)return;
+      const next=new DOMParser().parseFromString(html,'text/html').querySelector<HTMLElement>('[data-store-pricing]');
+      if(!next)throw new Error('Price update unavailable');
+      const consent=new Map<string,boolean>();
+      root.querySelectorAll<HTMLFormElement>('form[action="/api/checkout/"]').forEach(checkout=>{
+        const data=new FormData(checkout);consent.set(`${data.get('format')}:${data.get('country')??''}`,data.get('terms')==='yes');
+      });
+      root.replaceChildren(...next.childNodes);
+      root.dataset.currency=next.dataset.currency;
+      root.querySelectorAll<HTMLFormElement>('form[action="/api/checkout/"]').forEach(checkout=>{
+        const data=new FormData(checkout);const checkbox=checkout.querySelector<HTMLInputElement>('[name="terms"]');
+        if(checkbox)checkbox.checked=consent.get(`${data.get('format')}:${data.get('country')??''}`)??false;
+      });
+      enhance();history.replaceState(history.state,'',url);
+      if(focusSelect)(root.querySelector('[name="currency"]') as unknown as HTMLSelectElement|null)?.focus({preventScroll:true});
+    }catch(error){
+      if(controller.signal.aborted)return;
+      select.value=root.dataset.currency??select.value;
+      buttons.forEach(button=>button.disabled=false);
+      if(status){status.hidden=false;status.textContent='Prices could not be updated. Please try again.';}
+      const retry=form.querySelector<HTMLButtonElement>('[data-price-refresh]');if(retry)retry.hidden=false;
+    }finally{
+      if(requests.get(root)===controller){root.removeAttribute('aria-busy');requests.delete(root);}
+    }
+  }
+  document.addEventListener('change',event=>{
+    if(event.target instanceof HTMLSelectElement&&event.target.name==='currency'){
+      const form=event.target.closest<HTMLFormElement>('.currency-form');if(form)void updatePrices(form);
+    }
+  });
+  document.addEventListener('submit',event=>{
+    if(event.target instanceof HTMLFormElement&&event.target.matches('.currency-form')){
+      event.preventDefault();void updatePrices(event.target);
+    }
+  });
+</script>
+
+<style>
+  [data-price-refresh][hidden], [data-price-status][hidden] { display: none; }
+</style>
