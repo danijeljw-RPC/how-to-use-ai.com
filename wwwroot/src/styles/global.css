@@ -227,7 +227,10 @@ select { max-width: 100%; padding: 0.65rem; font: inherit; }
 .direct-store .store-offer h3 { font-size: 1.55rem; }
 .direct-store .store-price { margin-block: 1rem; font-family: var(--sans); font-size: 1.9rem; }
 .offer-status { margin-bottom: 0; color: var(--slate); font-size: 0.95rem; }
-.store-links { margin-bottom: 0; font-family: var(--sans); }
+.store-links { margin-top: 1.5rem; margin-bottom: 0; font-family: var(--sans); }
+.signed-store { margin-top: 3rem; }
+.signed-store > h2 { margin-bottom: 1rem; }
+.signed-store > p { margin-bottom: 1.5rem; }
 .forthcoming-editions { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .forthcoming-editions p:last-child { margin-bottom: 0; }
 @media (max-width: 900px) {

@@ -7,7 +7,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {sqliteStore} from './helpers/sqlite-store';
 import {tokenHash} from '../src/lib/store/tokens';
 const snapshot:InvoiceSnapshot={seller:invoiceSeller,session:'cs_test_sample',mode:'test',date:1791356400,buyer:{email:'buyer@example.com',business_name:'Example Company Pty Ltd',name:'Zoë García',address:{line1:'123 Example Street',city:'Adelaide',state:'SA',postal_code:'5000',country:'AU'},tax_ids:[{type:'au_abn',value:'12345678901'}]},format:'bundle',currency:'aud',subtotal:1499,discount:300,shipping:0,total:1199};
-function setup(){const sql=new DatabaseSync(':memory:');for(const name of ['0002_digital_store.sql','0004_store_invoices.sql','0005_invoice_stripe_references.sql'])sql.exec(readFileSync(new URL(`../migrations/${name}`,import.meta.url),'utf8'));return {sql,db:sqliteStore(sql)};}
+function setup(){const sql=new DatabaseSync(':memory:');for(const name of ['0002_digital_store.sql','0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql'])sql.exec(readFileSync(new URL(`../migrations/${name}`,import.meta.url),'utf8'));return {sql,db:sqliteStore(sql)};}
 describe('site purchase invoices',()=>{
  it('renders a branded paid PDF with business details and discounted total',async()=>{
   const bytes=await renderInvoice(snapshot,1);

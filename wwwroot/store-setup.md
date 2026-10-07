@@ -102,7 +102,7 @@ Confirm merchant identity/branding, tax treatment/registrations, product classif
 4. Set `STORE_SIGNED_ENABLED=true` only when dispatch and returns are ready. The website shows only configured combinations. The chosen country is the only address country allowed in that Checkout, so a buyer cannot choose the cheaper AU rate for an NZ address.
 5. Stripe collects name and postal address. The verified webhook saves shipping details in `store_orders.shipping_json` and sends the buyer confirmation. Use Stripe Dashboard and the database to dispatch manually; this code does not submit a print-on-demand order to Amazon. Signed copies grant no digital entitlement unless separately purchased. Multiple completed physical orders are permitted; concurrent physical checkouts for one email are temporarily blocked.
 
-Update displayed dispatch estimates and current policy text before enabling this physical product. The author's signed-copy retail and shipping prices are preserved in the catalogue; physical sales remain disabled.
+Signed-copy testing is enabled in Stripe test mode for AU/AUD (45.00 + 12.00 shipping) and NZ/NZD (48.00 + 15.00 shipping). Select AUD for Australia or NZD for New Zealand in the price currency selector. Checkout restricts the shipping address to the selected country. A 100% book coupon leaves shipping payable. Use test card 4242 4242 4242 4242 with a future expiry and any CVC; verify the saved shipping address, invoice shipping total and signed-copy confirmation email. Test orders must not be dispatched. Confirm stock, dispatch estimates and current physical returns policy before enabling live sales.
 
 ## Recovery and support
 

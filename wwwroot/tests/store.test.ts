@@ -47,7 +47,7 @@ beforeEach(() => {
   }));
   sql = new DatabaseSync(':memory:');
   sql.exec('PRAGMA foreign_keys=ON');
-  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql','0005_invoice_stripe_references.sql']) {
+  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql']) {
     // First migration uses the repository's exact filename below.
     if (name.startsWith('0001')) continue;
     sql.exec(
@@ -245,7 +245,7 @@ describe('digital store security and fulfilment', () => {
     expect(create).toHaveBeenCalledTimes(1);
   });
 
-  it.each([250, 'free'] as const)('fulfils promotion discounts (%s) at the actual paid amount', async (discount) => {
+  it.each([250, 'free', 'free-paid'] as const)('fulfils promotion discounts (%s) at the actual paid amount', async (discount) => {
     const b = await buyer();
     await startCheckout({db, env, session:b.session, format:'pdf', currency:'aud', create, now});
     const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
@@ -256,11 +256,22 @@ describe('digital store security and fulfilment', () => {
     expect(params.invoice_creation?.enabled).not.toBe(true);
     expect(params.payment_intent_data?.receipt_email).toBeUndefined();
     const e=paid(attempt);
-    const reduction=discount==='free'?attempt.amount:discount;
-    const session={...e.session,amount_total:attempt.amount-reduction,total_details:{amount_discount:reduction,amount_tax:0,amount_shipping:0},...(discount==='free'?{payment_status:'no_payment_required',status:'complete',payment_intent:null}: {})};
-    await acceptStoreEvent({db,env,event:e,retrieve:async()=>session,now});
+    const free=typeof discount==='string';
+    const reduction=free?attempt.amount:discount;
+    const session={...e.session,amount_total:attempt.amount-reduction,total_details:{amount_discount:reduction,amount_tax:0,amount_shipping:0},...(free?{payment_status:discount==='free-paid'?'paid':'no_payment_required',status:'complete',payment_intent:null}: {})};
+    const notifyEnv={...env,STORE_ORDER_NOTIFY_EMAIL:'danijel@repasscloud.com'};
+    await acceptStoreEvent({db,env:notifyEnv,event:e,retrieve:async()=>session,now});
     expect(sql.prepare('SELECT amount FROM store_orders').get()?.amount).toBe(attempt.amount-reduction);
     expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT payment_id,status FROM store_orders').get()).toMatchObject({payment_id:free?null:'pi_1',status:'paid'});
+    expect(sql.prepare('SELECT state FROM store_attempts').get()?.state).toBe('paid');
+    expect(sql.prepare('SELECT * FROM store_purchase_locks').all()).toHaveLength(0);
+    await acceptStoreEvent({db,env:notifyEnv,event:{...e,id:'evt_replay'},retrieve:async()=>session,now});
+    expect(sql.prepare('SELECT * FROM store_orders').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT * FROM store_invoices').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT * FROM store_outbox WHERE kind=\'order\' AND audience=\'buyer\'').all()).toHaveLength(1);
+    expect(sql.prepare('SELECT email FROM store_outbox WHERE audience=\'operator\'').all()).toEqual([{email:'danijel@repasscloud.com'}]);
   });
   it('does not grant access for an unfinished zero-total checkout', async () => {
     const b=await buyer();
@@ -268,6 +279,15 @@ describe('digital store security and fulfilment', () => {
     const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
     const e=paid(attempt);
     await acceptStoreEvent({db,env,event:e,retrieve:async()=>({...e.session,status:'open',payment_status:'no_payment_required',payment_intent:null,amount_total:0,total_details:{amount_discount:attempt.amount,amount_tax:0,amount_shipping:0}}),now});
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
+  });
+  it.each(['open', 'nonzero'] as const)('rejects a paid checkout without a PaymentIntent when %s', async (invalid) => {
+    const b=await buyer();
+    await startCheckout({db,env,session:b.session,format:'pdf',currency:'aud',create,now});
+    const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
+    const e=paid(attempt);
+    const discount=invalid==='open'?attempt.amount:0;
+    await expect(acceptStoreEvent({db,env,event:e,retrieve:async()=>({...e.session,status:invalid==='open'?'open':'complete',payment_intent:null,amount_total:attempt.amount-discount,total_details:{amount_discount:discount,amount_tax:0,amount_shipping:0}}),now})).rejects.toThrow('Paid session does not match');
     expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
   });
   it('rejects inconsistent discounted totals', async () => {
@@ -512,7 +532,7 @@ describe('digital store security and fulfilment', () => {
     expect(signedSettings(enabled, 'unknown', 'AU')).toBeNull();
   });
 
-  it('uses catalogue signed pricing and only the supported configured address country', async () => {
+  it.each([['AU','aud',4500,1200],['NZ','nzd',4800,1500]] as const)('uses catalogue signed pricing and validates shipping for %s', async (country,currency,amount,shippingAmount) => {
     const b = await buyer();
     const signedEnv = {
       ...env,
@@ -536,23 +556,32 @@ describe('digital store security and fulfilment', () => {
       env: signedEnv,
       session: b.session,
       format: 'signed',
-      currency: 'aud',
-      country: 'AU',
+      currency,
+      country,
       create,
       now,
     });
     expect(create.mock.calls[0][0]).toMatchObject({
-      line_items: [{ price_data: { currency: 'aud', unit_amount: 4500, product: 'prod_signed' }, quantity: 1 }],
-      shipping_address_collection: { allowed_countries: ['AU'] },
+      line_items: [{ price_data: { currency, unit_amount: amount, product: 'prod_signed' }, quantity: 1 }],
+      shipping_address_collection: { allowed_countries: [country] },
       shipping_options: [
         {
           shipping_rate_data: {
-            fixed_amount: { currency: 'aud', amount: 1200 },
+            fixed_amount: { currency, amount: shippingAmount },
           },
         },
       ],
     });
     expect(create.mock.calls[0][0].expires_at).toBe(now() + 1860);
+    const attempt=sql.prepare('SELECT * FROM store_attempts').get() as unknown as Attempt;
+    const event=paid(attempt);
+    const shipping={name:'Test Buyer',address:{country,line1:'1 Test Street',city:'Test City',postal_code:'0000'}};
+    const session={...event.session,status:'complete',amount_total:amount+shippingAmount,total_details:{amount_discount:0,amount_tax:0,amount_shipping:shippingAmount},shipping_cost:{amount_total:shippingAmount},collected_information:{shipping_details:shipping}};
+    await expect(acceptStoreEvent({db,env:signedEnv,event,retrieve:async()=>({...session,collected_information:{shipping_details:{...shipping,address:{...shipping.address,country:country==='AU'?'NZ':'AU'}}}}),now})).rejects.toThrow('Shipping does not match');
+    await acceptStoreEvent({db,env:signedEnv,event,retrieve:async()=>session,now});
+    expect(JSON.parse(String(sql.prepare('SELECT shipping_json FROM store_orders').get()?.shipping_json))).toEqual(shipping);
+    expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
+    expect(JSON.parse(String(sql.prepare('SELECT snapshot_json FROM store_invoices').get()?.snapshot_json))).toMatchObject({shipping:shippingAmount,total:amount+shippingAmount});
   });
 
   it('rejects tampered and expired signed links and streams the current asset only while entitled', async () => {

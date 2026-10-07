@@ -28,6 +28,7 @@ describe('scheduled checkout recovery fairness', () => {
     sql.exec(readFileSync(new URL('../migrations/0003_mailersend_outbox.sql', import.meta.url), 'utf8'));
     sql.exec(readFileSync(new URL('../migrations/0004_store_invoices.sql', import.meta.url), 'utf8'));
     sql.exec(readFileSync(new URL('../migrations/0005_invoice_stripe_references.sql', import.meta.url), 'utf8'));
+    sql.exec(readFileSync(new URL('../migrations/0006_order_notifications.sql', import.meta.url), 'utf8'));
     const db = sqliteStore(sql);
     for (let n = 0; n < 21; n++)
       sql
@@ -71,6 +72,7 @@ describe('lost delayed-payment failure webhook recovery', () => {
       sql.exec(readFileSync(new URL('../migrations/0003_mailersend_outbox.sql', import.meta.url), 'utf8'));
     sql.exec(readFileSync(new URL('../migrations/0004_store_invoices.sql', import.meta.url), 'utf8'));
     sql.exec(readFileSync(new URL('../migrations/0005_invoice_stripe_references.sql', import.meta.url), 'utf8'));
+    sql.exec(readFileSync(new URL('../migrations/0006_order_notifications.sql', import.meta.url), 'utf8'));
     const db = sqliteStore(sql);
       sql
         .prepare(

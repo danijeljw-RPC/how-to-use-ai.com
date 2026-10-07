@@ -146,7 +146,10 @@ export async function acceptStoreEvent(options: {
     ]);
     return 'failed';
   }
-  const freeOrder = session.payment_status === 'no_payment_required' && session.status === 'complete' && session.amount_total === 0;
+  // Stripe can report a fully discounted Checkout as paid without creating a
+  // PaymentIntent. Both successful statuses still require completion and a
+  // zero total; the catalogue line and discount are validated below.
+  const freeOrder = ['paid', 'no_payment_required'].includes(session.payment_status) && session.status === 'complete' && session.amount_total === 0;
   if (session.payment_status !== 'paid' && !freeOrder) {
     // Record the event, but later async-success has its own ID and can fulfil.
     await db.batch([
@@ -190,7 +193,7 @@ export async function acceptStoreEvent(options: {
   )
     throw new Error('Shipping does not match the server order');
   const sessionId = session.id,
-    payment = paymentId(session)!;
+    payment = paymentId(session);
   const existingOrder=await db.prepare('SELECT session_id FROM store_orders WHERE session_id=? AND mode=?').bind(sessionId,mode).first();
   const snapshot: InvoiceSnapshot = {
     seller: invoiceSeller, session: session.id, mode, date: now,
@@ -247,6 +250,10 @@ export async function acceptStoreEvent(options: {
         "UPDATE store_attempts SET state=CASE WHEN EXISTS(SELECT 1 FROM store_reversals WHERE mode=? AND payment_id=?) THEN 'revoked' ELSE 'paid' END,session_id=? WHERE id=?",
       )
       .bind(mode, payment, sessionId, attempt.id),
+    ...(!existingOrder && env.STORE_ORDER_NOTIFY_EMAIL ? [db.prepare(
+      `INSERT OR IGNORE INTO store_outbox (id,mode,email,kind,audience,order_id,next_at,created_at)
+       SELECT ?,?,?,'order','operator',?,?,? WHERE EXISTS(SELECT 1 FROM store_orders WHERE session_id=? AND mode=? AND status='paid')`,
+    ).bind(`notify-${sessionId}`,mode,env.STORE_ORDER_NOTIFY_EMAIL,sessionId,now,now,sessionId,mode)] : []),
     db
       .prepare('DELETE FROM store_purchase_locks WHERE attempt_id=?')
       .bind(attempt.id),

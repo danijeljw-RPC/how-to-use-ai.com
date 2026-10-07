@@ -16,6 +16,7 @@ export interface StoreEnv extends SiteEnvironment {
   STORE_SIGNING_SECRET?: string;
   MAILERSEND_API_KEY?: string;
   STORE_EMAIL_READY?: string;
+  STORE_ORDER_NOTIFY_EMAIL?: string;
   STORE_PRODUCT_PDF?: string;
   STORE_PRODUCT_EPUB?: string;
   STORE_PRODUCT_BUNDLE?: string;

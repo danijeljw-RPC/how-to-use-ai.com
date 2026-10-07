@@ -1,5 +1,16 @@
 # Store API contract
 
+Completed orders enqueue a separate plain-text operator notification to
+`STORE_ORDER_NOTIFY_EMAIL` (danijel@repasscloud.com). Digital subjects begin
+“New book order”; signed-paperback subjects begin “Physical book order — dispatch
+required”. Test subjects carry `[TEST]`. Notifications include buyer, product,
+invoice/session references, date, subtotal, discount, shipping and total; physical
+orders include the delivery name/address. No PDF, login token or digital download
+link is attached. Operator jobs use independent leases and the same bounded
+delivery/retry policy as buyer jobs. Duplicate completion events do not duplicate
+notifications. This applies to new orders after enablement, without a historic
+email backfill. Scheduled delivery normally runs within five minutes.
+
 All endpoints use trailing slashes. Private responses are no-store and noindex; application logs never intentionally include tokens or buyer data. Restrict access to platform request logs, which may contain request URLs.
 
 - `POST /api/store/access/`: same-origin bounded form with `email` and `turnstileToken`, action `store-access`. Returns a generic email-sent acknowledgement for new and existing buyers; recipient cooldown and IP rate limits prevent abuse. Unready email/config returns 503. No purchase lookup disclosed.
@@ -30,7 +41,10 @@ Dashboard; live customer-email settings should enable successful-payment receipt
 No paid post-purchase invoice-generation add-on is enabled.
 Fulfilment validates the undiscounted catalogue line and Stripe's discounted total, stores the
 net book amount, and accepts fully discounted digital orders with no PaymentIntent. Scheduled
-reconciliation also recognises no-payment-required completion. Shipping remains charged separately.
+reconciliation also recognises no-payment-required completion. A completed zero-total
+session may report either `paid` or `no_payment_required` without a PaymentIntent;
+both fulfil only after the catalogue line, discount and total pass validation.
+Shipping remains charged separately.
 
 ## Site invoice contract (supersedes Stripe receipt request)
 

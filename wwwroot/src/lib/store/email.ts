@@ -1,3 +1,6 @@
+import { orderNotification } from "./order-notification";
+import type { EmailMessage } from "../email/mailersend";
+import type { InvoiceSnapshot } from "./invoice";
 import { invoicePDF } from "./invoice";
 import { requestAccess } from "./auth";
 import {
@@ -46,13 +49,14 @@ export async function deliverOutbox(options: {
   const jobs = (
     await db
       .prepare(
-        "SELECT id,email,kind,order_id,attempts FROM store_outbox WHERE mode=? AND state='pending' AND next_at<=? AND (lease_until IS NULL OR lease_until<=?) ORDER BY created_at LIMIT 10",
+        "SELECT id,email,kind,audience,order_id,attempts FROM store_outbox WHERE mode=? AND state='pending' AND next_at<=? AND (lease_until IS NULL OR lease_until<=?) ORDER BY created_at LIMIT 10",
       )
       .bind(mode, now, now)
       .all<{
         id: string;
         email: string;
         kind: string;
+        audience: string;
         order_id: string | null;
         attempts: number;
       }>()
@@ -75,6 +79,7 @@ export async function deliverOutbox(options: {
         amount: number;
         currency: string;
         shipping_json: string | null;
+        payment_id: string | null;
       };
       type Shipping = {
         amount: number;
@@ -86,7 +91,7 @@ export async function deliverOutbox(options: {
       if (job.kind === "order") {
         order = await db
           .prepare(
-            "SELECT status,format,amount,currency,shipping_json FROM store_orders WHERE session_id=? AND mode=?",
+            "SELECT status,format,amount,currency,shipping_json,payment_id FROM store_orders WHERE session_id=? AND mode=?",
           )
           .bind(job.order_id!, mode)
           .first<Order>();
@@ -107,13 +112,19 @@ export async function deliverOutbox(options: {
             .bind(job.order_id!, mode)
             .first<Shipping>();
       }
+      let message: EmailMessage;
+      if (job.audience === "operator") {
+        const invoice = await db.prepare("SELECT number,snapshot_json FROM store_invoices WHERE session_id=? AND mode=?").bind(job.order_id!,mode).first<{number:number;snapshot_json:string}>();
+        if (!order || !invoice) throw new Error("Order snapshot missing");
+        message = orderNotification(JSON.parse(invoice.snapshot_json) as InvoiceSnapshot,invoice.number,order.shipping_json,order.payment_id);
+      } else {
       const invoice=order?await invoicePDF(db,job.order_id!,mode,env):null;
       const token = await requestAccess(db, job.email, mode, now);
       if (!token) throw new Error("Login cooldown");
       const url = new URL("/store/verify/", env.SITE_URL!);
       url.searchParams.set("token", token);
       const input = { siteUrl: env.SITE_URL!, loginUrl: url.href, invoiceNumber:invoice?.number };
-      const message = !order
+      message = !order
         ? signInEmail(input)
         : order.format === "signed"
           ? signedOrderEmail({
@@ -143,6 +154,7 @@ export async function deliverOutbox(options: {
             });
       if(invoice){
           message.attachments=[...(message.attachments??[]),{content:invoice.content,filename:`${invoice.number}.pdf`,disposition:'attachment'}];
+      }
       }
       const submission = await db
         .prepare(

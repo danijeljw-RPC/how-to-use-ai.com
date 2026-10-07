@@ -28,9 +28,10 @@
     "STORE_PRODUCT_PDF": "prod_VOC3ptyaUPGT00",
     "STORE_PRODUCT_SIGNED": "prod_VOJlq52Ml8JvLM",
     "STORE_EMAIL_READY": "true",
+    "STORE_ORDER_NOTIFY_EMAIL": "danijel@repasscloud.com",
     "BOOK_PDF_KEY": "book-01/current/ai-for-normal-people.pdf",
     "BOOK_EPUB_KEY": "book-01/current/ai-for-normal-people.epub",
-    "STORE_SIGNED_ENABLED": "false",
+    "STORE_SIGNED_ENABLED": "true",
     "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi"
   },
   "r2_buckets": [{ "binding": "BOOK_FILES", "bucket_name": "how-to-use-ai-books" }],

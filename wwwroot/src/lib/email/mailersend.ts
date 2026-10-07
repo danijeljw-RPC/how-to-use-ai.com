@@ -1,4 +1,5 @@
 import { sender, type EmailContent } from "./templates/layout";
+export type EmailMessage = Omit<EmailContent, 'html'> & { html?: string };
 export type EmailOutcome =
   | { kind: "accepted"; messageId: string; status: "queued" | "paused" }
   | { kind: "retry"; code: string; retryAfter: number }
@@ -6,7 +7,7 @@ export type EmailOutcome =
 export async function sendEmail(
   key: string,
   to: string,
-  message: EmailContent,
+  message: EmailMessage,
   request: typeof fetch = fetch,
 ): Promise<EmailOutcome> {
   try {
