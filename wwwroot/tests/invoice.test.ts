@@ -12,6 +12,7 @@ describe('site purchase invoices',()=>{
  it('renders a branded paid PDF with business details and discounted total',async()=>{
   const bytes=await renderInvoice(snapshot,1);
   expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
+  expect(Buffer.from(bytes).toString('latin1')).not.toContain('/Subtype /Image');
   mkdirSync('.wrangler/invoice-preview',{recursive:true});writeFileSync('.wrangler/invoice-preview/TEST-HTUAI-0000001.pdf',bytes);
  });
  it('preserves an issued PDF and denies access to another buyer or mode',async()=>{

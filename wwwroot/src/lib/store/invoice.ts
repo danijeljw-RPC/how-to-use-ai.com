@@ -1,7 +1,7 @@
 import { PDFDocument, rgb, type PDFPage } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { invoiceFont } from './invoice-font';
-import { invoiceLogo } from './invoice-logo';
+import { invoiceLogoPaths } from './invoice-logo';
 import { catalogue, priceLabel, type StoreCurrency, type StoreFormat } from './catalogue';
 import type { StoreDB, StoreEnv } from './types';
 export const invoiceSeller = {
@@ -37,7 +37,6 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
     const fallbackSupported=new Set(font.getCharacterSet());
     if([...buyerText].some(c=>!fallbackSupported.has(c.codePointAt(0)!)))throw new Error('Unsupported invoice character');
   }
-  const logo=await doc.embedPng(fromBase64(invoiceLogo));
   const navy=rgb(.025,.075,.17), grey=rgb(.36,.41,.48), line=rgb(.86,.89,.92), pale=rgb(.95,.97,.99);
   let page:PDFPage=doc.addPage([595.28,841.89]);
   const money=(value:number)=>priceLabel(value,snapshot.currency);
@@ -56,7 +55,13 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
     return y;
   }
   page.drawRectangle({x:0,y:716,width:595.28,height:125.89,color:navy});
-  page.drawImage(logo,{x:50,y:743,width:230,height:46});
+  const logoScale=230/260;
+  page.drawSvgPath('M26 0 H234 A26 26 0 0 1 260 26 A26 26 0 0 1 234 52 H26 A26 26 0 0 1 0 26 A26 26 0 0 1 26 0 Z',{x:50,y:789,scale:logoScale,color:rgb(1,1,1)});
+  for(const glyph of invoiceLogoPaths){
+    const hex=glyph.color.slice(1);
+    page.drawSvgPath(glyph.path,{x:50,y:789,scale:logoScale,color:rgb(parseInt(hex.slice(0,2),16)/255,parseInt(hex.slice(2,4),16)/255,parseInt(hex.slice(4,6),16)/255)});
+  }
+  page.drawRectangle({x:50+235*logoScale,y:789-38*logoScale,width:logoScale,height:22*logoScale,color:navy,opacity:.6});
   right('Invoice',766,30,rgb(1,1,1));right('Paid',740,12,rgb(.65,.84,.96));
   rule(712);
   write(invoiceNumber(number,'live'),50,690,13);
@@ -78,10 +83,9 @@ export async function renderInvoice(snapshot:InvoiceSnapshot, number:number, fal
   write('Subtotal',345,y);right(money(snapshot.subtotal),y);y-=24;
   if(snapshot.discount){write('Discount',345,y);right(`−${money(snapshot.discount)}`,y);y-=24;}
   if(snapshot.shipping){write('Delivery',345,y);right(money(snapshot.shipping),y);y-=24;}
-  page.drawRectangle({x:315,y:y-36,width:230,height:49,color:navy});
-  write('Total paid',329,y-17,13,rgb(1,1,1));
-  const total=money(snapshot.total);write(total,531-font.widthOfTextAtSize(total,17),y-17,17,rgb(1,1,1));
-  y-=64;write('Balance due',345,y);right(money(0),y);
+  page.drawLine({start:{x:345,y:y+5},end:{x:545,y:y+5},thickness:.7,color:line});
+  y-=20;write('Total paid',345,y,14);right(money(snapshot.total),y,16);
+  y-=30;write('Balance due',345,y,11,grey);right(money(0),y);
   if(snapshot.seller.gst==='not-registered')write('No GST charged. Seller is not registered for GST.',50,y-45,10,grey);
   rule(104);write('Thank you for your purchase.',50,82,12);
   write('Purchase support · hello@repasscloud.com',50,61,10,grey);
