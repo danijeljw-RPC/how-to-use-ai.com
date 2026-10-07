@@ -6,7 +6,7 @@ AMOUNT="${1:?Usage: $0 <amount> [currency]}"
 BASE="${2:-AUD}"
 BASE="${BASE^^}"
 
-CURRENCIES=(AUD USD GBP EUR JPY BRL CAD MXN)
+CURRENCIES=(AUD USD GBP EUR JPY BRL CAD MXN DKK NZD CHF HKD NOK SEK)
 
 # Build target list, excluding base currency
 QUOTES=$(
