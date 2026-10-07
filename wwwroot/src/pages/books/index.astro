@@ -2,8 +2,8 @@
 import { siteEnv } from '../../lib/runtime-env';
 import { series } from '../../content/books';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../../lib/config';
-const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+import { storeReady } from '../../lib/store/types';
+const commerceEnabled = storeReady(siteEnv());
 ---
 <BaseLayout title="Books" description="The working five-book progression from everyday AI literacy to engineering and architecture." canonicalPath="/books/" {commerceEnabled}>
   <section class="page-section">

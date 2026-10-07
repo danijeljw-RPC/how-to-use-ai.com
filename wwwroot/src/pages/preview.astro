@@ -1,8 +1,8 @@
 ---
 import { siteEnv } from '../lib/runtime-env';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../lib/config';
-const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+import { storeReady } from '../lib/store/types';
+const commerceEnabled = storeReady(siteEnv());
 ---
 <BaseLayout title="Book preview" description="Read the free PDF preview of AI for Normal People without joining a mailing list." canonicalPath="/preview/" {commerceEnabled}>
   <section class="page-section">

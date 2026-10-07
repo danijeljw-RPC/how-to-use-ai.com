@@ -9,7 +9,7 @@ import {
   tokenHash,
 } from '../src/lib/store/tokens';
 import { requestAccess, consumeLogin, getBuyer } from '../src/lib/store/auth';
-import { startCheckout, type Attempt } from '../src/lib/store/checkout';
+import { startCheckout, signedSettings, type Attempt } from '../src/lib/store/checkout';
 import { acceptStoreEvent } from '../src/lib/store/webhook';
 import { deliverOutbox } from '../src/lib/store/email';
 import { downloadFile } from '../src/lib/store/download';
@@ -114,15 +114,15 @@ function paid(
 
 describe('digital store security and fulfilment', () => {
   it('uses the approved prices for every currency and zero-decimal JPY', () => {
-    expect(currencies).toHaveLength(8);
+    expect(currencies).toHaveLength(9);
     expect(currencies.map((c) => amountFor('pdf', c))).toEqual([
-      799, 599, 699, 1199, 4099, 1099, 13900, 1149,
+      799, 599, 699, 1199, 4099, 1099, 13900, 1099, 1299,
     ]);
     expect(currencies.map((c) => amountFor('epub', c))).toEqual([
-      799, 599, 699, 1199, 4099, 1099, 13900, 1149,
+      799, 599, 699, 1199, 4099, 1099, 13900, 1099, 1299,
     ]);
     expect(currencies.map((c) => amountFor('bundle', c))).toEqual([
-      1099, 799, 899, 1599, 5599, 1499, 19900, 1549,
+      1099, 799, 899, 1599, 5599, 1499, 19900, 1499, 1799,
     ]);
     expect(catalogue.bundle.assets).toEqual(['pdf', 'epub']);
   });
@@ -465,14 +465,21 @@ describe('digital store security and fulfilment', () => {
     expect(sql.prepare('SELECT * FROM store_outbox').all()).toHaveLength(0);
   });
 
-  it('collects only the selected AU or NZ address and configured shipping rate', async () => {
+  it('keeps disabled, unsupported and unpriced signed delivery unavailable', () => {
+    const enabled = { ...env, STORE_SIGNED_ENABLED: 'true', STORE_PRODUCT_SIGNED: 'prod_signed' };
+    expect(signedSettings(env, 'aud', 'AU')).toBeNull();
+    expect(signedSettings(enabled, 'usd', 'US')).toBeNull();
+    expect(signedSettings(enabled, 'nzd', 'NZ')).toBeNull();
+    expect(signedSettings(enabled, 'usd', 'AU')).toBeNull();
+    expect(signedSettings(enabled, 'unknown', 'AU')).toBeNull();
+  });
+
+  it('uses catalogue signed pricing and only the supported configured address country', async () => {
     const b = await buyer();
     const signedEnv = {
       ...env,
       STORE_SIGNED_ENABLED: 'true',
       STORE_PRODUCT_SIGNED: 'prod_signed',
-      STORE_SIGNED_PRICES: '{"aud":3500}',
-      STORE_SIGNED_SHIPPING: '{"AU":{"aud":900},"NZ":{"aud":1800}}',
     };
     await expect(
       startCheckout({
@@ -492,16 +499,17 @@ describe('digital store security and fulfilment', () => {
       session: b.session,
       format: 'signed',
       currency: 'aud',
-      country: 'NZ',
+      country: 'AU',
       create,
       now,
     });
     expect(create.mock.calls[0][0]).toMatchObject({
-      shipping_address_collection: { allowed_countries: ['NZ'] },
+      line_items: [{ price_data: { currency: 'aud', unit_amount: 4500, product: 'prod_signed' }, quantity: 1 }],
+      shipping_address_collection: { allowed_countries: ['AU'] },
       shipping_options: [
         {
           shipping_rate_data: {
-            fixed_amount: { currency: 'aud', amount: 1800 },
+            fixed_amount: { currency: 'aud', amount: 1200 },
           },
         },
       ],

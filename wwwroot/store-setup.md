@@ -1,6 +1,6 @@
 # Book store setup and operation
 
-Updated 6 October 2026. The author's answers in `book-sales-questions.md` are accepted. The implemented design replaces the old ebook/print proposal.
+Updated 7 October 2026. The author's answers in `book-sales-questions.md` are accepted. The implemented design replaces the old ebook/print proposal.
 
 ## Implemented behaviour
 
@@ -15,9 +15,10 @@ PDF, EPUB and their bundle use the approved prices below. Buyer email is verifie
 | BRL | 40.99 | 55.99 |
 | CAD | 10.99 | 14.99 |
 | MXN | 139.00 | 199.00 |
-| AUD | 11.49 | 15.49 |
+| AUD | 10.99 | 14.99 |
+| NZD | 12.99 | 17.99 |
 
-All 24 combinations were accepted by actual Stripe test Checkout in Peach Freestyle. No payments were taken; each session was immediately expired. This verifies presentment amounts, not live-account settlement or fees. JPY uses integer yen. Other currencies use cents/minor units. Prices are controlled in `src/lib/store/catalogue.ts`, never by customer form fields. Hosted Checkout uses inline Price data tied to the correct Product; no separate Stripe Price ID is required. Prices are configured tax-inclusive to keep the supplied totals. Automatic tax is not enabled: merchant registrations and accounting still need the merchant's review before live launch.
+The original 24 combinations were accepted by actual Stripe test Checkout in Peach Freestyle. No payments were taken; each session was immediately expired. This verified the original presentment amounts, not live-account settlement or fees. The author subsequently added NZD and revised AUD prices; those changes are covered locally but have not been rerun against Stripe. JPY uses integer yen. Other currencies use cents/minor units. Prices are controlled in `src/lib/store/catalogue.ts`, never by customer form fields. Hosted Checkout uses inline Price data tied to the correct Product; no separate Stripe Price ID is required. Prices are configured tax-inclusive to keep the supplied totals. Automatic tax is not enabled: merchant registrations and accounting still need the merchant's review before live launch.
 
 A buyer cannot buy a digital format they already own. Bundle ownership grants both PDF and EPUB. Someone who owns PDF can buy EPUB separately, and vice versa; a bundle containing an owned format is blocked. Reservations also block simultaneous overlapping checkouts. A failed network request is reconciled against Stripe before its reservation is released. Unpaid asynchronous payments stay pending until success/failure. Refunds (including partial refunds) or disputes conservatively revoke that order's digital access; reinstatement after resolution is an operator action.
 
@@ -25,7 +26,7 @@ Standard paperback printing, shipping and returns are handled by Amazon for orde
 
 ## Resources already prepared
 
-- Dedicated private R2 bucket: `how-to-use-ai-books`, binding `BOOK_FILES`. Created in the current Cloudflare account. Public access was not enabled. It is empty; no release file has been selected or uploaded.
+- Dedicated private R2 bucket: `how-to-use-ai-books`, binding `BOOK_FILES`. Created in the current Cloudflare account. Public access was not enabled. Both configured current keys were found remotely in the 6 October configuration audit; release content still needs reader verification.
 - Additive migration: `migrations/0002_digital_store.sql`. Leaves legacy tables and historical ebook/print orders intact. Applied to local and production D1 and tested with actual local D1/R2 bindings.
 - Stripe test account: Peach Freestyle, `acct_1SJ3Xb4BF2uOrrJb`.
 - PDF Product: `prod_VOC3ptyaUPGT00`; EPUB Product: `prod_VOC3gVz9WhnbCQ`; bundle Product: `prod_VOC3Law5Bj9Jvn`.
@@ -83,7 +84,7 @@ npm run build
 npx wrangler deploy
 ```
 
-Keep `COMMERCE_ENABLED=false` until the assets, email, credentials, webhook and end-to-end customer flow pass. Availability is per format: absent PDF/EPUB keys or Products disable the corresponding offer; bundle needs both. Checkout also checks that the actual private objects exist before creating a payment session. Publishing a configured key alone does not prove its release file exists.
+Keep `COMMERCE_ENABLED=false` during setup. Once the assets, email, credentials and webhook are configured, enable it in **test mode** for a controlled end-to-end run-through; keep live purchases disabled until that flow passes. Availability is per format: absent PDF/EPUB keys or Products disable the corresponding offer; bundle needs both. Checkout also checks that the actual private objects exist before creating a payment session. Publishing a configured key alone does not prove its release file exists.
 
 For the test website flow, verify a controlled email, buy each format, complete test payment, confirm D1 entitlements, delivery email and both downloads. Also verify a duplicate order is blocked, download expiry/renewal, a refund revokes access, and a queued email retries after failure. Signed webhooks and local binding tests run automatically; actual mailbox delivery and live checkout cannot be certified until the above setup exists.
 
@@ -98,12 +99,12 @@ Confirm merchant identity/branding, tax treatment/registrations, product classif
 ## Add signed copies for Australia and New Zealand
 
 1. Create a Product in the matching Stripe account named “AI for Normal People — signed paperback”. Include your dispatch estimate in its description and ensure stock exists. Set `STORE_PRODUCT_SIGNED` to its Product ID. No separate Stripe Price is needed because website amounts are configured below.
-2. Set `STORE_SIGNED_PRICES` to a JSON map of approved currency prices in minor units, for example `{"aud":3500}`. This example is not an approved commercial price.
-3. Set `STORE_SIGNED_SHIPPING` to per-country/per-currency rates, for example `{"AU":{"aud":900},"NZ":{"aud":1800}}`. Rates are also minor units; zero allows free delivery. Both examples are disabled until intentionally configured.
+2. Edit `signedBookPricing.prices` in `src/lib/store/catalogue.ts`. Amounts use minor units; for example the configured `aud: 4500` means AUD 45.00.
+3. Edit `signedBookPricing.shipping` in the same file. `AU: { aud: 1200 }` means AUD 12.00 delivery to Australia. Add approved NZ rates when ready; zero allows free delivery. Both country and currency need a rate. Supplied rates for other countries are retained but the checkout still accepts only AU/NZ.
 4. Set `STORE_SIGNED_ENABLED=true` only when dispatch and returns are ready. The website shows only configured combinations. The chosen country is the only address country allowed in that Checkout, so a buyer cannot choose the cheaper AU rate for an NZ address.
 5. Stripe collects name and postal address. The verified webhook saves shipping details in `store_orders.shipping_json` and sends the buyer confirmation. Use Stripe Dashboard and the database to dispatch manually; this code does not submit a print-on-demand order to Amazon. Signed copies grant no digital entitlement unless separately purchased. Multiple completed physical orders are permitted; concurrent physical checkouts for one email are temporarily blocked.
 
-Update displayed dispatch estimates and current policy text before enabling this physical product. No signed-copy retail or shipping prices have been invented or enabled.
+Update displayed dispatch estimates and current policy text before enabling this physical product. The author's signed-copy retail and shipping prices are preserved in the catalogue; physical sales remain disabled.
 
 ## Recovery and support
 
@@ -121,7 +122,7 @@ Email jobs claim a two-minute lease and retry up to eight times with backoff. Pr
 UPDATE store_outbox SET state='pending',attempts=0,next_at=unixepoch(),lease_id=NULL,lease_until=NULL WHERE id='the-selected-job-id' AND state='failed';
 ```
 
-Restrict access to platform request logs because link URLs can contain short-lived bearer tokens. Application error logs omit addresses, tokens and provider request details. Watch structured Worker logs for `store_email_retry`, `store_reconciliation_failed` and `store_request_failed`. Connect an operational log alert to hello@repasscloud.com if desired; do not depend on the failing email sender to alert about its own outage. Buyer support is always hello@repasscloud.com. Expired sign-in/download links do not require a refund or repurchase; direct customers to `/downloads/`.
+Restrict access to platform request logs because link URLs can contain short-lived bearer tokens. Application error logs omit addresses, tokens and provider request details. Watch structured Worker logs for `store_email_retry`, `store_reconciliation_failed` and `store_request_failed`. Connect an operational log alert to hello@repasscloud.com if desired; do not depend on the failing email sender to alert about its own outage. Buyer support uses `/contact/?subject=purchase-support`; hello@repasscloud.com is the transactional reply-to and operational fallback. Expired sign-in/download links do not require a refund or repurchase; direct customers to `/downloads/`.
 
 ## References
 
@@ -132,10 +133,14 @@ Restrict access to platform request logs because link URLs can contain short-liv
 
 ## Current published state
 
-The prepared pages are published at https://how-to-use-ai.com/purchase/ and https://how-to-use-ai.com/downloads/. Latest deployment version: `51207c69-4ba6-42a0-85e6-14c69e5fd1ca`. The production migration is applied and the five-minute schedule is registered. Sales and email sign-in remain disabled until the activation inputs above exist. Live browser verification confirmed the retailer list, AUD and JPY offers, and the disabled library; an automated HTTP client received 403.
+The prepared pages are published at https://how-to-use-ai.com/purchase/ and https://how-to-use-ai.com/downloads/. Latest deployment from this chat: `e8154424-0678-4a4f-b4c1-6336983e93c4`. This configuration audit has not deployed further changes. The production migration is applied and the five-minute schedule is registered. Sales and email sign-in remain disabled until the activation inputs above exist. Live browser verification confirmed the retailer list, AUD and JPY offers, and the disabled library; an automated HTTP client received 403.
 
 ## Purchase support and retailer branding
 
 Customer-facing purchase support links use `/contact/?subject=purchase-support`. This prefills “Purchase support” and asks for the purchase email/order reference. The form stores submissions in `contact_messages` for manual review; it does not alert the operator automatically. Review that table regularly and respond using the provided customer address. hello@repasscloud.com remains the transactional reply-to and operational fallback. This change does not replace the email verification/download delivery system.
 
 The retailer list uses KDP's supplied Available at Amazon badge, unchanged, once above labelled regional buttons. Flag emoji are decorative and full country names remain visible. Official source: https://kdp.amazon.com/en_US/help/topic/G9WES4WJAC3GUVSV; original asset: https://images-na.ssl-images-amazon.com/images/G/01/rainier/available_at_amazon_1200x600_Nvz5h2M.png. The supplied artwork is stored without cropping or recolouring.
+
+## Latest configuration audit
+
+See `store-configuration-audit.md` for the verified resource status, remaining secrets/email/webhook tasks, physical shipping-map limits and test-purchase checklist. The obsolete `STRIPE_PRICE_EBOOK` variable has been removed from active configuration. Signed-copy values are now maintained in `signedBookPricing` in the catalogue; only AU/AUD currently has a usable shipping pair.

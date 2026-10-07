@@ -7,6 +7,7 @@ export const currencies = [
   'cad',
   'mxn',
   'aud',
+  'nzd'
 ] as const;
 export type StoreCurrency = (typeof currencies)[number];
 export type Asset = 'pdf' | 'epub';
@@ -26,7 +27,8 @@ const single = {
   brl: 4099,
   cad: 1099,
   mxn: 13900,
-  aud: 1149,
+  aud: 1099,
+  nzd: 1299
 };
 const bundle = {
   usd: 1099,
@@ -36,8 +38,37 @@ const bundle = {
   brl: 5599,
   cad: 1499,
   mxn: 19900,
-  aud: 1549,
+  aud: 1499,
+  nzd: 1799,
 };
+// Signed-paperback amounts in minor units (JPY uses whole yen).
+// A delivery destination also needs a rate in the buyer's selected currency.
+// Checkout currently supports AU/NZ only; other supplied rates are retained
+// here for a future expansion. Add an approved NZ rate before offering NZ.
+export const signedBookPricing = {
+  prices: {
+    aud: 4500,
+    nzd: 4800,
+    usd: 3100,
+    gbp: 2400,
+    eur: 2800,
+    jpy: 4950,
+    cad: 4500,
+  },
+  shipping: {
+    AU: { aud: 1200 },
+    NZ: { nzd: 1500 },
+    US: { usd: 800 },
+    GB: { gbp: 600 },
+    DE: { eur: 700 },
+    JP: { jpy: 1320 },
+    CA: { cad: 1200 },
+  },
+} as const satisfies {
+  prices: Partial<Record<StoreCurrency, number>>;
+  shipping: Record<string, Partial<Record<StoreCurrency, number>>>;
+};
+
 export function amountFor(
   format: Exclude<StoreFormat, 'signed'>,
   currency: StoreCurrency,

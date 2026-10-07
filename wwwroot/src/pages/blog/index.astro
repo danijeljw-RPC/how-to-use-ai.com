@@ -2,9 +2,9 @@
 import { siteEnv } from '../../lib/runtime-env';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCommerceConfig } from '../../lib/config';
+import { storeReady } from '../../lib/store/types';
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
-const commerceEnabled = getCommerceConfig(siteEnv()).enabled;
+const commerceEnabled = storeReady(siteEnv());
 ---
 <BaseLayout title="Companion articles" description="Short, plain-English notes about understanding AI without the hype." canonicalPath="/blog/" {commerceEnabled}>
   <section class="page-section">

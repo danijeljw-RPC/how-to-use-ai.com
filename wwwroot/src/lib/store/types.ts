@@ -22,8 +22,6 @@ export interface StoreEnv extends SiteEnvironment {
   BOOK_PDF_KEY?: string;
   BOOK_EPUB_KEY?: string;
   STORE_SIGNED_ENABLED?: string;
-  STORE_SIGNED_PRICES?: string;
-  STORE_SIGNED_SHIPPING?: string;
   BOOK_FILES?: Pick<R2Bucket, 'head' | 'get'>;
   STORE_EMAIL?: Pick<SendEmail, 'send'>;
   SITE_DB?: StoreDB;

@@ -2,6 +2,7 @@ import type Stripe from 'stripe';
 import {
   amountFor,
   catalogue,
+  signedBookPricing,
   isCurrency,
   isStoreFormat,
   type StoreCurrency,
@@ -43,28 +44,21 @@ export function signedSettings(
     !['AU', 'NZ'].includes(country)
   )
     return null;
-  try {
-    const prices = JSON.parse(env.STORE_SIGNED_PRICES ?? '{}') as Record<
-      string,
-      number
-    >;
-    const rates = JSON.parse(env.STORE_SIGNED_SHIPPING ?? '{}') as Record<
-      string,
-      Record<string, number>
-    >;
-    const amount = prices[currency],
-      shipping = rates[country]?.[currency];
-    if (
-      !Number.isSafeInteger(amount) ||
-      amount <= 0 ||
-      !Number.isSafeInteger(shipping) ||
-      shipping < 0
-    )
-      return null;
-    return { amount, shipping, product: env.STORE_PRODUCT_SIGNED };
-  } catch {
-    return null;
-  }
+  if (!isCurrency(currency)) return null;
+  const prices: Partial<Record<StoreCurrency, number>> = signedBookPricing.prices;
+  const rates: Record<string, Partial<Record<StoreCurrency, number>>> =
+    signedBookPricing.shipping;
+  const amount = prices[currency];
+  const shipping = rates[country]?.[currency];
+  if (
+    amount === undefined ||
+    shipping === undefined ||
+    !Number.isSafeInteger(amount) ||
+    amount <= 0 ||
+    !Number.isSafeInteger(shipping) ||
+    shipping < 0
+  ) return null;
+  return { amount, shipping, product: env.STORE_PRODUCT_SIGNED };
 }
 export function productFor(env: StoreEnv, format: StoreFormat) {
   return {

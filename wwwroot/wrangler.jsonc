@@ -26,13 +26,13 @@
     "STORE_PRODUCT_BUNDLE": "prod_VOC3Law5Bj9Jvn",
     "STORE_PRODUCT_EPUB": "prod_VOC3gVz9WhnbCQ",
     "STORE_PRODUCT_PDF": "prod_VOC3ptyaUPGT00",
+    "STORE_PRODUCT_SIGNED": "prod_VOJlq52Ml8JvLM",
     "STORE_EMAIL_READY": "false",
     "STORE_EMAIL_FROM": "hello@how-to-use-ai.com",
     "BOOK_PDF_KEY": "book-01/current/ai-for-normal-people.pdf",
     "BOOK_EPUB_KEY": "book-01/current/ai-for-normal-people.epub",
     "STORE_SIGNED_ENABLED": "false",
-    "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi",
-    "STRIPE_PRICE_EBOOK": "price_1UJ6TX4BF2uOrrJb7uyZM1iR"
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFB56_6HtJDzcLZi"
   },
   "r2_buckets": [{ "binding": "BOOK_FILES", "bucket_name": "how-to-use-ai-books" }],
   // Add STORE_EMAIL binding after Email Sending sender verification; see store-setup.md.
