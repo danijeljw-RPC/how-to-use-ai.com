@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  privateHeaders,
   boundedText,
   handleStoreCheckout,
   handleStoreWebhook,
@@ -14,6 +15,13 @@ function form(origin = 'https://how-to-use-ai.com') {
   });
 }
 describe('public store request boundaries', () => {
+  it('keeps browser form origins while withholding external referrers', () => {
+    expect(privateHeaders['referrer-policy']).toBe('same-origin');
+  });
+  it('accepts same-site forms but rejects opaque origins', async () => {
+    expect((await storeForm(form())).get('format')).toBe('pdf');
+    await expect(storeForm(form('null'))).rejects.toMatchObject({ status: 403 });
+  });
   it('requires same-origin POST forms', async () => {
     await expect(
       storeForm(form('https://attacker.example')),

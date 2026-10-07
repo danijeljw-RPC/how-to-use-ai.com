@@ -113,7 +113,7 @@ describe('store pages before activation', () => {
     const html = await response.text();
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toContain('no-store');
-    expect(response.headers.get('referrer-policy')).toBe('no-referrer');
+    expect(response.headers.get('referrer-policy')).toBe('same-origin');
     expect(html).toContain('Your book library');
     expect(html).not.toContain('/api/download/?token=');
     expect(html).toContain('Direct purchases are not available yet.');

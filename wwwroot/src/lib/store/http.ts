@@ -15,7 +15,9 @@ import { enqueueAccess, deliverOutbox } from './email';
 import { authReady, storeMode, paymentModeReady, type StoreEnv } from './types';
 export const privateHeaders = {
   'cache-control': 'no-store, private',
-  'referrer-policy': 'no-referrer',
+  // no-referrer makes browser form POSTs send Origin: null, failing CSRF checks.
+  // same-origin preserves local forms and still hides referrers from other sites.
+  'referrer-policy': 'same-origin',
   'x-robots-tag': 'noindex, nofollow',
 };
 export function message(status: number, text: string) {
