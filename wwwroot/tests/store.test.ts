@@ -625,5 +625,10 @@ describe('digital store security and fulfilment', () => {
       'sent',
     );
     expect(send).toHaveBeenCalledTimes(2);
+    const saved=sql.prepare('SELECT pdf_base64 FROM store_invoices').get()?.pdf_base64;
+    expect(saved).toBeTruthy();
+    const sentBody=JSON.parse(send.mock.calls[1][1].body);
+    expect(sentBody.attachments.find((attachment:{disposition:string})=>attachment.disposition==='attachment').content).toBe(saved);
+    expect(sentBody.to).toEqual([{email:'buyer@example.com'}]);
   });
 });

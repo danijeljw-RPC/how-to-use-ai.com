@@ -43,3 +43,10 @@ has no test banners, test invoice prefix, payment sandbox reference or configura
 commentary, as requested. Internal mode isolation and attachment filename prefixes
 remain. Existing issued PDFs remain immutable; redesign applies to newly generated
 invoices and the updated local preview. Live GST gate remains unchanged.
+
+## Approved design locked — 8 October 2026
+
+Final approval received. White pill is drawn as true PDF vector paths on navy header;
+Bill to left, From fitted to its text at right margin. Totals are a plain aligned block
+with divider and larger total, no blue highlight box. Fresh test purchases generate this
+version. Run-through and current verified readiness: 2026-10-08-store-test-runthrough.md.
