@@ -36,3 +36,9 @@
 - Added provider acceptance IDs, explicit uncertain-send handling and stale-lease protection to the durable outbox.
 - Applied additive outbox migration; preserved payment and entitlement data.
 - Updated operational and privacy information.
+
+## 7 October 2026 — Email branding
+
+- Added the site bubble wordmark and favicon as inline PNG email assets.
+- Added publisher identity and ABN to HTML and plain-text footers.
+- Preserved sender, transactional copy and store readiness settings.

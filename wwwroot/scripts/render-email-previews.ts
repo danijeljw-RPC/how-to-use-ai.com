@@ -1,3 +1,4 @@
+import {brandAttachments} from "../src/lib/email/branding";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { signInEmail } from "../src/lib/email/templates/sign-in";
 import { digitalOrderEmail } from "../src/lib/email/templates/digital-order";
@@ -24,6 +25,6 @@ for (const [name, message] of Object.entries({
     country: "AU",
   }),
 })) {
-  writeFileSync(`.wrangler/email-previews/${name}.html`, message.html);
+  writeFileSync(`.wrangler/email-previews/${name}.html`, brandAttachments.reduce((html, asset) => html.replaceAll(`cid:${asset.id}`, `data:image/png;base64,${asset.content}`), message.html));
   writeFileSync(`.wrangler/email-previews/${name}.txt`, message.text);
 }

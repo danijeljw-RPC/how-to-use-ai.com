@@ -22,6 +22,8 @@ describe("MailerSend contract", () => {
     const body = JSON.parse(send.mock.calls[0][1].body);
     expect(body.from.email).toBe("hello@repasscloud.com");
     expect(body.reply_to.email).toBe("hello@repasscloud.com");
+    expect(body.attachments).toHaveLength(2);
+    expect(body.attachments.map((a:{disposition:string})=>a.disposition)).toEqual(["inline","inline"]);
     expect(body.settings).toEqual({
       track_clicks: false,
       track_opens: false,
@@ -129,4 +131,12 @@ it("templates escape content and reject off-site or unsafe sign-in links", () =>
       loginUrl: "javascript:alert(1)",
     }),
   ).toThrow();
+});
+
+it('brands email with PNG wordmark and favicon and identifies the publisher in both versions',()=>{
+ expect(message.html).toContain('cid:email-wordmark');
+ expect(message.html).toContain('cid:email-favicon');
+ expect(message.html).toContain('alt="how-to-use-ai.com"');
+ expect(message.html).toContain('ABN 74642243801');
+ expect(message.text).toContain('How-To-Use-AI.com is operated and published by RePass Cloud Pty Ltd, ABN 74642243801.');
 });

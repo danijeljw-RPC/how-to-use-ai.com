@@ -142,3 +142,9 @@ The retailer list uses KDP's supplied Available at Amazon badge, unchanged, once
 ## Latest configuration audit
 
 See `store-configuration-audit.md` for the verified resource status, remaining secrets/email/webhook tasks, physical shipping-map limits and test-purchase checklist. The obsolete `STRIPE_PRICE_EBOOK` variable has been removed from active configuration. Signed-copy values are now maintained in `signedBookPricing` in the catalogue; AU/AUD and the author-added NZ/NZD shipping pair are configured.
+
+## Email branding assets
+
+The shared layout embeds the site bubble wordmark and favicon as inline PNG attachments, avoiding remote image fetching. Generated assets and their source SVGs are under public/images/email-*. The generation script reads the existing IBM Plex Mono font, outlines the glyphs and renders PNGs through the project's sharp dependency. To regenerate, provide Python fonttools/brotli (an isolated .wrangler/branding-tools install is sufficient) and run `PYTHONPATH=.wrangler/branding-tools python3 scripts/generate-email-branding.py`; it also regenerates src/lib/email/branding.ts. Preview rendering converts CID references to data URLs for local HTML files.
+
+Every HTML/plain-text footer identifies: How-To-Use-AI.com is operated and published by RePass Cloud Pty Ltd, ABN 74642243801. These images are message content; they do not control an inbox's sender avatar.
