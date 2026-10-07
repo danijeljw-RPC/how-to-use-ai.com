@@ -121,6 +121,17 @@ describe('store pages before activation', () => {
 });
 
 describe('purchase support and regional retailers', () => {
+  it('shows a distinct inbox confirmation after requesting sign-in', async () => {
+    const response = await fetch(`${origin}/downloads/?sent=1`);
+    const html = await response.text();
+    expect(response.status).toBe(200);
+    expect(html).toContain('<h1>Check your inbox</h1>');
+    expect(html).toContain('hello@repasscloud.com');
+    expect(html).toContain('15 minutes');
+    expect(html).toContain('Try again or use another email');
+    expect(html).not.toContain('action="/api/store/access/"');
+    expect(html).not.toContain('Your book library</h1>');
+  });
   it('prefills purchase support and asks for the purchase email/reference', async () => {
     const html = await (await fetch(`${origin}/contact/?subject=purchase-support`)).text();
     expect(html).toContain('value="Purchase support"');

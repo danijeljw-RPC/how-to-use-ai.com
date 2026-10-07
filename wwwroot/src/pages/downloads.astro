@@ -20,10 +20,11 @@ try {
 const links=buyer&&env.STORE_SIGNING_SECRET?await Promise.all(owned.map(async asset=>({asset,token:await signDownload({sessionHash:buyer!.token_hash,asset,mode},env.STORE_SIGNING_SECRET!,now)}))):[];
 const requestedCurrency=Astro.url.searchParams.get('currency')??'aud';
 const currency=isCurrency(requestedCurrency)?requestedCurrency:'aud';
+const emailRequested=!buyer&&Astro.url.searchParams.get('sent')==='1';
 ---
-<BaseLayout title="Your book library" description="Sign in by email to buy and download your editions of AI for Normal People." canonicalPath="/downloads/" robots="noindex, nofollow">
+<BaseLayout title={emailRequested?'Check your inbox':'Your book library'} description="Sign in by email to buy and download your editions of AI for Normal People." canonicalPath="/downloads/" robots="noindex, nofollow">
   <section class="page-section"><div class="narrow">
-    <h1>Your book library</h1>
+    <h1>{emailRequested?'Check your inbox':'Your book library'}</h1>
     {buyer?<>
       <p>Signed in as {buyer.email}.</p>
       {links.length>0?<>
@@ -32,9 +33,15 @@ const currency=isCurrency(requestedCurrency)?requestedCurrency:'aud';
       </>:<p>You have no digital downloads yet. Recently paid orders may take a few minutes to appear.</p>}
       <form action="/api/store/logout/" method="post"><button class="secondary" type="submit">Sign out</button></form>
       <StoreOffers {env} buyer={true} {owned} {currency} />
+    </>:emailRequested?<>
+      <div role="status">
+        <p>Check your email for a sign-in link from hello@repasscloud.com.</p>
+        <p>Open the link, then confirm your sign-in to continue to your book library and store. The link expires after 15 minutes and can be used once.</p>
+      </div>
+      <p>If it hasn’t arrived after a few minutes, check your spam or junk folder.</p>
+      <a class="button secondary" href="/downloads/">Try again or use another email</a>
     </>:<>
       <p>Enter your email to get a sign-in link. Use the address you bought with to access your library and future editions.</p>
-      {Astro.url.searchParams.get('sent')==='1'&&<p role="status">Your sign-in email has been queued. Check your inbox and spam folder. If it has not arrived after a few minutes, try again or contact support.</p>}
       {authReady(env)&&!unavailable?<form action="/api/store/access/" method="post" class="stack-form">
         <label for="store-email">Email address</label><input id="store-email" type="email" name="email" autocomplete="email" maxlength="254" required />
         <div class="cf-turnstile" data-sitekey={env.TURNSTILE_SITE_KEY} data-action="store-access" data-response-field-name="turnstileToken"></div>
