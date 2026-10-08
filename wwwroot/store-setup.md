@@ -1,5 +1,7 @@
 # Book store setup and operation
 
+> **Current operations:** Direct sales, signed offers and store email sending are paused after testing. Use [Store launch and shutdown](docs/store-launch-and-shutdown.md) for the current switches and full Stripe live-account launch procedure.
+
 > **Email provider change, 7 October 2026:** The approved [MailerSend replacement plan](2026-10-07-mailersend-email-plan.md) is implemented. Cloudflare remains the website hosting/storage provider.
 
 Updated 7 October 2026. The author's answers in `book-sales-questions.md` are accepted. The implemented design replaces the old ebook/print proposal.
