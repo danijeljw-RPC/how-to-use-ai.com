@@ -24,6 +24,7 @@ const {
   structuredData,
   robots = 'index, follow',
 } = Astro.props;
+const showLaunchCampaign = ['/', '/books/ai-for-normal-people/', '/preview/', '/purchase/'].includes(canonicalPath);
 const runtimeEnv = siteEnv();
 const resolvedCommerceEnabled = commerceEnabled ?? storeReady(runtimeEnv);
 const turnstileSiteKey = runtimeEnv.TURNSTILE_SITE_KEY ?? '';
@@ -58,9 +59,25 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData).repla
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header commerceEnabled={resolvedCommerceEnabled} />
+    {showLaunchCampaign && (
+      <aside class="launch-campaign" aria-label="AI for Normal People launch">
+        <div class="shell">
+          <strong>Releases <time datetime="2026-10-29">29 October 2026</time></strong>
+          <span aria-hidden="true"> · </span>
+          <a href="/preview/">Read the free preview</a>
+          <span aria-hidden="true"> · </span>
+          <a href="#launch-list">Join the launch list for 80% off the direct digital edition</a>
+        </div>
+      </aside>
+    )}
     <main id="main-content">
       <slot />
     </main>
     <Footer {turnstileSiteKey} />
   </body>
 </html>
+
+<style>
+  .launch-campaign { padding: 1rem 0; background: var(--surface, #eef3fa); color: #061532; border-bottom: 1px solid #ccd6e4; line-height: 1.7; }
+  .launch-campaign a { color: #061532; text-underline-offset: 0.2em; }
+</style>

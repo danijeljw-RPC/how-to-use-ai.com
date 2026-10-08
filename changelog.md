@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-09
+
+### Website launch campaign
+
+- Applied section 4 of the supplied launch plan: explicit 80% direct digital edition launch-list offer, release date in the homepage hero and book, preview, purchase and signup sections, and a linked campaign strip on the four key pages.
+- Kept the free preview open without an email gate and preserved signup consent and existing storage behavior.
+- Files changed: `wwwroot/src/components/Footer.astro`, `wwwroot/src/components/NewsletterForm.astro`, `wwwroot/src/layouts/BaseLayout.astro`, the four key pages, this changelog, and the website campaign plan. No ADR or OI changes. Commit: see git log.
+
+
 All meaningful project changes should be recorded here.
 
 ## 2026-10-07 (author ORCID)

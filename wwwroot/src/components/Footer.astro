@@ -6,10 +6,11 @@ const { turnstileSiteKey = '' } = Astro.props;
 
 <footer class="site-footer">
   <div class="shell footer-grid">
-    <section aria-labelledby="footer-newsletter-title">
+    <section id="launch-list" aria-labelledby="footer-newsletter-title">
       <p class="kicker">Launch notes, minus the noise</p>
-      <h2 id="footer-newsletter-title">Hear when the book or a coupon is ready.</h2>
-      <p>Each signup records your address. No email is sent automatically from this site.</p>
+      <h2 id="footer-newsletter-title">Join the launch list and get 80% off the digital edition at release.</h2>
+      <p><strong>Releases <time datetime="2026-10-29">29 October 2026</time></strong></p>
+      <p>Join before launch and I’ll email you an 80% discount code for the direct digital edition. No weekly newsletter. No inbox filler.</p>
       <NewsletterForm sourcePage={Astro.url.pathname} siteKey={turnstileSiteKey} />
     </section>
     <div class="footer-links">
