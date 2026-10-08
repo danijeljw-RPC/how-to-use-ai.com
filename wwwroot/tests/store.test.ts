@@ -2,7 +2,7 @@ import type Stripe from 'stripe';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
-import { catalogue, amountFor, currencies } from '../src/lib/store/catalogue';
+import { catalogue, amountFor, currencies, isCurrency, priceLabel } from '../src/lib/store/catalogue';
 import {
   signDownload,
   verifyDownload,
@@ -47,7 +47,7 @@ beforeEach(() => {
   }));
   sql = new DatabaseSync(':memory:');
   sql.exec('PRAGMA foreign_keys=ON');
-  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql']) {
+  for (const name of ['0001_initial.sql', '0002_digital_store.sql', '0003_mailersend_outbox.sql', '0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql','0007_signed_colour.sql']) {
     // First migration uses the repository's exact filename below.
     if (name.startsWith('0001')) continue;
     sql.exec(
@@ -111,17 +111,23 @@ function paid(
 }
 
 describe('digital store security and fulfilment', () => {
-  it('uses the approved prices for every currency and zero-decimal JPY', () => {
-    expect(currencies).toHaveLength(9);
-    expect(currencies.map((c) => amountFor('pdf', c))).toEqual([
-      799, 599, 699, 1199, 4099, 1099, 13900, 1099, 1299,
-    ]);
-    expect(currencies.map((c) => amountFor('epub', c))).toEqual([
-      799, 599, 699, 1199, 4099, 1099, 13900, 1099, 1299,
-    ]);
-    expect(currencies.map((c) => amountFor('bundle', c))).toEqual([
-      1099, 799, 899, 1599, 5599, 1499, 19900, 1499, 1799,
-    ]);
+  it('exposes all configured currencies and preserves zero-decimal prices', () => {
+    expect(currencies).toHaveLength(26);
+    expect(currencies).toContain('sgd');
+    expect(currencies).toContain('krw');
+    for (const currency of currencies) {
+      expect(isCurrency(currency)).toBe(true);
+      expect(amountFor('pdf',currency)).toBe(amountFor('epub',currency));
+      expect(Number.isSafeInteger(amountFor('pdf',currency))).toBe(true);
+      expect(amountFor('bundle',currency)).toBeGreaterThan(amountFor('pdf',currency));
+    }
+    expect(amountFor('pdf','aud')).toBe(899);
+    expect(amountFor('bundle','aud')).toBe(1299);
+    expect(amountFor('pdf','sgd')).toBe(799);
+    expect(amountFor('pdf','krw')).toBe(8900);
+    expect(priceLabel(8900,'krw')).toContain('8,900');
+    expect(priceLabel(990,'jpy')).toContain('990');
+    expect(priceLabel(10900000,'idr')).toContain('109,000');
     expect(catalogue.bundle.assets).toEqual(['pdf', 'epub']);
   });
   it('consumes a login once and isolates test/live sessions', async () => {
@@ -182,7 +188,7 @@ describe('digital store security and fulfilment', () => {
     expect(create.mock.calls[0][0]).toMatchObject({
       currency: 'jpy',
       customer_email: b.email,
-      line_items: [{ price_data: { unit_amount: 1599, currency: 'jpy' } }],
+      line_items: [{ price_data: { unit_amount: 1390, currency: 'jpy' } }],
     });
     await expect(
       startCheckout({
@@ -525,28 +531,32 @@ describe('digital store security and fulfilment', () => {
   it('keeps disabled, unsupported and unpriced signed delivery unavailable', () => {
     const enabled = { ...env, STORE_SIGNED_ENABLED: 'true', STORE_PRODUCT_SIGNED: 'prod_signed' };
     expect(signedSettings(env, 'aud', 'AU')).toBeNull();
-    expect(signedSettings(enabled, 'usd', 'US')).toBeNull();
+    expect(signedSettings(enabled, 'usd', 'US')).toMatchObject({amount:3100,shipping:800});
+    expect(signedSettings(enabled, 'cad', 'CA')).toBeNull();
+    expect(signedSettings(enabled, 'aud', 'AU', 'signed_colour')).toBeNull();
     expect(signedSettings(enabled, 'nzd', 'NZ')).toMatchObject({amount:4800,shipping:1500});
     expect(signedSettings(enabled, 'jpy', 'NZ')).toBeNull();
     expect(signedSettings(enabled, 'usd', 'AU')).toBeNull();
     expect(signedSettings(enabled, 'unknown', 'AU')).toBeNull();
   });
 
-  it.each([['AU','aud',4500,1200],['NZ','nzd',4800,1500]] as const)('uses catalogue signed pricing and validates shipping for %s', async (country,currency,amount,shippingAmount) => {
+  it.each([['signed','AU','aud',4500,1200],['signed','NZ','nzd',4800,1500],['signed','US','usd',3100,800],['signed_colour','AU','aud',5500,1200],['signed_colour','NZ','nzd',5800,1500],['signed_colour','US','usd',4100,800]] as const)('uses %s pricing and validates shipping for %s', async (format,country,currency,amount,shippingAmount) => {
     const b = await buyer();
     const signedEnv = {
       ...env,
       STORE_SIGNED_ENABLED: 'true',
       STORE_PRODUCT_SIGNED: 'prod_signed',
+      STORE_PRODUCT_SIGNED_COLOUR: 'prod_signed_colour',
+      STORE_ORDER_NOTIFY_EMAIL: 'danijel@repasscloud.com',
     };
     await expect(
       startCheckout({
         db,
         env: signedEnv,
         session: b.session,
-        format: 'signed',
+        format,
         currency: 'aud',
-        country: 'US',
+        country: 'CA',
         create,
         now,
       }),
@@ -555,14 +565,14 @@ describe('digital store security and fulfilment', () => {
       db,
       env: signedEnv,
       session: b.session,
-      format: 'signed',
+      format,
       currency,
       country,
       create,
       now,
     });
     expect(create.mock.calls[0][0]).toMatchObject({
-      line_items: [{ price_data: { currency, unit_amount: amount, product: 'prod_signed' }, quantity: 1 }],
+      line_items: [{ price_data: { currency, unit_amount: amount, product: `prod_${format}` }, quantity: 1 }],
       shipping_address_collection: { allowed_countries: [country] },
       shipping_options: [
         {
@@ -581,7 +591,8 @@ describe('digital store security and fulfilment', () => {
     await acceptStoreEvent({db,env:signedEnv,event,retrieve:async()=>session,now});
     expect(JSON.parse(String(sql.prepare('SELECT shipping_json FROM store_orders').get()?.shipping_json))).toEqual(shipping);
     expect(sql.prepare('SELECT * FROM store_entitlements').all()).toHaveLength(0);
-    expect(JSON.parse(String(sql.prepare('SELECT snapshot_json FROM store_invoices').get()?.snapshot_json))).toMatchObject({shipping:shippingAmount,total:amount+shippingAmount});
+    expect(sql.prepare("SELECT * FROM store_outbox WHERE audience='operator'").all()).toHaveLength(1);
+    expect(JSON.parse(String(sql.prepare('SELECT snapshot_json FROM store_invoices').get()?.snapshot_json))).toMatchObject({format,shipping:shippingAmount,total:amount+shippingAmount});
   });
 
   it('rejects tampered and expired signed links and streams the current asset only while entitled', async () => {

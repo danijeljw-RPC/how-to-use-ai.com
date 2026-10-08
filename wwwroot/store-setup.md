@@ -94,11 +94,13 @@ Set `STORE_MODE=live`. Test orders and sessions cannot grant live access because
 
 Confirm merchant identity/branding, tax treatment/registrations, product classification and consumer-policy fit before live activation. The earlier placeholder AUD 19.99 ebook Price is unused by the new endpoints. Only after successful setup and testing set `COMMERCE_ENABLED=true` and deploy.
 
-## Add signed copies for Australia and New Zealand
+## Signed paperbacks and delivery countries
+
+See [Signed paperback quick reference](docs/signed-paperback-quick-reference.md) for the current country switches, standard/colour edition prices, Product IDs and deployment steps. AU/NZ/US are enabled in test mode; other rates are retained for later expansion.
 
 1. Create a Product in the matching Stripe account named “AI for Normal People — signed paperback”. Include your dispatch estimate in its description and ensure stock exists. Set `STORE_PRODUCT_SIGNED` to its Product ID. No separate Stripe Price is needed because website amounts are configured below.
 2. Edit `signedBookPricing.prices` in `src/lib/store/catalogue.ts`. Amounts use minor units; for example the configured `aud: 4500` means AUD 45.00.
-3. Edit `signedBookPricing.shipping` in the same file. `AU: { aud: 1200 }` means AUD 12.00 delivery to Australia. Add approved NZ rates when ready; zero allows free delivery. Both country and currency need a rate. Supplied rates for other countries are retained but the checkout still accepts only AU/NZ.
+3. Edit `signedBookPricing.shipping` in the same file. `AU: { aud: 1200 }` means AUD 12.00 delivery to Australia. Add approved NZ rates when ready; zero allows free delivery. Both country and currency need a rate. Supplied rates for other countries are retained but the checkout accepts only enabled `signedDeliveryCountries`.
 4. Set `STORE_SIGNED_ENABLED=true` only when dispatch and returns are ready. The website shows only configured combinations. The chosen country is the only address country allowed in that Checkout, so a buyer cannot choose the cheaper AU rate for an NZ address.
 5. Stripe collects name and postal address. The verified webhook saves shipping details in `store_orders.shipping_json` and sends the buyer confirmation. Use Stripe Dashboard and the database to dispatch manually; this code does not submit a print-on-demand order to Amazon. Signed copies grant no digital entitlement unless separately purchased. Multiple completed physical orders are permitted; concurrent physical checkouts for one email are temporarily blocked.
 

@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {sqliteStore} from './helpers/sqlite-store';
 import {syncInvoiceReferences} from '../src/lib/store/invoice-stripe';
 function setup(payment:string|null='pi_reference'){
- const sql=new DatabaseSync(':memory:');for(const name of ['0002_digital_store.sql','0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql'])sql.exec(readFileSync(new URL(`../migrations/${name}`,import.meta.url),'utf8'));
+ const sql=new DatabaseSync(':memory:');for(const name of ['0002_digital_store.sql','0004_store_invoices.sql','0005_invoice_stripe_references.sql','0006_order_notifications.sql','0007_signed_colour.sql'])sql.exec(readFileSync(new URL(`../migrations/${name}`,import.meta.url),'utf8'));
  sql.prepare("INSERT INTO store_orders(session_id,mode,email,format,payment_id,amount,currency,status,created_at) VALUES ('cs_reference','test','buyer@example.com','pdf',?,1099,'aud','paid',1000)").run(payment);
  sql.prepare("INSERT INTO store_invoices(session_id,mode,email,snapshot_json,pdf_base64) VALUES ('cs_reference','test','buyer@example.com','{}','unchanged')").run();
  const client={updateSession:vi.fn().mockResolvedValue({}),updatePayment:vi.fn().mockResolvedValue({})};

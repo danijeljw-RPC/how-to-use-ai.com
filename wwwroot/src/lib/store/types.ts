@@ -21,6 +21,7 @@ export interface StoreEnv extends SiteEnvironment {
   STORE_PRODUCT_EPUB?: string;
   STORE_PRODUCT_BUNDLE?: string;
   STORE_PRODUCT_SIGNED?: string;
+  STORE_PRODUCT_SIGNED_COLOUR?: string;
   BOOK_PDF_KEY?: string;
   BOOK_EPUB_KEY?: string;
   STORE_SIGNED_ENABLED?: string;

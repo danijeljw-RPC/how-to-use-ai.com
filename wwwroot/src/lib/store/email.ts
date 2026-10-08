@@ -1,3 +1,4 @@
+import { isPhysicalFormat } from './catalogue';
 import { orderNotification } from "./order-notification";
 import type { EmailMessage } from "../email/mailersend";
 import type { InvoiceSnapshot } from "./invoice";
@@ -104,7 +105,7 @@ export async function deliverOutbox(options: {
             .run();
           continue;
         }
-        if (order.format === "signed")
+        if (isPhysicalFormat(order.format))
           attempt = await db
             .prepare(
               "SELECT amount,shipping_amount,country FROM store_attempts WHERE session_id=? AND mode=?",
@@ -126,9 +127,10 @@ export async function deliverOutbox(options: {
       const input = { siteUrl: env.SITE_URL!, loginUrl: url.href, invoiceNumber:invoice?.number };
       message = !order
         ? signInEmail(input)
-        : order.format === "signed"
+        : isPhysicalFormat(order.format)
           ? signedOrderEmail({
               ...input,
+              edition: catalogue[order.format].label,
               reference: job.order_id!,
               total: isCurrency(order.currency)
                 ? priceLabel(

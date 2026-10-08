@@ -1,9 +1,13 @@
 ---
-import { catalogue,currencies,amountFor,priceLabel,type StoreCurrency,type Asset } from '../lib/store/catalogue';
+import { physicalFormats,signedDeliveryCountries,catalogue,currencies,amountFor,priceLabel,type StoreCurrency,type Asset } from '../lib/store/catalogue';
 import { editionConfigured,signedSettings } from '../lib/store/checkout';
 import type { StoreEnv } from '../lib/store/types';
 interface Props { env:StoreEnv; buyer?:boolean; owned?:Asset[]; currency?:StoreCurrency; showLinks?:boolean }
 const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
+const destinations=signedDeliveryCountries.filter(destination=>destination.enabled);
+const destinationNames=new Intl.ListFormat('en-GB',{style:'long',type:'conjunction'}).format(destinations.map(destination=>destination.name));
+const configuredPhysicalFormats=physicalFormats.filter(format=>editionConfigured(env,format));
+const availablePhysicalFormats=configuredPhysicalFormats.filter(format=>destinations.some(({code})=>signedSettings(env,currency,code,format)));
 ---
 <div data-store-pricing data-currency={currency}>
 <section class="direct-store" aria-labelledby="direct-store-title">
@@ -40,24 +44,31 @@ const {env,buyer=false,owned=[],currency='aud',showLinks=true}=Astro.props;
   <p class="store-note">Use the same email address for future visits. We check your existing purchases to help prevent duplicate orders. If you own one format, you can buy the other separately.</p>
   {showLinks&&<p class="store-links"><a href="/downloads/">Open your book library</a> · <a href="/contact/?subject=purchase-support">Purchase support</a></p>}
 </section>
-{env.STORE_SIGNED_ENABLED==='true' && editionConfigured(env,'signed') && (
-  <section class="signed-store" aria-labelledby="signed-copy-title">
-    <h2 id="signed-copy-title">Signed paperback</h2>
-    <p>Signed copies are ordered here and dispatched separately from Amazon. Delivery is available to Australia 🇦🇺 and New Zealand 🇳🇿 currently.</p>
-    {(['AU','NZ'] as const).map(country=>{
-      const settings=signedSettings(env,currency,country);
+{configuredPhysicalFormats.length > 0 && availablePhysicalFormats.length === 0 && (
+  <section class="signed-store" aria-labelledby="signed-unavailable-title">
+    <h2 id="signed-unavailable-title">Signed paperbacks</h2>
+    <p>Signed black-and-white and colour copies are ordered here and dispatched separately from Amazon. Delivery is available to {destinationNames} currently. More countries coming soon.</p>
+    <p>Signed copies are not available in {currency.toUpperCase()}. Choose a supported currency to see prices and delivery options.</p>
+  </section>
+)}
+{availablePhysicalFormats.map(format=>(
+  <section class="signed-store" aria-labelledby={`${format}-title`}>
+    <h2 id={`${format}-title`}>{catalogue[format].label}</h2>
+    <p>Signed copies are ordered here and dispatched separately from Amazon. Delivery is available to {destinationNames} currently. More countries coming soon.</p>
+    {destinations.map(({code:country,name})=>{
+      const settings=signedSettings(env,currency,country,format);
       return settings&&<div class="store-offer">
-        <h3>{country==='AU'?'Australia':'New Zealand'}</h3>
+        <h3>{name}</h3>
         <p>{priceLabel(settings.amount,currency)} + {priceLabel(settings.shipping,currency)} delivery</p>
         {buyer?<form action="/api/checkout/" method="post" class="stack-form">
-          <input type="hidden" name="format" value="signed" /><input type="hidden" name="currency" value={currency} /><input type="hidden" name="country" value={country} />
+          <input type="hidden" name="format" value={format} /><input type="hidden" name="currency" value={currency} /><input type="hidden" name="country" value={country} />
           <label class="check-row"><input type="checkbox" name="terms" value="yes" required /><span>I agree to the <a href="/terms/">purchase terms</a> and <a href="/refund/">refund policy</a>.</span></label>
-          <button type="submit">Order signed copy</button>
+          <button type="submit">Order {catalogue[format].label.toLowerCase()}</button>
         </form>:<a class="button secondary" href={`/downloads/?currency=${currency}`}>Verify email to order</a>}
       </div>;
     })}
   </section>
-)}
+))}
 
 </div>
 <script>

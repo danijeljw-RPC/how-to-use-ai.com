@@ -1,10 +1,11 @@
+import { isPhysicalFormat } from './catalogue';
 import { catalogue, priceLabel } from './catalogue';
 import { invoiceNumber, type InvoiceSnapshot } from './invoice';
 import type { EmailMessage } from '../email/mailersend';
 
 export function orderNotification(snapshot: InvoiceSnapshot, number: number, shippingJSON: string | null, payment: string | null): EmailMessage {
   const reference = invoiceNumber(number, 'live');
-  const physical = snapshot.format === 'signed';
+  const physical = isPhysicalFormat(snapshot.format);
   const shipping = shippingJSON ? JSON.parse(shippingJSON) : null;
   const address = shipping?.address;
   const money = (amount: number) => priceLabel(amount, snapshot.currency).replace(/\u00a0/g, ' ');

@@ -1,3 +1,4 @@
+import { isPhysicalFormat } from './catalogue';
 import { catalogue, type StoreFormat } from './catalogue';
 import { storeMode, type StoreDB, type StoreEnv } from './types';
 import type { Attempt } from './checkout';
@@ -186,7 +187,7 @@ export async function acceptStoreEvent(options: {
     throw new Error('Discounted total does not match the server order');
   const shipping = session.collected_information?.shipping_details;
   if (
-    attempt.format === 'signed' &&
+    isPhysicalFormat(attempt.format) &&
     (!shipping?.name ||
       shipping.address?.country !== attempt.country ||
       session.shipping_cost?.amount_total !== attempt.shipping_amount)
@@ -218,7 +219,7 @@ export async function acceptStoreEvent(options: {
         attempt.currency,
         mode,
         payment,
-        attempt.format === 'signed' ? JSON.stringify(shipping) : null,
+        isPhysicalFormat(attempt.format) ? JSON.stringify(shipping) : null,
         now,
       ),
     ...(!existingOrder?[db.prepare(`INSERT OR IGNORE INTO store_invoices (session_id,mode,email,snapshot_json)

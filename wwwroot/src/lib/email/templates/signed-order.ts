@@ -2,6 +2,7 @@ import { layout, type TemplateInput } from "./layout";
 export function signedOrderEmail(
   input: TemplateInput & {
     reference: string;
+    edition?: string;
     total: string;
     book?: string;
     shipping?: string;
@@ -11,7 +12,7 @@ export function signedOrderEmail(
   return layout(
     input,
     "Your signed-book order",
-    "Thank you for ordering a signed paperback of AI for Normal People.",
+    `Thank you for ordering ${input.edition ?? "a signed paperback"} of AI for Normal People.`,
     [
       `Order reference: ${input.reference}`,
       ...(input.book ? [`Book: ${input.book}`] : []),

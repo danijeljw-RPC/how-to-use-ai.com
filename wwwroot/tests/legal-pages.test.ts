@@ -104,9 +104,16 @@ describe('store pages before activation', () => {
   it('shows approved prices for selectable currencies and the bundle', async () => {
     const html = await (await fetch(`${origin}/purchase/?currency=jpy`)).text();
     expect(html).toContain('PDF + EPUB bundle');
-    expect(html).toContain('1,199');
-    expect(html).toContain('1,599');
+    expect(html).toContain('990');
+    expect(html).toContain('1,390');
     expect(html).not.toContain('action="/api/checkout/"');
+  });
+  it('offers newly configured currencies and renders KRW without dividing by 100', async () => {
+    const html=await (await fetch(`${origin}/purchase/?currency=krw`)).text();
+    expect(html).toContain('value="sgd"');
+    expect(html).toContain('value="aed"');
+    expect(html).toContain('8,900');
+    expect(html).toContain('12,900');
   });
   it('serves a private library page without exposing a purchase or download token', async () => {
     const response = await fetch(`${origin}/downloads/`);

@@ -4,6 +4,11 @@ import {
   amountFor,
   catalogue,
   signedBookPricing,
+  signedColourBookPricing,
+  signedDeliveryCountries,
+  isPhysicalFormat,
+  type PhysicalFormat,
+  type SignedCountry,
   isCurrency,
   isStoreFormat,
   type StoreCurrency,
@@ -38,17 +43,20 @@ export function signedSettings(
   env: StoreEnv,
   currency: string,
   country: string,
+  format: PhysicalFormat = 'signed',
 ) {
+  const product = productFor(env, format);
+  const pricing = format === 'signed_colour' ? signedColourBookPricing : signedBookPricing;
   if (
     env.STORE_SIGNED_ENABLED !== 'true' ||
-    !env.STORE_PRODUCT_SIGNED ||
-    !['AU', 'NZ'].includes(country)
+    !product ||
+    !signedDeliveryCountries.some(destination => destination.enabled && destination.code === country)
   )
     return null;
   if (!isCurrency(currency)) return null;
-  const prices: Partial<Record<StoreCurrency, number>> = signedBookPricing.prices;
+  const prices: Partial<Record<StoreCurrency, number>> = pricing.prices;
   const rates: Record<string, Partial<Record<StoreCurrency, number>>> =
-    signedBookPricing.shipping;
+    pricing.shipping;
   const amount = prices[currency];
   const shipping = rates[country]?.[currency];
   if (
@@ -59,7 +67,7 @@ export function signedSettings(
     !Number.isSafeInteger(shipping) ||
     shipping < 0
   ) return null;
-  return { amount, shipping, product: env.STORE_PRODUCT_SIGNED };
+  return { amount, shipping, product };
 }
 export function productFor(env: StoreEnv, format: StoreFormat) {
   return {
@@ -67,11 +75,12 @@ export function productFor(env: StoreEnv, format: StoreFormat) {
     epub: env.STORE_PRODUCT_EPUB,
     bundle: env.STORE_PRODUCT_BUNDLE,
     signed: env.STORE_PRODUCT_SIGNED,
+    signed_colour: env.STORE_PRODUCT_SIGNED_COLOUR,
   }[format];
 }
 export function editionConfigured(env: StoreEnv, format: StoreFormat) {
   if (!storeReady(env) || !productFor(env, format)) return false;
-  if (format === 'signed') return env.STORE_SIGNED_ENABLED === 'true';
+  if (isPhysicalFormat(format)) return env.STORE_SIGNED_ENABLED === 'true';
   return (
     !!env.BOOK_FILES &&
     catalogue[format].assets.every(
@@ -83,7 +92,7 @@ export function checkoutParams(
   attempt: Attempt,
   siteUrl: string,
 ): Stripe.Checkout.SessionCreateParams {
-  const physical = attempt.format === 'signed';
+  const physical = isPhysicalFormat(attempt.format);
   return {
     mode: 'payment',
     currency: attempt.currency,
@@ -129,7 +138,7 @@ export function checkoutParams(
     ...(physical
       ? {
           shipping_address_collection: {
-            allowed_countries: [attempt.country as 'AU' | 'NZ' | 'US'],
+            allowed_countries: [attempt.country as SignedCountry],
           },
           shipping_options: [
             {
@@ -189,10 +198,10 @@ export async function startCheckout(options: {
     if (!file) throw new StoreError('That edition is not available yet.', 503);
   }
   const signed =
-    format === 'signed'
-      ? signedSettings(env, currency, options.country ?? '')
+    isPhysicalFormat(format)
+      ? signedSettings(env, currency, options.country ?? '', format)
       : null;
-  if (format === 'signed' && !signed)
+  if (isPhysicalFormat(format) && !signed)
     throw new StoreError(
       'Signed-copy delivery is not available for that country and currency.',
       503,
@@ -205,7 +214,7 @@ export async function startCheckout(options: {
     currency,
     amount:
       signed?.amount ??
-      amountFor(format as Exclude<StoreFormat, 'signed'>, currency),
+      amountFor(format as Exclude<StoreFormat, PhysicalFormat>, currency),
     product_id: productFor(env, format)!,
     country: signed ? options.country! : null,
     shipping_amount: signed?.shipping ?? 0,
@@ -215,7 +224,7 @@ export async function startCheckout(options: {
     created_at: now,
   };
   const assets: string[] =
-    format === 'signed' ? ['signed'] : catalogue[format].assets;
+    isPhysicalFormat(format) ? ['signed'] : catalogue[format].assets;
   try {
     await db.batch([
       db
