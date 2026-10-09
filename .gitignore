@@ -1,24 +1,24 @@
-dist/
-tmp/
-__pycache__/
-*.pyc
-
-*.swp
-.claude/worktrees/
-
-.DS_Store
-prompt.md
-prompt*.md
-prompt.txt
-prompt*.txt
-*-prompt.md
-
-# wwwroot
+# Dependencies and build output
 node_modules/
 dist/
 .astro/
+
+# Cloudflare / Wrangler local state and secrets
 .wrangler/
 .dev.vars
+.dev.vars.*
+!.dev.vars.example
 .env
 .env.*
-!.dev.vars.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor and OS
+*.swp
+.DS_Store
+
+# Local agent state
+.claude/worktrees/
+.claude/settings.local.json

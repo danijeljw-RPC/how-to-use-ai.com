@@ -1,0 +1,45 @@
+{
+  "series": {
+    "publisher": {
+      "name": "RePass Cloud Pty Ltd"
+    }
+  },
+  "books": [
+    {
+      "editions": {
+        "paperback": {
+          "type": "print",
+          "enabled": true,
+          "label": "Paperback",
+          "editionLine": "First edition, October 2026",
+          "isbn": "9781764994804",
+          "isbnDisplay": "978-1-7649948-0-4"
+        },
+        "paperbackColour": {
+          "type": "print",
+          "enabled": true,
+          "label": "Paperback (colour)",
+          "editionLine": "First colour edition, October 2026",
+          "isbn": "9781764994835",
+          "isbnDisplay": "978-1-7649948-3-5"
+        },
+        "epub": {
+          "type": "epub",
+          "enabled": true,
+          "label": "EPUB",
+          "editionLine": "First EPUB edition, October 2026",
+          "isbn": "9781764994828",
+          "isbnDisplay": "978-1-7649948-2-8"
+        },
+        "pdf": {
+          "type": "pdf",
+          "enabled": true,
+          "label": "PDF",
+          "editionLine": "First PDF edition, October 2026",
+          "isbn": "9781764994811",
+          "isbnDisplay": "978-1-7649948-1-1"
+        }
+      }
+    }
+  ]
+}
