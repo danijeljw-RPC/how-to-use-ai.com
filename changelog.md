@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 (kicker readability)
+
+### Website
+
+- Enlarged all blue kicker labels site-wide (for example "The complete guide series", "Who this is for", "Launch notes, minus the noise") from 0.82rem to a matching 1.05–1.2rem, and slightly reduced the homepage hero title so the kicker has room.
+- Files changed: `wwwroot/src/styles/global.css`, `changelog.md`. Decisions and open issues: none. Commit: see git log.
+
 ## 2026-10-09
 
 ### Website launch campaign
