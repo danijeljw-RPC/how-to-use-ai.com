@@ -88,7 +88,7 @@ Read these before deployment:
 - ACN: 642243801
 - Country of registration: Australia
 - State of registration: New South Wales
-- Registered/public business address: 3 Pioneer Street, Findon SA 5023
+- Business location (public): Findon, SA 5023 — the street address is private and must not be published
 - Principal operating location: Findon, South Australia, Australia
 - General/privacy/sales email: hello@repasscloud.com
 - Contact page: https://repasscloud.com/contact/

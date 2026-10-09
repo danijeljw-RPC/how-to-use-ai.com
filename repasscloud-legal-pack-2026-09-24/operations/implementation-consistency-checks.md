@@ -5,7 +5,7 @@ These are operational checks, not public policy copy.
 ## RePass Cloud parent website
 
 - Replace the current parent Privacy Policy, Terms of Service and Refund Policy with the master versions in this package.
-- Update the public legal address to `3 Pioneer Street, Findon SA 5023` wherever the parent legal pages still show older address details.
+- Show only `Findon, SA 5023` as the public location (the street address is private and must never be published) wherever the parent legal pages still show older address details.
 - Use South Australia as the governing law in the new master Terms.
 - Do not carry forward a general 12-month-fees liability cap into the master public Terms unless a separately reviewed product or enterprise agreement legitimately contains one.
 - Do not carry forward a general user indemnity into the master public Terms.

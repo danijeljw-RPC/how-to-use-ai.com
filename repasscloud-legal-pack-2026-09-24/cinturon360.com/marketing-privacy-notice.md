@@ -46,8 +46,7 @@ Any application-specific data residency, subprocessors, retention, security comm
 **RePass Cloud Pty Ltd**  
 ABN 74642243801  
 ACN 642243801  
-3 Pioneer Street  
-Findon SA 5023  
+Findon, SA 5023  
 Australia
 
 Email: hello@repasscloud.com  

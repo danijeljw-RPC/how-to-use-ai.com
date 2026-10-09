@@ -6,4 +6,4 @@ Use on smaller RePass Cloud websites and tools that do not require product-speci
 
 Optional company line:
 
-> RePass Cloud Pty Ltd · ABN 74642243801 · 3 Pioneer Street, Findon SA 5023, Australia
+> RePass Cloud Pty Ltd · ABN 74642243801 · Findon, SA 5023, Australia

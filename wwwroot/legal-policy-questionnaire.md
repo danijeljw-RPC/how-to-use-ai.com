@@ -108,8 +108,8 @@ Provide the operator's details exactly as they may be published.
 - Australian Company Number (ACN), if it will be shown: 642243801
 - Country of registration: Australia
 - State or territory of registration: New South Wales
-- Registered office, if it will be published: 3 Pioneer Street, Findon SA 5023
-- Public postal/business address: 3 Pioneer Street, Findon SA 5023
+- Registered office, if it will be published: Findon, SA 5023
+- Public postal/business address: Findon, SA 5023
 - Trading names or imprints: How-To-Use-AI.com
 
 ### 2.3 Copyright owner
@@ -133,7 +133,7 @@ attribution or licence conditions.
 - Privacy enquiries email: hello@repasscloud.com
 - Privacy complaints email: hello@repasscloud.com
 - Sales, fulfilment, and refund email: hello@repasscloud.com
-- Postal address for formal notices: 3 Pioneer Street, Findon SA 5023
+- Postal address for formal notices: Findon, SA 5023
 - Contact-form URL: https://repasscloud.com/contact/
 - Telephone number, if one will be published: NOT APPLICABLE
 
